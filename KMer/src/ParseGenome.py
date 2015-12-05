@@ -4,7 +4,6 @@ __author__ = 'longtian'
 
 # IMPORT
 from Bio import SeqIO
-from KMerPrep import KMerLib
 import re
 import sys
 
@@ -18,7 +17,7 @@ def LoadGenome(genomefilepath): # Read and load genomes, concatenate into one wh
     genome = [genomefilepath]+[''.join(contigs)]
     return genome
 
-def CalcKMerProb(genome,KMers):
+def CalcKMerProb(genome,KMers,k):
     L = len(genome)
     KMer_counts_k = [0]*len(KMers) # Used for store K-mer counting records
     KMer_counts_1k_1 = [0]*len(KMers)
@@ -46,11 +45,6 @@ def CalcKMerProb(genome,KMers):
     pi_k = [(Prob_appearance_k[i]-expected_appearance_prob[i])/expected_appearance_prob[i] if expected_appearance_prob[i] != 0 else 0 for i in range(len(Prob_appearance_k)) ]
     return pi_k
 
-
-def KMerFreq(genomefilepath,k):
-    genomename, KMer_counts, L = CountKMer(genomefilepath,k)
-    Total_substrings = L-k+1
-    Prob_appearance = [float(i)/Total_substrings for i in KMer_counts]
 
 
 
