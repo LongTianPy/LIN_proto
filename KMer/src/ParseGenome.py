@@ -40,7 +40,7 @@ def CalcKMerProb(genome,KMers,k):
     Prob_appearance_1k_1 = [float(i)/Total_substrings for i in KMer_counts_1k_1]
     Prob_appearance_2k = [float(i)/Total_substrings for i in KMer_counts_2k]
     Prob_appearance_2k_1 = [float(i)/Total_substrings for i in KMer_counts_2k_1]
-    expected_appearance_prob = [Prob_appearance_1k_1[i]*Prob_appearance_2k[i]/Prob_appearance_2k_1[i] for i in range(len(Prob_appearance_2k))]
+    expected_appearance_prob = [Prob_appearance_1k_1[i]*Prob_appearance_2k[i]/Prob_appearance_2k_1[i] if Prob_appearance_2k_1[i] != 0 else 0 for i in range(len(Prob_appearance_2k))]
     pi_k = [(Prob_appearance_k[i]-expected_appearance_prob[i])/expected_appearance_prob[i] if expected_appearance_prob[i] != 0 else 0 for i in range(len(Prob_appearance_k)) ]
     return pi_k
 
