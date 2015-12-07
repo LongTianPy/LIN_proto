@@ -15,14 +15,25 @@ def OriMatrix(givendir, KMers, k): # Should be a workspace directory, use for te
     files = [i for i in os.listdir(givendir) if path.isfile(i)]
     fullfilepath = [givendir+str(i) for i in files]
     genomes = [ParseGenome.LoadGenome(i) for i in fullfilepath]
-    pi_ks = [ParseGenome.CalcKMerProb(i,KMers,k) for i in genomes]
+    pi_ks = [ParseGenome.CalcKMerProb(i[1],KMers,k) for i in genomes]
     pi_ks = np.array(pi_ks)
     pi_ks_zscores = stats.zscore(pi_ks,axis = 1)
-    return pi_ks_zscores
+    rownames = [i[0] for i in genomes]
+    colnames = [i[0] for i in genomes]
+    return rownames, colnames, pi_ks_zscores
 
 def DisMatrix(pi_ks_zscores):
     SimMatrix = spatial.distance.pdist(pi_ks_zscores, 'euclidean')
     return SimMatrix
+
+def writeMatrix(SimMatrix):
+    f = open('~/Desktop/test_distmatrix.txt','w')
+    for i in SimMatrix:
+        f.write('\t'.join(i)+'\n')
+    f.close()
+
+
+
 
 
 

@@ -5,7 +5,6 @@ __author__ = 'longtian'
 # IMPORT
 from Bio import SeqIO
 import re
-import sys
 
 
 # FUNCTIONS
