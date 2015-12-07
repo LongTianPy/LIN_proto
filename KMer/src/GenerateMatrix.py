@@ -33,8 +33,8 @@ def DisMatrix(pi_ks_zscores):
     print SimMatrix
     return SimMatrix
 
-def writeMatrix(SimMatrix):
-    print SimMatrix
+def writeMatrix(SimMatrix, colnames):
+    numpy.savetxt('/home/vinatzerlab/Desktop/DistMat.txt', SimMatrix, delimiter='t',header='\t'+'\t'.join(colnames))
 
 
 
