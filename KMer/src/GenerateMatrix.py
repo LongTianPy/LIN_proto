@@ -31,6 +31,14 @@ def DisMatrix(pi_ks_zscores):
     SimMatrix = spatial.distance.pdist(pi_ks_zscores, 'euclidean')
     print 'SimMatrix done\n'
     print SimMatrix
+    try:
+        f = open('/home/vinatzerlab/Desktop/DistMat_DisMatrix.txt','w')
+        for i in SimMatrix:
+            f.write(i)
+            f.write('\n')
+    except:
+        print 'f.write doesnt work'
+        return SimMatrix
     return SimMatrix
 
 def writeMatrix(SimMatrix, colnames):
