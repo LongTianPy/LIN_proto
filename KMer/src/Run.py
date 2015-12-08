@@ -23,7 +23,7 @@ def main(k, givendir):
     KMers = KMerPrep.KMerLib(k)
     rownames, colnames, pi_ks_zscores = GenerateMatrix.OriMatrix(givendir=givendir, KMers=KMers, k=k)
     SimMatrix = GenerateMatrix.DisMatrix(pi_ks_zscores)
-    GenerateMatrix.writeMatrix(SimMatrix)
+    GenerateMatrix.writeMatrix(SimMatrix,colnames=colnames)
 
 if __name__ == '__main__':
     # parser object for managing input options
