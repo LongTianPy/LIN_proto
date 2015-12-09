@@ -34,7 +34,7 @@ def CalcKMerProb(genome,KMers,k):
         KMer_counts_k = map(lambda x:len([m.start() for m in re.finditer(x,genome[1])]), pattern_k)
         KMer_counts_1k_1 = map(lambda x:len([m.start() for m in re.finditer(x,genome[1])]), pattern_1k_1)
         KMer_counts_2k = map(lambda x:len([m.start() for m in re.finditer(x,genome[1])]), pattern_2k)
-        KMer_counts_2k_1 = map(lambda x:len([m.start() for m in re.finditer(x,genome[1])]), pattern_2k-1)
+        KMer_counts_2k_1 = map(lambda x:len([m.start() for m in re.finditer(x,genome[1])]), pattern_2k_1)
 
 
 
