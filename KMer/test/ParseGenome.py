@@ -18,23 +18,30 @@ def LoadGenome(genomefilepath): # Read and load genomes, concatenate into one wh
 
 def CalcKMerProb(genome,KMers,k):
     L = len(genome)
-    KMer_counts_k = [0]*len(KMers) # Used for store K-mer counting records
-    KMer_counts_1k_1 = [0]*len(KMers)
-    KMer_counts_2k = [0]*len(KMers)
-    KMer_counts_2k_1 = [0]*len(KMers)
-    for i in range(len(KMers)):
-        pattern_k = '(?=%s)'%KMers[i]
-        pattern_1k_1 = '(?=%s)'%KMers[i][:-1]
-        pattern_2k = '(?=%s)'%KMers[i][1:]
-        pattern_2k_1 = '(?=%s)'%KMers[i][1:-1]
-        pattern_k = re.compile(pattern_k,re.IGNORECASE)
-        pattern_1k_1 = re.compile(pattern_1k_1,re.IGNORECASE)
-        pattern_2k = re.compile(pattern_2k,re.IGNORECASE)
-        pattern_2k_1 = re.compile(pattern_2k_1,re.IGNORECASE)
-        KMer_counts_k = map(lambda x:len([m.start() for m in re.finditer(x,genome[1])]), pattern_k)
-        KMer_counts_1k_1 = map(lambda x:len([m.start() for m in re.finditer(x,genome[1])]), pattern_1k_1)
-        KMer_counts_2k = map(lambda x:len([m.start() for m in re.finditer(x,genome[1])]), pattern_2k)
-        KMer_counts_2k_1 = map(lambda x:len([m.start() for m in re.finditer(x,genome[1])]), pattern_2k_1)
+    # KMer_counts_k = [0]*len(KMers) # Used for store K-mer counting records
+    # KMer_counts_1k_1 = [0]*len(KMers)
+    # KMer_counts_2k = [0]*len(KMers)
+    # KMer_counts_2k_1 = [0]*len(KMers)
+    # for i in range(len(KMers)):
+    #     pattern_k = '(?=%s)'%KMers[i]
+    #     pattern_1k_1 = '(?=%s)'%KMers[i][:-1]
+    #     pattern_2k = '(?=%s)'%KMers[i][1:]
+    #     pattern_2k_1 = '(?=%s)'%KMers[i][1:-1]
+
+    pattern_k = ['(?=%s)'%i for i in KMers]
+    pattern_1k_1 = ['(?=%s)'%i[:-1] for i in KMers]
+    pattern_2k = ['(?=%s)'%i[1:] for i in KMers]
+    pattern_2k_1 = ['(?=%s)'%i[1:-1] for i in KMers]   
+
+
+        # pattern_k = re.compile(pattern_k,re.IGNORECASE)
+        # pattern_1k_1 = re.compile(pattern_1k_1,re.IGNORECASE)
+        # pattern_2k = re.compile(pattern_2k,re.IGNORECASE)
+        # pattern_2k_1 = re.compile(pattern_2k_1,re.IGNORECASE)
+    KMer_counts_k = map(lambda x:len([m.start() for m in re.finditer(re.compile(x,re.IGNORECASE),genome[1])]), pattern_k)
+    KMer_counts_1k_1 = map(lambda x:len([m.start() for m in re.finditer(re.compile(x,re.IGNORECASE),genome[1])]), pattern_1k_1)
+    KMer_counts_2k = map(lambda x:len([m.start() for m in re.finditer(re.compile(x,re.IGNORECASE),genome[1])]), pattern_2k)
+    KMer_counts_2k_1 = map(lambda x:len([m.start() for m in re.finditer(re.compile(x,re.IGNORECASE),genome[1])]), pattern_2k_1)
 
 
 
