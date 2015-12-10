@@ -4,6 +4,7 @@ __author__ = 'longtian'
 
 # IMPORT
 from itertools import product
+import random
 # CLASS
 
 # FUNCTIONS
@@ -12,7 +13,9 @@ def KMerLib(k): # Prepare K-mer library based on k. Time cost increases exponent
         """
     bases = ['A', 'T', 'C', 'G']
     kmers = [''.join(i) for i in product(bases,repeat=k)]
-    return kmers
+    # Sample 500 of them randomly
+    kmers_500 = random.sample(kmers,500)
+    return kmers_500
 
 
 
