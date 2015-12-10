@@ -16,17 +16,21 @@ def LoadGenome(genomefilepath): # Read and load genomes, concatenate into one wh
     genome = [genomefilepath]+[''.join(contigs)]
     return genome
 
+def Counting(x, line): # x is the pattern, line is the genome string.
+	n =len([m.start() for m in re.finditer(x,line)])
+	return n
+
 def CalcKMerProb(genome,KMers,k):
     L = len(genome)
     KMer_counts_k = [0]*len(KMers) # Used for store K-mer counting records
     KMer_counts_1k_1 = [0]*len(KMers)
     KMer_counts_2k = [0]*len(KMers)
     KMer_counts_2k_1 = [0]*len(KMers)
+    pattern_k = ['(?=%s)'%i for i in KMers]
+    pattern_1k_1 = ['(?=%s)'%i[:-1] for i in KMers]
+    pattern_2k = ['(?=%s)'%i[1:] for i in KMers]
+    pattern_2k_1 = ['(?=%s)'%i[1:-1] for i in KMers]
     for i in range(len(KMers)):
-        pattern_k = '(?=%s)'%KMers[i]
-        pattern_1k_1 = '(?=%s)'%KMers[i][:-1]
-        pattern_2k = '(?=%s)'%KMers[i][1:]
-        pattern_2k_1 = '(?=%s)'%KMers[i][1:-1]
         pattern_k = re.compile(pattern_k,re.IGNORECASE)
         pattern_1k_1 = re.compile(pattern_1k_1,re.IGNORECASE)
         pattern_2k = re.compile(pattern_2k,re.IGNORECASE)
