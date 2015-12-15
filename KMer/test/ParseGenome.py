@@ -17,7 +17,7 @@ def LoadGenome(genomefilepath): # Read and load genomes, concatenate into one wh
     return genome
 
 def CalcKMerProb(genome,KMers,k):
-    L = len(genome)
+    L = len(genome[1])
     # KMer_counts_k = [0]*len(KMers) # Used for store K-mer counting records
     # KMer_counts_1k_1 = [0]*len(KMers)
     # KMer_counts_2k = [0]*len(KMers)
