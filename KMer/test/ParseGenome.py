@@ -63,7 +63,7 @@ def CalcKMerProb(genome,KMers,k):
 
 def CalcKMerProb_slidingwindow(genome,KMers,k):
     sequence = genome[1]
-    L = length(sequence)
+    L = len(sequence)
     # k
     KMer_counts_k = [0]*len(KMers)
     for i in range(L-k+1):
