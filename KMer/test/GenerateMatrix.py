@@ -18,7 +18,7 @@ def OriMatrix(givendir, KMers, k): # Should be a workspace directory, use for te
     genomes = [ParseGenome.LoadGenome(i) for i in fullfilepath]
     print genomes[0][0]
     print genomes[0][1][:100]
-    pi_ks = [ParseGenome.CalcKMerProb(i, KMers, k) for i in genomes]
+    pi_ks = [ParseGenome.CalcKMerProb_slidingwindow(i, KMers, k) for i in genomes]
     pi_ks = np.array(pi_ks)
     pi_ks_zscores = stats.zscore(pi_ks,axis = 1)
     rownames = [i[0] for i in genomes]
@@ -31,6 +31,14 @@ def DisMatrix(pi_ks_zscores):
     SimMatrix = spatial.distance.pdist(pi_ks_zscores, 'euclidean')
     print 'SimMatrix done\n'
     print SimMatrix
+    try:
+        f = open('/home/vinatzerlab/Desktop/DistMat_DisMatrix.txt','w')
+        for i in SimMatrix:
+            f.write(i)
+            f.write('\n')
+    except:
+        print 'f.write doesnt work'
+        return SimMatrix
     return SimMatrix
 
 def writeMatrix(SimMatrix, colnames):
