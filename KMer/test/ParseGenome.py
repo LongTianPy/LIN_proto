@@ -31,7 +31,7 @@ def CalcKMerProb(genome,KMers,k):
     pattern_k = ['(?=%s)'%i for i in KMers]
     pattern_1k_1 = ['(?=%s)'%i[:-1] for i in KMers]
     pattern_2k = ['(?=%s)'%i[1:] for i in KMers]
-    pattern_2k_1 = ['(?=%s)'%i[1:-1] for i in KMers]   
+    pattern_2k_1 = ['(?=%s)'%i[1:-1] for i in KMers]
 
 
         # pattern_k = re.compile(pattern_k,re.IGNORECASE)
@@ -61,6 +61,8 @@ def CalcKMerProb(genome,KMers,k):
     pi_k = [(Prob_appearance_k[i]-expected_appearance_prob[i])/expected_appearance_prob[i] if expected_appearance_prob[i] != 0 else 0 for i in range(len(Prob_appearance_k)) ]
     return pi_k
 
+def CalcKMerProb_slidingwindow(genome,KMers,k):
+    L = length(genome[1])
 
 
 
