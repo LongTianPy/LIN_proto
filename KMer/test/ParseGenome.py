@@ -75,7 +75,7 @@ def CalcKMerProb_slidingwindow(genome,KMers,k):
             continue
     # KMer from 1 to k-1
     KMers_1k1 = [i[:-1] for i in KMers]
-    KMer_counts_1k_1 = [0]*len(K_1Mers)
+    KMer_counts_1k_1 = [0]*len(KMers_1k1)
     # KMer from 2 to k
     KMers_2k = [i[1:] for i in KMers]
     KMer_counts_2k = [0]*len(KMers_2k)
