@@ -20,7 +20,7 @@ import ParseGenome
 
 def main(k, givendir):
     k = int(k)
-    KMers = KMerPrep.KMerLib(k)
+    KMers = KMerPrep.KMerDict(k)
     rownames, colnames, pi_ks_zscores = GenerateMatrix.OriMatrix(givendir=givendir, KMers=KMers, k=k)
     SimMatrix = GenerateMatrix.DisMatrix(pi_ks_zscores)
     GenerateMatrix.writeMatrix(SimMatrix,colnames=colnames)
