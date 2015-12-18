@@ -77,18 +77,6 @@ def CalcKMerProb_slidingwindow(genome,KMers,k):
     sequence = genome[1]
     L = len(sequence)
     # k
-    windows = Sliding_window(sequence,k)
-    for i in windows:
-        if ''.join(i) in KMers.keys():
-            KMers[''.join(i)] += 1
-        else:
-            continue
-
-
-
-
-
-
     for i in range(L-k+1):
         substring = sequence[i:(i+k)]
         try:
@@ -129,6 +117,22 @@ def CalcKMerProb_slidingwindow(genome,KMers,k):
     expected_appearance_prob = [Prob_appearance_1k_1[i]*Prob_appearance_2k[i]/Prob_appearance_2k_1[i] if Prob_appearance_2k_1[i] != 0 else 0 for i in range(len(Prob_appearance_2k))]
     pi_k = [(Prob_appearance_k[i]-expected_appearance_prob[i])/expected_appearance_prob[i] if expected_appearance_prob[i] != 0 else 0 for i in range(len(Prob_appearance_k)) ]
     return pi_k
+
+def CalcKMer_SlidWindow_Simple(genome, KMers, k): # Only calculate K Mers while not using markov model or k-1 mers
+    sequence = genome[1]
+    L = len(sequence)
+    windows = Sliding_window(sequence,k)
+    kmerlist = KMers.keys()
+    for i in windows:
+        substring = ''.join(i)
+        if substring in kmerlist:
+            KMers[substring] += 1
+        else:
+            continue
+    KMer_counts_k = KMers.values()
+    Total_substrings = L-k+1
+    Prob_appearance_k = [float(i)/Total_substrings for i in KMer_counts_k]
+    return Prob_appearance_k
 
 
 
