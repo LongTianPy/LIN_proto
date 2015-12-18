@@ -61,11 +61,34 @@ def CalcKMerProb(genome,KMers,k):
     pi_k = [(Prob_appearance_k[i]-expected_appearance_prob[i])/expected_appearance_prob[i] if expected_appearance_prob[i] != 0 else 0 for i in range(len(Prob_appearance_k)) ]
     return pi_k
 
+def Sliding_window(seq, k):
+    i = iter(seq)
+    win = []
+    for e in range(0, k):
+        win.append(next(i))
+    yield win
+    for e in i:
+        win = win[1:] + [e]
+        yield win
+
+
+
 def CalcKMerProb_slidingwindow(genome,KMers,k):
     sequence = genome[1]
     L = len(sequence)
     # k
-    KMer_counts_k = [0]*len(KMers)
+    windows = Sliding_window(sequence,k)
+    for i in windows:
+        if ''.join(i) in KMers.keys():
+            KMers[''.join(i)] += 1
+        else:
+            continue
+
+
+
+
+
+
     for i in range(L-k+1):
         substring = sequence[i:(i+k)]
         try:
