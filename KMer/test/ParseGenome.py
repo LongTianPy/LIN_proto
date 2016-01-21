@@ -12,7 +12,7 @@ def LoadGenome(genomefilepath): # Read and load genomes, concatenate into one wh
     f = open(genomefilepath,'r')
     records = list(SeqIO.parse(f,'fasta'))
     f.close()
-    contigs = [str(i.seq) for i in records]
+    contigs = [str(i.seq).replace('N','') for i in records]
     genome = [genomefilepath]+[''.join(contigs)]
     return genome
 
