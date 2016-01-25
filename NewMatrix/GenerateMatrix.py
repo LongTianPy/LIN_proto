@@ -13,6 +13,7 @@ def DistanceCalc(filepath,left,right,pos): # Left is one genome from new genome 
     os.system(cmd)
     with open("tmp","r") as f:
         line = f.readlines()[0].strip().split(' ')
+    print pos, left, right
     return [pos, line[2]]
 
 def NewCount(filepath):
@@ -32,7 +33,7 @@ def NewCount(filepath):
     pool = mp.Pool(processes = 8)
     results_matrix = [[]]*len(NewFiles)
     for i in NewFiles:
-        results = [pool.apply(DistanceCalc,args=(filepath,i,j[1],j[0])) for j in index_OrigFiles]
+        results = [pool.apply(DistanceCalc,args=(i,j[1],j[0])) for j in index_OrigFiles]
         results_tmp = results.sort()
         results_tmp2 = [k[1] for k in results_tmp]
         results_matrix[i] = results_tmp2
