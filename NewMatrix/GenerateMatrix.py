@@ -32,8 +32,8 @@ def NewCount(filepath):
     index_OrigFiles = [[i,OrigFiles[i]] for i in range(Num_OrigFiles)]
     pool = mp.Pool(processes = 8)
     results_matrix = [[]]*len(NewFiles)
-    for i in NewFiles:
-        results = [pool.apply(DistanceCalc,args=(i,j[1],j[0])) for j in index_OrigFiles]
+    for i in range(len(NewFiles)):
+        results = [pool.apply(DistanceCalc,args=(NewFiles[i],j[1],j[0])) for j in index_OrigFiles]
         results.sort()
         results_tmp = [k[1] for k in results]
         results_matrix[i] = results_tmp
