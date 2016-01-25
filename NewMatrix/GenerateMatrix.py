@@ -9,7 +9,7 @@ from os.path import isfile, join
 
 # FUNCTIONS
 def DistanceCalc(left,right,pos): # Left is one genome from new genome set, right is one genome from the original set
-    cmd = "kpal distance tmp_count original_count -l %s -r %s > tmp"%(left,right)
+    cmd = "kpal distance tmp_count ~/Data/kPALevaluation/Psy/countk12 -l %s -r %s > tmp"%(left,right)
     os.system(cmd)
     with open("tmp","r") as f:
         line = f.readlines()[0].strip().split(' ')
