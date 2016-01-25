@@ -24,7 +24,7 @@ def NewCount(filepath):
     cmd1 = "kpal count -k 12 %s*.fasta tmp_count"%filepath
     os.system(cmd1)
     NewFiles = [f for f in listdir(filepath) if isfile(join(filepath, f)) and f.endswith('.fasta')].sort()
-    OrigFiles = [f for f in listdir('~/Data/kPALevaluation/Psy/') if isfile(join('~/Data/kPALevaluation/Psy/',f)) and f.endswith('fasta')].sort() # File path here should be the workspace where all the original genomes are in.
+    OrigFiles = [f for f in listdir('/home/vinatzerlab/Data/kPALevaluation/Psy/') if isfile(join('/home/vinatzerlab/Data/kPALevaluation/Psy/',f)) and f.endswith('fasta')].sort() # File path here should be the workspace where all the original genomes are in.
     Num_OrigFiles = len(OrigFiles)
     index_OrigFiles = [[i,OrigFiles[i]] for i in range(Num_OrigFiles)]
     pool = mp.Pool(processes = 8)
