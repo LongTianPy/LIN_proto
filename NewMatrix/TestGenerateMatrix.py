@@ -13,11 +13,12 @@ def DistanceCalc(obj_list): # Left is one genome from new genome set, right is o
     :param obj_list: A list with sublist where 0 is left, 1 is right and 2 is position
     :return: returns position and distance value
     """
-    cmd = "kpal distance tmp_count /home/vinatzerlab/Data/kPALevaluation/Psy/countk12 -l %s -r %s > tmp"%(obj_list[0], obj_list[1])
+    cmd = "kpal distance tmp_count /home/vinatzerlab/Data/kPALevaluation/Psy/countk12 -l %s -r %s > %s.txt"%(obj_list[0], obj_list[1], obj_list[2])
     os.system(cmd)
-    with open("tmp","r") as f:
+    with open("%s.txt"%obj_list[2],"r") as f:
         line = f.readlines()[0].strip().split(' ')
     print obj_list
+    os.system('rm %s.txt'%obj_list[2])
     return [obj_list[2], line[2]]
 
 def NewCount(filepath):
@@ -53,6 +54,7 @@ def NewCount(filepath):
 
 if __name__ == "__main__":
     obj_list = NewCount(filepath=sys.argv[1])
+    print (len(obj_list))
     pool_size = 8
     pool = mp.Pool(processes=pool_size)
     results = [pool.map(DistanceCalc, obj_list)]
