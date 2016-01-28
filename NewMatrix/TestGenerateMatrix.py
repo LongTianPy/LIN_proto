@@ -18,7 +18,7 @@ def DistanceCalc(obj_list): # Left is one genome from new genome set, right is o
     os.system(cmd)
     with open("%s.txt"%obj_list[2],"r") as f:
         line = f.readlines()[0].strip().split(' ')
-    print '\t'.join(obj_list)
+    print '\t'.join(obj_list[:2])
     os.system('rm %s.txt'%obj_list[2])
     return [obj_list[2], line[2]]
 
