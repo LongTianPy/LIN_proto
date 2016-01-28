@@ -64,4 +64,9 @@ if __name__ == "__main__":
     results = pool.map(DistanceCalc, obj_list)
     #results = [pool.map(pseudoFunc,obj_list)]
     results.sort()
+    f = open('result.txt','r')
+    for i in results:
+	f.write(i)
+	f.write('\n')
+    f.close()
     print results
