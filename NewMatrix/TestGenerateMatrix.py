@@ -59,7 +59,7 @@ def NewCount(filepath):
 if __name__ == "__main__":
     obj_list = NewCount(filepath=sys.argv[1])
     print (len(obj_list))
-    pool_size = 8
+    pool_size = 16
     pool = mp.Pool(processes=pool_size)
     results = pool.map(DistanceCalc, obj_list)
     #results = [pool.map(pseudoFunc,obj_list)]
