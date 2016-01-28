@@ -21,6 +21,10 @@ def DistanceCalc(obj_list): # Left is one genome from new genome set, right is o
     os.system('rm %s.txt'%obj_list[2])
     return [obj_list[2], line[2]]
 
+def pseudoFunc(obj_list):
+	"""This is a pseudo-function to test if multi-threading works"""
+	return len(obj_list)
+
 def NewCount(filepath):
     filepath = sys.argv[1]
     if filepath.endswith('/'):
@@ -57,6 +61,7 @@ if __name__ == "__main__":
     print (len(obj_list))
     pool_size = 8
     pool = mp.Pool(processes=pool_size)
-    results = [pool.map(DistanceCalc, obj_list)]
+    results = pool.map(DistanceCalc, obj_list)
+    #results = [pool.map(pseudoFunc,obj_list)]
     results.sort()
     print results
