@@ -66,7 +66,7 @@ if __name__ == "__main__":
     #results = pool.map(pseudoFunc,obj_list)
     time.sleep(20)
     results.sort()
-    f = open('result.txt','r')
+    f = open('result.txt','w')
     for i in results:
 	f.write(i)
 	f.write('\n')
