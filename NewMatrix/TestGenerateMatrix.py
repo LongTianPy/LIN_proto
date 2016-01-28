@@ -70,7 +70,7 @@ if __name__ == "__main__":
     f = open('result.txt','w')
     for i in results:
 	line = [str(j) for j in i]
-	f.write(line)
+	f.write('\t'.join(line))
 	f.write('\n')
     f.close()
     print results
