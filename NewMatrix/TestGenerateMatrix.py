@@ -6,6 +6,7 @@ import multiprocessing as mp
 import sys
 from os import listdir
 from os.path import isfile, join
+import time
 
 # FUNCTIONS
 def DistanceCalc(obj_list): # Left is one genome from new genome set, right is one genome from the original set
@@ -17,7 +18,7 @@ def DistanceCalc(obj_list): # Left is one genome from new genome set, right is o
     os.system(cmd)
     with open("%s.txt"%obj_list[2],"r") as f:
         line = f.readlines()[0].strip().split(' ')
-    print obj_list
+    print '\t'.join(obj_list)
     os.system('rm %s.txt'%obj_list[2])
     return [obj_list[2], line[2]]
 
@@ -59,10 +60,10 @@ def NewCount(filepath):
 if __name__ == "__main__":
     obj_list = NewCount(filepath=sys.argv[1])
     print (len(obj_list))
-    pool_size = 16
+    pool_size = 8
     pool = mp.Pool(processes=pool_size)
     results = pool.map(DistanceCalc, obj_list)
-    #results = [pool.map(pseudoFunc,obj_list)]
+    #results = pool.map(pseudoFunc,obj_list)
     results.sort()
     f = open('result.txt','r')
     for i in results:
