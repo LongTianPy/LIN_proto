@@ -64,6 +64,7 @@ if __name__ == "__main__":
     pool = mp.Pool(processes=pool_size)
     results = pool.map(DistanceCalc, obj_list)
     #results = pool.map(pseudoFunc,obj_list)
+    time.sleep(20)
     results.sort()
     f = open('result.txt','r')
     for i in results:
