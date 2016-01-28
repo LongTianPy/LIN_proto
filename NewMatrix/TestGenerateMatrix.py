@@ -69,7 +69,8 @@ if __name__ == "__main__":
     results.sort()
     f = open('result.txt','w')
     for i in results:
-	f.write(i)
+	line = [str(j) for j in i]
+	f.write(line)
 	f.write('\n')
     f.close()
     print results
