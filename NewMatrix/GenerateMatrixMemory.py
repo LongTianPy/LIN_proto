@@ -38,7 +38,7 @@ def KmerCountNew(filepath):
         filepath = filepath
     else:
         filepath = filepath + '/'
-    cmd = "kpal count -k %s*.fasta %stmp_count"%(filepath, filepath)
+    cmd = "kpal count -k 12 %s*.fasta %stmp_count"%(filepath, filepath)
     os.system(cmd)
 
 def transform_2_frequency(row):
