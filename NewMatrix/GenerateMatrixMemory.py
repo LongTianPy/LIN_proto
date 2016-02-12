@@ -24,7 +24,7 @@ def read_by_iteration(count_profile):
     kmer_profiles = data[genomes[0]][:]
     i = 1
     while i < len(genomes):
-        kmer_profiles = np.vstack((kmer_profiles,genomes[i]))
+        kmer_profiles = np.vstack((kmer_profiles,data[genomes[i]][:]))
         i += 1
     return kmer_profiles
 
