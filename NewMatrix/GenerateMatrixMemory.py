@@ -57,7 +57,7 @@ def main(filepath):
     KmerCountNew(filepath=filepath)
     # Use h5py, read k-mer profiles of both the original and new one
     # And read them into arrays
-    original_kmer = read_by_iteration(count_profile='/home/vinatzerlab/Data/kPALEvaluation/Psy/countk12')
+    original_kmer = read_by_iteration(count_profile='/home/vinatzerlab/Data/kPALevaluation/Psy/countk12')
     new_kmer_profile_path = filepath+'tmp_count'
     new_kmer = read_by_iteration(count_profile=new_kmer_profile_path)
     # Concatenate these two arrays together, either concatenate/vstack will do, but better try which one is faster
@@ -68,7 +68,7 @@ def main(filepath):
     # ones)
     total_cosine_similarity = scipy.spatial.distance.pdist(total_frequency,'cosine')
     # Create Tree based on this distance matrix
-
+    print total_cosine_similarity
 
 if __name__ == '__main__':
     filepath = sys.argv[1]
