@@ -56,7 +56,7 @@ def transform_2_frequency(row):
     # get_frequency = map(lambda x: float(x)/sigma, row)
     get_frequency = (float(x)/sigma for x in row)
     print "Frequency calculation completed.\n"
-    return list(get_frequency)
+    return get_frequency
 
 
 def main(filepath,subjectpath):
@@ -71,20 +71,19 @@ def main(filepath,subjectpath):
     total_kmer_profile = np.vstack((original_kmer,new_kmer))
     # Probably need to transform to k-mer frequency matrix first
     total_frequency = map(transform_2_frequency,total_kmer_profile)
-
     print "For debugging: I need to know what is the data type of this total_frequency object...\n"
     print type(total_frequency)
     print "\n"
     # Calculate the pairwise distance (Could be ALLvsALL or only calculate the distances between the original ones and new
     # ones)
+    # Update 2/13/2016: convert generator objects to lists here, not at the end of frequency calculation of each genome
+    total_frequency = [list(i) for i in total_frequency]
     print "Calculating cosine similarities."
     total_cosine_similarity = scipy.spatial.distance.pdist(total_frequency,'cosine')
     # Create Tree based on this distance matrix
     print total_cosine_similarity
-    f = open('/home/vinatzerlab/Desktop/cosine_similarity.txt','w')
-    for i in total_cosine_similarity:
-        f.write(i)
-    f.close()
+    print '\n'
+    print len(total_cosine_similarity)
 
 if __name__ == '__main__':
     filepath = sys.argv[2]
