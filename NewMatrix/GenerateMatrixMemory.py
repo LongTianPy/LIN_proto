@@ -72,7 +72,7 @@ def main(filepath):
     # Probably need to transform to k-mer frequency matrix first
     total_frequency = map(transform_2_frequency,total_kmer_profile)
     print "For debugging: I need to know what is the data type of this total_frequency object...\n"
-    print type(total_cosine_similarity)
+    print type(total_frequency)
     print "\n"
     print total_frequency
     # Calculate the pairwise distance (Could be ALLvsALL or only calculate the distances between the original ones and new
