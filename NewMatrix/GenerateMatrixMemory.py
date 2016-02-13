@@ -59,12 +59,12 @@ def transform_2_frequency(row):
     return get_frequency
 
 
-def main(filepath):
+def main(filepath,subjectpath):
     # First generate k-mer profile for the new genomes
     KmerCountNew(filepath=filepath)
     # Use h5py, read k-mer profiles of both the original and new one
     # And read them into arrays
-    original_kmer = read_by_iteration(count_profile='/home/vinatzerlab/Data/kPALevaluation/Psy/countk12')
+    original_kmer = read_by_iteration(count_profile=subjectpath)
     new_kmer_profile_path = filepath+'tmp_count'
     new_kmer = read_by_iteration(count_profile=new_kmer_profile_path)
     # Concatenate these two arrays together, either concatenate/vstack will do, but better try which one is faster
@@ -87,5 +87,6 @@ def main(filepath):
     f.close()
 
 if __name__ == '__main__':
-    filepath = sys.argv[1]
-    main(filepath=filepath)
+    filepath = sys.argv[2]
+    subjectpath = sys.argv[1]
+    main(filepath=filepath,subjectpath=subjectpath)
