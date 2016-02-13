@@ -56,7 +56,7 @@ def transform_2_frequency(row):
     # get_frequency = map(lambda x: float(x)/sigma, row)
     get_frequency = (float(x)/sigma for x in row)
     print "Frequency calculation completed.\n"
-    return list(get_frequency)
+    return get_frequency
 
 
 def main(filepath):
@@ -71,10 +71,10 @@ def main(filepath):
     total_kmer_profile = np.vstack((original_kmer,new_kmer))
     # Probably need to transform to k-mer frequency matrix first
     total_frequency = map(transform_2_frequency,total_kmer_profile)
+
     print "For debugging: I need to know what is the data type of this total_frequency object...\n"
     print type(total_frequency)
     print "\n"
-    print total_frequency
     # Calculate the pairwise distance (Could be ALLvsALL or only calculate the distances between the original ones and new
     # ones)
     print "Calculating cosine similarities."
