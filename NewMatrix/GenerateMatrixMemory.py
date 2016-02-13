@@ -23,9 +23,11 @@ def read_by_iteration(count_profile):
     genomes = data.keys()
     kmer_profiles = data[genomes[0]][:]
     i = 1
+    print "Loading K-mer counting profiles: %s..."%count_profile
     while i < len(genomes):
         kmer_profiles = np.vstack((kmer_profiles,data[genomes[i]][:]))
         i += 1
+    print "Loading completed: %s.\n"%count_profile
     return kmer_profiles
 
 # Use os.system(cmd) count the k-mer profile of newly uploaded genome(s)
@@ -42,13 +44,16 @@ def KmerCountNew(filepath):
     os.system(cmd)
 
 def transform_2_frequency(row):
+    print "Starting to tranform k-mer counts to frequencies..."
     """
     Convert the k-mer counting to frequency per k-mer
     :param row
     :return: frequency
     """
     sigma = sum(row)
+    print "The total count for this genome is %s"%sigma
     get_frequency = map(lambda x: float(x)/sigma, row)
+    print "Frequency calculation completed.\n"
     return get_frequency
 
 
@@ -66,6 +71,7 @@ def main(filepath):
     total_frequency = map(transform_2_frequency,total_kmer_profile)
     # Calculate the pairwise distance (Could be ALLvsALL or only calculate the distances between the original ones and new
     # ones)
+    print "Calculating cosine similarities."
     total_cosine_similarity = scipy.spatial.distance.pdist(total_frequency,'cosine')
     # Create Tree based on this distance matrix
     print total_cosine_similarity
