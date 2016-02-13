@@ -56,7 +56,7 @@ def transform_2_frequency(row):
     # get_frequency = map(lambda x: float(x)/sigma, row)
     get_frequency = (float(x)/sum for x in row)
     print "Frequency calculation completed.\n"
-    return get_frequency
+    return list(get_frequency)
 
 
 def main(filepath):
