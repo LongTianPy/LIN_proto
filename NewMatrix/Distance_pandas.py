@@ -15,4 +15,8 @@ import scipy.spatial
 def read_into_dataframe(countfile):
     f = h5py.File(countfile,'r')
     data = f['profiles']
+    data = dist(data)
+    df = pd.DataFrame(data)
+    return df
+
 
