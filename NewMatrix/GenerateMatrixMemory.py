@@ -54,9 +54,9 @@ def transform_2_frequency(row):
     print "The total count for this genome is %s"%sigma
     # Seems like instead of using map and lambda, using generator expression really speeds this session up
     # get_frequency = map(lambda x: float(x)/sigma, row)
-    get_frequency = (float(x)/sum for x in row)
+    get_frequency = (float(x)/sigma for x in row)
     print "Frequency calculation completed.\n"
-    return get_frequency
+    return list(get_frequency)
 
 
 def main(filepath):
