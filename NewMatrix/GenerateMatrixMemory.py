@@ -52,7 +52,8 @@ def transform_2_frequency(row):
     """
     sigma = sum(row)
     print "The total count for this genome is %s"%sigma
-    get_frequency = map(lambda x: float(x)/sigma, row)
+    # get_frequency = map(lambda x: float(x)/sigma, row)
+    get_frequency = (float(x)/sum for x in row)
     print "Frequency calculation completed.\n"
     return get_frequency
 
