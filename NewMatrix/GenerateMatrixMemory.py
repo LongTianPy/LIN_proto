@@ -81,6 +81,10 @@ def main(filepath):
     total_cosine_similarity = scipy.spatial.distance.pdist(total_frequency,'cosine')
     # Create Tree based on this distance matrix
     print total_cosine_similarity
+    f = open('/home/vinatzerlab/Desktop/cosine_similarity.txt','w')
+    for i in total_cosine_similarity:
+        f.write(i)
+    f.close()
 
 if __name__ == '__main__':
     filepath = sys.argv[1]
