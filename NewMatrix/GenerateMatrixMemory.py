@@ -8,7 +8,7 @@
 # IMPORT
 import h5py
 import numpy as np
-import scipy
+import scipy.spatial
 import sys
 import os
 

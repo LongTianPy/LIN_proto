@@ -4,10 +4,12 @@ This script is going to use pandas, aka data.frame to store data and apply dista
 the data.frame, rather than store data into arrays, as is in GenerateMatrixMemory.
 """
 # IMPORT
-import pandas
+import pandas as pd
 import h5py
 import os
 import sys
+import scipy.spatial
+
 
 # FUNCTIONS
 def read_into_dataframe(countfile):
