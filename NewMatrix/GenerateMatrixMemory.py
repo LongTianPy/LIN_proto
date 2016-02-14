@@ -71,19 +71,21 @@ def main(filepath,subjectpath):
     original_kmer = read_by_iteration(count_profile=subjectpath)
     new_kmer_profile_path = filepath+'tmp_count'
     new_kmer = read_by_iteration(count_profile=new_kmer_profile_path)
-    # Concatenate these two arrays together, either concatenate/vstack will do, but better try which one is faster
-    total_kmer_profile = np.vstack((original_kmer,new_kmer))
+    original_frequency = map(transform_2_frequency,original_kmer)
     del original_kmer
+    new_frequency = map(transform_2_frequency,new_kmer)
     del new_kmer
+    # Concatenate these two arrays together, either concatenate/vstack will do, but better try which one is faster
+    total_frequency = np.vstack((original_frequency,new_frequency))
     # Probably need to transform to k-mer frequency matrix first
-    total_frequency = map(transform_2_frequency,total_kmer_profile)
+    # total_frequency = map(transform_2_frequency,total_kmer_profile)
     print "For debugging: I need to know what is the data type of this total_frequency object...\n"
     print type(total_frequency)
     print "\n"
     # Calculate the pairwise distance (Could be ALLvsALL or only calculate the distances between the original ones and new
     # ones)
     # Update 2/13/2016: convert generator objects to lists here, not at the end of frequency calculation of each genome
-    total_frequency = [list(i) for i in total_frequency]
+    total_frequency = [list(i[0]) for i in total_frequency]
     print "Calculating cosine similarities."
     total_cosine_similarity = scipy.spatial.distance.pdist(total_frequency,'cosine')
     # Create Tree based on this distance matrix
