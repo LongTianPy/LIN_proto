@@ -36,12 +36,15 @@ def KmerCountNew(filepath):
     :param filepath:
     :return: A k-mer counting profile will be generated on the hardisk
     """
+    cmd = "kpal count -k 12 %s*.fasta %stmp_count"%(filepath, filepath)
+    os.system(cmd)
+
+def isfilepath(filepath):
     if filepath.endswith('/'):
         filepath = filepath
     else:
         filepath = filepath + '/'
-    cmd = "kpal count -k 12 %s*.fasta %stmp_count"%(filepath, filepath)
-    os.system(cmd)
+    return filepath
 
 def transform_2_frequency(row):
     print "Starting to tranform k-mer counts to frequencies..."
@@ -60,6 +63,7 @@ def transform_2_frequency(row):
 
 
 def main(filepath,subjectpath):
+    filepath = isfilepath(filepath)
     # First generate k-mer profile for the new genomes
     KmerCountNew(filepath=filepath)
     # Use h5py, read k-mer profiles of both the original and new one
@@ -69,6 +73,8 @@ def main(filepath,subjectpath):
     new_kmer = read_by_iteration(count_profile=new_kmer_profile_path)
     # Concatenate these two arrays together, either concatenate/vstack will do, but better try which one is faster
     total_kmer_profile = np.vstack((original_kmer,new_kmer))
+    del original_kmer
+    del new_kmer
     # Probably need to transform to k-mer frequency matrix first
     total_frequency = map(transform_2_frequency,total_kmer_profile)
     print "For debugging: I need to know what is the data type of this total_frequency object...\n"
