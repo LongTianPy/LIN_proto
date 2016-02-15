@@ -11,6 +11,7 @@ import numpy as np
 import scipy.spatial
 import sys
 import os
+import sklearn.metrics
 
 # FUNCTIONS
 def read_by_iteration(count_profile):
@@ -87,11 +88,16 @@ def main(filepath,subjectpath):
     # Update 2/13/2016: convert generator objects to lists here, not at the end of frequency calculation of each genome
     total_frequency = [list(i[0]) for i in total_frequency]
     print "Calculating cosine similarities."
-    total_cosine_similarity = scipy.spatial.distance.pdist(total_frequency,'cosine')
+    total_cosine_similarity_scipy = scipy.spatial.distance.pdist(total_frequency,'cosine')
+    total_cosine_similarity_sklearn = sklearn.metrics.pairwise.pairwise_distances(total_frequency,metric="cosine")
     # Create Tree based on this distance matrix
-    print total_cosine_similarity
-    print '\n'
+    print total_cosine_similarity_scipy
     print len(total_cosine_similarity)
+    print '\n'
+    print total_cosine_similarity_sklearn
+    print len(total_cosine_similarity_sklearn)
+    print '\n'
+
 
 if __name__ == '__main__':
     filepath = sys.argv[2]
