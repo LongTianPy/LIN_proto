@@ -70,11 +70,17 @@ def main(filepath,subjectpath):
     # Use h5py, read k-mer profiles of both the original and new one
     # And read them into arrays
     original_kmer = read_by_iteration(count_profile=subjectpath)
-    original_frequency = map(transform_2_frequency, original_kmer)
+    # original_frequency = map(transform_2_frequency, original_kmer)
+    original_frequency = []
+    for i in original_kmer:
+        original_frequency.append(transform_2_frequency(i))
     del original_kmer
     new_kmer_profile_path = filepath+'tmp_count'
     new_kmer = read_by_iteration(count_profile=new_kmer_profile_path)
-    new_frequency = map(transform_2_frequency, new_kmer)
+    # new_frequency = map(transform_2_frequency, new_kmer)
+    new_frequency = []
+    for i in new_kmer:
+        new_frequency.append(transform_2_frequency(i))
     del new_kmer
     print "Stacking both k-mer frequencies."
     # total_kmer = np.vstack((original_frequency, new_frequency))
