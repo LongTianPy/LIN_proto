@@ -60,7 +60,7 @@ def transform_2_frequency(row):
     # get_frequency = map(lambda x: float(x)/sigma, row)
     get_frequency = (float(x)/sigma for x in row)
     print "Frequency calculation completed.\n"
-    return get_frequency
+    return list(get_frequency)
 
 
 def main(filepath,subjectpath):
@@ -90,7 +90,6 @@ def main(filepath,subjectpath):
     # Calculate the pairwise distance (Could be ALLvsALL or only calculate the distances between the original ones and new
     # ones)
     # Update 2/13/2016: convert generator objects to lists here, not at the end of frequency calculation of each genome
-    total_frequency = [list(i) for i in total_frequency]
     print "Calculating cosine similarities."
     total_cosine_similarity_scipy = scipy.spatial.distance.pdist(total_frequency,'cosine')
     total_cosine_similarity_sklearn = sklearn.metrics.pairwise.pairwise_distances(total_frequency,metric="cosine")
