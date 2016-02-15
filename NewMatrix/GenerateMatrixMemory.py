@@ -94,7 +94,7 @@ def main(filepath,subjectpath):
     total_cosine_similarity_sklearn = sklearn.metrics.pairwise.pairwise_distances(total_frequency,metric="cosine")
     # Create Tree based on this distance matrix
     print total_cosine_similarity_scipy
-    print len(total_cosine_similarity)
+    print len(total_cosine_similarity_scipy)
     print '\n'
     print total_cosine_similarity_sklearn
     print len(total_cosine_similarity_sklearn)
