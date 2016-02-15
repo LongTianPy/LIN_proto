@@ -73,9 +73,9 @@ def main(filepath,subjectpath):
     new_kmer_profile_path = filepath+'tmp_count'
     new_kmer = read_by_iteration(count_profile=new_kmer_profile_path)
     total_kmer = np.vstack((original_kmer,new_kmer))
-    original_frequency = map(transform_2_frequency,original_kmer)
     del original_kmer
     del new_kmer
+    original_frequency = map(transform_2_frequency,original_kmer)
     # Concatenate these two arrays together, either concatenate/vstack will do, but better try which one is faster
     total_frequency = map(transform_2_frequency,total_kmer)
     # Probably need to transform to k-mer frequency matrix first
