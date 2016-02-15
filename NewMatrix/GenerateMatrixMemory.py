@@ -76,12 +76,11 @@ def main(filepath,subjectpath):
     new_kmer = read_by_iteration(count_profile=new_kmer_profile_path)
     new_frequency = map(transform_2_frequency, new_kmer)
     del new_kmer
-    print "Stacking both k-mer profiles."
+    print "Stacking both k-mer frequencies."
     # total_kmer = np.vstack((original_frequency, new_frequency))
-    print "K-mer stacking done."
     # Concatenate these two arrays together, either concatenate/vstack will do, but better try which one is faster
     total_frequency = np.vstack((original_frequency, new_frequency))
-    del total_kmer
+    print "Stacking completed."
     # Probably need to transform to k-mer frequency matrix first
     # total_frequency = map(transform_2_frequency,total_kmer_profile)
     print "For debugging: I need to know what is the data type of this total_frequency object...\n"
