@@ -44,18 +44,20 @@ def main(subjectfilepath, queryfilepath):
     new_kmer_profile_path = filepath+'tmp_count'
     original_kmer_profile = read_into_dataframe(subjectfilepath)
     new_kmer_profile = read_into_dataframe(new_kmer_profile_path)
-    print "Concatenating two data frames by columns"
+    print "Concatenating two data frames by columns..."
     total_mker_profile = pd.concat([original_kmer_profile, new_kmer_profile], axis=1)
     print "... Done."
     del original_kmer_profile
     del new_kmer_profile
     frequency_transform = lambda column: column/np.sum(column)
+    print "Transforming k-mer countings to frequencies..."
     total_frequency = total_mker_profile.apply(frequency_transform)
+    print "... Done."
     del total_mker_profile
     euclidean_distance = lambda column1, column2: pd.np.linalg.norm(column1 - column2)
     pearson_correlation = lambda column1, column2: scipy.stats.pearsonr(column1, column2)[0]
     cosine_similarity = lambda column1, column2: 1-scipy.spatial.distance.cosine(column1,column2)
-    print "Calculating distance"
+    print "Calculating distance..."
     result = total_frequency.apply(lambda col1: total_frequency.apply(lambda col2: euclidean_distance(col1, col2)))
     print "... Done."
     print "Writing distance matrix to %s"%queryfilepath
