@@ -64,7 +64,7 @@ def main(subjectfilepath, queryfilepath):
     print "... Done."
     del original_kmer_profile
     del new_kmer_profile
-    distance = lambda column1, column2: cosine_similarity(column1, column2)
+    distance = lambda column1, column2: pd.np.linalg.norm(column1 - column2)
     print "Calculating euclidean distance"
     result = total_mker_profile.apply(lambda col1: total_mker_profile.apply(lambda col2: distance(col1, col2)))
     print "... Done."
