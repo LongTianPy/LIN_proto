@@ -8,7 +8,7 @@ import pandas as pd
 import h5py
 import os
 import sys
-import scipy.stats
+import scipy.spatial
 import numpy as np
 
 
