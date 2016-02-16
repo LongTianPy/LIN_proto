@@ -59,7 +59,7 @@ def main(subjectfilepath, queryfilepath):
     result = total_frequency.apply(lambda col1: total_mker_profile.apply(lambda col2: cosine_similarity(col1, col2)))
     print "... Done."
     print "Writing distance matrix to %s"%queryfilepath
-    result.to_csv('%sdistance.csv')
+    result.to_csv('%sdistance.csv'%queryfilepath)
 
 if __name__ == '__main__':
     filepath = sys.argv[2]
