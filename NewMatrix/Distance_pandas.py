@@ -13,10 +13,12 @@ import scipy.spatial
 
 # FUNCTIONS
 def read_into_dataframe(countfile):
+    print "Started to read %s"%countfile
     f = h5py.File(countfile,'r')
     data = f['profiles']
     data = dict(data)
     df = pd.DataFrame(data)
+    print "Loading completed."
     return df
 
 def isfilepath(filepath):
@@ -40,12 +42,16 @@ def main(subjectfilepath, queryfilepath):
     KmerCountNew(queryfilepath)
     new_kmer_profile_path = filepath+'tmp_count'
     original_kmer_profile = read_into_dataframe(subjectfilepath)
-    new_kmer_profile = read_into_dataframe(queryfilepath)
+    new_kmer_profile = read_into_dataframe(new_kmer_profile_path)
+    print "Concatenating two data frames by columns"
     total_mker_profile = pd.concat([original_kmer_profile, new_kmer_profile], axis=1)
+    print "... Done."
     del original_kmer_profile
     del new_kmer_profile
     euclidean_distance = lambda column1, column2: pd.np.linalg.norm(column1 - column2)
+    print "Calculating euclidean distance"
     result = total_mker_profile.apply(lambda col1: total_mker_profile.apply(lambda col2:distance(col1, col2)))
+    print "... Done."
     print result
 
 if __name__ == '__main__':
