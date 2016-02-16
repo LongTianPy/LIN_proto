@@ -45,12 +45,6 @@ def cosine_similarity(vector1,vector2):
     sum_vector1 += sum_vector1 + (vector1[i]*vector1[i] for i in range(vector1))
     norm_vector1 = sqrt(sum_vector1)
 
-    # Normalize the second vector
-    sum_vector2 = 0.0
-    sum_vector2 += sum_vector2 + (vector2[i]*vector2[i] for i in range(vector2))
-    norm_vector2 = sqrt(sum_vector2)
-
-    return (dot/(norm_vector1*norm_vector2))
 
 # MAIN
 def main(subjectfilepath, queryfilepath):
