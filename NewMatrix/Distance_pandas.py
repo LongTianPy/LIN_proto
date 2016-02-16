@@ -62,7 +62,8 @@ def main(subjectfilepath, queryfilepath):
     print "Calculating euclidean distance"
     result = total_mker_profile.apply(lambda col1: total_mker_profile.apply(lambda col2: distance(col1, col2)))
     print "... Done."
-    print result
+    print "Writing distance matrix to %s"%queryfilepath
+    result.to_csv('%sdistance.csv')
 
 if __name__ == '__main__':
     filepath = sys.argv[2]
