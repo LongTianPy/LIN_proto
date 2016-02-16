@@ -54,11 +54,9 @@ def main(subjectfilepath, queryfilepath):
     total_frequency = total_mker_profile.apply(frequency_transform)
     print "... Done."
     del total_mker_profile
-    euclidean_distance = lambda column1, column2: pd.np.linalg.norm(column1 - column2)
-    pearson_correlation = lambda column1, column2: scipy.stats.pearsonr(column1, column2)[0]
-    cosine_similarity = lambda column1, column2: 1-scipy.spatial.distance.cosine(column1,column2)
+    cosine_similarity = lambda column1, column2: scipy.spatial.distance.cosine(column1,column2)
     print "Calculating distance..."
-    result = total_frequency.apply(lambda col1: total_frequency.apply(lambda col2: euclidean_distance(col1, col2)))
+    result = total_frequency.apply(lambda col1: total_frequency.apply(lambda col2: cosine_similarity(col1, col2)))
     print "... Done."
     print "Writing distance matrix to %s"%queryfilepath
     result.to_csv('%sdistance.csv'%queryfilepath)
