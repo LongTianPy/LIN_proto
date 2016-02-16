@@ -36,6 +36,22 @@ def KmerCountNew(filepath):
     cmd = "kpal count -k 12 %s*.fasta %stmp_count"%(filepath, filepath)
     os.system(cmd)
 
+def cosine_similarity(vector1,vector2):
+    # Calculate numerator of cosine similarity
+    dot = [vector1[i] * vector2[i] for i in range(vector1)]
+
+    # Normalize the first vector
+    sum_vector1 = 0.0
+    sum_vector1 += sum_vector1 + (vector1[i]*vector1[i] for i in range(vector1))
+    norm_vector1 = sqrt(sum_vector1)
+
+    # Normalize the second vector
+    sum_vector2 = 0.0
+    sum_vector2 += sum_vector2 + (vector2[i]*vector2[i] for i in range(vector2))
+    norm_vector2 = sqrt(sum_vector2)
+
+    return (dot/(norm_vector1*norm_vector2))
+
 # MAIN
 def main(subjectfilepath, queryfilepath):
     queryfilepath = isfilepath(queryfilepath)
@@ -48,7 +64,7 @@ def main(subjectfilepath, queryfilepath):
     print "... Done."
     del original_kmer_profile
     del new_kmer_profile
-    distance = lambda column1, column2: scipy.spatial.distance.cdist(column1, column2, metric="cosine")
+    distance = lambda column1, column2: cosine_similarity(column1, column2)
     print "Calculating euclidean distance"
     result = total_mker_profile.apply(lambda col1: total_mker_profile.apply(lambda col2: distance(col1, col2)))
     print "... Done."
