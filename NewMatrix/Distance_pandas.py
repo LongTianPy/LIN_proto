@@ -77,7 +77,7 @@ def generate_distance(subjectpath,queryfilepath):
     # Here we only have one fasta file
     KmerCountNew(queryfilepath)
     # original_kmer = read_into_dataframe(subjectpath)
-    original_frequency = pd.read_hdf(subjectpath)
+    original_frequency = pd.read_hdf(subjectpath,'profiles')
     new_kmer = read_into_dataframe('tmp_count')
     new_kmer_name = new_kmer.keys()[0]
     frequency_transform = lambda column: column/np.sum(column)
