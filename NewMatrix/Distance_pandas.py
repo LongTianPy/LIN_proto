@@ -93,11 +93,11 @@ def generate_distance(subjectpath,queryfilepath):
 
 
 def main(subjectpath,queryfilepath):
-    generate_distance(subjectfilepath=subjectpath, queryfilepath=queryfilepath)
+    generate_distance(subjectpath=subjectpath, queryfilepath=queryfilepath)
 
 
 
 if __name__ == '__main__':
     filepath = sys.argv[2]
     subjectpath = sys.argv[1]
-    main(queryfilepath=filepath,subjectfilepath=subjectpath)
+    main(queryfilepath=filepath,subjectpath=subjectpath)
