@@ -37,62 +37,60 @@ def KmerCountNew(filepath):
     cmd = "kpal count -k 12 %s tmp_count"%(filepath)
     os.system(cmd)
 
-def generate_distance_test(subjectfilepath, queryfilepath):
-    """
-    :param subjectfilepath:
-    :param queryfilepath:
-    :return: Print the distance matrix in a csv file.
-    """
-    queryfilepath = isfilepath(queryfilepath)
-    KmerCountNew(queryfilepath)
-    new_kmer_profile_path = filepath+'tmp_count'
-    original_kmer_profile = read_into_dataframe(subjectfilepath)
-    new_kmer_profile = read_into_dataframe(new_kmer_profile_path)
-    print "Concatenating two data frames by columns..."
-    total_mker_profile = pd.concat([original_kmer_profile, new_kmer_profile], axis=1)
-    print "... Done."
-    del original_kmer_profile
-    del new_kmer_profile
-    frequency_transform = lambda column: column/np.sum(column)
-    print "Transforming k-mer countings to frequencies..."
-    total_frequency = total_mker_profile.apply(frequency_transform)
-    print "... Done."
-    del total_mker_profile
-    cosine_similarity = lambda column1, column2: scipy.spatial.distance.cosine(column1,column2)
-    print "Calculating distance..."
-    result = total_frequency.apply(lambda col1: total_frequency.apply(lambda col2: cosine_similarity(col1, col2)))
-    print "... Done."
-    print "Writing distance matrix to %s"%queryfilepath
-    result.to_csv('%sdistance.csv'%queryfilepath)
+# def generate_distance_test(subjectfilepath, queryfilepath):
+#     """
+#     :param subjectfilepath:
+#     :param queryfilepath:
+#     :return: Print the distance matrix in a csv file.
+#     """
+#     queryfilepath = isfilepath(queryfilepath)
+#     KmerCountNew(queryfilepath)
+#     new_kmer_profile_path = filepath+'tmp_count'
+#     original_kmer_profile = read_into_dataframe(subjectfilepath)
+#     new_kmer_profile = read_into_dataframe(new_kmer_profile_path)
+#     print "Concatenating two data frames by columns..."
+#     total_mker_profile = pd.concat([original_kmer_profile, new_kmer_profile], axis=1)
+#     print "... Done."
+#     del original_kmer_profile
+#     del new_kmer_profile
+#     frequency_transform = lambda column: column/np.sum(column)
+#     print "Transforming k-mer countings to frequencies..."
+#     total_frequency = total_mker_profile.apply(frequency_transform)
+#     print "... Done."
+#     del total_mker_profile
+#     cosine_similarity = lambda column1, column2: scipy.spatial.distance.cosine(column1,column2)
+#     print "Calculating distance..."
+#     result = total_frequency.apply(lambda col1: total_frequency.apply(lambda col2: cosine_similarity(col1, col2)))
+#     print "... Done."
+#     print "Writing distance matrix to %s"%queryfilepath
+#     result.to_csv('%sdistance.csv'%queryfilepath)
 
 def generate_distance(subjectpath,queryfilepath):
     """
     In the real case, we hope we only have one newly uploaded genome at a time, which means we don't calculate the whole
     data frame -- just the new one with the old one. And concatenate the new result to the existing distance matrix of
     the original genomes.
-    :param subjectpath:
-    :param queryfilepath
+    :param subjectpath: The k-mer frequency table of original genomes
+    :param queryfilepath A FASTA file
     :return: Print the distance matrix of the whole.
     """
     # Here we only have one fasta file
     KmerCountNew(queryfilepath)
-    original_kmer = read_into_dataframe(subjectpath)
+    # original_kmer = read_into_dataframe(subjectpath)
+    original_frequency = pd.read_hdf(subjectpath)
     new_kmer = read_into_dataframe('tmp_count')
     new_kmer_name = new_kmer.keys()[0]
-    print "Concatenating two data frames..."
-    total_mker_profile = pd.concat([original_kmer, new_kmer], axis=1)
-    del original_kmer
-    del new_kmer
-    print "... Done."
     frequency_transform = lambda column: column/np.sum(column)
-    print "Transforming counts to frequencies..."
-    total_frequency = total_mker_profile.apply(frequency_transform)
+    print "transforming new counts to frequencies"
+    # original_frequency = original_kmer.apply(frequency_transform)
+    new_frequency = new_kmer.apply(frequency_transform)
     print "... Done."
-    del total_mker_profile
+    del new_kmer
     cosine_similarity = lambda column1, column2: scipy.spatial.distance.cosine(column1,column2)
     new_kmer_column = total_frequency[new_kmer_name]
     print "Calculating cosine similarities..."
-    result = total_frequency.apply(lambda new_kmer_column: total_frequency.apply(lambda col2: cosine_similarity(new_kmer_column, col2)))
+    # result = total_frequency.apply(lambda new_kmer_column: total_frequency.apply(lambda col2: cosine_similarity(new_kmer_column, col2)))
+    result = original_frequency.apply(lambda column: lambda new_kmer_column:cosine_similarity(column, new_kmer_column))
     print "... Done.\n\n"
     print "Writing distance matrix."
     result.to_csv('distance.csv')
