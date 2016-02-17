@@ -34,11 +34,15 @@ def KmerCountNew(filepath):
     :param filepath:
     :return: A k-mer counting profile will be generated on the hardisk
     """
-    cmd = "kpal count -k 12 %s*.fasta %stmp_count"%(filepath, filepath)
+    cmd = "kpal count -k 12 %s tmp_count"%(filepath, filepath)
     os.system(cmd)
 
-# MAIN
-def main(subjectfilepath, queryfilepath):
+def generate_distance_test(subjectfilepath, queryfilepath):
+    """
+    :param subjectfilepath:
+    :param queryfilepath:
+    :return: Print the distance matrix in a csv file.
+    """
     queryfilepath = isfilepath(queryfilepath)
     KmerCountNew(queryfilepath)
     new_kmer_profile_path = filepath+'tmp_count'
@@ -60,6 +64,38 @@ def main(subjectfilepath, queryfilepath):
     print "... Done."
     print "Writing distance matrix to %s"%queryfilepath
     result.to_csv('%sdistance.csv'%queryfilepath)
+
+def generate_distance(subjectpath,queryfilepath):
+    """
+    In the real case, we hope we only have one newly uploaded genome at a time, which means we don't calculate the whole
+    data frame -- just the new one with the old one. And concatenate the new result to the existing distance matrix of
+    the original genomes.
+    :param subjectpath:
+    :param queryfilepath
+    :return: Print the distance matrix of the whole.
+    """
+    # Here we only have one fasta file
+    KmerCountNew(queryfilepath)
+    original_kmer = read_into_dataframe(subjectpath)
+    new_kmer = read_into_dataframe('tmp_count')
+    new_kmer_name = new_kmer.keys()[0]
+    total_mker_profile = pd.concat([original_kmer, new_kmer], axis=1)
+    del original_kmer
+    del new_kmer
+    frequency_transform = lambda column: column/np.sum(column)
+    total_frequency = total_mker_profile.apply(frequency_transform)
+    del total_mker_profile
+    cosine_similarity = lambda column1, column2: scipy.spatial.distance.cosine(column1,column2)
+    new_kmer_column = total_frequency[new_kmer_name]
+    result = total_frequency.apply(lambda new_kmer_column: total_frequency.apply(lambda col2: cosine_similarity(new_kmer_column, col2)))
+    print "Writing distance matrix."
+    result.to_csv('distance.csv')
+
+
+def main(subjectpath,queryfilepath):
+    generate_distance(subjectfilepath=subjectpath, queryfilepath=queryfilepath)
+
+
 
 if __name__ == '__main__':
     filepath = sys.argv[2]
