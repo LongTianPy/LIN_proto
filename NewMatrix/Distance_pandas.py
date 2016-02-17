@@ -87,7 +87,7 @@ def generate_distance(subjectpath,queryfilepath):
     print "... Done."
     del new_kmer
     cosine_similarity = lambda column1, column2: scipy.spatial.distance.cosine(column1,column2)
-    new_kmer_column = total_frequency[new_kmer_name]
+    new_kmer_column = new_frequency[new_kmer_name]
     print "Calculating cosine similarities..."
     # result = total_frequency.apply(lambda new_kmer_column: total_frequency.apply(lambda col2: cosine_similarity(new_kmer_column, col2)))
     result = original_frequency.apply(lambda column: lambda new_kmer_column:cosine_similarity(column, new_kmer_column))
