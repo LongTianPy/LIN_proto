@@ -34,7 +34,7 @@ def KmerCountNew(filepath):
     :param filepath:
     :return: A k-mer counting profile will be generated on the hardisk
     """
-    cmd = "kpal count -k 12 %s tmp_count"%(filepath, filepath)
+    cmd = "kpal count -k 12 %s tmp_count"%(filepath)
     os.system(cmd)
 
 def generate_distance_test(subjectfilepath, queryfilepath):
