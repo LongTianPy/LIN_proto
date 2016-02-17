@@ -79,15 +79,21 @@ def generate_distance(subjectpath,queryfilepath):
     original_kmer = read_into_dataframe(subjectpath)
     new_kmer = read_into_dataframe('tmp_count')
     new_kmer_name = new_kmer.keys()[0]
+    print "Concatenating two data frames..."
     total_mker_profile = pd.concat([original_kmer, new_kmer], axis=1)
     del original_kmer
     del new_kmer
+    print "... Done."
     frequency_transform = lambda column: column/np.sum(column)
+    print "Transforming counts to frequencies..."
     total_frequency = total_mker_profile.apply(frequency_transform)
+    print "... Done."
     del total_mker_profile
     cosine_similarity = lambda column1, column2: scipy.spatial.distance.cosine(column1,column2)
     new_kmer_column = total_frequency[new_kmer_name]
+    print "Calculating cosine similarities..."
     result = total_frequency.apply(lambda new_kmer_column: total_frequency.apply(lambda col2: cosine_similarity(new_kmer_column, col2)))
+    print "... Done.\n\n"
     print "Writing distance matrix."
     result.to_csv('distance.csv')
 
