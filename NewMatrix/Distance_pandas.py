@@ -94,16 +94,14 @@ def generate_distance(subjectpath,queryfilepath):
     print "Calculating cosine similarities..."
     # result = total_frequency.apply(lambda new_kmer_column: total_frequency.apply(lambda col2: cosine_similarity(new_kmer_column, col2)))
     result_new2old = original_frequency.apply(lambda column :cosine_similarity(column, new_kmer_column)) # Usually it's one column
+    newrow = [new_kmer_name]+result_new2old[new_kmer_name]
     print "... Done."
     print result_new2old
     # Starting to manipulate the final distance matrix
     print "Manipulating distance matrix"
     original_distance_matrix = pd.read_csv(subject_distance_matrix_file)
-    original_distance_matrix['Unnamed: 0'].append(new_kmer_name)
-    for i in range(len(original_distance_matrix.keys()[1:])):
-        original_distance_matrix[original_distance_matrix.keys[1:][i]].append(result_new2old[new_kmer_name][i])
     original_distance_matrix[new_kmer_name]=result_new2old[new_kmer_name]
-    original_distance_matrix[new_kmer_name].append(0)
+    original_distance_matrix.loc[original_distance_matrix.shape[0]]=newrow
     print "Writing distance matrix."
     original_distance_matrix.to_csv('new_distance.csv')
 
