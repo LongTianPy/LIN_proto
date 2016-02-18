@@ -94,7 +94,7 @@ def generate_distance(subjectpath,queryfilepath):
     print "Calculating cosine similarities..."
     # result = total_frequency.apply(lambda new_kmer_column: total_frequency.apply(lambda col2: cosine_similarity(new_kmer_column, col2)))
     result_new2old = original_frequency.apply(lambda column :cosine_similarity(column, new_kmer_column)) # Usually it's one column
-    print result_new2old
+    print result_new2old.keys()
     newrow = [new_kmer_name]+result_new2old
     print newrow
     print "... Done."
