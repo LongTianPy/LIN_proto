@@ -77,6 +77,9 @@ def generate_distance(subjectpath,queryfilepath):
     # Here we only have one fasta file
     KmerCountNew(queryfilepath)
     # original_kmer = read_into_dataframe(subjectpath)
+    subjectpath=isfilepath(subjectpath)
+    subject_frequency_file = subjectpath+'frequency'
+    subject_distance_matrix_file = subjectpath+'distance.csv'
     original_frequency = pd.read_hdf(subjectpath,'profiles')
     new_kmer = read_into_dataframe('tmp_count')
     new_kmer_name = new_kmer.keys()[0]
@@ -90,10 +93,19 @@ def generate_distance(subjectpath,queryfilepath):
     new_kmer_column = new_frequency[new_kmer_name]
     print "Calculating cosine similarities..."
     # result = total_frequency.apply(lambda new_kmer_column: total_frequency.apply(lambda col2: cosine_similarity(new_kmer_column, col2)))
-    result = original_frequency.apply(lambda column :cosine_similarity(column, new_kmer_column))
-    print "... Done.\n\n"
+    result_new2old = original_frequency.apply(lambda column :cosine_similarity(column, new_kmer_column)) # Usually it's one column
+    print "... Done."
+    print result_new2old
+    # Starting to manipulate the final distance matrix
+    print "Manipulating distance matrix"
+    original_distance_matrix = pd.read_csv(subject_distance_matrix_file)
+    original_distance_matrix['Unnamed: 0'].append(new_kmer_name)
+    for i in range(len(original_distance_matrix.keys()[1:])):
+        original_distance_matrix[original_distance_matrix.keys[1:][i]].append(result_new2old[new_kmer_name][i])
+    original_distance_matrix[new_kmer_name]=result_new2old[new_kmer_name]
+    original_distance_matrix[new_kmer_name].append(0)
     print "Writing distance matrix."
-    result.to_csv('distance.csv')
+    original_distance_matrix.to_csv('new_distance.csv')
 
 
 def main(subjectpath,queryfilepath):
