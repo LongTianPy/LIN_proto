@@ -82,7 +82,7 @@ def generate_distance(subjectpath,queryfilepath):
     subject_distance_matrix_file = subjectpath+'distance.csv'
     original_frequency = pd.read_hdf(subject_frequency_file,'profiles')
     new_kmer = read_into_dataframe('tmp_count')
-    new_kmer_name = new_kmer.keys()[0]
+    new_kmer_name = str(new_kmer.keys()[0])
     frequency_transform = lambda column: column/np.sum(column)
     print "transforming new counts to frequencies"
     # original_frequency = original_kmer.apply(frequency_transform)
