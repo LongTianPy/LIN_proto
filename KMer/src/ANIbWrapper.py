@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 """
 This script takes the advantage of PyANI (https://github.com/widdowquinn/pyani) to calculate Average Nucleotide
 Identity (ANI). And forward the result to AssignID.
