@@ -237,11 +237,8 @@ if __name__ == '__main__':
     # Have we got a valid method choice?
     # Dictionary below defines analysis function, and output presentation
     # functions/settings, dependent on selected method.
-    methods = {"ANIm": (calculate_anim, pyani_config.ANIM_FILESTEMS),
-               "ANIb": (unified_anib, pyani_config.ANIB_FILESTEMS),
-               "TETRA": (calculate_tetra, pyani_config.TETRA_FILESTEMS),
-               "ANIblastall": (unified_anib,
-                               pyani_config.ANIBLASTALL_FILESTEMS)}
+    methods = {"ANIb": (unified_anib, pyani_config.ANIB_FILESTEMS)}
+
     if args.method not in methods:
         logger.error("ANI method %s not recognised (exiting)" % args.method)
         logger.error("Valid methods are: %s" % methods.keys())
