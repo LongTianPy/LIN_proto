@@ -80,6 +80,7 @@ def parse_cmdline(args):
     parser.add_argument("-m", "--method", dest="method",
                         action="store", default="ANIb",
                         help="Do not change this option")
+    return parser.parse_args()
 
 # Report the last exception as string
 def last_exception():
