@@ -207,13 +207,6 @@ if __name__ == '__main__':
     err_formatter = logging.Formatter('%(levelname)s: %(message)s')
     err_handler.setFormatter(err_formatter)
 
-    # Do we need verbosity?
-    if args.verbose:
-        err_handler.setLevel(logging.INFO)
-    else:
-        err_handler.setLevel(logging.WARNING)
-    logger.addHandler(err_handler)
-
     # Report arguments, if verbose
     logger.info(args)
 
