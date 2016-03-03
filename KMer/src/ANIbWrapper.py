@@ -47,8 +47,7 @@ import traceback
 
 from argparse import ArgumentParser
 
-from pyani import average_nucleotide_identity
-from pyani import anib
+from pyani import anib, pyani_config, pyani_files
 from pyani import run_multiprocessing as run_mp
 from pyani.pyani_config import params_mpl, params_r
 
