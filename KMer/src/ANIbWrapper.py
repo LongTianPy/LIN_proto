@@ -75,9 +75,6 @@ def parse_cmdline(args):
     parser.add_argument("-v", "--verbose", dest="verbose",
                         action="store_true", default=False,
                         help="Give verbose output")
-    parser.add_argument("-l", "--logfile", dest="logfile",
-                        action="store", default=None,
-                        help="Logfile location")
     parser.add_argument("-m", "--method", dest="method",
                         action="store", default="ANIb",
                         help="Do not change this option")
@@ -209,19 +206,6 @@ if __name__ == '__main__':
     err_handler = logging.StreamHandler(sys.stderr)
     err_formatter = logging.Formatter('%(levelname)s: %(message)s')
     err_handler.setFormatter(err_formatter)
-
-    # Was a logfile specified? If so, use it
-    if args.logfile is not None:
-        try:
-            logstream = open(args.logfile, 'w')
-            err_handler_file = logging.StreamHandler(logstream)
-            err_handler_file.setFormatter(err_formatter)
-            err_handler_file.setLevel(logging.INFO)
-            logger.addHandler(err_handler_file)
-        except:
-            logger.error("Could not open %s for logging" %
-                         args.logfile)
-            sys.exit(1)
 
     # Do we need verbosity?
     if args.verbose:
