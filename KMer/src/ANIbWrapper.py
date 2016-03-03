@@ -88,7 +88,7 @@ def last_exception():
     return ''.join(traceback.format_exception(exc_type, exc_value, exc_traceback))
 
 # Create output directory if it doesn't exist
-def make_dir():
+def make_outdir():
     """
     By default, this function abort the script if the output directory already exists,
     but we can force proceed by overwriting if the --force option is switched on.
