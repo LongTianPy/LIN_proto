@@ -96,7 +96,9 @@ def generate_distance(subjectpath,queryfilepath):
     # result_new2old = original_frequency.apply(lambda column :cosine_similarity(column, new_kmer_column)) # Usually it's one column
     result_new2old = [cosine_similarity(new_kmer_column,original_frequency[i]) for i in original_frequency.keys()]
     print "... Done."
-    print result_new2old
+    for i in result_new2old:
+        if i>0.6:
+            print i
     # newrow = [new_kmer_name]+result_new2old
     # print newrow
     # # Starting to manipulate the final distance matrix
