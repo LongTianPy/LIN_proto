@@ -108,8 +108,6 @@ def generate_distance(subjectpath,queryfilepath):
     # print "Writing distance matrix."
     # original_distance_matrix.to_csv('new_distance.csv')
 
-
-
 if __name__ == '__main__':
     filepath = sys.argv[2]
     subjectpath = sys.argv[1]
