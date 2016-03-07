@@ -41,7 +41,8 @@ def KmerCountNew(filepath):
 #     """
 #     :param subjectfilepath:
 #     :param queryfilepath:
-#     :return: Print the distance matrix in a csv file.
+#     :return: column_names: the genomes that the new genome compares with;
+#              result_new2old: similarity values where small means similar.
 #     """
 #     queryfilepath = isfilepath(queryfilepath)
 #     KmerCountNew(queryfilepath)
@@ -95,10 +96,8 @@ def generate_distance(subjectpath,queryfilepath):
     # result = total_frequency.apply(lambda new_kmer_column: total_frequency.apply(lambda col2: cosine_similarity(new_kmer_column, col2)))
     # result_new2old = original_frequency.apply(lambda column :cosine_similarity(column, new_kmer_column)) # Usually it's one column
     result_new2old = [cosine_similarity(new_kmer_column,original_frequency[i]) for i in original_frequency.keys()]
-    print "... Done."
-    for i in result_new2old:
-        if i>0.6:
-            print i
+    column_names = original_frequency.keys()
+    return column_names, result_new2old
     # newrow = [new_kmer_name]+result_new2old
     # print newrow
     # # Starting to manipulate the final distance matrix
@@ -110,12 +109,8 @@ def generate_distance(subjectpath,queryfilepath):
     # original_distance_matrix.to_csv('new_distance.csv')
 
 
-def main(subjectpath,queryfilepath):
-    generate_distance(subjectpath=subjectpath, queryfilepath=queryfilepath)
-
-
 
 if __name__ == '__main__':
     filepath = sys.argv[2]
     subjectpath = sys.argv[1]
-    main(queryfilepath=filepath,subjectpath=subjectpath)
+    print generate_distance(queryfilepath=filepath,subjectpath=subjectpath)
