@@ -81,4 +81,4 @@ def unified_anib(indirname):
 
 if __name__ == "__main__":
     indirname = sys.argv[1]
-    print unified_anib(idirname)
+    print unified_anib(indirname)
