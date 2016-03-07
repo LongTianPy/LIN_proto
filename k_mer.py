@@ -73,7 +73,7 @@ def generate_distance(subjectpath,queryfilepath):
     the original genomes.
     :param subjectpath: The k-mer frequency table of original genomes
     :param queryfilepath A FASTA file
-    :return: Print the distance matrix of the whole.
+    :return: The similarity dictionary of the new genome with each of the original genomes.
     """
     # Here we only have one fasta file
     KmerCountNew(queryfilepath)
@@ -87,7 +87,7 @@ def generate_distance(subjectpath,queryfilepath):
     frequency_transform = lambda column: column/np.sum(column)
     print "transforming new counts to frequencies"
     # original_frequency = original_kmer.apply(frequency_transform)
-    new_frequency = new_kmer.apply(frequency_transform)
+    new_frequency = new_kmer.apply(frequency_transform).to_sparse()
     print "... Done."
     del new_kmer
     cosine_similarity = lambda column1, column2: scipy.spatial.distance.cosine(column1,column2)
@@ -96,8 +96,10 @@ def generate_distance(subjectpath,queryfilepath):
     # result = total_frequency.apply(lambda new_kmer_column: total_frequency.apply(lambda col2: cosine_similarity(new_kmer_column, col2)))
     # result_new2old = original_frequency.apply(lambda column :cosine_similarity(column, new_kmer_column)) # Usually it's one column
     result_new2old = [1-cosine_similarity(new_kmer_column,original_frequency[i]) for i in original_frequency.keys()]
-    column_names = original_frequency.keys()
-    return column_names, result_new2old
+    similarities = {}
+    for i in range(len(result_new2old)):
+        similarities[original_frequency.keys()[i]] = result_new2old[i]
+    return similarities
     # newrow = [new_kmer_name]+result_new2old
     # print newrow
     # # Starting to manipulate the final distance matrix
