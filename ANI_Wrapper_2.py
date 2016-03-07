@@ -30,6 +30,7 @@ def unified_anib(indirname):
     infiles = pyani_files.get_fasta_files(indirname)
     org_lengths = pyani_files.get_sequence_lengths(infiles)
     fragsize = pyani_config.FRAGSIZE
+    filestems = pyani_config.ANIB_FILESTEMS
     logger.info("Running ANIb")
     # Build BLAST databases and run pairwise BLASTN
     # Make sequence fragments
@@ -77,7 +78,7 @@ def unified_anib(indirname):
             logger.error("This is possibly due to a BLASTN comparison " +
                          "being too distant for use.")
         logger.error(last_exception())
-    return data
+    return data[1]
 
 if __name__ == "__main__":
     indirname = sys.argv[1]
