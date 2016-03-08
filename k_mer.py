@@ -101,7 +101,7 @@ def generate_distance(subjectpath,queryfilepath):
     similarities = {}
     for i in range(len(result_new2old)):
         similarities[original_frequency.keys()[i]] = result_new2old[i]
-    #similarities = pd.DataFrame(similarities)
+    similarities = pd.DataFrame(similarities, index=new_kmer_name)
     # original_frequency[new_kmer_name] = new_kmer_column
     # original_frequency.to_csv('/home/vinatzerlab/Desktop/updated_frequency.csv')
     return similarities
