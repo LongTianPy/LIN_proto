@@ -54,7 +54,7 @@ def main(new_genome):
     ## And supposedly, the frequency of new genome shuold also be added to this file once it's calculated.
     c.execute('SELECT FrequencyFilePath FROM FrequencyFile WHERE Interest_ID = {0}'.format(Interest_ID_new_genome))
     FrequencyFilePath = c.fetchone()[0]
-    similarity = k_mer.generate_distance(FrequencyFilePath, workspace_dir) # Already sorted
+    similarity = k_mer.generate_distance(FrequencyFilePath, workspace_dir+new_genome) # Already sorted
     # Check the biggest value, if it is bigger than the bottomline of the cutoff being used
     if similarity[new_genomeID][0] < 0.6:
         print "No similar genome found, run ANIb calculation sequentially to all genome is recommended."
@@ -65,7 +65,7 @@ def main(new_genome):
         # Get their file paths and copy them to the workspace
         for i in top10:
             c.execute("SELECT FilePath FROM Genome WHERE FilePath like '%{0}%'".format(i))
-            cmd = "cp {0} {1}".format(c.fetchone()[0], workspace_dir+new_genome)
+            cmd = "cp {0} {1}".format(c.fetchone()[0], workspace_dir)
             os.systen(cmd)
         # Now we have all of them in the workspace
         ANIb_result = ANI_Wrapper_2.unified_anib(workspace_dir)[new_genomeID]
