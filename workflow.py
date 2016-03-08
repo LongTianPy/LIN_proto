@@ -11,6 +11,7 @@ import LIN_Assign
 import MySQLdb
 from MySQLdb import Connect
 import pandas
+import os
 
 # INPUT
 #
@@ -37,6 +38,7 @@ def main():
     workspace_dir = workspace_dir + subfolder
     # And we have the file name of the genome
     new_genome = '3337_Psy-DSM10604.fasta' # Fetched from the front end
+    new_genomeID = new_genome[:-6]
     # As well as its Interest_ID
     Interest_ID_new_genome = 1 # We hard-code it here, but it should be able to be read from the front end
     db = Connect('localhost','root')
@@ -51,9 +53,28 @@ def main():
     ## And supposedly, the frequency of new genome shuold also be added to this file once it's calculated.
     c.execute('SELECT FrequencyFilePath FROM FrequencyFile WHERE Interest_ID = {0}'.format(Interest_ID_new_genome))
     FrequencyFilePath = c.fetchone()[0]
-    similarity = k_mer.generate_distance(FrequencyFilePath, workspace_dir)
-    # Then we need to sort them, or get the top n similar genomes
-    similarity_sorted = similarity.sort(axis=0, ascending=False, kind="mergesort")
+    similarity = k_mer.generate_distance(FrequencyFilePath, workspace_dir) # Already sorted
+    # Check the biggest value, if it is bigger than the bottomline of the cutoff being used
+    if similarity[new_genomeID][0] < 0.6:
+        print "No similar genome found, run ANIb calculation sequentially to all genome is recommended."
+        sys.exit()
+    else:
+        print "Looking for 10 most similar genome from our database."
+        top10 = similarity.head(10)['Genome']
+        # Get their file paths and copy them to the workspace
+        for i in top10:
+            c.execute("SELECT FilePath FROM Genome WHERE FilePath like '%{0}%'".format(i))
+            cmd = "cp {0} {1}".format(fetchone()[0], workspace_dir)
+            os.systen(cmd)
+        # Now we have all of them in the workspace
+        ANIb_result = ANI_Wrapper_2.unified_anib(workspace_dir)[new_genomeID]
+        top1_genome = ANIb_result[[x for x in ANIb_result.index if x != new_genomeID]].idxmax()
+        top1_similarity = ANIb_result[[x for x in ANIb_result if x != new_genomeID]].max()
+        new_LIN_object = LIN_Assign.getLIN(genome=top1_genome, Scheme_ID=3, similarity=top1_similarity)
+        new_LIN = LIN_Assign.Assign_LIN(new_LIN_object)
+
+
+
 
 
 
