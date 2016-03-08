@@ -96,13 +96,16 @@ def generate_distance(subjectpath,queryfilepath):
     # result = total_frequency.apply(lambda new_kmer_column: total_frequency.apply(lambda col2: cosine_similarity(new_kmer_column, col2)))
     # result_new2old = original_frequency.apply(lambda column :cosine_similarity(column, new_kmer_column)) # Usually it's one column
     result_new2old = [1-cosine_similarity(new_kmer_column,original_frequency[i]) for i in original_frequency.keys()]
+    print result_new2old
+    print type(result_new2old)
     similarities = {}
     for i in range(len(result_new2old)):
         similarities[original_frequency.keys()[i]] = result_new2old[i]
-    similarities = pd.DataFrame(similarities)
+    #similarities = pd.DataFrame(similarities)
     # original_frequency[new_kmer_name] = new_kmer_column
     # original_frequency.to_csv('/home/vinatzerlab/Desktop/updated_frequency.csv')
-    return similarities.sort(axis=0, ascending=False, kind="mergesort")
+    return similarities
+    #return similarities.sort(axis=0, ascending=False, kind="mergesort")
     # newrow = [new_kmer_name]+result_new2old
     # print newrow
     # # Starting to manipulate the final distance matrix
