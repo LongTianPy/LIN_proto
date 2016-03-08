@@ -100,8 +100,8 @@ def generate_distance(subjectpath,queryfilepath):
     for i in range(len(result_new2old)):
         similarities[original_frequency.keys()[i]] = result_new2old[i]
     original_frequency[new_kmer_name] = new_kmer_column
-    original_frequency.to_csv('updated_frequency.csv')
-    return similarities
+    original_frequency.to_csv('~/Desktop/updated_frequency.csv')
+    return similarities.sort(axis=0, ascending=False, kind="mergesort")
     # newrow = [new_kmer_name]+result_new2old
     # print newrow
     # # Starting to manipulate the final distance matrix
