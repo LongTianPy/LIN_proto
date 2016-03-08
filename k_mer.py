@@ -80,7 +80,7 @@ def generate_distance(subjectpath,queryfilepath):
     # original_kmer = read_into_dataframe(subjectpath)
     subjectpath=isfilepath(subjectpath)
     subject_frequency_file = subjectpath+'frequency'
-    subject_distance_matrix_file = subjectpath+'distance.csv'
+    # subject_distance_matrix_file = subjectpath+'distance.csv'
     original_frequency = pd.read_hdf(subject_frequency_file,'profiles').to_sparse()
     new_kmer = read_into_dataframe('tmp_count').to_sparse()
     new_kmer_name = str(new_kmer.keys()[0])
@@ -99,6 +99,8 @@ def generate_distance(subjectpath,queryfilepath):
     similarities = {}
     for i in range(len(result_new2old)):
         similarities[original_frequency.keys()[i]] = result_new2old[i]
+    original_frequency[new_kmer_name] = new_kmer_column
+    original_frequency.to_csv('updated_frequency.csv')
     return similarities
     # newrow = [new_kmer_name]+result_new2old
     # print newrow
