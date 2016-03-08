@@ -56,12 +56,12 @@ def main(new_genome):
     FrequencyFilePath = c.fetchone()[0]
     similarity = k_mer.generate_distance(FrequencyFilePath, workspace_dir+new_genome) # Already sorted
     # Check the biggest value, if it is bigger than the bottomline of the cutoff being used
-    if similarity[new_genomeID][0] < 0.6:
+    if similarity[new_genomeID].max() < 0.6:
         print "No similar genome found, run ANIb calculation sequentially to all genome is recommended."
         sys.exit()
     else:
         print "Looking for 10 most similar genome from our database."
-        top10 = similarity.head(10)['Genome']
+        top10 = similarity.head(10)['Genome'].values
         # Get their file paths and copy them to the workspace
         for i in top10:
             c.execute("SELECT FilePath FROM Genome WHERE FilePath like '%{0}%'".format(i))
