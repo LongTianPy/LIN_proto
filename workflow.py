@@ -61,7 +61,7 @@ def main(new_genome):
         sys.exit()
     else:
         print "Looking for 10 most similar genome from our database."
-        top10 = similarity.head(10)['Genome'].values
+        top10 = similarity.head(5)['Genome'].values
         # Get their file paths and copy them to the workspace
         for i in top10:
             c.execute("SELECT FilePath FROM Genome WHERE FilePath like '%{0}%'".format(i))
