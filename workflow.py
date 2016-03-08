@@ -12,6 +12,7 @@ import MySQLdb
 from MySQLdb import Connect
 import pandas
 import os
+import sys
 
 # INPUT
 #
@@ -30,14 +31,14 @@ import os
 # similarity
 
 # MAIN
-def main():
+def main(new_genome):
     # There should be a script that uploads the genome sequence to a subfolder in the workspace where the name is
     # randomly and uniquely generated
-    workspace_dir = '/home/vinatzerlab/Data/LIN_Workspace/'
+    workspace_dir = '/home/linproject/Workspace/New/'
     subfolder = 'Test_3-7-2016/'
     workspace_dir = workspace_dir + subfolder
     # And we have the file name of the genome
-    new_genome = '3337_Psy-DSM10604.fasta' # Fetched from the front end
+    # Fetched from the front end
     new_genomeID = new_genome[:-6]
     # As well as its Interest_ID
     Interest_ID_new_genome = 1 # We hard-code it here, but it should be able to be read from the front end
@@ -64,15 +65,21 @@ def main():
         # Get their file paths and copy them to the workspace
         for i in top10:
             c.execute("SELECT FilePath FROM Genome WHERE FilePath like '%{0}%'".format(i))
-            cmd = "cp {0} {1}".format(fetchone()[0], workspace_dir)
+            cmd = "cp {0} {1}".format(c.fetchone()[0], workspace_dir)
             os.systen(cmd)
         # Now we have all of them in the workspace
         ANIb_result = ANI_Wrapper_2.unified_anib(workspace_dir)[new_genomeID]
         top1_genome = ANIb_result[[x for x in ANIb_result.index if x != new_genomeID]].idxmax()
+        print top1_genome
         top1_similarity = ANIb_result[[x for x in ANIb_result if x != new_genomeID]].max()
         new_LIN_object = LIN_Assign.getLIN(genome=top1_genome, Scheme_ID=3, similarity=top1_similarity)
         new_LIN = LIN_Assign.Assign_LIN(new_LIN_object)
+    db.commit()
+    return new_LIN
 
+if __name__ == '__main__':
+    new_genome = sys.argv[1] # Actually fetched from front end
+    print main(new_genome=new_genome)
 
 
 

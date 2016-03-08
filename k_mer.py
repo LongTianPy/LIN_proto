@@ -10,6 +10,8 @@ import os
 import sys
 import scipy.spatial
 import numpy as np
+from MySQLdb import Connect
+import MySQLdb
 
 
 # FUNCTIONS
@@ -78,8 +80,7 @@ def generate_distance(subjectpath,queryfilepath):
     # Here we only have one fasta file
     KmerCountNew(queryfilepath)
     # original_kmer = read_into_dataframe(subjectpath)
-    subjectpath=isfilepath(subjectpath)
-    subject_frequency_file = subjectpath+'frequency'
+    subject_frequency_file = subjectpath
     # subject_distance_matrix_file = subjectpath+'distance.csv'
     original_frequency = pd.read_hdf(subject_frequency_file,'profiles').to_sparse()
     new_kmer = read_into_dataframe('tmp_count').to_sparse()
