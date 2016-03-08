@@ -36,7 +36,7 @@ class getLIN(object):
         db = Connect('localhost', 'root')
         c = db.cursor()
         c.execute('use LINdb_test')
-        c.execute('SELECT LIN.LIN from LIN, Genome where LIN.Genome_ID=Genome.Genome_ID and Genome.FilePath LIKE "%{0}" and LIN.Scheme_ID={1}'.format(genome, Scheme_ID))
+        c.execute('SELECT LIN.LIN from LIN, Genome where LIN.Genome_ID=Genome.Genome_ID and Genome.FilePath LIKE "%{0}%" and LIN.Scheme_ID={1}'.format(genome, Scheme_ID))
         lin = c.fetchone()[0].split(',')
         self.LIN = lin
         # Read the cutoff of this scheme
