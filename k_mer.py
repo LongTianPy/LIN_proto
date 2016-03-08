@@ -106,8 +106,7 @@ def generate_distance(subjectpath,queryfilepath):
     #     similarities[original_frequency.keys()[i]] = [result_new2old[i]]
     # original_frequency[new_kmer_name] = new_kmer_column
     # original_frequency.to_csv('/home/vinatzerlab/Desktop/updated_frequency.csv')
-    similarities.sort_index(by=[new_kmer_name], ascending=False)
-    return similarities
+    return similarities.sort_index(by=[new_kmer_name], ascending=False)
     #return similarities.sort(axis=0, ascending=False, kind="mergesort")
     # newrow = [new_kmer_name]+result_new2old
     # print newrow
