@@ -53,7 +53,7 @@ def main():
     FrequencyFilePath = c.fetchone()[0]
     similarity = k_mer.generate_distance(FrequencyFilePath, workspace_dir)
     # Then we need to sort them, or get the top n similar genomes
-
+    similarity_sorted = similarity.sort(axis=0, ascending=False, kind="mergesort")
 
 
 
