@@ -65,7 +65,7 @@ def main(new_genome):
         # Get their file paths and copy them to the workspace
         for i in top10:
             c.execute("SELECT FilePath FROM Genome WHERE FilePath like '%{0}%'".format(i))
-            cmd = "cp {0} {1}".format(c.fetchone()[0], workspace_dir)
+            cmd = "cp {0} {1}".format(c.fetchone()[0], workspace_dir+new_genome)
             os.systen(cmd)
         # Now we have all of them in the workspace
         ANIb_result = ANI_Wrapper_2.unified_anib(workspace_dir)[new_genomeID]

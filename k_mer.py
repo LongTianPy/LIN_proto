@@ -36,7 +36,7 @@ def KmerCountNew(filepath):
     :param filepath:
     :return: A k-mer counting profile will be generated on the hardisk
     """
-    cmd = "kpal count -k 12 %s %stmp_count"%(filepath,filepath)
+    cmd = "kpal count -k 12 %s tmp_count"%(filepath)
     os.system(cmd)
 
 # def generate_distance_test(subjectfilepath, queryfilepath):
@@ -83,7 +83,7 @@ def generate_distance(subjectpath,queryfilepath):
     subject_frequency_file = subjectpath
     # subject_distance_matrix_file = subjectpath+'distance.csv'
     original_frequency = pd.read_hdf(subject_frequency_file,'profiles').to_sparse()
-    new_kmer = read_into_dataframe('{0}tmp_count'.format(queryfilepath)).to_sparse()
+    new_kmer = read_into_dataframe('tmp_count').to_sparse()
     new_kmer_name = str(new_kmer.keys()[0])
     frequency_transform = lambda column: column/np.sum(column)
     print "transforming new counts to frequencies"
