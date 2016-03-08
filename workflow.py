@@ -66,7 +66,7 @@ def main(new_genome):
         for i in top10:
             c.execute("SELECT FilePath FROM Genome WHERE FilePath like '%{0}%'".format(i))
             cmd = "cp {0} {1}".format(c.fetchone()[0], workspace_dir)
-            os.systen(cmd)
+            os.system(cmd)
         # Now we have all of them in the workspace
         ANIb_result = ANI_Wrapper_2.unified_anib(workspace_dir)[new_genomeID]
         top1_genome = ANIb_result[[x for x in ANIb_result.index if x != new_genomeID]].idxmax()
