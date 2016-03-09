@@ -73,11 +73,13 @@ def main(new_genome):
         print top1_genome
         top1_similarity = ANIb_result[[x for x in ANIb_result if x != new_genomeID]].max()
         if top1_similarity >= 1:
-            print "This is most likely " + top1_genome
+            print "This is most likely to be" + top1_genome
         else:
             new_LIN_object = LIN_Assign.getLIN(genome=top1_genome, Scheme_ID=3, similarity=top1_similarity)
-            print new_LIN_object.LIN
+            print "The most similar record is " + top1_genome+ " , whose LIN is " +new_LIN_object.LIN + '.'
+            print "The similarity to it is " + top1_similarity + "."
             new_LIN = LIN_Assign.Assign_LIN(new_LIN_object).new_LIN
+            print "The LIN assigned to your genome is " + new_LIN
             db.commit()
             return new_LIN
 
