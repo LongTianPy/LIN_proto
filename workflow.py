@@ -74,7 +74,6 @@ def main(new_genome):
         top1_similarity = ANIb_result[[x for x in ANIb_result if x != new_genomeID]].max()
         if top1_similarity >= 1:
             print "This is most likely " + top1_genome
-
         else:
             new_LIN_object = LIN_Assign.getLIN(genome=top1_genome, Scheme_ID=3, similarity=top1_similarity)
             new_LIN = LIN_Assign.Assign_LIN(new_LIN_object)

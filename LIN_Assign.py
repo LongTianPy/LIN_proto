@@ -43,14 +43,14 @@ class getLIN(object):
         c.execute('SELECT Cutoff from Scheme where Scheme_ID={0}'.format(Scheme_ID))
         cutoff = c.fetchone()[0].split(',')
         cutoff = [float(i) for i in cutoff]
-        for i in range(len(cutoff)):
-            if i < len(cutoff) - 1:
-                if cutoff[i]<similarity and similarity <= cutoff[i+1]:
-                    idx_to_change = i+1
-                else:
-                    continue
+        idx_to_change = 0
+        i = 0
+        while i in range(len(cutoff)):
+            if cutoff[i] < similarity and similarity > cutoff[i+1]:
+                idx_to_change += 1
+                i += 1
             else:
-                idx_to_change = i
+                idx_to_change = idx_to_change
         self.idx_to_change = idx_to_change
         self.conserved_LIN = lin[:idx_to_change]
 
