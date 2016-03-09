@@ -77,7 +77,7 @@ def main(new_genome):
         else:
             new_LIN_object = LIN_Assign.getLIN(genome=top1_genome, Scheme_ID=3, similarity=top1_similarity)
             print "The most similar record is " + top1_genome+ " , whose LIN is " +'.'.join(new_LIN_object.LIN) + '.'
-            print "The similarity to it is " + top1_similarity + "."
+            print "The similarity to it is " + str(top1_similarity*100) + "%."
             new_LIN = LIN_Assign.Assign_LIN(new_LIN_object).new_LIN
             print "The LIN assigned to your genome is " + new_LIN
             db.commit()
