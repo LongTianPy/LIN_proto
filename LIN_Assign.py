@@ -46,7 +46,8 @@ class getLIN(object):
         idx_to_change = 0
         i = 0
         while i != range(len(cutoff)-1):
-            if cutoff[i] < similarity and similarity > cutoff[i+1]:
+            if similarity > cutoff[i+1]:
+                print "The cutoff of this position " + str(i) + " is " + str(cutoff[i])+ ' , move to the next position.'
                 idx_to_change += 1
                 i += 1
             else:
