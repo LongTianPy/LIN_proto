@@ -76,7 +76,7 @@ def main(new_genome):
             print "This is most likely " + top1_genome
         else:
             new_LIN_object = LIN_Assign.getLIN(genome=top1_genome, Scheme_ID=3, similarity=top1_similarity)
-            new_LIN = LIN_Assign.Assign_LIN(new_LIN_object)
+            new_LIN = LIN_Assign.Assign_LIN(new_LIN_object).new_LIN
             db.commit()
             return new_LIN
 
