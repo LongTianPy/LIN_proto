@@ -59,7 +59,7 @@ class Assign_LIN(object):
     """
     def __init__(self, getLIN_object):
         self.idx_to_change = getLIN_object.idx_to_change
-        self.conserved_LIN = '.'.join(getLIN_object.conserved_LIN)
+        self.conserved_LIN = ','.join(getLIN_object.conserved_LIN)
         self.label_num = getLIN_object.label_num
         self.assign()
     def assign(self, idx_to_change=None, conserved_LIN=None, label_num=None):
@@ -78,10 +78,10 @@ class Assign_LIN(object):
         num_to_assign = str(max(LINs)+1)
         if idx_to_change != label_num - 1:
             tail = ['0'] * (label_num - 1 - idx_to_change)
-            tail = '.'.join(tail)
+            tail = ','.join(tail)
             new_LIN = conserved_LIN + ',%s,'%num_to_assign + tail
         else:
-            new_LIN = conserved_LIN + '.%s'%num_to_assign
+            new_LIN = conserved_LIN + ',%s'%num_to_assign
         self.new_LIN = new_LIN
 
 
