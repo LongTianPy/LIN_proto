@@ -21,7 +21,7 @@ class getLIN(object):
         db = Connect('localhost', 'root')
         c = db.cursor()
         c.execute('use LINdb_test')
-        c.execute("SELECT LabelNum from Scheme WHERE Scheme_ID={0}".format(Scheme_ID))
+        c.execute("SELECT LabelNum from Scheme WHERE Scheme_ID=3")
         self.label_num = int(c.fetchone()[0])
         self.similarity = float(similarity)*100
         self.parse()
@@ -36,8 +36,8 @@ class getLIN(object):
         db = Connect('localhost', 'root')
         c = db.cursor()
         c.execute('use LINdb_test')
-        c.execute('SELECT LIN.LIN from LIN, Genome where LIN.Genome_ID=Genome.Genome_ID and Genome.FilePath LIKE "%{0}%" and LIN.Scheme_ID={1}'
-                  .format(genome, Scheme_ID))
+        c.execute('SELECT LIN.LIN from LIN, Genome where LIN.Genome_ID=Genome.Genome_ID and Genome.FilePath LIKE "%{0}%" and LIN.Scheme_ID=3'
+                  .format(genome))
         lin = c.fetchone()[0].split(',')
         self.LIN = lin
         # Read the cutoff of this scheme
@@ -78,8 +78,12 @@ class Assign_LIN(object):
         db = Connect('localhost', 'root')
         c = db.cursor()
         c.execute('use LINdb_test')
-        c.execute('SELECT LIN.LIN from LIN WHERE LIN.LIN LIKE "{0}%"'.format(conserved_LIN))
-        tmp = c.fetchall()
+        if conserved_LIN == '':
+            c.execute("SELECT LIN.LIN FROM LIN")
+            tmp = c.fetchall()
+        else:
+            c.execute('SELECT LIN.LIN from LIN WHERE LIN.LIN LIKE "{0}%"'.format(conserved_LIN[:-1]))
+            tmp = c.fetchall()
         LINs = [int(i[0].split(',')[idx_to_change]) for i in tmp]
         num_to_assign = str(max(LINs)+1)
         if idx_to_change != label_num - 1:

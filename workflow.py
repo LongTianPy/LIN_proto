@@ -79,7 +79,7 @@ def main(new_genome):
     os.system('rm {0}*'.format(workspace_dir))
     top1_genome = ANIb_result[[x for x in ANIb_result.index if x != new_genomeID]].idxmax()
     print top1_genome
-    top1_similarity = ANIb_result[[x for x in ANIb_result if x != new_genomeID]].max()
+    top1_similarity = ANIb_result[top1_genome]
     # if top1_similarity >= 1:
     #     print "This is most likely to be" + top1_genome
     # else:
@@ -88,7 +88,7 @@ def main(new_genome):
     print "The similarity to it is " + str(top1_similarity*100) + "%."
     new_LIN = LIN_Assign.Assign_LIN(new_LIN_object).new_LIN
     print "The LIN assigned to your genome is " + new_LIN
-    c.execute('SELECT Genome_ID FROM Genome where FilePath like "%{0}"'.format(new_genome))
+    c.execute('SELECT Genome_ID FROM Genome where FilePath like "%{0}%"'.format(new_genome))
     Genome_ID = int(c.fetchone()[0])
     c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN) values ({0}, 3, '{1}')".format(Genome_ID, new_LIN))
     db.commit()
