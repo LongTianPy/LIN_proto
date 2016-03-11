@@ -25,13 +25,7 @@ class getLIN(object):
         self.label_num = int(c.fetchone()[0])
         self.similarity = float(similarity)*100
         self.parse()
-    def parse(self, genome = None, Scheme_ID = None, similarity = None):
-        if not genome:
-            genome = self.genome
-        if not Scheme_ID:
-            Scheme_ID = self.Scheme_ID
-        if not similarity:
-            similarity = self.similarity
+    def parse(self, genome = self.genome, Scheme_ID = self.Scheme_ID, similarity = self.similarity):
         # Read the LIN of this genome
         db = Connect('localhost', 'root')
         c = db.cursor()
