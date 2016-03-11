@@ -68,7 +68,7 @@ def main(new_genome):
         n_top = 5
     top5 = similarity.head(n_top)['Genome'].values
     # Get their file paths and copy them to the workspace
-    for i in top10:
+    for i in top5:
         c.execute("SELECT FilePath FROM Genome WHERE FilePath like '%{0}%'".format(i))
         cmd = "cp {0} {1}".format(c.fetchone()[0], workspace_dir)
         os.system(cmd)
