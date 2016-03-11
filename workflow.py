@@ -46,7 +46,7 @@ def main(new_genome):
     db = Connect('localhost','root')
     c = db.cursor()
     c.execute('use LINdb_test_2')
-    c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, Feature) values (1, 1, {0}, {1})'
+    c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, Feature) values (1, 1, "{0}", "{1}")'
               .format(original_folder+new_genome, new_genomeID))
     # # Fetch the file paths of all the genomes from the database that have the same interest ID
     # c.execute('SELECT FilePath FROM Genome WHERE Interest_ID = {0}'.format(Interest_ID_new_genome))
