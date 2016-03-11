@@ -58,7 +58,7 @@ class getLIN(object):
                     idx_to_change = len(cutoff) - 1
                     i += 1
             self.idx_to_change = idx_to_change
-            self.conserved_LIN = lin[:idx_to_change]+[',']
+            self.conserved_LIN = lin[:idx_to_change]
 
 class Assign_LIN(object):
     """ Get the biggest number assigned to the idx_to_change with the same conserved part of LIN
@@ -82,16 +82,20 @@ class Assign_LIN(object):
             c.execute("SELECT LIN.LIN FROM LIN")
             tmp = c.fetchall()
         else:
-            c.execute('SELECT LIN.LIN from LIN WHERE LIN.LIN LIKE "{0}%"'.format(conserved_LIN[:-1]))
+            c.execute('SELECT LIN.LIN from LIN WHERE LIN.LIN LIKE "{0}%"'.format(conserved_LIN))
             tmp = c.fetchall()
         LINs = [int(i[0].split(',')[idx_to_change]) for i in tmp]
         num_to_assign = str(max(LINs)+1)
         if idx_to_change != label_num - 1:
             tail = ['0'] * (label_num - 1 - idx_to_change)
             tail = ','.join(tail)
-            new_LIN = conserved_LIN + '%s,'%num_to_assign + tail
+            new_LIN = conserved_LIN + ',%s,'%num_to_assign + tail
         else:
-            new_LIN = conserved_LIN + '%s'%num_to_assign
+            new_LIN = conserved_LIN + ',%s'%num_to_assign
+        if new_LIN.startswith(','):
+            new_LIN = new_LIN[1:]
+        else:
+            new_LIN = new_LIN
         self.new_LIN = new_LIN
 
 
