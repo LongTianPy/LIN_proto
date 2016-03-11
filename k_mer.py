@@ -82,14 +82,14 @@ def generate_distance(queryfilepath):
     # original_kmer = read_into_dataframe(subjectpath)
     subject_frequency_file = '/home/linproject/Workspace/FrequencyFiles/frequency_w_ecoli'
     # subject_distance_matrix_file = subjectpath+'distance.csv'
-    original_frequency = pd.read_hdf(subject_frequency_file,'profiles').to_sparse()
-    new_kmer = read_into_dataframe('tmp_count').to_sparse()
+    original_frequency = pd.read_hdf(subject_frequency_file,'profiles')
+    new_kmer = read_into_dataframe('tmp_count')
     os.system('rm tmp_count')
     new_kmer_name = str(new_kmer.keys()[0])
     frequency_transform = lambda column: column/np.sum(column)
     print "transforming new counts to frequencies"
     # original_frequency = original_kmer.apply(frequency_transform)
-    new_frequency = new_kmer.apply(frequency_transform).to_sparse()
+    new_frequency = new_kmer.apply(frequency_transform)
     print "... Done."
     del new_kmer
     cosine_similarity = lambda column1, column2: scipy.spatial.distance.cosine(column1,column2)
