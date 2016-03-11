@@ -33,6 +33,7 @@ class getLIN(object):
         if not similarity:
             similarity = self.similarity
         # Read the LIN of this genome
+        print genome
         db = Connect('localhost', 'root')
         c = db.cursor()
         c.execute('use LINdb_test')
