@@ -36,7 +36,7 @@ def main(new_genome):
     # randomly and uniquely generated
     original_folder  = '/home/linproject/Workspace/48PseudomonasGenomes/'
     workspace_dir = '/home/linproject/Workspace/New/'
-    subfolder = 'Workspace/'
+    subfolder = 'workspace/'
     workspace_dir = workspace_dir + subfolder
     # And we have the file name of the genome
     # Fetched from the front end
