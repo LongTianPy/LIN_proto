@@ -20,7 +20,7 @@ class getLIN(object):
         self.Scheme_ID = Scheme_ID
         db = Connect('localhost', 'root')
         c = db.cursor()
-        c.execute('use LINdb_test')
+        c.execute('use LINdb_test_2')
         c.execute("SELECT LabelNum from Scheme WHERE Scheme_ID=3")
         self.label_num = int(c.fetchone()[0])
         self.similarity = float(similarity)*100
@@ -36,7 +36,7 @@ class getLIN(object):
         print genome
         db = Connect('localhost', 'root')
         c = db.cursor()
-        c.execute('use LINdb_test')
+        c.execute('use LINdb_test_2')
         c.execute('SELECT LIN.LIN from LIN, Genome where LIN.Genome_ID=Genome.Genome_ID and Genome.FilePath LIKE "%{0}%" and LIN.Scheme_ID=3'.format(genome))
         lin = c.fetchone()[0].split(',')
         self.LIN = lin
@@ -77,7 +77,7 @@ class Assign_LIN(object):
             label_num = self.label_num
         db = Connect('localhost', 'root')
         c = db.cursor()
-        c.execute('use LINdb_test')
+        c.execute('use LINdb_test_2')
         if conserved_LIN == '':
             c.execute("SELECT LIN.LIN FROM LIN")
             tmp = c.fetchall()
