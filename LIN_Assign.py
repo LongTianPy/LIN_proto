@@ -36,7 +36,8 @@ class getLIN(object):
         db = Connect('localhost', 'root')
         c = db.cursor()
         c.execute('use LINdb_test')
-        c.execute('SELECT LIN.LIN from LIN, Genome where LIN.Genome_ID=Genome.Genome_ID and Genome.FilePath LIKE "%{0}%" and LIN.Scheme_ID={1}'.format(genome, Scheme_ID))
+        c.execute('SELECT LIN.LIN from LIN, Genome where LIN.Genome_ID=Genome.Genome_ID and Genome.FilePath LIKE "%{0}%" and LIN.Scheme_ID={1}'
+                  .format(genome, Scheme_ID))
         lin = c.fetchone()[0].split(',')
         self.LIN = lin
         # Read the cutoff of this scheme
@@ -44,15 +45,20 @@ class getLIN(object):
         cutoff = c.fetchone()[0].split(',')
         cutoff = [float(i) for i in cutoff]
         idx_to_change = 0
-        i = 0
-        while i < len(cutoff)-1:
-            if cutoff[i] < similarity and cutoff[i+1] >= similarity:
-                idx_to_change = i
-            else:
-                idx_to_change = len(cutoff) - 1
-                i += 1
-        self.idx_to_change = idx_to_change
-        self.conserved_LIN = lin[:idx_to_change]
+        if cutoff[0] > similarity:
+            idx_to_change = 0
+            self.idx_to_change = idx_to_change
+            self.conserved_LIN = ''
+        else:
+            i = 0
+            while i < len(cutoff)-1:
+                if cutoff[i] < similarity and cutoff[i+1] >= similarity:
+                    idx_to_change = i
+                else:
+                    idx_to_change = len(cutoff) - 1
+                    i += 1
+            self.idx_to_change = idx_to_change
+            self.conserved_LIN = lin[:idx_to_change]+[',']
 
 class Assign_LIN(object):
     """ Get the biggest number assigned to the idx_to_change with the same conserved part of LIN
@@ -79,9 +85,9 @@ class Assign_LIN(object):
         if idx_to_change != label_num - 1:
             tail = ['0'] * (label_num - 1 - idx_to_change)
             tail = ','.join(tail)
-            new_LIN = conserved_LIN + ',%s,'%num_to_assign + tail
+            new_LIN = conserved_LIN + '%s,'%num_to_assign + tail
         else:
-            new_LIN = conserved_LIN + ',%s'%num_to_assign
+            new_LIN = conserved_LIN + '%s'%num_to_assign
         self.new_LIN = new_LIN
 
 

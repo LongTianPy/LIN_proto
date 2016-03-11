@@ -68,7 +68,7 @@ def KmerCountNew(filepath):
 #     print "Writing distance matrix to %s"%queryfilepath
 #     result.to_csv('%sdistance.csv'%queryfilepath)
 
-def generate_distance(subjectpath,queryfilepath):
+def generate_distance(queryfilepath):
     """
     In the real case, we hope we only have one newly uploaded genome at a time, which means we don't calculate the whole
     data frame -- just the new one with the old one. And concatenate the new result to the existing distance matrix of
@@ -80,10 +80,11 @@ def generate_distance(subjectpath,queryfilepath):
     # Here we only have one fasta file
     KmerCountNew(queryfilepath)
     # original_kmer = read_into_dataframe(subjectpath)
-    subject_frequency_file = subjectpath
+    subject_frequency_file = '/home/linproject/Workspace/FrequencyFiles/frequency_w_eoli'
     # subject_distance_matrix_file = subjectpath+'distance.csv'
     original_frequency = pd.read_hdf(subject_frequency_file,'profiles').to_sparse()
     new_kmer = read_into_dataframe('tmp_count').to_sparse()
+    os.system('rm tmp_count')
     new_kmer_name = str(new_kmer.keys()[0])
     frequency_transform = lambda column: column/np.sum(column)
     print "transforming new counts to frequencies"
@@ -107,6 +108,10 @@ def generate_distance(subjectpath,queryfilepath):
     # original_frequency[new_kmer_name] = new_kmer_column
     # original_frequency.to_csv('/home/vinatzerlab/Desktop/updated_frequency.csv')
     similarities_sorted = similarities.sort_index(by=[new_kmer_name], ascending=False)
+    new_hdf = pd.concat([original_frequency,new_frequency],axis=1)
+    del original_frequency
+    del new_frequency
+    new_hdf.to_hdf(subject_frequency_file,key='profiles')
     return similarities_sorted
     #return similarities.sort(axis=0, ascending=False, kind="mergesort")
     # newrow = [new_kmer_name]+result_new2old
@@ -120,6 +125,5 @@ def generate_distance(subjectpath,queryfilepath):
     # original_distance_matrix.to_csv('new_distance.csv')
 
 if __name__ == '__main__':
-    filepath = sys.argv[2]
-    subjectpath = sys.argv[1]
-    print generate_distance(queryfilepath=filepath,subjectpath=subjectpath)
+    filepath = sys.argv[1]
+    print generate_distance(queryfilepath=filepath)
