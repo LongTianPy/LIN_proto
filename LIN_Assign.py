@@ -41,7 +41,7 @@ class getLIN(object):
         lin = c.fetchone()[0].split(',')
         self.LIN = lin
         # Read the cutoff of this scheme
-        c.execute('SELECT Cutoff from Scheme where Scheme_ID=%'%(Scheme_ID))
+        c.execute('SELECT Cutoff from Scheme where Scheme_ID={0}'.format(Scheme_ID))
         cutoff = c.fetchone()[0].split(',')
         cutoff = [float(i) for i in cutoff]
         idx_to_change = 0
