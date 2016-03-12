@@ -63,10 +63,10 @@ def main(new_genome):
     #     sys.exit()
     # else:
     print "Looking for 5 most similar genome from our database."
-    if len(similarity['Genome'])<=5:
+    if len(similarity['Genome'])<=10:
         n_top = len(similarity['Genome'])
     else:
-        n_top = 5
+        n_top = 10
     top5 = similarity.head(n_top)['Genome'].values
     # Get their file paths and copy them to the workspace
     for i in top5:
