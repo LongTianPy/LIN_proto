@@ -44,20 +44,13 @@ class getLIN(object):
         cutoff = c.fetchone()[0].split(',')
         cutoff = [float(i) for i in cutoff]
         idx_to_change = 0
-        if cutoff[0] > similarity:
-            idx_to_change = 0
-            self.idx_to_change = idx_to_change
+        for i in range(len(cutoff)):
+            if similarity < cutoff[i]:
+                idx_to_change = i
+        self.idx_to_change = idx_to_change
+        if idx_to_change == 0:
             self.conserved_LIN = ''
-        else:
-            i = 0
-            while i < len(cutoff)-1:
-                if cutoff[i] < similarity and cutoff[i+1] >= similarity:
-                    idx_to_change = i
-                    break
-                else:
-                    idx_to_change = len(cutoff) - 1
-                    i += 1
-            self.idx_to_change = idx_to_change
+        else: # idx_to_change < len(cutoff)-1:
             self.conserved_LIN = lin[:idx_to_change]
 
 class Assign_LIN(object):
