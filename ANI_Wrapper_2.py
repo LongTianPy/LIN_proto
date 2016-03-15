@@ -83,6 +83,7 @@ import traceback
 def unified_anib(indirname):
     # Build BLAST databases and run pairwise BLASTN
     # Fraglengths does not get reused with BLASTN
+    os.mkdir(indirname+'out/')
     logger = logging.getLogger('ANI_Wrapper_2.py')
     logger.setLevel(logging.DEBUG)
     infiles = pyani_files.get_fasta_files(indirname)
