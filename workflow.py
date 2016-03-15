@@ -34,7 +34,7 @@ import sys
 def main(new_genome):
     # There should be a script that uploads the genome sequence to a subfolder in the workspace where the name is
     # randomly and uniquely generated
-    original_folder  = '/home/linproject/Workspace/48PseudomonasGenomes/'
+    original_folder  = '/home/linproject/Workspace/28PseudomonasGenomes/'
     workspace_dir = '/home/linproject/Workspace/New/'
     subfolder = 'workspace/'
     workspace_dir = workspace_dir + subfolder
