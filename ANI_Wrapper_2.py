@@ -75,7 +75,7 @@ import traceback
 #             logger.error("This is possibly due to BLASTN run failure, " +
 #                          "please investigate")
 #         else:
-#             logger.error("This is possibly due to a BLASTN comparison " +
+#             logger.error("This is possibly due to ara BLASTN comparison " +
 #                          "being too distant for use.")
 #         logger.error(last_exception())
 #     return data[1]
@@ -98,14 +98,14 @@ def unified_anib(indirname):
             sys.exit(1)
     fragfiles, fraglengths = anib.fragment_FASTA_files(infiles,
                                                        indirname,
-                                                       args.fragsize)
+                                                       fragsize)
     # Export fragment lengths as JSON, in case we re-run BLASTALL with
     # --skip_blastn
     with open(os.path.join(indirname, 'fraglengths.json'), 'w') as outfile:
         json.dump(fraglengths, outfile)
     # Which executables are we using?
-    format_exe = args.formatdb_exe
-    blast_exe = args.blastall_exe
+    format_exe = pyani_config.FORMATDB_DEFAULT
+    blast_exe = pyani_config.BLASTALL_DEFAULT
     # Run BLAST database-building and executables from a jobgraph
     logger.info("Creating job dependency graph")
     jobgraph = anib.make_job_graph(infiles, fragfiles, indirname,
