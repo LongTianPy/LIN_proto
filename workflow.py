@@ -81,8 +81,8 @@ def main(new_genome):
         ANIb_result = ANI_Wrapper_2.unified_anib(workspace_dir)[new_genomeID]
         os.system('rm {0}*'.format(workspace_dir))
         os.system('rm -rf {0}out'.format(workspace_dir))
-        genome = ANIb_result[new_genomeID].idxmin()
-        similarity = ANIb_result[new_genomeID].min
+        genome = ANIb_resultidxmin()
+        similarity = ANIb_result.min()
         similarities[genome]=similarity
     top1_genome = similarity.idxmax()
     top1_similarity = similarity.max()
