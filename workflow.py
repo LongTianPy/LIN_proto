@@ -83,8 +83,8 @@ def main(new_genome):
         genome = ANIb_result.idxmin()
         similarity = ANIb_result.min()
         similarities[genome]=similarity
-    top1_genome = similarity.idxmax()
-    top1_similarity = similarity.max()
+    top1_genome = similarities.idxmax()
+    top1_similarity = similarities.max()
     # if top1_similarity >= 1:
     #     print "This is most likely to be" + top1_genome
     # else:
