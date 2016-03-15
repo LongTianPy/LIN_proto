@@ -10,7 +10,7 @@ import k_mer
 import LIN_Assign
 import MySQLdb
 from MySQLdb import Connect
-import pandas
+import pandas as pd
 import os
 import sys
 
@@ -46,8 +46,8 @@ def main(new_genome):
     Interest_ID_new_genome = 1 # We hard-code it here, but it should be able to be read from the front end
     db = Connect('localhost','root')
     c = db.cursor()
-    c.execute('use LINdb_test_2')
-    c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath) values (1, 1, "{0}", "{1}")'
+    c.execute('use LINdb_test_3')
+    c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath) values (1, 1, "{0}")'
               .format(original_folder+new_genome))
     db.commit()
     # # Fetch the file paths of all the genomes from the database that have the same interest ID
@@ -70,6 +70,7 @@ def main(new_genome):
         n_top = 10
     top10 = similarity.head(n_top)['Genome'].values
     # Get their file paths and copy them to the workspace
+    similarities = pd.DataFrame()
     for i in top10:
         c.execute("SELECT FilePath FROM Genome WHERE FilePath like '%{0}%'".format(i))
         cmd = "cp {0} {1}".format(c.fetchone()[0], workspace_dir)
@@ -78,9 +79,11 @@ def main(new_genome):
         # Now we have all of them in the workspace
         ANIb_result = ANI_Wrapper_2.unified_anib(workspace_dir)[new_genomeID]
         os.system('rm {0}*'.format(workspace_dir))
-    top1_genome = ANIb_result[[x for x in ANIb_result.index if x != new_genomeID]].idxmax()
-    print top1_genome
-    top1_similarity = ANIb_result[top1_genome]
+        genome = ANIb_result[new_genomeID].idxmin()
+        similarity = ANIb_result[new_genomeID].min
+        similarities[genome]=similarity
+    top1_genome = similarity.idxmax()
+    top1_similarity = similarity.max()
     # if top1_similarity >= 1:
     #     print "This is most likely to be" + top1_genome
     # else:
@@ -91,7 +94,8 @@ def main(new_genome):
     print "The LIN assigned to your genome is " + new_LIN
     c.execute('SELECT Genome_ID FROM Genome where FilePath like "%{0}%"'.format(new_genome))
     Genome_ID = int(c.fetchone()[0])
-    c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN) values ({0}, 3, '{1}')".format(Genome_ID, new_LIN))
+    c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 3, '{1}', '{2}', {3})"
+              .format(Genome_ID, new_LIN, top1_genome, top1_similarity))
     db.commit()
 
 

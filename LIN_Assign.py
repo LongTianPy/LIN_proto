@@ -20,7 +20,7 @@ class getLIN(object):
         self.Scheme_ID = Scheme_ID
         db = Connect('localhost', 'root')
         c = db.cursor()
-        c.execute('use LINdb_test_2')
+        c.execute('use LINdb_test_3')
         c.execute("SELECT LabelNum from Scheme WHERE Scheme_ID=3")
         self.label_num = int(c.fetchone()[0])
         self.similarity = float(similarity)*100
