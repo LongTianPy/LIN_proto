@@ -96,9 +96,7 @@ def unified_anib(indirname):
             logger.error("This will cause issues with MUMmer and BLAST")
             logger.error("(exiting)")
             sys.exit(1)
-    fragfiles, fraglengths = anib.fragment_FASTA_files(infiles,
-                                                       indirname,
-                                                       fragsize)
+    fragfiles, fraglengths = anib.fragment_FASTA_files(infiles, indirname, fragsize)
     # Export fragment lengths as JSON, in case we re-run BLASTALL with
     # --skip_blastn
     with open(os.path.join(indirname, 'fraglengths.json'), 'w') as outfile:
@@ -108,8 +106,7 @@ def unified_anib(indirname):
     blast_exe = pyani_config.BLASTALL_DEFAULT
     # Run BLAST database-building and executables from a jobgraph
     logger.info("Creating job dependency graph")
-    jobgraph = anib.make_job_graph(infiles, fragfiles, indirname,
-                                   format_exe, blast_exe, 'ANIblastall')
+    jobgraph = anib.make_job_graph(infiles, fragfiles, indirname, format_exe, blast_exe, 'ANIblastall')
 
     logger.info("Running jobs with multiprocessing")
     logger.info("Running job dependency graph")
