@@ -35,7 +35,7 @@ class getLIN(object):
         # Read the LIN of this genome
         db = Connect('localhost', 'root')
         c = db.cursor()
-        c.execute('use LINdb_test_2')
+        c.execute('use LINdb_test_3')
         c.execute('SELECT LIN.LIN from LIN, Genome where LIN.Genome_ID=Genome.Genome_ID and Genome.FilePath LIKE "%{0}%" and LIN.Scheme_ID=3'.format(genome))
         lin = c.fetchone()[0].split(',')
         self.LIN = lin
