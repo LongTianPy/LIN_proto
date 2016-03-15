@@ -96,17 +96,17 @@ def unified_anib(indirname):
             logger.error("This will cause issues with MUMmer and BLAST")
             logger.error("(exiting)")
             sys.exit(1)
-    fragfiles, fraglengths = anib.fragment_FASTA_files(infiles, indirname, fragsize)
+    fragfiles, fraglengths = anib.fragment_FASTA_files(infiles, indirname+'out/', fragsize)
     # Export fragment lengths as JSON, in case we re-run BLASTALL with
     # --skip_blastn
-    with open(os.path.join(indirname, 'fraglengths.json'), 'w') as outfile:
+    with open(os.path.join(indirname+'out/', 'fraglengths.json'), 'w') as outfile:
         json.dump(fraglengths, outfile)
     # Which executables are we using?
     format_exe = pyani_config.FORMATDB_DEFAULT
     blast_exe = pyani_config.BLASTALL_DEFAULT
     # Run BLAST database-building and executables from a jobgraph
     logger.info("Creating job dependency graph")
-    jobgraph = anib.make_job_graph(infiles, fragfiles, indirname, format_exe, blast_exe, 'ANIblastall')
+    jobgraph = anib.make_job_graph(infiles, fragfiles, indirname+'out/', format_exe, blast_exe, 'ANIblastall')
 
     logger.info("Running jobs with multiprocessing")
     logger.info("Running job dependency graph")
@@ -121,17 +121,16 @@ def unified_anib(indirname):
     # Process pairwise BLASTN output
     logger.info("Processing pairwise %s BLAST output." % 'ANIblastall')
     try:
-        data = anib.process_blast(args.outdirname, org_lengths,
+        data = anib.process_blast(indirname+'out/', org_lengths,
                                   fraglengths=fraglengths, mode='ANIblastall')
     except ZeroDivisionError:
         logger.error("One or more BLAST output files has a problem.")
-        if not args.skip_blastn:
-            if 0 < cumval:
-                logger.error("This is possibly due to BLASTN run failure, " +
-                             "please investigate")
-            else:
-                logger.error("This is possibly due to a BLASTN comparison " +
-                             "being too distant for use.")
+        if 0 < cumval:
+            logger.error("This is possibly due to BLASTN run failure, " +
+                         "please investigate")
+        else:
+            logger.error("This is possibly due to ara BLASTN comparison " +
+                         "being too distant for use.")
         logger.error(last_exception())
     return data[1]
 
