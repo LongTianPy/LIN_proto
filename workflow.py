@@ -46,8 +46,8 @@ def main(new_genome):
     db = Connect('localhost','root')
     c = db.cursor()
     c.execute('use LINdb_test_2')
-    c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, Features) values (1, 1, "{0}", "{1}")'
-              .format(original_folder+new_genome, new_genomeID))
+    c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath) values (1, 1, "{0}", "{1}")'
+              .format(original_folder+new_genome))
     db.commit()
     # # Fetch the file paths of all the genomes from the database that have the same interest ID
     # c.execute('SELECT FilePath FROM Genome WHERE Interest_ID = {0}'.format(Interest_ID_new_genome))
@@ -62,21 +62,21 @@ def main(new_genome):
     #     print "No similar genome found, run ANIb calculation sequentially to all genome is recommended."
     #     sys.exit()
     # else:
-    print "Looking for 5 most similar genome from our database."
+    print "Looking for 10 most similar genome from our database."
     if len(similarity['Genome'])<=10:
         n_top = len(similarity['Genome'])
     else:
         n_top = 10
-    top5 = similarity.head(n_top)['Genome'].values
+    top10 = similarity.head(n_top)['Genome'].values
     # Get their file paths and copy them to the workspace
-    for i in top5:
+    for i in top10:
         c.execute("SELECT FilePath FROM Genome WHERE FilePath like '%{0}%'".format(i))
         cmd = "cp {0} {1}".format(c.fetchone()[0], workspace_dir)
         os.system(cmd)
-    os.system('cp {0} {1}'.format(original_folder+new_genome,workspace_dir))
-    # Now we have all of them in the workspace
-    ANIb_result = ANI_Wrapper_2.unified_anib(workspace_dir)[new_genomeID]
-    os.system('rm {0}*'.format(workspace_dir))
+        os.system('cp {0} {1}'.format(original_folder+new_genome,workspace_dir))
+        # Now we have all of them in the workspace
+        ANIb_result = ANI_Wrapper_2.unified_anib(workspace_dir)[new_genomeID]
+        os.system('rm {0}*'.format(workspace_dir))
     top1_genome = ANIb_result[[x for x in ANIb_result.index if x != new_genomeID]].idxmax()
     print top1_genome
     top1_similarity = ANIb_result[top1_genome]

@@ -18,23 +18,77 @@ import shutil
 import sys
 import traceback
 
-def unified_anib(indirname):
-    """
+# def unified_anib(indirname):
+#     """
+#
+#     :param indirnames: The directory where the new genome as well as the top n genomes are in
+#     :param org_lengths:
+#     :return:
+#     """
+#     logger = logging.getLogger('ANI_Wrapper_2.py')
+#     logger.setLevel(logging.DEBUG)
+#     infiles = pyani_files.get_fasta_files(indirname)
+#     org_lengths = pyani_files.get_sequence_lengths(infiles)
+#     fragsize = pyani_config.FRAGSIZE
+#     filestems = pyani_config.ANIB_FILESTEMS
+#     logger.info("Running ANIb")
+#     # Build BLAST databases and run pairwise BLASTN
+#     # Make sequence fragments
+#     # Fraglengths does not get reused with BLASTN
+#     filenames = os.listdir(indirname)
+#     for fname in filenames:
+#         if ' ' in  os.path.abspath(fname):
+#             logger.error("File or directory '%s' contains whitespace" % fname)
+#             logger.error("This will cause issues with MUMmer and BLAST")
+#             logger.error("(exiting)")
+#             sys.exit(1)
+#     fragfiles, fraglengths = anib.fragment_FASTA_files(infiles,
+#                                                        indirname,
+#                                                        fragsize)
+#     format_exe = pyani_config.MAKEBLASTDB_DEFAULT
+#     blast_exe = pyani_config.BLASTN_DEFAULT
+#
+#     # Run BLAST database-building and executables from a jobgraph
+#     logger.info("Creating job dependency graph")
+#     jobgraph = anib.make_job_graph(infiles, fragfiles, indirname,
+#                                    format_exe, blast_exe, "ANIb")
+#
+#     logger.info("Running jobs with multiprocessing")
+#     logger.info("Running job dependency graph")
+#     cumval = run_mp.run_dependency_graph(jobgraph, verbose=False,
+#                                          logger=logger)
+#     if 0 < cumval:
+#         logger.warning("At least one BLAST run failed. " +
+#                        "ANIb may fail.")
+#     else:
+#         logger.info("All multiprocessing jobs complete.")
+#
+#
+#     # Process pairwise BLASTN output
+#     logger.info("Processing pairwise ANIb BLAST output.")
+#     try:
+#         data = anib.process_blast(indirname, org_lengths,
+#                                   fraglengths=fraglengths, mode="ANIb")
+#     except ZeroDivisionError:
+#         logger.error("One or more BLAST output files has a problem.")
+#         if 0 < cumval:
+#             logger.error("This is possibly due to BLASTN run failure, " +
+#                          "please investigate")
+#         else:
+#             logger.error("This is possibly due to a BLASTN comparison " +
+#                          "being too distant for use.")
+#         logger.error(last_exception())
+#     return data[1]
 
-    :param indirnames: The directory where the new genome as well as the top n genomes are in
-    :param org_lengths:
-    :return:
-    """
+def unified_anib(indirname):
+    # Build BLAST databases and run pairwise BLASTN
+    # Fraglengths does not get reused with BLASTN
     logger = logging.getLogger('ANI_Wrapper_2.py')
     logger.setLevel(logging.DEBUG)
     infiles = pyani_files.get_fasta_files(indirname)
     org_lengths = pyani_files.get_sequence_lengths(infiles)
     fragsize = pyani_config.FRAGSIZE
     filestems = pyani_config.ANIB_FILESTEMS
-    logger.info("Running ANIb")
-    # Build BLAST databases and run pairwise BLASTN
-    # Make sequence fragments
-    # Fraglengths does not get reused with BLASTN
     filenames = os.listdir(indirname)
     for fname in filenames:
         if ' ' in  os.path.abspath(fname):
@@ -44,14 +98,18 @@ def unified_anib(indirname):
             sys.exit(1)
     fragfiles, fraglengths = anib.fragment_FASTA_files(infiles,
                                                        indirname,
-                                                       fragsize)
-    format_exe = pyani_config.MAKEBLASTDB_DEFAULT
-    blast_exe = pyani_config.BLASTN_DEFAULT
-
+                                                       args.fragsize)
+    # Export fragment lengths as JSON, in case we re-run BLASTALL with
+    # --skip_blastn
+    with open(os.path.join(indirname, 'fraglengths.json'), 'w') as outfile:
+        json.dump(fraglengths, outfile)
+    # Which executables are we using?
+    format_exe = args.formatdb_exe
+    blast_exe = args.blastall_exe
     # Run BLAST database-building and executables from a jobgraph
     logger.info("Creating job dependency graph")
     jobgraph = anib.make_job_graph(infiles, fragfiles, indirname,
-                                   format_exe, blast_exe, "ANIb")
+                                   format_exe, blast_exe, 'ANIblastall')
 
     logger.info("Running jobs with multiprocessing")
     logger.info("Running job dependency graph")
@@ -59,26 +117,27 @@ def unified_anib(indirname):
                                          logger=logger)
     if 0 < cumval:
         logger.warning("At least one BLAST run failed. " +
-                       "ANIb may fail.")
+                       "%s may fail." % 'ANIblastall')
     else:
         logger.info("All multiprocessing jobs complete.")
 
-
     # Process pairwise BLASTN output
-    logger.info("Processing pairwise ANIb BLAST output.")
+    logger.info("Processing pairwise %s BLAST output." % 'ANIblastall')
     try:
-        data = anib.process_blast(indirname, org_lengths,
-                                  fraglengths=fraglengths, mode="ANIb")
+        data = anib.process_blast(args.outdirname, org_lengths,
+                                  fraglengths=fraglengths, mode='ANIblastall')
     except ZeroDivisionError:
         logger.error("One or more BLAST output files has a problem.")
-        if 0 < cumval:
-            logger.error("This is possibly due to BLASTN run failure, " +
-                         "please investigate")
-        else:
-            logger.error("This is possibly due to a BLASTN comparison " +
-                         "being too distant for use.")
+        if not args.skip_blastn:
+            if 0 < cumval:
+                logger.error("This is possibly due to BLASTN run failure, " +
+                             "please investigate")
+            else:
+                logger.error("This is possibly due to a BLASTN comparison " +
+                             "being too distant for use.")
         logger.error(last_exception())
     return data[1]
+
 
 if __name__ == "__main__":
     indirname = sys.argv[1]
