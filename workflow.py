@@ -80,7 +80,7 @@ def main(new_genome):
         # Now we have all of them in the workspace
         ANIb_result = ANI_Wrapper_2.unified_anib(workspace_dir)[new_genomeID]
         os.system('rm -rf {0}*'.format(workspace_dir))
-        genome = ANIb_resultidxmin()
+        genome = ANIb_result.idxmin()
         similarity = ANIb_result.min()
         similarities[genome]=similarity
     top1_genome = similarity.idxmax()
