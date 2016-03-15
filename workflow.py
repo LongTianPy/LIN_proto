@@ -38,6 +38,7 @@ def main(new_genome):
     workspace_dir = '/home/linproject/Workspace/New/'
     subfolder = 'workspace/'
     workspace_dir = workspace_dir + subfolder
+    os.mkdir('%sout'%workspace_dir)
     # And we have the file name of the genome
     # Fetched from the front end
     new_genomeID = new_genome[:-6]
