@@ -38,6 +38,7 @@ def main(new_genome):
     workspace_dir = '/home/linproject/Workspace/New/'
     subfolder = 'workspace/'
     workspace_dir = workspace_dir + subfolder
+
     os.mkdir('%sout'%workspace_dir)
     # And we have the file name of the genome
     # Fetched from the front end
@@ -79,6 +80,7 @@ def main(new_genome):
         # Now we have all of them in the workspace
         ANIb_result = ANI_Wrapper_2.unified_anib(workspace_dir)[new_genomeID]
         os.system('rm {0}*'.format(workspace_dir))
+        os.system('rm -rf {0}out'.format(workspace_dir))
         genome = ANIb_result[new_genomeID].idxmin()
         similarity = ANIb_result[new_genomeID].min
         similarities[genome]=similarity
