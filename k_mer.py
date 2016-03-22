@@ -98,8 +98,6 @@ def generate_distance(queryfilepath):
     # result = total_frequency.apply(lambda new_kmer_column: total_frequency.apply(lambda col2: cosine_similarity(new_kmer_column, col2)))
     # result_new2old = original_frequency.apply(lambda column :cosine_similarity(column, new_kmer_column)) # Usually it's one column
     result_new2old = [1-cosine_similarity(new_kmer_column,original_frequency[i]) for i in original_frequency.keys()]
-    print result_new2old
-    print type(result_new2old)
     similarities = pd.DataFrame()
     similarities['Genome'] = original_frequency.keys()
     similarities[new_kmer_name] = result_new2old

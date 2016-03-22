@@ -13,6 +13,7 @@ from MySQLdb import Connect
 import pandas as pd
 import os
 import sys
+from sklearn.cluster import KMeans
 
 # INPUT
 #
@@ -66,7 +67,11 @@ def main(new_genome):
     if len(similarity['Genome'])<=10:
         n_top = len(similarity['Genome'])
     else:
-        n_top = 10
+        km = KMeans(n_clusters=3)
+        km.fit(similarity[new_genomeID].reshape(-1,1))
+        centroid_idx = list(km.cluster_centers_).index(max(km.cluster_centers_))
+        top_cluster_idx = [i for i,x in enumerate(km.labels_) if x==centroid_idx]
+        n_top = len(top_cluster_idx)
     top10 = similarity.head(n_top)['Genome'].values
     # Get their file paths and copy them to the workspace
     similarities = pd.DataFrame()
@@ -102,9 +107,3 @@ def main(new_genome):
 if __name__ == '__main__':
     new_genome = sys.argv[1] # Actually fetched from front end
     print main(new_genome=new_genome)
-
-
-
-
-
-
