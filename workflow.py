@@ -72,6 +72,7 @@ def main(new_genome):
         centroid_idx = list(km.cluster_centers_).index(max(km.cluster_centers_))
         top_cluster_idx = [i for i,x in enumerate(km.labels_) if x==centroid_idx]
         n_top = len(top_cluster_idx)
+        print "We are comparing your genome with {0} genomes in our database.".format(n_top)
     top10 = similarity.head(n_top)['Genome'].values
     # Get their file paths and copy them to the workspace
     similarities = pd.DataFrame()
