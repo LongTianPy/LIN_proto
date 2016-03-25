@@ -66,8 +66,12 @@ def main(new_genome):
     print "Looking for 10 most similar genome from our database."
     if len(similarity['Genome'])<=10:
         n_top = len(similarity['Genome'])
-    else:
-        km = KMeans(n_clusters=3)
+    else: # As for selecting numbers of clusters, 3 might not be very good since it is possible when we have a lot of
+          # genomes to select while there might be way more than 10 genomes in the top cluster. So we are setting the
+          # the number of clusters based on the total number of genomes to select from. Since 10 is a preferred number
+          # of genomes to perform pairwise blasting, I guess we can do (M/10)+1
+        n_clusters = int(round(len(similarity['Genome'])/10.0)+1)
+        km = KMeans(n_clusters=n_clusters)
         km.fit(similarity[new_genomeID].reshape(-1,1))
         centroid_idx = list(km.cluster_centers_).index(max(km.cluster_centers_))
         top_cluster_idx = [i for i,x in enumerate(km.labels_) if x==centroid_idx]
