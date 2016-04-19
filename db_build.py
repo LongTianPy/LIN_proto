@@ -51,7 +51,7 @@ def build_db():
     	# For Plant pathogen
     	c.execute("INSERT INTO Attribute (AttributeName) values ('Host of isolation')")
     	# Interest
-    	c.execute("INSERT INTO Interest (InterestName) values ('Plant pathogen')")
+    	c.execute("INSERT INTO Interest (InterestName, Attribute_IDs) values ('Plant pathogen','1,2,3,4,5,6,7,8,9')")
     	# Scheme
     	c.execute("INSERT INTO Scheme (Cutoff, LabelNum) values ('70,75,80,85,90,95,96,97,98,99.99999', 10)")
     	c.execute("INSERT INTO Scheme (Cutoff, LabelNum) values ('60,70,80,85,90,95,98,99,99.5,99.6,99.7,99.8,99.9,99.91,99.92,99.93,99.94,99.95,99.96,99.97,99.98,99.99,99.999,99.9999', 24)")
