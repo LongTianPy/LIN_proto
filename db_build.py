@@ -12,7 +12,7 @@ def build_db():
 		'Interest_ID int NOT NULL,'
 		'Submission_ID int NOT NULL,'
 		'FilePath text NOT NULL,'
-        'GenomeName text NOT NULL'
+        	'GenomeName text NOT NULL'
 		'PRIMARY KEY (Genome_ID))')
 	c.execute('CREATE TABLE Interest (Interest_ID int NOT NULL AUTO_INCREMENT,'
 		'InterestName varchar(255) NOT NULL,'
@@ -36,27 +36,27 @@ def build_db():
 		'User_ID int NOT NULL,'
 		'Time text NOT NULL,'
 		'PRIMARY KEY (Submission_ID))')
-    c.execute('CREATE TABLE User (User_ID int NOT NULL AUTO_INCREMENT,LastName varchar(255) NOT NULL,FirstName varchar(255) NOT NULL,Institute varchar(255) NOT NULL,RegistrationDate text NOT NULL,Username varchar(255) NOT NULL,Password text NOT NULL,Email text NOT NULL,PRIMARY KEY (User_ID))')
-c.execute('CREATE TABLE AttributeValue (AttributeValue_ID int NOT NULL AUTO_INCREMENT,Genome_ID int NOT NULL,Interest_ID int NOT NULL, Attribute_ID int not null,AttributeValue text not null,User_ID int not null,Private boolean not null,PRIMARY KEY (AttributeValue_ID))')
-    ### INITIALIZATION
-    # Attributes
-    # General entries
-    c.execute("INSERT INTO Attribute (AttributeName) values ('Strain')")
-    c.execute("INSERT INTO Attribute (AttributeName) values ('GPS Coordinates)")
-    c.execute("INSERT INTO Attribute (AttributeName) values ('Date of isolation)")
-    c.execute("INSERT INTO Attribute (AttributeName) values ('Genus')")
-    c.execute("INSERT INTO Attribute (AttributeName) values ('Species')")
-    c.execute("INSERT INTO Attribute (AttributeName) values ('DOI')")
-    c.execute("INSERT INTO Attribute (AttributeName) values ('NCBI Accession')")
-    # For Plant pathogen
-    c.execute("INSERT INTO Attribute (AttributeName) values ('Host of isolation')")
-    # Interest
-    c.execute("INSERT INTO Interest (InterestName) values ('Plant pathogen')")
-    # Scheme
-    c.execute("INSERT INTO Scheme (Cutoff, LabelNum) values ('70,75,80,85,90,95,96,97,98,99.99999', 10)")
-    c.execute("INSERT INTO Scheme (Cutoff, LabelNum) values ('60,70,80,85,90,95,98,99,99.5,99.6,99.7,99.8,99.9,99.91,99.92,99.93,99.94,99.95,99.96,99.97,99.98,99.99,99.999,99.9999', 24)")
-    c.execute("INSERT INTO Scheme (Cutoff, LabelNum) values ('60,70,75,80,85,90,95,98,98.5,99,99.25,99.5,99.75,99.9,99.925,99.95,99.975,99.99,99.999,99.9999', 20)")
-    conn.commit()
+	c.execute('CREATE TABLE User (User_ID int NOT NULL AUTO_INCREMENT,LastName varchar(255) NOT NULL,FirstName varchar(255) NOT NULL,Institute varchar(255) NOT NULL,RegistrationDate text NOT NULL,Username varchar(255) NOT NULL,Password text NOT NULL,Email text NOT NULL,PRIMARY KEY (User_ID))')
+	c.execute('CREATE TABLE AttributeValue (AttributeValue_ID int NOT NULL AUTO_INCREMENT,Genome_ID int NOT NULL,Interest_ID int NOT NULL, Attribute_ID int not null,AttributeValue text not null,User_ID int not null,Private boolean not null,PRIMARY KEY (AttributeValue_ID))')
+    	### INITIALIZATION
+    	# Attributes
+    	# General entries
+	c.execute("INSERT INTO Attribute (AttributeName) values ('Strain')")
+	c.execute("INSERT INTO Attribute (AttributeName) values ('GPS Coordinates)")
+	c.execute("INSERT INTO Attribute (AttributeName) values ('Date of isolation)")
+    	c.execute("INSERT INTO Attribute (AttributeName) values ('Genus')")
+    	c.execute("INSERT INTO Attribute (AttributeName) values ('Species')")
+    	c.execute("INSERT INTO Attribute (AttributeName) values ('DOI')")
+    	c.execute("INSERT INTO Attribute (AttributeName) values ('NCBI Accession')")
+    	# For Plant pathogen
+    	c.execute("INSERT INTO Attribute (AttributeName) values ('Host of isolation')")
+    	# Interest
+    	c.execute("INSERT INTO Interest (InterestName) values ('Plant pathogen')")
+    	# Scheme
+    	c.execute("INSERT INTO Scheme (Cutoff, LabelNum) values ('70,75,80,85,90,95,96,97,98,99.99999', 10)")
+    	c.execute("INSERT INTO Scheme (Cutoff, LabelNum) values ('60,70,80,85,90,95,98,99,99.5,99.6,99.7,99.8,99.9,99.91,99.92,99.93,99.94,99.95,99.96,99.97,99.98,99.99,99.999,99.9999', 24)")
+    	c.execute("INSERT INTO Scheme (Cutoff, LabelNum) values ('60,70,75,80,85,90,95,98,98.5,99,99.25,99.5,99.75,99.9,99.925,99.95,99.975,99.99,99.999,99.9999', 20)")
+    	conn.commit()
 
 
 
