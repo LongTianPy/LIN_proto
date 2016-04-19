@@ -42,7 +42,7 @@ def build_db():
     	# Attributes
     	# General entries
 	c.execute("INSERT INTO Attribute (AttributeName) values ('Strain')")
-	c.execute("INSERT INTO Attribute (AttributeName) values ('GPS Coordinates)")
+	c.execute("INSERT INTO Attribute (AttributeName) values ('GPS Coordinates')")
 	c.execute("INSERT INTO Attribute (AttributeName) values ('Date of isolation)")
     	c.execute("INSERT INTO Attribute (AttributeName) values ('Genus')")
     	c.execute("INSERT INTO Attribute (AttributeName) values ('Species')")
