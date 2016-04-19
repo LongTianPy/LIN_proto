@@ -36,16 +36,8 @@ def build_db():
 		'User_ID int NOT NULL,'
 		'Time text NOT NULL,'
 		'PRIMARY KEY (Submission_ID))')
-	c.execute('CREATE TABLE User (User_ID int NOT NULL AUTO_INCREMENT,'
-		'LastName varchar(255) NOT NULL,'
-		'FirstName varchar(255) NOT NULL,'
-		'Institute varchar(255) NOT NULL,'
-		'RegistrationDate text NOT NULL,'
-		'Username varchar(255) NOT NULL,'
-		'Password text NOT NULL,'
-        'Email text NOT NULL,'
-		'PRIMARY KEY (User_ID))')
-    c.execute('CREATE TABLE AttributeValue (AttributeValue_ID int NOT NULL AUTO_INCREMENT,Genome_ID int NOT NULL,Interest_ID int NOT NULL, Attribute_ID int not null,AttributeValue text not null,User_ID int not null,Private boolean not null,PRIMARY KEY (AttributeValue_ID))')
+    c.execute('CREATE TABLE User (User_ID int NOT NULL AUTO_INCREMENT,LastName varchar(255) NOT NULL,FirstName varchar(255) NOT NULL,Institute varchar(255) NOT NULL,RegistrationDate text NOT NULL,Username varchar(255) NOT NULL,Password text NOT NULL,Email text NOT NULL,PRIMARY KEY (User_ID))')
+c.execute('CREATE TABLE AttributeValue (AttributeValue_ID int NOT NULL AUTO_INCREMENT,Genome_ID int NOT NULL,Interest_ID int NOT NULL, Attribute_ID int not null,AttributeValue text not null,User_ID int not null,Private boolean not null,PRIMARY KEY (AttributeValue_ID))')
     ### INITIALIZATION
     # Attributes
     # General entries
