@@ -45,12 +45,7 @@ def build_db():
 		'Password text NOT NULL,'
         'Email text NOT NULL,'
 		'PRIMARY KEY (User_ID))')
-    c.execute('CREATE TABLE AttributeValue (AttributeValue_ID int NOT NULL AUTO_INCREMENT,Genome_ID int NOT NULL,Interest_ID int NOT NULL,'
-              'Attribute_ID int not null,'
-              'AttributeValue text not null,'
-              'User_ID int not null,'
-              'Private boolean not null,'
-              'PRIMARY KEY (AttributeValue_ID))')
+    c.execute('CREATE TABLE AttributeValue (AttributeValue_ID int NOT NULL AUTO_INCREMENT,Genome_ID int NOT NULL,Interest_ID int NOT NULL, Attribute_ID int not null,AttributeValue text not null,User_ID int not null,Private boolean not null,PRIMARY KEY (AttributeValue_ID))')
     ### INITIALIZATION
     # Attributes
     # General entries
