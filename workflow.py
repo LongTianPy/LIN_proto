@@ -14,6 +14,7 @@ import pandas as pd
 import os
 import sys
 from sklearn.cluster import KMeans
+import ExtractInfo
 
 # INPUT
 #
@@ -78,6 +79,7 @@ def main(new_genome):
         n_top = len(top_cluster_idx)
         print "We are comparing your genome with {0} genomes in our database.".format(n_top)
     top10 = similarity.head(n_top)['Genome'].values
+    top10_LINs = [ExtractInfo.get_top10_LIN(i,c) for i in top10]
     # Get their file paths and copy them to the workspace
     similarities = pd.DataFrame()
     for i in top10:
