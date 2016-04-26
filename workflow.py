@@ -14,7 +14,7 @@ import pandas as pd
 import os
 import sys
 from sklearn.cluster import KMeans
-import ExtractInfo
+# import ExtractInfo
 
 # INPUT
 #
@@ -36,13 +36,13 @@ import ExtractInfo
 def main(new_genome):
     # There should be a script that uploads the genome sequence to a subfolder in the workspace where the name is
     # randomly and uniquely generated
-    original_folder  = '/home/linproject/Workspace/28PseudomonasGenomes/'
+    original_folder  = '/var/www/html/linSite/uploadedFastas/'
     workspace_dir = '/home/linproject/Workspace/New/'
     subfolder = 'workspace/'
     workspace_dir = workspace_dir + subfolder
     # And we have the file name of the genome
     # Fetched from the front end
-    new_genomeID = new_genome[:-6]
+    new_genomeID = new_genome.split('.')[0]
     # As well as its Interest_ID
     Interest_ID_new_genome = 1 # We hard-code it here, but it should be able to be read from the front end
     db = Connect('localhost','root')
@@ -71,7 +71,7 @@ def main(new_genome):
           # genomes to select while there might be way more than 10 genomes in the top cluster. So we are setting the
           # the number of clusters based on the total number of genomes to select from. Since 10 is a preferred number
           # of genomes to perform pairwise blasting, I guess we can do (M/10)+1
-        n_clusters = int(round(len(similarity['Genome'])/10.0)+1)
+        n_clusters = 3
         km = KMeans(n_clusters=n_clusters)
         km.fit(similarity[new_genomeID].reshape(-1,1))
         centroid_idx = list(km.cluster_centers_).index(max(km.cluster_centers_))
@@ -79,7 +79,8 @@ def main(new_genome):
         n_top = len(top_cluster_idx)
         print "We are comparing your genome with {0} genomes in our database.".format(n_top)
     top10 = similarity.head(n_top)['Genome'].values
-    top10_LINs = [ExtractInfo.get_top10_LIN(i,c) for i in top10]
+    top10_LINs = [ExtractInfo.get_top10_LIN(i,c) for i in top10] # This can be used to send preliminary results
+    print top10_LINs
     # Get their file paths and copy them to the workspace
     similarities = pd.DataFrame()
     for i in top10:
