@@ -47,7 +47,7 @@ def main(new_genome):
     Interest_ID_new_genome = 1 # We hard-code it here, but it should be able to be read from the front end
     db = Connect('localhost','root')
     c = db.cursor()
-    c.execute('use LINdb_test_3')
+    c.execute('use LINdb_zika')
     c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath) values (1, 1, "{0}")'
               .format(original_folder+new_genome))
     db.commit()
