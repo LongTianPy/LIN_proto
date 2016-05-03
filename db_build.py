@@ -61,6 +61,9 @@ def build_db():
     	c.execute("INSERT INTO Scheme (Cutoff, LabelNum) values ('70,75,80,85,90,95,96,97,98,99.99999', 10)")
     	c.execute("INSERT INTO Scheme (Cutoff, LabelNum) values ('60,70,80,85,90,95,98,99,99.5,99.6,99.7,99.8,99.9,99.91,99.92,99.93,99.94,99.95,99.96,99.97,99.98,99.99,99.999,99.9999', 24)")
     	c.execute("INSERT INTO Scheme (Cutoff, LabelNum) values ('60,70,75,80,85,90,95,98,98.5,99,99.25,99.5,99.75,99.9,99.925,99.95,99.975,99.99,99.999,99.9999', 20)")
+    	# Enter E. coli for control
+    	c.execute("INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName) values (1,1,'/home/linproject/Workspace/Test_03-10-16/0001_E_coli.fasta','E_coli')")
+    	c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, SubjectGenome, ANI, LIN) values (1,3,'E_coli', 1, '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0')")
     	conn.commit()
 
 
