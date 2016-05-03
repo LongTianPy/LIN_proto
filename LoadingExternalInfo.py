@@ -9,8 +9,9 @@ def LoadInfo(file, db_cursor,genome_name, interest_id, user=1, private=True):
     accession = [line[6] for line in lines]
     idx = accession.index(genome_name)
     db_cursor.execute("SELECT Attribute_IDs FROM Interest WHERE Interest_ID={0}".format(interest_id))
-    Attribute_IDs = db_cursor.fetchall()
-    Attribute_IDs = [i[0] for i in Attribute_IDs]
+    Attribute_IDs = db_cursor.fetchall()[0][0]
+    Attribute_IDs = Attribute_IDs.split(',')
+    Attribute_IDs = [int(i) for i in Attribute_IDs]
     info_to_be_loaded = lines[idx]
     assert len(info_to_be_loaded) == len(Attribute_IDs),"The number of attributes to be added does not match with database record."
     for i in range(len(info_to_be_loaded)):
