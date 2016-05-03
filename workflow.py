@@ -70,7 +70,7 @@ def main(new_genome):
     #     print "No similar genome found, run ANIb calculation sequentially to all genome is recommended."
     #     sys.exit()
     # else:
-    print "Looking for 10 most similar genome from our database."
+    print "Looking for similars genome from our database."
     if len(similarity['Genome'])<=10:
         n_top = len(similarity['Genome'])
     else: # As for selecting numbers of clusters, 3 might not be very good since it is possible when we have a lot of
@@ -85,8 +85,9 @@ def main(new_genome):
         n_top = len(top_cluster_idx)
         print "We are comparing your genome with {0} genomes in our database.".format(n_top)
     top10 = similarity.head(n_top)['Genome'].values
-    top10_LINs = [ExtractInfo.get_top10_LIN(i,c) for i in top10] # This can be used to send preliminary results
-    print top10_LINs
+    print top10
+    # top10_LINs = [ExtractInfo.get_top10_LIN(i,c) for i in top10] # This can be used to send preliminary results
+    # print top10_LINs
     # Get their file paths and copy them to the workspace
     similarities = pd.DataFrame()
     for i in top10:
