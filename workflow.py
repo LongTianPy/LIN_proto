@@ -15,6 +15,7 @@ import os
 import sys
 from sklearn.cluster import KMeans
 from LoadingExternalInfo import LoadInfo
+import ExtractInfo
 # import ExtractInfo
 
 # INPUT
