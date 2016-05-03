@@ -14,6 +14,7 @@ import pandas as pd
 import os
 import sys
 from sklearn.cluster import KMeans
+from LoadingExternalInfo import LoadInfo
 # import ExtractInfo
 
 # INPUT
@@ -36,10 +37,11 @@ from sklearn.cluster import KMeans
 def main(new_genome):
     # There should be a script that uploads the genome sequence to a subfolder in the workspace where the name is
     # randomly and uniquely generated
-    original_folder  = '/var/www/html/linSite/uploadedFastas/'
+    original_folder  = '/home/linproject/Workspace/Zika/'
     workspace_dir = '/home/linproject/Workspace/New/'
     subfolder = 'workspace/'
     workspace_dir = workspace_dir + subfolder
+    InfoFile = "/home/linproject/Workspace/Zika/Attribute_full.csv"
     # And we have the file name of the genome
     # Fetched from the front end
     new_genomeID = new_genome.split('.')[0]
@@ -50,6 +52,9 @@ def main(new_genome):
     c.execute('use LINdb_zika')
     c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath) values ({0}, 1, "{1}")'
               .format(Interest_ID_new_genome ,original_folder+new_genome))
+    db.commit()
+    ## For Zika virus case only
+    LoadInfo(InfoFile,c,new_genomeID,Interest_ID_new_genome)
     db.commit()
     # # Fetch the file paths of all the genomes from the database that have the same interest ID
     # c.execute('SELECT FilePath FROM Genome WHERE Interest_ID = {0}'.format(Interest_ID_new_genome))
