@@ -17,6 +17,6 @@ def LoadInfo(file, db_cursor,genome_name, interest_id, user=1, private=True):
     for i in range(len(info_to_be_loaded)):
         for j in range(len(info_to_be_loaded[i])):
             query = "INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values" \
-                    "({0}, {1}, {2}, {3}, {4})".format(Attribute_IDs[j],Genome_ID, interest_id, info_to_be_loaded[i][j], user, private)
+                    "({0}, {1}, {2}, {3}, {4}, {5})".format(Attribute_IDs[j],Genome_ID, interest_id, info_to_be_loaded[i][j], user, private)
             db_cursor.execute(query)
 
