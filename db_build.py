@@ -6,8 +6,8 @@ from MySQLdb import Connect
 def build_db():
 	conn = Connect('localhost','root')
 	c = conn.cursor()
-	c.execute('CREATE DATABASE IF NOT EXISTS LINdb_test_zika')
-	c.execute('USE LINdb_test_zika')
+	c.execute('CREATE DATABASE IF NOT EXISTS LINdb_zika')
+	c.execute('USE LINdb_zika')
 	c.execute('CREATE TABLE Genome (Genome_ID int NOT NULL AUTO_INCREMENT,'
 		'Interest_ID int NOT NULL,'
 		'Submission_ID int NOT NULL,'
