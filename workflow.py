@@ -44,12 +44,12 @@ def main(new_genome):
     # Fetched from the front end
     new_genomeID = new_genome.split('.')[0]
     # As well as its Interest_ID
-    Interest_ID_new_genome = 1 # We hard-code it here, but it should be able to be read from the front end
+    Interest_ID_new_genome = 2 # We hard-code it here, but it should be able to be read from the front end
     db = Connect('localhost','root')
     c = db.cursor()
     c.execute('use LINdb_zika')
-    c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath) values (1, 1, "{0}")'
-              .format(original_folder+new_genome))
+    c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath) values ({0}, 1, "{1}")'
+              .format(Interest_ID_new_genome ,original_folder+new_genome))
     db.commit()
     # # Fetch the file paths of all the genomes from the database that have the same interest ID
     # c.execute('SELECT FilePath FROM Genome WHERE Interest_ID = {0}'.format(Interest_ID_new_genome))
