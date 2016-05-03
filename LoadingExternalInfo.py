@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 def LoadInfo(file, db_cursor,genome_name, interest_id, user=1, private=True):
-    db_cursor.execute("SELECT Genome_ID from Genome where Genome_ID.FilePath like '%{0}%'".format(genome_name))
+    db_cursor.execute("SELECT Genome_ID from Genome where Genome.GenomeName = '{0}'".format(genome_name))
     Genome_ID = int(db_cursor.fetchone()[0])
     f = open(file,"r")
     lines = [line.split(",") for line in f.readlines()[1:]]

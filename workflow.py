@@ -50,8 +50,8 @@ def main(new_genome):
     db = Connect('localhost','root')
     c = db.cursor()
     c.execute('use LINdb_zika')
-    c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath) values ({0}, 1, "{1}")'
-              .format(Interest_ID_new_genome ,original_folder+new_genome))
+    c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName) values ({0}, 1, "{1}")'
+              .format(Interest_ID_new_genome ,original_folder+new_genome, new_genomeID))
     db.commit()
     ## For Zika virus case only
     LoadInfo(InfoFile,c,new_genomeID,Interest_ID_new_genome)
