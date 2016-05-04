@@ -74,7 +74,7 @@ class Assign_LIN(object):
             label_num = self.label_num
         db = Connect('localhost', 'root')
         c = db.cursor()
-        c.execute('use LINdb_test_3')
+        c.execute('use LINdb_zika')
         if conserved_LIN == '':
             c.execute("SELECT LIN.LIN FROM LIN")
             tmp = c.fetchall()
