@@ -80,7 +80,7 @@ def generate_distance(queryfilepath):
     # Here we only have one fasta file
     KmerCountNew(queryfilepath)
     # original_kmer = read_into_dataframe(subjectpath)
-    subject_frequency_file = '/home/linproject/Workspace/FrequencyFiles/frequency_w_ecoli'
+    subject_frequency_file = '/home/linproject/Workspace/Zika/init/frequency_zika'
     # subject_distance_matrix_file = subjectpath+'distance.csv'
     original_frequency = pd.read_hdf(subject_frequency_file,'profiles')
     new_kmer = read_into_dataframe('tmp_count')
