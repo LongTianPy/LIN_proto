@@ -56,7 +56,7 @@ class getLIN(object):
         self.idx_to_change = idx_to_change
         if idx_to_change == 0:
             self.conserved_LIN = ''
-        elif idx_to_change == 'n/a'
+        elif idx_to_change == 'n/a':
             self.conserved_LIN = lin
         else:
             self.conserved_LIN = lin[:idx_to_change]
