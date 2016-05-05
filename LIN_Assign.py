@@ -45,6 +45,8 @@ class getLIN(object):
         cutoff = [float(i) for i in cutoff]
         if similarity < cutoff[0]:
             idx_to_change = 0
+        elif similarity == 1:
+            idx_to_change = -1
         else:
             for i in range(len(cutoff)-1):
                 if cutoff[i] <= similarity < cutoff[i+1]:
