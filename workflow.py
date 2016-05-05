@@ -103,6 +103,8 @@ def main(new_genome):
         similarities[genome]=[similarity]
     top1_genome = similarities.idxmax(axis=1)[0]
     top1_similarity = similarities.max(axis=1)[0]
+    print top1_genome
+    print top1_similarity
     # if top1_similarity >= 1:
     #     print "This is most likely to be" + top1_genome
     # else:
