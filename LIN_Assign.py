@@ -85,8 +85,11 @@ class Assign_LIN(object):
         else:
             c.execute('SELECT LIN.LIN from LIN WHERE LIN.LIN LIKE "{0}%"'.format(conserved_LIN))
             tmp = c.fetchall()
-        LINs = [int(i[0].split(',')[idx_to_change]) for i in tmp]
-        num_to_assign = str(max(LINs)+1)
+        if type(idx_to_change) == int:
+            LINs = [int(i[0].split(',')[idx_to_change]) for i in tmp]
+            num_to_assign = str(max(LINs)+1)
+        else:
+            print "We have a 100% ANI match here."
         if type(idx_to_change) == int and idx_to_change != label_num - 1:
             tail = ['0'] * (label_num - 1 - idx_to_change)
             tail = ','.join(tail)
