@@ -45,8 +45,8 @@ class getLIN(object):
         cutoff = [float(i) for i in cutoff]
         if similarity < cutoff[0]:
             idx_to_change = 0
-        elif similarity == 1:
-            idx_to_change = -1
+        elif similarity >= 0.999999:
+            idx_to_change = 'n/a'
         else:
             for i in range(len(cutoff)-1):
                 if cutoff[i] <= similarity < cutoff[i+1]:
@@ -56,6 +56,8 @@ class getLIN(object):
         self.idx_to_change = idx_to_change
         if idx_to_change == 0:
             self.conserved_LIN = ''
+        elif idx_to_change == 'n/a'
+            self.conserved_LIN = lin
         else:
             self.conserved_LIN = lin[:idx_to_change]
 
@@ -85,10 +87,12 @@ class Assign_LIN(object):
             tmp = c.fetchall()
         LINs = [int(i[0].split(',')[idx_to_change]) for i in tmp]
         num_to_assign = str(max(LINs)+1)
-        if idx_to_change != label_num - 1:
+        if type(idx_to_change) == int and idx_to_change != label_num - 1:
             tail = ['0'] * (label_num - 1 - idx_to_change)
             tail = ','.join(tail)
             new_LIN = conserved_LIN + ',%s,'%num_to_assign + tail
+        elif type(idx_to_change) != int:
+            new_LIN = conserved_LIN
         else:
             new_LIN = conserved_LIN + ',%s'%num_to_assign
         if new_LIN.startswith(','):
