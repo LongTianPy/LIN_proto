@@ -18,6 +18,7 @@ class getLIN(object):
     def __init__(self, genome, Scheme_ID, similarity,c):
         self.genome = genome
         self.Scheme_ID = Scheme_ID
+        self.c=c
         c.execute("SELECT LabelNum from Scheme WHERE Scheme_ID=3")
         self.label_num = int(c.fetchone()[0])
         self.similarity = float(similarity)*100
@@ -64,6 +65,7 @@ class Assign_LIN(object):
         self.idx_to_change = getLIN_object.idx_to_change
         self.conserved_LIN = ','.join(getLIN_object.conserved_LIN)
         self.label_num = getLIN_object.label_num
+        self.c=c
         self.assign()
     def assign(self, idx_to_change=None, conserved_LIN=None, label_num=None,c=None):
         if not idx_to_change:
