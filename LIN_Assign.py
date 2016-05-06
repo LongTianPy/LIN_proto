@@ -18,7 +18,6 @@ class getLIN(object):
     def __init__(self, genome, Scheme_ID, similarity,c):
         self.genome = genome
         self.Scheme_ID = Scheme_ID
-        c.execute('use LINdb_zika')
         c.execute("SELECT LabelNum from Scheme WHERE Scheme_ID=3")
         self.label_num = int(c.fetchone()[0])
         self.similarity = float(similarity)*100
