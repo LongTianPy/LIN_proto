@@ -15,27 +15,24 @@ class getLIN(object):
     """
     Read the LIN of the top similar genome.
     """
-    def __init__(self, genome, Scheme_ID, similarity):
+    def __init__(self, genome, Scheme_ID, similarity,c):
         self.genome = genome
         self.Scheme_ID = Scheme_ID
-        db = Connect('localhost', 'root')
-        c = db.cursor()
         c.execute('use LINdb_zika')
         c.execute("SELECT LabelNum from Scheme WHERE Scheme_ID=3")
         self.label_num = int(c.fetchone()[0])
         self.similarity = float(similarity)*100
         self.parse()
-    def parse(self, genome = None, Scheme_ID = None, similarity = None):
+    def parse(self, genome = None, Scheme_ID = None, similarity = None, c = None):
         if not genome:
             genome = self.genome
         if not Scheme_ID:
             Scheme_ID = self.Scheme_ID
         if not similarity:
             similarity = self.similarity
+        if not c:
+            c = self.c
         # Read the LIN of this genome
-        db = Connect('localhost', 'root')
-        c = db.cursor()
-        c.execute('use LINdb_zika')
         c.execute('SELECT LIN.LIN from LIN, Genome where LIN.Genome_ID=Genome.Genome_ID and Genome.GenomeName = "{0}" and LIN.Scheme_ID=3'.format(genome))
         lin = c.fetchone()[0].split(',')
         self.LIN = lin
@@ -64,21 +61,20 @@ class getLIN(object):
 class Assign_LIN(object):
     """ Get the biggest number assigned to the idx_to_change with the same conserved part of LIN
     """
-    def __init__(self, getLIN_object):
+    def __init__(self, getLIN_object,c):
         self.idx_to_change = getLIN_object.idx_to_change
         self.conserved_LIN = ','.join(getLIN_object.conserved_LIN)
         self.label_num = getLIN_object.label_num
         self.assign()
-    def assign(self, idx_to_change=None, conserved_LIN=None, label_num=None):
+    def assign(self, idx_to_change=None, conserved_LIN=None, label_num=None,c=None):
         if not idx_to_change:
             idx_to_change = self.idx_to_change
         if not conserved_LIN:
             conserved_LIN = self.conserved_LIN
         if not label_num:
             label_num = self.label_num
-        db = Connect('localhost', 'root')
-        c = db.cursor()
-        c.execute('use LINdb_zika')
+        if not c:
+            c=self.c
         if conserved_LIN == '':
             c.execute("SELECT LIN.LIN FROM LIN")
             tmp = c.fetchall()

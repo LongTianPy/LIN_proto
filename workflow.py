@@ -107,10 +107,10 @@ def main(new_genome):
     # if top1_similarity >= 1:
     #     print "This is most likely to be" + top1_genome
     # else:
-    new_LIN_object = LIN_Assign.getLIN(genome=top1_genome, Scheme_ID=3, similarity=top1_similarity)
+    new_LIN_object = LIN_Assign.getLIN(genome=top1_genome, Scheme_ID=3, similarity=top1_similarity,c=c)
     print "The most similar record is " + top1_genome+ " , whose LIN is " +','.join(new_LIN_object.LIN) + '.'
     print "The similarity to it is " + str(top1_similarity*100) + "%."
-    new_LIN = LIN_Assign.Assign_LIN(new_LIN_object).new_LIN
+    new_LIN = LIN_Assign.Assign_LIN(new_LIN_object,c=c).new_LIN
     print "The LIN assigned to your genome is " + new_LIN
     c.execute('SELECT Genome_ID FROM Genome where FilePath like "%{0}%"'.format(new_genome))
     Genome_ID = int(c.fetchone()[0])
