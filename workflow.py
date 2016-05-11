@@ -55,7 +55,7 @@ def main(new_genome):
               .format(Interest_ID_new_genome ,original_folder+new_genome, new_genomeID))
     db.commit()
     ## For Zika virus case only
-    LoadInfo(InfoFile,c,new_genomeID,Interest_ID_new_genome)
+#    LoadInfo(InfoFile,c,new_genomeID,Interest_ID_new_genome)
     db.commit()
     # # Fetch the file paths of all the genomes from the database that have the same interest ID
     # c.execute('SELECT FilePath FROM Genome WHERE Interest_ID = {0}'.format(Interest_ID_new_genome))
@@ -64,6 +64,7 @@ def main(new_genome):
     # We need first to read their k-mer frequencies, which, are calculated beforehand and store in the server.
     # This reminds me of adding one more table for the location of those frequency files.
     ## And supposedly, the frequency of new genome shuold also be added to this file once it's calculated.
+    print original_folder+new_genome;
     similarity = k_mer.generate_distance(original_folder+new_genome) # Already sorted
     # Check the biggest value, if it is bigger than the bottomline of the cutoff being used
     # if similarity[new_genomeID].max() < 0.6:
