@@ -55,8 +55,13 @@ def main(new_genome):
               .format(Interest_ID_new_genome ,original_folder+new_genome, new_genomeID))
     db.commit()
     ## For Zika virus case only
+<<<<<<< HEAD
 #    LoadInfo(InfoFile,c,new_genomeID,Interest_ID_new_genome)
     db.commit()
+=======
+    # LoadInfo(InfoFile,c,new_genomeID,Interest_ID_new_genome)
+    # db.commit()
+>>>>>>> c83fc698f8ee1c497c7bacbd9f8b2ade919ca9ab
     # # Fetch the file paths of all the genomes from the database that have the same interest ID
     # c.execute('SELECT FilePath FROM Genome WHERE Interest_ID = {0}'.format(Interest_ID_new_genome))
     # FilePaths = c.fetchall()
