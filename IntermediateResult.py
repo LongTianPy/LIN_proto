@@ -41,7 +41,7 @@ def send_email(User_ID=2, db_cursor):
     msg['From'] = me
     msg['To'] = you
 
-    s = smtplib.SMTP('localhost')
+    s = smtplib.SMTP('smtp.gmail.com',587)
     s.sendmail(me, you, msg.as_string())
     s.quit()
 
