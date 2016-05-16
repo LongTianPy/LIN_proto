@@ -36,7 +36,7 @@ def KmerCountNew(filepath):
     :param filepath:
     :return: A k-mer counting profile will be generated on the hardisk
     """
-    cmd = "kpal count -k 12 %s tmp_count"%(filepath)
+    cmd = "kpal count -k 12 %s /home/linproject/Workspace/kpal_count/tmp_count"%(filepath)
     os.system(cmd)
 
 # def generate_distance_test(subjectfilepath, queryfilepath):
@@ -83,8 +83,8 @@ def generate_distance(queryfilepath):
     subject_frequency_file = '/home/linproject/Workspace/Zika/init/frequency_zika'
     # subject_distance_matrix_file = subjectpath+'distance.csv'
     original_frequency = pd.read_hdf(subject_frequency_file,'profiles')
-    new_kmer = read_into_dataframe('tmp_count')
-    os.system('rm tmp_count')
+    new_kmer = read_into_dataframe('/home/linproject/Workspace/kpal_count/tmp_count')
+    os.system('rm /home/linproject/Workspace/kpal_count/tmp_count')
     new_kmer_name = str(new_kmer.keys()[0])
     frequency_transform = lambda column: column/np.sum(column)
     print "transforming new counts to frequencies"
