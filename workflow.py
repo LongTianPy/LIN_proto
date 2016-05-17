@@ -136,4 +136,4 @@ def main(new_genome,User_ID):
 if __name__ == '__main__':
     new_genome = sys.argv[1] # Actually fetched from front end
     User_ID = sys.argv[2]
-    print main(new_genome=new_genomem, User_ID=User_ID)
+    print main(new_genome=new_genome, User_ID=User_ID)
