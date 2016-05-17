@@ -26,7 +26,7 @@ def write_kmer_result(top10,db_cursor):
 def write_ANI_result(new_genomeID, new_LIN_object, new_LIN, db_cursor):
     new_GenomeName = new_genomeID
     db_cursor.execute("SELECT LIN.SubjectGenome, LIN.ANI FROM LIN,Genome WHERE LIN.Genome_ID=Genome.Genome_ID "
-                      "and Genome.Genome_Name='{0}'".format(new_GenomeName))
+                      "and Genome.GenomeName='{0}'".format(new_GenomeName))
     tmp = db_cursor.fetchone()
     best_hit = tmp[0]
     ANI_best_hit = str(float(tmp[1])*100)+'%'
