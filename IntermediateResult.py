@@ -55,14 +55,13 @@ def send_email(file_source, db_cursor, User_ID=1):
     fp.close()
     me = "longtian@vt.edu"
     db_cursor.execute("SELECT LastName, Email from User where User_ID={0}".format(User_ID))
-    tmp = db_cursor.fetone()
+    tmp = db_cursor.fetchone()
     LastName = tmp[0]
     you = tmp[1]
     if file_source == "kmer":
         msg['Subject'] = "Mr. {0}, here's the preliminary result of your recently submission".format(LastName)
     else: # file_source == "ANI":
         msg['Subject'] = "Mr. {0}, here's the final result of your recently submission".format(LastName)
-
     s = smtplib.SMTP('smtp.gmail.com',587)
     s.ehlo_or_helo_if_needed()
     s.starttls()

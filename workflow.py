@@ -36,7 +36,7 @@ import IntermediateResult
 # similarity
 
 # MAIN
-def main(new_genome):
+def main(new_genome,User_ID):
     # There should be a script that uploads the genome sequence to a subfolder in the workspace where the name is
     # randomly and uniquely generated
     original_folder  = '/home/linproject/Workspace/Zika/'
@@ -90,7 +90,7 @@ def main(new_genome):
     print top10
     try:
         IntermediateResult.write_kmer_result(top10=top10,db_cursor=c)
-        IntermediateResult.send_email(file_source="kmer",User_ID=1,db_cursor=c)
+        IntermediateResult.send_email(file_source="kmer",User_ID=User_ID,db_cursor=c)
     except:
         pass
     # top10_LINs = [ExtractInfo.get_top10_LIN(i,c) for i in top10] # This can be used to send preliminary results
@@ -126,7 +126,7 @@ def main(new_genome):
     db.commit()
     try:
         IntermediateResult.write_ANI_result(new_genomeID=new_genomeID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c)
-        IntermediateResult.send_email(file_source="ANI",User_ID=1,db_cursor=c)
+        IntermediateResult.send_email(file_source="ANI",User_ID=User_ID,db_cursor=c)
     except:
         pass
 
@@ -135,4 +135,5 @@ def main(new_genome):
 
 if __name__ == '__main__':
     new_genome = sys.argv[1] # Actually fetched from front end
-    print main(new_genome=new_genome)
+    User_ID = sys.argv[2]
+    print main(new_genome=new_genomem, User_ID=User_ID)
