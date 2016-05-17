@@ -124,11 +124,9 @@ def main(new_genome,User_ID):
     c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 3, '{1}', '{2}', {3})"
               .format(Genome_ID, new_LIN, top1_genome, top1_similarity))
     db.commit()
-    try:
-        IntermediateResult.write_ANI_result(new_genomeID=new_genomeID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c)
-        IntermediateResult.send_email(file_source="ANI",User_ID=User_ID,db_cursor=c)
-    except:
-        pass
+    IntermediateResult.write_ANI_result(new_genomeID=new_genomeID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c)
+    IntermediateResult.send_email(file_source="ANI",User_ID=User_ID,db_cursor=c)
+
 
 
 
