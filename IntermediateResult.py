@@ -37,7 +37,7 @@ def write_ANI_result(new_genomeID, new_LIN_object, new_LIN, db_cursor):
             "between your submission and those best hit candidates chosen according to k-mer profile.\n\n")
     f.write("The result of your submission:\n")
     f.write("Genome: {0}\t\tLIN: {1}\n".format(new_GenomeName, ",".join(new_LIN)))
-    f.write("It is most similar with {0}, whose LIN is {1}, with the ANI of {2}.\n\n".format(best_hit, LIN_best_hit, ANI_best_hit))
+    f.write("It is most similar to {0}, whose LIN is {1}, with the ANI of {2}.\n\n".format(best_hit, LIN_best_hit, ANI_best_hit))
     f.write("A result web-page is generating for your submission. We will notify you via E-mail once it is done.\n")
     f.close()
     os.system("chmod 777 /home/linproject/Workspace/email_content/ANI.txt")
