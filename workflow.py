@@ -90,7 +90,7 @@ def main(new_genome):
     print top10
     try:
         IntermediateResult.write_kmer_result(top10=top10,db_cursor=c)
-        IntermediateResult.send_email("kmer",User_ID=2,db_cursor=c)
+        IntermediateResult.send_email("kmer",User_ID=1,db_cursor=c)
     except:
         pass
     # top10_LINs = [ExtractInfo.get_top10_LIN(i,c) for i in top10] # This can be used to send preliminary results

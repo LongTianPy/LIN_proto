@@ -22,7 +22,7 @@ def write_kmer_result(top10,db_cursor):
         f.write(i+"\t\t"+tmp+"\n")
     f.close()
 
-def write_ANI_result(new_genomeID, new_LIN_object, new_LIN, db_cursor=c,):
+def write_ANI_result(new_genomeID, new_LIN_object, new_LIN, db_cursor):
     new_GenomeName = new_genomeID
     db_cursor.execute("SELECT LIN.SubjectGenome, LIN.ANI FROM LIN,Genome WHERE LIN.Genome_ID=Genome.Genome_ID "
                       "and Genome.Genome_Name='{0}'".format(new_GenomeName))
@@ -40,7 +40,7 @@ def write_ANI_result(new_genomeID, new_LIN_object, new_LIN, db_cursor=c,):
     f.close()
 
 
-def send_email(file_source, User_ID=1,db_cursor=c):
+def send_email(file_source, db_cursor, User_ID=1):
     """
     Send the user an email about the intermediate result
     :param User_ID: Should be able to read from front end, default = 2, which is me.
