@@ -88,11 +88,8 @@ def main(new_genome,User_ID):
         print "We are comparing your genome with {0} genomes in our database.".format(n_top)
     top10 = similarity.head(n_top)['Genome'].values
     print top10
-    try:
-        IntermediateResult.write_kmer_result(top10=top10,db_cursor=c)
-        IntermediateResult.send_email(file_source="kmer",User_ID=User_ID,db_cursor=c)
-    except:
-        pass
+    IntermediateResult.write_kmer_result(top10=top10,db_cursor=c)
+    IntermediateResult.send_email(file_source="kmer",User_ID=User_ID,db_cursor=c)
     # top10_LINs = [ExtractInfo.get_top10_LIN(i,c) for i in top10] # This can be used to send preliminary results
     # print top10_LINs
     # Get their file paths and copy them to the workspace
@@ -126,7 +123,8 @@ def main(new_genome,User_ID):
     db.commit()
     IntermediateResult.write_ANI_result(new_genomeID=new_genomeID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c)
     IntermediateResult.send_email(file_source="ANI",User_ID=User_ID,db_cursor=c)
-
+    c.close()
+    db.close()
 
 
 
