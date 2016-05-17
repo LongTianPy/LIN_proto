@@ -16,6 +16,7 @@ import sys
 from sklearn.cluster import KMeans
 from LoadingExternalInfo import LoadInfo
 import ExtractInfo
+import IntermediateResult
 # import ExtractInfo
 
 # INPUT
@@ -87,6 +88,11 @@ def main(new_genome):
         print "We are comparing your genome with {0} genomes in our database.".format(n_top)
     top10 = similarity.head(n_top)['Genome'].values
     print top10
+    try:
+        IntermediateResult.write_kmer_result(top10=top10,db_cursor=c)
+        IntermediateResult.send_email("kmer",User_ID=2,db_cursor=c)
+    except:
+        pass
     # top10_LINs = [ExtractInfo.get_top10_LIN(i,c) for i in top10] # This can be used to send preliminary results
     # print top10_LINs
     # Get their file paths and copy them to the workspace
@@ -118,6 +124,12 @@ def main(new_genome):
     c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 3, '{1}', '{2}', {3})"
               .format(Genome_ID, new_LIN, top1_genome, top1_similarity))
     db.commit()
+    try:
+        IntermediateResult.write_ANI_result(new_genomeID=new_genomeID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c)
+        IntermediateResult.send_email(file_source="ANI",User_ID=1,db_cursor=c)
+    except:
+        pass
+
 
 
 
