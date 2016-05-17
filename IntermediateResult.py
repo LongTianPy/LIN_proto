@@ -31,11 +31,12 @@ def write_ANI_result(new_genomeID, new_LIN_object, new_LIN, db_cursor):
     best_hit = tmp[0]
     ANI_best_hit = str(float(tmp[1])*100)+'%'
     LIN_best_hit = new_LIN_object.LIN
+
     f = open("/home/linproject/Workspace/email_content/ANI.txt","w")
     f.write("The final result of your recent submission is here, by calculateing the Average Nucleotide Identity (ANI) "
             "between your submission and those best hit candidates chosen according to k-mer profile.\n\n")
     f.write("The result of your submission:\n")
-    f.write("Genome: {0}\t\tLIN: {1}\n".format(new_GenomeName, new_LIN))
+    f.write("Genome: {0}\t\tLIN: {1}\n".format(new_GenomeName, ",".join(new_LIN)))
     f.write("It is most similar with {0}, whose LIN is {1}, with the ANI of {2}.\n\n".format(best_hit, LIN_best_hit, ANI_best_hit))
     f.write("A result web-page is generating for your submission. We will notify you via E-mail once it is done.\n")
     f.close()
