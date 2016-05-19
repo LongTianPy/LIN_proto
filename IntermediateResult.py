@@ -21,7 +21,6 @@ def write_kmer_result(top10,db_cursor):
         tmp = tmp[0] # Now we get its LIN
         f.write(i+"\t\t"+tmp+"\n")
     f.close()
-    os.system("chmod 777 /home/linproject/Workspace/email_content/kmer.txt")
 
 def write_ANI_result(new_genomeID, new_LIN_object, new_LIN, db_cursor):
     new_GenomeName = new_genomeID
@@ -40,7 +39,6 @@ def write_ANI_result(new_genomeID, new_LIN_object, new_LIN, db_cursor):
     f.write("It is most similar to {0}, whose LIN is {1}, with the ANI of {2}.\n\n".format(best_hit, ",".join(LIN_best_hit), ANI_best_hit))
     f.write("A result web-page is generating for your submission. We will notify you via E-mail once it is done.\n")
     f.close()
-    os.system("chmod 777 /home/linproject/Workspace/email_content/ANI.txt")
 
 
 def send_email(file_source, db_cursor, User_ID=1):
