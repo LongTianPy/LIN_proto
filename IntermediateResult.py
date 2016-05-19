@@ -52,7 +52,7 @@ def send_email(file_source, db_cursor, User_ID=1):
     fp = open(filepath,"r")
     msg = MIMEText(fp.read())
     fp.close()
-    me = "longtian@vt.edu"
+    me = "kingdom586@hotmail.com"
     db_cursor.execute("SELECT LastName, Email from User where User_ID={0}".format(User_ID))
     tmp = db_cursor.fetchone()
     LastName = tmp[0]
@@ -61,9 +61,9 @@ def send_email(file_source, db_cursor, User_ID=1):
         msg['Subject'] = "Mr. {0}, here's the preliminary result of your recently submission".format(LastName)
     else: # file_source == "ANI":
         msg['Subject'] = "Mr. {0}, here's the final result of your recently submission".format(LastName)
-    s = smtplib.SMTP('smtp.gmail.com',587)
+    s = smtplib.SMTP('smtp.live.com',587)
     s.ehlo_or_helo_if_needed()
     s.starttls()
-    s.login(me, '!Lt19881120')
+    s.login(me, '1988112019881120')
     s.sendmail(me, you, msg.as_string())
-    s.close()
+    s.quit()

@@ -85,7 +85,8 @@ def unified_anib(indirname):
     # Fraglengths does not get reused with BLASTN
     os.mkdir(indirname+'out/')
     os.system("chmod 777 {0}".format(indirname+'out'))
-    logger = logging.getLogger('ANI_Wrapper_2.py')
+    logger = logging.getLogger('ANI_Wrapper_2')
+
     logger.setLevel(logging.DEBUG)
     infiles = pyani_files.get_fasta_files(indirname)
     org_lengths = pyani_files.get_sequence_lengths(infiles)
