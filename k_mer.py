@@ -68,7 +68,7 @@ def KmerCountNew(filepath):
 #     print "Writing distance matrix to %s"%queryfilepath
 #     result.to_csv('%sdistance.csv'%queryfilepath)
 
-def generate_distance(queryfilepath):
+def generate_distance(queryfilepath,Genome_ID):
     """
     In the real case, we hope we only have one newly uploaded genome at a time, which means we don't calculate the whole
     data frame -- just the new one with the old one. And concatenate the new result to the existing distance matrix of
@@ -84,6 +84,7 @@ def generate_distance(queryfilepath):
     # subject_distance_matrix_file = subjectpath+'distance.csv'
     original_frequency = pd.read_hdf(subject_frequency_file,'profiles')
     new_kmer = read_into_dataframe('/home/linproject/Workspace/kpal_count/tmp_count')
+    new_kmer.rename(index=str, columns={new_kmer.keys[0]:Genome_ID})
     os.system('rm /home/linproject/Workspace/kpal_count/tmp_count')
     new_kmer_name = str(new_kmer.keys()[0])
     frequency_transform = lambda column: column/np.sum(column)

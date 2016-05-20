@@ -46,17 +46,20 @@ def main(new_genome,User_ID):
     InfoFile = "/home/linproject/Workspace/Zika/Attribute_full.csv"
     # And we have the file name of the genome
     # Fetched from the front end
-    new_genomeID = new_genome.split('.')[0]
+    new_GenomeName = new_genome.split('.')[0]
     # As well as its Interest_ID
     Interest_ID_new_genome = 2 # We hard-code it here, but it should be able to be read from the front end
     db = Connect('localhost','root')
     c = db.cursor()
     c.execute('use LINdb_zika')
     c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName) values ({0}, 1, "{1}", "{2}")'
-              .format(Interest_ID_new_genome ,original_folder+new_genome, new_genomeID))
+              .format(Interest_ID_new_genome ,original_folder+new_genome, new_GenomeName))
     db.commit()
+    c.execute('select Genome_ID from Genome where GenomeName="{0}"'.format(new_GenomeName))
+    tmp = c.fetchone()
+    new_Genome_ID = str(tmp[0])
     ## For Zika virus case only, comment out when initialization is done.
-    # LoadInfo(InfoFile,c,new_genomeID,Interest_ID_new_genome)
+    # LoadInfo(InfoFile,c,new_GenomeName,Interest_ID_new_genome)
     # db.commit()
     # # Fetch the file paths of all the genomes from the database that have the same interest ID
     # c.execute('SELECT FilePath FROM Genome WHERE Interest_ID = {0}'.format(Interest_ID_new_genome))
@@ -65,10 +68,9 @@ def main(new_genome,User_ID):
     # We need first to read their k-mer frequencies, which, are calculated beforehand and store in the server.
     # This reminds me of adding one more table for the location of those frequency files.
     ## And supposedly, the frequency of new genome shuold also be added to this file once it's calculated.
-    print original_folder+new_genome;
-    similarity = k_mer.generate_distance(original_folder+new_genome) # Already sorted
+    similarity = k_mer.generate_distance(queryfilepath=original_folder+new_genome,Genome_ID=new_Genome_ID) # Already sorted
     # Check the biggest value, if it is bigger than the bottomline of the cutoff being used
-    # if similarity[new_genomeID].max() < 0.6:
+    # if similarity[new_GenomeName].max() < 0.6:
     #     print "No similar genome found, run ANIb calculation sequentially to all genome is recommended."
     #     sys.exit()
     # else:
@@ -81,13 +83,12 @@ def main(new_genome,User_ID):
           # of genomes to perform pairwise blasting, I guess we can do (M/10)+1
         n_clusters = 3
         km = KMeans(n_clusters=n_clusters)
-        km.fit(similarity[new_genomeID].reshape(-1,1))
+        km.fit(similarity[new_Genome_ID].reshape(-1,1))
         centroid_idx = list(km.cluster_centers_).index(max(km.cluster_centers_))
         top_cluster_idx = [i for i,x in enumerate(km.labels_) if x==centroid_idx]
         n_top = len(top_cluster_idx)
         print "We are comparing your genome with {0} genomes in our database.".format(n_top)
-    top10 = similarity.head(n_top)['Genome'].values
-    print top10
+    top10 = similarity.head(n_top)['Genome'].values # top10 is a list of Genome_IDs in the database
     IntermediateResult.write_kmer_result(top10=top10,db_cursor=c)
     IntermediateResult.send_email(file_source="kmer",User_ID=User_ID,db_cursor=c)
     # top10_LINs = [ExtractInfo.get_top10_LIN(i,c) for i in top10] # This can be used to send preliminary results
@@ -95,33 +96,29 @@ def main(new_genome,User_ID):
     # Get their file paths and copy them to the workspace
     similarities = pd.DataFrame()
     for i in top10:
-        c.execute("SELECT FilePath FROM Genome WHERE FilePath like '%{0}%'".format(i))
+        c.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(i))
         cmd = "cp {0} {1}".format(c.fetchone()[0], workspace_dir)
         os.system(cmd)
         os.system('cp {0} {1}'.format(original_folder+new_genome,workspace_dir))
         # Now we have all of them in the workspace
-        ANIb_result = ANI_Wrapper_2.unified_anib(workspace_dir)[new_genomeID]
+        ANIb_result = ANI_Wrapper_2.unified_anib(workspace_dir)[new_GenomeName]
         os.system('rm -rf {0}*'.format(workspace_dir))
         similarity = ANIb_result.loc[i]
         similarities[i]=[similarity]
     top1_genome = similarities.idxmax(axis=1)[0]
+    c.execute('select Genome_ID from Genome where FilePath like "%{0}%"'.format(new_GenomeName))
+    tmp = c.fetchone()
+    top1_Genome_ID = tmp[0]
     top1_similarity = similarities.max(axis=1)[0]
-    print top1_genome
-    print top1_similarity
-    # if top1_similarity >= 1:
-    #     print "This is most likely to be" + top1_genome
-    # else:
     new_LIN_object = LIN_Assign.getLIN(genome=top1_genome, Scheme_ID=3, similarity=top1_similarity,c=c)
     print "The most similar record is " + top1_genome+ " , whose LIN is " +','.join(new_LIN_object.LIN) + '.'
     print "The similarity to it is " + str(top1_similarity*100) + "%."
     new_LIN = LIN_Assign.Assign_LIN(new_LIN_object,c=c).new_LIN
     print "The LIN assigned to your genome is " + new_LIN
-    c.execute('SELECT Genome_ID FROM Genome where FilePath like "%{0}%"'.format(new_genome))
-    Genome_ID = int(c.fetchone()[0])
     c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 3, '{1}', '{2}', {3})"
-              .format(Genome_ID, new_LIN, top1_genome, top1_similarity))
+              .format(new_Genome_ID, new_LIN, top1_genome, top1_similarity))
     db.commit()
-    IntermediateResult.write_ANI_result(new_genomeID=new_genomeID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c)
+    IntermediateResult.write_ANI_result(new_Genome_ID=new_Genome_ID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c)
     IntermediateResult.send_email(file_source="ANI",User_ID=User_ID,db_cursor=c)
     c.close()
     db.close()
