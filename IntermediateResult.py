@@ -16,16 +16,18 @@ def write_kmer_result(top10,db_cursor):
             "records are decided to be further analyzed by calculating the Average Nucleotide Identity (ANI) "
             "with your uploaded genome, which may take a while.\n\n")
     for i in top10:
-        c.execute("SELECT LIN.LIN from LIN, Genome where LIN.Genome_ID=Genome.Genome_ID and Genome.GenomeName='{0}'".format(i))
-        tmp = c.fetchone()
-        tmp = tmp[0] # Now we get its LIN
-        f.write(i+"\t\t"+tmp+"\n")
+        c.execute("SELECT AttributeValue.AttributeValue, LIN.LIN from LIN, AttributeValue where "
+                  "LIN.Genome_ID=AttributeValue.Genome_ID and "
+                  "LIN.Genome_ID={0} and AttributeValue.Attribute_ID in (1,4,5)".format(int(i)))
+        tmp = c.fetchall() # By which, we will get a list of 3 elements where for each element, 0 is an attribute, 1 is LIN
+        name = tmp[1][0] + ' ' + tmp[2][0] + ' ' + tmp[0][0]
+        LIN = tmp[0][1] # Could also be tmp[1][1] or tmp[2][1]
+        f.write(name+"\t\t"+LIN+"\n")
     f.close()
 
-def write_ANI_result(new_genomeID, new_LIN_object, new_LIN, db_cursor):
-    new_GenomeName = new_genomeID
+def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor):
     db_cursor.execute("SELECT LIN.SubjectGenome, LIN.ANI FROM LIN,Genome WHERE LIN.Genome_ID=Genome.Genome_ID "
-                      "and Genome.GenomeName='{0}'".format(new_GenomeName))
+                      "and Genome.Genome_ID='{0}'".format(new_Genome_ID))
     tmp = db_cursor.fetchone()
     best_hit = tmp[0]
     ANI_best_hit = str(float(tmp[1])*100)+'%'
@@ -58,9 +60,9 @@ def send_email(file_source, db_cursor, User_ID=1):
     LastName = tmp[0]
     you = tmp[1]
     if file_source == "kmer":
-        msg['Subject'] = "Mr. {0}, here's the preliminary result of your recently submission".format(LastName)
+        msg['Subject'] = "Mr. {0}, here's the preliminary result of your recent submission".format(LastName)
     else: # file_source == "ANI":
-        msg['Subject'] = "Mr. {0}, here's the final result of your recently submission".format(LastName)
+        msg['Subject'] = "Mr. {0}, here's the final result of your recent submission".format(LastName)
     s = smtplib.SMTP('smtp.live.com',587)
     s.ehlo_or_helo_if_needed()
     s.starttls()
