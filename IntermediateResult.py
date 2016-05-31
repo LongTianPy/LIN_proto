@@ -12,17 +12,32 @@ import os
 def write_kmer_result(top10,db_cursor):
     c = db_cursor
     f = open("/home/linproject/Workspace/email_content/kmer.txt","w")
-    f.write("After analyzing the k-mer profile of your uploaded genome by fragmenting it into 12-mer, the following "
+    f.write("<html><body>\n")
+    f.write("<p>After analyzing the k-mer profile of your uploaded genome by fragmenting it into 12-mer, the following "
             "records are decided to be further analyzed by calculating the Average Nucleotide Identity (ANI) "
-            "with your uploaded genome, which may take a while.\n\n")
+            "with your uploaded genome, which may take a while.<p>\n\n")
+    f.write("<table style='width:100%'>\n")
+    f.write("<tr><th>Genus</th><th>Species</th><th>Strain</th>"
+            "<th>A</th><th>B</th><th>C</th><th>D</th><th>E</th>"
+            "<th>F</th><th>G</th><th>H</th><th>I</th><th>J</th>"
+            "<th>K</th><th>L</th><th>M</th><th>N</th><th>O</th>"
+            "<th>P</th><th>Q</th><th>R</th><th>S</th><th>T</th>"
+            "</tr>\n")
     for i in top10:
         c.execute("SELECT AttributeValue.AttributeValue, LIN.LIN from LIN, AttributeValue where "
                   "LIN.Genome_ID=AttributeValue.Genome_ID and "
                   "LIN.Genome_ID={0} and AttributeValue.Attribute_ID in (1,4,5)".format(int(i)))
         tmp = c.fetchall() # By which, we will get a list of 3 elements where for each element, 0 is an attribute, 1 is LIN
-        name = tmp[1][0] + ' ' + tmp[2][0] + ' ' + tmp[0][0]
+        Genus = tmp[1][0]
+        Species = tmp[2][0]
+        Strain = tmp[0][0]
         LIN = tmp[0][1] # Could also be tmp[1][1] or tmp[2][1]
-        f.write(name+"\t\t"+LIN+"\n")
+        LIN = LIN.split(",")
+        f.write("<tr><td>{0}</td><td>{1}</td><td>{2}</td>".format(Genus,Species,Strain))
+        for lin in LIN:
+            f.write("<td>{0}</td>".format(lin))
+        f.write("</tr>\n")
+    f.write("</table>")
     f.close()
 
 def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor):

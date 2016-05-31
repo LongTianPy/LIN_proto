@@ -12,6 +12,7 @@ import scipy.spatial
 import numpy as np
 from MySQLdb import Connect
 import MySQLdb
+import logging
 
 
 # FUNCTIONS
@@ -68,7 +69,7 @@ def KmerCountNew(filepath):
 #     print "Writing distance matrix to %s"%queryfilepath
 #     result.to_csv('%sdistance.csv'%queryfilepath)
 
-def generate_distance(queryfilepath,Genome_ID):
+def generate_distance(queryfilepath,Genome_ID,User_ID):
     """
     In the real case, we hope we only have one newly uploaded genome at a time, which means we don't calculate the whole
     data frame -- just the new one with the old one. And concatenate the new result to the existing distance matrix of
@@ -77,25 +78,36 @@ def generate_distance(queryfilepath,Genome_ID):
     :param queryfilepath A FASTA file
     :return: The similarity dictionary of the new genome with each of the original genomes.
     """
+    logging.basicConfig(level=logging.DEBUG, filename="/home/linproject/Workspace/LIN_log/logfile_{0}".format(User_ID),
+                       filemode="a+", format="%(asctime)-15s %(levelname)-8s %(message)s")
     # Here we only have one fasta file
+    loggin.info("Calculating k-mer profile of the new submission.")
     KmerCountNew(queryfilepath)
-    # original_kmer = read_into_dataframe(subjectpath)
+
     subject_frequency_file = '/home/linproject/Workspace/Zika/init/frequency_zika'
-    # subject_distance_matrix_file = subjectpath+'distance.csv'
+
+    logging.info("Reading original frequency matrix.")
     original_frequency = pd.read_hdf(subject_frequency_file,'profiles')
+
+    logging.info("Reading k-mer profile into data frame.")
     new_kmer = read_into_dataframe('/home/linproject/Workspace/kpal_count/tmp_count')
+
+    logging.info("Changing the name of this data frame column to the Genome ID")
     new_kmer.rename(index=str, columns={new_kmer.keys[0]:Genome_ID})
+
+    logging.info("Cleaning the processed k-mer profile")
     os.system('rm /home/linproject/Workspace/kpal_count/tmp_count')
     new_kmer_name = str(new_kmer.keys()[0])
     frequency_transform = lambda column: column/np.sum(column)
-    print "transforming new counts to frequencies"
+
+    logging.info("Transforming k-mer profile of new submission to frequency")
     # original_frequency = original_kmer.apply(frequency_transform)
     new_frequency = new_kmer.apply(frequency_transform)
-    print "... Done."
+
     del new_kmer
     cosine_similarity = lambda column1, column2: scipy.spatial.distance.cosine(column1,column2)
     new_kmer_column = new_frequency[new_kmer_name]
-    print "Calculating cosine similarities..."
+    logging.info("Calculating cosine similarities...")
     # result = total_frequency.apply(lambda new_kmer_column: total_frequency.apply(lambda col2: cosine_similarity(new_kmer_column, col2)))
     # result_new2old = original_frequency.apply(lambda column :cosine_similarity(column, new_kmer_column)) # Usually it's one column
     result_new2old = [1-cosine_similarity(new_kmer_column,original_frequency[i]) for i in original_frequency.keys()]
@@ -110,6 +122,8 @@ def generate_distance(queryfilepath,Genome_ID):
     new_hdf = pd.concat([original_frequency,new_frequency],axis=1)
     del original_frequency
     del new_frequency
+
+    logging.info("Writing new frequency matrix.")
     new_hdf.to_hdf(subject_frequency_file,key='profiles')
     return similarities_sorted
     #return similarities.sort(axis=0, ascending=False, kind="mergesort")

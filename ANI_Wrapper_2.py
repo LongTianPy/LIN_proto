@@ -25,22 +25,22 @@ import traceback
 #     :param org_lengths:
 #     :return:
 #     """
-#     logger = logging.getLogger('ANI_Wrapper_2.py')
-#     logger.setLevel(logging.DEBUG)
+#     logging = logging.getLogger('ANI_Wrapper_2.py')
+#     logging.setLevel(logging.DEBUG)
 #     infiles = pyani_files.get_fasta_files(indirname)
 #     org_lengths = pyani_files.get_sequence_lengths(infiles)
 #     fragsize = pyani_config.FRAGSIZE
 #     filestems = pyani_config.ANIB_FILESTEMS
-#     logger.info("Running ANIb")
+#     logging.info("Running ANIb")
 #     # Build BLAST databases and run pairwise BLASTN
 #     # Make sequence fragments
 #     # Fraglengths does not get reused with BLASTN
 #     filenames = os.listdir(indirname)
 #     for fname in filenames:
 #         if ' ' in  os.path.abspath(fname):
-#             logger.error("File or directory '%s' contains whitespace" % fname)
-#             logger.error("This will cause issues with MUMmer and BLAST")
-#             logger.error("(exiting)")
+#             logging.error("File or directory '%s' contains whitespace" % fname)
+#             logging.error("This will cause issues with MUMmer and BLAST")
+#             logging.error("(exiting)")
 #             sys.exit(1)
 #     fragfiles, fraglengths = anib.fragment_FASTA_files(infiles,
 #                                                        indirname,
@@ -49,45 +49,44 @@ import traceback
 #     blast_exe = pyani_config.BLASTN_DEFAULT
 #
 #     # Run BLAST database-building and executables from a jobgraph
-#     logger.info("Creating job dependency graph")
+#     logging.info("Creating job dependency graph")
 #     jobgraph = anib.make_job_graph(infiles, fragfiles, indirname,
 #                                    format_exe, blast_exe, "ANIb")
 #
-#     logger.info("Running jobs with multiprocessing")
-#     logger.info("Running job dependency graph")
+#     logging.info("Running jobs with multiprocessing")
+#     logging.info("Running job dependency graph")
 #     cumval = run_mp.run_dependency_graph(jobgraph, verbose=False,
-#                                          logger=logger)
+#                                          logging=logging)
 #     if 0 < cumval:
-#         logger.warning("At least one BLAST run failed. " +
+#         logging.warning("At least one BLAST run failed. " +
 #                        "ANIb may fail.")
 #     else:
-#         logger.info("All multiprocessing jobs complete.")
+#         logging.info("All multiprocessing jobs complete.")
 #
 #
 #     # Process pairwise BLASTN output
-#     logger.info("Processing pairwise ANIb BLAST output.")
+#     logging.info("Processing pairwise ANIb BLAST output.")
 #     try:
 #         data = anib.process_blast(indirname, org_lengths,
 #                                   fraglengths=fraglengths, mode="ANIb")
 #     except ZeroDivisionError:
-#         logger.error("One or more BLAST output files has a problem.")
+#         logging.error("One or more BLAST output files has a problem.")
 #         if 0 < cumval:
-#             logger.error("This is possibly due to BLASTN run failure, " +
+#             logging.error("This is possibly due to BLASTN run failure, " +
 #                          "please investigate")
 #         else:
-#             logger.error("This is possibly due to ara BLASTN comparison " +
+#             logging.error("This is possibly due to ara BLASTN comparison " +
 #                          "being too distant for use.")
-#         logger.error(last_exception())
+#         logging.error(last_exception())
 #     return data[1]
 
-def unified_anib(indirname):
+def unified_anib(indirname,User_ID):
     # Build BLAST databases and run pairwise BLASTN
     # Fraglengths does not get reused with BLASTN
-    os.mkdir(indirname+'out/')
+    os.mkdir(indirname+'{0}_out/'.format(User_ID))
     os.system("chmod 777 {0}".format(indirname+'out'))
-    logger = logging.getLogger('ANI_Wrapper_2')
-
-    logger.setLevel(logging.DEBUG)
+    logging.basicConfig(level=logging.DEBUG, filename="/home/linproject/Workspace/LIN_log/logfile_{0}".format(User_ID),
+                        filemode="a+", format="%(asctime)-15s %(levelname)-8s %(message)s")
     infiles = pyani_files.get_fasta_files(indirname)
     org_lengths = pyani_files.get_sequence_lengths(infiles)
     fragsize = pyani_config.FRAGSIZE
@@ -95,9 +94,9 @@ def unified_anib(indirname):
     filenames = os.listdir(indirname)
     for fname in filenames:
         if ' ' in  os.path.abspath(fname):
-            logger.error("File or directory '%s' contains whitespace" % fname)
-            logger.error("This will cause issues with MUMmer and BLAST")
-            logger.error("(exiting)")
+            logging.error("File or directory '%s' contains whitespace" % fname)
+            logging.error("This will cause issues with MUMmer and BLAST")
+            logging.error("(exiting)")
             sys.exit(1)
     fragfiles, fraglengths = anib.fragment_FASTA_files(infiles, indirname+'out/', fragsize)
     # Export fragment lengths as JSON, in case we re-run BLASTALL with
@@ -108,33 +107,33 @@ def unified_anib(indirname):
     format_exe = pyani_config.FORMATDB_DEFAULT
     blast_exe = pyani_config.BLASTALL_DEFAULT
     # Run BLAST database-building and executables from a jobgraph
-    logger.info("Creating job dependency graph")
+    logging.info("Creating job dependency graph")
     jobgraph = anib.make_job_graph(infiles, fragfiles, indirname+'out/', format_exe, blast_exe, 'ANIblastall')
 
-    logger.info("Running jobs with multiprocessing")
-    logger.info("Running job dependency graph")
+    logging.info("Running jobs with multiprocessing")
+    logging.info("Running job dependency graph")
     cumval = run_mp.run_dependency_graph(jobgraph, verbose=False,
-                                         logger=logger)
+                                         logging=logging)
     if 0 < cumval:
-        logger.warning("At least one BLAST run failed. " +
+        logging.warning("At least one BLAST run failed. " +
                        "%s may fail." % 'ANIblastall')
     else:
-        logger.info("All multiprocessing jobs complete.")
+        logging.info("All multiprocessing jobs complete.")
 
     # Process pairwise BLASTN output
-    logger.info("Processing pairwise %s BLAST output." % 'ANIblastall')
+    logging.info("Processing pairwise %s BLAST output." % 'ANIblastall')
     try:
         data = anib.process_blast(indirname+'out/', org_lengths,
                                   fraglengths=fraglengths, mode='ANIblastall')
     except ZeroDivisionError:
-        logger.error("One or more BLAST output files has a problem.")
+        logging.error("One or more BLAST output files has a problem.")
         if 0 < cumval:
-            logger.error("This is possibly due to BLASTN run failure, " +
+            logging.error("This is possibly due to BLASTN run failure, " +
                          "please investigate")
         else:
-            logger.error("This is possibly due to ara BLASTN comparison " +
+            logging.error("This is possibly due to ara BLASTN comparison " +
                          "being too distant for use.")
-        logger.error(last_exception())
+        logging.error(last_exception())
     return data[1]
 
 
