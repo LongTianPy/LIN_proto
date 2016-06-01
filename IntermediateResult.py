@@ -37,7 +37,7 @@ def write_kmer_result(top10,db_cursor):
         for lin in LIN:
             f.write("<td>{0}</td>".format(lin))
         f.write("</tr>\n")
-    f.write("</table>")
+    f.write("</table></body></html>")
     f.close()
 
 def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor):
@@ -48,14 +48,53 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor):
     ANI_best_hit = str(float(tmp[1])*100)+'%'
     LIN_best_hit = new_LIN_object.LIN
 
+    # Get info of the new submission
+    db_cursor.execute("SELECT AtttributeValue.AttributeValue from AttributeValue WHERE Genome_ID={0} AND Attribute_ID "
+                      "IN (1,4,5)".format(new_Genome_ID))
+    tmp=db_cursor.fetchall()
+    Genus_new_Genome = tmp[1][0]
+    Species_new_Genome = tmp[2][0]
+    Strain_new_Genome = tmp[0][0]
+    LIN_new_Genome = new_LIN
+
+    # Get info of the best match
+    Genome_ID_best_hit = new_LIN_object.Genome_ID
+    db_cursor.execute("SELECT AtttributeValue.AttributeValue from AttributeValue WHERE Genome_ID={0} AND Attribute_ID "
+                      "IN (1,4,5)".format(Genome_ID_best_hit))
+    Genus_best_hit = tmp[1][0]
+    Species_best_hit = tmp[2][0]
+    Strain_best_hit = tmp[0][0]
+    LIN_best_hit = new_LIN_object.LIN  # This is a list already
+
+    # Get the Genome_IDs of all those sharing the same conserved part of LINs
+    db_cursor.execute("SELECT Genome_ID FROM LIN WHERE LIN LIKE '{0}%' AND Genome_ID <> {1} and Genome_ID <> {2}}".
+                      format(new_LIN_object.conserved_LIN,new_Genome_ID,Genome_ID_best_hit))
+    tmp = db_cursor.fetchall()
+
+
     f = open("/home/linproject/Workspace/email_content/ANI.txt","w")
-    f.write("The final result of your recent submission is here, by calculateing the Average Nucleotide Identity (ANI) "
-            "between your submission and those best hit candidates chosen according to k-mer profile.\n\n")
-    f.write("The result of your submission:\n")
+    f.write("<html><body>\n")
+    f.write("<p>The final result of your recent submission is here, by calculateing the Average Nucleotide Identity (ANI) "
+            "between your submission and those best hit candidates chosen according to k-mer profile.</p>\n\n")
+    f.write("<h2>The result of your submission:</h2>\n")
     f.write("Genome: {0}\t\tLIN: {1}\n".format(new_GenomeName, new_LIN))
     f.write("It is most similar to {0}, whose LIN is {1}, with the ANI of {2}.\n\n".format(best_hit, ",".join(LIN_best_hit), ANI_best_hit))
     f.write("A result web-page is generating for your submission. We will notify you via E-mail once it is done.\n")
-    f.close()
+
+    f.write("<table style='width:100%>\n")
+    f.write("<tr><th>Category</th><th>Genus</th><th>Species</th><th>Strain</th>"
+            "<th>A</th><th>B</th><th>C</th><th>D</th><th>E</th>"
+            "<th>F</th><th>G</th><th>H</th><th>I</th><th>J</th>"
+            "<th>K</th><th>L</th><th>M</th><th>N</th><th>O</th>"
+            "<th>P</th><th>Q</th><th>R</th><th>S</th><th>T</th>"
+            "</tr>\n")
+    f.write("<tr><td>New Submission</td><td>{0}</td><td>{1}</td><td>{2}</td>".format(Genus_new_Genome,Species_new_Genome,Strain_new_Genome))
+    for lin in LIN_new_Genome.split(","):
+        f.write("<td>{0}</td>".format(lin))
+    f.write("</tr>\n")
+    f.write("<tr><td>Best match</td><td>{0}</td><td>{1}</td><td>{2}</td>".format())
+
+
 
 
 def send_email(file_source, db_cursor, User_ID=1):

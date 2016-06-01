@@ -119,7 +119,11 @@ def main(new_genome,User_ID): # The genome file name we are expecting for is a
     logging.info("Iteratively calculating ANIs.")
     for i in top10:
         c.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(i))
-        cmd = "cp {0} {1}".format(c.fetchone()[0], workspace_dir)
+        target_filepath = f.fetchone()[0]
+        target_filepath = target_filepath.split("/")
+        target_filepath[-1] = "{0}.fasta".format(i)
+        target_filepath = "/".join(target_filepath)
+        cmd = "cp {0} {1}".format(target_filepath, workspace_dir)
         os.system(cmd)
         os.system('cp {0} {1}'.format(original_folder+new_genome,workspace_dir))
         # Now we have all of them in the workspace
@@ -128,18 +132,16 @@ def main(new_genome,User_ID): # The genome file name we are expecting for is a
         similarity = ANIb_result.loc[i]
         similarities[i]=[similarity]
     top1_genome = similarities.idxmax(axis=1)[0]
-    c.execute('select Genome_ID from Genome where FilePath like "%{0}%"'.format(new_GenomeName))
-    tmp = c.fetchone()
-    top1_Genome_ID = tmp[0]
+    top1_Genome_ID = int(top1_genome)
     top1_similarity = similarities.max(axis=1)[0]
-    new_LIN_object = LIN_Assign.getLIN(genome=top1_Genome_ID, Scheme_ID=3, similarity=top1_similarity,c=c)
-    logging.info("This most similar record is {0}, whose LIN is {1}.".format(top1_Genome_ID,
+    new_LIN_object = LIN_Assign.getLIN(Genome_ID=top1_Genome_ID, Scheme_ID=3, similarity=top1_similarity,c=c)
+    logging.info("This most similar record is Genome ID {0}, whose LIN is {1}.".format(top1_Genome_ID,
                                                                              ','.join(new_LIN_object.LIN)))
     logging.info("The similarity to it is " + str(top1_similarity*100) + "%.")
     new_LIN = LIN_Assign.Assign_LIN(new_LIN_object,c=c).new_LIN
     logging.info("The LIN assigned to your genome is " + new_LIN)
     c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 3, '{1}', '{2}', {3})"
-              .format(new_Genome_ID, new_LIN, top1_genome, top1_similarity))
+              .format(new_Genome_ID, new_LIN, top1_Genome_ID, top1_similarity))
     db.commit()
     IntermediateResult.write_ANI_result(new_Genome_ID=new_Genome_ID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c)
     IntermediateResult.send_email(file_source="ANI",User_ID=User_ID,db_cursor=c)
