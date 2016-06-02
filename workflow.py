@@ -85,7 +85,7 @@ def main(new_genome,User_ID): # The genome file name we are expecting for is a
     # We need first to read their k-mer frequencies, which, are calculated beforehand and store in the server.
     # This reminds me of adding one more table for the location of those frequency files.
     ## And supposedly, the frequency of new genome shuold also be added to this file once it's calculated.
-    similarity = k_mer.generate_distance(queryfilepath=original_folder+new_genome,Genome_ID=new_Genome_ID) # Already sorted
+    similarity = k_mer.generate_distance(queryfilepath=original_folder+new_genome,Genome_ID=new_Genome_ID,User_ID=User_ID) # Already sorted
     # Check the biggest value, if it is bigger than the bottomline of the cutoff being used
     # if similarity[new_GenomeName].max() < 0.6:
     #     print "No similar genome found, run ANIb calculation sequentially to all genome is recommended."
