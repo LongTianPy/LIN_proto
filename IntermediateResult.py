@@ -67,20 +67,18 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor):
     LIN_best_hit = new_LIN_object.LIN  # This is a list already
 
     # Get the Genome_IDs of all those sharing the same conserved part of LINs
-    db_cursor.execute("SELECT Genome_ID FROM LIN WHERE LIN LIKE '{0}%' AND Genome_ID <> {1} and Genome_ID <> {2}}".
+    db_cursor.execute("SELECT Genome_ID, LIN FROM LIN WHERE LIN LIKE '{0}%' AND Genome_ID <> {1} and Genome_ID <> {2}}".
                       format(new_LIN_object.conserved_LIN,new_Genome_ID,Genome_ID_best_hit))
     tmp = db_cursor.fetchall()
-
+    Genome_IDs_related_hits = [int(i[0]) for i in tmp]
+    LINs_related_hits = [i[1] for i in tmp]
 
     f = open("/home/linproject/Workspace/email_content/ANI.txt","w")
     f.write("<html><body>\n")
     f.write("<p>The final result of your recent submission is here, by calculateing the Average Nucleotide Identity (ANI) "
-            "between your submission and those best hit candidates chosen according to k-mer profile.</p>\n\n")
+            "between your submission and those best hit candidates chosen according to k-mer profile.\nThe ANI between"
+            "your submission and the best match is {0}.</p>\n\n".format(ANI_best_hit))
     f.write("<h2>The result of your submission:</h2>\n")
-    f.write("Genome: {0}\t\tLIN: {1}\n".format(new_GenomeName, new_LIN))
-    f.write("It is most similar to {0}, whose LIN is {1}, with the ANI of {2}.\n\n".format(best_hit, ",".join(LIN_best_hit), ANI_best_hit))
-    f.write("A result web-page is generating for your submission. We will notify you via E-mail once it is done.\n")
-
     f.write("<table style='width:100%>\n")
     f.write("<tr><th>Category</th><th>Genus</th><th>Species</th><th>Strain</th>"
             "<th>A</th><th>B</th><th>C</th><th>D</th><th>E</th>"
@@ -88,14 +86,34 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor):
             "<th>K</th><th>L</th><th>M</th><th>N</th><th>O</th>"
             "<th>P</th><th>Q</th><th>R</th><th>S</th><th>T</th>"
             "</tr>\n")
-    f.write("<tr><td>New Submission</td><td>{0}</td><td>{1}</td><td>{2}</td>".format(Genus_new_Genome,Species_new_Genome,Strain_new_Genome))
+    f.write("<tr><td>New Submission</td><td>{0}</td><td>{1}</td><td>{2}</td>".format(Genus_new_Genome,
+                                                                                     Species_new_Genome,
+                                                                                     Strain_new_Genome))
     for lin in LIN_new_Genome.split(","):
         f.write("<td>{0}</td>".format(lin))
     f.write("</tr>\n")
-    f.write("<tr><td>Best match</td><td>{0}</td><td>{1}</td><td>{2}</td>".format())
-
-
-
+    f.write("<tr><td>Best match</td><td>{0}</td><td>{1}</td><td>{2}</td>".format(Genus_best_hit,
+                                                                                 Species_best_hit,
+                                                                                 Strain_best_hit))
+    for lin in LIN_best_hit:
+        f.write("<td>{0}</td>".format(lin))
+    f.write("</tr>\n")
+    # Write the related hits, who share the conserved LINs
+    for i in range(len(Genome_IDs_related_hits)):
+        db_cursor.execute("SELECT AttributeValue FROM AttributeValue WHERE Genome_ID={0} AND Attribute_ID in (1,4,5)"
+                          .format(Genome_IDs_related_hits[i]))
+        tmp = db_cursor.fetchall()
+        Genus_related_hit = tmp[1][0]
+        Species_related_hit = tmp[2][0]
+        Strain_related_hit = tmp[0][0]
+        f.write("<tr><td>Similar record</td><td>{0}</td><td>{1}</td><td>{2}</td>".format(Genus_related_hit,
+                                                                                         Species_related_hit,
+                                                                                         Strain_related_hit))
+        for lin in LINs_related_hits[i].split(","):
+            f.write("<td>{0}</td>".format(lin))
+        f.write("</tr>\n")
+    f.write("</table></body></html>")
+    f.close()
 
 def send_email(file_source, db_cursor, User_ID=1):
     """
