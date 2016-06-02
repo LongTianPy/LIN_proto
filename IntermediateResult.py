@@ -142,9 +142,11 @@ def send_email(file_source, db_cursor, User_ID):
                         filemode="a+", format="%(asctime)-15s %(levelname)-8s %(message)s")
     file_switch = {"kmer":"/home/linproject/Workspace/email_content/kmer.txt","ANI":"/home/linproject/Workspace/email_content/ANI.txt"}
     filepath = file_switch[file_source]
+    msg = MIMEMultipart('alternative')
     fp = open(filepath,"r")
-    msg = MIMEText(fp.read())
+    content = MIMEText(fp.read(),"html")
     fp.close()
+    msg.attach(content)
     me = "kingdom586@hotmail.com"
     db_cursor.execute("SELECT LastName, Email from User where User_ID={0}".format(User_ID))
     tmp = db_cursor.fetchone()
