@@ -113,7 +113,7 @@ def unified_anib(indirname,User_ID):
     logging.info("Running jobs with multiprocessing")
     logging.info("Running job dependency graph")
     cumval = run_mp.run_dependency_graph(jobgraph, verbose=False,
-                                         logging=logging)
+                                         logger=logging)
     if 0 < cumval:
         logging.warning("At least one BLAST run failed. " +
                        "%s may fail." % 'ANIblastall')
