@@ -93,7 +93,6 @@ def generate_distance(queryfilepath,Genome_ID,User_ID):
     new_kmer = read_into_dataframe('/home/linproject/Workspace/kpal_count/tmp_count')
 
     logging.info("Changing the name of this data frame column to the Genome ID")
-    new_kmer.rename(index=str, columns={new_kmer.keys[0]:Genome_ID})
     new_kmer.columns = [Genome_ID]
 
     logging.info("Cleaning the processed k-mer profile")
