@@ -119,7 +119,7 @@ def main(new_genome,User_ID): # The genome file name we are expecting for is a
     logging.info("Iteratively calculating ANIs.")
     for i in top10:
         c.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(i))
-        target_filepath = f.fetchone()[0]
+        target_filepath = c.fetchone()[0]
         target_filepath = target_filepath.split("/")
         target_filepath[-1] = "{0}.fasta".format(i)
         target_filepath = "/".join(target_filepath)
