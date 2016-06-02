@@ -27,26 +27,17 @@ def write_kmer_result(top10,db_cursor,User_ID):
             "<th>P</th><th>Q</th><th>R</th><th>S</th><th>T</th>"
             "</tr>\n")
     for i in top10:
-        logging.info("SELECT AttributeValue.AttributeValue, LIN.LIN from LIN, AttributeValue where "
-                  "LIN.Genome_ID=AttributeValue.Genome_ID and "
-                  "LIN.Genome_ID={0} and AttributeValue.Attribute_ID in (1,4,5)".format(int(i)))
-        c.execute("SELECT AttributeValue.AttributeValue, LIN.LIN from LIN, AttributeValue where "
-                  "LIN.Genome_ID=AttributeValue.Genome_ID and "
-                  "LIN.Genome_ID={0} and AttributeValue.Attribute_ID in (1,4,5)".format(int(i)))
+        db_cursor.execute("SELECT AttributeValue FROM AttributeValue WHERE Genome_ID={0} AND Attribute_ID IN (1,4,5)".format(int(i)))
         tmp = c.fetchall() # By which, we will get a list of 3 elements where for each element, 0 is an attribute, 1 is LIN
-        try:
+        if len(tmp) == 0:
+            Genus = Species = Strain = "N/A"
+        else:
             Genus = tmp[1][0]
-        except:
-            Genus = "N/A"
-        try:
             Species = tmp[2][0]
-        except:
-            Species = "N/A"
-        try:
             Strain = tmp[0][0]
-        except:
-            Strain = "N/A"
-        LIN = tmp[0][1] # Could also be tmp[1][1] or tmp[2][1]
+        db_cursor.execute("SELECT LIN FROM LIN WHERE Genome_ID={0}".format(int(i)))
+        tmp = c.fetchone()
+        LIN = tmp[0] # Could also be tmp[1][1] or tmp[2][1]
         LIN = LIN.split(",")
         f.write("<tr><td>{0}</td><td>{1}</td><td>{2}</td>".format(Genus,Species,Strain))
         for lin in LIN:
@@ -69,36 +60,24 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID):
     db_cursor.execute("SELECT AtttributeValue.AttributeValue from AttributeValue WHERE Genome_ID={0} AND Attribute_ID "
                       "IN (1,4,5)".format(new_Genome_ID))
     tmp=db_cursor.fetchall()
-    try:
+    if len(tmp) == 0:
+        Genus_new_Genome = Species_new_Genome = Strain_new_Genome = "N/A"
+    else:
         Genus_new_Genome = tmp[1][0]
-    except:
-        Genus_new_Genome = "N/A"
-    try:
         Species_new_Genome = tmp[2][0]
-    except:
-        Species_new_Genome = "N/A"
-    try:
         Strain_new_Genome = tmp[0][0]
-    except:
-        Strain_new_Genome = "N/A"
     LIN_new_Genome = new_LIN
 
     # Get info of the best match
     Genome_ID_best_hit = new_LIN_object.Genome_ID
     db_cursor.execute("SELECT AtttributeValue.AttributeValue from AttributeValue WHERE Genome_ID={0} AND Attribute_ID "
                       "IN (1,4,5)".format(Genome_ID_best_hit))
-    try:
+    if len(tmp) == 0:
+        Genus_best_hit = Species_best_hit = Strain_best_hit = "N/A"
+    else:
         Genus_best_hit = tmp[1][0]
-    except:
-        Genus_best_hit = "N/A"
-    try:
         Species_best_hit = tmp[2][0]
-    except:
-        Species_best_hit = "N/A"
-    try:
         Strain_best_hit = tmp[0][0]
-    except:
-        Strain_best_hit = "N/A"
     LIN_best_hit = new_LIN_object.LIN  # This is a list already
 
     # Get the Genome_IDs of all those sharing the same conserved part of LINs
@@ -138,18 +117,12 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID):
         db_cursor.execute("SELECT AttributeValue FROM AttributeValue WHERE Genome_ID={0} AND Attribute_ID in (1,4,5)"
                           .format(Genome_IDs_related_hits[i]))
         tmp = db_cursor.fetchall()
-        try:
+        if len(tmp) == 0:
+            Genus_related_hit = Species_related_hit = Strain_related_hit = "N/A"
+        else:
             Genus_related_hit = tmp[1][0]
-        except:
-            Genus_related_hit = "N/A"
-        try:
             Species_related_hit = tmp[2][0]
-        except:
-            Species_related_hit = "N/A"
-        try:
             Strain_related_hit = tmp[0][0]
-        except:
-            Strain_related_hit = "N/A"
         f.write("<tr><td>Similar record</td><td>{0}</td><td>{1}</td><td>{2}</td>".format(Genus_related_hit,
                                                                                          Species_related_hit,
                                                                                          Strain_related_hit))
