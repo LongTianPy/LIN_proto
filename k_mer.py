@@ -81,7 +81,7 @@ def generate_distance(queryfilepath,Genome_ID,User_ID):
     logging.basicConfig(level=logging.DEBUG, filename="/home/linproject/Workspace/LIN_log/logfile_{0}".format(User_ID),
                        filemode="a+", format="%(asctime)-15s %(levelname)-8s %(message)s")
     # Here we only have one fasta file
-    loggin.info("Calculating k-mer profile of the new submission.")
+    logging.info("Calculating k-mer profile of the new submission.")
     KmerCountNew(queryfilepath)
 
     subject_frequency_file = '/home/linproject/Workspace/Zika/init/frequency_zika'
