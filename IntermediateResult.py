@@ -7,6 +7,7 @@ The result will include the genomes and corresponding LINs
 import email
 import smtplib
 from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 import os
 import logging
 
