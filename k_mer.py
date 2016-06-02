@@ -124,7 +124,7 @@ def generate_distance(queryfilepath,Genome_ID,User_ID):
     del new_frequency
 
     logging.info("Writing new frequency matrix.")
-    new_hdf.to_hdf(subject_frequency_file,key='profiles')
+    # new_hdf.to_hdf(subject_frequency_file,key='profiles')
     return similarities_sorted
     #return similarities.sort(axis=0, ascending=False, kind="mergesort")
     # newrow = [new_kmer_name]+result_new2old

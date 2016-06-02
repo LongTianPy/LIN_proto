@@ -108,7 +108,7 @@ def main(new_genome,User_ID): # The genome file name we are expecting for is a
     top10 = similarity.head(n_top)['Genome'].values # top10 is a list of Genome_IDs in the database
 
     logging.info("Writing k-mer result.")
-    IntermediateResult.write_kmer_result(top10=top10,db_cursor=c)
+    IntermediateResult.write_kmer_result(top10=top10,db_cursor=c,User_ID=User_ID)
     logging.info("Sending k-mer result to the user, User_ID {0}.".format(User_ID))
     IntermediateResult.send_email(file_source="kmer",User_ID=User_ID,db_cursor=c)
     # top10_LINs = [ExtractInfo.get_top10_LIN(i,c) for i in top10] # This can be used to send preliminary results
@@ -143,7 +143,7 @@ def main(new_genome,User_ID): # The genome file name we are expecting for is a
     c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 3, '{1}', '{2}', {3})"
               .format(new_Genome_ID, new_LIN, top1_Genome_ID, top1_similarity))
     db.commit()
-    IntermediateResult.write_ANI_result(new_Genome_ID=new_Genome_ID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c)
+    IntermediateResult.write_ANI_result(new_Genome_ID=new_Genome_ID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c,User_ID=User_ID)
     IntermediateResult.send_email(file_source="ANI",User_ID=User_ID,db_cursor=c)
     c.close()
     db.close()

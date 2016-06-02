@@ -8,8 +8,11 @@ import email
 import smtplib
 from email.mime.text import MIMEText
 import os
+import logging
 
-def write_kmer_result(top10,db_cursor):
+def write_kmer_result(top10,db_cursor,User_ID):
+    logging.basicConfig(level=logging.DEBUG, filename="/home/linproject/Workspace/LIN_log/logfile_{0}".format(User_ID),
+                        filemode="a+", format="%(asctime)-15s %(levelname)-8s %(message)s")
     c = db_cursor
     f = open("/home/linproject/Workspace/email_content/kmer.txt","w")
     f.write("<html><body>\n")
@@ -24,6 +27,9 @@ def write_kmer_result(top10,db_cursor):
             "<th>P</th><th>Q</th><th>R</th><th>S</th><th>T</th>"
             "</tr>\n")
     for i in top10:
+        logging.info("SELECT AttributeValue.AttributeValue, LIN.LIN from LIN, AttributeValue where "
+                  "LIN.Genome_ID=AttributeValue.Genome_ID and "
+                  "LIN.Genome_ID={0} and AttributeValue.Attribute_ID in (1,4,5)".format(int(i)))
         c.execute("SELECT AttributeValue.AttributeValue, LIN.LIN from LIN, AttributeValue where "
                   "LIN.Genome_ID=AttributeValue.Genome_ID and "
                   "LIN.Genome_ID={0} and AttributeValue.Attribute_ID in (1,4,5)".format(int(i)))
@@ -49,7 +55,9 @@ def write_kmer_result(top10,db_cursor):
     f.write("</table></body></html>")
     f.close()
 
-def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor):
+def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID):
+    logging.basicConfig(level=logging.DEBUG, filename="/home/linproject/Workspace/LIN_log/logfile_{0}".format(User_ID),
+                        filemode="a+", format="%(asctime)-15s %(levelname)-8s %(message)s")
     db_cursor.execute("SELECT LIN.SubjectGenome, LIN.ANI FROM LIN,Genome WHERE LIN.Genome_ID=Genome.Genome_ID "
                       "and Genome.Genome_ID='{0}'".format(new_Genome_ID))
     tmp = db_cursor.fetchone()
@@ -151,12 +159,14 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor):
     f.write("</table></body></html>")
     f.close()
 
-def send_email(file_source, db_cursor, User_ID=1):
+def send_email(file_source, db_cursor, User_ID):
     """
     Send the user an email about the intermediate result
     :param User_ID: Should be able to read from front end, default = 2, which is me.
     :return:
     """
+    logging.basicConfig(level=logging.DEBUG, filename="/home/linproject/Workspace/LIN_log/logfile_{0}".format(User_ID),
+                        filemode="a+", format="%(asctime)-15s %(levelname)-8s %(message)s")
     file_switch = {"kmer":"/home/linproject/Workspace/email_content/kmer.txt","ANI":"/home/linproject/Workspace/email_content/ANI.txt"}
     filepath = file_switch[file_source]
     fp = open(filepath,"r")
