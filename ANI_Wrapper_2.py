@@ -84,7 +84,7 @@ def unified_anib(indirname,User_ID):
     # Build BLAST databases and run pairwise BLASTN
     # Fraglengths does not get reused with BLASTN
     os.mkdir(indirname+'{0}_out/'.format(User_ID))
-    os.system("chmod 777 {0}".format(indirname+'out'))
+    os.system("chmod 777 {0}".format(indirname+'{0}_out'.format(User_ID)))
     logging.basicConfig(level=logging.DEBUG, filename="/home/linproject/Workspace/LIN_log/logfile_{0}".format(User_ID),
                         filemode="a+", format="%(asctime)-15s %(levelname)-8s %(message)s")
     infiles = pyani_files.get_fasta_files(indirname)
@@ -98,17 +98,17 @@ def unified_anib(indirname,User_ID):
             logging.error("This will cause issues with MUMmer and BLAST")
             logging.error("(exiting)")
             sys.exit(1)
-    fragfiles, fraglengths = anib.fragment_FASTA_files(infiles, indirname+'out/', fragsize)
+    fragfiles, fraglengths = anib.fragment_FASTA_files(infiles, indirname+'{0}_out/'.format(User_ID), fragsize)
     # Export fragment lengths as JSON, in case we re-run BLASTALL with
     # --skip_blastn
-    with open(os.path.join(indirname+'out/', 'fraglengths.json'), 'w') as outfile:
+    with open(os.path.join(indirname+'{0}_out/'.format(User_ID), 'fraglengths.json'), 'w') as outfile:
         json.dump(fraglengths, outfile)
     # Which executables are we using?
     format_exe = pyani_config.FORMATDB_DEFAULT
     blast_exe = pyani_config.BLASTALL_DEFAULT
     # Run BLAST database-building and executables from a jobgraph
     logging.info("Creating job dependency graph")
-    jobgraph = anib.make_job_graph(infiles, fragfiles, indirname+'out/', format_exe, blast_exe, 'ANIblastall')
+    jobgraph = anib.make_job_graph(infiles, fragfiles, indirname+'{0}_out/'.format(User_ID), format_exe, blast_exe, 'ANIblastall')
 
     logging.info("Running jobs with multiprocessing")
     logging.info("Running job dependency graph")
@@ -123,7 +123,7 @@ def unified_anib(indirname,User_ID):
     # Process pairwise BLASTN output
     logging.info("Processing pairwise %s BLAST output." % 'ANIblastall')
     try:
-        data = anib.process_blast(indirname+'out/', org_lengths,
+        data = anib.process_blast(indirname+'{0}_out/'.format(User_ID), org_lengths,
                                   fraglengths=fraglengths, mode='ANIblastall')
     except ZeroDivisionError:
         logging.error("One or more BLAST output files has a problem.")
