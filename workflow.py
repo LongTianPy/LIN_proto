@@ -56,9 +56,7 @@ def main(new_genome,User_ID): # The genome file name we are expecting for is a
     logging.info("New task from User ID {0}".format(User_ID))
 
     original_folder  = '/home/linproject/Workspace/Zika/'
-    workspace_dir = '/home/linproject/Workspace/New/'
-    subfolder = 'workspace/'
-    workspace_dir = workspace_dir + subfolder
+    workspace_dir = '/home/linproject/Workspace/New/workspace/'
     # InfoFile = "/home/linproject/Workspace/Zika/Attribute_full.csv"
     # And we have the file name of the genome
     # Fetched from the front end
@@ -120,17 +118,20 @@ def main(new_genome,User_ID): # The genome file name we are expecting for is a
     for i in top10:
         c.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(i))
         target_filepath = c.fetchone()[0]
-        target_filepath = target_filepath.split("/")
-        target_filepath[-1] = "{0}.fasta".format(i)
-        target_filepath = "/".join(target_filepath)
-        cmd = "cp {0} {1}".format(target_filepath, workspace_dir)
+        target_filename_rename = target_filepath.split("/")[-1]
+        target_filename_rename = "{0}.fasta".format(i)
+        cmd = "cp {0} {1}".format(target_filepath, workspace_dir+target_filename_rename)
         os.system(cmd)
-        os.system('cp {0} {1}'.format(original_folder+new_genome,workspace_dir))
+        c.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(int(new_Genome_ID)))
+        query_filepath = c.fetchone()[0]
+        query_filename_rename = query_filepath.split("/")[-1]
+        query_filename_rename = "{0}.fasta".format(new_Genome_ID)
+        os.system('cp {0} {1}'.format(query_filepath,workspace_dir+query_filename_rename))
         # Now we have all of them in the workspace
-        ANIb_result = ANI_Wrapper_2.unified_anib(workspace_dir,User_ID)[new_GenomeName]
+        ANIb_result = ANI_Wrapper_2.unified_anib(workspace_dir,User_ID)[new_Genome_ID]
         os.system('rm -rf {0}*'.format(workspace_dir))
-        similarity = ANIb_result.loc[i]
-        similarities[i]=[similarity]
+        similarity = ANIb_result.loc[str(i)]
+        similarities[str(i)]=[similarity]
     top1_genome = similarities.idxmax(axis=1)[0]
     top1_Genome_ID = int(top1_genome)
     top1_similarity = similarities.max(axis=1)[0]
