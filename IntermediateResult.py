@@ -82,7 +82,7 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID):
     LIN_best_hit = new_LIN_object.LIN  # This is a list already
 
     # Get the Genome_IDs of all those sharing the same conserved part of LINs
-    db_cursor.execute("SELECT Genome_ID, LIN FROM LIN WHERE LIN LIKE '{0}%' AND Genome_ID <> {1} and Genome_ID <> {2}}".
+    db_cursor.execute("SELECT Genome_ID, LIN FROM LIN WHERE LIN LIKE '{0}%' AND Genome_ID <> {1} and Genome_ID <> {2}".
                       format(new_LIN_object.conserved_LIN,new_Genome_ID,Genome_ID_best_hit))
     tmp = db_cursor.fetchall()
     Genome_IDs_related_hits = [int(i[0]) for i in tmp]
