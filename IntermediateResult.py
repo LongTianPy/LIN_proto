@@ -19,7 +19,7 @@ def write_kmer_result(top10,db_cursor,User_ID):
     f.write("<html><head>\n")
     f.write("<style>"
             "table{border-collapse:collapse;width:100%}"
-            "th{width:2.5em;height:20px;}"
+            "th{width:1.5em;height:20px;}"
             "</style></head>")
     f.write("<body><p>After analyzing the k-mer profile of your uploaded genome by fragmenting it into 12-mer, the following "
             "records are decided to be further analyzed by calculating the Average Nucleotide Identity (ANI) "
@@ -96,7 +96,7 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID):
     f.write("<html><head>\n")
     f.write("<style>"
             "table{border-collapse:collapse;width:100%}"
-            "th{width:2.5em;height:20px;}"
+            "th{width:1.5em;height:20px;}"
             "</style></head>")
     f.write("<body><p>The final result of your recent submission is here, by calculateing the Average Nucleotide Identity (ANI) "
             "between your submission and those best hit candidates chosen according to k-mer profile.\nThe ANI between"
