@@ -24,7 +24,7 @@ class getLIN(object):
         self.similarity = float(similarity)*100
         self.parse()
     def parse(self, Genome_ID = None, Scheme_ID = None, similarity = None, c = None):
-        if not genome:
+        if not Genome_ID:
             Genome_ID = self.Genome_ID
         if not Scheme_ID:
             Scheme_ID = self.Scheme_ID
