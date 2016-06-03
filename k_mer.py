@@ -17,12 +17,12 @@ import logging
 
 # FUNCTIONS
 def read_into_dataframe(countfile):
-    print "Started to read %s"%countfile
+    logging.info("Started to read %s"%countfile)
     f = h5py.File(countfile,'r')
     data = f['profiles']
     data = dict(data)
     df = pd.DataFrame(data)
-    print "Loading completed."
+    logging("Loading completed.")
     return df
 
 def isfilepath(filepath):
