@@ -16,16 +16,20 @@ def write_kmer_result(top10,db_cursor,User_ID):
                         filemode="a+", format="%(asctime)-15s %(levelname)-8s %(message)s")
     c = db_cursor
     f = open("/home/linproject/Workspace/email_content/kmer.txt","w")
-    f.write("<html><body>\n")
-    f.write("<p>After analyzing the k-mer profile of your uploaded genome by fragmenting it into 12-mer, the following "
+    f.write("<html><head>\n")
+    f.write("<style>table,td,th{border:1px solid black;}"
+            "table{border-collapse:collapse;width:100%}"
+            "th{height:20px;}"
+            "</style></head>")
+    f.write("<body><p>After analyzing the k-mer profile of your uploaded genome by fragmenting it into 12-mer, the following "
             "records are decided to be further analyzed by calculating the Average Nucleotide Identity (ANI) "
-            "with your uploaded genome, which may take a while.<p>\n\n")
-    f.write("<table style='width:100%'>\n")
-    f.write("<tr><th>Genus</th><th>Species</th><th>Strain</th>"
-            "<th>A</th><th>B</th><th>C</th><th>D</th><th>E</th>"
-            "<th>F</th><th>G</th><th>H</th><th>I</th><th>J</th>"
-            "<th>K</th><th>L</th><th>M</th><th>N</th><th>O</th>"
-            "<th>P</th><th>Q</th><th>R</th><th>S</th><th>T</th>"
+            "with your uploaded genome, which may take a while.</p>\n\n")
+    f.write("<table>\n")
+    f.write("<tr><th align='left>Genus</th><th align='left>Species</th><th align='left>Strain</th>"
+            "<th align='left>A</th><th align='left>B</th><th align='left>C</th><th align='left>D</th><th align='left>E</th>"
+            "<th align='left>F</th><th align='left>G</th><th align='left>H</th><th align='left>I</th><th align='left>J</th>"
+            "<th align='left>K</th><th align='left>L</th><th align='left>M</th><th align='left>N</th><th align='left>O</th>"
+            "<th align='left>P</th><th align='left>Q</th><th align='left>R</th><th align='left>S</th><th align='left>T</th>"
             "</tr>\n")
     for i in top10:
         db_cursor.execute("SELECT AttributeValue FROM AttributeValue WHERE Genome_ID={0} AND Attribute_ID IN (1,4,5)".format(int(i)))
@@ -89,17 +93,21 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID):
     LINs_related_hits = [i[1] for i in tmp]
 
     f = open("/home/linproject/Workspace/email_content/ANI.txt","w")
-    f.write("<html><body>\n")
-    f.write("<p>The final result of your recent submission is here, by calculateing the Average Nucleotide Identity (ANI) "
+    f.write("<html><head>\n")
+    f.write("<style>table,td,th{border:1px solid black;}"
+            "table{border-collapse:collapse;width:100%}"
+            "th{height:20px;}"
+            "</style></head>")
+    f.write("<body><p>The final result of your recent submission is here, by calculateing the Average Nucleotide Identity (ANI) "
             "between your submission and those best hit candidates chosen according to k-mer profile.\nThe ANI between"
             "your submission and the best match is {0}.</p>\n\n".format(ANI_best_hit))
     f.write("<h2>The result of your submission:</h2>\n")
-    f.write("<table style='width:100%'>\n")
-    f.write("<tr><th>Category</th><th>Genus</th><th>Species</th><th>Strain</th>"
-            "<th>A</th><th>B</th><th>C</th><th>D</th><th>E</th>"
-            "<th>F</th><th>G</th><th>H</th><th>I</th><th>J</th>"
-            "<th>K</th><th>L</th><th>M</th><th>N</th><th>O</th>"
-            "<th>P</th><th>Q</th><th>R</th><th>S</th><th>T</th>"
+    f.write("<table>\n")
+    f.write("<tr><th align='left>Category</th><th align='left>Genus</th><th align='left>Species</th><th align='left>Strain</th>"
+            "<th align='left>A</th><th align='left>B</th><th align='left>C</th><th align='left>D</th><th align='left>E</th>"
+            "<th align='left>F</th><th align='left>G</th><th align='left>H</th><th align='left>I</th><th align='left>J</th>"
+            "<th align='left>K</th><th align='left>L</th><th align='left>M</th><th align='left>N</th><th align='left>O</th>"
+            "<th align='left>P</th><th align='left>Q</th><th align='left>R</th><th align='left>S</th><th align='left>T</th>"
             "</tr>\n")
     f.write("<tr><td>New Submission</td><td>{0}</td><td>{1}</td><td>{2}</td>".format(Genus_new_Genome,
                                                                                      Species_new_Genome,
