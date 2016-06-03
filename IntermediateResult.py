@@ -94,7 +94,7 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID):
             "between your submission and those best hit candidates chosen according to k-mer profile.\nThe ANI between"
             "your submission and the best match is {0}.</p>\n\n".format(ANI_best_hit))
     f.write("<h2>The result of your submission:</h2>\n")
-    f.write("<table style='width:100%>\n")
+    f.write("<table style='width:100%'>\n")
     f.write("<tr><th>Category</th><th>Genus</th><th>Species</th><th>Strain</th>"
             "<th>A</th><th>B</th><th>C</th><th>D</th><th>E</th>"
             "<th>F</th><th>G</th><th>H</th><th>I</th><th>J</th>"
