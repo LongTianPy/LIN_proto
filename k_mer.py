@@ -17,6 +17,8 @@ import logging
 
 # FUNCTIONS
 def read_into_dataframe(countfile):
+    logging.basicConfig(level=logging.DEBUG, filename="/home/linproject/Workspace/LIN_log/logfile_{0}".format(User_ID),
+                        filemode="a+", format="%(asctime)-15s %(levelname)-8s %(message)s")
     logging.info("Started to read %s"%countfile)
     f = h5py.File(countfile,'r')
     data = f['profiles']
