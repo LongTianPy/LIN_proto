@@ -25,11 +25,11 @@ def write_kmer_result(top10,db_cursor,User_ID):
             "records are decided to be further analyzed by calculating the Average Nucleotide Identity (ANI) "
             "with your uploaded genome, which may take a while.</p>\n\n")
     f.write("<table>\n")
-    f.write("<tr><th align='left>Genus</th><th align='left>Species</th><th align='left>Strain</th>"
-            "<th align='left>A</th><th align='left>B</th><th align='left>C</th><th align='left>D</th><th align='left>E</th>"
-            "<th align='left>F</th><th align='left>G</th><th align='left>H</th><th align='left>I</th><th align='left>J</th>"
-            "<th align='left>K</th><th align='left>L</th><th align='left>M</th><th align='left>N</th><th align='left>O</th>"
-            "<th align='left>P</th><th align='left>Q</th><th align='left>R</th><th align='left>S</th><th align='left>T</th>"
+    f.write("<tr><th align='left'>Genus</th><th align='left'>Species</th><th align='left'>Strain</th>"
+            "<th align='left'>A</th><th align='left'>B</th><th align='left'>C</th><th align='left'>D</th><th align='left'>E</th>"
+            "<th align='left'>F</th><th align='left'>G</th><th align='left'>H</th><th align='left'>I</th><th align='left'>J</th>"
+            "<th align='left'>K</th><th align='left'>L</th><th align='left'>M</th><th align='left'>N</th><th align='left'>O</th>"
+            "<th align='left'>P</th><th align='left'>Q</th><th align='left'>R</th><th align='left'>S</th><th align='left'>T</th>"
             "</tr>\n")
     for i in top10:
         db_cursor.execute("SELECT AttributeValue FROM AttributeValue WHERE Genome_ID={0} AND Attribute_ID IN (1,4,5)".format(int(i)))
@@ -103,11 +103,11 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID):
             "your submission and the best match is {0}.</p>\n\n".format(ANI_best_hit))
     f.write("<h2>The result of your submission:</h2>\n")
     f.write("<table>\n")
-    f.write("<tr><th align='left>Category</th><th align='left>Genus</th><th align='left>Species</th><th align='left>Strain</th>"
-            "<th align='left>A</th><th align='left>B</th><th align='left>C</th><th align='left>D</th><th align='left>E</th>"
-            "<th align='left>F</th><th align='left>G</th><th align='left>H</th><th align='left>I</th><th align='left>J</th>"
-            "<th align='left>K</th><th align='left>L</th><th align='left>M</th><th align='left>N</th><th align='left>O</th>"
-            "<th align='left>P</th><th align='left>Q</th><th align='left>R</th><th align='left>S</th><th align='left>T</th>"
+    f.write("<tr><th align='left'>Category</th><th align='left'>Genus</th><th align='left'>Species</th><th align='left'>Strain</th>"
+            "<th align='left'>A</th><th align='left'>B</th><th align='left'>C</th><th align='left'>D</th><th align='left'>E</th>"
+            "<th align='left'>F</th><th align='left'>G</th><th align='left'>H</th><th align='left'>I</th><th align='left'>J</th>"
+            "<th align='left'>K</th><th align='left'>L</th><th align='left'>M</th><th align='left'>N</th><th align='left'>O</th>"
+            "<th align='left'>P</th><th align='left'>Q</th><th align='left'>R</th><th align='left'>S</th><th align='left'>T</th>"
             "</tr>\n")
     f.write("<tr><td>New Submission</td><td>{0}</td><td>{1}</td><td>{2}</td>".format(Genus_new_Genome,
                                                                                      Species_new_Genome,
