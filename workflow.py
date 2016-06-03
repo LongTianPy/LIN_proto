@@ -19,6 +19,10 @@ import ExtractInfo
 import IntermediateResult
 import logging
 import logging.handlers
+import argparse
+from datetime import datetime
+from pytz import timezone
+
 # import ExtractInfo
 
 # INPUT
@@ -44,12 +48,42 @@ def last_exception():
     return ''.join(traceback.format_exception(exc_type, exc_value,
                                               exc_traceback))
 
+def get_parsed_args():
+    parser = argparse.ArgumentParser(
+        description="LIN platform backend"
+    )
+    parser.add_argument("-i", dest="new_genome", help="xxxxxx.fasta")
+    parser.add_argument("-u", dest="User_ID", help="An interger")
+    parser.add_argument("-s", dest="Interest_ID", help="Interest ID")
+    parser.add_argument("-t", dest="Attributes", help="Attributes")
+    parser.add_argument("-p", dest="privacy", help="Is it private information")
+
 
 
 # MAIN
-def main(new_genome,User_ID): # The genome file name we are expecting for is a
+def main(argv=None): # The genome file name we are expecting for is a
     # There should be a script that uploads the genome sequence to a subfolder in the workspace where the name is
     # randomly and uniquely generated
+    if argv is None:
+        argv = sys.argv
+    args = get_parsed_args()
+    new_genome = args.new_genome
+    User_ID = int(args.user_ID)
+    Interest_ID_new_genome = int(args.Interest_ID)
+    Attributes = args.Attributes
+    privacy = args.privacy
+    if privacy == "True":
+        privacy = 1
+    else:
+        privacy = 0
+    eastern = timezone("EST")
+    currenttime = eastern.localize(datetime.now())
+    fmt_time_display = '%Y-%m-%d %H:%M:%S %Z%z'
+    standardtime = currenttime.strftime(fmt)
+    db = Connect('localhost','root')
+    c = db.cursor()
+    logging.info("Connecting to the database")
+    c.execute('use LINdb_zika')
     logging.basicConfig(level=logging.DEBUG, filename="/home/linproject/Workspace/LIN_log/logfile_{0}".format(User_ID),
                         filemode="a+", format="%(asctime)-15s %(levelname)-8s %(message)s")
     logging.info("#####################################")
@@ -58,21 +92,36 @@ def main(new_genome,User_ID): # The genome file name we are expecting for is a
     original_folder  = '/home/linproject/Workspace/Zika/'
     workspace_dir = '/home/linproject/Workspace/New/workspace/'
     # InfoFile = "/home/linproject/Workspace/Zika/Attribute_full.csv"
+    # Update the submission table
+    c.execute("INSERT INTO Submission (User_ID, Time) VALUES ({0},'{1}')".format(User_ID, standardtime))
+    db.commit()
+    # And get the new Submittion ID
+    c.execute("SELECT Submission_ID FROM Submission where User_ID={0} and Time='{1}'".format(User_ID,standardtime))
+    tmp = c.fetchone()
+    Submission_ID = int(tmp[0])
     # And we have the file name of the genome
     # Fetched from the front end
     new_GenomeName = new_genome.split('.')[0]
     # As well as its Interest_ID
-    Interest_ID_new_genome = 2 # We hard-code it here, but it should be able to be read from the front end
-    db = Connect('localhost','root')
-    c = db.cursor()
-    logging.info("Connecting to the database")
-    c.execute('use LINdb_zika')
-    c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName) values ({0}, 1, "{1}", "{2}")'
-              .format(Interest_ID_new_genome ,original_folder+new_genome, new_GenomeName))
+    c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName) values ({0}, {1}, "{2}", "{3}")'
+              .format(Interest_ID_new_genome ,Submission_ID, original_folder+new_genome, new_GenomeName))
     db.commit()
     c.execute('select Genome_ID from Genome where GenomeName="{0}"'.format(new_GenomeName))
     tmp = c.fetchone()
     new_Genome_ID = str(tmp[0])
+    # Load Attribute values
+    # First we need to know which field is which
+    c.execute("SELECT Attribute_IDs FROM Interest WHERE Interest_ID={0}".format(Interest_ID_new_genome))
+    tmp = c.fetchone()
+    Attribute_ID_list = tmp[0].split(",")
+    Attribute_ID_list = [int(id) for id in Attribute_ID_list]
+    Attributes = Attributes.split("||")
+    for i in range(len(Attribute_ID_list)):
+        c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) "
+                  "VALUES ({0}, {1}, {2}, '{3}', {4}, {5})".format(Attribute_ID_list[i], new_Genome_ID,
+                                                                   Interest_ID_new_genome, Attributes[i],
+                                                                   User_ID, privacy))
+        db.commit()
     ## For Zika virus case only, comment out when initialization is done.
     # LoadInfo(InfoFile,c,new_GenomeName,Interest_ID_new_genome)
     # db.commit()
@@ -83,7 +132,7 @@ def main(new_genome,User_ID): # The genome file name we are expecting for is a
     # We need first to read their k-mer frequencies, which, are calculated beforehand and store in the server.
     # This reminds me of adding one more table for the location of those frequency files.
     ## And supposedly, the frequency of new genome shuold also be added to this file once it's calculated.
-    similarity = k_mer.generate_distance(queryfilepath=original_folder+new_genome,Genome_ID=new_Genome_ID,User_ID=User_ID) # Already sorted
+    similarity = k_mer.generate_distance(queryfilepath=original_folder+new_genome,Genome_ID=new_Genome_ID,User_ID=User_ID)
     # Check the biggest value, if it is bigger than the bottomline of the cutoff being used
     # if similarity[new_GenomeName].max() < 0.6:
     #     print "No similar genome found, run ANIb calculation sequentially to all genome is recommended."
