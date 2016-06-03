@@ -24,7 +24,7 @@ def build_db():
 	c.execute('CREATE TABLE LIN (LIN_ID int NOT NULL AUTO_INCREMENT,'
 		'Genome_ID int NOT NULL,'
 		'Scheme_ID int NOT NULL,'
-		'SubjectGenome TEXT NOT NULL,'
+		'SubjectGenome int NOT NULL,'
 		'ANI DOUBLE NOT NULL,'
 		'LIN text NOT NULL,'
 		'PRIMARY KEY (LIN_ID))')
