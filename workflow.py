@@ -22,6 +22,7 @@ import logging.handlers
 import argparse
 from datetime import datetime
 from pytz import timezone
+from Bio import SeqIO
 
 # import ExtractInfo
 
@@ -58,7 +59,11 @@ def get_parsed_args():
     parser.add_argument("-t", dest="Attributes", help="Attributes")
     parser.add_argument("-p", dest="privacy", help="Is it private information")
 
-
+def get_contig_number(fastafile):
+    f = open(fastafile,"r")
+    records = list(SeqIO.parse(f,"fasta"))
+    f.close()
+    return len(records)
 
 # MAIN
 def main(argv=None): # The genome file name we are expecting for is a
@@ -102,9 +107,10 @@ def main(argv=None): # The genome file name we are expecting for is a
     # And we have the file name of the genome
     # Fetched from the front end
     new_GenomeName = new_genome.split('.')[0]
+    contig_number = get_contig_number(original_folder+new_genome)
     # As well as its Interest_ID
-    c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName) values ({0}, {1}, "{2}", "{3}")'
-              .format(Interest_ID_new_genome ,Submission_ID, original_folder+new_genome, new_GenomeName))
+    c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName, Contigs) values ({0}, {1}, "{2}", "{3}". {4}})'
+              .format(Interest_ID_new_genome ,Submission_ID, original_folder+new_genome, new_GenomeName, contig_number))
     db.commit()
     c.execute('select Genome_ID from Genome where GenomeName="{0}"'.format(new_GenomeName))
     tmp = c.fetchone()
