@@ -39,7 +39,11 @@ def build_db():
 		'PRIMARY KEY (Submission_ID))')
 	c.execute('CREATE TABLE User (User_ID int NOT NULL AUTO_INCREMENT,LastName varchar(255) NOT NULL,FirstName varchar(255) NOT NULL,Institute varchar(255) NOT NULL,RegistrationDate text NOT NULL,Username varchar(255) NOT NULL,Password text NOT NULL,Email text NOT NULL,PRIMARY KEY (User_ID))')
 	c.execute("CREATE TABLE AttributeValue (AttributeValue_ID int NOT NULL AUTO_INCREMENT,Genome_ID int NOT NULL,Interest_ID int NOT NULL, Attribute_ID int not null,AttributeValue text not null,User_ID int not null,Private boolean not null,PRIMARY KEY (AttributeValue_ID))")
-    	c.execute("CREATE TABLE Description (Description_ID int not null auto_increment, Genome_ID int not null, Description_Item_ID int not null, Description_Value text not null, PRIMARY KEY (Description_ID))")
+	c.execute("CREATE TABLE Genome_to_Attribute (Genome_to_Attribute_ID int NOT NULL AUTO_INCREMENT, "
+			  "Genome_ID INT NOT NULL, Genus text, Species text, Strain text, GPS_Coordinates text, Date_of_isolation text,"
+			  "DOI text, NCBI_Accession text, Host_of_isolation text, Country_discovered text, Infectious_disease_name text,"
+			  "Host text, PRIMARY KEY (Genome_to_Attribute_ID))")
+    	c.execute("CREATE TABLE Description (Description_ID int not null auto_increment, Genome_ID int not null, Part_LIN text NOT NULL ,Description_Item_ID int not null, Description_Value text not null, PRIMARY KEY (Description_ID))")
 	c.execute("CREATE TABLE Description_Items (Description_Item_ID int not null auto_increment, Description_Item_Name text not null, PRIMARY KEY (Description_Item_ID))")
     	### INITIALIZATION
 	#c.execute("insert into User (LastName, FirstName, Institute, RegistrationDate, Username, Password, Email) values ('Tian', 'Long', 'Virginia Tech', '2015-5-17', 'longtian', '123456', 'tianlongapp@gmail.com')")

@@ -121,13 +121,30 @@ def main(argv=None): # The genome file name we are expecting for is a
     tmp = c.fetchone()
     Attribute_ID_list = tmp[0].split(",")
     Attribute_ID_list = [int(id) for id in Attribute_ID_list]
-    Attributes = Attributes.split("||")
+    Attributes = Attributes.split("^^")
     for i in range(len(Attribute_ID_list)):
         c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) "
                   "VALUES ({0}, {1}, {2}, '{3}', {4}, {5})".format(Attribute_ID_list[i], new_Genome_ID,
                                                                    Interest_ID_new_genome, Attributes[i],
                                                                    User_ID, privacy))
         db.commit()
+
+    # And Also, for reading these attributes from front end, a table called Genome_to_Attribute is created with
+    # columns of Genome_IDs and each Attributes, This maybe tricky because if we have a new attributes, it's hard
+    # to extend the table, but it's always possible to extract the existing data and put it in a new table.
+    Attribute_Names = []
+    for i in Attribute_ID_list:
+        c.execute("SELECT AttributeName FROM Attribute WHERE Attribute_ID={0}".format(i))
+        tmp = c.fetchone()
+        this_Attribute_Name = "_".join(tmp[0].split(" "))
+        Attribute_Names.append(this_Attribute_Name)
+    Attributes_in_Genome_to_Attribute = "','".join(Attributes)
+    AttributeNames_in_Genome_to_Attribute = ",".join(Attribute_Names)
+    Attributes_in_Genome_to_Attribute = "'" + Attributes_in_Genome_to_Attribute + "'"
+    c.execute("INSERT INTO Genome_to_Attribute ({0}, Genome_ID) VALUES ({1}, {2})".
+              format(AttributeNames_in_Genome_to_Attribute, Attributes_in_Genome_to_Attribute, new_Genome_ID))
+    db.commit()
+
     ## For Zika virus case only, comment out when initialization is done.
     # LoadInfo(InfoFile,c,new_GenomeName,Interest_ID_new_genome)
     # db.commit()
