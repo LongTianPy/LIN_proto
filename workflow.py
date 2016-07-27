@@ -140,8 +140,9 @@ def main(argv=None): # The genome file name we are expecting for is a
     #     tmp = c.fetchone()
     #     this_Attribute_Name = "_".join(tmp[0].split(" "))
     #     Attribute_Names.append(this_Attribute_Name)
-
-    Attribute_ID_list_string = ','.join(Attribute_ID_list)
+    c.execute("SELECT Attribute_IDs FROM Interest WHERE Interest_ID={0}".format(Interest_ID_new_genome))
+    tmp = c.fetchone()
+    Attribute_ID_list_string = tmp[0]
     c.execute("Select AttributeName from Attribute WHERE Attribute_ID in ({0})".format(Attribute_ID_list_string))
     tmp = c.fetchall()
     Attribute_Names = ['_'.join(i[0].split(' ')) for i in tmp]
