@@ -143,6 +143,7 @@ def main(argv=None): # The genome file name we are expecting for is a
     Attributes_in_Genome_to_Attribute = "','".join(Attributes)
     AttributeNames_in_Genome_to_Attribute = ",".join(Attribute_Names)
     Attributes_in_Genome_to_Attribute = "'" + Attributes_in_Genome_to_Attribute + "'"
+    print "INSERT INTO Genome_to_Attribute ({0}, Genome_ID) VALUES ({1}, {2})".format(AttributeNames_in_Genome_to_Attribute, Attributes_in_Genome_to_Attribute, new_Genome_ID)
     c.execute("INSERT INTO Genome_to_Attribute ({0}, Genome_ID) VALUES ({1}, {2})".
               format(AttributeNames_in_Genome_to_Attribute, Attributes_in_Genome_to_Attribute, new_Genome_ID))
     db.commit()
