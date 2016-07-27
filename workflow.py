@@ -228,7 +228,5 @@ def main(argv=None): # The genome file name we are expecting for is a
 
 
 if __name__ == '__main__':
-    new_genome = sys.argv[1] # Actually fetched from front end
-    User_ID = sys.argv[2]
-    main(new_genome=new_genome, User_ID=User_ID)
+    main()
 
