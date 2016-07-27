@@ -216,7 +216,8 @@ def main(argv=None): # The genome file name we are expecting for is a
     c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 3, '{1}', '{2}', {3})"
               .format(new_Genome_ID, new_LIN, top1_Genome_ID, top1_similarity))
     db.commit()
-    IntermediateResult.write_ANI_result(new_Genome_ID=new_Genome_ID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c,User_ID=User_ID)
+    url = IntermediateResult.write_result_page(new_Genome_ID=new_Genome_ID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c, User_ID=User_ID,Interest_ID=Interest_ID_new_genome)
+    IntermediateResult.write_ANI_result(new_Genome_ID=new_Genome_ID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c,User_ID=User_ID,url=url)
     IntermediateResult.send_email(file_source="ANI",User_ID=User_ID,db_cursor=c)
     c.close()
     db.close()

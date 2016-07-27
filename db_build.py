@@ -43,8 +43,9 @@ def build_db():
 			  "Genome_ID INT NOT NULL, Genus text, Species text, Strain text, GPS_Coordinates text, Date_of_isolation text,"
 			  "DOI text, NCBI_Accession text, Host_of_isolation text, Country_discovered text, Infectious_disease_name text,"
 			  "Host text, PRIMARY KEY (Genome_to_Attribute_ID))")
-    	c.execute("CREATE TABLE Description (Description_ID int not null auto_increment, Genome_ID int not null, Part_LIN text NOT NULL ,Description_Item_ID int not null, Description_Value text not null, PRIMARY KEY (Description_ID))")
+    	c.execute("CREATE TABLE Description (Description_ID int not null auto_increment, Part_LIN text NOT NULL ,Description_Item_ID int not null, DescriptionValue text not null, PRIMARY KEY (Description_ID))")
 	c.execute("CREATE TABLE Description_Items (Description_Item_ID int not null auto_increment, Description_Item_Name text not null, PRIMARY KEY (Description_Item_ID))")
+	c.execute("CREATE TABLE LIN_to_Description (LIN_to_Description_ID int NOT NULL AUTO_INCREMENT, Part_LIN text NOT NULL, Genus text, Species text, Nickname text, Comment text, URL text, PRIMARY KEY(LIN_to_Description_ID))")
     	### INITIALIZATION
 	#c.execute("insert into User (LastName, FirstName, Institute, RegistrationDate, Username, Password, Email) values ('Tian', 'Long', 'Virginia Tech', '2015-5-17', 'longtian', '123456', 'tianlongapp@gmail.com')")
     	# Attributes
