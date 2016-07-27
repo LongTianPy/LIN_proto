@@ -58,6 +58,8 @@ def get_parsed_args():
     parser.add_argument("-s", dest="Interest_ID", help="Interest ID")
     parser.add_argument("-t", dest="Attributes", help="Attributes")
     parser.add_argument("-p", dest="privacy", help="Is it private information")
+    args = parser.parse_args()
+    return args
 
 def get_contig_number(fastafile):
     f = open(fastafile,"r")
