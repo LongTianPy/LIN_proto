@@ -86,7 +86,7 @@ def main(argv=None): # The genome file name we are expecting for is a
     eastern = timezone("EST")
     currenttime = eastern.localize(datetime.now())
     fmt_time_display = '%Y-%m-%d %H:%M:%S %Z%z'
-    standardtime = currenttime.strftime(fmt)
+    standardtime = currenttime.strftime(fmt_time_display)
     db = Connect('localhost','root')
     c = db.cursor()
     logging.info("Connecting to the database")
