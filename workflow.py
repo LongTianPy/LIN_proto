@@ -134,12 +134,18 @@ def main(argv=None): # The genome file name we are expecting for is a
     # And Also, for reading these attributes from front end, a table called Genome_to_Attribute is created with
     # columns of Genome_IDs and each Attributes, This maybe tricky because if we have a new attributes, it's hard
     # to extend the table, but it's always possible to extract the existing data and put it in a new table.
-    Attribute_Names = []
-    for i in Attribute_ID_list:
-        c.execute("SELECT AttributeName FROM Attribute WHERE Attribute_ID={0}".format(i))
-        tmp = c.fetchone()
-        this_Attribute_Name = "_".join(tmp[0].split(" "))
-        Attribute_Names.append(this_Attribute_Name)
+    # Attribute_Names = []
+    # for i in Attribute_ID_list:
+    #     c.execute("SELECT AttributeName FROM Attribute WHERE Attribute_ID={0}".format(i))
+    #     tmp = c.fetchone()
+    #     this_Attribute_Name = "_".join(tmp[0].split(" "))
+    #     Attribute_Names.append(this_Attribute_Name)
+
+    Attribute_ID_list_string = ','.join(Attribute_ID_list)
+    c.execute("Select AttributeName from Attribute WHERE Attribute_ID in ({0})".format(Attribute_ID_list_string))
+    tmp = c.fetchall()
+    Attribute_Names = ['_'.join(i[0].split(' ')) for i in tmp]
+
     Attributes_in_Genome_to_Attribute = "','".join(Attributes)
     AttributeNames_in_Genome_to_Attribute = ",".join(Attribute_Names)
     Attributes_in_Genome_to_Attribute = "'" + Attributes_in_Genome_to_Attribute + "'"
