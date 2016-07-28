@@ -185,10 +185,9 @@ def main(argv=None): # The genome file name we are expecting for is a
         top_cluster_idx = [i for i,x in enumerate(km.labels_) if x==centroid_idx]
         n_top = len(top_cluster_idx)
         logging.info("We are comparing your genome with {0} genomes in our database.".format(n_top))
-    top10 = similarity.head(n_top)['Genome'] # top10 is a list of Genome_IDs in the database
+    top10 = similarity.head(n_top)['Genome'].values # top10 is a list of Genome_IDs in the database
 
     logging.info("Writing k-mer result.")
-    print top10
     IntermediateResult.write_kmer_result(top10=top10,db_cursor=c,User_ID=User_ID)
     logging.info("Sending k-mer result to the user, User_ID {0}.".format(User_ID))
     IntermediateResult.send_email(file_source="kmer",User_ID=User_ID,db_cursor=c)
