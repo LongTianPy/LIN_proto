@@ -181,7 +181,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
         Genus_new_Genome = tmp[1][0]
         Species_new_Genome = tmp[2][0]
         Strain_new_Genome = tmp[0][0]
-    LIN_new_Genome = new_LIN
+    LIN_new_Genome = new_LIN # A string
     # Get info of the best match
     Genome_ID_best_hit = new_LIN_object.Genome_ID
     db_cursor.execute("SELECT {0} from Genome_to_Attribute WHERE Genome_ID={1}".format(AttributeName_string,Genome_ID_best_hit))
