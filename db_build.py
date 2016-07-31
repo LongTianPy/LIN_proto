@@ -76,7 +76,7 @@ def build_db():
 	c.execute("INSERT INTO Description_Items (Description_Item_Name) values ('URL')")
 
     	# # Enter one genome to start
-    	c.execute("INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName) values (1,1,'/home/linproject/Workspace/Zika/init/1000_Pav-BPIC_631.fasta','1000_Pav-BPIC_631')")
+    	c.execute("INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName) values (1,1,'/home/linproject/Workspace/Psy/init/1000_Pav-BPIC_631.fasta','1000_Pav-BPIC_631')")
     	c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, SubjectGenome, ANI, LIN) values (1,3, 1, 1, '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0')")
     	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (1,1,2,'Pseudomonas',1,True)") # Genus
 	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (2,1,2,'syringae',1,True)") # Species
