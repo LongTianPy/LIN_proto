@@ -96,7 +96,7 @@ def main(argv=None): # The genome file name we are expecting for is a
     logging.info("#####################################")
     logging.info("New task from User ID {0}".format(User_ID))
 
-    original_folder  = '/home/linproject/Workspace/Zika/'
+    original_folder  = '/home/linproject/Workspace/Psy/'
     workspace_dir = '/home/linproject/Workspace/New/workspace/'
     # InfoFile = "/home/linproject/Workspace/Zika/Attribute_full.csv"
     # Update the submission table
