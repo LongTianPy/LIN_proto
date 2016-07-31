@@ -88,6 +88,8 @@ def build_db():
 	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (8,1,2,'N/A',1,True)") # Host of isolation
 	# c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (11,1,2,'Simiiformes',1,True)") # Host
 
+	c.execute("INSERT INTO Submission (User_ID, Time) values (1,'2016/07/31')")
+
 
 
 
