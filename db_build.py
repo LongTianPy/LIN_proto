@@ -13,7 +13,6 @@ def build_db():
 		'Submission_ID int NOT NULL,'
 		'FilePath text NOT NULL,'
         	'GenomeName text NOT NULL,'
-            'Contigs int NOT NULL,'
 		'PRIMARY KEY (Genome_ID))')
 	c.execute('CREATE TABLE Interest (Interest_ID int NOT NULL AUTO_INCREMENT,'
 		'InterestName varchar(255) NOT NULL,'
