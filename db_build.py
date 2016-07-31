@@ -74,18 +74,18 @@ def build_db():
 	c.execute("INSERT INTO Description_Items (Description_Item_Name) values ('Nickname')")
 	c.execute("INSERT INTO Description_Items (Description_Item_Name) values ('Comment')")
 	c.execute("INSERT INTO Description_Items (Description_Item_Name) values ('URL')")
-    	# # Enter one zika genome to start
-    	# c.execute("INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName) values (2,1,'/home/linproject/Workspace/Zika/init/AY632535.fasta','AY632535')")
-    	# c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, SubjectGenome, ANI, LIN) values (1,3,'AY632535', 1, '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0')")
-    	# c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (1,1,2,'',1,True)") # Strain
-	# c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (2,1,2,'',1,True)") # GPS
-	# c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (3,1,2,'1947',1,True)") # Date
-	# c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (4,1,2,'Flavivirus',1,True)") # Genus
-	# c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (5,1,2,'Zika',1,True)") # Species
-	# c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (6,1,2,'',1,True)") # DOI
-	# c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (7,1,2,'AY632535',1,True)") # Accession
-	# c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (9,1,2,'Uganda',1,True)") # Country
-	# c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (10,1,2,'Microcephaly',1,True)") # Disease
+
+    	# # Enter one genome to start
+    	c.execute("INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName) values (1,1,'/home/linproject/Workspace/Zika/init/1000_Pav-BPIC_631.fasta','1000_Pav-BPIC_631')")
+    	c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, SubjectGenome, ANI, LIN) values (1,3, 1, 1, '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0')")
+    	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (1,1,2,'Pseudomonas',1,True)") # Genus
+	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (2,1,2,'syringae',1,True)") # Species
+	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (3,1,2,'BPIC-631',1,True)") # Strain
+	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (4,1,2,'N/A',1,True)") # GPS
+	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (5,1,2,'N/A',1,True)") # Date of isolation
+	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (6,1,2,'N/A',1,True)") # Accession
+	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (7,1,2,'N/A',1,True)") # Country
+	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (8,1,2,'N/A',1,True)") # Host of isolation
 	# c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (11,1,2,'Simiiformes',1,True)") # Host
 
 
