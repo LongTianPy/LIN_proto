@@ -192,7 +192,7 @@ def main(argv=None): # The genome file name we are expecting for is a
     logging.info("Sending k-mer result to the user, User_ID {0}.".format(User_ID))
 
     #################################################################################
-    ### IntermediateResult.send_email(file_source="kmer",User_ID=User_ID,db_cursor=c)
+    IntermediateResult.send_email(file_source="kmer",User_ID=User_ID,db_cursor=c)
     #################################################################################
 
     # top10_LINs = [ExtractInfo.get_top10_LIN(i,c) for i in top10] # This can be used to send preliminary results

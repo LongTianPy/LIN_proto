@@ -187,8 +187,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
     db_cursor.execute("SELECT {0} from Genome_to_Attribute WHERE Genome_ID={1}".format(AttributeName_string,Genome_ID_best_hit))
     tmp = db_cursor.fetchone()
     for i in range(len(df.keys())):
-        df[df.keys()[i]] = tmp[i]
-    LIN_best_hit = new_LIN_object.LIN  # This is a list already
+        df[df.keys()[i]].append(tmp[i])
     # Get the Genome_IDs of all those sharing the same conserved part of LINs
     db_cursor.execute("SELECT Genome_ID, LIN FROM LIN WHERE LIN LIKE '{0}%' AND Genome_ID <> {1} and Genome_ID <> {2}".
                       format(",".join(new_LIN_object.conserved_LIN), new_Genome_ID, Genome_ID_best_hit))
@@ -202,7 +201,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
         db_cursor.execute("SELECT {0} FROM Genome_to_Attribute WHERE Genome_ID={1}".format(AttributeName_string,each_related))
         tmp = db_cursor.fetchone()
         for i in range(len(df.keys())):
-            df[df.keys()[i]] = tmp[i]
+            df[df.keys()[i]].append(tmp[i])
 
     # A dataframe
     table = pd.DataFrame.from_dict(df)
