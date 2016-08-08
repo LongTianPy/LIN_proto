@@ -214,11 +214,11 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
     url = 'http://128.173.74.68/linSite/ResultPage/' + unique_filename + '.php'
     # Read the static page header
     f = open('/var/www/html/linSite/ResultPage/static_header','r')
-    static_header = f.readlines()
+    static_header = f.read()
     f.close()
     # Read the static page footer
     f = open('/var/www/html/linSite/ResultPage/static_footer','r')
-    static_footer = f.readlines()
+    static_footer = f.read()
     f.close()
     f = open(filename,'a')
     f.write(static_header)
