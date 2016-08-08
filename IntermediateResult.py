@@ -34,14 +34,14 @@ def write_kmer_result(top10,db_cursor,User_ID):
             "<th align='left'>P</th><th align='left'>Q</th><th align='left'>R</th><th align='left'>S</th><th align='left'>T</th>"
             "</tr>\n")
     for i in top10:
-        db_cursor.execute("SELECT AttributeValue FROM AttributeValue WHERE Genome_ID={0} AND Attribute_ID IN (1,4,5)".format(int(i)))
+        db_cursor.execute("SELECT AttributeValue FROM AttributeValue WHERE Genome_ID={0} AND Attribute_ID IN (1,2,3)".format(int(i)))
         tmp = c.fetchall() # By which, we will get a list of 3 elements where for each element, 0 is an attribute, 1 is LIN
         if len(tmp) == 0:
             Genus = Species = Strain = "N/A"
         else:
-            Genus = tmp[1][0]
-            Species = tmp[2][0]
-            Strain = tmp[0][0]
+            Genus = tmp[0][0]
+            Species = tmp[1][0]
+            Strain = tmp[2][0]
         db_cursor.execute("SELECT LIN FROM LIN WHERE Genome_ID={0}".format(int(i)))
         tmp = c.fetchone()
         LIN = tmp[0] # Could also be tmp[1][1] or tmp[2][1]
@@ -78,13 +78,13 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,u
     # Get info of the best match
     Genome_ID_best_hit = new_LIN_object.Genome_ID
     db_cursor.execute("SELECT AttributeValue from AttributeValue WHERE Genome_ID={0} AND Attribute_ID "
-                      "IN (1,4,5)".format(Genome_ID_best_hit))
+                      "IN (1,2,3)".format(Genome_ID_best_hit))
     if len(tmp) == 0:
         Genus_best_hit = Species_best_hit = Strain_best_hit = "N/A"
     else:
-        Genus_best_hit = tmp[1][0]
-        Species_best_hit = tmp[2][0]
-        Strain_best_hit = tmp[0][0]
+        Genus_best_hit = tmp[0][0]
+        Species_best_hit = tmp[1][0]
+        Strain_best_hit = tmp[2][0]
     LIN_best_hit = new_LIN_object.LIN  # This is a list already
 
     # Get the Genome_IDs of all those sharing the same conserved part of LINs
@@ -173,14 +173,14 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
 
     # Get info of the new submission
     db_cursor.execute("SELECT AttributeValue from AttributeValue WHERE Genome_ID={0} AND Attribute_ID "
-                      "IN (1,4,5)".format(new_Genome_ID))
+                      "IN (1,2,3)".format(new_Genome_ID))
     tmp = db_cursor.fetchall()
     if len(tmp) == 0:
         Genus_new_Genome = Species_new_Genome = Strain_new_Genome = "N/A"
     else:
-        Genus_new_Genome = tmp[1][0]
-        Species_new_Genome = tmp[2][0]
-        Strain_new_Genome = tmp[0][0]
+        Genus_new_Genome = tmp[0][0]
+        Species_new_Genome = tmp[1][0]
+        Strain_new_Genome = tmp[2][0]
     LIN_new_Genome = new_LIN # A string
     # Get info of the best match
     Genome_ID_best_hit = new_LIN_object.Genome_ID
