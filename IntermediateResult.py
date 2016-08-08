@@ -184,6 +184,14 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
     LIN_new_Genome = new_LIN # A string
     # Get info of the best match
     Genome_ID_best_hit = new_LIN_object.Genome_ID
+    db_cursor.execute("SELECT AttributeValue from AttributeValue WHERE Genome_ID={0} AND Attribute_ID "
+                      "IN (1,2,3)".format(Genome_ID_best_hit))
+    if len(tmp) == 0:
+        Genus_best_hit = Species_best_hit = Strain_best_hit = "N/A"
+    else:
+        Genus_best_hit = tmp[0][0]
+        Species_best_hit = tmp[1][0]
+        Strain_best_hit = tmp[2][0]
     db_cursor.execute("SELECT {0} from Genome_to_Attribute WHERE Genome_ID={1}".format(AttributeName_string,Genome_ID_best_hit))
     tmp = db_cursor.fetchone()
     for i in range(len(df.keys())):
