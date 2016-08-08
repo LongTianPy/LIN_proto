@@ -162,7 +162,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
     db_cursor.execute("SELECT {0} FROM Genome_to_Attribute WHERE Genome_ID={1}".format(AttributeName_string,new_Genome_ID))
     tmp = db_cursor.fetchone()
     for i in range(len(df.keys())):
-        df[df.keys()[i]] = tmp[i]
+        df[df.keys()[i]].append(tmp[i])
 
     db_cursor.execute("SELECT LIN.SubjectGenome, LIN.ANI FROM LIN,Genome WHERE LIN.Genome_ID=Genome.Genome_ID "
                       "and Genome.Genome_ID='{0}'".format(new_Genome_ID))
