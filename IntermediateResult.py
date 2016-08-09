@@ -244,7 +244,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
     f.write("<th rowspan='1' colspan='1' style='width:4%;'>Strain</th>")
     positions = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T']
     for i in range(len(positions)):
-        f.write("<th class='LIN' rowspan='1' colspan='1' style='width:2%;'>"
+        f.write("<th class='LIN' rowspan='1' colspan='1' style='width:4%;'>"
                 "<input class='col_checkbox' type='checkbox' id='{0}' name='col_checkbox[{1}]' value='{2}'>"
                 "{3}"
                 "</th>".format(i,i,i,positions[i]))
