@@ -65,14 +65,14 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,u
 
     # Get info of the new submission
     db_cursor.execute("SELECT AttributeValue from AttributeValue WHERE Genome_ID={0} AND Attribute_ID "
-                      "IN (1,4,5)".format(new_Genome_ID))
+                      "IN (1,2,3)".format(new_Genome_ID))
     tmp=db_cursor.fetchall()
     if len(tmp) == 0:
         Genus_new_Genome = Species_new_Genome = Strain_new_Genome = "N/A"
     else:
-        Genus_new_Genome = tmp[1][0]
-        Species_new_Genome = tmp[2][0]
-        Strain_new_Genome = tmp[0][0]
+        Genus_new_Genome = tmp[0][0]
+        Species_new_Genome = tmp[1][0]
+        Strain_new_Genome = tmp[2][0]
     LIN_new_Genome = new_LIN
 
     # Get info of the best match
