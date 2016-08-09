@@ -76,7 +76,7 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,u
     LIN_new_Genome = new_LIN
 
     # Get info of the best match
-    Genome_ID_best_hit = new_LIN_object.Genome_ID
+    Genome_ID_best_hit = best_hit
     db_cursor.execute("SELECT AttributeValue from AttributeValue WHERE Genome_ID={0} AND Attribute_ID "
                       "IN (1,2,3)".format(Genome_ID_best_hit))
     if len(tmp) == 0:
@@ -181,9 +181,9 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
         Genus_new_Genome = tmp[0][0]
         Species_new_Genome = tmp[1][0]
         Strain_new_Genome = tmp[2][0]
-    LIN_new_Genome = new_LIN # A string
+    LIN_new_Genome = ','.split(new_LIN) # A string
     # Get info of the best match
-    Genome_ID_best_hit = new_LIN_object.Genome_ID
+    Genome_ID_best_hit = best_hit
     db_cursor.execute("SELECT AttributeValue from AttributeValue WHERE Genome_ID={0} AND Attribute_ID "
                       "IN (1,2,3)".format(Genome_ID_best_hit))
     if len(tmp) == 0:
