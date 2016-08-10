@@ -181,7 +181,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
         Genus_new_Genome = tmp[0][0]
         Species_new_Genome = tmp[1][0]
         Strain_new_Genome = tmp[2][0]
-    LIN_new_Genome = ','.split(new_LIN) # A string
+    LIN_new_Genome = new_LIN.split(',') # A string
     # Get info of the best match
     Genome_ID_best_hit = best_hit
     db_cursor.execute("SELECT AttributeValue from AttributeValue WHERE Genome_ID={0} AND Attribute_ID "
@@ -266,10 +266,10 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
     f.write("</div>")
     f.write("</tr>")
 
-    f.write("<tr id='0' role='row' class='record pure-table-odd'>"
+    f.write("<tr id='1' role='row' class='record pure-table-odd'>"
             "<td><input type='checkbox' id='row_checkbox[0]' name='row_checkbox[0]' value='0'></td>"
             "<td>Best hit</td>"
-            "<td>{0}</td><td>{1}</td><td>{2}</td>".format(Genus_best_hit, Species_best_hit, Strain_best_hit))
+            "<td>{0}</td><td>{1}</td><td>{2}</td>".format(table['Genus'][1], table['Species'][1], table['Strain'][1]))
     for i in LIN_best_hit:
         f.write("<td class='LIN'>{0}</td>".format(i))
     f.write("<div id='detail_1' style='display:none; position:abosolute; background-color: #CAE1FF;' class='popup'>")
