@@ -244,23 +244,22 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
     f.write('<table class="pure-table pure-table-horizontal" id="Table_main" role="grid" style="width: 100%">')
     f.write("<thead>")
     f.write("<tr id='header' role='row'>")
-    f.write("<th rowspan='1' colspan='1' style='width:2%;'></th>")
-    f.write("<th rowspan='1' colspan='1' style='width:6%;'>Category</th>")
-    f.write("<th rowspan='1' colspan='1' style='width:4%;'>Genus</th>")
-    f.write("<th rowspan='1' colspan='1' style='width:4%;'>Species</th>")
-    f.write("<th rowspan='1' colspan='1' style='width:4%;'>Strain</th>")
+    f.write("<th rowspan='1' colspan='1' style='width:3%;'></th>")
+    f.write("<th rowspan='1' colspan='1' style='width:9%;'>Genus</th>")
+    f.write("<th rowspan='1' colspan='1' style='width:9%;'>Species</th>")
+    f.write("<th rowspan='1' colspan='1' style='width:9%;'>Strain</th>")
     positions = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T']
     for i in range(len(positions)):
-        f.write("<th class='LIN' rowspan='1' colspan='1' style='width:4%;'>"
+        f.write("<th class='LIN' rowspan='1' colspan='1' style='width:3.5%;'>"
                 "<input class='col_checkbox' type='checkbox' id='{0}' name='col_checkbox[{1}]' value='{2}'>"
                 "{3}"
                 "</th>".format(i,i,i,positions[i]))
     f.write("</tr>")
     f.write("</thead>")
     f.write("<tbody>")
+    f.write("<tr><td colspan='24'>New submission</td></tr>")
     f.write("<tr id='0' role='row' class='record'>"
             "<td><input type='checkbox' id='row_checkbox[0]' name='row_checkbox[0]' value='0'></td>"
-            "<td>New submission</td>"
             "<td>{0}</td><td>{1}</td><td>{2}</td>".format(Genus_new_Genome,Species_new_Genome,Strain_new_Genome))
     for i in LIN_new_Genome:
         f.write("<td class='LIN'>{0}</td>".format(i))
@@ -272,10 +271,9 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
         f.write("<p><b>{0}: </b>{1}</p>".format(i, table[i][0]))
     f.write("</div>")
     f.write("</tr>")
-
+    f.write("<tr><td colspan='24'>Best hit</td></tr>")
     f.write("<tr id='1' role='row' class='record pure-table-odd'>"
             "<td><input type='checkbox' id='row_checkbox[0]' name='row_checkbox[0]' value='0'></td>"
-            "<td>Best hit</td>"
             "<td>{0}</td><td>{1}</td><td>{2}</td>".format(table['Genus'][1], table['Species'][1], table['Strain'][1]))
     for i in LIN_best_hit:
         f.write("<td class='LIN'>{0}</td>".format(i))
@@ -287,7 +285,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
         f.write("<p><b>{0}: </b>{1}</p>".format(i, table[i][1]))
     f.write("</div>")
     f.write("</tr>")
-
+    f.write("<tr><td colspan='24'>Related hit</td></tr>")
     for i in range(num_of_all_lines):
         idx = i+2
         if idx % 2 == 0:
@@ -295,7 +293,6 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
         else:
             f.write("<tr id='{0}' role='row' class='record pure-table-odd'>".format(idx))
         f.write("<td><input type='checkbox' id='row_checkbox[{0}]' name='row_checkbox[{1}]' value='{2}'></td>".format(idx,idx,idx))
-        f.write("<td>Related hit</td>")
         f.write("<td>{0}</td><td>{1}</td><td>{2}</td>".format(table['Genus'][idx],table['Species'][idx],table['Strain'][idx]))
         lin = LINs_related_hits[i].split(',')
         for each_lin_position in lin:
