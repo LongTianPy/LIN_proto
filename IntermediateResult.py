@@ -34,7 +34,7 @@ def write_kmer_result(top10,db_cursor,User_ID):
             "<th align='left'>P</th><th align='left'>Q</th><th align='left'>R</th><th align='left'>S</th><th align='left'>T</th>"
             "</tr>\n")
     for i in top10:
-        db_cursor.execute("SELECT AttributeValue FROM AttributeValue WHERE Genome_ID={0} AND Attribute_ID IN (1,2,3)".format(int(i)))
+        c.execute("SELECT AttributeValue FROM AttributeValue WHERE Genome_ID={0} AND Attribute_ID IN (1,2,3)".format(int(i)))
         tmp = c.fetchall() # By which, we will get a list of 3 elements where for each element, 0 is an attribute, 1 is LIN
         if len(tmp) == 0:
             Genus = Species = Strain = "N/A"
@@ -42,7 +42,7 @@ def write_kmer_result(top10,db_cursor,User_ID):
             Genus = tmp[0][0]
             Species = tmp[1][0]
             Strain = tmp[2][0]
-        db_cursor.execute("SELECT LIN FROM LIN WHERE Genome_ID={0}".format(int(i)))
+        c.execute("SELECT LIN FROM LIN WHERE Genome_ID={0}".format(int(i)))
         tmp = c.fetchone()
         LIN = tmp[0] # Could also be tmp[1][1] or tmp[2][1]
         LIN = LIN.split(",")
