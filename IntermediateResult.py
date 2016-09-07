@@ -272,7 +272,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
     db_cursor.execute(
         "SELECT Genome_ID, LIN from LIN where LIN like '{0}%' and Genome_ID NOT in ({1},{2})".format(conserved_LIN,new_Genome_ID,Genome_ID_best_match)
     )
-    tmp = c.fetchall()
+    tmp = db_cursor.fetchall()
     if len(tmp) != 0:
         related_hits = True
         Genome_IDs_related_hits = [int(i[0]) for i in tmp]
