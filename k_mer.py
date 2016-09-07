@@ -125,7 +125,7 @@ def generate_distance(queryfilepath,Genome_ID,User_ID):
 
 
     # Remember un-cooment here
-    new_hdf.to_hdf(subject_frequency_file,key='profiles')
+    # new_hdf.to_hdf(subject_frequency_file,key='profiles')
 
 
 
