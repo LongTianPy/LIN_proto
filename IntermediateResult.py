@@ -117,7 +117,7 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,u
     f.write("<tr><td>New Submission</td><td>{0}</td><td>{1}</td><td>{2}</td>".format(Genus_new_Genome,
                                                                                      Species_new_Genome,
                                                                                      Strain_new_Genome))
-    for lin in LIN_new_Genome.split(","):
+    for lin in LIN_new_Genome:
         f.write("<td>{0}</td>".format(lin))
     f.write("</tr>\n")
     f.write("<tr><td>Best match</td><td>{0}</td><td>{1}</td><td>{2}</td>".format(Genus_best_hit,
