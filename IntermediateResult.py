@@ -270,7 +270,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
     # And the related hits sharing the same part of LIN
     conserved_LIN = new_LIN_object.conserved_LIN
     db_cursor.execute(
-        "SELECT Genome_ID, LIN from LIN where LIN like '{0}%' and Genome_ID NOT in ({1},{2})"
+        "SELECT Genome_ID, LIN from LIN where LIN like '{0}%' and Genome_ID NOT in ({1},{2})".format(new_Genome_ID,Genome_ID_best_match)
     )
     tmp = c.fetchall()
     if len(tmp) != 0:
