@@ -144,7 +144,7 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,u
             f.write("<td>{0}</td>".format(lin))
         f.write("</tr>\n")
     f.write("</table>")
-    f.write("<p>You can visit the following page to check more details and add descriptions.{0}</p>".format(url))
+    f.write("<p>You can visit the following page to check more details and add descriptions. {0}</p>".format(url))
     f.write("</body></html>")
     f.close()
 
@@ -290,7 +290,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
 
     unique_filename = str(uuid.uuid4())
     filename = '/var/www/html/CodeIgniter/resultPages/' + unique_filename + '.php'
-    url = 'http://http://128.173.74.68/CodeIgniter/resultPages/' + unique_filename + '.php'
+    url = 'http://128.173.74.68/CodeIgniter/resultPages/' + unique_filename + '.php'
     # Read the static page header
     f = open('/var/www/html/CodeIgniter/resultPages/Before','r')
     static_header = f.read()
