@@ -296,7 +296,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
     static_header = f.read()
     f.close()
     # Read the static page footer
-    f = open('/var/www/html/CodeIgniter/resultPages/','r')
+    f = open('/var/www/html/CodeIgniter/resultPages/After','r')
     static_footer = f.read()
     f.close()
     f = open(filename,'a')
