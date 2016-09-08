@@ -53,7 +53,7 @@ def write_kmer_result(top10,db_cursor,User_ID):
     f.write("</table></body></html>")
     f.close()
 
-def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,url):
+def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,url,Interest_ID):
     logging.basicConfig(level=logging.DEBUG, filename="/home/linproject/Workspace/LIN_log/logfile_{0}".format(User_ID),
                         filemode="a+", format="%(asctime)-15s %(levelname)-8s %(message)s")
     # Get Attribute_IDs

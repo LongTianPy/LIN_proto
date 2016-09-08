@@ -232,7 +232,7 @@ def main(argv=None): # The genome file name we are expecting for is a
     db.commit()
 
     url = IntermediateResult.write_result_page(new_Genome_ID=new_Genome_ID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c, User_ID=User_ID,Interest_ID=Interest_ID_new_genome)
-    IntermediateResult.write_ANI_result(new_Genome_ID=new_Genome_ID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c,User_ID=User_ID,url=url)
+    IntermediateResult.write_ANI_result(new_Genome_ID=new_Genome_ID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c,User_ID=User_ID,url=url,Interest_ID=Interest_ID_new_genome)
     IntermediateResult.send_email(file_source="ANI",User_ID=User_ID,db_cursor=c)
 
     c.close()
