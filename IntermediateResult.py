@@ -349,7 +349,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
         f.write("</div>")
     # New Submission
     f.write("<tr><td colspan='1'></td><td rowspan='1' colspan='23' style='text-align: left; font-weight: bold;'>New Submission</td></tr>")
-    f.write("<tr><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' name='row_checkbox[{0}]'"
+    f.write("<tr><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' class='row_checkbox' name='row_checkbox[{0}]'"
             "value='{0}'></td>"
             "<td style='padding-left: 1px; width: 100px; overflow-x: auto;'>{1}</td>"
             "<td style='padding-left: 1px; width: 80px; overflow-x: auto;'>{2}</td>"
@@ -359,7 +359,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
     f.write("</tr>")
     # Best hit
     f.write("<tr><td colspan='1'></td><td rowspan='1' colspan='23' style='text-align: left; font-weight: bold;'>Best match, ANI: {0}</td></tr>".format(ANI))
-    f.write("<tr><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' name='row_checkbox[{0}]'"
+    f.write("<tr><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' class='row_checkbox' name='row_checkbox[{0}]'"
             "value='{0}'></td>"
             "<td style='padding-left: 1px; width: 100px; overflow-x: auto;'>{1}</td>"
             "<td style='padding-left: 1px; width: 80px; overflow-x: auto;'>{2}</td>"
@@ -374,7 +374,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
         for i in range(len(df["Genus"])-2):
             real_i = i+2
             f.write(
-                "<tr><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' name='row_checkbox["
+                "<tr><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' class='row_checkbox' name='row_checkbox["
                 "{0}]'"
                 "value='{0}'></td>"
                 "<td style='padding-left: 1px; width: 100px; overflow-x: auto;'>{1}</td>"
