@@ -160,12 +160,19 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,u
             for each_single_LIN in LINs_related_hits[i].split(','):
                 f.write("<td>{0}</td>".format(each_single_LIN))
             f.write("</tr>")
+            f.write("</table>")
+            f.write(
+                "<p>You can visit the following page to check more details and add descriptions. {0}</p>".format(url))
+            f.write("</body></html>")
+            f.close()
+
+
+
     else:
-        pass
-    f.write("</table>")
-    f.write("<p>You can visit the following page to check more details and add descriptions. {0}</p>".format(url))
-    f.write("</body></html>")
-    f.close()
+        f.write("</table>")
+        f.write("<p>You can visit the following page to check more details and add descriptions. {0}</p>".format(url))
+        f.write("</body></html>")
+        f.close()
 
 def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,Interest_ID):
     logging.basicConfig(level=logging.DEBUG, filename="/home/linproject/Workspace/LIN_log/logfile_{0}".format(User_ID),
