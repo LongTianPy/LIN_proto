@@ -143,7 +143,7 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,u
         f.write("<td>{0}</td>\n".format(each_single_LIN))
     f.write("</tr>\n")
 
-    f.write("<tr><td>Best match</td><td>{0}</td><td>{1}</td><td>{2}</td>".format(df["Genus"][1],df["Species"][2],df["Strain"][3]))
+    f.write("<tr><td>Best match</td><td>{0}</td><td>{1}</td><td>{2}</td>".format(df["Genus"][1],df["Species"][1],df["Strain"][1]))
     for each_single_LIN in LIN_best_match.split(','):
         f.write("<td>{0}</td>\n".format(each_single_LIN))
     f.write("</tr>\n")
