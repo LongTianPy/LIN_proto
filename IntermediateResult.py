@@ -102,7 +102,7 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,u
     # And the related hits sharing the same part of LIN
     conserved_LIN = ','.join(new_LIN_object.conserved_LIN)
     db_cursor.execute(
-        "SELECT Genome_ID, LIN from LIN where LIN like '{0}%' and Genome_ID NOT in ({1},{2})".format(conserved_LIN,
+        "SELECT Genome_ID, LIN from LIN where LIN like '{0}%' and Genome_ID NOT in ({1},{2}) ORDER BY LIN asc".format(conserved_LIN,
                                                                                                      new_Genome_ID,
                                                                                                      Genome_ID_best_match)
     )
