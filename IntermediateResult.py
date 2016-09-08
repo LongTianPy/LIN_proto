@@ -86,7 +86,7 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,u
     )
     tmp = db_cursor.fetchall()[0]
     Genome_ID_best_match = tmp[0]
-    ANI = '{0:.5f}'.format(float(tmp[1]) * 100)
+    ANI = '{0:.5f}%'.format(float(tmp[1]) * 100)
     LIN_new_Genome = tmp[2]  # A string
     db_cursor.execute(
         "SELECT LIN FROM LIN WHERE Genome_ID={0}".format(Genome_ID_best_match)
@@ -129,7 +129,7 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,u
             "</style></head>")
     f.write("<body><p>The final result of your recent submission is here, by calculateing the Average Nucleotide Identity (ANI) "
             "between your submission and those best hit candidates chosen according to k-mer profile.\nThe ANI between"
-            "your submission and the best match is {0}.</p>\n\n".format(ANI_best_hit))
+            "your submission and the best match is {0}.</p>\n\n".format(ANI))
     f.write("<h2>The result of your submission:</h2>\n")
     f.write("<table>\n")
     f.write("<tr><th align='left'>Category</th><th align='left'>Genus</th><th align='left'>Species</th><th align='left'>Strain</th>"
@@ -288,7 +288,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
     )
     tmp = db_cursor.fetchall()[0]
     Genome_ID_best_match = tmp[0]
-    ANI = '{0:.5f}'.format(float(tmp[1])*100)
+    ANI = '{0:.5f}%'.format(float(tmp[1])*100)
     LIN_new_Genome = tmp[2] # A string
     db_cursor.execute(
         "SELECT LIN FROM LIN WHERE Genome_ID={0}".format(Genome_ID_best_match)
