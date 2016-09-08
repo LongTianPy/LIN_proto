@@ -99,28 +99,6 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,u
     for i in range(len(keys)):
         df[keys[i]].append(best_match_meta[i])
 
-    # And the related hits sharing the same part of LIN
-    conserved_LIN = ','.join(new_LIN_object.conserved_LIN)
-    db_cursor.execute(
-        "SELECT Genome_ID, LIN from LIN where LIN like '{0}%' and Genome_ID NOT in ({1},{2}) ORDER BY LIN asc".format(conserved_LIN,
-                                                                                                     new_Genome_ID,
-                                                                                                     Genome_ID_best_match)
-    )
-    tmp = db_cursor.fetchall()
-    if len(tmp) != 0:
-        related_hits = True
-        Genome_IDs_related_hits = [int(i[0]) for i in tmp]
-        LINs_related_hits = [i[1] for i in tmp]
-        for i in Genome_IDs_related_hits:
-            db_cursor.execute(
-                "SELECT {0} FROM Genome_to_Attribute WHERE Genome_ID={1}".format(AttributeName_string, i)
-            )
-            related_hit_meta = db_cursor.fetchall()[0]
-            for j in range(len(keys)):
-                df[keys[j]].append(related_hit_meta[j])
-    else:
-        related_hits = False
-
     f = open("/home/linproject/Workspace/email_content/ANI.txt","w")
     f.write("<html><head>\n")
     f.write("<style>"
@@ -147,32 +125,11 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,u
     for each_single_LIN in LIN_best_match.split(','):
         f.write("<td>{0}</td>\n".format(each_single_LIN))
     f.write("</tr>\n")
-    # Write the related hits, who share the conserved LINs
 
-    if related_hits:
-        for i in range(len(df["Genus"])-2):
-            real_i = i+2
-            f.write(
-                "<tr><td>Similar record</td>"
-                "<td>{0}</td>"
-                "<td>{1}</td>"
-                "<td>{2}</td>".format(df['Genus'][real_i], df['Species'][real_i],df['Strain'][real_i]))
-            for each_single_LIN in LINs_related_hits[i].split(','):
-                f.write("<td>{0}</td>".format(each_single_LIN))
-            f.write("</tr>")
-            f.write("</table>")
-            f.write(
-                "<p>You can visit the following page to check more details and add descriptions. {0}</p>".format(url))
-            f.write("</body></html>")
-            f.close()
-
-
-
-    else:
-        f.write("</table>")
-        f.write("<p>You can visit the following page to check more details and add descriptions. {0}</p>".format(url))
-        f.write("</body></html>")
-        f.close()
+    f.write("</table>")
+    f.write("<p>you can visit the following page to check more details and add descriptions. {0}</p>".format(url))
+    f.write("</body></html>")
+    f.close()
 
 def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,Interest_ID):
     logging.basicConfig(level=logging.DEBUG, filename="/home/linproject/Workspace/LIN_log/logfile_{0}".format(User_ID),
