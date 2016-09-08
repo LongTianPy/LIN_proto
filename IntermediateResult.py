@@ -148,22 +148,6 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,u
         f.write("<td>{0}</td>\n".format(each_single_LIN))
     f.write("</tr>\n")
     # Write the related hits, who share the conserved LINs
-    for i in range(len(Genome_IDs_related_hits)):
-        db_cursor.execute("SELECT AttributeValue FROM AttributeValue WHERE Genome_ID={0} AND Attribute_ID in (1,2,3)"
-                          .format(Genome_IDs_related_hits[i]))
-        tmp = db_cursor.fetchall()
-        if len(tmp) == 0:
-            Genus_related_hit = Species_related_hit = Strain_related_hit = "N/A"
-        else:
-            Genus_related_hit = tmp[0][0]
-            Species_related_hit = tmp[1][0]
-            Strain_related_hit = tmp[2][0]
-        f.write("<tr><td>Similar record</td><td>{0}</td><td>{1}</td><td>{2}</td>".format(Genus_related_hit,
-                                                                                         Species_related_hit,
-                                                                                         Strain_related_hit))
-        for lin in LINs_related_hits[i].split(","):
-            f.write("<td>{0}</td>".format(lin))
-        f.write("</tr>\n")
 
     if related_hits:
         for i in range(len(df["Genus"])-2):
