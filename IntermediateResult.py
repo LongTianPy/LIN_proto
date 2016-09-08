@@ -166,7 +166,6 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,u
         f.write("</tr>\n")
 
     if related_hits:
-        f.write("<tr><td colspan='1'></td><td rowspan='1' colspan='23'>Related record(s)</td></tr>")
         for i in range(len(df["Genus"])-2):
             real_i = i+2
             f.write(
