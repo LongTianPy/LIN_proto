@@ -139,12 +139,12 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,u
             "<th align='left'>P</th><th align='left'>Q</th><th align='left'>R</th><th align='left'>S</th><th align='left'>T</th>"
             "</tr>\n")
     f.write("<tr><td>New Submission</td><td>{0}</td><td>{1}</td><td>{2}</td>".format(df["Genus"][0],df["Species"][0],df["Strain"][0]))
-    for each_single_LIN in LIN_new_Genome:
+    for each_single_LIN in LIN_new_Genome.split(','):
         f.write("<td>{0}</td>\n".format(each_single_LIN))
     f.write("</tr>\n")
 
     f.write("<tr><td>Best match</td><td>{0}</td><td>{1}</td><td>{2}</td>".format(df["Genus"][1],df["Species"][2],df["Strain"][3]))
-    for each_single_LIN in LIN_best_match:
+    for each_single_LIN in LIN_best_match.split(','):
         f.write("<td>{0}</td>\n".format(each_single_LIN))
     f.write("</tr>\n")
     # Write the related hits, who share the conserved LINs
