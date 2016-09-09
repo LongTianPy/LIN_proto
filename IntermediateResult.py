@@ -223,41 +223,41 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
             f.write("<p><b>{0}: </b>{1}</p>".format(item, df[each_item][i]))
         f.write("</div>")
     # New Submission
-    f.write("<tr><td colspan='1'></td><td rowspan='1' colspan='23' style='text-align: left; font-weight: bold;'>New Submission</td></tr>")
-    f.write("<tr id='0' class='pure-table-odd record'><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' class='row_checkbox' name='row_checkbox[{0}]'"
+    f.write("<tr class='info'><td colspan='1'></td><td rowspan='1' colspan='23' style='text-align: left; font-weight: bold;'>New Submission</td></tr>")
+    f.write("<tr id='0'><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' class='row_checkbox' name='row_checkbox[{0}]'"
             "value='{0}'></td>"
             "<td style='padding-left: 1px; width: 100px; overflow-x: auto;'>{1}</td>"
             "<td style='padding-left: 1px; width: 80px; overflow-x: auto;'>{2}</td>"
             "<td style='padding-left: 1px; width: 80px; overflow-x: auto;'>{3}</td>".format(0,df['Genus'][0], df['Species'][0], df['Strain'][0]))
-    for each_single_LIN in LIN_new_Genome.split(','):
-        f.write("<td class='LIN'>{0}</td>".format(each_single_LIN))
+    for i in range(len(LIN_new_Genome.split(','))):
+        f.write("<td class='0_LIN_{1}'>{0}</td>".format(LIN_new_Genome.split(',')[i],i))
     f.write("</tr>")
     # Best hit
-    f.write("<tr><td colspan='1'></td><td rowspan='1' colspan='23' style='text-align: left; font-weight: bold;'>Best match, ANI: {0}</td></tr>".format(ANI))
-    f.write("<tr id='1' class='pure-table-odd record'><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' class='row_checkbox' name='row_checkbox[{0}]'"
+    f.write("<tr class='info'><td colspan='1'></td><td rowspan='1' colspan='23' style='text-align: left; font-weight: bold;'>Best match, ANI: {0}</td></tr>".format(ANI))
+    f.write("<tr id='1'><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' class='row_checkbox' name='row_checkbox[{0}]'"
             "value='{0}'></td>"
             "<td style='padding-left: 1px; width: 100px; overflow-x: auto;'>{1}</td>"
             "<td style='padding-left: 1px; width: 80px; overflow-x: auto;'>{2}</td>"
             "<td style='padding-left: 1px; width: 80px; overflow-x: auto;'>{3}</td>".format(1, df['Genus'][1], df['Species'][1],
                                                                          df['Strain'][1]))
-    for each_single_LIN in LIN_best_match.split(','):
-        f.write("<td class='LIN'>{0}</td>".format(each_single_LIN))
+    for i in range(len(LIN_best_match.split(','))):
+        f.write("<td class='1_LIN_{1}'>{0}</td>".format(LIN_best_match.split(',')[i],i))
     f.write("</tr>")
     # Related hits, if any
     if related_hits:
-        f.write("<tr><td colspan='1'></td><td rowspan='1' colspan='23' style='text-align: left; font-weight: bold;'>Related record(s)</td></tr>")
+        f.write("<tr class='info'><td colspan='1'></td><td rowspan='1' colspan='23' style='text-align: left; font-weight: bold;'>Related record(s)</td></tr>")
         for i in range(len(df["Genus"])-2):
             real_i = i+2
             f.write(
-                "<tr id='{0}' class='pure-table-odd record'><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' class='row_checkbox' name='row_checkbox["
+                "<tr id='{0}'><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' class='row_checkbox' name='row_checkbox["
                 "{0}]'"
                 "value='{0}'></td>"
                 "<td style='padding-left: 1px; width: 100px; overflow-x: auto;'>{1}</td>"
                 "<td style='padding-left: 1px; width: 80px; overflow-x: auto;'>{2}</td>"
                 "<td style='padding-left: 1px; width: 80px; overflow-x: auto;'>{3}</td>".format(real_i, df['Genus'][real_i], df['Species'][real_i],
                                                                              df['Strain'][real_i]))
-            for each_single_LIN in LINs_related_hits[i].split(','):
-                f.write("<td class='LIN'>{0}</td>".format(each_single_LIN))
+            for j in range(len(LINs_related_hits[i].split(','))):
+                f.write("<td class='{1}_LIN_{2}'>{0}</td>".format(LINs_related_hits.split(',')[j], real_i, j))
             f.write("</tr>")
     f.write(static_footer)
     f.close()
