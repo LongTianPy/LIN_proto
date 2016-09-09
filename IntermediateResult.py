@@ -134,80 +134,6 @@ def write_ANI_result(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,u
 def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,Interest_ID):
     logging.basicConfig(level=logging.DEBUG, filename="/home/linproject/Workspace/LIN_log/logfile_{0}".format(User_ID),
                         filemode="a+", format="%(asctime)-15s %(levelname)-8s %(message)s")
-    # db_cursor.execute("SELECT Attribute_IDs from Interest WHERE Interest_ID={0}".format(Interest_ID))
-    # Attribute_IDs = db_cursor.fetchone()[0]
-    # db_cursor.execute("select AttributeName from Attribute where Attribute_ID in ({0})".format(Attribute_IDs))
-    # tmp = db_cursor.fetchall()
-    # AttributeName = ['_'.join(i[0].split(' ')) for i in tmp]
-    # # AttributeName_string = ','.join(AttributeName)
-    # df = {}
-    # for i in AttributeName:
-    #     df[i] = []
-    # keys = df.keys()
-    # AttributeName_string = ','.join(df.keys())
-    # db_cursor.execute("SELECT {0} FROM Genome_to_Attribute WHERE Genome_ID={1}".format(AttributeName_string,new_Genome_ID))
-    # tmp = db_cursor.fetchone()
-    # for i in range(len(df.keys())):
-    #     df[df.keys()[i]].append(tmp[i])
-    #
-    # db_cursor.execute("SELECT SubjectGenome, ANI, LIN FROM LIN WHERE "
-    #                   "Genome_ID='{0}'".format(new_Genome_ID))
-    # tmp = db_cursor.fetchone()
-    # best_hit = tmp[0]
-    # ANI_best_hit = str(float(tmp[1]) * 100) + '%'
-    # LIN_new_Genome = tmp[2]
-    #
-    # # Get info of the new submission
-    # db_cursor.execute("SELECT AttributeValue from AttributeValue WHERE Genome_ID={0} AND Attribute_ID "
-    #                   "IN (1,2,3)".format(new_Genome_ID))
-    # tmp = db_cursor.fetchall()
-    # if len(tmp) == 0:
-    #     Genus_new_Genome = Species_new_Genome = Strain_new_Genome = "N/A"
-    # else:
-    #     Genus_new_Genome = tmp[0][0]
-    #     Species_new_Genome = tmp[1][0]
-    #     Strain_new_Genome = tmp[2][0]
-    # LIN_new_Genome = LIN_new_Genome.split(',')
-    # # Get info of the best match
-    # Genome_ID_best_hit = best_hit
-    # db_cursor.execute("SELECT LIN from LIN where Genome_ID={0}".format(Genome_ID_best_hit))
-    # tmp = db_cursor.fetchone()
-    # LIN_best_hit = tmp[0]  # A string
-    # LIN_best_hit = LIN_best_hit.split(',')
-    # db_cursor.execute("SELECT AttributeValue from AttributeValue WHERE Genome_ID={0} AND Attribute_ID "
-    #                   "IN (1,2,3)".format(Genome_ID_best_hit))
-    # if len(tmp) == 0:
-    #     Genus_best_hit = Species_best_hit = Strain_best_hit = "N/A"
-    # else:
-    #     Genus_best_hit = tmp[0][0]
-    #     Species_best_hit = tmp[1][0]
-    #     Strain_best_hit = tmp[2][0]
-    # db_cursor.execute("SELECT {0} from Genome_to_Attribute WHERE Genome_ID={1}".format(AttributeName_string,Genome_ID_best_hit))
-    # tmp = db_cursor.fetchone()
-    # for i in range(len(df.keys())):
-    #     df[df.keys()[i]].append(tmp[i])
-    # # Get the Genome_IDs of all those sharing the same conserved part of LINs
-    # db_cursor.execute("SELECT Genome_ID, LIN FROM LIN WHERE LIN LIKE '{0}%' AND Genome_ID <> {1} and Genome_ID <> {2}".
-    #                   format(",".join(new_LIN_object.conserved_LIN), new_Genome_ID, Genome_ID_best_hit))
-    # tmp = db_cursor.fetchall()
-    # Genome_IDs_related_hits = [int(i[0]) for i in tmp]
-    # LINs_related_hits = [i[1] for i in tmp]
-    # num_of_all_lines = len(Genome_IDs_related_hits)
-    #
-    #
-    # for each_related in Genome_IDs_related_hits:
-    #     db_cursor.execute("SELECT {0} FROM Genome_to_Attribute WHERE Genome_ID={1}".format(AttributeName_string,each_related))
-    #     tmp = db_cursor.fetchone()
-    #     for i in range(len(df.keys())):
-    #         df[df.keys()[i]].append(tmp[i])
-    #
-    # # A dataframe
-    # table = pd.DataFrame.from_dict(df)
-    # # table_withoutname = table.drop(["Genus","Species","Strain"],axis=1)
-    # keys_withoutname = [i for i in keys if i not in ["Genus","Species","Strain"]]
-    # LIN_all = [','.join(LIN_new_Genome)] + [','.join(LIN_best_hit)] + LINs_related_hits
-    # Generate a random and unique result page file name
-
     # Get Attribute_IDs
     db_cursor.execute("SELECT Attribute_IDs FROM Interest WHERE Interest_ID={0}".format(Interest_ID))
     Attribute_IDs = db_cursor.fetchone()[0]
@@ -361,7 +287,7 @@ def send_email(file_source, db_cursor, User_ID):
         msg['Subject'] = "Mr. {0}, here's the preliminary result of your recent submission".format(LastName)
     else: # file_source == "ANI":
         msg['Subject'] = "Mr. {0}, here's the final result of your recent submission".format(LastName)
-    s = smtplib.SMTP('smtp.live.com',587)
+    s = smtplib.SMTP('smtp-mail.outlook.com',587)
     s.ehlo_or_helo_if_needed()
     s.starttls()
     s.login(me, '!Tl19881120')
