@@ -230,7 +230,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
             "<td style='padding-left: 1px; width: 80px; overflow-x: auto;'>{2}</td>"
             "<td style='padding-left: 1px; width: 80px; overflow-x: auto;'>{3}</td>".format(0,df['Genus'][0], df['Species'][0], df['Strain'][0]))
     for i in range(len(LIN_new_Genome.split(','))):
-        f.write("<td class='0_LIN_{1}'>{0}</td>".format(LIN_new_Genome.split(',')[i],i))
+        f.write("<td class='LIN' id='0_LIN_{1}'>{0}</td>".format(LIN_new_Genome.split(',')[i],i))
     f.write("</tr>")
     # Best hit
     f.write("<tr class='info'><td colspan='1'></td><td rowspan='1' colspan='23' style='text-align: left; font-weight: bold;'>Best match, ANI: {0}</td></tr>".format(ANI))
@@ -241,7 +241,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
             "<td style='padding-left: 1px; width: 80px; overflow-x: auto;'>{3}</td>".format(1, df['Genus'][1], df['Species'][1],
                                                                          df['Strain'][1]))
     for i in range(len(LIN_best_match.split(','))):
-        f.write("<td class='1_LIN_{1}'>{0}</td>".format(LIN_best_match.split(',')[i],i))
+        f.write("<td class='LIN' id='1_LIN_{1}'>{0}</td>".format(LIN_best_match.split(',')[i],i))
     f.write("</tr>")
     # Related hits, if any
     if related_hits:
@@ -257,7 +257,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
                 "<td style='padding-left: 1px; width: 80px; overflow-x: auto;'>{3}</td>".format(real_i, df['Genus'][real_i], df['Species'][real_i],
                                                                              df['Strain'][real_i]))
             for j in range(len(LINs_related_hits[i].split(','))):
-                f.write("<td class='{1}_LIN_{2}'>{0}</td>".format(LINs_related_hits[i].split(',')[j], real_i, j))
+                f.write("<td class='LIN' id='{1}_LIN_{2}'>{0}</td>".format(LINs_related_hits[i].split(',')[j], real_i, j))
             f.write("</tr>")
     f.write(static_footer)
     f.close()
