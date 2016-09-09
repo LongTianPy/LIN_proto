@@ -224,7 +224,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
         f.write("</div>")
     # New Submission
     f.write("<tr class='info'><td colspan='1'></td><td rowspan='1' colspan='23' style='text-align: left; font-weight: bold;'>New Submission</td></tr>")
-    f.write("<tr id='0'><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' class='row_checkbox' name='row_checkbox[{0}]'"
+    f.write("<tr id='0' class='warning record'><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' class='row_checkbox' name='row_checkbox[{0}]'"
             "value='{0}'></td>"
             "<td style='padding-left: 1px; width: 100px; overflow-x: auto;'>{1}</td>"
             "<td style='padding-left: 1px; width: 80px; overflow-x: auto;'>{2}</td>"
@@ -234,7 +234,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
     f.write("</tr>")
     # Best hit
     f.write("<tr class='info'><td colspan='1'></td><td rowspan='1' colspan='23' style='text-align: left; font-weight: bold;'>Best match, ANI: {0}</td></tr>".format(ANI))
-    f.write("<tr id='1'><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' class='row_checkbox' name='row_checkbox[{0}]'"
+    f.write("<tr id='1' class='warning record'><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' class='row_checkbox' name='row_checkbox[{0}]'"
             "value='{0}'></td>"
             "<td style='padding-left: 1px; width: 100px; overflow-x: auto;'>{1}</td>"
             "<td style='padding-left: 1px; width: 80px; overflow-x: auto;'>{2}</td>"
@@ -249,7 +249,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
         for i in range(len(df["Genus"])-2):
             real_i = i+2
             f.write(
-                "<tr id='{0}'><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' class='row_checkbox' name='row_checkbox["
+                "<tr id='{0}' class='warning record'><td style='padding-left: 10px'><input type='checkbox' id='row_checkbox[{0}]' class='row_checkbox' name='row_checkbox["
                 "{0}]'"
                 "value='{0}'></td>"
                 "<td style='padding-left: 1px; width: 100px; overflow-x: auto;'>{1}</td>"
@@ -257,7 +257,7 @@ def write_result_page(new_Genome_ID, new_LIN_object, new_LIN, db_cursor,User_ID,
                 "<td style='padding-left: 1px; width: 80px; overflow-x: auto;'>{3}</td>".format(real_i, df['Genus'][real_i], df['Species'][real_i],
                                                                              df['Strain'][real_i]))
             for j in range(len(LINs_related_hits[i].split(','))):
-                f.write("<td class='{1}_LIN_{2}'>{0}</td>".format(LINs_related_hits.split(',')[j], real_i, j))
+                f.write("<td class='{1}_LIN_{2}'>{0}</td>".format(LINs_related_hits[i].split(',')[j], real_i, j))
             f.write("</tr>")
     f.write(static_footer)
     f.close()
