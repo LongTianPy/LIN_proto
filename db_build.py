@@ -78,14 +78,14 @@ def build_db():
     	# # Enter one genome to start
     	c.execute("INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName) values (1,1,'/home/linproject/Workspace/Psy/init/1000_Pav-BPIC_631.fasta','1000_Pav-BPIC_631')")
     	c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, SubjectGenome, ANI, LIN) values (1,3, 1, 1, '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0')")
-    	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (1,1,2,'Pseudomonas',1,True)") # Genus
-	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (2,1,2,'syringae',1,True)") # Species
-	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (3,1,2,'BPIC-631',1,True)") # Strain
-	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (4,1,2,'N/A',1,True)") # GPS
-	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (5,1,2,'N/A',1,True)") # Date of isolation
-	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (6,1,2,'N/A',1,True)") # Accession
-	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (7,1,2,'N/A',1,True)") # Country
-	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (8,1,2,'N/A',1,True)") # Host of isolation
+    	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (1,1,1,'Pseudomonas',1,True)") # Genus
+	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (2,1,1,'syringae',1,True)") # Species
+	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (3,1,1,'BPIC-631',1,True)") # Strain
+	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (4,1,1,'N/A',1,True)") # GPS
+	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (5,1,1,'N/A',1,True)") # Date of isolation
+	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (6,1,1,'N/A',1,True)") # Accession
+	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (7,1,1,'N/A',1,True)") # Country
+	c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (8,1,1,'N/A',1,True)") # Host of isolation
 	# c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (11,1,2,'Simiiformes',1,True)") # Host
 
 	c.execute("INSERT INTO Submission (User_ID, Time) values (1,'2016/07/31')")
