@@ -18,8 +18,8 @@ input: object from concatenated query genome string
         fragment_append(query_seq[i:i+frag_size])
     return fragment
     
-def concate_reference_files(top10, cursor, ):
-    concat_ref_file = open('concate_ref.fasta','w')
+def concate_reference_files(top10, cursor):
+    concat_ref_file = open('concat_ref.fasta','w')
     for each_genome_ID in top10:
         concat_ref_file.write(">{0}\n".format(each_genome_ID))
         cursor.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(each_genome_ID))
@@ -35,8 +35,8 @@ def concate_reference_files(top10, cursor, ):
     concat_ref_file.close()
 
 def makeblastdb():
-    cmd = "makeblastdb "
-
+    cmd = "makeblastdb -dbtype nucl -in concat_ref.fasta -title ref_genome -out ref_genome_blastdb"
+    os.system(cmd)
     
-def run_blastn():
-            
+def run_blastn(fragment):
+    
