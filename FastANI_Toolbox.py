@@ -8,15 +8,11 @@ from os.path import isfile, isdir, join
 
 # FUNCTION
 def split_query_seq(query_seq, frag_size=1020):
-"""
-input: object from concatenated query genome string
-"""
-    fragment = []
-    fragment_append = fragment.append
-    total_size = len(query_seq)
-    for i in range(0, total_size, frag_size):
-        fragment_append(query_seq[i:i+frag_size])
-    return fragment
+    """
+    input: object from concatenated query genome string
+    """
+
+
     
 def concate_reference_files(top10, cursor):
     concat_ref_file = open('concat_ref.fasta','w')
@@ -39,4 +35,8 @@ def makeblastdb():
     os.system(cmd)
     
 def run_blastn(fragment):
-    
+
+    return
+
+def FastANI(new_Geonme_ID, top10_list, cursor):
+
