@@ -8,7 +8,7 @@ def build_db():
     conn = Connect('localhost', 'root')
     c = conn.cursor()
     c.execute('CREATE DATABASE IF NOT EXISTS LINdb_sample')
-    c.execute('USE LINdb_sample')
+    c.execute('USE LINdb_Psy')
     c.execute('CREATE TABLE Genome (Genome_ID int NOT NULL AUTO_INCREMENT,'
               'Interest_ID int NOT NULL,'
               'Submission_ID int NOT NULL,'
