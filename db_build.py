@@ -75,7 +75,7 @@ def build_db():
     c.execute("INSERT INTO Attribute (AttributeName) values ('Country')")
     c.execute("INSERT INTO Attribute (AttributeName) values ('Link to peer-reviewed paper')")
     # For Plant pathogen
-    c.execute("INSERT INTO Attribute (AttributeName) values ('Host of isolation/Environmental source')")
+    c.execute("INSERT INTO Attribute (AttributeName) values ('Host of isolation or Environmental source')")
     c.execute("INSERT INTO Attribute (AttributeName) VALUES ('Disease')")
     # For Virus
     c.execute("INSERT INTO Attribute (AttributeName) values ('Infectious disease name')")
