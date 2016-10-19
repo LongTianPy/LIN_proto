@@ -66,7 +66,7 @@ def build_db():
     # General entries
     c.execute("INSERT INTO Attribute (AttributeName) values ('Genus')")
     c.execute("INSERT INTO Attribute (AttributeName) values ('Species')")
-    c.execute("INSERT INTO Attribute (AttributeName) values ('Subspecies or Pathovar'))")
+    c.execute("INSERT INTO Attribute (AttributeName) values ('Subspecies/Pathovar')")
     c.execute("INSERT INTO Attribute (AttributeName) values ('Strain')")
     c.execute("INSERT INTO Attribute (AttributeName) values ('Type strain')")
     c.execute("INSERT INTO Attribute (AttributeName) values ('GPS Coordinates')")
@@ -75,7 +75,7 @@ def build_db():
     c.execute("INSERT INTO Attribute (AttributeName) values ('Country')")
     c.execute("INSERT INTO Attribute (AttributeName) values ('Link to peer-reviewed paper')")
     # For Plant pathogen
-    c.execute("INSERT INTO Attribute (AttributeName) values ('Host of isolation or Environmental source')")
+    c.execute("INSERT INTO Attribute (AttributeName) values ('Host of isolation/Environmental source')")
     c.execute("INSERT INTO Attribute (AttributeName) VALUES ('Disease')")
     # For Virus
     c.execute("INSERT INTO Attribute (AttributeName) values ('Infectious disease name')")
