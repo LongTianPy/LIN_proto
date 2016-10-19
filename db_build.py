@@ -66,7 +66,7 @@ def build_db():
     # General entries
     c.execute("INSERT INTO Attribute (AttributeName) values ('Genus')")
     c.execute("INSERT INTO Attribute (AttributeName) values ('Species')")
-    c.execute("INSERT INTO Attribute (AttributeName) values ('Subspecies/Pathovar'))")
+    c.execute("INSERT INTO Attribute (AttributeName) values ('Subspecies or Pathovar'))")
     c.execute("INSERT INTO Attribute (AttributeName) values ('Strain')")
     c.execute("INSERT INTO Attribute (AttributeName) values ('Type strain')")
     c.execute("INSERT INTO Attribute (AttributeName) values ('GPS Coordinates')")
