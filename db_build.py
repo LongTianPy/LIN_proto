@@ -51,13 +51,13 @@ def build_db():
               "NCBI_Accession text, Country text, Host_of_isolation text, Infectious_disease_name text,"
               "Host text, PRIMARY KEY (Genome_to_Attribute_ID))")
     c.execute(
-        "CREATE TABLE Description (Description_ID int not null auto_increment, Part_LIN text NOT NULL ,"
-		"Description_Item_ID int not null, DescriptionValue text not null, PRIMARY KEY (Description_ID))")
+        "CREATE TABLE Description (Description_ID int not null auto_increment, LIN_group text NOT NULL ,"
+		"Description_Item_ID int not null, DescriptionValue text not null, User_ID INT NOT NULL , PRIMARY KEY (Description_ID))")
     c.execute(
         "CREATE TABLE Description_Items (Description_Item_ID int not null auto_increment, Description_Item_Name text "
 		"not null, PRIMARY KEY (Description_Item_ID))")
     c.execute(
-        "CREATE TABLE LIN_to_Description (LIN_to_Description_ID int NOT NULL AUTO_INCREMENT, Part_LIN text NOT NULL, "
+        "CREATE TABLE LIN_to_Description (LIN_to_Description_ID int NOT NULL AUTO_INCREMENT, LIN_group text NOT NULL, "
 		"Genus text, Species text, Nickname text, Comment text, URL text, PRIMARY KEY(LIN_to_Description_ID))")
     ### INITIALIZATION
     # c.execute("insert into User (LastName, FirstName, Institute, RegistrationDate, Username, Password, Email) values
@@ -101,38 +101,39 @@ def build_db():
     c.execute("INSERT INTO Description_Items (Description_Item_Name) values ('URL')")
 
     # # Enter one genome to start
-    # c.execute(
-    #     "INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName) values (1,1,"
-		# "'/home/linproject/Workspace/Psy/init/1000_Pav-BPIC_631.fasta','1000_Pav-BPIC_631')")
-    # c.execute(
-    #     "INSERT INTO LIN (Genome_ID, Scheme_ID, SubjectGenome, ANI, LIN) values (1,3, 1, 1, '0,0,0,0,0,0,0,0,0,0,0,0,"
-		# "0,0,0,0,0,0,0,0')")
-    # c.execute(
-    #     "INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values ("
-		# "1,1,1,'Pseudomonas',1,True)")  # Genus
-    # c.execute(
-    #     "INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values ("
-		# "2,1,1,'syringae',1,True)")  # Species
-    # c.execute(
-    #     "INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values ("
-		# "3,1,1,'BPIC-631',1,True)")  # Strain
-    # c.execute(
-    #     "INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values ("
-		# "4,1,1,'N/A',1,True)")  # GPS
-    # c.execute(
-    #     "INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values ("
-		# "5,1,1,'N/A',1,True)")  # Date of isolation
-    # c.execute(
-    #     "INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values ("
-		# "6,1,1,'N/A',1,True)")  # Accession
-    # c.execute(
-    #     "INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (7,1,1,'N/A',1,True)")  # Country
-    # c.execute(
-    #     "INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (8,1,1,'N/A',1,True)")  # Host of isolation
-    # # c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) values (11,1,2,'Simiiformes',1,True)") # Host
-    #
-    # c.execute("INSERT INTO Submission (User_ID, Time) values (1,'2016/07/31')")
 
+    # Start with Genome of DC3000, which is GCA_000007805.1.fasta
+    c.execute("insert into User (LastName, FirstName, Institute, RegistrationDate, Username, Password, Email) values "
+              "('Tian', 'Long', 'Virginia Tech', '2016-10-21', 'kingdom586@hotmail.com', '123456', 'kingdom586@hotmail.com')")
+    c.execute("INSERT INTO Submission (User_ID, Time) VALUES (1,'2016-10-17')")
+    c.execute(
+        "INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName) VALUES (1, 1, '/home/linproject/Workspace/Psy_166/init/GCA_000007805.fasta', 'GCA_000007805')")
+    c.execute(
+        "INSERT INTO AttributeValue (Genome_ID, Interest_ID, Attribute_ID, AttributeValue, User_ID, Private) VALUES (1, 1, 1, 'Pseudomonas', 1, False)")
+    c.execute(
+        "INSERT INTO AttributeValue (Genome_ID, Interest_ID, Attribute_ID, AttributeValue, User_ID, Private) VALUES (1, 1, 2, 'syringae', 1, False)")
+    c.execute(
+        "INSERT INTO AttributeValue (Genome_ID, Interest_ID, Attribute_ID, AttributeValue, User_ID, Private) VALUES (1, 1, 3, 'pv. tomato', 1, False)")
+    c.execute(
+        "INSERT INTO AttributeValue (Genome_ID, Interest_ID, Attribute_ID, AttributeValue, User_ID, Private) VALUES (1, 1, 4, 'DC3000', 1, False)")
+    c.execute(
+        "INSERT INTO AttributeValue (Genome_ID, Interest_ID, Attribute_ID, AttributeValue, User_ID, Private) VALUES (1, 1, 5, 'No', 1, False)")
+    c.execute(
+        "INSERT INTO AttributeValue (Genome_ID, Interest_ID, Attribute_ID, AttributeValue, User_ID, Private) VALUES (1, 1, 6, '49.5,-2.5', 1, False)")
+    c.execute(
+        "INSERT INTO AttributeValue (Genome_ID, Interest_ID, Attribute_ID, AttributeValue, User_ID, Private) VALUES (1, 1, 7, 'NA', 1, False)")
+    c.execute(
+        "INSERT INTO AttributeValue (Genome_ID, Interest_ID, Attribute_ID, AttributeValue, User_ID, Private) VALUES (1, 1, 8, 'AE016853', 1, False)")
+    c.execute(
+        "INSERT INTO AttributeValue (Genome_ID, Interest_ID, Attribute_ID, AttributeValue, User_ID, Private) VALUES (1, 1, 9, 'United Kingdom', 1, False)")
+    c.execute(
+        "INSERT INTO AttributeValue (Genome_ID, Interest_ID, Attribute_ID, AttributeValue, User_ID, Private) VALUES (1, 1, 10, '10.1073/pnas.1731982100', 1, False)")
+    c.execute(
+        "INSERT INTO AttributeValue (Genome_ID, Interest_ID, Attribute_ID, AttributeValue, User_ID, Private) VALUES (1, 1, 11, 'Solanum lycopersicum', 1, False)")
+    c.execute(
+        "INSERT INTO AttributeValue (Genome_ID, Interest_ID, Attribute_ID, AttributeValue, User_ID, Private) VALUES (1, 1, 12, 'Plant rot, Speck disease', 1, False)")
+    c.execute(
+        "INSERT INTO LIN (Genome_ID, Scheme_ID, SubjectGenome, ANI, LIN) VALUES (1, 3, 1, 1, '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0')")
     conn.commit()
 
 

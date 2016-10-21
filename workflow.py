@@ -90,13 +90,13 @@ def main(argv=None): # The genome file name we are expecting for is a
     db = Connect('localhost','root')
     c = db.cursor()
     logging.info("Connecting to the database")
-    c.execute('USE LINdb_sample')
+    c.execute('USE LINdb_Psy')
     logging.basicConfig(level=logging.DEBUG, filename="/home/linproject/Workspace/LIN_log/logfile_{0}".format(User_ID),
                         filemode="a+", format="%(asctime)-15s %(levelname)-8s %(message)s")
     logging.info("#####################################")
     logging.info("New task from User ID {0}".format(User_ID))
 
-    original_folder  = '/home/linproject/Workspace/Sample/'
+    original_folder  = '/home/linproject/Workspace/Psy_166/'
     workspace_dir = '/home/linproject/Workspace/New/workspace/'
     # InfoFile = "/home/linproject/Workspace/Zika/Attribute_full.csv"
     # Update the submission table
