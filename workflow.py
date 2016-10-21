@@ -146,7 +146,7 @@ def main(argv=None): # The genome file name we are expecting for is a
     c.execute("Select AttributeName from Attribute WHERE Attribute_ID in ({0})".format(Attribute_ID_list_string))
     tmp = c.fetchall()
     # Attribute_Names = ['_'.join(i[0].split(' ')) for i in tmp]
-    Attribute_Names = [i[0].replace(" ","_").replace("/","__") for i in tmp]
+    Attribute_Names = [i[0].replace(" ","_").replace("/","__").replace("-","_") for i in tmp]
     Attributes_in_Genome_to_Attribute = "','".join(Attributes)
     AttributeNames_in_Genome_to_Attribute = ",".join(Attribute_Names)
     Attributes_in_Genome_to_Attribute = "'" + Attributes_in_Genome_to_Attribute + "'"
