@@ -85,7 +85,7 @@ def generate_distance(queryfilepath, Genome_ID, User_ID):
     logging.info("Calculating k-mer profile of the new submission.")
     KmerCountNew(queryfilepath)
 
-    subject_frequency_file = '/home/linproject/Workspace/Psy_166/init/frequency_sample'
+    subject_frequency_file = '/home/linproject/Workspace/Psy_166/init/frequency'
 
     logging.info("Reading original frequency matrix.")
     original_frequency = pd.read_hdf(subject_frequency_file, 'profiles')
