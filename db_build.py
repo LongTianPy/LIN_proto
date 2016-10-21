@@ -46,9 +46,10 @@ def build_db():
 		"Interest_ID int NOT NULL, Attribute_ID int not null,AttributeValue text not null,User_ID int not null,"
 		"Private boolean not null,PRIMARY KEY (AttributeValue_ID))")
     c.execute("CREATE TABLE Genome_to_Attribute (Genome_to_Attribute_ID int NOT NULL AUTO_INCREMENT, "
-              "Genome_ID INT NOT NULL, Genus text, Species text, Strain text, GPS_Coordinates text, Date_of_isolation "
-			  "text,"
-              "NCBI_Accession text, Country text, Host_of_isolation text, Infectious_disease_name text,"
+              "Genome_ID INT NOT NULL, Genus text, Species text,Subspecies__Pathovar text, Strain text, Type_strain text,"
+              " GPS_Coordinates text, Date_of_isolation text,"
+              "NCBI_Accession text, Country text, Link_to_peer_reviewed_paper text,Host_of_isolation__Environmental_source text,"
+              "Disease text, Infectious_disease_name text,"
               "Host text, PRIMARY KEY (Genome_to_Attribute_ID))")
     c.execute(
         "CREATE TABLE Description (Description_ID int not null auto_increment, LIN_group text NOT NULL ,"
