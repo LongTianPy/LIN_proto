@@ -6,8 +6,9 @@ genomic percentage identity and LIN assignment to the new genome.
 
 # IMPORT
 import ANI_Wrapper_2
-import k_mer
+# import k_mer
 import LIN_Assign
+import LINgroup_indexing
 import MySQLdb
 from MySQLdb import Connect
 import pandas as pd
@@ -155,77 +156,80 @@ def main(argv=None): # The genome file name we are expecting for is a
               format(AttributeNames_in_Genome_to_Attribute, Attributes_in_Genome_to_Attribute, new_Genome_ID))
     db.commit()
 
-    ## For Zika virus case only, comment out when initialization is done.
-    # LoadInfo(InfoFile,c,new_GenomeName,Interest_ID_new_genome)
-    # db.commit()
-    # # Fetch the file paths of all the genomes from the database that have the same interest ID
-    # c.execute('SELECT FilePath FROM Genome WHERE Interest_ID = {0}'.format(Interest_ID_new_genome))
-    # FilePaths = c.fetchall()
-    # FilePaths = [i[0] for i in FilePaths]
-    # We need first to read their k-mer frequencies, which, are calculated beforehand and store in the server.
-    # This reminds me of adding one more table for the location of those frequency files.
-    ## And supposedly, the frequency of new genome shuold also be added to this file once it's calculated.
-    similarity = k_mer.generate_distance(queryfilepath=original_folder+new_genome,Genome_ID=new_Genome_ID,User_ID=User_ID)
-    # Check the biggest value, if it is bigger than the bottomline of the cutoff being used
-    # if similarity[new_GenomeName].max() < 0.6:
-    #     print "No similar genome found, run ANIb calculation sequentially to all genome is recommended."
-    #     sys.exit()
-    # else:
-    logging.info("Looking for similars genome from our database.")
-    if len(similarity['Genome'])<=10:
-        n_top = len(similarity['Genome'])
-    else: # As for selecting numbers of clusters, 3 might not be very good since it is possible when we have a lot of
-          # genomes to select while there might be way more than 10 genomes in the top cluster. So we are setting the
-          # the number of clusters based on the total number of genomes to select from. Since 10 is a preferred number
-          # of genomes to perform pairwise blasting, I guess we can do (M/10)+1
-        n_clusters = 3
-        km = KMeans(n_clusters=n_clusters)
-        km.fit(similarity[new_Genome_ID].reshape(-1,1))
-        centroid_idx = list(km.cluster_centers_).index(max(km.cluster_centers_))
-        top_cluster_idx = [i for i,x in enumerate(km.labels_) if x==centroid_idx]
-        n_top = len(top_cluster_idx)
-        logging.info("We are comparing your genome with {0} genomes in our database.".format(n_top))
-    top10 = similarity.head(n_top)['Genome'].values # top10 is a list of Genome_IDs in the database
-
-    logging.info("Writing k-mer result.")
-    IntermediateResult.write_kmer_result(top10=top10,db_cursor=c,User_ID=User_ID)
-    logging.info("Sending k-mer result to the user, User_ID {0}.".format(User_ID))
-
-    #################################################################################
-    # IntermediateResult.send_email(file_source="kmer",User_ID=User_ID,db_cursor=c)
-    #################################################################################
-
-    # top10_LINs = [ExtractInfo.get_top10_LIN(i,c) for i in top10] # This can be used to send preliminary results
-    # print top10_LINs
-    # Get their file paths and copy them to the workspace
-    similarities = pd.DataFrame()
-
-    logging.info("Iteratively calculating ANIs.")
-    for i in top10:
-        c.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(i))
-        target_filepath = c.fetchone()[0]
-        target_filename_rename = target_filepath.split("/")[-1]
-        target_filename_rename = "{0}.fasta".format(i)
-        cmd = "cp {0} {1}".format(target_filepath, workspace_dir+target_filename_rename)
-        os.system(cmd)
-        c.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(int(new_Genome_ID)))
-        query_filepath = c.fetchone()[0]
-        query_filename_rename = query_filepath.split("/")[-1]
-        query_filename_rename = "{0}.fasta".format(new_Genome_ID)
-        os.system('cp {0} {1}'.format(query_filepath,workspace_dir+query_filename_rename))
-        # Now we have all of them in the workspace
-        ANIb_result = ANI_Wrapper_2.unified_anib(workspace_dir,User_ID)[new_Genome_ID]
-        os.system('rm -rf {0}*'.format(workspace_dir))
-        similarity = ANIb_result.loc[str(i)]
-        similarities[str(i)]=[similarity]
-    top1_genome = similarities.idxmax(axis=1)[0]
-    top1_Genome_ID = int(top1_genome)
-    top1_similarity = similarities.max(axis=1)[0]
-    new_LIN_object = LIN_Assign.getLIN(Genome_ID=top1_Genome_ID, Scheme_ID=3, similarity=top1_similarity,c=c)
-    logging.info("This most similar record is Genome ID {0}, whose LIN is {1}.".format(top1_Genome_ID,
-                                                                             ','.join(new_LIN_object.LIN)))
-    logging.info("The similarity to it is " + str(top1_similarity*100) + "%.")
-    new_LIN = LIN_Assign.Assign_LIN(new_LIN_object,c=c).new_LIN
+    # ## For Zika virus case only, comment out when initialization is done.
+    # # LoadInfo(InfoFile,c,new_GenomeName,Interest_ID_new_genome)
+    # # db.commit()
+    # # # Fetch the file paths of all the genomes from the database that have the same interest ID
+    # # c.execute('SELECT FilePath FROM Genome WHERE Interest_ID = {0}'.format(Interest_ID_new_genome))
+    # # FilePaths = c.fetchall()
+    # # FilePaths = [i[0] for i in FilePaths]
+    # # We need first to read their k-mer frequencies, which, are calculated beforehand and store in the server.
+    # # This reminds me of adding one more table for the location of those frequency files.
+    # ## And supposedly, the frequency of new genome shuold also be added to this file once it's calculated.
+    # similarity = k_mer.generate_distance(queryfilepath=original_folder+new_genome,Genome_ID=new_Genome_ID,User_ID=User_ID)
+    # # Check the biggest value, if it is bigger than the bottomline of the cutoff being used
+    # # if similarity[new_GenomeName].max() < 0.6:
+    # #     print "No similar genome found, run ANIb calculation sequentially to all genome is recommended."
+    # #     sys.exit()
+    # # else:
+    # logging.info("Looking for similars genome from our database.")
+    # if len(similarity['Genome'])<=10:
+    #     n_top = len(similarity['Genome'])
+    # else: # As for selecting numbers of clusters, 3 might not be very good since it is possible when we have a lot of
+    #       # genomes to select while there might be way more than 10 genomes in the top cluster. So we are setting the
+    #       # the number of clusters based on the total number of genomes to select from. Since 10 is a preferred number
+    #       # of genomes to perform pairwise blasting, I guess we can do (M/10)+1
+    #     n_clusters = 3
+    #     km = KMeans(n_clusters=n_clusters)
+    #     km.fit(similarity[new_Genome_ID].reshape(-1,1))
+    #     centroid_idx = list(km.cluster_centers_).index(max(km.cluster_centers_))
+    #     top_cluster_idx = [i for i,x in enumerate(km.labels_) if x==centroid_idx]
+    #     n_top = len(top_cluster_idx)
+    #     logging.info("We are comparing your genome with {0} genomes in our database.".format(n_top))
+    # top10 = similarity.head(n_top)['Genome'].values # top10 is a list of Genome_IDs in the database
+    #
+    # logging.info("Writing k-mer result.")
+    # IntermediateResult.write_kmer_result(top10=top10,db_cursor=c,User_ID=User_ID)
+    # logging.info("Sending k-mer result to the user, User_ID {0}.".format(User_ID))
+    #
+    # #################################################################################
+    # # IntermediateResult.send_email(file_source="kmer",User_ID=User_ID,db_cursor=c)
+    # #################################################################################
+    #
+    # # top10_LINs = [ExtractInfo.get_top10_LIN(i,c) for i in top10] # This can be used to send preliminary results
+    # # print top10_LINs
+    # # Get their file paths and copy them to the workspace
+    # similarities = pd.DataFrame()
+    #
+    # logging.info("Iteratively calculating ANIs.")
+    # for i in top10:
+    #     c.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(i))
+    #     target_filepath = c.fetchone()[0]
+    #     target_filename_rename = target_filepath.split("/")[-1]
+    #     target_filename_rename = "{0}.fasta".format(i)
+    #     cmd = "cp {0} {1}".format(target_filepath, workspace_dir+target_filename_rename)
+    #     os.system(cmd)
+    #     c.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(int(new_Genome_ID)))
+    #     query_filepath = c.fetchone()[0]
+    #     query_filename_rename = query_filepath.split("/")[-1]
+    #     query_filename_rename = "{0}.fasta".format(new_Genome_ID)
+    #     os.system('cp {0} {1}'.format(query_filepath,workspace_dir+query_filename_rename))
+    #     # Now we have all of them in the workspace
+    #     ANIb_result = ANI_Wrapper_2.unified_anib(workspace_dir,User_ID)[new_Genome_ID]
+    #     os.system('rm -rf {0}*'.format(workspace_dir))
+    #     similarity = ANIb_result.loc[str(i)]
+    #     similarities[str(i)]=[similarity]
+    # top1_genome = similarities.idxmax(axis=1)[0]
+    # top1_Genome_ID = int(top1_genome)
+    # top1_similarity = similarities.max(axis=1)[0]
+    # new_LIN_object = LIN_Assign.getLIN(Genome_ID=top1_Genome_ID, Scheme_ID=3, similarity=top1_similarity,c=c)
+    # logging.info("This most similar record is Genome ID {0}, whose LIN is {1}.".format(top1_Genome_ID,
+    #                                                                          ','.join(new_LIN_object.LIN)))
+    # logging.info("The similarity to it is " + str(top1_similarity*100) + "%.")
+    # new_LIN = LIN_Assign.Assign_LIN(new_LIN_object,c=c).new_LIN
+    new_LIN, top1_Genome_ID, top1_similarity = LINgroup_indexing.LINgroup_indexing(cursor=c,New_Genome_ID=new_Genome_ID,
+                                                                                   working_dir=workspace_dir,
+                                                                                   User_ID=User_ID)
     logging.info("The LIN assigned to your genome is " + new_LIN)
     c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 3, '{1}', '{2}', {3})"
               .format(new_Genome_ID, new_LIN, top1_Genome_ID, top1_similarity))
