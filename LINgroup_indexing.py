@@ -87,14 +87,14 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
     else:
         LIN_table = pd.DataFrame()
         genomes = [int(i[0]) for i in tmp]
-        LIN_table.index = [int(i[0]) for i in tmp]
         LIN_table["LIN"] = [i[1].split(",") for i in tmp]
-        reverse_LIN_dict = {LIN_table.get_value(each_genome, "LIN"):each_genome for each_genome in genomes}
+        LIN_table.index = genomes
+        reverse_LIN_dict = {",".join(LIN_table.get_value(each_genome, "LIN")):each_genome for each_genome in genomes}
         if len(LIN_table.index) == 1:
-            cursor.execute("SELECT FilePath from Genome WHERE Genome_ID={0}".format(LIN_table["Genome_ID"][0]))
-            Subject_Genome_filepath = cursor.fetchone[0]
+            cursor.execute("SELECT FilePath from Genome WHERE Genome_ID={0}".format(LIN_table.index[0]))
+            Subject_Genome_filepath = cursor.fetchone()[0]
             shutil.copyfile(New_Genome_filepath, working_dir + "{0}.fasta".format(New_Genome_ID))
-            shutil.copyfile(Subject_Genome_filepath, working_dir + "{0}.fasta".format(LIN_table["Genome_ID"][0]))
+            shutil.copyfile(Subject_Genome_filepath, working_dir + "{0}.fasta".format(LIN_table.index[0]))
             ANIb_result = ANI_Wrapper_2.unified_anib(working_dir, User_ID)[New_Genome_ID]
             os.system('rm -rf {0}*'.format(working_dir))
             similarity = ANIb_result.loc[str(LIN_table.index[0])]
