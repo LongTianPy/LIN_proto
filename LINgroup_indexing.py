@@ -69,12 +69,13 @@ def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_
                     ANI_b_result = ANI_Wrapper_2.unified_anib(working_dir,User_ID)[New_Genome_ID]
                     os.system("rm -rf {0}*".format(working_dir))
                     similarity = ANI_b_result.loc[str(subject_genome_ID)]
+                    similarity_pool[subject_genome_ID] = similarity
                 LIN_ANI_storage[each_LIN_dictionary_key].append(similarity)
             LIN_ANI_max_storage[each_LIN_dictionary_key] = max(LIN_ANI_storage[each_LIN_dictionary_key])
         leading_part_w_max_ANI = max(LIN_ANI_max_storage, key=LIN_ANI_max_storage.get) # The best current route
-        return leading_part_w_max_ANI, current_level+1, similarity_pool
+        return leading_part_w_max_ANI, current_level+1
     else:
-        return LIN_dictionary.keys()[0], current_level+1,similarity_pool
+        return LIN_dictionary.keys()[0], current_level+1
 
 
 def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
@@ -109,7 +110,7 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
             previous_route = "" # To initiate
             current_level = 0
             while current_level < 19:
-                previous_route, current_level, similarity_pool = go_through_LIN_table(previous_route=previous_route,
+                previous_route, current_level = go_through_LIN_table(previous_route=previous_route,
                                                                      current_level=current_level, LIN_table=LIN_table,
                                                                      cursor=cursor, reverse_LIN_dict=reverse_LIN_dict,
                                                                      New_Genome_filepath=New_Genome_filepath,
@@ -119,8 +120,8 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
             cursor.execute("SELECT Genome_ID, LIN FROM LIN WHERE LIN LIKE '{0}%'".format(previous_route))
             tmp = cursor.fetchall()
             final_candidate_LIN_table = pd.DataFrame()
-            final_candidate_LIN_table.index = [i[0] for i in tmp]
             final_candidate_LIN_table["LIN"] = [i[1] for i in tmp]
+            final_candidate_LIN_table.index = [i[0] for i in tmp]
             LIN_ANI_storage = {each_final_candidate:similarity_pool[each_final_candidate] for each_final_candidate in final_candidate_LIN_table.index}
             final_best_Genome_ID = max(LIN_ANI_storage,key=LIN_ANI_storage.get)
             # final_best_LIN = final_candidate_LIN_table.get_value(final_best_Genome_ID,"LIN")
