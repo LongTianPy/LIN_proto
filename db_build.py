@@ -142,3 +142,4 @@ if __name__ == '__main__':
     build_db()
 
 #B728a	Pseudomonas	syringae	Pseudomonas syringae pv. syringae B728a (g-proteobacteria)		GCA_000012245.1	6093698	1	ASM1224v1	43.7555*-89.055234	snap bean leaflet	Plant rot		USA	CP000075.1
+#M301072	Pseudomonas	syringae	Pseudomonas syringae pv. japonica str. M301072 (g-proteobacteria)		GCA_000145785.1	6516319	4661	ASM14578v1			Plant rot	10.1371/journal.ppat.1002132		AEAH01000001.1

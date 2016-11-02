@@ -32,12 +32,14 @@ def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_
     :param LIN_table:
     :return: extended route
     """
+    print current_level
+    print similarity_pool
     cursor.execute("SELECT Genome_ID, LIN FROM LIN WHERE LIN LIKE '{0}%'".format(previous_route))
     tmp = cursor.fetchall()
     LIN_table_piece = pd.DataFrame()
-    genomes_piece = [int(i[0] for i in tmp)]
-    LIN_table_piece.index = [int(i[0] for i in tmp)]
+    genomes_piece = [int(i[0]) for i in tmp]
     LIN_table_piece["LIN"] = [i[1].split(",") for i in tmp]
+    LIN_table_piece.index = genomes_piece
     LIN_dictionary = {}
     for each_genome in genomes_piece:
         each_LIN = LIN_table_piece.get_value(each_genome,"LIN")
