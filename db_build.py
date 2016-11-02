@@ -133,8 +133,8 @@ def build_db():
         "INSERT INTO AttributeValue (Genome_ID, Interest_ID, Attribute_ID, AttributeValue, User_ID, Private) VALUES (1, 1, 11, 'Solanum lycopersicum', 1, False)")
     c.execute(
         "INSERT INTO AttributeValue (Genome_ID, Interest_ID, Attribute_ID, AttributeValue, User_ID, Private) VALUES (1, 1, 12, 'Plant rot, Speck disease', 1, False)")
-    # c.execute(
-    #     "INSERT INTO LIN (Genome_ID, Scheme_ID, SubjectGenome, ANI, LIN) VALUES (1, 3, 1, 1, '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0')")
+    c.execute(""
+              "INSERT INTO LIN (Genome_ID, Scheme_ID, SubjectGenome, ANI, LIN) VALUES (1, 3, 1, 1, '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0')")
     conn.commit()
 
 
