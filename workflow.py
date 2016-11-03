@@ -5,7 +5,7 @@ genomic percentage identity and LIN assignment to the new genome.
 """
 
 # IMPORT
-import ANI_Wrapper_2
+# import ANI_Wrapper_2
 # import k_mer
 import LIN_Assign
 import LINgroup_indexing
