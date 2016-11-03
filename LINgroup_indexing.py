@@ -97,9 +97,14 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
             Subject_Genome_filepath = cursor.fetchone()[0]
             shutil.copyfile(New_Genome_filepath, working_dir + "{0}.fasta".format(New_Genome_ID))
             shutil.copyfile(Subject_Genome_filepath, working_dir + "{0}.fasta".format(LIN_table.index[0]))
-            ANIb_result = ANI_Wrapper_2.unified_anib(working_dir, User_ID)[New_Genome_ID]
+            pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py -i {0} -o {0}{" \
+                        "1}_output/ -m ANIblastall --nocompress".format(
+                working_dir, User_ID)
+            os.system(pyani_cmd)
+            ANI_b_result = pd.read_table(working_dir + "{0}_output/ANIblastall_percentage_identity.tab".format(User_ID),
+                                         header=0, index_col=0).get_value(New_Genome_ID, LIN_table.index[0])
             os.system('rm -rf {0}*'.format(working_dir))
-            similarity = ANIb_result.loc[str(LIN_table.index[0])]
+            similarity = ANIb_result
             top1_Genome_ID = LIN_table.index[0]
             top1_similarity = similarity
             new_LIN_object = LIN_Assign.getLIN(Genome_ID=top1_Genome_ID, Scheme_ID=3, similarity=top1_similarity,c=cursor)
