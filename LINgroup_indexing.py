@@ -122,6 +122,7 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
                                                                      working_dir=working_dir,
                                                                      New_Genome_ID=New_Genome_ID, User_ID=User_ID,
                                                                      similarity_pool=similarity_pool)
+            print previous_route
             cursor.execute("SELECT Genome_ID, LIN FROM LIN WHERE LIN LIKE '{0}%'".format(previous_route))
             tmp = cursor.fetchall()
             final_candidate_LIN_table = pd.DataFrame()
