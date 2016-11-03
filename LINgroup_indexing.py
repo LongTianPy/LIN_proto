@@ -56,8 +56,8 @@ def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_
             for each_next_number in LIN_dictionary[each_LIN_dictionary_key].keys():
                 subject_LIN = each_LIN_dictionary_key + "," + each_next_number + "".join([",0"]*(20-1-current_level-1))
                 subject_genome_ID = reverse_LIN_dict[subject_LIN]
-                if subject_genome_ID in similarity_pool:
-                    similarity = similarity_pool[subject_genome_ID]
+                if str(subject_genome_ID) in similarity_pool:
+                    similarity = similarity_pool[str(subject_genome_ID)]
                 else:
                     cursor.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(subject_genome_ID))
                     subject_genome_filepath = cursor.fetchone()[0]
@@ -128,7 +128,7 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
             final_candidate_LIN_table["LIN"] = [i[1] for i in tmp]
             final_candidate_LIN_table.index = [int(i[0]) for i in tmp]
             LIN_ANI_storage = {str(each_final_candidate):similarity_pool[str(each_final_candidate)] for each_final_candidate in final_candidate_LIN_table.index}
-            final_best_Genome_ID = max(LIN_ANI_storage,key=LIN_ANI_storage.get)
+            final_best_Genome_ID = str(max(LIN_ANI_storage,key=LIN_ANI_storage.get))
             # final_best_LIN = final_candidate_LIN_table.get_value(final_best_Genome_ID,"LIN")
             final_best_ANI = LIN_ANI_storage[final_best_Genome_ID]
             new_getLIN_object = LIN_Assign.getLIN(Genome_ID=int(final_best_Genome_ID), Scheme_ID=3, similarity=final_best_ANI,
