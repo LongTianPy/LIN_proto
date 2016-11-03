@@ -93,6 +93,7 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
         LIN_table.index = genomes
         reverse_LIN_dict = {",".join(LIN_table.get_value(each_genome, "LIN")):each_genome for each_genome in genomes}
         if len(LIN_table.index) == 1:
+            subject_genome_ID = LIN_table.index[0]
             cursor.execute("SELECT FilePath from Genome WHERE Genome_ID={0}".format(LIN_table.index[0]))
             Subject_Genome_filepath = cursor.fetchone()[0]
             shutil.copyfile(New_Genome_filepath, working_dir + "{0}.fasta".format(New_Genome_ID))
