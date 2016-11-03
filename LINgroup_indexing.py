@@ -126,7 +126,7 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
             tmp = cursor.fetchall()
             final_candidate_LIN_table = pd.DataFrame()
             final_candidate_LIN_table["LIN"] = [i[1] for i in tmp]
-            final_candidate_LIN_table.index = [i[0] for i in tmp]
+            final_candidate_LIN_table.index = [int(i[0]) for i in tmp]
             LIN_ANI_storage = {each_final_candidate:similarity_pool[each_final_candidate] for each_final_candidate in final_candidate_LIN_table.index}
             final_best_Genome_ID = max(LIN_ANI_storage,key=LIN_ANI_storage.get)
             # final_best_LIN = final_candidate_LIN_table.get_value(final_best_Genome_ID,"LIN")
