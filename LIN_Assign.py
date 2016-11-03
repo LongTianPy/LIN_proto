@@ -33,7 +33,7 @@ class getLIN(object):
         if not c:
             c = self.c
         # Read the LIN of this genome
-        c.execute('SELECT LIN from LIN where Genome_ID = "{0}" and LIN.Scheme_ID=3'.format(Genome_ID))
+        c.execute('SELECT LIN from LIN where Genome_ID = {0} and LIN.Scheme_ID=3'.format(Genome_ID))
         lin = c.fetchone()[0].split(',')
         self.LIN = lin
         # Read the cutoff of this scheme

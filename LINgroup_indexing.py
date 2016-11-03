@@ -68,7 +68,7 @@ def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_
                     ANIb_result = pd.read_table(working_dir+"{0}_output/ANIblastall_percentage_identity.tab".format(User_ID), header=0, index_col=0).get_value(int(New_Genome_ID),str(subject_genome_ID))
                     os.system("rm -rf {0}*".format(working_dir))
                     similarity = ANIb_result
-                    similarity_pool[subject_genome_ID] = similarity
+                    similarity_pool[str(subject_genome_ID)] = similarity
                 LIN_ANI_storage[each_LIN_dictionary_key].append(similarity)
             LIN_ANI_max_storage[each_LIN_dictionary_key] = max(LIN_ANI_storage[each_LIN_dictionary_key])
         leading_part_w_max_ANI = max(LIN_ANI_max_storage, key=LIN_ANI_max_storage.get) # The best current route
@@ -127,14 +127,14 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
             final_candidate_LIN_table = pd.DataFrame()
             final_candidate_LIN_table["LIN"] = [i[1] for i in tmp]
             final_candidate_LIN_table.index = [int(i[0]) for i in tmp]
-            LIN_ANI_storage = {each_final_candidate:similarity_pool[each_final_candidate] for each_final_candidate in final_candidate_LIN_table.index}
+            LIN_ANI_storage = {str(each_final_candidate):similarity_pool[str(each_final_candidate)] for each_final_candidate in final_candidate_LIN_table.index}
             final_best_Genome_ID = max(LIN_ANI_storage,key=LIN_ANI_storage.get)
             # final_best_LIN = final_candidate_LIN_table.get_value(final_best_Genome_ID,"LIN")
             final_best_ANI = LIN_ANI_storage[final_best_Genome_ID]
-            new_getLIN_object = LIN_Assign.getLIN(Genome_ID=final_best_Genome_ID, Scheme_ID=3, similarity=final_best_ANI,
+            new_getLIN_object = LIN_Assign.getLIN(Genome_ID=int(final_best_Genome_ID), Scheme_ID=3, similarity=final_best_ANI,
                                               c=cursor)
             new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_getLIN_object,c=cursor).new_LIN
-            top1_Genome_ID = final_best_Genome_ID
+            top1_Genome_ID = int(final_best_Genome_ID)
             top1_similarity = final_best_ANI
             print "The size of current database is " + str(len(LIN_table.index))
             print "The number of calculations done is " + str(len(similarity_pool.keys())) + "\n\n"
