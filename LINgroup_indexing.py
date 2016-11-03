@@ -128,8 +128,27 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
             final_candidate_LIN_table = pd.DataFrame()
             final_candidate_LIN_table["LIN"] = [i[1] for i in tmp]
             final_candidate_LIN_table.index = [int(i[0]) for i in tmp]
-            print similarity_pool
-            LIN_ANI_storage = {str(each_final_candidate):similarity_pool[str(each_final_candidate)] for each_final_candidate in final_candidate_LIN_table.index}
+            LIN_ANI_storage = {}
+            for each_final_candidate in final_candidate_LIN_table.index:
+                if str(each_final_candidate) not in similarity_pool:
+                    subject_genome_ID = each_final_candidate
+                    cursor.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(subject_genome_ID))
+                    subject_genome_filepath = cursor.fetchone()[0]
+                    shutil.copyfile(New_Genome_filepath, working_dir + "{0}.fasta".format(New_Genome_ID))
+                    shutil.copyfile(subject_genome_filepath, working_dir + "{0}.fasta".format(subject_genome_ID))
+                    pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py -i {0} -o {0}{1}_output/ -m ANIblastall --nocompress".format(
+                        working_dir, User_ID)
+                    os.system(pyani_cmd)
+                    ANIb_result = pd.read_table(
+                        working_dir + "{0}_output/ANIblastall_percentage_identity.tab".format(User_ID), header=0,
+                        index_col=0).get_value(int(New_Genome_ID), str(subject_genome_ID))
+                    os.system("rm -rf {0}*".format(working_dir))
+                    similarity = ANIb_result
+                    similarity_pool[str(subject_genome_ID)] = similarity
+                    LIN_ANI_storage[str(subject_genome_ID)] = similarity
+                else:
+                    LIN_ANI_storage[str(each_final_candidate)] = similarity_pool[str(each_final_candidate)]
+            # LIN_ANI_storage = {str(each_final_candidate):similarity_pool[str(each_final_candidate)] for each_final_candidate in final_candidate_LIN_table.index}
             final_best_Genome_ID = str(max(LIN_ANI_storage,key=LIN_ANI_storage.get))
             # final_best_LIN = final_candidate_LIN_table.get_value(final_best_Genome_ID,"LIN")
             final_best_ANI = LIN_ANI_storage[final_best_Genome_ID]
