@@ -9,7 +9,6 @@ LINgroup indexing is a method to select subject genome to calculate similarity
 import os
 import shutil
 import pandas as pd
-import ANI_Wrapper_2
 import LIN_Assign
 # OBJECT
 # class LIN_decision_tree(object):
@@ -64,9 +63,11 @@ def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_
                     subject_genome_filepath = cursor.fetchone()[0]
                     shutil.copyfile(New_Genome_filepath,working_dir+"{0}.fasta".format(New_Genome_ID))
                     shutil.copyfile(subject_genome_filepath,working_dir+"{0}.fasta".format(subject_genome_ID))
-                    ANI_b_result = ANI_Wrapper_2.unified_anib(working_dir,User_ID)[New_Genome_ID]
+                    pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py -i {0} -o {0}{1}_output/ -m ANIblastall --nocompress".format(working_dir,User_ID)
+                    os.system(pyani_cmd)
+                    ANI_b_result = pd.read_table(working_dir+"{0}_output/ANIblastall_percentage_identity.tab".format(User_ID), header=0, index_col=0).get_value(New_Genome_ID,subject_genome_ID)
                     os.system("rm -rf {0}*".format(working_dir))
-                    similarity = ANI_b_result.loc[str(subject_genome_ID)]
+                    similarity = ANI_b_result
                     similarity_pool[subject_genome_ID] = similarity
                 LIN_ANI_storage[each_LIN_dictionary_key].append(similarity)
             LIN_ANI_max_storage[each_LIN_dictionary_key] = max(LIN_ANI_storage[each_LIN_dictionary_key])
