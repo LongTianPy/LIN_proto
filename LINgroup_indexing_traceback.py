@@ -20,5 +20,9 @@ def LINgroup_indexing_traceback():
     SubjectGenome = [i[1] for i in tmp]
     LIN = [i[2] for i in tmp]
     df = pd.DataFrame()
+    df["SubjectGenome"] = SubjectGenome
+    df["LIN"] = LIN
+    df.index = Genome_ID
     
+
 # MAIN
