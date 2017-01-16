@@ -109,7 +109,7 @@ def main(argv=None): # The genome file name we are expecting for is a
     Submission_ID = int(tmp[0])
     # And we have the file name of the genome
     # Fetched from the front end
-    new_GenomeName = new_genome.split('.')[0]
+    new_GenomeName = ".".join(new_genome.split('.')[:-1])
     contig_number = get_contig_number(original_folder+new_genome)
     # As well as its Interest_ID
     c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName) values ({0}, {1}, "{2}", "{3}")'
