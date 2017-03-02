@@ -50,7 +50,7 @@ def concat_genomes():
 def makeblastdb():
     db_dir = "/var/www/html/blast/db/"
     db_fasta_file = "genome.fasta"
-    makeblastdb_cmd = "makeblastdb -in {0} -dbtype nucl -hash_index -logfile error_log".format(join(db_dir,db_fasta_file))
+    makeblastdb_cmd = "makeblastdb -in {0} -dbtype nucl -hash_index -logfile {1}error_log".format(join(db_dir,db_fasta_file),db_dir)
     os.system(makeblastdb_cmd)
 
 # MAIN
