@@ -101,7 +101,6 @@ def main(argv=None): # The genome file name we are expecting for is a
     original_folder  = '/home/linproject/Workspace/Psy_166/'
     workspace_dir = '/home/linproject/Workspace/New/workspace/'
     # InfoFile = "/home/linproject/Workspace/Zika/Attribute_full.csv"
-<<<<<<< HEAD
     # Update the submission table
     c.execute("INSERT INTO Submission (User_ID, Time) VALUES ({0},'{1}')".format(User_ID, standardtime))
     db.commit()
@@ -132,7 +131,6 @@ def main(argv=None): # The genome file name we are expecting for is a
                   "VALUES ({0}, {1}, {2}, '{3}', {4}, {5})".format(Attribute_ID_list[i], new_Genome_ID,
                                                                    Interest_ID_new_genome, Attributes[i],
                                                                    User_ID, privacy))
-=======
     # First check if we ever have this file, roughly
     c.execute("SELECT Genome_ID, FilePath from Genome")
     tmp = c.fetchall()
@@ -153,7 +151,6 @@ def main(argv=None): # The genome file name we are expecting for is a
     else:
         # Update the submission table
         c.execute("INSERT INTO Submission (User_ID, Time) VALUES ({0},'{1}')".format(User_ID, standardtime))
->>>>>>> add8b636ecbf652839b54164cf2b2c06e4e5f77f
         db.commit()
         # And get the new Submittion ID
         c.execute("SELECT Submission_ID FROM Submission where User_ID={0} and Time='{1}'".format(User_ID,standardtime))
