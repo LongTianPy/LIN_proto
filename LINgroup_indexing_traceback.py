@@ -27,7 +27,6 @@ def find_current_step(previous_route, current_level, similarity_pool,c, current_
             LIN_dictionary[each_leading_part] = each_genome
         else:
             continue
-    print LIN_dictionary
     if len(set(LIN_dictionary.keys())) > 1:
         LIN_ANI_storage = {}
         LIN_ANI_max_storage = {}
@@ -79,6 +78,7 @@ def LINgroup_indexing_traceback():
                                                               subjectlin=subjectlin,Genome_ID=Genome_ID)
         print Genome_ID[current_genome_index]
         print subjectlin
+        print similarity_pool
         print len(similarity_pool.keys())
 
 
