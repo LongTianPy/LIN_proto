@@ -76,6 +76,8 @@ def LINgroup_indexing_traceback():
                                                               similarity_pool=similarity_pool, c=c,
                                                               current_genome_index=current_genome_index,
                                                               subjectlin=subjectlin,Genome_ID=Genome_ID)
+        print Genome_ID[current_genome_index]
+        print subjectlin
         print len(similarity_pool.keys())
 
 
