@@ -24,24 +24,26 @@ def find_current_step(previous_route, current_level, similarity_pool,c, current_
         each_LIN = LIN_table_piece.get_value(each_genome,"LIN")
         each_leading_part = ",".join(each_LIN[:current_level+1])
         if each_leading_part not in LIN_dictionary:
-            LIN_dictionary[each_leading_part] = {each_LIN[current_level+1]:[each_genome]}
+            LIN_dictionary[each_leading_part] = each_genome
         else:
-            if each_LIN[current_level+1] not in LIN_dictionary[each_leading_part]:
-                LIN_dictionary[each_leading_part][each_LIN[current_level+1]] = [each_genome]
-            else:
-                LIN_dictionary[each_leading_part][each_LIN[current_level+1]].append(each_genome)
+            continue
     if len(set(LIN_dictionary.keys())) > 1:
         LIN_ANI_storage = {}
         LIN_ANI_max_storage = {}
         for each_LIN_dictionary_key in LIN_dictionary.keys():
-            LIN_ANI_storage[each_LIN_dictionary_key] = []
-            for each_next_number in LIN_dictionary[each_LIN_dictionary_key].keys():
-                subject_LIN = each_LIN_dictionary_key + "," + each_next_number + "".join([",0"]*(20-1-current_level-1))
-                subject_genome_ID = reverse_LIN_dict[subject_LIN]
-                if str(subject_genome_ID) in similarity_pool:
-                    continue
-                else:
-                    similarity_pool[str(subject_genome_ID)] = []
+            each_subject_genome = LIN_dictionary[each_LIN_dictionary_key]
+            if str(each_subject_genome) in similarity_pool:
+                continue
+            else:
+                similarity_pool[str(each_subject_genome)] = []
+            # LIN_ANI_storage[each_LIN_dictionary_key] = []
+            # for each_next_number in LIN_dictionary[each_LIN_dictionary_key].keys():
+            #     subject_LIN = each_LIN_dictionary_key + "," + each_next_number + "".join([",0"]*(20-1-current_level-1))
+            #     subject_genome_ID = reverse_LIN_dict[subject_LIN]
+            #     if str(subject_genome_ID) in similarity_pool:
+            #         continue
+            #     else:
+            #         similarity_pool[str(subject_genome_ID)] = []
         new_route = subjectlin[current_level+1]
         return new_route, current_level+1
     else:

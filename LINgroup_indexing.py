@@ -22,7 +22,7 @@ import LIN_Assign
 
 
 # FUNCTION
-def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_LIN_dict,New_Genome_filepath,working_dir,New_Genome_ID,User_ID,similarity_pool):
+def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_LIN_dict,New_Genome_filepath,working_dir,New_Genome_ID,User_ID,similarity_pool,cutoff):
     """
 
     :param previous_route: a comma separated string of the leading part of LIN decided by last step, if it's the
@@ -31,6 +31,8 @@ def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_
     :param LIN_table:
     :return: extended route
     """
+
+    this_threshold = cutoff[current_level]
     cursor.execute("SELECT Genome_ID, LIN FROM LIN WHERE LIN LIKE '{0}%'".format(previous_route))
     tmp = cursor.fetchall()
     LIN_table_piece = pd.DataFrame()
@@ -71,13 +73,21 @@ def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_
                     similarity_pool[str(subject_genome_ID)] = similarity
                 LIN_ANI_storage[each_LIN_dictionary_key].append(similarity)
             LIN_ANI_max_storage[each_LIN_dictionary_key] = max(LIN_ANI_storage[each_LIN_dictionary_key])
-        leading_part_w_max_ANI = max(LIN_ANI_max_storage, key=LIN_ANI_max_storage.get) # The best current route
-        return leading_part_w_max_ANI, current_level+1
+        if max(LIN_ANI_max_storage.values()) > this_threshold:
+            leading_part_w_max_ANI = max(LIN_ANI_max_storage, key=LIN_ANI_max_storage.get) # The best current route
+            return leading_part_w_max_ANI, current_level+1
+        else:
+            leading_part_w_max_ANI = ",".join(previous_route.split(",") + ["0"] * (19 - current_level))
+            current_level = 19
     else:
         return LIN_dictionary.keys()[0], current_level+1
 
 
 def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
+    cursor.execute("SELECT Cutoff FROM Scheme WHERE Scheme_ID=3")
+    tmp = cursor.fetchone()
+    cutoff = tmp[0].split(",")
+    cutoff = [float(i) / 100 for i in cutoff]
     cursor.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(New_Genome_ID))
     New_Genome_filepath = cursor.fetchone()[0]
     cursor.execute("SELECT Genome_ID, LIN FROM LIN")
@@ -121,7 +131,8 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
                                                                      New_Genome_filepath=New_Genome_filepath,
                                                                      working_dir=working_dir,
                                                                      New_Genome_ID=New_Genome_ID, User_ID=User_ID,
-                                                                     similarity_pool=similarity_pool)
+                                                                     similarity_pool=similarity_pool,
+                                                                     cutoff=cutoff)
             print previous_route
             cursor.execute("SELECT Genome_ID, LIN FROM LIN WHERE LIN LIKE '{0}%'".format(previous_route))
             tmp = cursor.fetchall()
