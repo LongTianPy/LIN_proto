@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mash_func.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mash_indexing.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LINgroup_indexing.py" afterPath="$PROJECT_DIR$/LINgroup_indexing.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LINgroup_indexing_traceback.py" afterPath="$PROJECT_DIR$/LINgroup_indexing_traceback.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mash_test.py" afterPath="$PROJECT_DIR$/mash_test.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -166,7 +162,7 @@
       <file leaf-file-name="LINgroup_indexing_evaluation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing_evaluation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
+            <state relative-caret-position="-491">
               <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="34" />
               <folding />
             </state>
@@ -176,11 +172,11 @@
       <file leaf-file-name="LINgroup_indexing_traceback.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing_traceback.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-101">
-              <caret line="37" column="62" lean-forward="false" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
+            <state relative-caret-position="364">
+              <caret line="68" column="67" lean-forward="false" selection-start-line="68" selection-start-column="67" selection-end-line="68" selection-end-column="67" />
               <folding>
-                <marker date="1488916309000" expanded="true" signature="430:505" ph="SELECT Genom... LIN" />
-                <marker date="1488916309000" expanded="true" signature="2433:2478" ph="SELECT Genom... LIN" />
+                <marker date="1488916445000" expanded="true" signature="430:505" ph="SELECT Genom... LIN" />
+                <marker date="1488916445000" expanded="true" signature="2433:2478" ph="SELECT Genom... LIN" />
               </folding>
             </state>
           </provider>
@@ -856,13 +852,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00369" summary="Result page - debug">
-      <created>1473434694182</created>
-      <option name="number" value="00369" />
-      <option name="presentableId" value="LOCAL-00369" />
-      <option name="project" value="LOCAL" />
-      <updated>1473434694182</updated>
-    </task>
     <task id="LOCAL-00370" summary="Result page - debug">
       <created>1473437759423</created>
       <option name="number" value="00370" />
@@ -1199,7 +1188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488482267750</updated>
     </task>
-    <option name="localTasksCounter" value="418" />
+    <task id="LOCAL-00418" summary="Dev, mash_indexing&#10;Step1: Improve LINgroup indexing">
+      <created>1488916371064</created>
+      <option name="number" value="00418" />
+      <option name="presentableId" value="LOCAL-00418" />
+      <option name="project" value="LOCAL" />
+      <updated>1488916371064</updated>
+    </task>
+    <option name="localTasksCounter" value="419" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1262,7 +1258,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Trying to only calculate the distances/similarities between original genomes and new genomes. With original frequency table generated beforehand and read directly." />
     <MESSAGE value="Use ANIb calculation from PyANI and did small modification to it." />
     <MESSAGE value="Rewrite script to fit backend.&#10;" />
     <MESSAGE value="Implementing Kmeans clustering into top n genome selection according to k-mer cosine similarity" />
@@ -1287,7 +1282,8 @@
     <MESSAGE value="Create mkblastdb.py" />
     <MESSAGE value="Merge issues" />
     <MESSAGE value="Minor change to mkblastdb, error log to be saved in the db folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor change to mkblastdb, error log to be saved in the db folder" />
+    <MESSAGE value="Dev, mash_indexing&#10;Step1: Improve LINgroup indexing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dev, mash_indexing&#10;Step1: Improve LINgroup indexing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1772,14 +1768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LINgroup_indexing_evaluation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2010">
@@ -1802,13 +1790,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/LINgroup_indexing_evaluation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-491">
+          <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing_traceback.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-101">
-          <caret line="37" column="62" lean-forward="false" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
+        <state relative-caret-position="364">
+          <caret line="68" column="67" lean-forward="false" selection-start-line="68" selection-start-column="67" selection-end-line="68" selection-end-column="67" />
           <folding>
-            <marker date="1488916309000" expanded="true" signature="430:505" ph="SELECT Genom... LIN" />
-            <marker date="1488916309000" expanded="true" signature="2433:2478" ph="SELECT Genom... LIN" />
+            <marker date="1488916445000" expanded="true" signature="430:505" ph="SELECT Genom... LIN" />
+            <marker date="1488916445000" expanded="true" signature="2433:2478" ph="SELECT Genom... LIN" />
           </folding>
         </state>
       </provider>

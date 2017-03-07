@@ -66,7 +66,7 @@ def LINgroup_indexing_traceback():
     df.index = Genome_ID
     for current_genome_index in range(1,len(Genome_ID)):
         sub_table = df.loc[Genome_ID[:current_genome_index],]
-        subjectgenome = df.get_value(Genome_ID[i],"SubjectGenome")
+        subjectgenome = df.get_value(Genome_ID[current_genome_index],"SubjectGenome")
         subjectlin = df.get_value(subjectgenome,"LIN").split(",")
         previous_route = ""
         current_level = 0
