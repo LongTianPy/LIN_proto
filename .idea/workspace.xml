@@ -172,12 +172,22 @@
       <file leaf-file-name="LINgroup_indexing_traceback.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing_traceback.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="68" column="67" lean-forward="false" selection-start-line="68" selection-start-column="67" selection-end-line="68" selection-end-column="67" />
+            <state relative-caret-position="330">
+              <caret line="23" column="63" lean-forward="true" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="63" />
               <folding>
-                <marker date="1488916445000" expanded="true" signature="430:505" ph="SELECT Genom... LIN" />
-                <marker date="1488916445000" expanded="true" signature="2433:2478" ph="SELECT Genom... LIN" />
+                <marker date="1488916691000" expanded="true" signature="439:514" ph="SELECT Genom... LIN" />
+                <marker date="1488916691000" expanded="true" signature="2442:2487" ph="SELECT Genom... LIN" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LIN_visualization.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LIN_visualization.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="61" column="33" lean-forward="false" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -223,22 +233,6 @@
                 <element signature="e#84#93#0" expanded="true" />
                 <marker date="1488829764000" expanded="true" signature="228:272" ph="select FileP... Genome" />
                 <marker date="1488829764000" expanded="true" signature="228:275" ph="select FileP... Genome" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LIN_Assign.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LIN_Assign.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="35" column="60" lean-forward="false" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
-              <folding>
-                <marker date="1478203961000" expanded="true" signature="501:546" ph="SELECT Label... Scheme" />
-                <marker date="1478203961000" expanded="true" signature="1046:1107" ph="SELECT LIN f... LIN" />
-                <marker date="1478203961000" expanded="true" signature="1252:1294" ph="SELECT Cutof... Scheme" />
-                <marker date="1478203961000" expanded="true" signature="2784:2807" ph="SELECT LIN.L... LIN" />
-                <marker date="1478203961000" expanded="true" signature="2878:2927" ph="SELECT LIN.L... LIN" />
               </folding>
             </state>
           </provider>
@@ -852,13 +846,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00370" summary="Result page - debug">
-      <created>1473437759423</created>
-      <option name="number" value="00370" />
-      <option name="presentableId" value="LOCAL-00370" />
-      <option name="project" value="LOCAL" />
-      <updated>1473437759423</updated>
-    </task>
     <task id="LOCAL-00371" summary="Result page - debug">
       <created>1473437879952</created>
       <option name="number" value="00371" />
@@ -1195,7 +1182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488916371064</updated>
     </task>
-    <option name="localTasksCounter" value="419" />
+    <task id="LOCAL-00419" summary="Dev, mash_indexing&#10;Step1: Improve LINgroup indexing">
+      <created>1488916472752</created>
+      <option name="number" value="00419" />
+      <option name="presentableId" value="LOCAL-00419" />
+      <option name="project" value="LOCAL" />
+      <updated>1488916472752</updated>
+    </task>
+    <option name="localTasksCounter" value="420" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1568,13 +1562,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LIN_visualization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="61" column="33" lean-forward="false" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1798,13 +1785,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/LIN_visualization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="61" column="33" lean-forward="false" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing_traceback.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="68" column="67" lean-forward="false" selection-start-line="68" selection-start-column="67" selection-end-line="68" selection-end-column="67" />
+        <state relative-caret-position="330">
+          <caret line="23" column="63" lean-forward="true" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="63" />
           <folding>
-            <marker date="1488916445000" expanded="true" signature="430:505" ph="SELECT Genom... LIN" />
-            <marker date="1488916445000" expanded="true" signature="2433:2478" ph="SELECT Genom... LIN" />
+            <marker date="1488916691000" expanded="true" signature="439:514" ph="SELECT Genom... LIN" />
+            <marker date="1488916691000" expanded="true" signature="2442:2487" ph="SELECT Genom... LIN" />
           </folding>
         </state>
       </provider>

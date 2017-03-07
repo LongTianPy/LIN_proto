@@ -10,7 +10,7 @@ import pandas as pd
 
 
 # FUNCTIONS
-def find_current_step(previous_route, current_level, similarity_pool,c, current_genome_index,subjectlin):
+def find_current_step(previous_route, current_level, similarity_pool,c, current_genome_index,subjectlin,Genome_ID:
     sub_genome_id = ",".join([str(each_genome_id) for each_genome_id in Genome_ID[:current_genome_index]])
     c.execute("SELECT Genome_ID, LIN FROM LIN WHERE LIN LIKE '{0}%' and Genome_ID in ({1})".format(previous_route,sub_genome_id))
     tmp = c.fetchall()
@@ -75,7 +75,7 @@ def LINgroup_indexing_traceback():
             previous_route, current_level = find_current_step(previous_route=previous_route, current_level=current_level,
                                                               similarity_pool=similarity_pool, c=c,
                                                               current_genome_index=current_genome_index,
-                                                              subjectlin=subjectlin)
+                                                              subjectlin=subjectlin,Genome_ID=Genome_ID)
         print len(similarity_pool.keys())
 
 
