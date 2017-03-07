@@ -47,7 +47,7 @@ def find_current_step(previous_route, current_level, similarity_pool,c, current_
         new_route = subjectlin[current_level+1]
         return new_route, current_level+1
     else:
-        return new_route, current_level+1
+        return subjectlin[current_level+1], current_level+1
 
 
 
