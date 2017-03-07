@@ -10,7 +10,7 @@ import pandas as pd
 
 
 # FUNCTIONS
-def find_current_step(previous_route, current_level, similarity_pool,c, current_genome_index,subjectlin,Genome_ID:
+def find_current_step(previous_route, current_level, similarity_pool,c, current_genome_index,subjectlin,Genome_ID):
     sub_genome_id = ",".join([str(each_genome_id) for each_genome_id in Genome_ID[:current_genome_index]])
     c.execute("SELECT Genome_ID, LIN FROM LIN WHERE LIN LIKE '{0}%' and Genome_ID in ({1})".format(previous_route,sub_genome_id))
     tmp = c.fetchall()
