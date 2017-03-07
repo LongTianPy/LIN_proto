@@ -27,6 +27,7 @@ def find_current_step(previous_route, current_level, similarity_pool,c, current_
             LIN_dictionary[each_leading_part] = each_genome
         else:
             continue
+    print LIN_dictionary
     if len(set(LIN_dictionary.keys())) > 1:
         LIN_ANI_storage = {}
         LIN_ANI_max_storage = {}

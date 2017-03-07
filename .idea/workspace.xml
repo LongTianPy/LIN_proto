@@ -138,8 +138,8 @@
       <file leaf-file-name="LINgroup_indexing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2010">
-              <caret line="134" column="83" lean-forward="false" selection-start-line="127" selection-start-column="48" selection-end-line="134" selection-end-column="83" />
+            <state relative-caret-position="455">
+              <caret line="130" column="55" lean-forward="true" selection-start-line="130" selection-start-column="55" selection-end-line="130" selection-end-column="55" />
               <folding>
                 <element signature="e#189#198#0" expanded="true" />
                 <marker date="1488481872000" expanded="true" signature="1072:1113" ph="SELECT Genom... LIN" />
@@ -172,11 +172,11 @@
       <file leaf-file-name="LINgroup_indexing_traceback.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing_traceback.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="78" column="44" lean-forward="false" selection-start-line="78" selection-start-column="44" selection-end-line="78" selection-end-column="44" />
+            <state relative-caret-position="274">
+              <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
               <folding>
-                <marker date="1488917125000" expanded="true" signature="440:515" ph="SELECT Genom... LIN" />
-                <marker date="1488917125000" expanded="true" signature="2461:2506" ph="SELECT Genom... LIN" />
+                <marker date="1488917337000" expanded="true" signature="440:515" ph="SELECT Genom... LIN" />
+                <marker date="1488917337000" expanded="true" signature="2486:2531" ph="SELECT Genom... LIN" />
               </folding>
             </state>
           </provider>
@@ -847,13 +847,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00374" summary="Dev - FastANI_Toolbox">
-      <created>1473903809558</created>
-      <option name="number" value="00374" />
-      <option name="presentableId" value="LOCAL-00374" />
-      <option name="project" value="LOCAL" />
-      <updated>1473903809558</updated>
-    </task>
     <task id="LOCAL-00375" summary="Dev - FastANI_Toolbox">
       <created>1473908036759</created>
       <option name="number" value="00375" />
@@ -1190,7 +1183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488916867204</updated>
     </task>
-    <option name="localTasksCounter" value="423" />
+    <task id="LOCAL-00423" summary="Dev, mash_indexing&#10;Step1: Improve LINgroup indexing">
+      <created>1488917129193</created>
+      <option name="number" value="00423" />
+      <option name="presentableId" value="LOCAL-00423" />
+      <option name="project" value="LOCAL" />
+      <updated>1488917129194</updated>
+    </task>
+    <option name="localTasksCounter" value="424" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1756,10 +1756,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/LIN_visualization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="61" column="33" lean-forward="false" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2010">
-          <caret line="134" column="83" lean-forward="false" selection-start-line="127" selection-start-column="48" selection-end-line="134" selection-end-column="83" />
+        <state relative-caret-position="455">
+          <caret line="130" column="55" lean-forward="true" selection-start-line="130" selection-start-column="55" selection-end-line="130" selection-end-column="55" />
           <folding>
             <element signature="e#189#198#0" expanded="true" />
             <marker date="1488481872000" expanded="true" signature="1072:1113" ph="SELECT Genom... LIN" />
@@ -1786,21 +1794,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LIN_visualization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="61" column="33" lean-forward="false" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing_traceback.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="78" column="44" lean-forward="false" selection-start-line="78" selection-start-column="44" selection-end-line="78" selection-end-column="44" />
+        <state relative-caret-position="274">
+          <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
           <folding>
-            <marker date="1488917125000" expanded="true" signature="440:515" ph="SELECT Genom... LIN" />
-            <marker date="1488917125000" expanded="true" signature="2461:2506" ph="SELECT Genom... LIN" />
+            <marker date="1488917337000" expanded="true" signature="440:515" ph="SELECT Genom... LIN" />
+            <marker date="1488917337000" expanded="true" signature="2486:2531" ph="SELECT Genom... LIN" />
           </folding>
         </state>
       </provider>
