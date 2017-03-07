@@ -172,11 +172,11 @@
       <file leaf-file-name="LINgroup_indexing_traceback.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing_traceback.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="80" column="29" lean-forward="false" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
+            <state relative-caret-position="570">
+              <caret line="49" column="27" lean-forward="false" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
               <folding>
-                <marker date="1488917735000" expanded="true" signature="440:515" ph="SELECT Genom... LIN" />
-                <marker date="1488917735000" expanded="true" signature="2461:2506" ph="SELECT Genom... LIN" />
+                <marker date="1488918124000" expanded="true" signature="440:515" ph="SELECT Genom... LIN" />
+                <marker date="1488918124000" expanded="true" signature="2463:2508" ph="SELECT Genom... LIN" />
               </folding>
             </state>
           </provider>
@@ -847,13 +847,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00376" summary="Database &lt;Add&gt;">
-      <created>1476896394071</created>
-      <option name="number" value="00376" />
-      <option name="presentableId" value="LOCAL-00376" />
-      <option name="project" value="LOCAL" />
-      <updated>1476896394072</updated>
-    </task>
     <task id="LOCAL-00377" summary="Database &lt;Add&gt;">
       <created>1476896458172</created>
       <option name="number" value="00377" />
@@ -1190,7 +1183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488917342055</updated>
     </task>
-    <option name="localTasksCounter" value="425" />
+    <task id="LOCAL-00425" summary="Dev, mash_indexing&#10;Step1: Improve LINgroup indexing">
+      <created>1488917743468</created>
+      <option name="number" value="00425" />
+      <option name="presentableId" value="LOCAL-00425" />
+      <option name="project" value="LOCAL" />
+      <updated>1488917743469</updated>
+    </task>
+    <option name="localTasksCounter" value="426" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1796,11 +1796,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing_traceback.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="80" column="29" lean-forward="false" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
+        <state relative-caret-position="570">
+          <caret line="49" column="27" lean-forward="false" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
           <folding>
-            <marker date="1488917735000" expanded="true" signature="440:515" ph="SELECT Genom... LIN" />
-            <marker date="1488917735000" expanded="true" signature="2461:2506" ph="SELECT Genom... LIN" />
+            <marker date="1488918124000" expanded="true" signature="440:515" ph="SELECT Genom... LIN" />
+            <marker date="1488918124000" expanded="true" signature="2463:2508" ph="SELECT Genom... LIN" />
           </folding>
         </state>
       </provider>

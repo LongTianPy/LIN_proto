@@ -44,10 +44,10 @@ def find_current_step(previous_route, current_level, similarity_pool,c, current_
             #         continue
             #     else:
             #         similarity_pool[str(subject_genome_ID)] = []
-        new_route = subjectlin[current_level+1]
+        new_route = subjectlin[:current_level+1]
         return new_route, current_level+1
     else:
-        return subjectlin[current_level+1], current_level+1
+        return subjectlin[:current_level+1], current_level+1
 
 
 
