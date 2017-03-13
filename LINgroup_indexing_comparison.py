@@ -18,7 +18,7 @@ def connect_to_db():
     return c
 
 def fetch_genomes(cursor):
-    cursor.execute("select Genome.Genome_ID, LIN.FilePath, LIN.LIN from Genome, LIN where Genome.Genome_ID=LIN.Genome_ID")
+    cursor.execute("select Genome.Genome_ID, Genome.FilePath, LIN.LIN from Genome, LIN where Genome.Genome_ID=LIN.Genome_ID")
     tmp = cursor.fetchall()
     Genome_ID=[int(i[0]) for i in tmp]
     FilePath = [i[1] for i in tmp]
