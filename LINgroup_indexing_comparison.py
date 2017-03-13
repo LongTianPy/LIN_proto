@@ -143,7 +143,7 @@ def main():
         os.mkdir("/home/linproject/Workspace/LINgroup_indexing_test/old")
     working_dir = "/home/linproject/Workspace/LINgroup_indexing_test/old/"
     for genome_idx in range(1, len(Genome_ID)):
-        current_genome, current_db = fetch_scheme(full_df, Genome_ID, genome_idx)
+        current_genome, current_db = fetch_current(full_df, Genome_ID, genome_idx)
         genome.append(current_genome)
         current_genome_filepath = full_df.get_value(current_genome, "FilePath")
         subject_genomes = current_db.index
