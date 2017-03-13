@@ -162,8 +162,8 @@
       <file leaf-file-name="LINgroup_indexing_traceback.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing_traceback.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="49" column="70" lean-forward="true" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="70" />
+            <state relative-caret-position="300">
+              <caret line="21" column="97" lean-forward="false" selection-start-line="21" selection-start-column="97" selection-end-line="21" selection-end-column="97" />
               <folding>
                 <marker date="1488918279000" expanded="true" signature="440:515" ph="SELECT Genom... LIN" />
                 <marker date="1488918279000" expanded="true" signature="2483:2528" ph="SELECT Genom... LIN" />
@@ -175,15 +175,15 @@
       <file leaf-file-name="LINgroup_indexing_comparison.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="145" column="51" lean-forward="false" selection-start-line="145" selection-start-column="51" selection-end-line="145" selection-end-column="51" />
+            <state relative-caret-position="110">
+              <caret line="46" column="84" lean-forward="false" selection-start-line="46" selection-start-column="84" selection-end-line="46" selection-end-column="84" />
               <folding>
                 <element signature="e#173#192#0" expanded="true" />
-                <marker date="1489438027000" expanded="true" signature="470:573" ph="select Genom... Genome" />
-                <marker date="1489438027000" expanded="true" signature="879:922" ph="select Cutof... Scheme" />
-                <marker date="1489438027000" expanded="true" signature="1470:1541" ph="select Genom... LIN" />
-                <marker date="1489438027000" expanded="true" signature="3100:3144" ph="SELECT FileP... Genome" />
-                <marker date="1489438027000" expanded="true" signature="5153:5224" ph="select Genom... LIN" />
+                <marker date="1489438158000" expanded="true" signature="470:573" ph="select Genom... Genome" />
+                <marker date="1489438158000" expanded="true" signature="879:922" ph="select Cutof... Scheme" />
+                <marker date="1489438158000" expanded="true" signature="1470:1545" ph="select Genom... LIN" />
+                <marker date="1489438158000" expanded="true" signature="3104:3148" ph="SELECT FileP... Genome" />
+                <marker date="1489438158000" expanded="true" signature="5157:5228" ph="select Genom... LIN" />
               </folding>
             </state>
           </provider>
@@ -192,7 +192,7 @@
       <file leaf-file-name="mash_indexing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mash_indexing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1470">
+            <state relative-caret-position="455">
               <caret line="148" column="20" lean-forward="false" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
               <folding>
                 <element signature="e#3786#6993#0" expanded="false" />
@@ -708,13 +708,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00386" summary="Database &lt;Add&gt;">
-      <created>1477083026587</created>
-      <option name="number" value="00386" />
-      <option name="presentableId" value="LOCAL-00386" />
-      <option name="project" value="LOCAL" />
-      <updated>1477083026587</updated>
-    </task>
     <task id="LOCAL-00387" summary="Database &lt;Add&gt;">
       <created>1477265216381</created>
       <option name="number" value="00387" />
@@ -1051,7 +1044,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489437936743</updated>
     </task>
-    <option name="localTasksCounter" value="435" />
+    <task id="LOCAL-00435" summary="Compare old and new LINgroup indexing&#10;debug">
+      <created>1489438035634</created>
+      <option name="number" value="00435" />
+      <option name="presentableId" value="LOCAL-00435" />
+      <option name="project" value="LOCAL" />
+      <updated>1489438035634</updated>
+    </task>
+    <option name="localTasksCounter" value="436" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1586,23 +1586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mash_indexing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="148" column="20" lean-forward="false" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
-          <folding>
-            <element signature="e#3786#6993#0" expanded="false" />
-            <marker date="1488901142000" expanded="true" signature="671:723" ph="SELECT Genom... LIN" />
-            <marker date="1488901142000" expanded="true" signature="2288:2332" ph="SELECT FileP... Genome" />
-            <marker date="1488901142000" expanded="true" signature="3802:3845" ph="SELECT Cutof... Scheme" />
-            <marker date="1488901142000" expanded="true" signature="3973:4017" ph="SELECT FileP... Genome" />
-            <marker date="1488901142000" expanded="true" signature="4108:4138" ph="SELECT Genom... LIN" />
-            <marker date="1488901142000" expanded="true" signature="4722:4766" ph="SELECT FileP... Genome" />
-            <marker date="1488901142000" expanded="true" signature="7773:7825" ph="SELECT Genom... LIN" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LIN_visualization.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
@@ -1641,10 +1624,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mash_indexing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="148" column="20" lean-forward="false" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
+          <folding>
+            <element signature="e#3786#6993#0" expanded="false" />
+            <marker date="1488901142000" expanded="true" signature="671:723" ph="SELECT Genom... LIN" />
+            <marker date="1488901142000" expanded="true" signature="2288:2332" ph="SELECT FileP... Genome" />
+            <marker date="1488901142000" expanded="true" signature="3802:3845" ph="SELECT Cutof... Scheme" />
+            <marker date="1488901142000" expanded="true" signature="3973:4017" ph="SELECT FileP... Genome" />
+            <marker date="1488901142000" expanded="true" signature="4108:4138" ph="SELECT Genom... LIN" />
+            <marker date="1488901142000" expanded="true" signature="4722:4766" ph="SELECT FileP... Genome" />
+            <marker date="1488901142000" expanded="true" signature="7773:7825" ph="SELECT Genom... LIN" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing_traceback.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="49" column="70" lean-forward="true" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="70" />
+        <state relative-caret-position="300">
+          <caret line="21" column="97" lean-forward="false" selection-start-line="21" selection-start-column="97" selection-end-line="21" selection-end-column="97" />
           <folding>
             <marker date="1488918279000" expanded="true" signature="440:515" ph="SELECT Genom... LIN" />
             <marker date="1488918279000" expanded="true" signature="2483:2528" ph="SELECT Genom... LIN" />
@@ -1654,15 +1654,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="145" column="51" lean-forward="false" selection-start-line="145" selection-start-column="51" selection-end-line="145" selection-end-column="51" />
+        <state relative-caret-position="110">
+          <caret line="46" column="84" lean-forward="false" selection-start-line="46" selection-start-column="84" selection-end-line="46" selection-end-column="84" />
           <folding>
             <element signature="e#173#192#0" expanded="true" />
-            <marker date="1489438027000" expanded="true" signature="470:573" ph="select Genom... Genome" />
-            <marker date="1489438027000" expanded="true" signature="879:922" ph="select Cutof... Scheme" />
-            <marker date="1489438027000" expanded="true" signature="1470:1541" ph="select Genom... LIN" />
-            <marker date="1489438027000" expanded="true" signature="3100:3144" ph="SELECT FileP... Genome" />
-            <marker date="1489438027000" expanded="true" signature="5153:5224" ph="select Genom... LIN" />
+            <marker date="1489438158000" expanded="true" signature="470:573" ph="select Genom... Genome" />
+            <marker date="1489438158000" expanded="true" signature="879:922" ph="select Cutof... Scheme" />
+            <marker date="1489438158000" expanded="true" signature="1470:1545" ph="select Genom... LIN" />
+            <marker date="1489438158000" expanded="true" signature="3104:3148" ph="SELECT FileP... Genome" />
+            <marker date="1489438158000" expanded="true" signature="5157:5228" ph="select Genom... LIN" />
           </folding>
         </state>
       </provider>
