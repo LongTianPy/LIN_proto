@@ -44,7 +44,7 @@ def fetch_current(df, Genome_ID, idx):
 def old_indexing(previous_lin,current_level,working_dir,cursor,similarity_pool_old,cutoff,current_genome,current_genome_filepath,subject_genomes,reverse_LIN_dict):
     subject_genomes = ",".join([str(each) for each in subject_genomes])
     cursor.execute(
-        "select Genome_ID, LIN from LIN where Genome_ID in ({0}) and LIN LIKE '{1}%'".format(subject_genomes,previous_lin))
+        "select Genome_ID, LIN from LIN where LIN LIKE '{1}%' and Genome_id in ({0})".format(subject_genomes,previous_lin))
     tmp = cursor.fetchall()
     df_piece = pd.DataFrame()
     genomes_piece = [int(i[0]) for i in tmp]
