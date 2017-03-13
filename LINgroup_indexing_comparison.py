@@ -138,7 +138,7 @@ def main():
     cursor = connect_to_db()
     full_df, Genome_ID = fetch_genomes(cursor)
     cutoff = fetch_scheme(cursor)
-    reverse_LIN_dict = {",".join(full_df.get_value(each_genome, "LIN")): each_genome for each_genome in Genome_ID}
+    reverse_LIN_dict = {full_df.get_value(each_genome, "LIN"): each_genome for each_genome in Genome_ID}
     if not isdir("/home/linproject/Workspace/LINgroup_indexing_test/old"):
         os.mkdir("/home/linproject/Workspace/LINgroup_indexing_test/old")
     working_dir = "/home/linproject/Workspace/LINgroup_indexing_test/old/"
