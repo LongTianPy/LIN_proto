@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LINgroup_indexing_comparison.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LINgroup_indexing_comparison.py" afterPath="$PROJECT_DIR$/LINgroup_indexing_comparison.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -176,14 +176,14 @@
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="24" column="4" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+              <caret line="20" column="61" lean-forward="false" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
               <folding>
                 <element signature="e#173#192#0" expanded="true" />
-                <marker date="1489437150000" expanded="true" signature="470:555" ph="select Genom... Geonme" />
-                <marker date="1489437150000" expanded="true" signature="861:904" ph="select Cutof... Scheme" />
-                <marker date="1489437150000" expanded="true" signature="1452:1523" ph="select Genom... LIN" />
-                <marker date="1489437150000" expanded="true" signature="3082:3126" ph="SELECT FileP... Genome" />
-                <marker date="1489437150000" expanded="true" signature="5135:5206" ph="select Genom... LIN" />
+                <marker date="1489437440000" expanded="true" signature="470:555" ph="select Genom... Genome" />
+                <marker date="1489437440000" expanded="true" signature="861:904" ph="select Cutof... Scheme" />
+                <marker date="1489437440000" expanded="true" signature="1452:1523" ph="select Genom... LIN" />
+                <marker date="1489437440000" expanded="true" signature="3082:3126" ph="SELECT FileP... Genome" />
+                <marker date="1489437440000" expanded="true" signature="5135:5206" ph="select Genom... LIN" />
               </folding>
             </state>
           </provider>
@@ -708,13 +708,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00381" summary="Database &lt;Add&gt;">
-      <created>1476896878131</created>
-      <option name="number" value="00381" />
-      <option name="presentableId" value="LOCAL-00381" />
-      <option name="project" value="LOCAL" />
-      <updated>1476896878131</updated>
-    </task>
     <task id="LOCAL-00382" summary="Database &lt;Add&gt;">
       <created>1477061738960</created>
       <option name="number" value="00382" />
@@ -1051,7 +1044,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488918282742</updated>
     </task>
-    <option name="localTasksCounter" value="430" />
+    <task id="LOCAL-00430" summary="Compare old and new LINgroup indexing">
+      <created>1489437235902</created>
+      <option name="number" value="00430" />
+      <option name="presentableId" value="LOCAL-00430" />
+      <option name="project" value="LOCAL" />
+      <updated>1489437235904</updated>
+    </task>
+    <option name="localTasksCounter" value="431" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1114,7 +1114,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Use ANIb calculation from PyANI and did small modification to it." />
     <MESSAGE value="Rewrite script to fit backend.&#10;" />
     <MESSAGE value="Implementing Kmeans clustering into top n genome selection according to k-mer cosine similarity" />
     <MESSAGE value="Database construction and initialization" />
@@ -1139,7 +1138,8 @@
     <MESSAGE value="Merge issues" />
     <MESSAGE value="Minor change to mkblastdb, error log to be saved in the db folder" />
     <MESSAGE value="Dev, mash_indexing&#10;Step1: Improve LINgroup indexing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dev, mash_indexing&#10;Step1: Improve LINgroup indexing" />
+    <MESSAGE value="Compare old and new LINgroup indexing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Compare old and new LINgroup indexing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1655,14 +1655,14 @@
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="24" column="4" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+          <caret line="20" column="61" lean-forward="false" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
           <folding>
             <element signature="e#173#192#0" expanded="true" />
-            <marker date="1489437150000" expanded="true" signature="470:555" ph="select Genom... Geonme" />
-            <marker date="1489437150000" expanded="true" signature="861:904" ph="select Cutof... Scheme" />
-            <marker date="1489437150000" expanded="true" signature="1452:1523" ph="select Genom... LIN" />
-            <marker date="1489437150000" expanded="true" signature="3082:3126" ph="SELECT FileP... Genome" />
-            <marker date="1489437150000" expanded="true" signature="5135:5206" ph="select Genom... LIN" />
+            <marker date="1489437440000" expanded="true" signature="470:555" ph="select Genom... Genome" />
+            <marker date="1489437440000" expanded="true" signature="861:904" ph="select Cutof... Scheme" />
+            <marker date="1489437440000" expanded="true" signature="1452:1523" ph="select Genom... LIN" />
+            <marker date="1489437440000" expanded="true" signature="3082:3126" ph="SELECT FileP... Genome" />
+            <marker date="1489437440000" expanded="true" signature="5135:5206" ph="select Genom... LIN" />
           </folding>
         </state>
       </provider>
