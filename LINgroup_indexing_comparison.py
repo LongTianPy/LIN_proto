@@ -98,7 +98,7 @@ def old_indexing(previous_lin,current_level,working_dir,cursor,similarity_pool_o
 def new_indexing(previous_lin,current_level,cursor,similarity_pool_old,similarity_pool_new,cutoff,current_genome_filepath,subject_genomes):
     subject_genomes = ",".join([str(each) for each in subject_genomes])
     cursor.execute(
-        "select Genome_ID, LIN from LIN where Genome_ID in {0} and LIN LIKE {1}%".format(subject_genomes, previous_lin))
+        "select Genome_ID, LIN from LIN where Genome_ID in ({0}) and LIN LIKE '{1}%'".format(subject_genomes, previous_lin))
     tmp = cursor.fetchall()
     df_piece = pd.DataFrame()
     genomes_piece = [int(i[0]) for i in tmp]
