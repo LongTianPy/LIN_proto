@@ -139,9 +139,9 @@ def main():
     full_df, Genome_ID = fetch_genomes(cursor)
     cutoff = fetch_scheme(cursor)
     reverse_LIN_dict = {",".join(full_df.get_value(each_genome, "LIN")): each_genome for each_genome in Genome_ID}
-    if not isdir("~/Workspace/LINgroup_indexing_test/old"):
-        os.mkdir("~/Workspace/LINgroup_indexing_test/old")
-    working_dir = "~/Workspace/LINgroup_indexing_test/old/"
+    if not isdir("/home/linproject/Workspace/LINgroup_indexing_test/old"):
+        os.mkdir("/home/linproject/Workspace/LINgroup_indexing_test/old")
+    working_dir = "/home/linproject/Workspace/LINgroup_indexing_test/old/"
     for genome_idx in range(1, len(Genome_ID)):
         current_genome, current_db = fetch_scheme(full_df, Genome_ID, genome_idx)
         genome.append(current_genome)
@@ -181,7 +181,7 @@ def main():
     result_df["Times_new"] = times_new
     result_df["Identical"] = identical
     result_df.index = genome
-    result_df.to_csv("~/Workspace/LINgroup_indexing_test/result.csv")
+    result_df.to_csv("/home/linproject/Workspace/LINgroup_indexing_test/result.csv")
 
 # MAIN
 if __name__ == "__main__":
