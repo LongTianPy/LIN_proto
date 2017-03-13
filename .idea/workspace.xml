@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LINgroup_indexing_comparison.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LINgroup_indexing_traceback.py" afterPath="$PROJECT_DIR$/LINgroup_indexing_traceback.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -31,8 +31,8 @@
       <file leaf-file-name="workflow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/workflow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1144">
-              <caret line="91" column="36" lean-forward="true" selection-start-line="91" selection-start-column="36" selection-end-line="91" selection-end-column="36" />
+            <state relative-caret-position="1110">
+              <caret line="91" column="36" lean-forward="false" selection-start-line="91" selection-start-column="36" selection-end-line="91" selection-end-column="36" />
               <folding>
                 <element signature="e#256#273#0" expanded="true" />
                 <marker date="1488481996000" expanded="true" signature="4088:4145" ph="INSERT INTO Submission... " />
@@ -138,8 +138,8 @@
       <file leaf-file-name="LINgroup_indexing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="130" column="55" lean-forward="true" selection-start-line="130" selection-start-column="55" selection-end-line="130" selection-end-column="55" />
+            <state relative-caret-position="320">
+              <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="82" selection-end-column="56" />
               <folding>
                 <element signature="e#189#198#0" expanded="true" />
                 <marker date="1488481872000" expanded="true" signature="1072:1113" ph="SELECT Genom... LIN" />
@@ -159,21 +159,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LINgroup_indexing_evaluation.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LINgroup_indexing_evaluation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-491">
-              <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LINgroup_indexing_traceback.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LINgroup_indexing_traceback.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing_traceback.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="81" column="8" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
+            <state relative-caret-position="525">
+              <caret line="49" column="70" lean-forward="true" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="70" />
               <folding>
                 <marker date="1488918279000" expanded="true" signature="440:515" ph="SELECT Genom... LIN" />
                 <marker date="1488918279000" expanded="true" signature="2483:2528" ph="SELECT Genom... LIN" />
@@ -182,12 +172,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LIN_visualization.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LIN_visualization.py">
+      <file leaf-file-name="LINgroup_indexing_comparison.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="61" column="33" lean-forward="false" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
-              <folding />
+            <state relative-caret-position="300">
+              <caret line="24" column="4" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+              <folding>
+                <element signature="e#173#192#0" expanded="true" />
+                <marker date="1489437150000" expanded="true" signature="470:555" ph="select Genom... Geonme" />
+                <marker date="1489437150000" expanded="true" signature="861:904" ph="select Cutof... Scheme" />
+                <marker date="1489437150000" expanded="true" signature="1452:1523" ph="select Genom... LIN" />
+                <marker date="1489437150000" expanded="true" signature="3082:3126" ph="SELECT FileP... Genome" />
+                <marker date="1489437150000" expanded="true" signature="5135:5206" ph="select Genom... LIN" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -195,7 +192,7 @@
       <file leaf-file-name="mash_indexing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mash_indexing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
+            <state relative-caret-position="1470">
               <caret line="148" column="20" lean-forward="false" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
               <folding>
                 <element signature="e#3786#6993#0" expanded="false" />
@@ -214,8 +211,8 @@
       <file leaf-file-name="mkblastdb.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mkblastdb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="44" column="38" lean-forward="true" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
+            <state relative-caret-position="615">
+              <caret line="44" column="38" lean-forward="false" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
               <folding>
                 <element signature="e#75#96#0" expanded="true" />
                 <marker date="1488482233000" expanded="true" signature="317:355" ph="SELECT Genom... Genome" />
@@ -227,40 +224,12 @@
       <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mash_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
+            <state relative-caret-position="405">
               <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
                 <element signature="e#84#93#0" expanded="true" />
                 <marker date="1488829764000" expanded="true" signature="228:272" ph="select FileP... Genome" />
                 <marker date="1488829764000" expanded="true" signature="228:275" ph="select FileP... Genome" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IntermediateResult.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IntermediateResult.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="33" column="53" lean-forward="false" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
-              <folding>
-                <marker date="1473438349000" expanded="true" signature="1886:1975" ph="SELECT Attri... AttributeValue" />
-                <marker date="1473438349000" expanded="true" signature="2314:2350" ph="SELECT LIN F... LIN" />
-                <marker date="1473438349000" expanded="true" signature="3084:3137" ph="SELECT Attri... Interest" />
-                <marker date="1473438349000" expanded="true" signature="3254:3317" ph="SELECT Attri... Attribute" />
-                <marker date="1473438349000" expanded="true" signature="3893:3945" ph="SELECT missi... Genome_to_Attribute" />
-                <marker date="1473438349000" expanded="true" signature="4229:4283" ph="SELECT Subje... LIN" />
-                <marker date="1473438349000" expanded="true" signature="4505:4541" ph="SELECT LIN F... LIN" />
-                <marker date="1473438349000" expanded="true" signature="4670:4722" ph="SELECT missi... Genome_to_Attribute" />
-                <marker date="1473438349000" expanded="true" signature="7322:7375" ph="SELECT Attri... Interest" />
-                <marker date="1473438349000" expanded="true" signature="7492:7555" ph="SELECT Attri... Attribute" />
-                <marker date="1473438349000" expanded="true" signature="8092:8144" ph="SELECT missi... Genome_to_Attribute" />
-                <marker date="1473438349000" expanded="true" signature="8428:8482" ph="SELECT Subje... LIN" />
-                <marker date="1473438349000" expanded="true" signature="8701:8737" ph="SELECT LIN F... LIN" />
-                <marker date="1473438349000" expanded="true" signature="8865:8917" ph="SELECT missi... Genome_to_Attribute" />
-                <marker date="1473438349000" expanded="true" signature="9251:9351" ph="SELECT Genom... LIN" />
-                <marker date="1473438349000" expanded="true" signature="9694:9746" ph="SELECT missi... Genome_to_Attribute" />
-                <marker date="1473438349000" expanded="true" signature="15015:15062" ph="SELECT LastN... User" />
               </folding>
             </state>
           </provider>
@@ -315,6 +284,7 @@
     <setting file="file://$PROJECT_DIR$/mash_func.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/mash_indexing.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/mkblastdb.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/KMerPrep.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/ParseGenome.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/ANIbWrapper.py" root0="SKIP_INSPECTION" />
@@ -360,12 +330,13 @@
         <option value="$PROJECT_DIR$/LIN_visualization.py" />
         <option value="$PROJECT_DIR$/implemented_kmer.py" />
         <option value="$PROJECT_DIR$/mash_test.py" />
-        <option value="$PROJECT_DIR$/LINgroup_indexing.py" />
         <option value="$PROJECT_DIR$/workflow.py" />
         <option value="$PROJECT_DIR$/mkblastdb.py" />
         <option value="$PROJECT_DIR$/mash_func.py" />
         <option value="$PROJECT_DIR$/mash_indexing.py" />
         <option value="$PROJECT_DIR$/LINgroup_indexing_traceback.py" />
+        <option value="$PROJECT_DIR$/LINgroup_indexing.py" />
+        <option value="$PROJECT_DIR$/LINgroup_indexing_comparison.py" />
       </list>
     </option>
   </component>
@@ -414,8 +385,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -444,6 +413,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -479,116 +450,6 @@
       <recent name="$PROJECT_DIR$/KMer/test" />
       <recent name="$PROJECT_DIR$/KMer/src" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/workflow.py</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunManager" selected="Python.db_build">
     <configuration default="false" name="db_build" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -846,13 +707,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
-    </task>
-    <task id="LOCAL-00380" summary="Database &lt;Add&gt;">
-      <created>1476896861861</created>
-      <option name="number" value="00380" />
-      <option name="presentableId" value="LOCAL-00380" />
-      <option name="project" value="LOCAL" />
-      <updated>1476896861861</updated>
     </task>
     <task id="LOCAL-00381" summary="Database &lt;Add&gt;">
       <created>1476896878131</created>
@@ -1190,7 +1044,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488918205798</updated>
     </task>
-    <option name="localTasksCounter" value="429" />
+    <task id="LOCAL-00429" summary="Dev, mash_indexing&#10;Step1: Improve LINgroup indexing">
+      <created>1488918282742</created>
+      <option name="number" value="00429" />
+      <option name="presentableId" value="LOCAL-00429" />
+      <option name="project" value="LOCAL" />
+      <updated>1488918282742</updated>
+    </task>
+    <option name="localTasksCounter" value="430" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1206,20 +1067,20 @@
     <frame x="0" y="23" width="1440" height="825" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23462088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23748212" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35785007" sideWeight="0.51216024" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5374823" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32768363" sideWeight="0.4892704" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19377652" sideWeight="0.48783976" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896653" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1289,18 +1150,11 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/KMer/src/Run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="44" column="32" lean-forward="false" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KMer/src/GenerateMatrix.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1577,13 +1431,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="35" column="60" lean-forward="false" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
-          <folding>
-            <marker date="1478203961000" expanded="true" signature="501:546" ph="SELECT Label... Scheme" />
-            <marker date="1478203961000" expanded="true" signature="1046:1107" ph="SELECT LIN f... LIN" />
-            <marker date="1478203961000" expanded="true" signature="1252:1294" ph="SELECT Cutof... Scheme" />
-            <marker date="1478203961000" expanded="true" signature="2784:2807" ph="SELECT LIN.L... LIN" />
-            <marker date="1478203961000" expanded="true" signature="2878:2927" ph="SELECT LIN.L... LIN" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1679,8 +1526,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/workflow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1144">
-          <caret line="91" column="36" lean-forward="true" selection-start-line="91" selection-start-column="36" selection-end-line="91" selection-end-column="36" />
+        <state relative-caret-position="1110">
+          <caret line="91" column="36" lean-forward="false" selection-start-line="91" selection-start-column="36" selection-end-line="91" selection-end-column="36" />
           <folding>
             <element signature="e#256#273#0" expanded="true" />
             <marker date="1488481996000" expanded="true" signature="4088:4145" ph="INSERT INTO Submission... " />
@@ -1718,8 +1565,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mkblastdb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="44" column="38" lean-forward="true" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
+        <state relative-caret-position="615">
+          <caret line="44" column="38" lean-forward="false" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
           <folding>
             <element signature="e#75#96#0" expanded="true" />
             <marker date="1488482233000" expanded="true" signature="317:355" ph="SELECT Genom... Genome" />
@@ -1729,7 +1576,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mash_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
+        <state relative-caret-position="405">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
             <element signature="e#84#93#0" expanded="true" />
@@ -1741,7 +1588,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mash_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
+        <state relative-caret-position="1470">
           <caret line="148" column="20" lean-forward="false" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
           <folding>
             <element signature="e#3786#6993#0" expanded="false" />
@@ -1764,10 +1611,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/LINgroup_indexing_evaluation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="130" column="55" lean-forward="true" selection-start-line="130" selection-start-column="55" selection-end-line="130" selection-end-column="55" />
+        <state relative-caret-position="320">
+          <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="82" selection-end-column="56" />
           <folding>
             <element signature="e#189#198#0" expanded="true" />
             <marker date="1488481872000" expanded="true" signature="1072:1113" ph="SELECT Genom... LIN" />
@@ -1786,21 +1641,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LINgroup_indexing_evaluation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-491">
-          <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing_traceback.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="81" column="8" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
+        <state relative-caret-position="525">
+          <caret line="49" column="70" lean-forward="true" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="70" />
           <folding>
             <marker date="1488918279000" expanded="true" signature="440:515" ph="SELECT Genom... LIN" />
             <marker date="1488918279000" expanded="true" signature="2483:2528" ph="SELECT Genom... LIN" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="24" column="4" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+          <folding>
+            <element signature="e#173#192#0" expanded="true" />
+            <marker date="1489437150000" expanded="true" signature="470:555" ph="select Genom... Geonme" />
+            <marker date="1489437150000" expanded="true" signature="861:904" ph="select Cutof... Scheme" />
+            <marker date="1489437150000" expanded="true" signature="1452:1523" ph="select Genom... LIN" />
+            <marker date="1489437150000" expanded="true" signature="3082:3126" ph="SELECT FileP... Genome" />
+            <marker date="1489437150000" expanded="true" signature="5135:5206" ph="select Genom... LIN" />
           </folding>
         </state>
       </provider>
