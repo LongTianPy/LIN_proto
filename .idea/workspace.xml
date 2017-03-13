@@ -176,14 +176,14 @@
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="20" column="61" lean-forward="false" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
+              <caret line="20" column="63" lean-forward="false" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
               <folding>
                 <element signature="e#173#192#0" expanded="true" />
-                <marker date="1489437440000" expanded="true" signature="470:555" ph="select Genom... Genome" />
-                <marker date="1489437440000" expanded="true" signature="861:904" ph="select Cutof... Scheme" />
-                <marker date="1489437440000" expanded="true" signature="1452:1523" ph="select Genom... LIN" />
-                <marker date="1489437440000" expanded="true" signature="3082:3126" ph="SELECT FileP... Genome" />
-                <marker date="1489437440000" expanded="true" signature="5135:5206" ph="select Genom... LIN" />
+                <marker date="1489437614000" expanded="true" signature="470:570" ph="select Genom... Genome" />
+                <marker date="1489437614000" expanded="true" signature="876:919" ph="select Cutof... Scheme" />
+                <marker date="1489437614000" expanded="true" signature="1467:1538" ph="select Genom... LIN" />
+                <marker date="1489437614000" expanded="true" signature="3097:3141" ph="SELECT FileP... Genome" />
+                <marker date="1489437614000" expanded="true" signature="5150:5221" ph="select Genom... LIN" />
               </folding>
             </state>
           </provider>
@@ -708,13 +708,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00382" summary="Database &lt;Add&gt;">
-      <created>1477061738960</created>
-      <option name="number" value="00382" />
-      <option name="presentableId" value="LOCAL-00382" />
-      <option name="project" value="LOCAL" />
-      <updated>1477061738960</updated>
-    </task>
     <task id="LOCAL-00383" summary="Database &lt;Add&gt;">
       <created>1477079004432</created>
       <option name="number" value="00383" />
@@ -1051,7 +1044,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489437235904</updated>
     </task>
-    <option name="localTasksCounter" value="431" />
+    <task id="LOCAL-00431" summary="Compare old and new LINgroup indexing&#10;debug">
+      <created>1489437451940</created>
+      <option name="number" value="00431" />
+      <option name="presentableId" value="LOCAL-00431" />
+      <option name="project" value="LOCAL" />
+      <updated>1489437451940</updated>
+    </task>
+    <option name="localTasksCounter" value="432" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1114,7 +1114,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Rewrite script to fit backend.&#10;" />
     <MESSAGE value="Implementing Kmeans clustering into top n genome selection according to k-mer cosine similarity" />
     <MESSAGE value="Database construction and initialization" />
     <MESSAGE value="Bug fixed." />
@@ -1139,7 +1138,8 @@
     <MESSAGE value="Minor change to mkblastdb, error log to be saved in the db folder" />
     <MESSAGE value="Dev, mash_indexing&#10;Step1: Improve LINgroup indexing" />
     <MESSAGE value="Compare old and new LINgroup indexing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Compare old and new LINgroup indexing" />
+    <MESSAGE value="Compare old and new LINgroup indexing&#10;debug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Compare old and new LINgroup indexing&#10;debug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1655,14 +1655,14 @@
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="20" column="61" lean-forward="false" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
+          <caret line="20" column="63" lean-forward="false" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
           <folding>
             <element signature="e#173#192#0" expanded="true" />
-            <marker date="1489437440000" expanded="true" signature="470:555" ph="select Genom... Genome" />
-            <marker date="1489437440000" expanded="true" signature="861:904" ph="select Cutof... Scheme" />
-            <marker date="1489437440000" expanded="true" signature="1452:1523" ph="select Genom... LIN" />
-            <marker date="1489437440000" expanded="true" signature="3082:3126" ph="SELECT FileP... Genome" />
-            <marker date="1489437440000" expanded="true" signature="5135:5206" ph="select Genom... LIN" />
+            <marker date="1489437614000" expanded="true" signature="470:570" ph="select Genom... Genome" />
+            <marker date="1489437614000" expanded="true" signature="876:919" ph="select Cutof... Scheme" />
+            <marker date="1489437614000" expanded="true" signature="1467:1538" ph="select Genom... LIN" />
+            <marker date="1489437614000" expanded="true" signature="3097:3141" ph="SELECT FileP... Genome" />
+            <marker date="1489437614000" expanded="true" signature="5150:5221" ph="select Genom... LIN" />
           </folding>
         </state>
       </provider>
