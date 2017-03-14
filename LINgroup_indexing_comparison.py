@@ -42,7 +42,7 @@ def fetch_current(df, Genome_ID, idx):
     return current_genome, current_db
 
 def old_indexing(previous_lin,current_level,working_dir,cursor,similarity_pool_old,cutoff,current_genome,current_genome_filepath,subject_genomes,reverse_LIN_dict):
-    print previous_lin
+    print "Old: ",previous_lin
     subject_genomes = ",".join([str(each) for each in subject_genomes])
     cursor.execute(
         "select Genome_ID, LIN from LIN where LIN LIKE '{1}%' and Genome_id in ({0})".format(subject_genomes,previous_lin))
@@ -92,12 +92,12 @@ def old_indexing(previous_lin,current_level,working_dir,cursor,similarity_pool_o
         else:
             leading_part_w_max_ANI = ",".join(previous_lin.split(",") + ["0"] * (19 - current_level))
             current_level = 19
-            print leading_part_w_max_ANI
             return  leading_part_w_max_ANI, current_level
     else:
         return LIN_dictionary.keys()[0], current_level+1
 
 def new_indexing(previous_lin,current_level,cursor,similarity_pool_old,similarity_pool_new,cutoff,current_genome_filepath,subject_genomes):
+    print "New: ", previous_lin
     subject_genomes = ",".join([str(each) for each in subject_genomes])
     cursor.execute(
         "select Genome_ID, LIN from LIN where Genome_ID in ({0}) and LIN LIKE '{1}%'".format(subject_genomes, previous_lin))
@@ -181,6 +181,7 @@ def main():
             identical.append("N")
         times_new.append(len(similarity_pool_new))
         times_old.append(len(similarity_pool_old))
+        print "Times old: " + str(len(similarity_pool_new)) + ". Times new: " + str(len(similarity_pool_old))
     result_df = pd.DataFrame()
     result_df["Times_old"] = times_old
     result_df["Times_new"] = times_new
