@@ -92,6 +92,7 @@ def old_indexing(previous_lin,current_level,working_dir,cursor,similarity_pool_o
             current_level = 19
             return  leading_part_w_max_ANI, current_level
     else:
+        print LIN_dictionary
         return LIN_dictionary.keys()[0], current_level+1
 
 def new_indexing(previous_lin,current_level,cursor,similarity_pool_old,similarity_pool_new,cutoff,current_genome_filepath,subject_genomes):
@@ -145,7 +146,7 @@ def main():
         current_genome, current_db = fetch_current(full_df, Genome_ID, genome_idx)
         genome.append(current_genome)
         current_genome_filepath = full_df.get_value(current_genome, "FilePath")
-        subject_genomes = current_db.index
+        subject_genomes = Genome_ID[:genome_idx]
         similarity_pool_old = {}
         similarity_pool_new = {}
         current_level_old = 0
@@ -175,7 +176,7 @@ def main():
             identical.append("N")
         times_new.append(len(similarity_pool_new))
         times_old.append(len(similarity_pool_old))
-        print current_genome, times_old, times_new
+        print current_genome, len(similarity_pool_old), len(similarity_pool_new)
     result_df = pd.DataFrame()
     result_df["Times_old"] = times_old
     result_df["Times_new"] = times_new
