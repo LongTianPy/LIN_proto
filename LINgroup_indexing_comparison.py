@@ -120,7 +120,7 @@ def new_indexing(previous_lin,current_level,cursor,similarity_pool_old,similarit
         for each_LIN_dictionary_key in LIN_dictionary.keys():
             each_subject_genome = LIN_dictionary[each_LIN_dictionary_key]
             assert str(each_subject_genome) in similarity_pool_old
-            similarity_pool_new[str(each_subject_genome)] = similarity_pool_old[each_subject_genome]
+            similarity_pool_new[str(each_subject_genome)] = similarity_pool_old[str(each_subject_genome)]
             LIN_ANI_storage[each_LIN_dictionary_key].append(similarity_pool_new[str(each_subject_genome)])
         if max(LIN_ANI_storage.values()) > cutoff[current_level]:
             leading_part_w_max_ANI = max(LIN_ANI_storage, key=LIN_ANI_storage.get)
