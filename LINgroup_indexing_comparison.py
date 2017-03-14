@@ -87,10 +87,12 @@ def old_indexing(previous_lin,current_level,working_dir,cursor,similarity_pool_o
             LIN_ANI_max_storage[each_LIN_dictionary_key] = max(LIN_ANI_storage[each_LIN_dictionary_key])
         if max(LIN_ANI_max_storage.values()) > cutoff[current_level]:
             leading_part_w_max_ANI = max(LIN_ANI_max_storage, key=LIN_ANI_max_storage.get)# The best current route
+            print leading_part_w_max_ANI
             return leading_part_w_max_ANI, current_level+1
         else:
             leading_part_w_max_ANI = ",".join(previous_lin.split(",") + ["0"] * (19 - current_level))
             current_level = 19
+            print leading_part_w_max_ANI
             return  leading_part_w_max_ANI, current_level
     else:
         return LIN_dictionary.keys()[0], current_level+1
