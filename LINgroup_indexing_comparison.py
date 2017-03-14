@@ -44,7 +44,7 @@ def fetch_current(df, Genome_ID, idx):
 def old_indexing(previous_lin,current_level,working_dir,cursor,similarity_pool_old,cutoff,current_genome,current_genome_filepath,subject_genomes,reverse_LIN_dict):
     subject_genomes = ",".join([str(each) for each in subject_genomes])
     cursor.execute(
-        "select Genome_ID, LIN from LIN where LIN LIKE '{1}%' and Genome_id in ({0})".format(subject_genomes,previous_lin))
+        "select Genome_ID, LIN from LIN where LIN LIKE '{0}%' and Genome_id in ({1})".format(previous_lin,subject_genomes))
     tmp = cursor.fetchall()
     df_piece = pd.DataFrame()
     genomes_piece = [int(i[0]) for i in tmp]
@@ -175,6 +175,7 @@ def main():
             identical.append("N")
         times_new.append(len(similarity_pool_new))
         times_old.append(len(similarity_pool_old))
+        print current_genome, times_old, times_new
     result_df = pd.DataFrame()
     result_df["Times_old"] = times_old
     result_df["Times_new"] = times_new
