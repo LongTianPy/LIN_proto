@@ -138,7 +138,7 @@
       <file leaf-file-name="LINgroup_indexing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
+            <state relative-caret-position="1110">
               <caret line="74" column="104" lean-forward="true" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="104" />
               <folding>
                 <element signature="e#189#198#0" expanded="true" />
@@ -175,15 +175,15 @@
       <file leaf-file-name="LINgroup_indexing_comparison.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="87" column="99" lean-forward="false" selection-start-line="87" selection-start-column="99" selection-end-line="87" selection-end-column="99" />
+            <state relative-caret-position="300">
+              <caret line="44" column="22" lean-forward="false" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
               <folding>
                 <element signature="e#173#192#0" expanded="true" />
-                <marker date="1489450418000" expanded="true" signature="470:573" ph="select Genom... Genome" />
-                <marker date="1489450418000" expanded="true" signature="879:922" ph="select Cutof... Scheme" />
-                <marker date="1489450418000" expanded="true" signature="1470:1545" ph="select Genom... LIN" />
-                <marker date="1489450418000" expanded="true" signature="3104:3148" ph="SELECT FileP... Genome" />
-                <marker date="1489450418000" expanded="true" signature="5029:5104" ph="select Genom... LIN" />
+                <marker date="1489502224000" expanded="true" signature="470:573" ph="select Genom... Genome" />
+                <marker date="1489502224000" expanded="true" signature="879:922" ph="select Cutof... Scheme" />
+                <marker date="1489502224000" expanded="true" signature="1493:1568" ph="select Genom... LIN" />
+                <marker date="1489502224000" expanded="true" signature="3127:3171" ph="SELECT FileP... Genome" />
+                <marker date="1489502224000" expanded="true" signature="5081:5156" ph="select Genom... LIN" />
               </folding>
             </state>
           </provider>
@@ -385,8 +385,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -415,6 +413,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -707,13 +707,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
-    </task>
-    <task id="LOCAL-00389" summary="Implementation of LINgroup indexing method">
-      <created>1478099014356</created>
-      <option name="number" value="00389" />
-      <option name="presentableId" value="LOCAL-00389" />
-      <option name="project" value="LOCAL" />
-      <updated>1478099014357</updated>
     </task>
     <task id="LOCAL-00390" summary="Implementation of LINgroup indexing method">
       <created>1478103645176</created>
@@ -1051,7 +1044,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489438341967</updated>
     </task>
-    <option name="localTasksCounter" value="438" />
+    <task id="LOCAL-00438" summary="Compare old and new LINgroup indexing&#10;debug">
+      <created>1489501606850</created>
+      <option name="number" value="00438" />
+      <option name="presentableId" value="LOCAL-00438" />
+      <option name="project" value="LOCAL" />
+      <updated>1489501606850</updated>
+    </task>
+    <option name="localTasksCounter" value="439" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1067,7 +1067,7 @@
     <frame x="0" y="23" width="1440" height="825" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24034335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24320458" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35785007" sideWeight="0.51216024" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1619,7 +1619,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
+        <state relative-caret-position="1110">
           <caret line="74" column="104" lean-forward="true" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="104" />
           <folding>
             <element signature="e#189#198#0" expanded="true" />
@@ -1652,15 +1652,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="87" column="99" lean-forward="false" selection-start-line="87" selection-start-column="99" selection-end-line="87" selection-end-column="99" />
+        <state relative-caret-position="300">
+          <caret line="44" column="22" lean-forward="false" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
           <folding>
             <element signature="e#173#192#0" expanded="true" />
-            <marker date="1489450418000" expanded="true" signature="470:573" ph="select Genom... Genome" />
-            <marker date="1489450418000" expanded="true" signature="879:922" ph="select Cutof... Scheme" />
-            <marker date="1489450418000" expanded="true" signature="1470:1545" ph="select Genom... LIN" />
-            <marker date="1489450418000" expanded="true" signature="3104:3148" ph="SELECT FileP... Genome" />
-            <marker date="1489450418000" expanded="true" signature="5029:5104" ph="select Genom... LIN" />
+            <marker date="1489502224000" expanded="true" signature="470:573" ph="select Genom... Genome" />
+            <marker date="1489502224000" expanded="true" signature="879:922" ph="select Cutof... Scheme" />
+            <marker date="1489502224000" expanded="true" signature="1493:1568" ph="select Genom... LIN" />
+            <marker date="1489502224000" expanded="true" signature="3127:3171" ph="SELECT FileP... Genome" />
+            <marker date="1489502224000" expanded="true" signature="5081:5156" ph="select Genom... LIN" />
           </folding>
         </state>
       </provider>

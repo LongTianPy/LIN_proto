@@ -42,6 +42,7 @@ def fetch_current(df, Genome_ID, idx):
     return current_genome, current_db
 
 def old_indexing(previous_lin,current_level,working_dir,cursor,similarity_pool_old,cutoff,current_genome,current_genome_filepath,subject_genomes,reverse_LIN_dict):
+    print previous_lin
     subject_genomes = ",".join([str(each) for each in subject_genomes])
     cursor.execute(
         "select Genome_ID, LIN from LIN where LIN LIKE '{1}%' and Genome_id in ({0})".format(subject_genomes,previous_lin))
@@ -92,7 +93,6 @@ def old_indexing(previous_lin,current_level,working_dir,cursor,similarity_pool_o
             current_level = 19
             return  leading_part_w_max_ANI, current_level
     else:
-        print LIN_dictionary.keys()[0]
         print LIN_dictionary
         return LIN_dictionary.keys()[0], current_level+1
 
