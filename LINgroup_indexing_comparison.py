@@ -82,14 +82,13 @@ def old_indexing(previous_lin,current_level,working_dir,cursor,similarity_pool_o
                     os.system("rm -rf {0}*".format(working_dir))
                     similarity = ANIb_result
                     similarity_pool_old[str(subject_genome_ID)] = similarity
-                LIN_ANI_storage[each_LIN_dictionary_key+",{0}".format(str(each_next_number))].append(similarity)
-            LIN_ANI_max_storage[each_LIN_dictionary_key+",{0}".format(str(each_next_number))] = \
-                max(LIN_ANI_storage[each_LIN_dictionary_key])
-        if max(LIN_ANI_max_storage.values()) > cutoff[current_level+1]:
-            leading_part_w_max_ANI = ",".join(max(LIN_ANI_max_storage, key=LIN_ANI_max_storage.get).split(",")[:-1]) # The best current route
+                LIN_ANI_storage[each_LIN_dictionary_key].append(similarity)
+            LIN_ANI_max_storage[each_LIN_dictionary_key] = max(LIN_ANI_storage[each_LIN_dictionary_key])
+        if max(LIN_ANI_max_storage.values()) > cutoff[current_level]:
+            leading_part_w_max_ANI = ",".join(max(LIN_ANI_max_storage, key=LIN_ANI_max_storage.get))# The best current route
             return leading_part_w_max_ANI, current_level+1
         else:
-            leading_part_w_max_ANI = ",".join(max(LIN_ANI_max_storage, key=LIN_ANI_max_storage.get).split(",")[:-1] + ["0"] * (19 - current_level))
+            leading_part_w_max_ANI = ",".join(max(LIN_ANI_max_storage, key=LIN_ANI_max_storage.get)+ ["0"] * (19 - current_level))
             current_level = 19
             return  leading_part_w_max_ANI, current_level
     else:
