@@ -92,6 +92,8 @@ def old_indexing(previous_lin,current_level,working_dir,cursor,similarity_pool_o
             current_level = 19
             return  leading_part_w_max_ANI, current_level
     else:
+        print LIN_dictionary.keys()[0]
+        print LIN_dictionary
         return LIN_dictionary.keys()[0], current_level+1
 
 def new_indexing(previous_lin,current_level,cursor,similarity_pool_old,similarity_pool_new,cutoff,current_genome_filepath,subject_genomes):
