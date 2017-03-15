@@ -22,7 +22,7 @@ def write_both_strand(Genome_ID,cursor,sourmash_dir):
     cursor.execute("select FilePath from Genome where Genome_ID={0}".format(Genome_ID))
     tmp = cursor.fetchone()
     filepath = tmp[0]
-    f = open(filepathm,"r")
+    f = open(filepath,"r")
     records = list(SeqIO.parse(f,"fasta"))
     f.close()
     f = open("{0}{1}.fasta".format(sourmash_dir,Genome_ID),"w")
