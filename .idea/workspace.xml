@@ -94,6 +94,29 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="LINgroup_indexing.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="103" column="56" lean-forward="false" selection-start-line="103" selection-start-column="47" selection-end-line="103" selection-end-column="56" />
+              <folding>
+                <marker date="1489502983000" expanded="true" signature="1072:1113" ph="SELECT Genom... LIN" />
+                <marker date="1489502983000" expanded="true" signature="1072:1124" ph="SELECT Genom... LIN" />
+                <marker date="1489502983000" expanded="true" signature="1072:1149" ph="SELECT Genom... LIN" />
+                <marker date="1489502983000" expanded="true" signature="2689:2733" ph="SELECT FileP... Genome" />
+                <marker date="1489502983000" expanded="true" signature="2689:2736" ph="SELECT FileP... Genome" />
+                <marker date="1489502983000" expanded="true" signature="4383:4426" ph="SELECT Cutof... Scheme" />
+                <marker date="1489502983000" expanded="true" signature="4554:4598" ph="SELECT FileP... Genome" />
+                <marker date="1489502983000" expanded="true" signature="4693:4723" ph="SELECT Genom... LIN" />
+                <marker date="1489502983000" expanded="true" signature="5318:5362" ph="SELECT FileP... Genome" />
+                <marker date="1489502983000" expanded="true" signature="5318:5365" ph="SELECT FileP... Genome" />
+                <marker date="1489502983000" expanded="true" signature="7603:7655" ph="SELECT Genom... LIN" />
+                <marker date="1489502983000" expanded="true" signature="8182:8226" ph="SELECT FileP... Genome" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="db_build.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db_build.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -199,13 +222,13 @@
       <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mash_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="114" column="63" lean-forward="false" selection-start-line="114" selection-start-column="53" selection-end-line="114" selection-end-column="63" />
+            <state relative-caret-position="189">
+              <caret line="114" column="63" lean-forward="false" selection-start-line="114" selection-start-column="63" selection-end-line="114" selection-end-column="63" />
               <folding>
                 <element signature="e#84#93#0" expanded="true" />
-                <marker date="1489607324000" expanded="true" signature="499:543" ph="select FileP... Genome" />
-                <marker date="1489607324000" expanded="true" signature="499:546" ph="select FileP... Genome" />
-                <marker date="1489607324000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
+                <marker date="1489607471000" expanded="true" signature="499:543" ph="select FileP... Genome" />
+                <marker date="1489607471000" expanded="true" signature="499:546" ph="select FileP... Genome" />
+                <marker date="1489607471000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
               </folding>
             </state>
           </provider>
@@ -227,11 +250,12 @@
       <find>filepath</find>
       <find>genomes</find>
       <find>previous</find>
-      <find>commit</find>
       <find>&quot;LIN</find>
       <find>shutil.copyfile</find>
       <find>[0]</find>
       <find>[0]*20</find>
+      <find>commit</find>
+      <find>get_value</find>
       <find>get_values</find>
     </findStrings>
     <replaceStrings>
@@ -694,13 +718,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00412" summary="LIN tree visualization in D3.js">
-      <created>1479151248304</created>
-      <option name="number" value="00412" />
-      <option name="presentableId" value="LOCAL-00412" />
-      <option name="project" value="LOCAL" />
-      <updated>1479151248305</updated>
-    </task>
     <task id="LOCAL-00413" summary="LIN tree visualization in D3.js">
       <created>1481145772707</created>
       <option name="number" value="00413" />
@@ -1037,7 +1054,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489607200559</updated>
     </task>
-    <option name="localTasksCounter" value="461" />
+    <task id="LOCAL-00461" summary="Dev - Test how well can we trust mash, or sourmash&#10;Debug">
+      <created>1489607326866</created>
+      <option name="number" value="00461" />
+      <option name="presentableId" value="LOCAL-00461" />
+      <option name="project" value="LOCAL" />
+      <updated>1489607326866</updated>
+    </task>
+    <option name="localTasksCounter" value="462" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1461,67 +1485,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="79" column="46" lean-forward="false" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="72" />
-          <folding>
-            <element signature="e#189#198#0" expanded="false" />
-            <marker date="1489502983000" expanded="true" signature="1072:1113" ph="SELECT Genom... LIN" />
-            <marker date="1489502983000" expanded="true" signature="1072:1124" ph="SELECT Genom... LIN" />
-            <marker date="1489502983000" expanded="true" signature="1072:1149" ph="SELECT Genom... LIN" />
-            <marker date="1489502983000" expanded="true" signature="2689:2733" ph="SELECT FileP... Genome" />
-            <marker date="1489502983000" expanded="true" signature="2689:2736" ph="SELECT FileP... Genome" />
-            <marker date="1489502983000" expanded="true" signature="4383:4426" ph="SELECT Cutof... Scheme" />
-            <marker date="1489502983000" expanded="true" signature="4554:4598" ph="SELECT FileP... Genome" />
-            <marker date="1489502983000" expanded="true" signature="4693:4723" ph="SELECT Genom... LIN" />
-            <marker date="1489502983000" expanded="true" signature="5318:5362" ph="SELECT FileP... Genome" />
-            <marker date="1489502983000" expanded="true" signature="5318:5365" ph="SELECT FileP... Genome" />
-            <marker date="1489502983000" expanded="true" signature="7603:7655" ph="SELECT Genom... LIN" />
-            <marker date="1489502983000" expanded="true" signature="8182:8226" ph="SELECT FileP... Genome" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/workflow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="105" column="13" lean-forward="false" selection-start-line="105" selection-start-column="7" selection-end-line="105" selection-end-column="13" />
-          <folding>
-            <element signature="e#256#273#0" expanded="true" />
-            <marker date="1488481996000" expanded="true" signature="4088:4145" ph="INSERT INTO Submission... " />
-            <marker date="1488481996000" expanded="true" signature="4245:4314" ph="SELECT Submi... Submission" />
-            <marker date="1488481996000" expanded="true" signature="4652:4753" ph="INSERT INTO Genome... " />
-            <marker date="1488481996000" expanded="true" signature="4892:4943" ph="select Genom... Genome" />
-            <marker date="1488481996000" expanded="true" signature="5116:5169" ph="SELECT Attri... Interest" />
-            <marker date="1488481996000" expanded="true" signature="5436:5596" ph="INSERT INTO AttributeValue... " />
-            <marker date="1488481996000" expanded="true" signature="5902:5940" ph="SELECT Genom... Genome" />
-            <marker date="1488481996000" expanded="true" signature="6557:6614" ph="INSERT INTO Submission... " />
-            <marker date="1488481996000" expanded="true" signature="6726:6795" ph="SELECT Submi... Submission" />
-            <marker date="1488481996000" expanded="true" signature="7153:7254" ph="INSERT INTO Genome... " />
-            <marker date="1488481996000" expanded="true" signature="7405:7456" ph="select Genom... Genome" />
-            <marker date="1488481996000" expanded="true" signature="7649:7675" ph="SELECT Attri... Attribute" />
-            <marker date="1488481996000" expanded="true" signature="7649:7689" ph="SELECT Attri... Interest" />
-            <marker date="1488481996000" expanded="true" signature="7649:7702" ph="SELECT Attri... Interest" />
-            <marker date="1488481996000" expanded="true" signature="7649:7705" ph="SELECT Attri... Interest" />
-            <marker date="1488481996000" expanded="true" signature="7993:8092" ph="INSERT INTO AttributeValue... " />
-            <marker date="1488481996000" expanded="true" signature="7993:8157" ph="INSERT INTO AttributeValue... " />
-            <marker date="1488481996000" expanded="true" signature="8868:8919" ph="SELECT Attri... Attribute" />
-            <marker date="1488481996000" expanded="true" signature="8868:8923" ph="SELECT Attri... Attribute" />
-            <marker date="1488481996000" expanded="true" signature="8868:8926" ph="SELECT Attri... Attribute" />
-            <marker date="1488481996000" expanded="true" signature="9113:9166" ph="SELECT Attri... Interest" />
-            <marker date="1488481996000" expanded="true" signature="9291:9298" ph="Select * fro... AttributeName" />
-            <marker date="1488481996000" expanded="true" signature="9291:9354" ph="Select Attri... Attribute" />
-            <marker date="1488481996000" expanded="true" signature="9832:9898" ph="INSERT INTO Genome_to_Attribute... " />
-            <marker date="1488481996000" expanded="true" signature="10015:10081" ph="INSERT INTO Genome_to_Attribute... " />
-            <marker date="1488481996000" expanded="true" signature="13553:13597" ph="SELECT FileP... Genome" />
-            <marker date="1488481996000" expanded="true" signature="13941:13985" ph="SELECT FileP... Genome" />
-            <marker date="1488481996000" expanded="true" signature="13941:13988" ph="SELECT FileP... Genome" />
-            <marker date="1488481996000" expanded="true" signature="15694:15792" ph="INSERT INTO LIN... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mash_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="635">
@@ -1644,15 +1607,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/workflow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="105" column="13" lean-forward="false" selection-start-line="105" selection-start-column="7" selection-end-line="105" selection-end-column="13" />
+          <folding>
+            <element signature="e#256#273#0" expanded="true" />
+            <marker date="1488481996000" expanded="true" signature="4088:4145" ph="INSERT INTO Submission... " />
+            <marker date="1488481996000" expanded="true" signature="4245:4314" ph="SELECT Submi... Submission" />
+            <marker date="1488481996000" expanded="true" signature="4652:4753" ph="INSERT INTO Genome... " />
+            <marker date="1488481996000" expanded="true" signature="4892:4943" ph="select Genom... Genome" />
+            <marker date="1488481996000" expanded="true" signature="5116:5169" ph="SELECT Attri... Interest" />
+            <marker date="1488481996000" expanded="true" signature="5436:5596" ph="INSERT INTO AttributeValue... " />
+            <marker date="1488481996000" expanded="true" signature="5902:5940" ph="SELECT Genom... Genome" />
+            <marker date="1488481996000" expanded="true" signature="6557:6614" ph="INSERT INTO Submission... " />
+            <marker date="1488481996000" expanded="true" signature="6726:6795" ph="SELECT Submi... Submission" />
+            <marker date="1488481996000" expanded="true" signature="7153:7254" ph="INSERT INTO Genome... " />
+            <marker date="1488481996000" expanded="true" signature="7405:7456" ph="select Genom... Genome" />
+            <marker date="1488481996000" expanded="true" signature="7649:7675" ph="SELECT Attri... Attribute" />
+            <marker date="1488481996000" expanded="true" signature="7649:7689" ph="SELECT Attri... Interest" />
+            <marker date="1488481996000" expanded="true" signature="7649:7702" ph="SELECT Attri... Interest" />
+            <marker date="1488481996000" expanded="true" signature="7649:7705" ph="SELECT Attri... Interest" />
+            <marker date="1488481996000" expanded="true" signature="7993:8092" ph="INSERT INTO AttributeValue... " />
+            <marker date="1488481996000" expanded="true" signature="7993:8157" ph="INSERT INTO AttributeValue... " />
+            <marker date="1488481996000" expanded="true" signature="8868:8919" ph="SELECT Attri... Attribute" />
+            <marker date="1488481996000" expanded="true" signature="8868:8923" ph="SELECT Attri... Attribute" />
+            <marker date="1488481996000" expanded="true" signature="8868:8926" ph="SELECT Attri... Attribute" />
+            <marker date="1488481996000" expanded="true" signature="9113:9166" ph="SELECT Attri... Interest" />
+            <marker date="1488481996000" expanded="true" signature="9291:9298" ph="Select * fro... AttributeName" />
+            <marker date="1488481996000" expanded="true" signature="9291:9354" ph="Select Attri... Attribute" />
+            <marker date="1488481996000" expanded="true" signature="9832:9898" ph="INSERT INTO Genome_to_Attribute... " />
+            <marker date="1488481996000" expanded="true" signature="10015:10081" ph="INSERT INTO Genome_to_Attribute... " />
+            <marker date="1488481996000" expanded="true" signature="13553:13597" ph="SELECT FileP... Genome" />
+            <marker date="1488481996000" expanded="true" signature="13941:13985" ph="SELECT FileP... Genome" />
+            <marker date="1488481996000" expanded="true" signature="13941:13988" ph="SELECT FileP... Genome" />
+            <marker date="1488481996000" expanded="true" signature="15694:15792" ph="INSERT INTO LIN... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="103" column="56" lean-forward="false" selection-start-line="103" selection-start-column="47" selection-end-line="103" selection-end-column="56" />
+          <folding>
+            <marker date="1489502983000" expanded="true" signature="1072:1113" ph="SELECT Genom... LIN" />
+            <marker date="1489502983000" expanded="true" signature="1072:1124" ph="SELECT Genom... LIN" />
+            <marker date="1489502983000" expanded="true" signature="1072:1149" ph="SELECT Genom... LIN" />
+            <marker date="1489502983000" expanded="true" signature="2689:2733" ph="SELECT FileP... Genome" />
+            <marker date="1489502983000" expanded="true" signature="2689:2736" ph="SELECT FileP... Genome" />
+            <marker date="1489502983000" expanded="true" signature="4383:4426" ph="SELECT Cutof... Scheme" />
+            <marker date="1489502983000" expanded="true" signature="4554:4598" ph="SELECT FileP... Genome" />
+            <marker date="1489502983000" expanded="true" signature="4693:4723" ph="SELECT Genom... LIN" />
+            <marker date="1489502983000" expanded="true" signature="5318:5362" ph="SELECT FileP... Genome" />
+            <marker date="1489502983000" expanded="true" signature="5318:5365" ph="SELECT FileP... Genome" />
+            <marker date="1489502983000" expanded="true" signature="7603:7655" ph="SELECT Genom... LIN" />
+            <marker date="1489502983000" expanded="true" signature="8182:8226" ph="SELECT FileP... Genome" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mash_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="114" column="63" lean-forward="false" selection-start-line="114" selection-start-column="53" selection-end-line="114" selection-end-column="63" />
+        <state relative-caret-position="189">
+          <caret line="114" column="63" lean-forward="false" selection-start-line="114" selection-start-column="63" selection-end-line="114" selection-end-column="63" />
           <folding>
             <element signature="e#84#93#0" expanded="true" />
-            <marker date="1489607324000" expanded="true" signature="499:543" ph="select FileP... Genome" />
-            <marker date="1489607324000" expanded="true" signature="499:546" ph="select FileP... Genome" />
-            <marker date="1489607324000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
+            <marker date="1489607471000" expanded="true" signature="499:543" ph="select FileP... Genome" />
+            <marker date="1489607471000" expanded="true" signature="499:546" ph="select FileP... Genome" />
+            <marker date="1489607471000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
           </folding>
         </state>
       </provider>
