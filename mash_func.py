@@ -68,11 +68,11 @@ def test_mash():
     sig_path0 = create_signature(All_genomes[0],sourmash_dir,c,conn)
     if not isdir(sourmash_dir+"0,0,0,0,0,0,0/"):
         os.mkdir(sourmash_dir+"0,0,0,0,0,0,0/")
-    shutil.copyfile(sig_path0,sourmash_dir+"0,0,0,0,0,0,0/")
+    shutil.copy(sig_path0,sourmash_dir+"0,0,0,0,0,0,0/")
     sourmash_indexing(sourmash_dir=sourmash_dir,LINgroup="0,0,0,0,0,0,0")
     if not isdir(sourmash_dir+"rep_bac/"):
         os.mkdir(sourmash_dir+"rep_bac/")
-    shutil.copyfile(sig_path0, sourmash_dir + "rep_bac/")
+    shutil.copy(sig_path0, sourmash_dir + "rep_bac/")
     sourmash_indexing(sourmash_dir=sourmash_dir, LINgroup="rep_bac")
     output_handler.write(line.format(All_genomes[0],",".join([0]*20),"Y","0,0,0,0,0,0,0",1,1,1,1))
     for idx in range(1,len(All_genomes)):
@@ -119,7 +119,7 @@ def test_mash():
                 output_handler.write(line.format(current_genome,current_LIN,"N",current_G_LINgroup,
                                                  top_rep_mash_G_LINgroup,top_mash,top_mash_d,
                                                  subject_genome,ani))
-            shutil.copyfile(sig_path_current,sourmash_dir+top_rep_mash_G_LINgroup+"/")
+            shutil.copy(sig_path_current,sourmash_dir+top_rep_mash_G_LINgroup+"/")
             sourmash_indexing(sourmash_dir,top_rep_mash_G_LINgroup)
     output_handler.close()
 

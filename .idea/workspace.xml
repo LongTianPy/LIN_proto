@@ -199,13 +199,13 @@
       <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mash_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="64" column="28" lean-forward="false" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+            <state relative-caret-position="1311">
+              <caret line="121" column="23" lean-forward="false" selection-start-line="121" selection-start-column="23" selection-end-line="121" selection-end-column="23" />
               <folding>
                 <element signature="e#84#93#0" expanded="true" />
-                <marker date="1489606211000" expanded="true" signature="499:543" ph="select FileP... Genome" />
-                <marker date="1489606211000" expanded="true" signature="499:546" ph="select FileP... Genome" />
-                <marker date="1489606211000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
+                <marker date="1489606404000" expanded="true" signature="499:543" ph="select FileP... Genome" />
+                <marker date="1489606404000" expanded="true" signature="499:546" ph="select FileP... Genome" />
+                <marker date="1489606404000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
               </folding>
             </state>
           </provider>
@@ -229,6 +229,7 @@
       <find>previous</find>
       <find>commit</find>
       <find>&quot;LIN</find>
+      <find>shutil.copyfile</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -687,13 +688,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00405" summary="Implementation of LINgroup indexing method">
-      <created>1478202072152</created>
-      <option name="number" value="00405" />
-      <option name="presentableId" value="LOCAL-00405" />
-      <option name="project" value="LOCAL" />
-      <updated>1478202072152</updated>
-    </task>
     <task id="LOCAL-00406" summary="Implementation of LINgroup indexing method">
       <created>1478203393996</created>
       <option name="number" value="00406" />
@@ -1030,7 +1024,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489606162657</updated>
     </task>
-    <option name="localTasksCounter" value="454" />
+    <task id="LOCAL-00454" summary="Dev - Test how well can we trust mash, or sourmash&#10;Debug">
+      <created>1489606220972</created>
+      <option name="number" value="00454" />
+      <option name="presentableId" value="LOCAL-00454" />
+      <option name="project" value="LOCAL" />
+      <updated>1489606220972</updated>
+    </task>
+    <option name="localTasksCounter" value="455" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1639,13 +1640,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mash_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="64" column="28" lean-forward="false" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+        <state relative-caret-position="1311">
+          <caret line="121" column="23" lean-forward="false" selection-start-line="121" selection-start-column="23" selection-end-line="121" selection-end-column="23" />
           <folding>
             <element signature="e#84#93#0" expanded="true" />
-            <marker date="1489606211000" expanded="true" signature="499:543" ph="select FileP... Genome" />
-            <marker date="1489606211000" expanded="true" signature="499:546" ph="select FileP... Genome" />
-            <marker date="1489606211000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
+            <marker date="1489606404000" expanded="true" signature="499:543" ph="select FileP... Genome" />
+            <marker date="1489606404000" expanded="true" signature="499:546" ph="select FileP... Genome" />
+            <marker date="1489606404000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
           </folding>
         </state>
       </provider>
