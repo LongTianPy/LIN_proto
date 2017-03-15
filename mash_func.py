@@ -90,7 +90,7 @@ def test_mash():
         # If yes, there is change that the ani is between 90% and 95%. Need to check its LIN to determine if it's
         # in any LINgroup or creates a new one.
         if current_G_LINgroup not in current_df["G_LINgroup"]:
-            if not isdir(sourmash_dir+current_G_LINgroup+"/")
+            if not isdir(sourmash_dir+current_G_LINgroup+"/"):
                 os.mkdir(sourmash_dir+current_G_LINgroup+"/")
             shutil.copyfile(sig_path_current,sourmash_dir+current_G_LINgroup+"/")
             sourmash_indexing(sourmash_dir,current_G_LINgroup)

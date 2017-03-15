@@ -222,13 +222,13 @@
       <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mash_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="93" column="16" lean-forward="false" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
+            <state relative-caret-position="228">
+              <caret line="92" column="62" lean-forward="false" selection-start-line="92" selection-start-column="62" selection-end-line="92" selection-end-column="62" />
               <folding>
                 <element signature="e#84#93#0" expanded="true" />
-                <marker date="1489607999000" expanded="true" signature="499:543" ph="select FileP... Genome" />
-                <marker date="1489607999000" expanded="true" signature="499:546" ph="select FileP... Genome" />
-                <marker date="1489607999000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
+                <marker date="1489608048000" expanded="true" signature="499:543" ph="select FileP... Genome" />
+                <marker date="1489608048000" expanded="true" signature="499:546" ph="select FileP... Genome" />
+                <marker date="1489608048000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
               </folding>
             </state>
           </provider>
@@ -719,13 +719,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00415" summary="Create mkblastdb.py">
-      <created>1488481669191</created>
-      <option name="number" value="00415" />
-      <option name="presentableId" value="LOCAL-00415" />
-      <option name="project" value="LOCAL" />
-      <updated>1488481669191</updated>
-    </task>
     <task id="LOCAL-00416" summary="Merge issues">
       <created>1488482007750</created>
       <option name="number" value="00416" />
@@ -1062,7 +1055,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489607715494</updated>
     </task>
-    <option name="localTasksCounter" value="464" />
+    <task id="LOCAL-00464" summary="Dev - Test how well can we trust mash, or sourmash&#10;Debug">
+      <created>1489608002832</created>
+      <option name="number" value="00464" />
+      <option name="presentableId" value="LOCAL-00464" />
+      <option name="project" value="LOCAL" />
+      <updated>1489608002832</updated>
+    </task>
+    <option name="localTasksCounter" value="465" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1670,13 +1670,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mash_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="93" column="16" lean-forward="false" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
+        <state relative-caret-position="228">
+          <caret line="92" column="62" lean-forward="false" selection-start-line="92" selection-start-column="62" selection-end-line="92" selection-end-column="62" />
           <folding>
             <element signature="e#84#93#0" expanded="true" />
-            <marker date="1489607999000" expanded="true" signature="499:543" ph="select FileP... Genome" />
-            <marker date="1489607999000" expanded="true" signature="499:546" ph="select FileP... Genome" />
-            <marker date="1489607999000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
+            <marker date="1489608048000" expanded="true" signature="499:543" ph="select FileP... Genome" />
+            <marker date="1489608048000" expanded="true" signature="499:546" ph="select FileP... Genome" />
+            <marker date="1489608048000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
           </folding>
         </state>
       </provider>
