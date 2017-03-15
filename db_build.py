@@ -15,7 +15,7 @@ def build_db():
               'FilePath text NOT NULL,'
               'GenomeName text NOT NULL,'
               'PRIMARY KEY (Genome_ID))')
-    c.execute("CREATE TABLE Signature (Signature_ID INT NOT NULL auto_increment, Genome_ID int not NULL, SignaturePath text not null, PRIMARY KEY (Signature_ID))")
+    c.execute("CREATE TABLE Signature (Signature_ID INT NOT NULL AUTO_INCREMENT, Genome_ID int not NULL, SignaturePath text not null, PRIMARY KEY (Signature_ID))")
     c.execute('CREATE TABLE Interest (Interest_ID int NOT NULL AUTO_INCREMENT,'
               'InterestName varchar(255) NOT NULL,'
               'Attribute_IDs text NOT NULL,'
