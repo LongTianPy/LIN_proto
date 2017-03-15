@@ -123,9 +123,6 @@ def test_mash():
             sourmash_indexing(sourmash_dir,top_rep_mash_G_LINgroup)
     output_handler.close()
 
-
-
-
-
-
 # MAIN
+if __name__ == "__main__":
+    test_mash()
