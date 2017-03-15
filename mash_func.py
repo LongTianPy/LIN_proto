@@ -65,7 +65,7 @@ def test_mash():
     conn, c = connect_to_db()
     full_df, All_genomes = fetch_genomes(c)
     write_both_strand(All_genomes[0], c, sourmash_dir)
-    sig_path0 = create_signature(All_genomes,sourmash_dir,c,conn)
+    sig_path0 = create_signature(All_genomes[0],sourmash_dir,c,conn)
     if not isdir(sourmash_dir+"0,0,0,0,0,0,0/"):
         os.mkdir(sourmash_dir+"0,0,0,0,0,0,0/")
     shutil.copyfile(sig_path0,sourmash_dir+"0,0,0,0,0,0,0/")

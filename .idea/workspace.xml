@@ -199,13 +199,13 @@
       <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mash_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="24" column="21" lean-forward="false" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+            <state relative-caret-position="293">
+              <caret line="67" column="47" lean-forward="false" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="47" />
               <folding>
                 <element signature="e#84#93#0" expanded="true" />
-                <marker date="1489605203000" expanded="true" signature="499:543" ph="select FileP... Genome" />
-                <marker date="1489605203000" expanded="true" signature="499:546" ph="select FileP... Genome" />
-                <marker date="1489605203000" expanded="true" signature="1235:1276" ph="insert into Signature... " />
+                <marker date="1489605266000" expanded="true" signature="499:543" ph="select FileP... Genome" />
+                <marker date="1489605266000" expanded="true" signature="499:546" ph="select FileP... Genome" />
+                <marker date="1489605266000" expanded="true" signature="1235:1276" ph="insert into Signature... " />
               </folding>
             </state>
           </provider>
@@ -687,13 +687,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00399" summary="Implementation of LINgroup indexing method">
-      <created>1478196704834</created>
-      <option name="number" value="00399" />
-      <option name="presentableId" value="LOCAL-00399" />
-      <option name="project" value="LOCAL" />
-      <updated>1478196704835</updated>
-    </task>
     <task id="LOCAL-00400" summary="Implementation of LINgroup indexing method">
       <created>1478197133431</created>
       <option name="number" value="00400" />
@@ -1030,7 +1023,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489605128463</updated>
     </task>
-    <option name="localTasksCounter" value="448" />
+    <task id="LOCAL-00448" summary="Dev - Test how well can we trust mash, or sourmash&#10;Debug">
+      <created>1489605218323</created>
+      <option name="number" value="00448" />
+      <option name="presentableId" value="LOCAL-00448" />
+      <option name="project" value="LOCAL" />
+      <updated>1489605218323</updated>
+    </task>
+    <option name="localTasksCounter" value="449" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1093,7 +1093,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Database construction and initialization" />
     <MESSAGE value="Bug fixed." />
     <MESSAGE value="Return top N result based on k-mer similarity." />
     <MESSAGE value="Update db initialization" />
@@ -1118,7 +1117,8 @@
     <MESSAGE value="Compare old and new LINgroup indexing" />
     <MESSAGE value="Compare old and new LINgroup indexing&#10;debug" />
     <MESSAGE value="Test how well can we trust mash, or sourmash" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test how well can we trust mash, or sourmash" />
+    <MESSAGE value="Dev - Test how well can we trust mash, or sourmash&#10;Debug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dev - Test how well can we trust mash, or sourmash&#10;Debug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1639,13 +1639,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mash_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="24" column="21" lean-forward="false" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+        <state relative-caret-position="293">
+          <caret line="67" column="47" lean-forward="false" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="47" />
           <folding>
             <element signature="e#84#93#0" expanded="true" />
-            <marker date="1489605203000" expanded="true" signature="499:543" ph="select FileP... Genome" />
-            <marker date="1489605203000" expanded="true" signature="499:546" ph="select FileP... Genome" />
-            <marker date="1489605203000" expanded="true" signature="1235:1276" ph="insert into Signature... " />
+            <marker date="1489605266000" expanded="true" signature="499:543" ph="select FileP... Genome" />
+            <marker date="1489605266000" expanded="true" signature="499:546" ph="select FileP... Genome" />
+            <marker date="1489605266000" expanded="true" signature="1235:1276" ph="insert into Signature... " />
           </folding>
         </state>
       </provider>
