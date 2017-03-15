@@ -23,9 +23,13 @@ def fetch_genomes(cursor):
     Genome_ID=[int(i[0]) for i in tmp]
     FilePath = [i[1] for i in tmp]
     LIN = [i[2] for i in tmp]
+    SubjectGenome = [int(i[3]) for i in tmp]
+    ANI = [i[4] for i in tmp]
     df = pd.DataFrame()
     df["FilePath"] = FilePath
     df["LIN"] = LIN
+    df["SubjectGenome"] = SubjectGenome
+    df["ANI"] = ANI
     df.index = Genome_ID
     return df, Genome_ID
 
