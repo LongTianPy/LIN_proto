@@ -48,7 +48,7 @@ def sourmash_indexing(sourmash_dir, LINgroup):
 
 def sourmash_searching(sourmash_dir,LINgroup,current_sig_path):
     target_folder = sourmash_dir + LINgroup + "/"
-    cmd = "sourmash sbt_search {0} {1} > {0}result.txt".format(target_folder,current_sig_path)
+    cmd = "sourmash sbt_search {0}index {1} > {0}result.txt".format(target_folder,current_sig_path)
     os.system(cmd)
     f = open("{0}result.txt".format(target_folder),"r")
     lines = [i.strip().split(" ") for i in f.readlines()]
