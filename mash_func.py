@@ -60,7 +60,7 @@ def sourmash_searching(sourmash_dir,LINgroup,current_sig_path):
 def test_mash():
     sourmash_dir = "/home/linproject/Workspace/Sourmash/"
     output_handler = open(sourmash_dir+"test_result.txt","w")
-    output_handler.write("Genome_ID\tAssigned_LIN\tNew_G_LINgroup\tG_LINgroup\tSearching_G_LINgroup\tTop_Mash\nTop_Mash_D\tSubjectGenome\tANI\n")
+    output_handler.write("Genome_ID\tAssigned_LIN\tNew_G_LINgroup\tG_LINgroup\tSearching_G_LINgroup\tTop_Mash\tTop_Mash_D\tSubjectGenome\tANI\n")
     line = "{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\n"
     conn, c = connect_to_db()
     full_df, All_genomes = fetch_genomes(c)
