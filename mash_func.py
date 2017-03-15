@@ -79,11 +79,11 @@ def test_mash():
         current_genome, current_df = fetch_current(full_df,All_genomes,idx)
         write_both_strand(current_genome,c,sourmash_dir)
         sig_path_current = create_signature(current_genome,sourmash_dir,c,conn)
-        current_LIN = full_df.get_values(current_genome,"LIN") # A string
+        current_LIN = full_df.get_values(All_genomes[idx],"LIN") # A string
         current_G_LINgroup = ",".join(current_LIN.split(",")[:7])
         current_df["G_LINgroup"] = [",".join(each.split(",")[:7]) for each in current_df["LIN"]]
-        subject_genome = full_df.get_values(current_genome,"SubjectGenome")
-        ani = full_df.get_values(current_genome,"ANI")
+        subject_genome = full_df.get_values(All_genomes[idx],"SubjectGenome")
+        ani = full_df.get_values(All_genomes[idx],"ANI")
         # Trick is, mash d may or may not respond to 90% ani.
         # We are using 95% ani.
         # First thing is to check if it correlates with representative genomes.
