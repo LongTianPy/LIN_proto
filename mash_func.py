@@ -44,7 +44,7 @@ def create_signature(Genome_ID,sourmash_dir,cursor,conn):
 def sourmash_indexing(sourmash_dir, LINgroup):
     target_folder = sourmash_dir+LINgroup+"/"
     cmd = "sourmash sbt_index {0}index {0}*.sig".format(target_folder)
-    os.system()
+    os.system(cmd)
 
 def sourmash_searching(sourmash_dir,LINgroup,current_sig_path):
     target_folder = sourmash_dir + LINgroup + "/"
