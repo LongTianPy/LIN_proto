@@ -35,7 +35,7 @@ def write_both_strand(Genome_ID,cursor,sourmash_dir):
 
 def create_signature(Genome_ID,sourmash_dir,cursor,conn):
     sig_path = sourmash_dir+str(Genome_ID)+".sig"
-    sourmash_cmd = "sourmash compute {0}.fasta {0}".format(sourmash_dir+Genome_ID)
+    sourmash_cmd = "sourmash compute {0}.fasta {0}".format(sourmash_dir+str(Genome_ID))
     os.system(sourmash_cmd)
     cursor.execute("insert into Signature values ({0}, '{1}')".format(Genome_ID, sig_path))
     conn.commit()
