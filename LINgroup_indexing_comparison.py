@@ -18,7 +18,7 @@ def connect_to_db():
     return c
 
 def fetch_genomes(cursor):
-    cursor.execute("select Genome.Genome_ID, Genome.FilePath, LIN.LIN from Genome, LIN where Genome.Genome_ID=LIN.Genome_ID")
+    cursor.execute("select Genome.Genome_ID, Genome.FilePath, LIN.LIN, LIN.SubjectGenome,LIN.ANI from Genome, LIN where Genome.Genome_ID=LIN.Genome_ID")
     tmp = cursor.fetchall()
     Genome_ID=[int(i[0]) for i in tmp]
     FilePath = [i[1] for i in tmp]
@@ -183,7 +183,7 @@ def main():
             identical.append("N")
         times_new.append(len(similarity_pool_new))
         times_old.append(len(similarity_pool_old))
-        print "Times old: " + str(len(similarity_pool_new)) + ". Times new: " + str(len(similarity_pool_old))
+        print "Times old: " + str(len(similarity_pool_old)) + ". Times new: " + str(len(similarity_pool_new))
     result_df = pd.DataFrame()
     result_df["Times_old"] = times_old
     result_df["Times_new"] = times_new
