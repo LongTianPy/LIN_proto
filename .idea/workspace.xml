@@ -222,13 +222,13 @@
       <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mash_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="92" column="62" lean-forward="false" selection-start-line="92" selection-start-column="62" selection-end-line="92" selection-end-column="62" />
+            <state relative-caret-position="78">
+              <caret line="96" column="23" lean-forward="false" selection-start-line="96" selection-start-column="23" selection-end-line="96" selection-end-column="23" />
               <folding>
                 <element signature="e#84#93#0" expanded="true" />
-                <marker date="1489608048000" expanded="true" signature="499:543" ph="select FileP... Genome" />
-                <marker date="1489608048000" expanded="true" signature="499:546" ph="select FileP... Genome" />
-                <marker date="1489608048000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
+                <marker date="1489608118000" expanded="true" signature="499:543" ph="select FileP... Genome" />
+                <marker date="1489608118000" expanded="true" signature="499:546" ph="select FileP... Genome" />
+                <marker date="1489608118000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
               </folding>
             </state>
           </provider>
@@ -719,13 +719,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00416" summary="Merge issues">
-      <created>1488482007750</created>
-      <option name="number" value="00416" />
-      <option name="presentableId" value="LOCAL-00416" />
-      <option name="project" value="LOCAL" />
-      <updated>1488482007751</updated>
-    </task>
     <task id="LOCAL-00417" summary="Minor change to mkblastdb, error log to be saved in the db folder">
       <created>1488482267750</created>
       <option name="number" value="00417" />
@@ -1062,7 +1055,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489608002832</updated>
     </task>
-    <option name="localTasksCounter" value="465" />
+    <task id="LOCAL-00465" summary="Dev - Test how well can we trust mash, or sourmash&#10;Debug">
+      <created>1489608051028</created>
+      <option name="number" value="00465" />
+      <option name="presentableId" value="LOCAL-00465" />
+      <option name="project" value="LOCAL" />
+      <updated>1489608051028</updated>
+    </task>
+    <option name="localTasksCounter" value="466" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1670,13 +1670,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mash_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="92" column="62" lean-forward="false" selection-start-line="92" selection-start-column="62" selection-end-line="92" selection-end-column="62" />
+        <state relative-caret-position="78">
+          <caret line="96" column="23" lean-forward="false" selection-start-line="96" selection-start-column="23" selection-end-line="96" selection-end-column="23" />
           <folding>
             <element signature="e#84#93#0" expanded="true" />
-            <marker date="1489608048000" expanded="true" signature="499:543" ph="select FileP... Genome" />
-            <marker date="1489608048000" expanded="true" signature="499:546" ph="select FileP... Genome" />
-            <marker date="1489608048000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
+            <marker date="1489608118000" expanded="true" signature="499:543" ph="select FileP... Genome" />
+            <marker date="1489608118000" expanded="true" signature="499:546" ph="select FileP... Genome" />
+            <marker date="1489608118000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
           </folding>
         </state>
       </provider>

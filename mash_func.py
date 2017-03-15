@@ -92,9 +92,9 @@ def test_mash():
         if current_G_LINgroup not in current_df["G_LINgroup"]:
             if not isdir(sourmash_dir+current_G_LINgroup+"/"):
                 os.mkdir(sourmash_dir+current_G_LINgroup+"/")
-            shutil.copyfile(sig_path_current,sourmash_dir+current_G_LINgroup+"/")
+            shutil.copy(sig_path_current,sourmash_dir+current_G_LINgroup+"/")
             sourmash_indexing(sourmash_dir,current_G_LINgroup)
-            shutil.copyfile(sig_path_current,sourmash_dir+"rep_bac/")
+            shutil.copy(sig_path_current,sourmash_dir+"rep_bac/")
             sourmash_indexing(sourmash_dir,"rep_bac")
             result_rep = sourmash_searching(sourmash_dir,"rep_bac",sig_path_current)
             if len(result_rep) == 2:
