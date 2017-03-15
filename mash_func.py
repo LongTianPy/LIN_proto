@@ -74,7 +74,7 @@ def test_mash():
         os.mkdir(sourmash_dir+"rep_bac/")
     shutil.copy(sig_path0, sourmash_dir + "rep_bac/")
     sourmash_indexing(sourmash_dir=sourmash_dir, LINgroup="rep_bac")
-    output_handler.write(line.format(All_genomes[0],",".join(['0']*20),"Y","0,0,0,0,0,0,0",1,1,1,1))
+    output_handler.write(line.format(All_genomes[0],",".join(['0']*20),"Y","0,0,0,0,0,0,0","NA",1,1,1,1))
     for idx in range(1,len(All_genomes)):
         current_genome, current_df = fetch_current(full_df,All_genomes[idx],idx)
         write_both_strand(current_genome,c,sourmash_dir)
