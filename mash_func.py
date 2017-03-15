@@ -76,7 +76,7 @@ def test_mash():
     sourmash_indexing(sourmash_dir=sourmash_dir, LINgroup="rep_bac")
     output_handler.write(line.format(All_genomes[0],",".join(['0']*20),"Y","0,0,0,0,0,0,0","NA",1,1,1,1))
     for idx in range(1,len(All_genomes)):
-        current_genome, current_df = fetch_current(full_df,All_genomes[idx],idx)
+        current_genome, current_df = fetch_current(full_df,All_genomes,idx)
         write_both_strand(current_genome,c,sourmash_dir)
         sig_path_current = create_signature(current_genome,sourmash_dir,c,conn)
         current_LIN = full_df.get_values(current_genome,"LIN") # A string
