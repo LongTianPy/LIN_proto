@@ -110,7 +110,7 @@ def test_mash():
                                                  top_rep_mash_d,
                                                  subject_genome,ani))
         else:
-            result_rep = sourmash_searching(sourmash_dir,"rep_bac",sig_path_current)
+            result_rep = sourmash_searching(sourmash_dir,"rep_bac",sig_path_current,current_genome)
             if len(result_rep) == 2: # Means you are screwed at 95% level??? Hopefully this will not happen.
                 output_handler.write(line.format(current_genome,current_LIN,"N",current_G_LINgroup,"NA","NA",
                                                  subject_genome,ani))
