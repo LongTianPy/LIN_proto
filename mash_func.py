@@ -81,7 +81,7 @@ def test_mash():
         sig_path_current = create_signature(current_genome,sourmash_dir,c,conn)
         current_LIN = full_df.get_value(All_genomes[idx],"LIN") # A string
         current_G_LINgroup = ",".join(current_LIN.split(",")[:7])
-        current_df["G_LINgroup"] = [",".join(each.split(",")[:7]) for each in current_df["LIN"]]
+        G_LINgroup = [",".join(each.split(",")[:7]) for each in current_df["LIN"]]
         subject_genome = full_df.get_value(All_genomes[idx],"SubjectGenome")
         ani = full_df.get_value(All_genomes[idx],"ANI")
         # Trick is, mash d may or may not respond to 90% ani.
@@ -89,7 +89,7 @@ def test_mash():
         # First thing is to check if it correlates with representative genomes.
         # If yes, there is change that the ani is between 90% and 95%. Need to check its LIN to determine if it's
         # in any LINgroup or creates a new one.
-        if current_G_LINgroup not in current_df["G_LINgroup"]:
+        if current_G_LINgroup not in G_LINgroup:
             if not isdir(sourmash_dir+current_G_LINgroup+"/"):
                 os.mkdir(sourmash_dir+current_G_LINgroup+"/")
             shutil.copy(sig_path_current,sourmash_dir+current_G_LINgroup+"/")
