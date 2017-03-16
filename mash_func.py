@@ -37,8 +37,8 @@ def create_signature(Genome_ID,sourmash_dir,cursor,conn):
     sig_path = sourmash_dir+str(Genome_ID)+".sig"
     sourmash_cmd = "sourmash compute -o {0} {1}.fasta".format(sig_path,sourmash_dir+str(Genome_ID))
     os.system(sourmash_cmd)
-    # cursor.execute("insert into Signature (Genome_ID,SignaturePath) values ({0}, '{1}')".format(Genome_ID, sig_path))
-    # conn.commit()
+    cursor.execute("insert into Signature (Genome_ID,SignaturePath) values ({0}, '{1}')".format(Genome_ID, sig_path))
+    conn.commit()
     return sig_path
 
 def sourmash_indexing(sourmash_dir, LINgroup):
