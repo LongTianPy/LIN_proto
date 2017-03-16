@@ -67,6 +67,7 @@ def test_mash():
     line = "{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\n"
     conn, c = connect_to_db()
     full_df, All_genomes = fetch_genomes(c)
+    full_df["G_LINgroup"] = [",".join(each.split(",")[:7]) for each in current_df["LIN"]]
     write_both_strand(All_genomes[0], c, sourmash_dir)
     sig_path0 = create_signature(All_genomes[0],sourmash_dir,c,conn)
     if not isdir(sourmash_dir+"0,0,0,0,0,0,0/"):
@@ -120,6 +121,7 @@ def test_mash():
                     top_rep_mash = result_rep[i][1].split("/")[-1].split(".")[0]
                     top_rep_mash_d = result_rep[i][0]
                     i += 1
+                top_rep_mash_G_LINgroup = full_df.get_value(top_rep_mash,"G_LINgroup")
                 result = sourmash_searching(sourmash_dir,top_rep_mash_G_LINgroup,sig_path_current)
                 i = 1
                 while result[i][1].split("/")[-1].split(".")[0] != str(current_genome):

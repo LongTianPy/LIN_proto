@@ -120,8 +120,8 @@
       <file leaf-file-name="db_build.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db_build.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="22" lean-forward="false" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+            <state relative-caret-position="255">
+              <caret line="17" column="161" lean-forward="true" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="161" />
               <folding>
                 <element signature="e#19#33#0" expanded="true" />
                 <marker date="1489606067000" expanded="true" signature="245:513" ph="CREATE TABLE... Genome" />
@@ -221,13 +221,13 @@
       <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mash_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-208">
-              <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+            <state relative-caret-position="272">
+              <caret line="123" column="74" lean-forward="false" selection-start-line="123" selection-start-column="74" selection-end-line="123" selection-end-column="74" />
               <folding>
                 <element signature="e#84#93#0" expanded="true" />
-                <marker date="1489677362000" expanded="true" signature="499:543" ph="select FileP... Genome" />
-                <marker date="1489677362000" expanded="true" signature="499:546" ph="select FileP... Genome" />
-                <marker date="1489677362000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
+                <marker date="1489677639000" expanded="true" signature="499:543" ph="select FileP... Genome" />
+                <marker date="1489677639000" expanded="true" signature="499:546" ph="select FileP... Genome" />
+                <marker date="1489677639000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
               </folding>
             </state>
           </provider>
@@ -720,13 +720,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00424" summary="Dev, mash_indexing&#10;Step1: Improve LINgroup indexing">
-      <created>1488917342055</created>
-      <option name="number" value="00424" />
-      <option name="presentableId" value="LOCAL-00424" />
-      <option name="project" value="LOCAL" />
-      <updated>1488917342055</updated>
-    </task>
     <task id="LOCAL-00425" summary="Dev, mash_indexing&#10;Step1: Improve LINgroup indexing">
       <created>1488917743468</created>
       <option name="number" value="00425" />
@@ -1063,7 +1056,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489677300985</updated>
     </task>
-    <option name="localTasksCounter" value="473" />
+    <task id="LOCAL-00473" summary="Dev - Test how well can we trust mash, or sourmash&#10;Debug">
+      <created>1489677365298</created>
+      <option name="number" value="00473" />
+      <option name="presentableId" value="LOCAL-00473" />
+      <option name="project" value="LOCAL" />
+      <updated>1489677365298</updated>
+    </task>
+    <option name="localTasksCounter" value="474" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1579,8 +1579,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db_build.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="22" lean-forward="false" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+        <state relative-caret-position="255">
+          <caret line="17" column="161" lean-forward="true" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="161" />
           <folding>
             <element signature="e#19#33#0" expanded="true" />
             <marker date="1489606067000" expanded="true" signature="245:513" ph="CREATE TABLE... Genome" />
@@ -1646,13 +1646,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mash_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-208">
-          <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        <state relative-caret-position="272">
+          <caret line="123" column="74" lean-forward="false" selection-start-line="123" selection-start-column="74" selection-end-line="123" selection-end-column="74" />
           <folding>
             <element signature="e#84#93#0" expanded="true" />
-            <marker date="1489677362000" expanded="true" signature="499:543" ph="select FileP... Genome" />
-            <marker date="1489677362000" expanded="true" signature="499:546" ph="select FileP... Genome" />
-            <marker date="1489677362000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
+            <marker date="1489677639000" expanded="true" signature="499:543" ph="select FileP... Genome" />
+            <marker date="1489677639000" expanded="true" signature="499:546" ph="select FileP... Genome" />
+            <marker date="1489677639000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
           </folding>
         </state>
       </provider>
