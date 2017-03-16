@@ -123,10 +123,10 @@ def test_mash():
                         break
                 top_rep_mash_G_LINgroup = full_df.get_value(int(top_rep_mash),"G_LINgroup")
                 result = sourmash_searching(sourmash_dir,top_rep_mash_G_LINgroup,sig_path_current,current_genome)
-                for i in range(1,len(result_rep)):
-                    if result_rep[i][1].split("/")[-1].split(".")[0] != str(current_genome):
-                        top_rep_mash = result_rep[i][1].split("/")[-1].split(".")[0]
-                        top_rep_mash_d = result_rep[i][0]
+                for i in range(1,len(result)):
+                    if result[i][1].split("/")[-1].split(".")[0] != str(current_genome):
+                        top_mash = result[i][1].split("/")[-1].split(".")[0]
+                        top_mash_d = result[i][0]
                         break
                 output_handler.write(line.format(current_genome,current_LIN,"N",current_G_LINgroup,
                                                  top_rep_mash_G_LINgroup,top_mash,top_mash_d,

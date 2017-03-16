@@ -221,13 +221,13 @@
       <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mash_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="124" column="112" lean-forward="false" selection-start-line="124" selection-start-column="112" selection-end-line="124" selection-end-column="112" />
+            <state relative-caret-position="380">
+              <caret line="132" column="69" lean-forward="true" selection-start-line="132" selection-start-column="69" selection-end-line="132" selection-end-column="69" />
               <folding>
                 <element signature="e#84#93#0" expanded="true" />
-                <marker date="1489682207000" expanded="true" signature="499:543" ph="select FileP... Genome" />
-                <marker date="1489682207000" expanded="true" signature="499:546" ph="select FileP... Genome" />
-                <marker date="1489682207000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
+                <marker date="1489682329000" expanded="true" signature="499:543" ph="select FileP... Genome" />
+                <marker date="1489682329000" expanded="true" signature="499:546" ph="select FileP... Genome" />
+                <marker date="1489682329000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
               </folding>
             </state>
           </provider>
@@ -720,13 +720,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00429" summary="Dev, mash_indexing&#10;Step1: Improve LINgroup indexing">
-      <created>1488918282742</created>
-      <option name="number" value="00429" />
-      <option name="presentableId" value="LOCAL-00429" />
-      <option name="project" value="LOCAL" />
-      <updated>1488918282742</updated>
-    </task>
     <task id="LOCAL-00430" summary="Compare old and new LINgroup indexing">
       <created>1489437235902</created>
       <option name="number" value="00430" />
@@ -1063,7 +1056,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489682072801</updated>
     </task>
-    <option name="localTasksCounter" value="478" />
+    <task id="LOCAL-00478" summary="Dev - Test how well can we trust mash, or sourmash&#10;Debug">
+      <created>1489682209550</created>
+      <option name="number" value="00478" />
+      <option name="presentableId" value="LOCAL-00478" />
+      <option name="project" value="LOCAL" />
+      <updated>1489682209550</updated>
+    </task>
+    <option name="localTasksCounter" value="479" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1646,13 +1646,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mash_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="124" column="112" lean-forward="false" selection-start-line="124" selection-start-column="112" selection-end-line="124" selection-end-column="112" />
+        <state relative-caret-position="380">
+          <caret line="132" column="69" lean-forward="true" selection-start-line="132" selection-start-column="69" selection-end-line="132" selection-end-column="69" />
           <folding>
             <element signature="e#84#93#0" expanded="true" />
-            <marker date="1489682207000" expanded="true" signature="499:543" ph="select FileP... Genome" />
-            <marker date="1489682207000" expanded="true" signature="499:546" ph="select FileP... Genome" />
-            <marker date="1489682207000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
+            <marker date="1489682329000" expanded="true" signature="499:543" ph="select FileP... Genome" />
+            <marker date="1489682329000" expanded="true" signature="499:546" ph="select FileP... Genome" />
+            <marker date="1489682329000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
           </folding>
         </state>
       </provider>
