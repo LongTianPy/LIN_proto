@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mash_func.py" afterPath="$PROJECT_DIR$/mash_func.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -221,13 +220,13 @@
       <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mash_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="112" column="98" lean-forward="false" selection-start-line="112" selection-start-column="98" selection-end-line="112" selection-end-column="98" />
+            <state relative-caret-position="-90">
+              <caret line="65" column="4" lean-forward="false" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
               <folding>
                 <element signature="e#84#93#0" expanded="true" />
-                <marker date="1489675641000" expanded="true" signature="499:543" ph="select FileP... Genome" />
-                <marker date="1489675641000" expanded="true" signature="499:546" ph="select FileP... Genome" />
-                <marker date="1489675641000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
+                <marker date="1489675654000" expanded="true" signature="499:543" ph="select FileP... Genome" />
+                <marker date="1489675654000" expanded="true" signature="499:546" ph="select FileP... Genome" />
+                <marker date="1489675654000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
               </folding>
             </state>
           </provider>
@@ -720,13 +719,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00421" summary="Dev, mash_indexing&#10;Step1: Improve LINgroup indexing">
-      <created>1488916723673</created>
-      <option name="number" value="00421" />
-      <option name="presentableId" value="LOCAL-00421" />
-      <option name="project" value="LOCAL" />
-      <updated>1488916723673</updated>
-    </task>
     <task id="LOCAL-00422" summary="Dev, mash_indexing&#10;Step1: Improve LINgroup indexing">
       <created>1488916867204</created>
       <option name="number" value="00422" />
@@ -1063,7 +1055,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489674850175</updated>
     </task>
-    <option name="localTasksCounter" value="470" />
+    <task id="LOCAL-00470" summary="Dev - Test how well can we trust mash, or sourmash&#10;Debug">
+      <created>1489675643585</created>
+      <option name="number" value="00470" />
+      <option name="presentableId" value="LOCAL-00470" />
+      <option name="project" value="LOCAL" />
+      <updated>1489675643585</updated>
+    </task>
+    <option name="localTasksCounter" value="471" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1646,13 +1645,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mash_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="112" column="98" lean-forward="false" selection-start-line="112" selection-start-column="98" selection-end-line="112" selection-end-column="98" />
+        <state relative-caret-position="-90">
+          <caret line="65" column="4" lean-forward="false" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
           <folding>
             <element signature="e#84#93#0" expanded="true" />
-            <marker date="1489675641000" expanded="true" signature="499:543" ph="select FileP... Genome" />
-            <marker date="1489675641000" expanded="true" signature="499:546" ph="select FileP... Genome" />
-            <marker date="1489675641000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
+            <marker date="1489675654000" expanded="true" signature="499:543" ph="select FileP... Genome" />
+            <marker date="1489675654000" expanded="true" signature="499:546" ph="select FileP... Genome" />
+            <marker date="1489675654000" expanded="true" signature="1257:1324" ph="insert into Signature... " />
           </folding>
         </state>
       </provider>
