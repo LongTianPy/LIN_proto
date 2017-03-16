@@ -46,9 +46,12 @@ def sourmash_indexing(sourmash_dir, LINgroup):
     cmd = "sourmash sbt_index {0}index {0}*.sig".format(target_folder)
     os.system(cmd)
 
-def sourmash_searching(sourmash_dir,LINgroup,current_sig_path):
+def sourmash_searching(sourmash_dir,LINgroup,current_sig_path,current_genome):
     target_folder = sourmash_dir + LINgroup + "/"
-    cmd = "sourmash sbt_search {0}index {1} > {0}result.txt".format(target_folder,current_sig_path)
+    shutil.copy(current_sig_path,target_folder)
+    copied_sig = target_folder + str(current_genome) + ".sig"
+    sourmash_indexing(sourmash_dir,LINgroup)
+    cmd = "sourmash sbt_search {0}index {1} > {0}result.txt".format(target_folder,copied_sig)
     os.system(cmd)
     f = open("{0}result.txt".format(target_folder),"r")
     lines = [i.strip().split(" ") for i in f.readlines()]
@@ -69,11 +72,9 @@ def test_mash():
     if not isdir(sourmash_dir+"0,0,0,0,0,0,0/"):
         os.mkdir(sourmash_dir+"0,0,0,0,0,0,0/")
     shutil.copy(sig_path0,sourmash_dir+"0,0,0,0,0,0,0/")
-    sourmash_indexing(sourmash_dir=sourmash_dir,LINgroup="0,0,0,0,0,0,0")
     if not isdir(sourmash_dir+"rep_bac/"):
         os.mkdir(sourmash_dir+"rep_bac/")
     shutil.copy(sig_path0, sourmash_dir + "rep_bac/")
-    sourmash_indexing(sourmash_dir=sourmash_dir, LINgroup="rep_bac")
     output_handler.write(line.format(All_genomes[0],",".join(['0']*20),"Y","0,0,0,0,0,0,0","NA",1,1,1,1))
     for idx in range(1,len(All_genomes)):
         current_genome, current_df = fetch_current(full_df,All_genomes,idx)
@@ -93,35 +94,41 @@ def test_mash():
             if not isdir(sourmash_dir+current_G_LINgroup+"/"):
                 os.mkdir(sourmash_dir+current_G_LINgroup+"/")
             shutil.copy(sig_path_current,sourmash_dir+current_G_LINgroup+"/")
-            sourmash_indexing(sourmash_dir,current_G_LINgroup)
-            shutil.copy(sig_path_current,sourmash_dir+"rep_bac/")
-            sourmash_indexing(sourmash_dir,"rep_bac")
-            result_rep = sourmash_searching(sourmash_dir,"rep_bac",sig_path_current)
+            # shutil.copy(sig_path_current,sourmash_dir+"rep_bac/")
+            # sourmash_indexing(sourmash_dir,"rep_bac")
+            result_rep = sourmash_searching(sourmash_dir,"rep_bac",sig_path_current,current_genome)
             if len(result_rep) == 2:
                 output_handler.write(line.format(current_genome,current_LIN,"Y",current_G_LINgroup,"rep_bac","NA","NA",
                                                  subject_genome,ani))
             else:
-                top_rep_mash = result_rep[2][1].split("/")[-1].split(".")[0]
-                top_rep_mash_d = result_rep[2][0]
+                i = 1
+                while result_rep[i][1].split("/")[-1].split(".")[0] != str(current_genome):
+                    top_rep_mash = result_rep[i][1].split("/")[-1].split(".")[0]
+                    top_rep_mash_d = result_rep[i][0]
+                    i += 1
                 output_handler.write(line.format(current_genome,current_LIN,"Y",current_G_LINgroup,"rep_bac",top_rep_mash,
                                                  top_rep_mash_d,
                                                  subject_genome,ani))
         else:
             result_rep = sourmash_searching(sourmash_dir,"rep_bac",sig_path_current)
-            if len(result_rep) == 1: # Means you are screwed at 95% level??? Hopefully this will not happen.
+            if len(result_rep) == 2: # Means you are screwed at 95% level??? Hopefully this will not happen.
                 output_handler.write(line.format(current_genome,current_LIN,"N",current_G_LINgroup,"NA","NA",
                                                  subject_genome,ani))
             else:
-                top_rep_mash = result_rep[1][1].split("/")[-1].split(".")[0]
-                top_rep_mash_G_LINgroup = current_df.get_value(top_rep_mash,"G_LINgroup")
+                i = 1
+                while result_rep[i][1].split("/")[-1].split(".")[0] != str(current_genome):
+                    top_rep_mash = result_rep[i][1].split("/")[-1].split(".")[0]
+                    top_rep_mash_d = result_rep[i][0]
+                    i += 1
                 result = sourmash_searching(sourmash_dir,top_rep_mash_G_LINgroup,sig_path_current)
-                top_mash = result[1][1].split("/")[-1].split(".")[0]
-                top_mash_d = result[1][0]
+                i = 1
+                while result[i][1].split("/")[-1].split(".")[0] != str(current_genome):
+                    top_mash = result[i][1].split("/")[-1].split(".")[0]
+                    top_mash_d = result[i][0]
+                    i += 1
                 output_handler.write(line.format(current_genome,current_LIN,"N",current_G_LINgroup,
                                                  top_rep_mash_G_LINgroup,top_mash,top_mash_d,
                                                  subject_genome,ani))
-            shutil.copy(sig_path_current,sourmash_dir+top_rep_mash_G_LINgroup+"/")
-            sourmash_indexing(sourmash_dir,top_rep_mash_G_LINgroup)
     output_handler.close()
 
 # MAIN
