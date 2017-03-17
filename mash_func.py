@@ -166,7 +166,8 @@ if __name__ == "__main__":
     height = len(df.index)
     mash_based_LIN = []
     for each_genome in df.index[1:]:
-        if df.get_value(each_genome,"Top_Mash") != df.get_value(each_genome,"SubjectGenome"):
+        if int(df.get_value(each_genome,"Top_Mash")) != int(df.get_value(each_genome,"SubjectGenome")) \
+                and df.get_value(each_genome,"New_G_LINgroup"):
             print each_genome, df.get_value(each_genome,"Top_Mash")
             new_LIN = assign_LIN_based_on_mash(each_genome,df.get_value(each_genome,"Top_Mash"),c,conn)
         else:
