@@ -168,7 +168,7 @@ if __name__ == "__main__":
         if df.get_value(each_genome,"Top_Mash") != df.get_value(each_genome,"SubjectGenome"):
             new_LIN = assign_LIN_based_on_mash(each_genome,df.get_value(each_genome,"SubjectGenome"))
         else:
-            new_LIN = df.get_value(each,"Assigned_LIN")
+            new_LIN = df.get_value(each_genome,"Assigned_LIN")
         mash_based_LIN.append(new_LIN)
     df["mash_based_LIN"] = mash_based_LIN
     df.to_csv("home/linproject/Workspace/Sourmash/mash_LIN.csv")
