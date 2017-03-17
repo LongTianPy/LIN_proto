@@ -164,11 +164,11 @@ if __name__ == "__main__":
     df = pd.read_csv("/home/linproject/Workspace/Sourmash/mash_choice.csv",header=0,index_col=0)
     height = len(df.index)
     mash_based_LIN = []
-    for i in range(height):
-        if df["Top_Mash"][i] != df["SubjectGenome"][i]:
-            new_LIN = assign_LIN_based_on_mash(df.index[i],df["top_mash"][i])
+    for each_genome in df.index:
+        if df.get_value(each_genome,"top_mash") != df.get_value(each_genome,"SubjectGenome"):
+            new_LIN = assign_LIN_based_on_mash(each_genome,df.get_value(each_genome,"SubjectGenome"))
         else:
-            new_LIN = df["Assigned_LIN"][i]
+            new_LIN = df.get_value(each,"Assigned_LIN")
         mash_based_LIN.append(new_LIN)
     df["mash_based_LIN"] = mash_based_LIN
     df.to_csv("home/linproject/Workspace/Sourmash/mash_LIN.csv")
