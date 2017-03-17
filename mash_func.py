@@ -10,6 +10,8 @@ from MySQLdb import Connect
 from LINgroup_indexing_comparison import fetch_current, fetch_genomes
 from os.path import isdir
 import shutil
+import pandas as pd
+import LIN_Assign
 
 # FUNCTIONS
 def connect_to_db():
@@ -133,6 +135,40 @@ def test_mash():
                                                  subject_genome,ani))
     output_handler.close()
 
+def assign_LIN_based_on_mash(current_genome,subject_genome,c,conn):
+    ANI_calc_dir = "/home/linproject/Workspace/ANI/"
+    if not isdir(ANI_calc_dir):
+        os.mkdir(ANI_calc_dir)
+    c.execute("select FilePath from Genome where Genome_ID={0}".format(int(current_genome)))
+    tmp = c.fetcone()
+    filepath_current_genome = tmp[0]
+    c.execute("select FilePath from Genome where Genome_ID={0}".format(int(subject_genome)))
+    tmp - c.fetchone()
+    filepath_subject_genome = tmp[0]
+    shutil.copy(filepath_current_genome,ANI_calc_dir)
+    shutil.copy(filepath_subject_genome,ANI_calc_dir)
+    pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py -i {0} " \
+                "-o {0}output -m ANIblastall --nocompress".format(ANI_calc_dir)
+    os.system(pyani_cmd)
+    ANIb_result = pd.read_table(ANI_calc_dir + "output/ANIblastall_percentage_identity.tab",
+                                header=0, index_col=0).get_value(int(current_genome), str(subject_genome))
+    os.system("rm -rf {0}*".format(ANI_calc_dir))
+    new_LIN_object = LIN_Assign.getLIN(Genome_ID=subject_genome, Scheme_ID=3, similarity=ANIb_result, c=c)
+    new_LIN = LIN_Assign.Assign_LIN(new_LIN_object, c=c).new_LIN
+    return new_LIN
+
+
 # MAIN
 if __name__ == "__main__":
-    test_mash()
+    # test_mash()
+    df = pd.read_csv("/home/linproject/Workspace/Sourmash/mash_choice.csv",header=0,index_col=0)
+    height = len(df.index)
+    mash_based_LIN = []
+    for i in range(height):
+        if df["Top_Mash"][i] != df["SubjectGenome"][i]:
+            new_LIN = assign_LIN_based_on_mash(df.index[i],df["top_mash"][i])
+        else:
+            new_LIN = df["Assigned_LIN"][i]
+        mash_based_LIN.append(new_LIN)
+    df["mash_based_LIN"] = mash_based_LIN
+    df.to_csv("home/linproject/Workspace/Sourmash/mash_LIN.csv")

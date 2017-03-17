@@ -15,15 +15,16 @@ class getLIN(object):
     """
     Read the LIN of the top similar genome.
     """
-    def __init__(self, Genome_ID, Scheme_ID, similarity,c):
+    def __init__(self, Genome_ID, Scheme_ID, similarity,c,current_genome):
         self.Genome_ID = Genome_ID
         self.Scheme_ID = Scheme_ID
         self.c=c
+        self.current_genome = current_genome
         c.execute("SELECT LabelNum from Scheme WHERE Scheme_ID=3")
         self.label_num = int(c.fetchone()[0])
         self.similarity = float(similarity)*100
         self.parse()
-    def parse(self, Genome_ID = None, Scheme_ID = None, similarity = None, c = None):
+    def parse(self, Genome_ID = None, Scheme_ID = None, similarity = None, c = None, current_genome=None):
         if not Genome_ID:
             Genome_ID = self.Genome_ID
         if not Scheme_ID:
@@ -32,8 +33,10 @@ class getLIN(object):
             similarity = self.similarity
         if not c:
             c = self.c
+        if not current_genome:
+            current_genome = self.current_genome
         # Read the LIN of this genome
-        c.execute('SELECT LIN from LIN where Genome_ID = {0} and LIN.Scheme_ID=3'.format(Genome_ID))
+        c.execute('SELECT LIN from LIN where Genome_ID = {0} and LIN.Scheme_ID=3' and Genome_ID < {1}.format(int(Genome_ID),int(current_genome)))
         lin = c.fetchone()[0].split(',')
         self.LIN = lin
         # Read the cutoff of this scheme
