@@ -80,10 +80,10 @@ class Assign_LIN(object):
         if not current_genome:
             current_genome = self.current_genome
         if conserved_LIN == '':
-            c.execute("SELECT LIN.LIN FROM LIN where Genome_ID<{0}".format(current_genome))
+            c.execute("SELECT LIN.LIN FROM LIN where LIN.Genome_ID<{0}".format(current_genome))
             tmp = c.fetchall()
         else:
-            c.execute('SELECT LIN.LIN from LIN WHERE Genome_ID<{0} and LIN.LIN LIKE "{0}%"'.format(current_genome,conserved_LIN))
+            c.execute('SELECT LIN.LIN from LIN WHERE LIN.Genome_ID<{0} and LIN.LIN LIKE "{0}%"'.format(current_genome,conserved_LIN))
             tmp = c.fetchall()
         if type(idx_to_change) == int:
             LINs = [int(i[0].split(',')[idx_to_change]) for i in tmp]

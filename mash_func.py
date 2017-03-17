@@ -152,6 +152,7 @@ def assign_LIN_based_on_mash(current_genome,subject_genome,c,conn):
     os.system(pyani_cmd)
     ANIb_result = pd.read_table(ANI_calc_dir + "output/ANIblastall_percentage_identity.tab",
                                 header=0, index_col=0).get_value(int(current_genome), str(subject_genome))
+    print ANIb_result
     os.system("rm -rf {0}*".format(ANI_calc_dir))
     new_LIN_object = LIN_Assign.getLIN(Genome_ID=subject_genome, Scheme_ID=3, similarity=ANIb_result, c=c)
     new_LIN = LIN_Assign.Assign_LIN(new_LIN_object, c=c,current_genome=current_genome).new_LIN
@@ -165,7 +166,7 @@ if __name__ == "__main__":
     df = pd.read_csv("/home/linproject/Workspace/Sourmash/mash_choice.csv",header=0,index_col=0)
     height = len(df.index)
     mash_based_LIN = []
-    for each_genome in df.index[1:]:
+    for each_genome in df.index:
         if int(df.get_value(each_genome,"Top_Mash")) != int(df.get_value(each_genome,"SubjectGenome")) \
                 and df.get_value(each_genome,"New_G_LINgroup") == "N":
             print int(each_genome), int(df.get_value(each_genome,"Top_Mash"))
