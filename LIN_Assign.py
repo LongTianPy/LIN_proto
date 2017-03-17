@@ -15,16 +15,15 @@ class getLIN(object):
     """
     Read the LIN of the top similar genome.
     """
-    def __init__(self, Genome_ID, Scheme_ID, similarity,c,current_genome):
+    def __init__(self, Genome_ID, Scheme_ID, similarity,c):
         self.Genome_ID = Genome_ID
         self.Scheme_ID = Scheme_ID
         self.c=c
-        self.current_genome = current_genome
         c.execute("SELECT LabelNum from Scheme WHERE Scheme_ID=3")
         self.label_num = int(c.fetchone()[0])
         self.similarity = float(similarity)*100
         self.parse()
-    def parse(self, Genome_ID = None, Scheme_ID = None, similarity = None, c = None, current_genome=None):
+    def parse(self, Genome_ID = None, Scheme_ID = None, similarity = None, c = None):
         if not Genome_ID:
             Genome_ID = self.Genome_ID
         if not Scheme_ID:
@@ -33,10 +32,8 @@ class getLIN(object):
             similarity = self.similarity
         if not c:
             c = self.c
-        if not current_genome:
-            current_genome = self.current_genome
         # Read the LIN of this genome
-        c.execute('SELECT LIN from LIN where Genome_ID = {0} and LIN.Scheme_ID=3' and Genome_ID < {1}.format(int(Genome_ID),int(current_genome)))
+        c.execute('SELECT LIN from LIN where Genome_ID = {0} and LIN.Scheme_ID=3'.format(int(Genome_ID)))
         lin = c.fetchone()[0].split(',')
         self.LIN = lin
         # Read the cutoff of this scheme
@@ -64,13 +61,14 @@ class getLIN(object):
 class Assign_LIN(object):
     """ Get the biggest number assigned to the idx_to_change with the same conserved part of LIN
     """
-    def __init__(self, getLIN_object,c):
+    def __init__(self, getLIN_object,c,current_genome):
         self.idx_to_change = getLIN_object.idx_to_change
         self.conserved_LIN = ','.join(getLIN_object.conserved_LIN)
         self.label_num = getLIN_object.label_num
         self.c=c
+        self.current_genome = current_genome
         self.assign()
-    def assign(self, idx_to_change=None, conserved_LIN=None, label_num=None,c=None):
+    def assign(self, idx_to_change=None, conserved_LIN=None, label_num=None,c=None,current_genome=None):
         if not idx_to_change:
             idx_to_change = self.idx_to_change
         if not conserved_LIN:
@@ -79,11 +77,13 @@ class Assign_LIN(object):
             label_num = self.label_num
         if not c:
             c=self.c
+        if not current_genome:
+            current_genome = self.current_genome
         if conserved_LIN == '':
-            c.execute("SELECT LIN.LIN FROM LIN")
+            c.execute("SELECT LIN.LIN FROM LIN where Genome_ID<{0}".format(current_genome))
             tmp = c.fetchall()
         else:
-            c.execute('SELECT LIN.LIN from LIN WHERE LIN.LIN LIKE "{0}%"'.format(conserved_LIN))
+            c.execute('SELECT LIN.LIN from LIN WHERE Genome_ID<{0} and LIN.LIN LIKE "{0}%"'.format(current_genome,conserved_LIN))
             tmp = c.fetchall()
         if type(idx_to_change) == int:
             LINs = [int(i[0].split(',')[idx_to_change]) for i in tmp]

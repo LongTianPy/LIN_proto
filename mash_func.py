@@ -153,8 +153,8 @@ def assign_LIN_based_on_mash(current_genome,subject_genome,c,conn):
     ANIb_result = pd.read_table(ANI_calc_dir + "output/ANIblastall_percentage_identity.tab",
                                 header=0, index_col=0).get_value(int(current_genome), str(subject_genome))
     os.system("rm -rf {0}*".format(ANI_calc_dir))
-    new_LIN_object = LIN_Assign.getLIN(Genome_ID=subject_genome, Scheme_ID=3, similarity=ANIb_result, c=c,current_genome=int(current_genome))
-    new_LIN = LIN_Assign.Assign_LIN(new_LIN_object, c=c).new_LIN
+    new_LIN_object = LIN_Assign.getLIN(Genome_ID=subject_genome, Scheme_ID=3, similarity=ANIb_result, c=c)
+    new_LIN = LIN_Assign.Assign_LIN(new_LIN_object, c=c,current_genome=current_genome).new_LIN
     return new_LIN
 
 
