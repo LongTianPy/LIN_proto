@@ -140,10 +140,10 @@ def assign_LIN_based_on_mash(current_genome,subject_genome,c,conn):
     if not isdir(ANI_calc_dir):
         os.mkdir(ANI_calc_dir)
     c.execute("select FilePath from Genome where Genome_ID={0}".format(int(current_genome)))
-    tmp = c.fetcone()
+    tmp = c.fetchone()
     filepath_current_genome = tmp[0]
     c.execute("select FilePath from Genome where Genome_ID={0}".format(int(subject_genome)))
-    tmp - c.fetchone()
+    tmp = c.fetchone()
     filepath_subject_genome = tmp[0]
     shutil.copy(filepath_current_genome,ANI_calc_dir)
     shutil.copy(filepath_subject_genome,ANI_calc_dir)
