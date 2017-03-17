@@ -53,7 +53,7 @@ def sourmash_searching(sourmash_dir,LINgroup,current_sig_path,current_genome):
     target_folder = sourmash_dir + LINgroup + "/"
     # shutil.copy(current_sig_path,target_folder)
     # copied_sig = target_folder + str(current_genome) + ".sig"
-    cmd = "sourmash search {0} {1}*.sig > {0}result.txt".format(current_sig_path,target_folder)
+    cmd = "sourmash search {0} {1}*.sig > {1}result.txt".format(current_sig_path,target_folder)
     os.system(cmd)
     f = open("{0}result.txt".format(target_folder),"r")
     lines = [i.strip().split(" \t ") for i in f.readlines()[3:]]
