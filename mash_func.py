@@ -145,8 +145,8 @@ def assign_LIN_based_on_mash(current_genome,subject_genome,c,conn):
     c.execute("select FilePath from Genome where Genome_ID={0}".format(int(subject_genome)))
     tmp = c.fetchone()
     filepath_subject_genome = tmp[0]
-    shutil.copy(filepath_current_genome,ANI_calc_dir)
-    shutil.copy(filepath_subject_genome,ANI_calc_dir)
+    shutil.copyfile(filepath_current_genome,ANI_calc_dir+"{0}.fasta".format(str(current_genome)))
+    shutil.copyfile(filepath_subject_genome,ANI_calc_dir+"{0}.fasta".format(str(subject_genome)))
     pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py -i {0} " \
                 "-o {0}output -m ANIblastall --nocompress".format(ANI_calc_dir)
     os.system(pyani_cmd)
