@@ -4,6 +4,7 @@
 
 # IMPORT
 import os
+from os import listdir
 from Bio import SeqIO
 from os.path import join
 from MySQLdb import Connect
@@ -43,20 +44,19 @@ def create_signature(Genome_ID,sourmash_dir,cursor,conn):
     conn.commit()
     return sig_path
 
-def sourmash_indexing(sourmash_dir, LINgroup):
-    target_folder = sourmash_dir+LINgroup+"/"
-    cmd = "sourmash sbt_index {0}index {0}*.sig".format(target_folder)
-    os.system(cmd)
+# def sourmash_indexing(sourmash_dir, LINgroup):
+#     target_folder = sourmash_dir+LINgroup+"/"
+#     cmd = "sourmash sbt_index {0}index {0}*.sig".format(target_folder)
+#     os.system(cmd)
 
 def sourmash_searching(sourmash_dir,LINgroup,current_sig_path,current_genome):
     target_folder = sourmash_dir + LINgroup + "/"
-    shutil.copy(current_sig_path,target_folder)
-    copied_sig = target_folder + str(current_genome) + ".sig"
-    sourmash_indexing(sourmash_dir,LINgroup)
-    cmd = "sourmash sbt_search {0}index {1} > {0}result.txt".format(target_folder,copied_sig)
+    # shutil.copy(current_sig_path,target_folder)
+    # copied_sig = target_folder + str(current_genome) + ".sig"
+    cmd = "sourmash search {0} {1}*.sig > {0}result.txt".format(current_sig_path,target_folder)
     os.system(cmd)
     f = open("{0}result.txt".format(target_folder),"r")
-    lines = [i.strip().split(" ") for i in f.readlines()]
+    lines = [i.strip().split(" \t ") for i in f.readlines()[3:]]
     f.close()
     return lines
 
@@ -97,39 +97,37 @@ def test_mash():
             if not isdir(sourmash_dir+current_G_LINgroup+"/"):
                 os.mkdir(sourmash_dir+current_G_LINgroup+"/")
             shutil.copy(sig_path_current,sourmash_dir+current_G_LINgroup+"/")
-            # shutil.copy(sig_path_current,sourmash_dir+"rep_bac/")
+            shutil.copy(sig_path_current,sourmash_dir+"rep_bac/")
             # sourmash_indexing(sourmash_dir,"rep_bac")
-            result_rep = sourmash_searching(sourmash_dir,"rep_bac",sig_path_current,current_genome)
-            if len(result_rep) == 2:
-                output_handler.write(line.format(current_genome,current_LIN,"Y",current_G_LINgroup,"rep_bac","NA","NA",
+            output_handler.write(
+            line.format(current_genome, current_LIN, "Y", current_G_LINgroup, "rep_bac", "NA", "NA",
                                                  subject_genome,ani))
-            else:
-                for i in range(1,len(result_rep)):
-                    if result_rep[i][1].split("/")[-1].split(".")[0] != str(current_genome):
-                        top_rep_mash = result_rep[i][1].split("/")[-1].split(".")[0]
-                        top_rep_mash_d = result_rep[i][0]
-                        break
-                output_handler.write(line.format(current_genome,current_LIN,"Y",current_G_LINgroup,"rep_bac",top_rep_mash,
-                                                 top_rep_mash_d,
-                                                 subject_genome,ani))
+            # result_rep = sourmash_searching(sourmash_dir,"rep_bac",sig_path_current,current_genome)
+            # if len(result_rep) == 2:
+            #     output_handler.write(line.format(current_genome,current_LIN,"Y",current_G_LINgroup,"rep_bac","NA","NA",
+            #                                      subject_genome,ani))
+            # else:
+            #     for i in range(1,len(result_rep)):
+            #         if result_rep[i][1].split("/")[-1].split(".")[0] != str(current_genome):
+            #             top_rep_mash = result_rep[i][1].split("/")[-1].split(".")[0]
+            #             top_rep_mash_d = result_rep[i][0]
+            #             break
+            #     output_handler.write(line.format(current_genome,current_LIN,"Y",current_G_LINgroup,"rep_bac",top_rep_mash,
+            #                                      top_rep_mash_d,
+            #                                      subject_genome,ani))
+
         else:
             result_rep = sourmash_searching(sourmash_dir,"rep_bac",sig_path_current,current_genome)
             if len(result_rep) == 2: # Means you are screwed at 95% level??? Hopefully this will not happen.
                 output_handler.write(line.format(current_genome,current_LIN,"N",current_G_LINgroup,"NA","NA",
                                                  subject_genome,ani))
             else:
-                for i in range(1,len(result_rep)):
-                    if result_rep[i][1].split("/")[-1].split(".")[0] != str(current_genome):
-                        top_rep_mash = result_rep[i][1].split("/")[-1].split(".")[0]
-                        top_rep_mash_d = result_rep[i][0]
-                        break
+                top_rep_mash = result_rep[0][2].split(".")[0]
+                top_rep_mash_d = result_rep[0][1]
                 top_rep_mash_G_LINgroup = full_df.get_value(int(top_rep_mash),"G_LINgroup")
                 result = sourmash_searching(sourmash_dir,top_rep_mash_G_LINgroup,sig_path_current,current_genome)
-                for i in range(1,len(result)):
-                    if result[i][1].split("/")[-1].split(".")[0] != str(current_genome):
-                        top_mash = result[i][1].split("/")[-1].split(".")[0]
-                        top_mash_d = result[i][0]
-                        break
+                top_mash = result[0][2].split(".")[0]
+                top_mash_d = result[0][1]
                 output_handler.write(line.format(current_genome,current_LIN,"N",current_G_LINgroup,
                                                  top_rep_mash_G_LINgroup,top_mash,top_mash_d,
                                                  subject_genome,ani))
@@ -161,9 +159,9 @@ def assign_LIN_based_on_mash(current_genome,subject_genome,c,conn):
 
 # MAIN
 if __name__ == "__main__":
-    # test_mash()
+    test_mash()
     conn, c = connect_to_db()
-    df = pd.read_csv("/home/linproject/Workspace/Sourmash/mash_choice.csv",header=0,index_col=0)
+    df = pd.read_table("/home/linproject/Workspace/Sourmash/result.txt",sep="\t",header=0,index_col=0)
     height = len(df.index)
     mash_based_LIN = []
     for each_genome in df.index:
