@@ -159,9 +159,9 @@ def assign_LIN_based_on_mash(current_genome,subject_genome,c,conn):
 
 # MAIN
 if __name__ == "__main__":
-    test_mash()
+    # test_mash()
     conn, c = connect_to_db()
-    df = pd.read_table("/home/linproject/Workspace/Sourmash/result.txt",sep="\t",header=0,index_col=0)
+    df = pd.read_table("/home/linproject/Workspace/Sourmash/test_result.txt",sep="\t",header=0,index_col=0)
     height = len(df.index)
     mash_based_LIN = []
     for each_genome in df.index:
