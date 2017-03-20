@@ -126,6 +126,7 @@ def test_mash():
                 top_rep_mash_d = result_rep[0][1]
                 top_rep_mash_G_LINgroup = full_df.get_value(int(top_rep_mash),"G_LINgroup")
                 result = sourmash_searching(sourmash_dir,top_rep_mash_G_LINgroup,sig_path_current,current_genome)
+                shutil.copy(sig_path_current, sourmash_dir + top_rep_mash_G_LINgroup + "/")
                 top_mash = result[0][0].split("/")[-1].split(".")[0]
                 top_mash_d = result[0][1]
                 output_handler.write(line.format(current_genome,current_LIN,"N",current_G_LINgroup,
@@ -159,7 +160,7 @@ def assign_LIN_based_on_mash(current_genome,subject_genome,c,conn):
 
 # MAIN
 if __name__ == "__main__":
-    # test_mash()
+    test_mash()
     conn, c = connect_to_db()
     df = pd.read_table("/home/linproject/Workspace/Sourmash/test_result.txt",sep="\t",header=0,index_col=0)
     height = len(df.index)
