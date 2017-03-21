@@ -122,27 +122,23 @@ def test_mash():
 
         else:
             result_rep = sourmash_searching(sourmash_dir,"rep_bac",sig_path_current,current_genome)
-            if result_rep == []: # Means you are screwed at 95% level??? Hopefully this will not happen.
-                output_handler.write(line.format(current_genome,current_LIN,"N",current_G_LINgroup,"NA",
-                                                 0))
-            else:
-                top_rep_mash = result_rep.index[0]
-                top_rep_mash_d = result_rep.get_value(result_rep.index[0],"mahs_d")
-                top_rep_mash_G_LINgroup = full_df.get_value(int(top_rep_mash),"G_LINgroup")
-                result = sourmash_searching(sourmash_dir,top_rep_mash_G_LINgroup,sig_path_current,current_genome)
-                shutil.copy(sig_path_current, sourmash_dir + top_rep_mash_G_LINgroup + "/")
-                mash_candidates = result.index
-                mash_d = result["mash_d"]
-                similarity = {}
-                for each_candidate in top_mash_candidates:
-                    ani = assign_LIN_based_on_mash(current_genome=current_genome,subject_genome=each_candidate,c=c)
-                    similarity[each_candidate] = ani
-                top_hit = max(similarity,key=similarity.get)
-                top_ani = similarity[top_hit]
-                new_LIN_obj = LIN_Assign.getLIN(Genome_ID=top_hit,Scheme_ID=3,similarity=top_ani)
-                new_LIN = LIN_Assign.Assign_LIN(new_LIN_obj,c=c,current_genome=current_genome).new_LIN
-                output_handler.write(line.format(current_genome,current_LIN,"N",current_G_LINgroup,
-                                                 new_LIN,len(similarity.keys())))
+            top_rep_mash = result_rep.index[0]
+            top_rep_mash_d = result_rep.get_value(result_rep.index[0],"mahs_d")
+            top_rep_mash_G_LINgroup = full_df.get_value(int(top_rep_mash),"G_LINgroup")
+            result = sourmash_searching(sourmash_dir,top_rep_mash_G_LINgroup,sig_path_current,current_genome)
+            shutil.copy(sig_path_current, sourmash_dir + top_rep_mash_G_LINgroup + "/")
+            mash_candidates = result.index
+            mash_d = result["mash_d"]
+            similarity = {}
+            for each_candidate in top_mash_candidates:
+                ani = assign_LIN_based_on_mash(current_genome=current_genome,subject_genome=each_candidate,c=c)
+                similarity[each_candidate] = ani
+            top_hit = max(similarity,key=similarity.get)
+            top_ani = similarity[top_hit]
+            new_LIN_obj = LIN_Assign.getLIN(Genome_ID=top_hit,Scheme_ID=3,similarity=top_ani)
+            new_LIN = LIN_Assign.Assign_LIN(new_LIN_obj,c=c,current_genome=current_genome).new_LIN
+            output_handler.write(line.format(current_genome,current_LIN,"N",current_G_LINgroup,
+                                             new_LIN,len(similarity.keys())))
     output_handler.close()
 
 def assign_LIN_based_on_mash(current_genome,subject_genome,c):
