@@ -123,7 +123,7 @@ def test_mash():
         else:
             result_rep = sourmash_searching(sourmash_dir,"rep_bac",sig_path_current,current_genome)
             top_rep_mash = result_rep.index[0]
-            top_rep_mash_d = result_rep.get_value(result_rep.index[0],"mahs_d")
+            top_rep_mash_d = result_rep.get_value(result_rep.index[0],"mash_d")
             top_rep_mash_G_LINgroup = full_df.get_value(int(top_rep_mash),"G_LINgroup")
             result = sourmash_searching(sourmash_dir,top_rep_mash_G_LINgroup,sig_path_current,current_genome)
             shutil.copy(sig_path_current, sourmash_dir + top_rep_mash_G_LINgroup + "/")
