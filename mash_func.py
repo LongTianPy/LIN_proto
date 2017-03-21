@@ -135,7 +135,7 @@ def test_mash():
                 similarity[each_candidate] = ani
             top_hit = max(similarity,key=similarity.get)
             top_ani = similarity[top_hit]
-            new_LIN_obj = LIN_Assign.getLIN(Genome_ID=top_hit,Scheme_ID=3,similarity=top_ani)
+            new_LIN_obj = LIN_Assign.getLIN(Genome_ID=top_hit,Scheme_ID=3,similarity=top_ani,c=c)
             new_LIN = LIN_Assign.Assign_LIN(new_LIN_obj,c=c,current_genome=current_genome).new_LIN
             output_handler.write(line.format(current_genome,current_LIN,"N",current_G_LINgroup,
                                              new_LIN,len(similarity.keys())))
