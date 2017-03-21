@@ -174,4 +174,4 @@ if __name__ == "__main__":
             new_LIN = df.get_value(each_genome,"Assigned_LIN")
         mash_based_LIN.append(new_LIN)
     df["mash_based_LIN"] = mash_based_LIN
-    df.to_csv("home/linproject/Workspace/Sourmash/mash_LIN.csv")
+    df.to_csv("/home/linproject/Workspace/Sourmash/mash_LIN.csv")
