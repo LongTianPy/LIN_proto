@@ -130,7 +130,7 @@ def test_mash():
             mash_candidates = result.index
             mash_d = result["mash_d"]
             similarity = {}
-            for each_candidate in top_mash_candidates:
+            for each_candidate in mash_candidates:
                 ani = assign_LIN_based_on_mash(current_genome=current_genome,subject_genome=each_candidate,c=c)
                 similarity[each_candidate] = ani
             top_hit = max(similarity,key=similarity.get)
