@@ -53,20 +53,25 @@ def sourmash_searching(sourmash_dir,LINgroup,current_sig_path,current_genome):
     target_folder = sourmash_dir + LINgroup + "/"
     # shutil.copy(current_sig_path,target_folder)
     # copied_sig = target_folder + str(current_genome) + ".sig"
-    cmd = "sourmash search {0} {1}*.sig > {1}result.txt".format(current_sig_path,target_folder)
+    cmd = "sourmash search {0} {1}*.sig -n 20 > {1}result.txt".format(current_sig_path,target_folder)
     os.system(cmd)
     f = open("{0}result.txt".format(target_folder),"r")
     lines = [i.strip().split(" \t ") for i in f.readlines()[3:]]
     f.close()
-    return lines
+    df = pd.DataFrame()
+    mash_d = [float(i[1]) for i in lines]
+    df["mash_d"] = mash_d
+    df.index = [i[0].split("/")[-1].split(".")[0] for i in lines]
+    df = df[df["mash_d"] > (df.get_value(df.index[0], "mash_d") - 0.1)]
+    return df
 
 # def check_result():
 
 def test_mash():
     sourmash_dir = "/home/linproject/Workspace/Sourmash/"
     output_handler = open(sourmash_dir+"test_result.txt","w")
-    output_handler.write("Genome_ID\tAssigned_LIN\tNew_G_LINgroup\tG_LINgroup\tSearching_G_LINgroup\tTop_Mash\tTop_Mash_D\tSubjectGenome\tANI\n")
-    line = "{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\n"
+    output_handler.write("Genome_ID\tAssigned_LIN\tNew_G_LINgroup\tG_LINgroup\tNew_LIN\tANI_calcs\n")
+    line = "{0}\t{1}\t{2}\t{3}\t{4}\t{5}\n"
     conn, c = connect_to_db()
     full_df, All_genomes = fetch_genomes(c)
     full_df["G_LINgroup"] = [",".join(each.split(",")[:7]) for each in full_df["LIN"]]
@@ -78,7 +83,7 @@ def test_mash():
     if not isdir(sourmash_dir+"rep_bac/"):
         os.mkdir(sourmash_dir+"rep_bac/")
     shutil.copy(sig_path0, sourmash_dir + "rep_bac/")
-    output_handler.write(line.format(All_genomes[0],",".join(['0']*20),"Y","0,0,0,0,0,0,0","NA",1,1,1,1))
+    output_handler.write(line.format(All_genomes[0],",".join(['0']*20),"Y","0,0,0,0,0,0,0",",".join(['0']*20),0))
     for idx in range(1,len(All_genomes)):
         current_genome, current_df = fetch_current(full_df,All_genomes,idx)
         write_both_strand(current_genome,c,sourmash_dir)
@@ -100,8 +105,7 @@ def test_mash():
             shutil.copy(sig_path_current,sourmash_dir+"rep_bac/")
             # sourmash_indexing(sourmash_dir,"rep_bac")
             output_handler.write(
-            line.format(current_genome, current_LIN, "Y", current_G_LINgroup, "rep_bac", "NA", "NA",
-                                                 subject_genome,ani))
+            line.format(current_genome, current_LIN, "Y", current_G_LINgroup, current_LIN, 1))
             # result_rep = sourmash_searching(sourmash_dir,"rep_bac",sig_path_current,current_genome)
             # if len(result_rep) == 2:
             #     output_handler.write(line.format(current_genome,current_LIN,"Y",current_G_LINgroup,"rep_bac","NA","NA",
@@ -119,22 +123,29 @@ def test_mash():
         else:
             result_rep = sourmash_searching(sourmash_dir,"rep_bac",sig_path_current,current_genome)
             if result_rep == []: # Means you are screwed at 95% level??? Hopefully this will not happen.
-                output_handler.write(line.format(current_genome,current_LIN,"N",current_G_LINgroup,"NA","NA",
-                                                 subject_genome,ani))
+                output_handler.write(line.format(current_genome,current_LIN,"N",current_G_LINgroup,"NA",
+                                                 0))
             else:
-                top_rep_mash = result_rep[0][0].split("/")[-1].split(".")[0]
-                top_rep_mash_d = result_rep[0][1]
+                top_rep_mash = result_rep.index[0]
+                top_rep_mash_d = result_rep.get_value(result_rep.index[0],"mahs_d")
                 top_rep_mash_G_LINgroup = full_df.get_value(int(top_rep_mash),"G_LINgroup")
                 result = sourmash_searching(sourmash_dir,top_rep_mash_G_LINgroup,sig_path_current,current_genome)
                 shutil.copy(sig_path_current, sourmash_dir + top_rep_mash_G_LINgroup + "/")
-                top_mash = result[0][0].split("/")[-1].split(".")[0]
-                top_mash_d = result[0][1]
+                mash_candidates = result.index
+                mash_d = result["mash_d"]
+                similarity = {}
+                for each_candidate in top_mash_candidates:
+                    ani = assign_LIN_based_on_mash(current_genome=current_genome,subject_genome=each_candidate,c=c)
+                    similarity[each_candidate] = ani
+                top_hit = max(similarity,key=similarity.get)
+                top_ani = similarity[top_hit]
+                new_LIN_obj = LIN_Assign.getLIN(Genome_ID=top_hit,Scheme_ID=3,similarity=top_ani)
+                new_LIN = LIN_Assign.Assign_LIN(new_LIN_obj,c=c,current_genome=current_genome).new_LIN
                 output_handler.write(line.format(current_genome,current_LIN,"N",current_G_LINgroup,
-                                                 top_rep_mash_G_LINgroup,top_mash,top_mash_d,
-                                                 subject_genome,ani))
+                                                 new_LIN,len(similarity.keys())))
     output_handler.close()
 
-def assign_LIN_based_on_mash(current_genome,subject_genome,c,conn):
+def assign_LIN_based_on_mash(current_genome,subject_genome,c):
     ANI_calc_dir = "/home/linproject/Workspace/ANI/"
     if not isdir(ANI_calc_dir):
         os.mkdir(ANI_calc_dir)
@@ -151,27 +162,27 @@ def assign_LIN_based_on_mash(current_genome,subject_genome,c,conn):
     os.system(pyani_cmd)
     ANIb_result = pd.read_table(ANI_calc_dir + "output/ANIblastall_percentage_identity.tab",
                                 header=0, index_col=0).get_value(int(current_genome), str(subject_genome))
-    print ANIb_result
+    # print ANIb_result
     os.system("rm -rf {0}*".format(ANI_calc_dir))
-    new_LIN_object = LIN_Assign.getLIN(Genome_ID=subject_genome, Scheme_ID=3, similarity=ANIb_result, c=c)
-    new_LIN = LIN_Assign.Assign_LIN(new_LIN_object, c=c,current_genome=current_genome).new_LIN
-    return new_LIN
+    # new_LIN_object = LIN_Assign.getLIN(Genome_ID=subject_genome, Scheme_ID=3, similarity=ANIb_result, c=c)
+    # new_LIN = LIN_Assign.Assign_LIN(new_LIN_object, c=c,current_genome=current_genome).new_LIN
+    return ANIb_result
 
 
 # MAIN
 if __name__ == "__main__":
-    # test_mash()
-    conn, c = connect_to_db()
-    df = pd.read_table("/home/linproject/Workspace/Sourmash/test_result.txt",sep="\t",header=0,index_col=0)
-    height = len(df.index)
-    mash_based_LIN = []
-    for each_genome in df.index:
-        if df.get_value(each_genome,"Top_Mash") != df.get_value(each_genome,"SubjectGenome") \
-                and df.get_value(each_genome,"New_G_LINgroup") == "N":
-            print int(each_genome), int(df.get_value(each_genome,"Top_Mash"))
-            new_LIN = assign_LIN_based_on_mash(each_genome,int(df.get_value(each_genome,"Top_Mash")),c,conn)
-        else:
-            new_LIN = df.get_value(each_genome,"Assigned_LIN")
-        mash_based_LIN.append(new_LIN)
-    df["mash_based_LIN"] = mash_based_LIN
-    df.to_csv("/home/linproject/Workspace/Sourmash/mash_LIN.csv")
+    test_mash()
+    # conn, c = connect_to_db()
+    # df = pd.read_table("/home/linproject/Workspace/Sourmash/test_result.txt",sep="\t",header=0,index_col=0)
+    # height = len(df.index)
+    # mash_based_LIN = []
+    # for each_genome in df.index:
+    #     if df.get_value(each_genome,"Top_Mash") != df.get_value(each_genome,"SubjectGenome") \
+    #             and df.get_value(each_genome,"New_G_LINgroup") == "N":
+    #         print int(each_genome), int(df.get_value(each_genome,"Top_Mash"))
+    #         new_LIN = assign_LIN_based_on_mash(each_genome,int(df.get_value(each_genome,"Top_Mash")),c,conn)
+    #     else:
+    #         new_LIN = df.get_value(each_genome,"Assigned_LIN")
+    #     mash_based_LIN.append(new_LIN)
+    # df["mash_based_LIN"] = mash_based_LIN
+    # df.to_csv("/home/linproject/Workspace/Sourmash/mash_LIN.csv")
