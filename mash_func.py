@@ -139,6 +139,7 @@ def test_mash():
             new_LIN = LIN_Assign.Assign_LIN(new_LIN_obj,c=c,current_genome=current_genome).new_LIN
             output_handler.write(line.format(current_genome,current_LIN,"N",current_G_LINgroup,
                                              new_LIN,len(similarity.keys())))
+            print(str(current_genome)+"\n"+current_LIN+"\n"+new_LIN+"\n")
     output_handler.close()
 
 def assign_LIN_based_on_mash(current_genome,subject_genome,c):
