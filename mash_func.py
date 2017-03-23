@@ -201,7 +201,6 @@ def whatsgoingon():
         for each_candidate in candidates:
             ani = assign_LIN_based_on_mash(current_genome=int(genome), subject_genome=each_candidate, c=c)
             similarity.append(ani)
-            similarity[each_candidate] = ani
         result["ANI"] = similarity
         result.to_csv("{0}_unmatch_result.csv".format(genome))
 
