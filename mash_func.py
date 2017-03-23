@@ -204,15 +204,9 @@ def whatsgoingon():
         result.to_csv("{0}_unmatch_result.csv".format(genome))
 
 
-
-
-
-
-
-
-
 # MAIN
 if __name__ == "__main__":
+    whatsgoingon()
     # test_mash()
     # conn, c = connect_to_db()
     # df = pd.read_table("/home/linproject/Workspace/Sourmash/test_result.txt",sep="\t",header=0,index_col=0)
