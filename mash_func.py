@@ -18,7 +18,7 @@ import LIN_Assign
 def connect_to_db():
     conn = Connect("localhost","root")
     c = conn.cursor()
-    c.execute("use LINdb_Psy")
+    c.execute("use LINdb_mash_test")
     return conn, c
 
 def write_both_strand(Genome_ID,cursor,sourmash_dir):
@@ -53,7 +53,7 @@ def sourmash_searching(sourmash_dir,LINgroup,current_sig_path,current_genome):
     target_folder = sourmash_dir + LINgroup + "/"
     # shutil.copy(current_sig_path,target_folder)
     # copied_sig = target_folder + str(current_genome) + ".sig"
-    cmd = "sourmash search {0} {1}*.sig -n 20 > {1}result.txt".format(current_sig_path,target_folder)
+    cmd = "sourmash search {0} {1}*.sig -n 30 > {1}result.txt".format(current_sig_path,target_folder)
     os.system(cmd)
     f = open("{0}result.txt".format(target_folder),"r")
     lines = [i.strip().split(" \t ") for i in f.readlines()[3:]]
@@ -65,6 +65,10 @@ def sourmash_searching(sourmash_dir,LINgroup,current_sig_path,current_genome):
     df = df[df["mash_d"] > (df.get_value(df.index[0], "mash_d") - 0.1)]
     return df
 
+def write_LIN_to_db(current_genome,subject_genome,ani,new_LIN,conn,c):
+    sql = "INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 3, '{1}', '{2}', {3})"
+    c.execute(sql.format(current_genome,3,subject_genome,ani,new_LIN))
+    conn.commit()
 # def check_result():
 
 def test_mash():
@@ -84,6 +88,7 @@ def test_mash():
         os.mkdir(sourmash_dir+"rep_bac/")
     shutil.copy(sig_path0, sourmash_dir + "rep_bac/")
     output_handler.write(line.format(All_genomes[0],",".join(['0']*20),"Y","0,0,0,0,0,0,0",",".join(['0']*20),0))
+    write_LIN_to_db(1,1,1,",".join(['0']*20),conn,c)
     for idx in range(1,len(All_genomes)):
         current_genome, current_df = fetch_current(full_df,All_genomes,idx)
         write_both_strand(current_genome,c,sourmash_dir)
@@ -91,8 +96,8 @@ def test_mash():
         current_LIN = full_df.get_value(All_genomes[idx],"LIN") # A string
         current_G_LINgroup = ",".join(current_LIN.split(",")[:7])
         G_LINgroup = [",".join(each.split(",")[:7]) for each in current_df["LIN"]]
-        subject_genome = full_df.get_value(All_genomes[idx],"SubjectGenome")
-        ani = full_df.get_value(All_genomes[idx],"ANI")
+        # subject_genome = full_df.get_value(All_genomes[idx],"SubjectGenome")
+        # ani = full_df.get_value(All_genomes[idx],"ANI")
         # Trick is, mash d may or may not respond to 90% ani.
         # We are using 95% ani.
         # First thing is to check if it correlates with representative genomes.
@@ -106,6 +111,8 @@ def test_mash():
             # sourmash_indexing(sourmash_dir,"rep_bac")
             output_handler.write(
             line.format(current_genome, current_LIN, "Y", current_G_LINgroup, current_LIN, 1))
+            db = Connect("localhost","root")
+
             # result_rep = sourmash_searching(sourmash_dir,"rep_bac",sig_path_current,current_genome)
             # if len(result_rep) == 2:
             #     output_handler.write(line.format(current_genome,current_LIN,"Y",current_G_LINgroup,"rep_bac","NA","NA",
@@ -165,10 +172,48 @@ def assign_LIN_based_on_mash(current_genome,subject_genome,c):
     # new_LIN = LIN_Assign.Assign_LIN(new_LIN_object, c=c,current_genome=current_genome).new_LIN
     return ANIb_result
 
+def whatsgoingon():
+    # This is happening in Sourmash dir
+    conn,c = connect_to_db()
+    f = open("unmatch.txt","r")
+    Genome_ID = [i.strip() for i in f.readlines()]
+    f.close()
+    df = pd.read_table("test_result.txt",sep="\t",header=0,index_col=0)
+    for genome in Genome_ID:
+        c.execute("SELECT SignaturePath FROM Signature WHERE Genome_ID={0}".format(genome))
+        current_sig_path = c.fetchone()[0]
+
+        LINgroup = str(df.get_value(genome,"G_LINgroup"))
+        c.execute("SELECT Signature.Genome_ID,Signature.SignaturePath FROM LIN,Signature"
+                  " WHERE LIN.Genome_ID=Signature.Genome_ID AND LIN.LIN LIKE '{0}%' "
+                  "AND Signature.Genome_ID<{1}".format(LINgroup,genome))
+        tmp = c.fetchall()
+        signature_paths = [i[1] for i in tmp]
+        os.mkdir("tmp")
+        for each in signature_paths:
+            shutil.copy(each,"tmp")
+        result = sourmash_searching("./","tmp",current_sig_path,genome)
+        candidates = result.index
+        similarity = []
+        similarity_dict = {}
+        for each_candidate in candidates:
+            ani = assign_LIN_based_on_mash(current_genome=current_genome, subject_genome=each_candidate, c=c)
+            similarity.append(ani)
+            similarity[each_candidate] = ani
+        result["ANI"] = similarity
+        result.to_csv("{0}_unmatch_result.csv".format(genome))
+
+
+
+
+
+
+
+
 
 # MAIN
 if __name__ == "__main__":
-    test_mash()
+    # test_mash()
     # conn, c = connect_to_db()
     # df = pd.read_table("/home/linproject/Workspace/Sourmash/test_result.txt",sep="\t",header=0,index_col=0)
     # height = len(df.index)
