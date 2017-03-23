@@ -197,7 +197,7 @@ def whatsgoingon():
         similarity = []
         similarity_dict = {}
         for each_candidate in candidates:
-            ani = assign_LIN_based_on_mash(current_genome=current_genome, subject_genome=each_candidate, c=c)
+            ani = assign_LIN_based_on_mash(current_genome=int(genome), subject_genome=each_candidate, c=c)
             similarity.append(ani)
             similarity[each_candidate] = ani
         result["ANI"] = similarity
