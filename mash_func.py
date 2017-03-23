@@ -189,10 +189,12 @@ def whatsgoingon():
                   "AND Signature.Genome_ID<{1}".format(LINgroup,genome))
         tmp = c.fetchall()
         signature_paths = [i[1] for i in tmp]
-        os.mkdir("tmp")
+        if not isdir("tmp"):
+            os.mkdir("tmp")
         for each in signature_paths:
             shutil.copy(each,"tmp")
         result = sourmash_searching("./","tmp",current_sig_path,genome)
+        os.system("rm -rf tmp/*")
         candidates = result.index
         similarity = []
         similarity_dict = {}
