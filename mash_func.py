@@ -183,7 +183,7 @@ def whatsgoingon():
         c.execute("SELECT SignaturePath FROM Signature WHERE Genome_ID={0}".format(genome))
         current_sig_path = c.fetchone()[0]
 
-        LINgroup = str(df.get_value(genome,"G_LINgroup"))
+        LINgroup = str(df.get_value(int(genome),"G_LINgroup"))
         c.execute("SELECT Signature.Genome_ID,Signature.SignaturePath FROM LIN,Signature"
                   " WHERE LIN.Genome_ID=Signature.Genome_ID AND LIN.LIN LIKE '{0}%' "
                   "AND Signature.Genome_ID<{1}".format(LINgroup,genome))
