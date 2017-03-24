@@ -189,7 +189,7 @@ def whatsgoingon():
             current_file_path = c.fetchone()[0]
             write_both_strand(genome,c,sourmash_dir)
             current_sig_path = create_signature(genome,sourmash_dir,c,conn)
-            sig_pool[str(genome)] = curreng_sig_path
+            sig_pool[str(genome)] = current_sig_path
         else:
             current_sig_path = sig_pool[str(genome)]
 
