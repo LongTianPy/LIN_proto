@@ -203,7 +203,7 @@ def whatsgoingon():
         for each_subject in subject_genomes:
             if str(each_subject) not in sig_pool:
                 write_both_strand(each_subject,c,sourmash_dir)
-                sig_path = create_signature(each,sourmash_dir,c,conn)
+                sig_path = create_signature(each_subject,sourmash_dir,c,conn)
                 sig_pool[str(subject_genomes)] = sig_path
                 subject_sig_path.append(sig_path)
         if not isdir(sourmash_dir+"tmp"):
