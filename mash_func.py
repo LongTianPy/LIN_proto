@@ -20,7 +20,7 @@ from functools import partial
 def connect_to_db():
     conn = Connect("localhost","root")
     c = conn.cursor()
-    c.execute("use LINdb_mash_test")
+    c.execute("use LINdb_Psy")
     return conn, c
 
 def write_both_strand(Genome_ID,cursor,sourmash_dir):
@@ -188,10 +188,10 @@ def whatsgoingon():
             c.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(genome))
             current_file_path = c.fetchone()[0]
             write_both_strand(genome,c,sourmash_dir)
-            curreng_sig_path = create_signature(genome,sourmash_dir,c,conn)
+            current_sig_path = create_signature(genome,sourmash_dir,c,conn)
             sig_pool[str(genome)] = curreng_sig_path
         else:
-            curreng_sig_path = sig_pool[str(genome)]
+            current_sig_path = sig_pool[str(genome)]
 
         LINgroup = str(df.get_value(int(genome),"G_LINgroup"))
         c.execute("SELECT Genome_ID FROM LIN"
