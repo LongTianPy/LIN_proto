@@ -13,6 +13,8 @@ from os.path import isdir
 import shutil
 import pandas as pd
 import LIN_Assign
+import multiprocessing as mp
+from functools import partial
 
 # FUNCTIONS
 def connect_to_db():
@@ -174,25 +176,40 @@ def assign_LIN_based_on_mash(current_genome,subject_genome,c):
 
 def whatsgoingon():
     # This is happening in Sourmash dir
+    sourmash_dir = "/home/linproject/Workspace/Sourmash_n1000/"
     conn,c = connect_to_db()
-    f = open("unmatch.txt","r")
+    f = open("/home/linproject/Workspace/Sourmash/unmatch.txt","r")
     Genome_ID = [i.strip() for i in f.readlines()]
     f.close()
-    df = pd.read_table("test_result.txt",sep="\t",header=0,index_col=0)
+    df = pd.read_table("/home/linproject/Workspace/Sourmash/test_result.txt",sep="\t",header=0,index_col=0)
+    sig_pool = {}
     for genome in Genome_ID:
-        c.execute("SELECT SignaturePath FROM Signature WHERE Genome_ID={0}".format(genome))
-        current_sig_path = c.fetchone()[0]
+        if str(genome) not in sig_pool:
+            c.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(genome))
+            current_file_path = c.fetchone()[0]
+            write_both_strand(genome,c,sourmash_dir)
+            curreng_sig_path = create_signature(genome,sourmash_dir,c,conn)
+            sig_pool[str(genome)] = curreng_sig_path
+        else:
+            curreng_sig_path = sig_pool[str(genome)]
 
         LINgroup = str(df.get_value(int(genome),"G_LINgroup"))
-        c.execute("SELECT Signature.Genome_ID,Signature.SignaturePath FROM LIN,Signature"
-                  " WHERE LIN.Genome_ID=Signature.Genome_ID AND LIN.LIN LIKE '{0}%' "
-                  "AND Signature.Genome_ID<{1}".format(LINgroup,genome))
+        c.execute("SELECT Genome_ID FROM LIN"
+                  " WHERE LIN LIKE '{0}%' "
+                  "AND Genome_ID<{1}".format(LINgroup,genome))
         tmp = c.fetchall()
-        signature_paths = [i[1] for i in tmp]
-        if not isdir("tmp"):
-            os.mkdir("tmp")
+        subject_genomes = [i[0] for i in tmp]
+        subject_sig_path = []
+        for each_subject in subject_genomes:
+            if str(each_subject) not in sig_pool:
+                write_both_strand(each_subject,c,sourmash_dir)
+                sig_path = create_signature(each,sourmash_dir,c,conn)
+                sig_pool[str(subject_genomes)] = sig_path
+                subject_sig_path.append(sig_path)
+        if not isdir(sourmash_dir+"tmp"):
+            os.mkdir(sourmash_dir+"tmp")
         for each in signature_paths:
-            shutil.copy(each,"tmp")
+            shutil.copy(each,sourmash_dir+"tmp")
         result = sourmash_searching("./","tmp",current_sig_path,genome)
         os.system("rm -rf tmp/*")
         # candidates = result.index
