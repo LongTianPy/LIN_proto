@@ -208,7 +208,7 @@ def whatsgoingon():
                 subject_sig_path.append(sig_path)
         if not isdir(sourmash_dir+"tmp"):
             os.mkdir(sourmash_dir+"tmp")
-        for each in signature_paths:
+        for each in subject_sig_path:
             shutil.copy(each,sourmash_dir+"tmp")
         result = sourmash_searching("./","tmp",current_sig_path,genome)
         os.system("rm -rf tmp/*")
