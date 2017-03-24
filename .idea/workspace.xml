@@ -182,22 +182,22 @@
       <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mash_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="40" column="44" lean-forward="false" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+            <state relative-caret-position="291">
+              <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="203" selection-end-column="36" />
               <folding>
                 <element signature="e#84#93#0" expanded="true" />
                 <element signature="e#2480#2675#0" expanded="false" />
-                <marker date="1490368688000" expanded="true" signature="566:610" ph="select FileP... Genome" />
-                <marker date="1490368688000" expanded="true" signature="566:613" ph="select FileP... Genome" />
-                <marker date="1490368688000" expanded="true" signature="1332:1399" ph="insert into Signature... " />
-                <marker date="1490368688000" expanded="true" signature="2487:2585" ph="INSERT INTO LIN... " />
-                <marker date="1490368688000" expanded="true" signature="7789:7833" ph="select FileP... Genome" />
-                <marker date="1490368688000" expanded="true" signature="7789:7836" ph="select FileP... Genome" />
-                <marker date="1490368688000" expanded="true" signature="7942:7986" ph="select FileP... Genome" />
-                <marker date="1490368688000" expanded="true" signature="9290:9342" ph="SELECT Signa... Signature" />
-                <marker date="1490368688000" expanded="true" signature="9290:9345" ph="SELECT Signa... Signature" />
-                <marker date="1490368688000" expanded="true" signature="9489:9689" ph="SELECT Signa... LIN" />
-                <marker date="1490368688000" expanded="true" signature="9489:9692" ph="SELECT Genom... LIN" />
+                <marker date="1490368781000" expanded="true" signature="566:610" ph="select FileP... Genome" />
+                <marker date="1490368781000" expanded="true" signature="566:613" ph="select FileP... Genome" />
+                <marker date="1490368781000" expanded="true" signature="1332:1399" ph="insert into Signature... " />
+                <marker date="1490368781000" expanded="true" signature="2487:2585" ph="INSERT INTO LIN... " />
+                <marker date="1490368781000" expanded="true" signature="7789:7833" ph="select FileP... Genome" />
+                <marker date="1490368781000" expanded="true" signature="7789:7836" ph="select FileP... Genome" />
+                <marker date="1490368781000" expanded="true" signature="7942:7986" ph="select FileP... Genome" />
+                <marker date="1490368781000" expanded="true" signature="9290:9342" ph="SELECT Signa... Signature" />
+                <marker date="1490368781000" expanded="true" signature="9290:9345" ph="SELECT Signa... Signature" />
+                <marker date="1490368781000" expanded="true" signature="9489:9689" ph="SELECT Signa... LIN" />
+                <marker date="1490368781000" expanded="true" signature="9489:9692" ph="SELECT Genom... LIN" />
               </folding>
             </state>
           </provider>
@@ -818,13 +818,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00472" summary="Dev - Test how well can we trust mash, or sourmash&#10;Debug">
-      <created>1489677300985</created>
-      <option name="number" value="00472" />
-      <option name="presentableId" value="LOCAL-00472" />
-      <option name="project" value="LOCAL" />
-      <updated>1489677300985</updated>
-    </task>
     <task id="LOCAL-00473" summary="Dev - Test how well can we trust mash, or sourmash&#10;Debug">
       <created>1489677365298</created>
       <option name="number" value="00473" />
@@ -1161,7 +1154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490294644660</updated>
     </task>
-    <option name="localTasksCounter" value="521" />
+    <task id="LOCAL-00521" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
+      <created>1490368690391</created>
+      <option name="number" value="00521" />
+      <option name="presentableId" value="LOCAL-00521" />
+      <option name="project" value="LOCAL" />
+      <updated>1490368690392</updated>
+    </task>
+    <option name="localTasksCounter" value="522" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1753,22 +1753,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mash_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="40" column="44" lean-forward="false" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+        <state relative-caret-position="291">
+          <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="203" selection-end-column="36" />
           <folding>
             <element signature="e#84#93#0" expanded="true" />
             <element signature="e#2480#2675#0" expanded="false" />
-            <marker date="1490368688000" expanded="true" signature="566:610" ph="select FileP... Genome" />
-            <marker date="1490368688000" expanded="true" signature="566:613" ph="select FileP... Genome" />
-            <marker date="1490368688000" expanded="true" signature="1332:1399" ph="insert into Signature... " />
-            <marker date="1490368688000" expanded="true" signature="2487:2585" ph="INSERT INTO LIN... " />
-            <marker date="1490368688000" expanded="true" signature="7789:7833" ph="select FileP... Genome" />
-            <marker date="1490368688000" expanded="true" signature="7789:7836" ph="select FileP... Genome" />
-            <marker date="1490368688000" expanded="true" signature="7942:7986" ph="select FileP... Genome" />
-            <marker date="1490368688000" expanded="true" signature="9290:9342" ph="SELECT Signa... Signature" />
-            <marker date="1490368688000" expanded="true" signature="9290:9345" ph="SELECT Signa... Signature" />
-            <marker date="1490368688000" expanded="true" signature="9489:9689" ph="SELECT Signa... LIN" />
-            <marker date="1490368688000" expanded="true" signature="9489:9692" ph="SELECT Genom... LIN" />
+            <marker date="1490368781000" expanded="true" signature="566:610" ph="select FileP... Genome" />
+            <marker date="1490368781000" expanded="true" signature="566:613" ph="select FileP... Genome" />
+            <marker date="1490368781000" expanded="true" signature="1332:1399" ph="insert into Signature... " />
+            <marker date="1490368781000" expanded="true" signature="2487:2585" ph="INSERT INTO LIN... " />
+            <marker date="1490368781000" expanded="true" signature="7789:7833" ph="select FileP... Genome" />
+            <marker date="1490368781000" expanded="true" signature="7789:7836" ph="select FileP... Genome" />
+            <marker date="1490368781000" expanded="true" signature="7942:7986" ph="select FileP... Genome" />
+            <marker date="1490368781000" expanded="true" signature="9290:9342" ph="SELECT Signa... Signature" />
+            <marker date="1490368781000" expanded="true" signature="9290:9345" ph="SELECT Signa... Signature" />
+            <marker date="1490368781000" expanded="true" signature="9489:9689" ph="SELECT Signa... LIN" />
+            <marker date="1490368781000" expanded="true" signature="9489:9692" ph="SELECT Genom... LIN" />
           </folding>
         </state>
       </provider>
