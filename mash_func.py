@@ -55,7 +55,7 @@ def sourmash_searching(sourmash_dir,LINgroup,current_sig_path,current_genome):
     target_folder = sourmash_dir + LINgroup + "/"
     # shutil.copy(current_sig_path,target_folder)
     # copied_sig = target_folder + str(current_genome) + ".sig"
-    files = [i for i in listdir(target_folder) if isfile(i)]
+    files = [i for i in listdir(target_folder) if isfile(join(target_folder,i))]
     size = len(files)
     print size
     cmd = "sourmash search {0} {1}*.sig -n {2} > {1}result.txt".format(current_sig_path,target_folder,size)
@@ -125,8 +125,7 @@ def test_mash():
             # sourmash_indexing(sourmash_dir,"rep_bac")
             output_handler.write(
             line.format(current_genome, current_LIN, "Y", current_G_LINgroup, current_LIN, 1))
-            db = Connect("localhost","root")
-
+            # db = Connect("localhost","root")
             # result_rep = sourmash_searching(sourmash_dir,"rep_bac",sig_path_current,current_genome)
             # if len(result_rep) == 2:
             #     output_handler.write(line.format(current_genome,current_LIN,"Y",current_G_LINgroup,"rep_bac","NA","NA",
