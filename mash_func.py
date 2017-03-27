@@ -40,7 +40,7 @@ def write_both_strand(Genome_ID,cursor,sourmash_dir):
 
 def create_signature(Genome_ID,sourmash_dir,cursor,conn):
     sig_path = sourmash_dir+str(Genome_ID)+".sig"
-    sourmash_cmd = "sourmash compute -n 1000 -o {0} {1}.fasta".format(sig_path,sourmash_dir+str(Genome_ID))
+    sourmash_cmd = "sourmash compute -o {0} {1}.fasta".format(sig_path,sourmash_dir+str(Genome_ID))
     os.system(sourmash_cmd)
     cursor.execute("insert into Signature (Genome_ID,SignaturePath) values ({0}, '{1}')".format(Genome_ID, sig_path))
     conn.commit()
@@ -57,7 +57,9 @@ def sourmash_searching(sourmash_dir,LINgroup,current_sig_path,current_genome):
     # copied_sig = target_folder + str(current_genome) + ".sig"
     files = [i for i in listdir(target_folder) if isfile(i)]
     size = len(files)
+    print size
     cmd = "sourmash search {0} {1}*.sig -n {2} > {1}result.txt".format(current_sig_path,target_folder,size)
+    print cmd
     os.system(cmd)
     f = open("{0}result.txt".format(target_folder),"r")
     lines = [i.strip().split(" \t ") for i in f.readlines()[3:]]
@@ -100,7 +102,7 @@ def test_mash():
         os.mkdir(sourmash_dir+"rep_bac/")
     shutil.copy(sig_path0, sourmash_dir + "rep_bac/")
     output_handler.write(line.format(All_genomes[0],",".join(['0']*20),"Y","0,0,0,0,0,0,0",",".join(['0']*20),0))
-    write_LIN_to_db(1,1,1,",".join(['0']*20),conn,c)
+    # write_LIN_to_db(1,1,1,",".join(['0']*20),conn,c)
     for idx in range(1,len(All_genomes)):
         current_genome, current_df = fetch_current(full_df,All_genomes,idx)
         write_both_strand(current_genome,c,sourmash_dir)
