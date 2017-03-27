@@ -6,7 +6,7 @@
 import os
 from os import listdir
 from Bio import SeqIO
-from os.path import join
+from os.path import join, isfile
 from MySQLdb import Connect
 from LINgroup_indexing_comparison import fetch_current, fetch_genomes
 from os.path import isdir
@@ -55,15 +55,25 @@ def sourmash_searching(sourmash_dir,LINgroup,current_sig_path,current_genome):
     target_folder = sourmash_dir + LINgroup + "/"
     # shutil.copy(current_sig_path,target_folder)
     # copied_sig = target_folder + str(current_genome) + ".sig"
-    cmd = "sourmash search {0} {1}*.sig -n 30 > {1}result.txt".format(current_sig_path,target_folder)
+    files = [i for i in listdir(target_folder) if isfile(i)]
+    size = len(files)
+    cmd = "sourmash search {0} {1}*.sig -n {2} > {1}result.txt".format(current_sig_path,target_folder,size)
     os.system(cmd)
     f = open("{0}result.txt".format(target_folder),"r")
     lines = [i.strip().split(" \t ") for i in f.readlines()[3:]]
     f.close()
+    candidates = []
+    candidates.append(lines[0])
+    if len(lines) > 1:
+        for i in range(1,len(lines)):
+            if float(lines[i][1]) - float(lines[i-1][1]) < -0.1:
+                break
+            else:
+                candidates.append(lines[i])
     df = pd.DataFrame()
-    mash_d = [float(i[1]) for i in lines]
+    mash_d = [float(i[1]) for i in candidates]
     df["mash_d"] = mash_d
-    df.index = [i[0].split("/")[-1].split(".")[0] for i in lines]
+    df.index = [i[0].split("/")[-1].split(".")[0] for i in candidates]
     df = df[df["mash_d"] > (df.get_value(df.index[0], "mash_d") - 0.1)]
     return df
 
@@ -224,8 +234,8 @@ def whatsgoingon():
 
 # MAIN
 if __name__ == "__main__":
-    whatsgoingon()
-    # test_mash()
+    # whatsgoingon()
+    test_mash()
     # conn, c = connect_to_db()
     # df = pd.read_table("/home/linproject/Workspace/Sourmash/test_result.txt",sep="\t",header=0,index_col=0)
     # height = len(df.index)
