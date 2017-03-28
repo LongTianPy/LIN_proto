@@ -76,7 +76,7 @@ def sourmash_searching(sourmash_dir,LINgroup,current_sig_path,current_genome):
     mash_d = [float(i[1]) for i in candidates]
     df["mash_d"] = mash_d
     df.index = [i[0].split("/")[-1].split(".")[0] for i in candidates]
-    df = df[df["mash_d"] > (df.get_value(df.index[0], "mash_d") - 0.1)]
+    # df = df[df["mash_d"] > (df.get_value(df.index[0], "mash_d") - 0.1)]
     return df
 
 def write_LIN_to_db(current_genome,subject_genome,ani,new_LIN,conn,c):
@@ -215,8 +215,10 @@ def whatsgoingon():
             if str(each_subject) not in sig_pool:
                 write_both_strand(each_subject,c,sourmash_dir)
                 sig_path = create_signature(each_subject,sourmash_dir,c,conn)
-                sig_pool[str(subject_genomes)] = sig_path
+                sig_pool[str(each_subject)] = sig_path
                 subject_sig_path.append(sig_path)
+            else:
+                subject_sig_path.append(sig_pool[str(each_subject)])
         if not isdir(sourmash_dir+"tmp"):
             os.mkdir(sourmash_dir+"tmp")
         for each in subject_sig_path:
