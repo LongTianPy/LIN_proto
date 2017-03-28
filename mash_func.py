@@ -223,13 +223,13 @@ def whatsgoingon():
             shutil.copy(each,sourmash_dir+"tmp")
         result = sourmash_searching("./","tmp",current_sig_path,genome)
         os.system("rm -rf tmp/*")
-        # candidates = result.index
-        # similarity = []
-        # similarity_dict = {}
-        # for each_candidate in candidates:
-        #     ani = assign_LIN_based_on_mash(current_genome=int(genome), subject_genome=each_candidate, c=c)
-        #     similarity.append(ani)
-        # result["ANI"] = similarity
+        candidates = result.index
+        similarity = []
+        similarity_dict = {}
+        for each_candidate in candidates:
+            ani = assign_LIN_based_on_mash(current_genome=int(genome), subject_genome=each_candidate, c=c)
+            similarity.append(ani)
+        result["ANI"] = similarity
         result.to_csv("{0}_unmatch_result.csv".format(genome))
 
 
