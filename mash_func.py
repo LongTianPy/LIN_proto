@@ -187,7 +187,7 @@ def assign_LIN_based_on_mash(current_genome,subject_genome,c):
 
 def whatsgoingon():
     # This is happening in Sourmash dir
-    sourmash_dir = "/home/linproject/Workspace/Sourmash_n1000/"
+    sourmash_dir = "/home/linproject/Workspace/Sourmash/"
     conn,c = connect_to_db()
     f = open("/home/linproject/Workspace/Sourmash/unmatch.txt","r")
     Genome_ID = [i.strip() for i in f.readlines()]
@@ -235,8 +235,8 @@ def whatsgoingon():
 
 # MAIN
 if __name__ == "__main__":
-    # whatsgoingon()
-    test_mash()
+    whatsgoingon()
+    # test_mash()
     # conn, c = connect_to_db()
     # df = pd.read_table("/home/linproject/Workspace/Sourmash/test_result.txt",sep="\t",header=0,index_col=0)
     # height = len(df.index)
