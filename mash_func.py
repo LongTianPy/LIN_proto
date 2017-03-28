@@ -193,17 +193,13 @@ def whatsgoingon():
     Genome_ID = [i.strip() for i in f.readlines()]
     f.close()
     df = pd.read_table("/home/linproject/Workspace/Sourmash/test_result.txt",sep="\t",header=0,index_col=0)
-    sig_pool = {}
+    # sig_pool = {}
     for genome in Genome_ID:
-        if str(genome) not in sig_pool:
-            c.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(genome))
-            current_file_path = c.fetchone()[0]
-            write_both_strand(genome,c,sourmash_dir)
-            current_sig_path = create_signature(genome,sourmash_dir,c,conn)
-            sig_pool[str(genome)] = current_sig_path
-        else:
-            current_sig_path = sig_pool[str(genome)]
-
+        c.execute("SELECT SignaturePath FROM Signature WHERE Genome_ID={0}".format(genome))
+        current_sig_path = c.fetchone()[0]
+            # write_both_strand(genome,c,sourmash_dir)
+            # current_sig_path = create_signature(genome,sourmash_dir,c,conn)
+            # sig_pool[str(genome)] = current_sig_path
         LINgroup = str(df.get_value(int(genome),"G_LINgroup"))
         c.execute("SELECT Genome_ID FROM LIN"
                   " WHERE LIN LIKE '{0}%' "
@@ -212,18 +208,14 @@ def whatsgoingon():
         subject_genomes = [i[0] for i in tmp]
         subject_sig_path = []
         for each_subject in subject_genomes:
-            if str(each_subject) not in sig_pool:
-                write_both_strand(each_subject,c,sourmash_dir)
-                sig_path = create_signature(each_subject,sourmash_dir,c,conn)
-                sig_pool[str(each_subject)] = sig_path
-                subject_sig_path.append(sig_path)
-            else:
-                subject_sig_path.append(sig_pool[str(each_subject)])
+            c.execute("SELECT SignaturePath FROM Signature where Genome_ID={0}".format(each_subject))
+            sig_path = c.fetchone()[0]
+            subject_sig_path.append(sig_path)
         if not isdir(sourmash_dir+"tmp"):
             os.mkdir(sourmash_dir+"tmp")
         for each in subject_sig_path:
             shutil.copy(each,sourmash_dir+"tmp")
-        result = sourmash_searching("./","tmp",current_sig_path,genome)
+        result = sourmash_searching(sourmash_dir,"tmp",current_sig_path,genome)
         os.system("rm -rf tmp/*")
         candidates = result.index
         similarity = []
