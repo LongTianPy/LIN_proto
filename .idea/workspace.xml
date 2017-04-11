@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tools/Whatsinside.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tools/load_uncultured.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/LIN_proto.iml" afterPath="$PROJECT_DIR$/.idea/LIN_proto.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mash_func.py" afterPath="$PROJECT_DIR$/mash_func.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/workflow.py" afterPath="$PROJECT_DIR$/workflow.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -36,42 +40,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="workflow.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="workflow.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/workflow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="283" column="117" lean-forward="false" selection-start-line="283" selection-start-column="19" selection-end-line="283" selection-end-column="117" />
+            <state relative-caret-position="437">
+              <caret line="147" column="22" lean-forward="true" selection-start-line="147" selection-start-column="22" selection-end-line="147" selection-end-column="22" />
               <folding>
-                <element signature="e#256#273#0" expanded="true" />
-                <marker date="1488481996000" expanded="true" signature="4088:4145" ph="INSERT INTO Submission... " />
-                <marker date="1488481996000" expanded="true" signature="4245:4314" ph="SELECT Submi... Submission" />
-                <marker date="1488481996000" expanded="true" signature="4652:4753" ph="INSERT INTO Genome... " />
-                <marker date="1488481996000" expanded="true" signature="4892:4943" ph="select Genom... Genome" />
-                <marker date="1488481996000" expanded="true" signature="5116:5169" ph="SELECT Attri... Interest" />
-                <marker date="1488481996000" expanded="true" signature="5436:5596" ph="INSERT INTO AttributeValue... " />
-                <marker date="1488481996000" expanded="true" signature="5902:5940" ph="SELECT Genom... Genome" />
-                <marker date="1488481996000" expanded="true" signature="6557:6614" ph="INSERT INTO Submission... " />
-                <marker date="1488481996000" expanded="true" signature="6726:6795" ph="SELECT Submi... Submission" />
-                <marker date="1488481996000" expanded="true" signature="7153:7254" ph="INSERT INTO Genome... " />
-                <marker date="1488481996000" expanded="true" signature="7405:7456" ph="select Genom... Genome" />
-                <marker date="1488481996000" expanded="true" signature="7649:7675" ph="SELECT Attri... Attribute" />
-                <marker date="1488481996000" expanded="true" signature="7649:7689" ph="SELECT Attri... Interest" />
-                <marker date="1488481996000" expanded="true" signature="7649:7702" ph="SELECT Attri... Interest" />
-                <marker date="1488481996000" expanded="true" signature="7649:7705" ph="SELECT Attri... Interest" />
-                <marker date="1488481996000" expanded="true" signature="7993:8092" ph="INSERT INTO AttributeValue... " />
-                <marker date="1488481996000" expanded="true" signature="7993:8157" ph="INSERT INTO AttributeValue... " />
-                <marker date="1488481996000" expanded="true" signature="8868:8919" ph="SELECT Attri... Attribute" />
-                <marker date="1488481996000" expanded="true" signature="8868:8923" ph="SELECT Attri... Attribute" />
-                <marker date="1488481996000" expanded="true" signature="8868:8926" ph="SELECT Attri... Attribute" />
-                <marker date="1488481996000" expanded="true" signature="9113:9166" ph="SELECT Attri... Interest" />
-                <marker date="1488481996000" expanded="true" signature="9291:9298" ph="Select * fro... AttributeName" />
-                <marker date="1488481996000" expanded="true" signature="9291:9354" ph="Select Attri... Attribute" />
-                <marker date="1488481996000" expanded="true" signature="9832:9898" ph="INSERT INTO Genome_to_Attribute... " />
-                <marker date="1488481996000" expanded="true" signature="10015:10081" ph="INSERT INTO Genome_to_Attribute... " />
-                <marker date="1488481996000" expanded="true" signature="13553:13597" ph="SELECT FileP... Genome" />
-                <marker date="1488481996000" expanded="true" signature="13941:13985" ph="SELECT FileP... Genome" />
-                <marker date="1488481996000" expanded="true" signature="13941:13988" ph="SELECT FileP... Genome" />
-                <marker date="1488481996000" expanded="true" signature="15694:15792" ph="INSERT INTO LIN... " />
+                <marker date="1491942723000" expanded="true" signature="4088:4145" ph="INSERT INTO Submission... " />
+                <marker date="1491942723000" expanded="true" signature="4245:4314" ph="SELECT Submi... Submission" />
+                <marker date="1491942723000" expanded="true" signature="4652:4753" ph="INSERT INTO Genome... " />
+                <marker date="1491942723000" expanded="true" signature="4892:4943" ph="select Genom... Genome" />
+                <marker date="1491942723000" expanded="true" signature="5116:5169" ph="SELECT Attri... Interest" />
+                <marker date="1491942723000" expanded="true" signature="5436:5596" ph="INSERT INTO AttributeValue... " />
+                <marker date="1491942723000" expanded="true" signature="5902:5940" ph="SELECT Genom... Genome" />
+                <marker date="1491942723000" expanded="true" signature="6559:6616" ph="INSERT INTO Submission... " />
+                <marker date="1491942723000" expanded="true" signature="6728:6797" ph="SELECT Submi... Submission" />
+                <marker date="1491942723000" expanded="true" signature="7155:7256" ph="INSERT INTO Genome... " />
+                <marker date="1491942723000" expanded="true" signature="7407:7458" ph="select Genom... Genome" />
+                <marker date="1491942723000" expanded="true" signature="7651:7677" ph="SELECT Attri... Attribute" />
+                <marker date="1491942723000" expanded="true" signature="7651:7691" ph="SELECT Attri... Interest" />
+                <marker date="1491942723000" expanded="true" signature="7651:7704" ph="SELECT Attri... Interest" />
+                <marker date="1491942723000" expanded="true" signature="7651:7707" ph="SELECT Attri... Interest" />
+                <marker date="1491942723000" expanded="true" signature="7995:8094" ph="INSERT INTO AttributeValue... " />
+                <marker date="1491942723000" expanded="true" signature="7995:8159" ph="INSERT INTO AttributeValue... " />
+                <marker date="1491942723000" expanded="true" signature="8870:8921" ph="SELECT Attri... Attribute" />
+                <marker date="1491942723000" expanded="true" signature="8870:8925" ph="SELECT Attri... Attribute" />
+                <marker date="1491942723000" expanded="true" signature="8870:8928" ph="SELECT Attri... Attribute" />
+                <marker date="1491942723000" expanded="true" signature="9115:9168" ph="SELECT Attri... Interest" />
+                <marker date="1491942723000" expanded="true" signature="9293:9300" ph="Select * fro... AttributeName" />
+                <marker date="1491942723000" expanded="true" signature="9293:9356" ph="Select Attri... Attribute" />
+                <marker date="1491942723000" expanded="true" signature="9834:9900" ph="INSERT INTO Genome_to_Attribute... " />
+                <marker date="1491942723000" expanded="true" signature="10017:10083" ph="INSERT INTO Genome_to_Attribute... " />
+                <marker date="1491942723000" expanded="true" signature="13555:13599" ph="SELECT FileP... Genome" />
+                <marker date="1491942723000" expanded="true" signature="13943:13987" ph="SELECT FileP... Genome" />
+                <marker date="1491942723000" expanded="true" signature="13943:13990" ph="SELECT FileP... Genome" />
+                <marker date="1491942723000" expanded="true" signature="15696:15794" ph="INSERT INTO LIN... " />
               </folding>
             </state>
           </provider>
@@ -80,8 +83,8 @@
       <file leaf-file-name="LINgroup_indexing_comparison.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="25" column="44" lean-forward="false" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+            <state relative-caret-position="540">
+              <caret line="40" column="17" lean-forward="false" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
               <folding>
                 <marker date="1489607713000" expanded="true" signature="470:600" ph="select Genom... Genome" />
                 <marker date="1489607713000" expanded="true" signature="1041:1084" ph="select Cutof... Scheme" />
@@ -96,8 +99,8 @@
       <file leaf-file-name="LIN_Assign.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LIN_Assign.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="87" column="26" lean-forward="true" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
+            <state relative-caret-position="1290">
+              <caret line="87" column="26" lean-forward="false" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
               <folding>
                 <marker date="1490043173000" expanded="true" signature="501:546" ph="SELECT Label... Scheme" />
                 <marker date="1490043173000" expanded="true" signature="1046:1107" ph="SELECT LIN f... LIN" />
@@ -113,7 +116,7 @@
       <file leaf-file-name="LINgroup_indexing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
+            <state relative-caret-position="2445">
               <caret line="166" column="83" lean-forward="false" selection-start-line="166" selection-start-column="83" selection-end-line="166" selection-end-column="83" />
               <folding>
                 <marker date="1489759212000" expanded="true" signature="1072:1113" ph="SELECT Genom... LIN" />
@@ -202,11 +205,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mash_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1264">
-              <caret line="222" column="8" lean-forward="true" selection-start-line="222" selection-start-column="8" selection-end-line="222" selection-end-column="8" />
+            <state relative-caret-position="1245">
+              <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
               <folding>
                 <element signature="e#84#93#0" expanded="true" />
                 <element signature="e#2945#3140#0" expanded="false" />
@@ -224,6 +227,31 @@
                 <marker date="1490723815000" expanded="true" signature="10294:10401" ph="SELECT Genom... LIN" />
                 <marker date="1490723815000" expanded="true" signature="10599:10651" ph="SELECT Signa... Signature" />
                 <marker date="1490723815000" expanded="true" signature="10599:10654" ph="SELECT Signa... Signature" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Whatsinside.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tools/Whatsinside.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="load_uncultured.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tools/load_uncultured.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="36" column="19" lean-forward="true" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+              <folding>
+                <element signature="e#36#45#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -272,33 +300,33 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/LIN_Assign.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/test/KMerPrep.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/test/ParseGenome.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/mash_func.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/mkblastdb.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/test/GenerateMatrix.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/workflow.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/ANI_Wrapper_2.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/NewMatrix/Distance_pandas.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/LIN_Assign.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/NewMatrix/GenerateMatrix.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/NewMatrix/GenerateMatrixMemory.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/LINgroup_indexing_traceback.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/mash_test.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/NewMatrix/Distance_pandas.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/NewMatrix/GenerateMatrix.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/NewMatrix/GenerateMatrixMemory.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/mash_indexing.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/k_mer.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/db_build.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/IntermediateResult.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/LIN_visualization.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/FastANI_Toolbox.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/kmer_kmeans_ANI.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/LINgroup_indexing.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/mash_func.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/mash_indexing.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/mkblastdb.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/LINgroup_indexing.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/db_build.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/KMerPrep.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/ParseGenome.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/ANIbWrapper.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/GenerateMatrix.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/Run.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/workflow.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/ANI_Wrapper_2.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -337,7 +365,6 @@
         <option value="$PROJECT_DIR$/LIN_visualization.py" />
         <option value="$PROJECT_DIR$/implemented_kmer.py" />
         <option value="$PROJECT_DIR$/mash_test.py" />
-        <option value="$PROJECT_DIR$/workflow.py" />
         <option value="$PROJECT_DIR$/mkblastdb.py" />
         <option value="$PROJECT_DIR$/LINgroup_indexing_traceback.py" />
         <option value="$PROJECT_DIR$/db_build.py" />
@@ -346,6 +373,9 @@
         <option value="$PROJECT_DIR$/LIN_Assign.py" />
         <option value="$PROJECT_DIR$/mash_indexing.py" />
         <option value="$PROJECT_DIR$/mash_func.py" />
+        <option value="$PROJECT_DIR$/Tools/Whatsinside.md" />
+        <option value="$PROJECT_DIR$/Tools/load_uncultured.py" />
+        <option value="$PROJECT_DIR$/workflow.py" />
       </list>
     </option>
   </component>
@@ -394,6 +424,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -416,14 +448,26 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Tools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LIN_proto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LIN_proto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value=".vscode" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -443,7 +487,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="922" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../FastANI" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
@@ -460,115 +504,17 @@
       <recent name="$PROJECT_DIR$/KMer/src" />
     </key>
   </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/mash_func.py</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Python.db_build">
     <configuration default="false" name="db_build" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -587,6 +533,7 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/db_build.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
@@ -607,6 +554,13 @@
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
@@ -662,6 +616,7 @@
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
@@ -691,26 +646,6 @@
       <scripts />
       <node-interpreter value="project" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Attests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="LIN_proto" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -744,15 +679,10 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="LIN_proto" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -766,19 +696,37 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="LIN_proto" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="LIN_proto" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Python.db_build" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.db_build" />
+      </list>
+    </recent_temporary>
+    <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -796,21 +744,8 @@
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
-      <option name="testToRun" value="" />
-      <option name="keywords" value="" />
-      <option name="params" value="" />
-      <option name="USE_PARAM" value="false" />
-      <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Python.db_build" />
-    </list>
-    <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.db_build" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -826,13 +761,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
-    </task>
-    <task id="LOCAL-00486" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
-      <created>1489760258251</created>
-      <option name="number" value="00486" />
-      <option name="presentableId" value="LOCAL-00486" />
-      <option name="project" value="LOCAL" />
-      <updated>1489760258251</updated>
     </task>
     <task id="LOCAL-00487" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
       <created>1489760830043</created>
@@ -1170,7 +1098,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490723104278</updated>
     </task>
-    <option name="localTasksCounter" value="535" />
+    <task id="LOCAL-00535" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
+      <created>1490724765921</created>
+      <option name="number" value="00535" />
+      <option name="presentableId" value="LOCAL-00535" />
+      <option name="project" value="LOCAL" />
+      <updated>1490724765921</updated>
+    </task>
+    <option name="localTasksCounter" value="536" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1183,23 +1118,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="825" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="23" width="1440" height="825" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24606581" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52228415" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35785007" sideWeight="0.51216024" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19519095" sideWeight="0.51502144" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5374823" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32768363" sideWeight="0.4892704" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19519095" sideWeight="0.48783976" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1890411" sideWeight="0.48497853" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896653" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1284,20 +1220,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/KMer/src/GenerateMatrix.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="20" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KMer/src/ParseGenome.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KMer/test/ParseGenome.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1510,14 +1432,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
@@ -1574,30 +1488,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LINgroup_indexing.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="255">
-            <caret line="17" column="45" lean-forward="true" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/LINgroup_indexing.md" />
     <entry file="file://$PROJECT_DIR$/mkblastdb.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="511">
           <caret line="44" column="38" lean-forward="false" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
-          <folding>
-            <element signature="e#75#96#0" expanded="false" />
-            <marker date="1488482233000" expanded="true" signature="317:355" ph="SELECT Genom... Genome" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
+        <state relative-caret-position="2445">
           <caret line="166" column="83" lean-forward="false" selection-start-line="166" selection-start-column="83" selection-end-line="166" selection-end-column="83" />
           <folding>
             <marker date="1489759212000" expanded="true" signature="1072:1113" ph="SELECT Genom... LIN" />
@@ -1616,50 +1517,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/workflow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="283" column="117" lean-forward="false" selection-start-line="283" selection-start-column="19" selection-end-line="283" selection-end-column="117" />
-          <folding>
-            <element signature="e#256#273#0" expanded="true" />
-            <marker date="1488481996000" expanded="true" signature="4088:4145" ph="INSERT INTO Submission... " />
-            <marker date="1488481996000" expanded="true" signature="4245:4314" ph="SELECT Submi... Submission" />
-            <marker date="1488481996000" expanded="true" signature="4652:4753" ph="INSERT INTO Genome... " />
-            <marker date="1488481996000" expanded="true" signature="4892:4943" ph="select Genom... Genome" />
-            <marker date="1488481996000" expanded="true" signature="5116:5169" ph="SELECT Attri... Interest" />
-            <marker date="1488481996000" expanded="true" signature="5436:5596" ph="INSERT INTO AttributeValue... " />
-            <marker date="1488481996000" expanded="true" signature="5902:5940" ph="SELECT Genom... Genome" />
-            <marker date="1488481996000" expanded="true" signature="6557:6614" ph="INSERT INTO Submission... " />
-            <marker date="1488481996000" expanded="true" signature="6726:6795" ph="SELECT Submi... Submission" />
-            <marker date="1488481996000" expanded="true" signature="7153:7254" ph="INSERT INTO Genome... " />
-            <marker date="1488481996000" expanded="true" signature="7405:7456" ph="select Genom... Genome" />
-            <marker date="1488481996000" expanded="true" signature="7649:7675" ph="SELECT Attri... Attribute" />
-            <marker date="1488481996000" expanded="true" signature="7649:7689" ph="SELECT Attri... Interest" />
-            <marker date="1488481996000" expanded="true" signature="7649:7702" ph="SELECT Attri... Interest" />
-            <marker date="1488481996000" expanded="true" signature="7649:7705" ph="SELECT Attri... Interest" />
-            <marker date="1488481996000" expanded="true" signature="7993:8092" ph="INSERT INTO AttributeValue... " />
-            <marker date="1488481996000" expanded="true" signature="7993:8157" ph="INSERT INTO AttributeValue... " />
-            <marker date="1488481996000" expanded="true" signature="8868:8919" ph="SELECT Attri... Attribute" />
-            <marker date="1488481996000" expanded="true" signature="8868:8923" ph="SELECT Attri... Attribute" />
-            <marker date="1488481996000" expanded="true" signature="8868:8926" ph="SELECT Attri... Attribute" />
-            <marker date="1488481996000" expanded="true" signature="9113:9166" ph="SELECT Attri... Interest" />
-            <marker date="1488481996000" expanded="true" signature="9291:9298" ph="Select * fro... AttributeName" />
-            <marker date="1488481996000" expanded="true" signature="9291:9354" ph="Select Attri... Attribute" />
-            <marker date="1488481996000" expanded="true" signature="9832:9898" ph="INSERT INTO Genome_to_Attribute... " />
-            <marker date="1488481996000" expanded="true" signature="10015:10081" ph="INSERT INTO Genome_to_Attribute... " />
-            <marker date="1488481996000" expanded="true" signature="13553:13597" ph="SELECT FileP... Genome" />
-            <marker date="1488481996000" expanded="true" signature="13941:13985" ph="SELECT FileP... Genome" />
-            <marker date="1488481996000" expanded="true" signature="13941:13988" ph="SELECT FileP... Genome" />
-            <marker date="1488481996000" expanded="true" signature="15694:15792" ph="INSERT INTO LIN... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mash_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1730,24 +1591,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="25" column="44" lean-forward="false" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
-          <folding>
-            <marker date="1489607713000" expanded="true" signature="470:600" ph="select Genom... Genome" />
-            <marker date="1489607713000" expanded="true" signature="1041:1084" ph="select Cutof... Scheme" />
-            <marker date="1489607713000" expanded="true" signature="1663:1738" ph="select Genom... LIN" />
-            <marker date="1489607713000" expanded="true" signature="3297:3341" ph="SELECT FileP... Genome" />
-            <marker date="1489607713000" expanded="true" signature="5256:5331" ph="select Genom... LIN" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LIN_Assign.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="87" column="26" lean-forward="true" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
+        <state relative-caret-position="1290">
+          <caret line="87" column="26" lean-forward="false" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
           <folding>
             <marker date="1490043173000" expanded="true" signature="501:546" ph="SELECT Label... Scheme" />
             <marker date="1490043173000" expanded="true" signature="1046:1107" ph="SELECT LIN f... LIN" />
@@ -1759,10 +1606,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="40" column="17" lean-forward="false" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+          <folding>
+            <marker date="1489607713000" expanded="true" signature="470:600" ph="select Genom... Genome" />
+            <marker date="1489607713000" expanded="true" signature="1041:1084" ph="select Cutof... Scheme" />
+            <marker date="1489607713000" expanded="true" signature="1663:1738" ph="select Genom... LIN" />
+            <marker date="1489607713000" expanded="true" signature="3297:3341" ph="SELECT FileP... Genome" />
+            <marker date="1489607713000" expanded="true" signature="5256:5331" ph="select Genom... LIN" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mash_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1264">
-          <caret line="222" column="8" lean-forward="true" selection-start-line="222" selection-start-column="8" selection-end-line="222" selection-end-column="8" />
+        <state relative-caret-position="1245">
+          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
           <folding>
             <element signature="e#84#93#0" expanded="true" />
             <element signature="e#2945#3140#0" expanded="false" />
@@ -1780,6 +1641,71 @@
             <marker date="1490723815000" expanded="true" signature="10294:10401" ph="SELECT Genom... LIN" />
             <marker date="1490723815000" expanded="true" signature="10599:10651" ph="SELECT Signa... Signature" />
             <marker date="1490723815000" expanded="true" signature="10599:10654" ph="SELECT Signa... Signature" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/Whatsinside.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/load_uncultured.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="36" column="19" lean-forward="true" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+          <folding>
+            <element signature="e#36#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/workflow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="147" column="22" lean-forward="true" selection-start-line="147" selection-start-column="22" selection-end-line="147" selection-end-column="22" />
+          <folding>
+            <marker date="1491942723000" expanded="true" signature="4088:4145" ph="INSERT INTO Submission... " />
+            <marker date="1491942723000" expanded="true" signature="4245:4314" ph="SELECT Submi... Submission" />
+            <marker date="1491942723000" expanded="true" signature="4652:4753" ph="INSERT INTO Genome... " />
+            <marker date="1491942723000" expanded="true" signature="4892:4943" ph="select Genom... Genome" />
+            <marker date="1491942723000" expanded="true" signature="5116:5169" ph="SELECT Attri... Interest" />
+            <marker date="1491942723000" expanded="true" signature="5436:5596" ph="INSERT INTO AttributeValue... " />
+            <marker date="1491942723000" expanded="true" signature="5902:5940" ph="SELECT Genom... Genome" />
+            <marker date="1491942723000" expanded="true" signature="6559:6616" ph="INSERT INTO Submission... " />
+            <marker date="1491942723000" expanded="true" signature="6728:6797" ph="SELECT Submi... Submission" />
+            <marker date="1491942723000" expanded="true" signature="7155:7256" ph="INSERT INTO Genome... " />
+            <marker date="1491942723000" expanded="true" signature="7407:7458" ph="select Genom... Genome" />
+            <marker date="1491942723000" expanded="true" signature="7651:7677" ph="SELECT Attri... Attribute" />
+            <marker date="1491942723000" expanded="true" signature="7651:7691" ph="SELECT Attri... Interest" />
+            <marker date="1491942723000" expanded="true" signature="7651:7704" ph="SELECT Attri... Interest" />
+            <marker date="1491942723000" expanded="true" signature="7651:7707" ph="SELECT Attri... Interest" />
+            <marker date="1491942723000" expanded="true" signature="7995:8094" ph="INSERT INTO AttributeValue... " />
+            <marker date="1491942723000" expanded="true" signature="7995:8159" ph="INSERT INTO AttributeValue... " />
+            <marker date="1491942723000" expanded="true" signature="8870:8921" ph="SELECT Attri... Attribute" />
+            <marker date="1491942723000" expanded="true" signature="8870:8925" ph="SELECT Attri... Attribute" />
+            <marker date="1491942723000" expanded="true" signature="8870:8928" ph="SELECT Attri... Attribute" />
+            <marker date="1491942723000" expanded="true" signature="9115:9168" ph="SELECT Attri... Interest" />
+            <marker date="1491942723000" expanded="true" signature="9293:9300" ph="Select * fro... AttributeName" />
+            <marker date="1491942723000" expanded="true" signature="9293:9356" ph="Select Attri... Attribute" />
+            <marker date="1491942723000" expanded="true" signature="9834:9900" ph="INSERT INTO Genome_to_Attribute... " />
+            <marker date="1491942723000" expanded="true" signature="10017:10083" ph="INSERT INTO Genome_to_Attribute... " />
+            <marker date="1491942723000" expanded="true" signature="13555:13599" ph="SELECT FileP... Genome" />
+            <marker date="1491942723000" expanded="true" signature="13943:13987" ph="SELECT FileP... Genome" />
+            <marker date="1491942723000" expanded="true" signature="13943:13990" ph="SELECT FileP... Genome" />
+            <marker date="1491942723000" expanded="true" signature="15696:15794" ph="INSERT INTO LIN... " />
           </folding>
         </state>
       </provider>

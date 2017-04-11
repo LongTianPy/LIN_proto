@@ -140,7 +140,7 @@ def main(argv=None): # The genome file name we are expecting for is a
     FilePath_table.index=Genome_IDs
     Identical_File = False
     for each_recorded_genome in Genome_IDs:
-        if filecmp.cmp(workspace_dir+new_genome, FilePath_table.get_value(each_recorded_genome,"FilePath")):
+        if filecmp.cmp(original_folder+new_genome, FilePath_table.get_value(each_recorded_genome,"FilePath")):
             Identical_File = each_recorded_genome
             break
         else:
