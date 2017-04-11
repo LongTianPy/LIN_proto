@@ -102,35 +102,35 @@ def main(argv=None): # The genome file name we are expecting for is a
     workspace_dir = '/home/linproject/Workspace/New/workspace/'
     # InfoFile = "/home/linproject/Workspace/Zika/Attribute_full.csv"
     # Update the submission table
-    c.execute("INSERT INTO Submission (User_ID, Time) VALUES ({0},'{1}')".format(User_ID, standardtime))
-    db.commit()
-    # And get the new Submittion ID
-    c.execute("SELECT Submission_ID FROM Submission where User_ID={0} and Time='{1}'".format(User_ID,standardtime))
-    tmp = c.fetchone()
-    Submission_ID = int(tmp[0])
-    # And we have the file name of the genome
-    # Fetched from the front end
-    new_GenomeName = ".".join(new_genome.split('.')[:-1])
-    contig_number = get_contig_number(original_folder+new_genome)
-    # As well as its Interest_ID
-    c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName) values ({0}, {1}, "{2}", "{3}")'
-              .format(Interest_ID_new_genome ,Submission_ID, original_folder+new_genome, new_GenomeName))
-    db.commit()
-    c.execute('select Genome_ID from Genome where GenomeName="{0}"'.format(new_GenomeName))
-    tmp = c.fetchone()
-    new_Genome_ID = str(tmp[0])
-    # Load Attribute values
-    # First we need to know which field is which
-    c.execute("SELECT Attribute_IDs FROM Interest WHERE Interest_ID={0}".format(Interest_ID_new_genome))
-    tmp = c.fetchone()
-    Attribute_ID_list = tmp[0].split(",")
-    Attribute_ID_list = [int(id) for id in Attribute_ID_list]
-    Attributes = Attributes.split("^^")
-    for i in range(len(Attribute_ID_list)):
-        c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) "
-                  "VALUES ({0}, {1}, {2}, '{3}', {4}, {5})".format(Attribute_ID_list[i], new_Genome_ID,
-                                                                   Interest_ID_new_genome, Attributes[i],
-                                                                   User_ID, privacy))
+    # c.execute("INSERT INTO Submission (User_ID, Time) VALUES ({0},'{1}')".format(User_ID, standardtime))
+    # db.commit()
+    # # And get the new Submittion ID
+    # c.execute("SELECT Submission_ID FROM Submission where User_ID={0} and Time='{1}'".format(User_ID,standardtime))
+    # tmp = c.fetchone()
+    # Submission_ID = int(tmp[0])
+    # # And we have the file name of the genome
+    # # Fetched from the front end
+    # new_GenomeName = ".".join(new_genome.split('.')[:-1])
+    # contig_number = get_contig_number(original_folder+new_genome)
+    # # As well as its Interest_ID
+    # c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName) values ({0}, {1}, "{2}", "{3}")'
+    #           .format(Interest_ID_new_genome ,Submission_ID, original_folder+new_genome, new_GenomeName))
+    # db.commit()
+    # c.execute('select Genome_ID from Genome where GenomeName="{0}"'.format(new_GenomeName))
+    # tmp = c.fetchone()
+    # new_Genome_ID = str(tmp[0])
+    # # Load Attribute values
+    # # First we need to know which field is which
+    # c.execute("SELECT Attribute_IDs FROM Interest WHERE Interest_ID={0}".format(Interest_ID_new_genome))
+    # tmp = c.fetchone()
+    # Attribute_ID_list = tmp[0].split(",")
+    # Attribute_ID_list = [int(id) for id in Attribute_ID_list]
+    # Attributes = Attributes.split("^^")
+    # for i in range(len(Attribute_ID_list)):
+    #     c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) "
+    #               "VALUES ({0}, {1}, {2}, '{3}', {4}, {5})".format(Attribute_ID_list[i], new_Genome_ID,
+    #                                                                Interest_ID_new_genome, Attributes[i],
+    #                                                                User_ID, privacy))
     # First check if we ever have this file, roughly
     c.execute("SELECT Genome_ID, FilePath from Genome")
     tmp = c.fetchall()
@@ -188,20 +188,20 @@ def main(argv=None): # The genome file name we are expecting for is a
     #     tmp = c.fetchone()
     #     this_Attribute_Name = "_".join(tmp[0].split(" "))
     #     Attribute_Names.append(this_Attribute_Name)
-    c.execute("SELECT Attribute_IDs FROM Interest WHERE Interest_ID={0}".format(Interest_ID_new_genome))
-    tmp = c.fetchone()
-    Attribute_ID_list_string = tmp[0]
-    c.execute("Select AttributeName from Attribute WHERE Attribute_ID in ({0})".format(Attribute_ID_list_string))
-    tmp = c.fetchall()
-    # Attribute_Names = ['_'.join(i[0].split(' ')) for i in tmp]
-    Attribute_Names = [i[0].replace(" ","_").replace("/","__").replace("-","_") for i in tmp]
-    Attributes_in_Genome_to_Attribute = "','".join(Attributes)
-    AttributeNames_in_Genome_to_Attribute = ",".join(Attribute_Names)
-    Attributes_in_Genome_to_Attribute = "'" + Attributes_in_Genome_to_Attribute + "'"
-    # print "INSERT INTO Genome_to_Attribute ({0}, Genome_ID) VALUES ({1}, {2})".format(AttributeNames_in_Genome_to_Attribute, Attributes_in_Genome_to_Attribute, new_Genome_ID)
-    c.execute("INSERT INTO Genome_to_Attribute ({0}, Genome_ID) VALUES ({1}, {2})".
-              format(AttributeNames_in_Genome_to_Attribute, Attributes_in_Genome_to_Attribute, new_Genome_ID))
-    db.commit()
+    # c.execute("SELECT Attribute_IDs FROM Interest WHERE Interest_ID={0}".format(Interest_ID_new_genome))
+    # tmp = c.fetchone()
+    # Attribute_ID_list_string = tmp[0]
+    # c.execute("Select AttributeName from Attribute WHERE Attribute_ID in ({0})".format(Attribute_ID_list_string))
+    # tmp = c.fetchall()
+    # # Attribute_Names = ['_'.join(i[0].split(' ')) for i in tmp]
+    # Attribute_Names = [i[0].replace(" ","_").replace("/","__").replace("-","_") for i in tmp]
+    # Attributes_in_Genome_to_Attribute = "','".join(Attributes)
+    # AttributeNames_in_Genome_to_Attribute = ",".join(Attribute_Names)
+    # Attributes_in_Genome_to_Attribute = "'" + Attributes_in_Genome_to_Attribute + "'"
+    # # print "INSERT INTO Genome_to_Attribute ({0}, Genome_ID) VALUES ({1}, {2})".format(AttributeNames_in_Genome_to_Attribute, Attributes_in_Genome_to_Attribute, new_Genome_ID)
+    # c.execute("INSERT INTO Genome_to_Attribute ({0}, Genome_ID) VALUES ({1}, {2})".
+    #           format(AttributeNames_in_Genome_to_Attribute, Attributes_in_Genome_to_Attribute, new_Genome_ID))
+    # db.commit()
 
     # ## For Zika virus case only, comment out when initialization is done.
     # # LoadInfo(InfoFile,c,new_GenomeName,Interest_ID_new_genome)
