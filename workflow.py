@@ -142,12 +142,10 @@ def main(argv=None): # The genome file name we are expecting for is a
     for each_recorded_genome in Genome_IDs:
         if filecmp.cmp(original_folder+new_genome, FilePath_table.get_value(each_recorded_genome,"FilePath")):
             Identical_File = each_recorded_genome
-            break
         else:
             continue
     if Identical_File:
         identical_genome_id = int(Identical_File)
-
     else:
         # Update the submission table
         c.execute("INSERT INTO Submission (User_ID, Time) VALUES ({0},'{1}')".format(User_ID, standardtime))
