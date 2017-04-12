@@ -79,6 +79,7 @@ def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_
         else:
             leading_part_w_max_ANI = ",".join(previous_route.split(",") + ["0"] * (19 - current_level))
             current_level = 19
+            return leading_part_w_max_ANI, current_level
     else:
         return LIN_dictionary.keys()[0], current_level+1
 
