@@ -125,6 +125,7 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
             previous_route = "" # To initiate
             current_level = 0
             while current_level < 19:
+                print(current_level)
                 previous_route, current_level = go_through_LIN_table(previous_route=previous_route,
                                                                      current_level=current_level, LIN_table=LIN_table,
                                                                      cursor=cursor, reverse_LIN_dict=reverse_LIN_dict,
@@ -133,7 +134,8 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
                                                                      New_Genome_ID=New_Genome_ID, User_ID=User_ID,
                                                                      similarity_pool=similarity_pool,
                                                                      cutoff=cutoff)
-            print previous_route
+                print(current_level)
+            # print previous_route
             cursor.execute("SELECT Genome_ID, LIN FROM LIN WHERE LIN LIKE '{0}%'".format(previous_route))
             tmp = cursor.fetchall()
             final_candidate_LIN_table = pd.DataFrame()
