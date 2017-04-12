@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LINgroup_indexing.py" afterPath="$PROJECT_DIR$/LINgroup_indexing.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/load_uncultured.py" afterPath="$PROJECT_DIR$/Tools/load_uncultured.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -109,11 +109,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LINgroup_indexing.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LINgroup_indexing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="170" column="113" lean-forward="false" selection-start-line="170" selection-start-column="113" selection-end-line="170" selection-end-column="113" />
+            <state relative-caret-position="316">
+              <caret line="169" column="55" lean-forward="true" selection-start-line="169" selection-start-column="55" selection-end-line="169" selection-end-column="55" />
               <folding>
                 <marker date="1491965718000" expanded="true" signature="1072:1113" ph="SELECT Genom... LIN" />
                 <marker date="1491965718000" expanded="true" signature="1072:1124" ph="SELECT Genom... LIN" />
@@ -240,11 +240,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="load_uncultured.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="load_uncultured.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/load_uncultured.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="36" column="19" lean-forward="true" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+            <state relative-caret-position="310">
+              <caret line="33" column="43" lean-forward="false" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
               <folding>
                 <element signature="e#36#45#0" expanded="true" />
               </folding>
@@ -369,9 +369,9 @@
         <option value="$PROJECT_DIR$/mash_indexing.py" />
         <option value="$PROJECT_DIR$/mash_func.py" />
         <option value="$PROJECT_DIR$/Tools/Whatsinside.md" />
-        <option value="$PROJECT_DIR$/Tools/load_uncultured.py" />
         <option value="$PROJECT_DIR$/workflow.py" />
         <option value="$PROJECT_DIR$/LINgroup_indexing.py" />
+        <option value="$PROJECT_DIR$/Tools/load_uncultured.py" />
       </list>
     </option>
   </component>
@@ -758,13 +758,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00494" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
-      <created>1489764627975</created>
-      <option name="number" value="00494" />
-      <option name="presentableId" value="LOCAL-00494" />
-      <option name="project" value="LOCAL" />
-      <updated>1489764627975</updated>
-    </task>
     <task id="LOCAL-00495" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
       <created>1489764891059</created>
       <option name="number" value="00495" />
@@ -1101,7 +1094,14 @@
       <option name="project" value="LOCAL" />
       <updated>1491965545198</updated>
     </task>
-    <option name="localTasksCounter" value="543" />
+    <task id="LOCAL-00543" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
+      <created>1491965722177</created>
+      <option name="number" value="00543" />
+      <option name="presentableId" value="LOCAL-00543" />
+      <option name="project" value="LOCAL" />
+      <updated>1491965722177</updated>
+    </task>
+    <option name="localTasksCounter" value="544" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1622,16 +1622,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/load_uncultured.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="36" column="19" lean-forward="true" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
-          <folding>
-            <element signature="e#36#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/workflow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="539">
@@ -1687,8 +1677,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="170" column="113" lean-forward="false" selection-start-line="170" selection-start-column="113" selection-end-line="170" selection-end-column="113" />
+        <state relative-caret-position="316">
+          <caret line="169" column="55" lean-forward="true" selection-start-line="169" selection-start-column="55" selection-end-line="169" selection-end-column="55" />
           <folding>
             <marker date="1491965718000" expanded="true" signature="1072:1113" ph="SELECT Genom... LIN" />
             <marker date="1491965718000" expanded="true" signature="1072:1124" ph="SELECT Genom... LIN" />
@@ -1701,6 +1691,16 @@
             <marker date="1491965718000" expanded="true" signature="5375:5422" ph="SELECT FileP... Genome" />
             <marker date="1491965718000" expanded="true" signature="7765:7817" ph="SELECT Genom... LIN" />
             <marker date="1491965718000" expanded="true" signature="8344:8388" ph="SELECT FileP... Genome" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/load_uncultured.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="33" column="43" lean-forward="false" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+          <folding>
+            <element signature="e#36#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
