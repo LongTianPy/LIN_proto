@@ -31,7 +31,7 @@ if __name__ == "__main__":
             Genus = names[0]
             Species = names[1]
             Strain = names[2]
-        shutil.copy(jion(folder,fasta_file),target_folder)
+        shutil.copy(join(folder,fasta_file),target_folder)
         Type = "No"
         GPS = "NA"
         Date = "NA"
