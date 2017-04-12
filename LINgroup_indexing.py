@@ -167,7 +167,7 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
             # final_best_LIN = final_candidate_LIN_table.get_value(final_best_Genome_ID,"LIN")
             final_best_ANI = LIN_ANI_storage[final_best_Genome_ID]
             new_getLIN_object = LIN_Assign.getLIN(Genome_ID=int(final_best_Genome_ID), Scheme_ID=3, similarity=final_best_ANI,
-                                              c=cursor,current_genome=New_Genome_ID)
+                                              c=cursor)
             new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_getLIN_object,c=cursor).new_LIN
             top1_Genome_ID = int(final_best_Genome_ID)
             top1_similarity = final_best_ANI
