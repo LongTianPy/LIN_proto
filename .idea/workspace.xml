@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Notes.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tools/compute_mash_d.csv.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/load_uncultured.py" afterPath="$PROJECT_DIR$/Tools/load_uncultured.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -39,8 +40,8 @@
       <file leaf-file-name="workflow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/workflow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
-              <caret line="287" column="82" lean-forward="true" selection-start-line="287" selection-start-column="82" selection-end-line="287" selection-end-column="82" />
+            <state relative-caret-position="4050">
+              <caret line="287" column="82" lean-forward="false" selection-start-line="287" selection-start-column="82" selection-end-line="287" selection-end-column="82" />
               <folding>
                 <marker date="1491943961000" expanded="true" signature="4090:4147" ph="INSERT INTO Submission... " />
                 <marker date="1491943961000" expanded="true" signature="4253:4322" ph="SELECT Submi... Submission" />
@@ -95,7 +96,7 @@
       <file leaf-file-name="LIN_Assign.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LIN_Assign.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
+            <state relative-caret-position="1290">
               <caret line="87" column="26" lean-forward="false" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
               <folding>
                 <marker date="1490043173000" expanded="true" signature="501:546" ph="SELECT Label... Scheme" />
@@ -112,8 +113,8 @@
       <file leaf-file-name="LINgroup_indexing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="169" column="55" lean-forward="true" selection-start-line="169" selection-start-column="55" selection-end-line="169" selection-end-column="55" />
+            <state relative-caret-position="1757">
+              <caret line="169" column="55" lean-forward="false" selection-start-line="169" selection-start-column="55" selection-end-line="169" selection-end-column="55" />
               <folding>
                 <marker date="1491965718000" expanded="true" signature="1072:1113" ph="SELECT Genom... LIN" />
                 <marker date="1491965718000" expanded="true" signature="1072:1124" ph="SELECT Genom... LIN" />
@@ -126,6 +127,18 @@
                 <marker date="1491965718000" expanded="true" signature="5375:5422" ph="SELECT FileP... Genome" />
                 <marker date="1491965718000" expanded="true" signature="7765:7817" ph="SELECT Genom... LIN" />
                 <marker date="1491965718000" expanded="true" signature="8344:8388" ph="SELECT FileP... Genome" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="compute_mash_d.csv.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Tools/compute_mash_d.csv.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="645">
+              <caret line="43" column="34" lean-forward="false" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+              <folding>
+                <element signature="e#214#233#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -203,8 +216,8 @@
       <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mash_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1245">
-              <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+            <state relative-caret-position="249">
+              <caret line="66" column="4" lean-forward="true" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="4" />
               <folding>
                 <element signature="e#84#93#0" expanded="true" />
                 <element signature="e#2945#3140#0" expanded="false" />
@@ -240,14 +253,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="load_uncultured.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="load_uncultured.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tools/load_uncultured.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
-              <folding>
-                <element signature="e#36#45#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Notes.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Notes.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="135">
+                <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -372,6 +396,8 @@
         <option value="$PROJECT_DIR$/workflow.py" />
         <option value="$PROJECT_DIR$/LINgroup_indexing.py" />
         <option value="$PROJECT_DIR$/Tools/load_uncultured.py" />
+        <option value="$PROJECT_DIR$/Notes.md" />
+        <option value="$PROJECT_DIR$/Tools/compute_mash_d.csv.py" />
       </list>
     </option>
   </component>
@@ -421,7 +447,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -464,6 +489,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -757,13 +783,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
-    </task>
-    <task id="LOCAL-00496" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
-      <created>1489765661300</created>
-      <option name="number" value="00496" />
-      <option name="presentableId" value="LOCAL-00496" />
-      <option name="project" value="LOCAL" />
-      <updated>1489765661300</updated>
     </task>
     <task id="LOCAL-00497" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
       <created>1489775742833</created>
@@ -1101,7 +1120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1491966546442</updated>
     </task>
-    <option name="localTasksCounter" value="545" />
+    <task id="LOCAL-00545" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
+      <created>1491966578998</created>
+      <option name="number" value="00545" />
+      <option name="presentableId" value="LOCAL-00545" />
+      <option name="project" value="LOCAL" />
+      <updated>1491966578998</updated>
+    </task>
+    <option name="localTasksCounter" value="546" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1114,10 +1140,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="825" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="825" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52228415" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22013889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19519095" sideWeight="0.51502144" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1125,7 +1151,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5374823" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32768363" sideWeight="0.4892704" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1890411" sideWeight="0.48497853" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1890411" sideWeight="0.48497853" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1216,20 +1242,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/KMer/test/ParseGenome.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KMer/test/KMerPrep.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="14" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KMer/test/Run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1580,32 +1592,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mash_func.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding>
-            <element signature="e#84#93#0" expanded="true" />
-            <element signature="e#2945#3140#0" expanded="false" />
-            <element signature="e#3185#8061#0" expanded="false" />
-            <marker date="1490723815000" expanded="true" signature="627:671" ph="select FileP... Genome" />
-            <marker date="1490723815000" expanded="true" signature="627:674" ph="select FileP... Genome" />
-            <marker date="1490723815000" expanded="true" signature="1385:1452" ph="insert into Signature... " />
-            <marker date="1490723815000" expanded="true" signature="2952:3050" ph="INSERT INTO LIN... " />
-            <marker date="1490723815000" expanded="true" signature="8257:8301" ph="select FileP... Genome" />
-            <marker date="1490723815000" expanded="true" signature="8257:8304" ph="select FileP... Genome" />
-            <marker date="1490723815000" expanded="true" signature="8410:8454" ph="select FileP... Genome" />
-            <marker date="1490723815000" expanded="true" signature="9908:9960" ph="SELECT FileP... Genome" />
-            <marker date="1490723815000" expanded="true" signature="9908:9963" ph="SELECT Signa... Signature" />
-            <marker date="1490723815000" expanded="true" signature="10294:10398" ph="SELECT Signa... LIN" />
-            <marker date="1490723815000" expanded="true" signature="10294:10401" ph="SELECT Genom... LIN" />
-            <marker date="1490723815000" expanded="true" signature="10599:10651" ph="SELECT Signa... Signature" />
-            <marker date="1490723815000" expanded="true" signature="10599:10654" ph="SELECT Signa... Signature" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/Tools/Whatsinside.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/Whatsinside.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
@@ -1615,17 +1608,11 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/workflow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="287" column="82" lean-forward="true" selection-start-line="287" selection-start-column="82" selection-end-line="287" selection-end-column="82" />
+        <state relative-caret-position="4050">
+          <caret line="287" column="82" lean-forward="false" selection-start-line="287" selection-start-column="82" selection-end-line="287" selection-end-column="82" />
           <folding>
             <marker date="1491943961000" expanded="true" signature="4090:4147" ph="INSERT INTO Submission... " />
             <marker date="1491943961000" expanded="true" signature="4253:4322" ph="SELECT Submi... Submission" />
@@ -1662,7 +1649,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LIN_Assign.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
+        <state relative-caret-position="1290">
           <caret line="87" column="26" lean-forward="false" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
           <folding>
             <marker date="1490043173000" expanded="true" signature="501:546" ph="SELECT Label... Scheme" />
@@ -1675,10 +1662,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/load_uncultured.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Notes.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="135">
+            <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="169" column="55" lean-forward="true" selection-start-line="169" selection-start-column="55" selection-end-line="169" selection-end-column="55" />
+        <state relative-caret-position="1757">
+          <caret line="169" column="55" lean-forward="false" selection-start-line="169" selection-start-column="55" selection-end-line="169" selection-end-column="55" />
           <folding>
             <marker date="1491965718000" expanded="true" signature="1072:1113" ph="SELECT Genom... LIN" />
             <marker date="1491965718000" expanded="true" signature="1072:1124" ph="SELECT Genom... LIN" />
@@ -1695,12 +1701,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/load_uncultured.py">
+    <entry file="file://$PROJECT_DIR$/mash_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+        <state relative-caret-position="249">
+          <caret line="66" column="4" lean-forward="true" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="4" />
           <folding>
-            <element signature="e#36#45#0" expanded="true" />
+            <element signature="e#84#93#0" expanded="true" />
+            <element signature="e#2945#3140#0" expanded="false" />
+            <element signature="e#3185#8061#0" expanded="false" />
+            <marker date="1490723815000" expanded="true" signature="627:671" ph="select FileP... Genome" />
+            <marker date="1490723815000" expanded="true" signature="627:674" ph="select FileP... Genome" />
+            <marker date="1490723815000" expanded="true" signature="1385:1452" ph="insert into Signature... " />
+            <marker date="1490723815000" expanded="true" signature="2952:3050" ph="INSERT INTO LIN... " />
+            <marker date="1490723815000" expanded="true" signature="8257:8301" ph="select FileP... Genome" />
+            <marker date="1490723815000" expanded="true" signature="8257:8304" ph="select FileP... Genome" />
+            <marker date="1490723815000" expanded="true" signature="8410:8454" ph="select FileP... Genome" />
+            <marker date="1490723815000" expanded="true" signature="9908:9960" ph="SELECT FileP... Genome" />
+            <marker date="1490723815000" expanded="true" signature="9908:9963" ph="SELECT Signa... Signature" />
+            <marker date="1490723815000" expanded="true" signature="10294:10398" ph="SELECT Signa... LIN" />
+            <marker date="1490723815000" expanded="true" signature="10294:10401" ph="SELECT Genom... LIN" />
+            <marker date="1490723815000" expanded="true" signature="10599:10651" ph="SELECT Signa... Signature" />
+            <marker date="1490723815000" expanded="true" signature="10599:10654" ph="SELECT Signa... Signature" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/compute_mash_d.csv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="34" lean-forward="false" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+          <folding>
+            <element signature="e#214#233#0" expanded="true" />
           </folding>
         </state>
       </provider>
