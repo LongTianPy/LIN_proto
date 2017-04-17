@@ -19,8 +19,8 @@ def parse_result(current_sig):
     f.close()
     mash_dict = {}
     for i in lines:
-        sig = lines[2].split(".")[0]
-        mash_dict[sig] = float(lines[1])
+        sig = i[2].split(".")[0]
+        mash_dict[sig] = float(i[1])
     return mash_dict
 
 def run_sourmash(current_sig,total_number_of_sigs,df):

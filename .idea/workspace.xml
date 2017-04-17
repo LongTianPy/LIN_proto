@@ -134,8 +134,8 @@
       <file leaf-file-name="compute_mash_d.csv.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/compute_mash_d.csv.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="36" lean-forward="false" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+            <state relative-caret-position="288">
+              <caret line="22" column="32" lean-forward="false" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
               <folding>
                 <element signature="e#214#233#0" expanded="true" />
               </folding>
@@ -303,6 +303,7 @@
       <find>index</find>
       <find>shutil.c</find>
       <find>Attributes</find>
+      <find>split</find>
     </findStrings>
     <replaceStrings>
       <replace>['0']*20</replace>
@@ -339,6 +340,7 @@
     <setting file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/LINgroup_indexing.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/db_build.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Tools/compute_mash_d.csv.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/KMerPrep.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/ParseGenome.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/ANIbWrapper.py" root0="SKIP_INSPECTION" />
@@ -783,13 +785,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00498" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
-      <created>1489776006345</created>
-      <option name="number" value="00498" />
-      <option name="presentableId" value="LOCAL-00498" />
-      <option name="project" value="LOCAL" />
-      <updated>1489776006345</updated>
-    </task>
     <task id="LOCAL-00499" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
       <created>1489776582667</created>
       <option name="number" value="00499" />
@@ -1126,7 +1121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492441380179</updated>
     </task>
-    <option name="localTasksCounter" value="547" />
+    <task id="LOCAL-00547" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
+      <created>1492441529859</created>
+      <option name="number" value="00547" />
+      <option name="presentableId" value="LOCAL-00547" />
+      <option name="project" value="LOCAL" />
+      <updated>1492441529860</updated>
+    </task>
+    <option name="localTasksCounter" value="548" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1727,8 +1729,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/compute_mash_d.csv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="36" lean-forward="false" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+        <state relative-caret-position="288">
+          <caret line="22" column="32" lean-forward="false" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
           <folding>
             <element signature="e#214#233#0" expanded="true" />
           </folding>
