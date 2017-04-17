@@ -24,7 +24,7 @@ def parse_result(current_sig):
     return mash_dict
 
 def run_sourmash(current_sig,total_number_of_sigs,df):
-    cmd = "sourmash search {0} * -n {1} > results_{0}.txt".format(current_sig,total_number_of_sigs)
+    cmd = "sourmash search {0} *.sig -n {1} > results_{0}.txt".format(current_sig,total_number_of_sigs)
     os.system(cmd)
     dict = parse_result(current_sig)
     current_col = current_sig.split(".")[0]
