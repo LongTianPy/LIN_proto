@@ -60,8 +60,8 @@ def make_plots(df_95up):
     plt.plot(df_95up["ANI"],df_95up["ANI"]*beta1+beta0,"-r")
     title = r"Correlation between ANI ($\geqslant95\%$) and Mash similarity, $R^2$={0}".format(r2)
     plt.title(title)
-    annotation = r"y={0}$\times$x+{1}".format(beta1,beta0)
-    plt.annotate(annotation,xy=(4,4))
+    # annotation = r"y={0}$\times$x+{1}".format(beta1,beta0)
+    # plt.annotate(annotation,xy=(4,4))
     plt.savefig("95up.pdf")
     for i in range(1,len(scheme)):
         # subplot_pos += 1
@@ -76,6 +76,7 @@ def make_plots(df_95up):
             df_sub_ols = ols(x=df_sub["ANI"],y=df_sub["Mash similarity"])
             beta1 = df_sub_ols.beta.x
             beta0 = df_sub_ols.beta.intercept
+            r2 = df_sub_ols.r2
             plt.plot(df_sub["ANI"],df_sub["Mash similarity"],".b")
             plt.xlabel("ANI")
             plt.ylabel("Mash similarity")
@@ -84,8 +85,8 @@ def make_plots(df_95up):
                                                                                                          upper_percentage,
                                                                                                         r2)
             plt.title(title)
-            annotation = r"y={0}$\times$x+{1}".format(beta1, beta0)
-            plt.annotate(annotation,xy=(4,4))
+            # annotation = r"y={0}$\times$x+{1}".format(beta1, beta0)
+            # plt.annotate(annotation,xy=(4,4))
             plt.savefig("{0}%_{1}%.pdf".format(lower_percentage,upper_percentage))
 
 # MAIN
