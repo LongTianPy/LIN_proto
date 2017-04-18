@@ -8,6 +8,11 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from pandas.stats.api import ols
 import sys
+import matplotlib as mpl
+
+mpl.rc('text', usetex=True)
+mpl.rcParams['text.latex.preamble']=[r"\usepackage{amssymb}",
+                                     r"\usepackage{amsmath}"]
 
 # FUNCTIONS
 def concat_dfs(df_ani,df_mash):
@@ -55,6 +60,8 @@ def make_plots(df_95up):
     plt.plot(df_95up["ANI"],df_95up["ANI"]*beta1+beta0,"-r")
     title = r"Correlation between ANI ($\geqslant95\%$) and Mash similarity, $R^2$={0}".format(r2)
     plt.title(title)
+    annotation = r"y={0}$\times$x+{1}".format(beta1,beta0)
+    plt.annotate(annotation,xy=(4,4))
     plt.savefig("95up.pdf")
     for i in range(1,len(scheme)):
         # subplot_pos += 1
@@ -77,6 +84,8 @@ def make_plots(df_95up):
                                                                                                          upper_percentage,
                                                                                                         r2)
             plt.title(title)
+            annotation = r"y={0}$\times$x+{1}".format(beta1, beta0)
+            plt.annotate(annotation,xy=(4,4))
             plt.savefig("{0}%_{1}%.pdf".format(lower_percentage,upper_percentage))
 
 # MAIN
