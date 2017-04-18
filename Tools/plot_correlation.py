@@ -94,6 +94,7 @@ def make_plots(df, df_95up):
             # annotation = r"y={0}$\times$x+{1}".format(beta1, beta0)
             # plt.annotate(annotation,xy=(4,4))
             # plt.savefig("{0}%_{1}%.pdf".format(lower_percentage,upper_percentage))
+    plt.savefig("all_n_scheme.pdf")
 
 # MAIN
 if __name__ == "__main__":
