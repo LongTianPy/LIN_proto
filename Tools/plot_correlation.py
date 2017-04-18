@@ -43,19 +43,19 @@ def make_single_plot(df):
     plt.plot(df["ANI"], df["ANI"] * beta1 + beta0, "-r")
 
 def make_plots(df, df_95up):
-    scheme=[60,70,75,80,85,90,95,98,98.5,99,99.25,99.5,99.75,99.9,99.925,99.95,99.975,99.99,99.999,99.9999]
+    scheme=[60,70,75,80,85,90,95,96,97,98,98.5,99,99.25,99.5,99.75,99.9,99.925,99.95,99.975,99.99,99.999,99.9999]
     scheme_percentage = [str(i) for i in scheme if i>=95]
     scheme = [float(i)/100 for i in scheme if i>=95]
-    plt.figure(figsize=(20,36))
+    plt.figure(figsize=(20,40))
     # plt.figure()
-    plt.subplot(7,2,1)
+    plt.subplot(8,2,1)
     plt.plot(df["ANI"],df["Mash similarity"],".b")
     plt.xlabel("ANI")
     plt.ylabel("Mash similarity")
     title = r"Correlation between ANI and Mash similarity"
     plt.title(title)
     subplot_pos = 2
-    plt.subplot(7,2,subplot_pos)
+    plt.subplot(8,2,subplot_pos)
     df_95up_ols = ols(x=df_95up["ANI"],y=df_95up["Mash similarity"])
     beta1 = df_95up_ols.beta.x
     beta0 = df_95up_ols.beta.intercept
@@ -77,7 +77,7 @@ def make_plots(df, df_95up):
         df_sub = df_95up[df_95up["ANI"]>=lower][df_95up["ANI"]<=upper]
         if len(df_sub.index)>1:
             subplot_pos += 1
-            plt.subplot(7, 2, subplot_pos)
+            plt.subplot(8, 2, subplot_pos)
             # plt.figure()
             df_sub_ols = ols(x=df_sub["ANI"],y=df_sub["Mash similarity"])
             beta1 = df_sub_ols.beta.x
