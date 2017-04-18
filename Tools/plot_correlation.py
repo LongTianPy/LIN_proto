@@ -81,7 +81,7 @@ def make_plots(df_95up):
             plt.xlabel("ANI")
             plt.ylabel("Mash similarity")
             plt.plot(df_sub["ANI"],df_sub["ANI"]*beta1+beta0,"-r")
-            title = r"Correlation between ANI ({0}$\%\leqslant$ANI$\leqslant${1}$\%$) and Mash similarity, $R^2$={2}".format(lower_percentage,
+            title = r"Correlation between ANI ({0}$\%\leqslant$ANI$\leqslant${1}$\%$) and Mash similarity, $R^2$={2:.2f}".format(lower_percentage,
                                                                                                          upper_percentage,
                                                                                                         r2)
             plt.title(title)
