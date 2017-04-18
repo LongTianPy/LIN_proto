@@ -42,8 +42,8 @@ def make_plots(df_95up):
     scheme_percentage = [str(i) for i in scheme if i>=95]
     scheme = [float(i)/100 for i in scheme if i>=95]
     plt.figure(figsize=(8.27,11.69))
-    subplot_pos = 271
-    plt.subplot(subplot_pos)
+    subplot_pos = 1
+    plt.subplot(2,7,subplot_pos)
     df_95up_ols = ols(x=df_95up["ANI"],y=df_95up["Mash similarity"])
     beta1 = df_95up_ols.beta.x
     beta0 = df_95up_ols.beta.intercept
@@ -61,7 +61,7 @@ def make_plots(df_95up):
         lower_percentage = scheme_percentage[i-1]
         upper_percentage = scheme_percentage[i]
         df_sub = df_95up[df_95up["ANI"]>=lower][df_95up["ANI"]<=upper]
-        plt.subplot(subplot_pos)
+        plt.subplot(2,7,subplot_pos)
         df_sub_ols = ols(x=df_sub["ANI"],y=df_sub["Mash similarity"])
         beta1 = df_sub_ols.beta.x
         beta0 = df_sub_ols.beta.intercept
