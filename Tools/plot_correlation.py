@@ -46,7 +46,7 @@ def make_plots(df, df_95up):
     scheme=[60,70,75,80,85,90,95,98,98.5,99,99.25,99.5,99.75,99.9,99.925,99.95,99.975,99.99,99.999,99.9999]
     scheme_percentage = [str(i) for i in scheme if i>=95]
     scheme = [float(i)/100 for i in scheme if i>=95]
-    plt.figure(figsize=(24,36))
+    plt.figure(figsize=(20,36))
     # plt.figure()
     plt.subplot(7,2,1)
     plt.plot(df["ANI"],df["Mash similarity"],".b")
