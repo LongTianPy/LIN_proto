@@ -58,7 +58,6 @@ def make_plots(df_95up):
     plt.savefig("95up.pdf")
     for i in range(1,len(scheme)):
         # subplot_pos += 1
-
         lower = scheme[i-1]
         upper = scheme[i]
         lower_percentage = scheme_percentage[i-1]
