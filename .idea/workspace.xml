@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/compute_mash_d.csv.py" afterPath="$PROJECT_DIR$/Tools/compute_mash_d.csv.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/plot_correlation.py" afterPath="$PROJECT_DIR$/Tools/plot_correlation.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -131,11 +131,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plot_correlation.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="plot_correlation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/plot_correlation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1185">
-              <caret line="79" column="25" lean-forward="false" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
+            <state relative-caret-position="246">
+              <caret line="49" column="96" lean-forward="false" selection-start-line="49" selection-start-column="96" selection-end-line="49" selection-end-column="96" />
               <folding>
                 <element signature="e#125#144#0" expanded="true" />
               </folding>
@@ -143,11 +143,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compute_mash_d.csv.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="compute_mash_d.csv.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tools/compute_mash_d.csv.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
-              <caret line="49" column="34" lean-forward="true" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
+              <caret line="49" column="15" lean-forward="false" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="15" />
               <folding>
                 <element signature="e#214#233#0" expanded="true" />
               </folding>
@@ -341,8 +341,8 @@
         <option value="$PROJECT_DIR$/LINgroup_indexing.py" />
         <option value="$PROJECT_DIR$/Tools/load_uncultured.py" />
         <option value="$PROJECT_DIR$/Notes.md" />
-        <option value="$PROJECT_DIR$/Tools/plot_correlation.py" />
         <option value="$PROJECT_DIR$/Tools/compute_mash_d.csv.py" />
+        <option value="$PROJECT_DIR$/Tools/plot_correlation.py" />
       </list>
     </option>
   </component>
@@ -353,6 +353,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="342" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="825" />
@@ -729,13 +730,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00518" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
-      <created>1490294394828</created>
-      <option name="number" value="00518" />
-      <option name="presentableId" value="LOCAL-00518" />
-      <option name="project" value="LOCAL" />
-      <updated>1490294394828</updated>
-    </task>
     <task id="LOCAL-00519" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
       <created>1490294484228</created>
       <option name="number" value="00519" />
@@ -1072,7 +1066,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492570919453</updated>
     </task>
-    <option name="localTasksCounter" value="567" />
+    <task id="LOCAL-00567" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
+      <created>1492571389544</created>
+      <option name="number" value="00567" />
+      <option name="presentableId" value="LOCAL-00567" />
+      <option name="project" value="LOCAL" />
+      <updated>1492571389544</updated>
+    </task>
+    <option name="localTasksCounter" value="568" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1085,7 +1086,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="825" extended-state="6" />
+    <frame x="342" y="23" width="1440" height="825" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22013889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1183,17 +1184,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Tools/plot_correlation.py</url>
-          <line>87</line>
+          <line>88</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Tools/plot_correlation.py</url>
-          <line>72</line>
+          <line>73</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Tools/plot_correlation.py</url>
-          <line>90</line>
+          <line>91</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
@@ -1679,22 +1680,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/plot_correlation.py">
+    <entry file="file://$PROJECT_DIR$/Tools/compute_mash_d.csv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
-          <caret line="79" column="25" lean-forward="false" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
+        <state relative-caret-position="450">
+          <caret line="49" column="15" lean-forward="false" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="15" />
           <folding>
-            <element signature="e#125#144#0" expanded="true" />
+            <element signature="e#214#233#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/compute_mash_d.csv.py">
+    <entry file="file://$PROJECT_DIR$/Tools/plot_correlation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="49" column="34" lean-forward="true" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
+        <state relative-caret-position="246">
+          <caret line="49" column="96" lean-forward="false" selection-start-line="49" selection-start-column="96" selection-end-line="49" selection-end-column="96" />
           <folding>
-            <element signature="e#214#233#0" expanded="true" />
+            <element signature="e#125#144#0" expanded="true" />
           </folding>
         </state>
       </provider>
