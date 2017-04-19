@@ -19,10 +19,12 @@ def concat_dfs(df_ani,df_mash):
     idxs = df_ani.index
     cols = df_ani.columns
     idx_count = 1
-    df = pd.DataFrame(columns=["ANI","Mash similarity"])
+    df = pd.DataFrame(columns=["ANI","Mash similarity","Query Genome","Subject Genome"])
     for idx in idxs:
         for col in cols:
             df.set_value(idx_count,"ANI",df_ani.get_value(idx,col))
+            df.set_value(idx_count,"Query Genome",idx)
+            df.set_value(idx_count,"Subject Genome",col)
             if pd.isnull(df_mash.get_value(idx,col)):
                 df.set_value(idx_count,"Mash similarity",0)
             else:
@@ -31,6 +33,8 @@ def concat_dfs(df_ani,df_mash):
     df = df[df["ANI"] != 1]
     df_95up = df[df["ANI"]>0.95]
     df_95up.index = [i for i in range(len(df_95up.index))]
+    df_zero = df_95up[df_95up["Mash similarity"]==0]
+    df_zero.to_csv("mash_zero.csv")
     return df, df_95up
 
 def make_single_plot(df):
