@@ -48,7 +48,7 @@ def make_plots(df, df_95up):
     scheme = [float(i)/100 for i in scheme if i>=95]
     plt.figure(figsize=(20,40))
     plt.suptitle(r"Correlation between ANI and Mash similarity, with Mash params k=31, sketch size=500",
-                 fontsize="large", fontweight="bold")
+                 fontsize="80", fontweight="bold")
     # plt.figure()
     plt.subplot(7,2,1)
     plt.plot(df["ANI"],df["Mash similarity"],".b")
