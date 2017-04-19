@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tools/submission.qsub" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/plot_correlation.py" afterPath="$PROJECT_DIR$/Tools/plot_correlation.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -76,22 +76,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LINgroup_indexing_comparison.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="40" column="17" lean-forward="false" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-              <folding>
-                <marker date="1489607713000" expanded="true" signature="470:600" ph="select Genom... Genome" />
-                <marker date="1489607713000" expanded="true" signature="1041:1084" ph="select Cutof... Scheme" />
-                <marker date="1489607713000" expanded="true" signature="1663:1738" ph="select Genom... LIN" />
-                <marker date="1489607713000" expanded="true" signature="3297:3341" ph="SELECT FileP... Genome" />
-                <marker date="1489607713000" expanded="true" signature="5256:5331" ph="select Genom... LIN" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="LIN_Assign.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LIN_Assign.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -131,7 +115,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plot_correlation.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="plot_correlation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tools/plot_correlation.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="366">
@@ -139,6 +123,16 @@
               <folding>
                 <element signature="e#125#144#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="submission.qsub" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Tools/submission.qsub">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="410">
+              <caret line="88" column="266" lean-forward="false" selection-start-line="88" selection-start-column="266" selection-end-line="88" selection-end-column="266" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -343,6 +337,7 @@
         <option value="$PROJECT_DIR$/Notes.md" />
         <option value="$PROJECT_DIR$/Tools/compute_mash_d.csv.py" />
         <option value="$PROJECT_DIR$/Tools/plot_correlation.py" />
+        <option value="$PROJECT_DIR$/Tools/submission.qsub" />
       </list>
     </option>
   </component>
@@ -353,7 +348,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="68" />
+    <option name="x" value="5" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="825" />
@@ -730,13 +725,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00524" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
-      <created>1490380258795</created>
-      <option name="number" value="00524" />
-      <option name="presentableId" value="LOCAL-00524" />
-      <option name="project" value="LOCAL" />
-      <updated>1490380258795</updated>
-    </task>
     <task id="LOCAL-00525" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
       <created>1490380335173</created>
       <option name="number" value="00525" />
@@ -1073,7 +1061,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492612938258</updated>
     </task>
-    <option name="localTasksCounter" value="573" />
+    <task id="LOCAL-00573" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
+      <created>1492627013671</created>
+      <option name="number" value="00573" />
+      <option name="presentableId" value="LOCAL-00573" />
+      <option name="project" value="LOCAL" />
+      <updated>1492627013671</updated>
+    </task>
+    <option name="localTasksCounter" value="574" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1086,7 +1081,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="68" y="23" width="1440" height="825" extended-state="0" />
+    <frame x="5" y="23" width="1440" height="825" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22013889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1203,13 +1198,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/KMer/test/GenerateMatrix.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="36" column="56" lean-forward="false" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KMer/src/KMerPrep.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1697,6 +1685,14 @@
           <folding>
             <element signature="e#125#144#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/submission.qsub">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="88" column="266" lean-forward="false" selection-start-line="88" selection-start-column="266" selection-end-line="88" selection-end-column="266" />
+          <folding />
         </state>
       </provider>
     </entry>
