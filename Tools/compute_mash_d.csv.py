@@ -38,13 +38,13 @@ if __name__ == "__main__":
     number_of_sigs = len(sigs)
     names = [sig.split(".")[0] for sig in sigs]
     df = pd.DataFrame(index=names,columns=names)
-    # pool = mp.Pool(8)
-    # partial_run_sourmash = partial(run_sourmash,total_number_of_sigs=number_of_sigs,df=df)
-    # pool.map(partial_run_sourmash,sigs)
-    # df.to_csv("pairwise_mash.csv")
-    for each_sig in sigs:
-        mash_dict = parse_result(each_sig)
-        current_col=each_sig.split(".")[0]
-        for each_key in mash_dict.keys():
-            df.set_value(each_key,current_col,mash_dict[each_key])
+    pool = mp.Pool(8)
+    partial_run_sourmash = partial(run_sourmash,total_number_of_sigs=number_of_sigs,df=df)
+    pool.map(partial_run_sourmash,sigs)
     df.to_csv("pairwise_mash.csv")
+    # for each_sig in sigs:
+    #     mash_dict = parse_result(each_sig)
+    #     current_col=each_sig.split(".")[0]
+    #     for each_key in mash_dict.keys():
+    #         df.set_value(each_key,current_col,mash_dict[each_key])
+    # df.to_csv("pairwise_mash.csv")
