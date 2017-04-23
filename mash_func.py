@@ -61,7 +61,7 @@ def sourmash_searching(sourmash_dir,LINgroup,current_sig_path,current_genome):
     cmd = "sourmash search {0} {1}*.sig -n {2} > {1}{3}result.txt".format(current_sig_path,target_folder,size,current_genome)
     # print cmd
     os.system(cmd)
-    f = open("{0}result.txt".format(target_folder,current_genome),"r")
+    f = open("{0}{1}result.txt".format(target_folder,current_genome),"r")
     lines = [i.strip().split(" \t ") for i in f.readlines()[3:]]
     f.close()
     # candidates = []
