@@ -30,7 +30,7 @@ def connect_to_db():
 def prepare_input(c):
     c.execute("select Genome_ID, FilePath from Genome")
     tmp = c.fetchall()
-    genome_id = [int(i) for i in tmp]
+    genome_id = [int(i[0]) for i in tmp]
     filepath = [i[1] for i in tmp]
     df_Genome = pd.DataFrame()
     df_Genome["FilePath"] = filepath
