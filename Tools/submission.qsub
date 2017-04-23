@@ -7,53 +7,41 @@
 # commands below with those that run your job.
 
 #### Resource Request: ####
-# All DragonsTooth nodes have the following hardware: 24 cores (2 x Intel Xeon E5-2680v3, Haswell), 256GB 2133 MHz DDR4
-#
-# Resources can be requested by specifying the number of nodes, cores, memory, etc
-# Examples:
-#   Request 2 nodes with 24 cores each
-#   #PBS -l nodes=1:ppn=24
-#   Request 4 cores (on any number of nodes)
-#   #PBS -l procs=4
-#   Request 12 cores with 20gb memory per core
-#   #PBS -l procs=12,pmem=20gb
-#   Request 2 nodes with 24 cores each and 20gb memory per core (will give two 512gb nodes)
-#   #PBS -l nodes=2:ppn=24,pmem=20gb
-PBS -l nodes=2:ppn=24
+#PBS -l nodes=2:ppn=24
 
 #### Walltime ####
 # Set the walltime, which is the maximum time your job can run in HH:MM:SS
 # Note that if your job exceeds the walltime estimated during submission, the scheduler
 # will kill it. So it is important to be conservative (i.e., to err on the high side)
 # with the walltime that you include in your submission script.
-PBS -l walltime=100:00:00
+#PBS -l walltime=100:00:00
 
 #### Queue ####
 # Queue name. NewRiver has four queues:
 #   normal_q   for production jobs on all Haswell nodes
 #   dev_q      for development/debugging jobs. These jobs must be short but can be large.
 #   open_q     for jobs that don't need an allocation
-PBS -q normal_q
+#PBS -q normal_q
 
 #### Account ####
 # This determines which allocation this job's CPU hours are billed to.
 # Replace "youraccount" below with the name of your allocation account.
 # If you are a student, you will need to get this from your advisor.
 # For more on allocations, go here: http://www.arc.vt.edu/allocations
-PBS -A longtian
+#PBS -A LINbase_2017
 
 # Access group. Do not change this line.
 PBS -W group_list=dragonstooth
 
 # Uncomment and add your email address to get an email when your job starts, completes, or aborts
-PBS -M longtian@vt.edu
-PBS -m bea
+#PBS -M longtian@vt.edu
+#PBS -m bea
 
 # Add any modules you might require. This example removes all modules and then adds
 # the Intel compiler and MKL scientific libraries. Use the module avail command
 # to see a list of available modules.
-# module purge
-module load intel python/3.5.0
+#module purge
+#module load intel python/3.5.0
 
 # Change to the directory from which the job was submitted
 cd /home/longtian/dragonstooth/Data/
@@ -88,6 +76,4 @@ export OMP_NUM_THREADS=24
 # RUN the program
 /home/longtian/dragonstooth/python/bin/average_nucleotide_identity.py -i Genomes_LINbase -o $HOME/dragonstooth/output/LINbase_pyani_out -m ANIblastall --blastall_exe /home/longtian/dragonstooth/blast/blastall --formatdb_exe /home/longtian/dragonstooth/blast/formatdb
 
-
 exit;
-

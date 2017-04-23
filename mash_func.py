@@ -40,10 +40,10 @@ def write_both_strand(Genome_ID,cursor,sourmash_dir):
 
 def create_signature(Genome_ID,sourmash_dir,cursor,conn):
     sig_path = sourmash_dir+str(Genome_ID)+".sig"
-    sourmash_cmd = "sourmash compute -o {0} {1}.fasta".format(sig_path,sourmash_dir+str(Genome_ID))
+    sourmash_cmd = "sourmash compute -o {0}.sig {1}.fasta -k 10,31 -n 1000".format(sig_path,sourmash_dir+str(Genome_ID))
     os.system(sourmash_cmd)
-    cursor.execute("insert into Signature (Genome_ID,SignaturePath) values ({0}, '{1}')".format(Genome_ID, sig_path))
-    conn.commit()
+    # cursor.execute("insert into Signature (Genome_ID,SignaturePath) values ({0}, '{1}')".format(Genome_ID, sig_path))
+    # conn.commit()
     return sig_path
 
 # def sourmash_indexing(sourmash_dir, LINgroup):
@@ -59,25 +59,28 @@ def sourmash_searching(sourmash_dir,LINgroup,current_sig_path,current_genome):
     size = len(files)
     print size
     cmd = "sourmash search {0} {1}*.sig -n {2} > {1}result.txt".format(current_sig_path,target_folder,size)
-    print cmd
+    # print cmd
     os.system(cmd)
     f = open("{0}result.txt".format(target_folder),"r")
     lines = [i.strip().split(" \t ") for i in f.readlines()[3:]]
     f.close()
-    candidates = []
-    candidates.append(lines[0])
-    if len(lines) > 1:
-        for i in range(1,len(lines)):
-            if float(lines[i][1]) - float(lines[i-1][1]) < -0.1:
-                break
-            else:
-                candidates.append(lines[i])
+    # candidates = []
+    # candidates.append(lines[0])
+    # if len(lines) > 1:
+    #     for i in range(1,len(lines)):
+    #         if float(lines[i][1]) - float(lines[i-1][1]) < -0.1:
+    #             break
+    #         else:
+    #             candidates.append(lines[i])
     df = pd.DataFrame()
-    mash_d = [float(i[1]) for i in candidates]
-    df["mash_d"] = mash_d
-    df.index = [i[0].split("/")[-1].split(".")[0] for i in candidates]
-    # df = df[df["mash_d"] > (df.get_value(df.index[0], "mash_d") - 0.1)]
-    return df
+    if len(lines) == 0:
+        return df
+    else:
+        mash_d = [float(i[1]) for i in lines]
+        df["mash_d"] = mash_d
+        df.index = [i[0].split("/")[-1].split(".")[0] for i in candidates]
+        # df = df[df["mash_d"] > (df.get_value(df.index[0], "mash_d") - 0.1)]
+        return df
 
 def write_LIN_to_db(current_genome,subject_genome,ani,new_LIN,conn,c):
     sql = "INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 3, '{1}', '{2}', {3})"
