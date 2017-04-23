@@ -238,7 +238,7 @@ if __name__ == "__main__":
     tmp = [i[0] for i in c.fetchall()]
     startpoint = len(tmp)
     if startpoint == 0:
-        new_Genome_ID = Genome_ID[i]
+        new_Genome_ID = Genome_ID[startpoint]
         new_FilePath = df_Genome.get_value(new_Genome_ID, "FilePath")
         shutil.copy(new_FilePath, sourmash_dir + "{0}.fasta".format(new_Genome_ID))
         new_SigPath = mash_func.create_signature(Genome_ID=new_Genome_ID, sourmash_dir=sourmash_dir, cursor=c,
