@@ -78,7 +78,7 @@ def sourmash_searching(sourmash_dir,LINgroup,current_sig_path,current_genome):
     else:
         mash_d = [float(i[1]) for i in lines]
         df["mash_d"] = mash_d
-        df.index = [i[0].split("/")[-1].split(".")[0] for i in candidates]
+        df.index = [i[0].split("/")[-1].split(".")[0] for i in lines]
         # df = df[df["mash_d"] > (df.get_value(df.index[0], "mash_d") - 0.1)]
         return df
 
