@@ -30,7 +30,7 @@ def connect_to_db():
     return conn, c
 
 def prepare_input(c):
-    c.execute("select Genome_ID, FilePath from Genome where Genome_ID>725")
+    c.execute("select Genome_ID, FilePath from Genome")
     tmp = c.fetchall()
     genome_id = [int(i[0]) for i in tmp]
     filepath = [i[1] for i in tmp]
