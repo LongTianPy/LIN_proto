@@ -208,8 +208,8 @@ def mash_indexing(cursor, new_Genome_ID, new_SigPath, User_ID):
         SubjectGenome = df_LINgroup.index[0]
         cursor.execute("select FilePath from Genome where Genome_ID={0}".format(SubjectGenome))
         SubjectGenome_FilePath = cursor.fetchone()[0]
-        shutil.copy(SubjectGenome_FilePath,workspace_dir+"{0}.fasta".format(SubjectGenome))
         shutil.copy(new_FilePath,workspace_dir+"{0}.fasta".format(new_Genome_ID))
+        shutil.copy(SubjectGenome_FilePath,workspace_dir+"{0}.fasta".format(SubjectGenome))
         pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py -i {0} -o {0}{1}_output/ " \
                     "-m ANIblastall --nocompress".format(workspace_dir, User_ID)
         os.system(pyani_cmd)
@@ -236,24 +236,24 @@ if __name__ == "__main__":
     # sourmash_dir = "/home/linproject/Workspace/Sourmash/"
     conn, c = connect_to_db()
     df_Genome, Genome_ID = prepare_input(c)
-    c.execute("select Genome_ID from LIN")
-    tmp = [i[0] for i in c.fetchall()]
-    startpoint = len(tmp)
-    if startpoint == 0:
-        new_Genome_ID = Genome_ID[startpoint]
-        new_FilePath = df_Genome.get_value(new_Genome_ID, "FilePath")
-        shutil.copy(new_FilePath, sourmash_dir + "{0}.fasta".format(new_Genome_ID))
-        new_SigPath = mash_func.create_signature(Genome_ID=new_Genome_ID, sourmash_dir=sourmash_dir, cursor=c,
-                                                 conn=conn)
-        c.execute("insert into LIN (Genome_ID,Scheme_ID,SubjectGenome,ANI,LIN) VALUES"
-                  " ({0},3,{0},1,'0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0')".format(Genome_ID[startpoint]))
-        conn.commit()
-        if not isdir(sourmash_dir+ "0,0,0,0,0,0,0"):
-            os.mkdir(sourmash_dir+ "0,0,0,0,0,0,0")
-        shutil.copy(new_SigPath,sourmash_dir+ "0,0,0,0,0,0,0/")
-        shutil.copy(new_SigPath, sourmash_dir + "rep_bac/")
-        startpoint += 1
-    for i in range(startpoint,len(Genome_ID)):
+    # c.execute("select Genome_ID from LIN")
+    # tmp = [i[0] for i in c.fetchall()]
+    # startpoint = len(tmp)
+    # if startpoint == 0:
+    #     new_Genome_ID = Genome_ID[0]
+    #     new_FilePath = df_Genome.get_value(new_Genome_ID, "FilePath")
+    #     shutil.copy(new_FilePath, sourmash_dir + "{0}.fasta".format(new_Genome_ID))
+    #     new_SigPath = mash_func.create_signature(Genome_ID=new_Genome_ID, sourmash_dir=sourmash_dir, cursor=c,
+    #                                              conn=conn)
+    #     c.execute("insert into LIN (Genome_ID,Scheme_ID,SubjectGenome,ANI,LIN) VALUES"
+    #               " ({0},3,{0},1,'0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0')".format(Genome_ID[startpoint]))
+    #     conn.commit()
+    #     if not isdir(sourmash_dir+ "0,0,0,0,0,0,0"):
+    #         os.mkdir(sourmash_dir+ "0,0,0,0,0,0,0")
+    #     shutil.copy(new_SigPath,sourmash_dir+ "0,0,0,0,0,0,0/")
+    #     shutil.copy(new_SigPath, sourmash_dir + "rep_bac/")
+    #     startpoint += 1
+    for i in range(1,len(Genome_ID)):
         new_Genome_ID = Genome_ID[i]
         new_FilePath = df_Genome.get_value(new_Genome_ID,"FilePath")
         shutil.copy(new_FilePath, sourmash_dir + "{0}.fasta".format(new_Genome_ID))
