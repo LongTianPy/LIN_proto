@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mash_func.py" afterPath="$PROJECT_DIR$/mash_func.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -128,10 +127,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mash_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
+            <state relative-caret-position="1005">
               <caret line="80" column="68" lean-forward="false" selection-start-line="80" selection-start-column="68" selection-end-line="80" selection-end-column="68" />
               <folding>
                 <element signature="e#84#93#0" expanded="true" />
@@ -157,11 +156,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mash_indexing.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mash_indexing.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mash_indexing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1191">
-              <caret line="254" column="34" lean-forward="false" selection-start-line="254" selection-start-column="34" selection-end-line="254" selection-end-column="34" />
+            <state relative-caret-position="300">
+              <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="58" />
               <folding>
                 <element signature="e#399#418#0" expanded="true" />
                 <element signature="e#1345#5007#0" expanded="false" />
@@ -316,8 +315,8 @@
         <option value="$PROJECT_DIR$/Tools/plot_correlation.py" />
         <option value="$PROJECT_DIR$/Tools/submission.qsub" />
         <option value="$PROJECT_DIR$/Tools/dragonstooth_sourmash.py" />
-        <option value="$PROJECT_DIR$/mash_indexing.py" />
         <option value="$PROJECT_DIR$/mash_func.py" />
+        <option value="$PROJECT_DIR$/mash_indexing.py" />
       </list>
     </option>
   </component>
@@ -726,13 +725,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00535" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
-      <created>1490724765921</created>
-      <option name="number" value="00535" />
-      <option name="presentableId" value="LOCAL-00535" />
-      <option name="project" value="LOCAL" />
-      <updated>1490724765921</updated>
-    </task>
     <task id="LOCAL-00536" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
       <created>1491942735145</created>
       <option name="number" value="00536" />
@@ -1069,7 +1061,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492982948583</updated>
     </task>
-    <option name="localTasksCounter" value="584" />
+    <task id="LOCAL-00584" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
+      <created>1492983142484</created>
+      <option name="number" value="00584" />
+      <option name="presentableId" value="LOCAL-00584" />
+      <option name="project" value="LOCAL" />
+      <updated>1492983142484</updated>
+    </task>
+    <option name="localTasksCounter" value="585" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1083,7 +1082,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="23" width="1440" height="871" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22013889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1093,7 +1091,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5374823" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32768363" sideWeight="0.4892704" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18814433" sideWeight="0.48497853" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18814433" sideWeight="0.48497853" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1664,10 +1662,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mash_func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="80" column="68" lean-forward="false" selection-start-line="80" selection-start-column="68" selection-end-line="80" selection-end-column="68" />
+          <folding>
+            <element signature="e#84#93#0" expanded="true" />
+            <element signature="e#611#1127#0" expanded="false" />
+            <element signature="e#3082#3277#0" expanded="false" />
+            <element signature="e#3322#8198#0" expanded="false" />
+            <element signature="e#9613#11555#0" expanded="false" />
+            <marker date="1492983137000" expanded="true" signature="627:671" ph="select FileP... Genome" />
+            <marker date="1492983137000" expanded="true" signature="627:674" ph="select FileP... Genome" />
+            <marker date="1492983137000" expanded="true" signature="1404:1471" ph="insert into Signature... " />
+            <marker date="1492983137000" expanded="true" signature="3089:3187" ph="INSERT INTO LIN... " />
+            <marker date="1492983137000" expanded="true" signature="8394:8438" ph="select FileP... Genome" />
+            <marker date="1492983137000" expanded="true" signature="8394:8441" ph="select FileP... Genome" />
+            <marker date="1492983137000" expanded="true" signature="8547:8591" ph="select FileP... Genome" />
+            <marker date="1492983137000" expanded="true" signature="10045:10097" ph="SELECT FileP... Genome" />
+            <marker date="1492983137000" expanded="true" signature="10045:10100" ph="SELECT Signa... Signature" />
+            <marker date="1492983137000" expanded="true" signature="10431:10535" ph="SELECT Signa... LIN" />
+            <marker date="1492983137000" expanded="true" signature="10431:10538" ph="SELECT Genom... LIN" />
+            <marker date="1492983137000" expanded="true" signature="10736:10788" ph="SELECT Signa... Signature" />
+            <marker date="1492983137000" expanded="true" signature="10736:10791" ph="SELECT Signa... Signature" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mash_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1191">
-          <caret line="254" column="34" lean-forward="false" selection-start-line="254" selection-start-column="34" selection-end-line="254" selection-end-column="34" />
+        <state relative-caret-position="300">
+          <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="58" />
           <folding>
             <element signature="e#399#418#0" expanded="true" />
             <element signature="e#1345#5007#0" expanded="false" />
@@ -1691,33 +1716,6 @@
             <marker date="1492982699000" expanded="true" signature="14004:14029" ph="select * fro... LIN" />
             <marker date="1492982699000" expanded="true" signature="14511:14577" ph="insert into LIN... " />
             <marker date="1492982699000" expanded="true" signature="14511:14654" ph="insert into LIN... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mash_func.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="80" column="68" lean-forward="false" selection-start-line="80" selection-start-column="68" selection-end-line="80" selection-end-column="68" />
-          <folding>
-            <element signature="e#84#93#0" expanded="true" />
-            <element signature="e#611#1127#0" expanded="false" />
-            <element signature="e#3082#3277#0" expanded="false" />
-            <element signature="e#3322#8198#0" expanded="false" />
-            <element signature="e#9613#11555#0" expanded="false" />
-            <marker date="1492983137000" expanded="true" signature="627:671" ph="select FileP... Genome" />
-            <marker date="1492983137000" expanded="true" signature="627:674" ph="select FileP... Genome" />
-            <marker date="1492983137000" expanded="true" signature="1404:1471" ph="insert into Signature... " />
-            <marker date="1492983137000" expanded="true" signature="3089:3187" ph="INSERT INTO LIN... " />
-            <marker date="1492983137000" expanded="true" signature="8394:8438" ph="select FileP... Genome" />
-            <marker date="1492983137000" expanded="true" signature="8394:8441" ph="select FileP... Genome" />
-            <marker date="1492983137000" expanded="true" signature="8547:8591" ph="select FileP... Genome" />
-            <marker date="1492983137000" expanded="true" signature="10045:10097" ph="SELECT FileP... Genome" />
-            <marker date="1492983137000" expanded="true" signature="10045:10100" ph="SELECT Signa... Signature" />
-            <marker date="1492983137000" expanded="true" signature="10431:10535" ph="SELECT Signa... LIN" />
-            <marker date="1492983137000" expanded="true" signature="10431:10538" ph="SELECT Genom... LIN" />
-            <marker date="1492983137000" expanded="true" signature="10736:10788" ph="SELECT Signa... Signature" />
-            <marker date="1492983137000" expanded="true" signature="10736:10791" ph="SELECT Signa... Signature" />
           </folding>
         </state>
       </provider>
