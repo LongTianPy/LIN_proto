@@ -205,17 +205,22 @@ def mash_indexing(cursor, new_Genome_ID, new_SigPath, User_ID):
         top_LINgroup_rep_bac = ",".join(top_LIN_rep_bac.split(",")[:7])
         df_LINgroup = mash_func.sourmash_searching(sourmash_dir=sourmash_dir,LINgroup=top_LINgroup_rep_bac,
                                                    current_sig_path=new_SigPath,current_genome=new_Genome_ID)
-        SubjectGenome = df_LINgroup.index[0]
-        cursor.execute("select FilePath from Genome where Genome_ID={0}".format(SubjectGenome))
-        SubjectGenome_FilePath = cursor.fetchone()[0]
-        shutil.copy(new_FilePath,workspace_dir+"{0}.fasta".format(new_Genome_ID))
-        shutil.copy(SubjectGenome_FilePath,workspace_dir+"{0}.fasta".format(SubjectGenome))
-        pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py -i {0} -o {0}{1}_output/ " \
-                    "-m ANIblastall --nocompress".format(workspace_dir, User_ID)
-        os.system(pyani_cmd)
-        ANIb_result = pd.read_table(workspace_dir + "{0}_output/ANIblastall_percentage_identity.tab".format(User_ID),
-                                    header=0, index_col=0).get_value(int(new_Genome_ID), str(SubjectGenome))
-        os.system("rm -rf {0}*".format(workspace_dir))
+        SubjectGenomes = df_LINgroup.index
+        similarity_pool = {}
+        for SubjectGenome in SubjectGenomes:
+            cursor.execute("select FilePath from Genome where Genome_ID={0}".format(SubjectGenome))
+            SubjectGenome_FilePath = cursor.fetchone()[0]
+            shutil.copy(new_FilePath,workspace_dir+"{0}.fasta".format(new_Genome_ID))
+            shutil.copy(SubjectGenome_FilePath,workspace_dir+"{0}.fasta".format(SubjectGenome))
+            pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py -i {0} -o {0}{1}_output/ " \
+                        "-m ANIblastall --nocompress".format(workspace_dir, User_ID)
+            os.system(pyani_cmd)
+            ANIb_result = pd.read_table(workspace_dir + "{0}_output/ANIblastall_percentage_identity.tab".format(User_ID),
+                                        header=0, index_col=0).get_value(int(new_Genome_ID), str(SubjectGenome))
+            os.system("rm -rf {0}*".format(workspace_dir))
+            similarity_pool[str(SubjectGenome)] = ANIb_result
+        SubjectGenome = str(max(similarity_pool,key=similarity_pool.get))
+        ANIb_result = similarity_pool[SubjectGenome]
         new_getLIN_object = LIN_Assign.getLIN(Genome_ID=SubjectGenome, Scheme_ID=3,
                                               similarity=ANIb_result,
                                               c=cursor)
