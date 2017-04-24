@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mash_indexing.py" afterPath="$PROJECT_DIR$/mash_indexing.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -130,10 +131,9 @@
       <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mash_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="80" column="68" lean-forward="false" selection-start-line="80" selection-start-column="68" selection-end-line="80" selection-end-column="68" />
+            <state relative-caret-position="210">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="17" />
               <folding>
-                <element signature="e#84#93#0" expanded="true" />
                 <element signature="e#611#1127#0" expanded="false" />
                 <element signature="e#3082#3277#0" expanded="false" />
                 <element signature="e#3322#8198#0" expanded="false" />
@@ -159,31 +159,30 @@
       <file leaf-file-name="mash_indexing.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mash_indexing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="58" />
+            <state relative-caret-position="150">
+              <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
               <folding>
-                <element signature="e#399#418#0" expanded="true" />
-                <element signature="e#1345#5007#0" expanded="false" />
-                <element signature="e#5104#10923#0" expanded="false" />
-                <marker date="1492982699000" expanded="true" signature="900:938" ph="select Genom... Genome" />
-                <marker date="1492982699000" expanded="true" signature="1730:1782" ph="SELECT Genom... LIN" />
-                <marker date="1492982699000" expanded="true" signature="3347:3391" ph="SELECT FileP... Genome" />
-                <marker date="1492982699000" expanded="true" signature="5120:5163" ph="SELECT Cutof... Scheme" />
-                <marker date="1492982699000" expanded="true" signature="5291:5321" ph="SELECT Genom... LIN" />
-                <marker date="1492982699000" expanded="true" signature="5916:5960" ph="SELECT FileP... Genome" />
-                <marker date="1492982699000" expanded="true" signature="8232:8284" ph="SELECT Genom... LIN" />
-                <marker date="1492982699000" expanded="true" signature="8811:8855" ph="SELECT FileP... Genome" />
-                <marker date="1492982699000" expanded="true" signature="11229:11273" ph="select FileP... Genome" />
-                <marker date="1492982699000" expanded="true" signature="11229:11276" ph="select FileP... Genome" />
-                <marker date="1492982699000" expanded="true" signature="11628:11664" ph="select LIN f... LIN" />
-                <marker date="1492982699000" expanded="true" signature="11628:11667" ph="select LIN f... LIN" />
-                <marker date="1492982699000" expanded="true" signature="12096:12140" ph="select FileP... Genome" />
-                <marker date="1492982699000" expanded="true" signature="12096:12143" ph="select FileP... Genome" />
-                <marker date="1492982699000" expanded="true" signature="13579:13677" ph="INSERT INTO LIN... " />
-                <marker date="1492982699000" expanded="true" signature="14004:14026" ph="select * fro... Ge" />
-                <marker date="1492982699000" expanded="true" signature="14004:14029" ph="select * fro... LIN" />
-                <marker date="1492982699000" expanded="true" signature="14511:14577" ph="insert into LIN... " />
-                <marker date="1492982699000" expanded="true" signature="14511:14654" ph="insert into LIN... " />
+                <element signature="e#1363#5025#0" expanded="false" />
+                <element signature="e#5122#10941#0" expanded="false" />
+                <marker date="1492993847000" expanded="true" signature="918:956" ph="select Genom... Genome" />
+                <marker date="1492993847000" expanded="true" signature="1748:1800" ph="SELECT Genom... LIN" />
+                <marker date="1492993847000" expanded="true" signature="3365:3409" ph="SELECT FileP... Genome" />
+                <marker date="1492993847000" expanded="true" signature="5138:5181" ph="SELECT Cutof... Scheme" />
+                <marker date="1492993847000" expanded="true" signature="5309:5339" ph="SELECT Genom... LIN" />
+                <marker date="1492993847000" expanded="true" signature="5934:5978" ph="SELECT FileP... Genome" />
+                <marker date="1492993847000" expanded="true" signature="8250:8302" ph="SELECT Genom... LIN" />
+                <marker date="1492993847000" expanded="true" signature="8829:8873" ph="SELECT FileP... Genome" />
+                <marker date="1492993847000" expanded="true" signature="11247:11291" ph="select FileP... Genome" />
+                <marker date="1492993847000" expanded="true" signature="11247:11294" ph="select FileP... Genome" />
+                <marker date="1492993847000" expanded="true" signature="11646:11682" ph="select LIN f... LIN" />
+                <marker date="1492993847000" expanded="true" signature="11646:11685" ph="select LIN f... LIN" />
+                <marker date="1492993847000" expanded="true" signature="12114:12158" ph="select FileP... Genome" />
+                <marker date="1492993847000" expanded="true" signature="12114:12161" ph="select FileP... Genome" />
+                <marker date="1492993847000" expanded="true" signature="13597:13695" ph="INSERT INTO LIN... " />
+                <marker date="1492993847000" expanded="true" signature="14022:14044" ph="select * fro... Ge" />
+                <marker date="1492993847000" expanded="true" signature="14022:14047" ph="select * fro... LIN" />
+                <marker date="1492993847000" expanded="true" signature="14529:14595" ph="insert into LIN... " />
+                <marker date="1492993847000" expanded="true" signature="14529:14672" ph="insert into LIN... " />
               </folding>
             </state>
           </provider>
@@ -725,13 +724,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00536" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
-      <created>1491942735145</created>
-      <option name="number" value="00536" />
-      <option name="presentableId" value="LOCAL-00536" />
-      <option name="project" value="LOCAL" />
-      <updated>1491942735146</updated>
-    </task>
     <task id="LOCAL-00537" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
       <created>1491943002811</created>
       <option name="number" value="00537" />
@@ -1068,7 +1060,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492983142484</updated>
     </task>
-    <option name="localTasksCounter" value="585" />
+    <task id="LOCAL-00585" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
+      <created>1492992678658</created>
+      <option name="number" value="00585" />
+      <option name="presentableId" value="LOCAL-00585" />
+      <option name="project" value="LOCAL" />
+      <updated>1492992678658</updated>
+    </task>
+    <option name="localTasksCounter" value="586" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1082,6 +1081,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="23" width="1440" height="871" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22013889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1091,7 +1091,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5374823" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32768363" sideWeight="0.4892704" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18814433" sideWeight="0.48497853" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18814433" sideWeight="0.48497853" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1664,10 +1664,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mash_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="80" column="68" lean-forward="false" selection-start-line="80" selection-start-column="68" selection-end-line="80" selection-end-column="68" />
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="17" />
           <folding>
-            <element signature="e#84#93#0" expanded="true" />
             <element signature="e#611#1127#0" expanded="false" />
             <element signature="e#3082#3277#0" expanded="false" />
             <element signature="e#3322#8198#0" expanded="false" />
@@ -1691,31 +1690,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mash_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="58" />
+        <state relative-caret-position="150">
+          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
           <folding>
-            <element signature="e#399#418#0" expanded="true" />
-            <element signature="e#1345#5007#0" expanded="false" />
-            <element signature="e#5104#10923#0" expanded="false" />
-            <marker date="1492982699000" expanded="true" signature="900:938" ph="select Genom... Genome" />
-            <marker date="1492982699000" expanded="true" signature="1730:1782" ph="SELECT Genom... LIN" />
-            <marker date="1492982699000" expanded="true" signature="3347:3391" ph="SELECT FileP... Genome" />
-            <marker date="1492982699000" expanded="true" signature="5120:5163" ph="SELECT Cutof... Scheme" />
-            <marker date="1492982699000" expanded="true" signature="5291:5321" ph="SELECT Genom... LIN" />
-            <marker date="1492982699000" expanded="true" signature="5916:5960" ph="SELECT FileP... Genome" />
-            <marker date="1492982699000" expanded="true" signature="8232:8284" ph="SELECT Genom... LIN" />
-            <marker date="1492982699000" expanded="true" signature="8811:8855" ph="SELECT FileP... Genome" />
-            <marker date="1492982699000" expanded="true" signature="11229:11273" ph="select FileP... Genome" />
-            <marker date="1492982699000" expanded="true" signature="11229:11276" ph="select FileP... Genome" />
-            <marker date="1492982699000" expanded="true" signature="11628:11664" ph="select LIN f... LIN" />
-            <marker date="1492982699000" expanded="true" signature="11628:11667" ph="select LIN f... LIN" />
-            <marker date="1492982699000" expanded="true" signature="12096:12140" ph="select FileP... Genome" />
-            <marker date="1492982699000" expanded="true" signature="12096:12143" ph="select FileP... Genome" />
-            <marker date="1492982699000" expanded="true" signature="13579:13677" ph="INSERT INTO LIN... " />
-            <marker date="1492982699000" expanded="true" signature="14004:14026" ph="select * fro... Ge" />
-            <marker date="1492982699000" expanded="true" signature="14004:14029" ph="select * fro... LIN" />
-            <marker date="1492982699000" expanded="true" signature="14511:14577" ph="insert into LIN... " />
-            <marker date="1492982699000" expanded="true" signature="14511:14654" ph="insert into LIN... " />
+            <element signature="e#1363#5025#0" expanded="false" />
+            <element signature="e#5122#10941#0" expanded="false" />
+            <marker date="1492993847000" expanded="true" signature="918:956" ph="select Genom... Genome" />
+            <marker date="1492993847000" expanded="true" signature="1748:1800" ph="SELECT Genom... LIN" />
+            <marker date="1492993847000" expanded="true" signature="3365:3409" ph="SELECT FileP... Genome" />
+            <marker date="1492993847000" expanded="true" signature="5138:5181" ph="SELECT Cutof... Scheme" />
+            <marker date="1492993847000" expanded="true" signature="5309:5339" ph="SELECT Genom... LIN" />
+            <marker date="1492993847000" expanded="true" signature="5934:5978" ph="SELECT FileP... Genome" />
+            <marker date="1492993847000" expanded="true" signature="8250:8302" ph="SELECT Genom... LIN" />
+            <marker date="1492993847000" expanded="true" signature="8829:8873" ph="SELECT FileP... Genome" />
+            <marker date="1492993847000" expanded="true" signature="11247:11291" ph="select FileP... Genome" />
+            <marker date="1492993847000" expanded="true" signature="11247:11294" ph="select FileP... Genome" />
+            <marker date="1492993847000" expanded="true" signature="11646:11682" ph="select LIN f... LIN" />
+            <marker date="1492993847000" expanded="true" signature="11646:11685" ph="select LIN f... LIN" />
+            <marker date="1492993847000" expanded="true" signature="12114:12158" ph="select FileP... Genome" />
+            <marker date="1492993847000" expanded="true" signature="12114:12161" ph="select FileP... Genome" />
+            <marker date="1492993847000" expanded="true" signature="13597:13695" ph="INSERT INTO LIN... " />
+            <marker date="1492993847000" expanded="true" signature="14022:14044" ph="select * fro... Ge" />
+            <marker date="1492993847000" expanded="true" signature="14022:14047" ph="select * fro... LIN" />
+            <marker date="1492993847000" expanded="true" signature="14529:14595" ph="insert into LIN... " />
+            <marker date="1492993847000" expanded="true" signature="14529:14672" ph="insert into LIN... " />
           </folding>
         </state>
       </provider>

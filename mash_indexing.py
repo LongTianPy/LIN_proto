@@ -14,6 +14,7 @@ from MySQLdb import Connect
 import shutil
 import os
 from os.path import isdir
+import LIN_Assign
 
 # Pre-set variables
 sourmash_dir = "/home/linproject/Workspace/Sourmash/"
