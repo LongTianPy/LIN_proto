@@ -20,6 +20,7 @@ import LIN_Assign
 sourmash_dir = "/home/linproject/Workspace/Sourmash/"
 rep_bac_dir = "/home/linproject/Workspace/Sourmash/rep_bac/"
 workspace_dir = '/home/linproject/Workspace/New/workspace/'
+working_dir = '/home/linproject/Workspace/New/workspace/'
 
 # FUNCTIONS
 def connect_to_db():
@@ -210,9 +211,9 @@ def mash_indexing(cursor, new_Genome_ID, new_SigPath, User_ID):
         shutil.copy(SubjectGenome_FilePath,workspace_dir+"{0}.fasta".format(SubjectGenome))
         shutil.copy(new_FilePath,workspace_dir+"{0}.fasta".format(new_Genome_ID))
         pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py -i {0} -o {0}{1}_output/ " \
-                    "-m ANIblastall --nocompress".format(working_dir, User_ID)
+                    "-m ANIblastall --nocompress".format(workspace_dir, User_ID)
         os.system(pyani_cmd)
-        ANIb_result = pd.read_table(working_dir + "{0}_output/ANIblastall_percentage_identity.tab".format(User_ID),
+        ANIb_result = pd.read_table(workspace_dir + "{0}_output/ANIblastall_percentage_identity.tab".format(User_ID),
                                     header=0, index_col=0).get_value(int(new_Genome_ID), str(SubjectGenome))
         os.system("rm -rf {0}*".format(workspace_dir))
         new_getLIN_object = LIN_Assign.getLIN(Genome_ID=SubjectGenome, Scheme_ID=3,
