@@ -27,16 +27,16 @@ def export_table(c):
     c.execute("select AttributeValue from AttributeValue where Attribute_ID=2")
     tmp = c.fetchall()
     Species = [i[0] for i in tmp]
-    c.execute("select AttributeValue from AttributeValue where Attribute_ID=3")
-    tmp = c.fetchall()
-    Subspecies = [i[0] for i in tmp]
+    # c.execute("select AttributeValue from AttributeValue where Attribute_ID=3")
+    # tmp = c.fetchall()
+    # Subspecies = [i[0] for i in tmp]
     c.execute("select AttributeValue from AttributeValue where Attribute_ID=4")
     tmp = c.fetchall()
     Strain = [i[0] for i in tmp]
     df = pd.DataFrame({"SubjectGenome":SubjectGenome,"ANI":ANI,"LIN":LIN},index=Genome_ID)
     df["Genus"] = Genus
     df["Species"] = Species
-    df["Subspecies"] = Subspecies
+    # df["Subspecies"] = Subspecies
     df["Strain"] = Strain
     return df
 
