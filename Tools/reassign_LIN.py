@@ -21,9 +21,9 @@ def fetch_data(old):
     conn, c = connect_to_db(old)
     c.execute("select Genome_ID, SubjectGenome, ANI from LIN")
     tmp = c.fetchall()
-    Genome_ID = [int(i[0]) for i in tmp[1:]]
-    SubjectGenome = [int(i[1]) for i in tmp[1:]]
-    ANI = [i[2] for i in tmp[1:]]
+    Genome_ID = [int(i[0]) for i in tmp]
+    SubjectGenome = [int(i[1]) for i in tmp]
+    ANI = [i[2] for i in tmp]
     df = pd.DataFrame({"SubjectGenome":SubjectGenome,"ANI":ANI},index=Genome_ID)
     print(len(df.index))
     return df
