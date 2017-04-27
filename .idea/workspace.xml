@@ -178,12 +178,12 @@
         <entry file="file://$PROJECT_DIR$/Tools/reassign_LIN.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="63">
-              <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+              <caret line="9" column="53" lean-forward="false" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
               <folding>
                 <element signature="e#235#262#0" expanded="true" />
-                <marker date="1493315846000" expanded="true" signature="558:600" ph="select Genom... S" />
-                <marker date="1493315846000" expanded="true" signature="558:621" ph="select Genom... LIN" />
-                <marker date="1493315846000" expanded="true" signature="962:1053" ph="insert into LIN... " />
+                <marker date="1493315873000" expanded="true" signature="590:632" ph="select Genom... S" />
+                <marker date="1493315873000" expanded="true" signature="590:653" ph="select Genom... LIN" />
+                <marker date="1493315873000" expanded="true" signature="994:1085" ph="insert into LIN... " />
               </folding>
             </state>
           </provider>
@@ -760,13 +760,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00548" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
-      <created>1492442031522</created>
-      <option name="number" value="00548" />
-      <option name="presentableId" value="LOCAL-00548" />
-      <option name="project" value="LOCAL" />
-      <updated>1492442031522</updated>
-    </task>
     <task id="LOCAL-00549" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
       <created>1492442523757</created>
       <option name="number" value="00549" />
@@ -1103,7 +1096,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493315660449</updated>
     </task>
-    <option name="localTasksCounter" value="597" />
+    <task id="LOCAL-00597" summary="Reassign LIN based on new scheme">
+      <created>1493315848982</created>
+      <option name="number" value="00597" />
+      <option name="presentableId" value="LOCAL-00597" />
+      <option name="project" value="LOCAL" />
+      <updated>1493315848982</updated>
+    </task>
+    <option name="localTasksCounter" value="598" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1757,12 +1757,12 @@
     <entry file="file://$PROJECT_DIR$/Tools/reassign_LIN.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
-          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <caret line="9" column="53" lean-forward="false" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
           <folding>
             <element signature="e#235#262#0" expanded="true" />
-            <marker date="1493315846000" expanded="true" signature="558:600" ph="select Genom... S" />
-            <marker date="1493315846000" expanded="true" signature="558:621" ph="select Genom... LIN" />
-            <marker date="1493315846000" expanded="true" signature="962:1053" ph="insert into LIN... " />
+            <marker date="1493315873000" expanded="true" signature="590:632" ph="select Genom... S" />
+            <marker date="1493315873000" expanded="true" signature="590:653" ph="select Genom... LIN" />
+            <marker date="1493315873000" expanded="true" signature="994:1085" ph="insert into LIN... " />
           </folding>
         </state>
       </provider>

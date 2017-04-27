@@ -7,7 +7,7 @@
 from MySQLdb import Connect
 import pandas as pd
 import sys
-sys.path.append("../.")
+sys.path.append("/home/linproject/Projects/LIN_proto/")
 import LIN_Assign
 
 # FUNCTIONS
