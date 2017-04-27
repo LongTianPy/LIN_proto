@@ -25,6 +25,7 @@ def fetch_data(old):
     SubjectGenome = [int(i[1]) for i in tmp[1:]]
     ANI = [i[2] for i in tmp[1:]]
     df = pd.DataFrame({"SubjectGenome":SubjectGenome,"ANI":ANI},index=Genome_ID)
+    print(len(df.index))
     return df
 
 def reassign(new,df):

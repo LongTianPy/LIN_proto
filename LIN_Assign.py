@@ -84,7 +84,7 @@ class Assign_LIN(object):
             tmp = c.fetchall()
         else:
             sql="SELECT LIN.LIN from LIN WHERE LIN.Genome_ID<{0} and LIN.LIN LIKE '{1}%'".format(current_genome,conserved_LIN)
-            print sql
+            # print sql
             c.execute(sql)
             tmp = c.fetchall()
         if type(idx_to_change) == int:
