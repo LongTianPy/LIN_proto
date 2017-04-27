@@ -48,4 +48,4 @@ def reassign(new,df):
 # MAIN
 if __name__ == '__main__':
     df = fetch_data("LINdb")
-    # reassign("LINdb",df)
+    reassign("LINdb",df)

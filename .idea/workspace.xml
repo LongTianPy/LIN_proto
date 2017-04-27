@@ -167,13 +167,13 @@
       <file leaf-file-name="reassign_LIN.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/reassign_LIN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+            <state relative-caret-position="502">
+              <caret line="50" column="4" lean-forward="true" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
               <folding>
                 <element signature="e#235#262#0" expanded="true" />
-                <marker date="1493316435000" expanded="true" signature="590:632" ph="select Genom... S" />
-                <marker date="1493316435000" expanded="true" signature="590:635" ph="select Genom... LIN" />
-                <marker date="1493316435000" expanded="true" signature="989:1080" ph="insert into LIN... " />
+                <marker date="1493316442000" expanded="true" signature="590:632" ph="select Genom... S" />
+                <marker date="1493316442000" expanded="true" signature="590:635" ph="select Genom... LIN" />
+                <marker date="1493316442000" expanded="true" signature="989:1080" ph="insert into LIN... " />
               </folding>
             </state>
           </provider>
@@ -751,13 +751,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00554" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
-      <created>1492540299639</created>
-      <option name="number" value="00554" />
-      <option name="presentableId" value="LOCAL-00554" />
-      <option name="project" value="LOCAL" />
-      <updated>1492540299639</updated>
-    </task>
     <task id="LOCAL-00555" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
       <created>1492540307111</created>
       <option name="number" value="00555" />
@@ -1094,7 +1087,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493316309353</updated>
     </task>
-    <option name="localTasksCounter" value="603" />
+    <task id="LOCAL-00603" summary="Reassign LIN based on new scheme">
+      <created>1493316438228</created>
+      <option name="number" value="00603" />
+      <option name="presentableId" value="LOCAL-00603" />
+      <option name="project" value="LOCAL" />
+      <updated>1493316438229</updated>
+    </task>
+    <option name="localTasksCounter" value="604" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1747,13 +1747,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/reassign_LIN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+        <state relative-caret-position="502">
+          <caret line="50" column="4" lean-forward="true" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
           <folding>
             <element signature="e#235#262#0" expanded="true" />
-            <marker date="1493316435000" expanded="true" signature="590:632" ph="select Genom... S" />
-            <marker date="1493316435000" expanded="true" signature="590:635" ph="select Genom... LIN" />
-            <marker date="1493316435000" expanded="true" signature="989:1080" ph="insert into LIN... " />
+            <marker date="1493316442000" expanded="true" signature="590:632" ph="select Genom... S" />
+            <marker date="1493316442000" expanded="true" signature="590:635" ph="select Genom... LIN" />
+            <marker date="1493316442000" expanded="true" signature="989:1080" ph="insert into LIN... " />
           </folding>
         </state>
       </provider>
