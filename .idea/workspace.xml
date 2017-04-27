@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LIN_Assign.py" afterPath="$PROJECT_DIR$/LIN_Assign.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/reassign_LIN.py" afterPath="$PROJECT_DIR$/Tools/reassign_LIN.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
@@ -80,7 +79,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LIN_Assign.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LIN_Assign.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LIN_Assign.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
@@ -165,16 +164,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reassign_LIN.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="reassign_LIN.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/reassign_LIN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="27" column="22" lean-forward="false" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+            <state relative-caret-position="67">
+              <caret line="21" column="60" lean-forward="true" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
               <folding>
                 <element signature="e#235#262#0" expanded="true" />
-                <marker date="1493316089000" expanded="true" signature="590:632" ph="select Genom... S" />
-                <marker date="1493316089000" expanded="true" signature="590:653" ph="select Genom... LIN" />
-                <marker date="1493316089000" expanded="true" signature="1019:1110" ph="insert into LIN... " />
+                <marker date="1493316305000" expanded="true" signature="590:632" ph="select Genom... S" />
+                <marker date="1493316305000" expanded="true" signature="590:635" ph="select Genom... LIN" />
+                <marker date="1493316305000" expanded="true" signature="1001:1092" ph="insert into LIN... " />
               </folding>
             </state>
           </provider>
@@ -342,8 +341,8 @@
         <option value="$PROJECT_DIR$/mash_func.py" />
         <option value="$PROJECT_DIR$/mash_indexing.py" />
         <option value="$PROJECT_DIR$/Tools/export_db.py" />
-        <option value="$PROJECT_DIR$/Tools/reassign_LIN.py" />
         <option value="$PROJECT_DIR$/LIN_Assign.py" />
+        <option value="$PROJECT_DIR$/Tools/reassign_LIN.py" />
       </list>
     </option>
   </component>
@@ -752,20 +751,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00551" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
-      <created>1492539697937</created>
-      <option name="number" value="00551" />
-      <option name="presentableId" value="LOCAL-00551" />
-      <option name="project" value="LOCAL" />
-      <updated>1492539697937</updated>
-    </task>
-    <task id="LOCAL-00552" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
-      <created>1492539918155</created>
-      <option name="number" value="00552" />
-      <option name="presentableId" value="LOCAL-00552" />
-      <option name="project" value="LOCAL" />
-      <updated>1492539918155</updated>
-    </task>
     <task id="LOCAL-00553" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
       <created>1492540180731</created>
       <option name="number" value="00553" />
@@ -1095,7 +1080,21 @@
       <option name="project" value="LOCAL" />
       <updated>1493315926679</updated>
     </task>
-    <option name="localTasksCounter" value="600" />
+    <task id="LOCAL-00600" summary="Reassign LIN based on new scheme">
+      <created>1493316151792</created>
+      <option name="number" value="00600" />
+      <option name="presentableId" value="LOCAL-00600" />
+      <option name="project" value="LOCAL" />
+      <updated>1493316151792</updated>
+    </task>
+    <task id="LOCAL-00601" summary="Reassign LIN based on new scheme">
+      <created>1493316173392</created>
+      <option name="number" value="00601" />
+      <option name="presentableId" value="LOCAL-00601" />
+      <option name="project" value="LOCAL" />
+      <updated>1493316173392</updated>
+    </task>
+    <option name="localTasksCounter" value="602" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1109,6 +1108,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="76" y="23" width="1440" height="825" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18819444" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1118,7 +1118,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5374823" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32768363" sideWeight="0.4892704" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18767123" sideWeight="0.48497853" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18767123" sideWeight="0.48497853" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1730,19 +1730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/reassign_LIN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="27" column="22" lean-forward="false" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-          <folding>
-            <element signature="e#235#262#0" expanded="true" />
-            <marker date="1493316089000" expanded="true" signature="590:632" ph="select Genom... S" />
-            <marker date="1493316089000" expanded="true" signature="590:653" ph="select Genom... LIN" />
-            <marker date="1493316089000" expanded="true" signature="1019:1110" ph="insert into LIN... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LIN_Assign.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -1754,6 +1741,19 @@
             <marker date="1493316106000" expanded="true" signature="2949:2993" ph="SELECT LIN.L... LIN" />
             <marker date="1493316106000" expanded="true" signature="2949:2996" ph="SELECT LIN.L... LIN" />
             <marker date="1493316106000" expanded="true" signature="3084:3155" ph="SELECT LIN.L... LIN" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/reassign_LIN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="21" column="60" lean-forward="true" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
+          <folding>
+            <element signature="e#235#262#0" expanded="true" />
+            <marker date="1493316305000" expanded="true" signature="590:632" ph="select Genom... S" />
+            <marker date="1493316305000" expanded="true" signature="590:635" ph="select Genom... LIN" />
+            <marker date="1493316305000" expanded="true" signature="1001:1092" ph="insert into LIN... " />
           </folding>
         </state>
       </provider>

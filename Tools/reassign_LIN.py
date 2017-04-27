@@ -19,7 +19,7 @@ def connect_to_db(db):
 
 def fetch_data(old):
     conn, c = connect_to_db(old)
-    c.execute("select Genome_ID, SubjectGenome, ANI from LIN where Genome_ID>1")
+    c.execute("select Genome_ID, SubjectGenome, ANI from LIN")
     tmp = c.fetchall()
     Genome_ID = [int(i[0]) for i in tmp[1:]]
     SubjectGenome = [int(i[1]) for i in tmp[1:]]
