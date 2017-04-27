@@ -19,7 +19,7 @@ class getLIN(object):
         self.Genome_ID = Genome_ID
         self.Scheme_ID = Scheme_ID
         self.c=c
-        c.execute("SELECT LabelNum from Scheme WHERE Scheme_ID=3")
+        c.execute("SELECT LabelNum from Scheme WHERE Scheme_ID={0}".format(Scheme_ID))
         self.label_num = int(c.fetchone()[0])
         self.similarity = float(similarity)*100
         self.parse()
@@ -33,7 +33,7 @@ class getLIN(object):
         if not c:
             c = self.c
         # Read the LIN of this genome
-        c.execute('SELECT LIN from LIN where Genome_ID = {0} and LIN.Scheme_ID=3'.format(int(Genome_ID)))
+        c.execute('SELECT LIN from LIN where Genome_ID = {0} and LIN.Scheme_ID={1}'.format(int(Genome_ID),int(Scheme_ID)))
         lin = c.fetchone()[0].split(',')
         self.LIN = lin
         # Read the cutoff of this scheme
