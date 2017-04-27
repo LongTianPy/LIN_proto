@@ -38,7 +38,7 @@ def reassign(new,df):
         else:
             subjectgenome = df.get_value(each_genome,"SubjectGenome")
             ani = df.get_value(each_genome,"ANI")
-            new_getLIN_object = LIN_Assign.getLIN(Genome_ID=subjectgenome,Scheme_ID=4,similarity=ani)
+            new_getLIN_object = LIN_Assign.getLIN(Genome_ID=subjectgenome,Scheme_ID=4,similarity=ani,c=c)
             new_LIN =  LIN_Assign.Assign_LIN(getLIN_object=new_getLIN_object,c=c,current_genome=each_genome).new_LIN
             c.execute(sql.format(each_genome,subjectgenome,ani,new_LIN))
             conn.commit()
