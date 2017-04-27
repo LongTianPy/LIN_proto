@@ -6,6 +6,8 @@
 # IMPORT
 from MySQLdb import Connect
 import pandas as pd
+import sys
+sys.path.append("../.")
 import LIN_Assign
 
 # FUNCTIONS

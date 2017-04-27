@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tools/reassign_LIN.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/reassign_LIN.py" afterPath="$PROJECT_DIR$/Tools/reassign_LIN.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -177,13 +177,13 @@
       <file leaf-file-name="reassign_LIN.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/reassign_LIN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="47" column="24" lean-forward="false" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
+            <state relative-caret-position="63">
+              <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
               <folding>
                 <element signature="e#235#262#0" expanded="true" />
-                <marker date="1493315642000" expanded="true" signature="523:565" ph="select Genom... S" />
-                <marker date="1493315642000" expanded="true" signature="523:586" ph="select Genom... LIN" />
-                <marker date="1493315642000" expanded="true" signature="927:1018" ph="insert into LIN... " />
+                <marker date="1493315846000" expanded="true" signature="558:600" ph="select Genom... S" />
+                <marker date="1493315846000" expanded="true" signature="558:621" ph="select Genom... LIN" />
+                <marker date="1493315846000" expanded="true" signature="962:1053" ph="insert into LIN... " />
               </folding>
             </state>
           </provider>
@@ -362,6 +362,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="352" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="825" />
@@ -759,13 +760,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00547" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
-      <created>1492441529859</created>
-      <option name="number" value="00547" />
-      <option name="presentableId" value="LOCAL-00547" />
-      <option name="project" value="LOCAL" />
-      <updated>1492441529860</updated>
-    </task>
     <task id="LOCAL-00548" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
       <created>1492442031522</created>
       <option name="number" value="00548" />
@@ -1102,7 +1096,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493142052647</updated>
     </task>
-    <option name="localTasksCounter" value="596" />
+    <task id="LOCAL-00596" summary="Reassign LIN based on new scheme">
+      <created>1493315660448</created>
+      <option name="number" value="00596" />
+      <option name="presentableId" value="LOCAL-00596" />
+      <option name="project" value="LOCAL" />
+      <updated>1493315660449</updated>
+    </task>
+    <option name="localTasksCounter" value="597" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1115,7 +1116,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="825" extended-state="6" />
+    <frame x="352" y="23" width="1440" height="825" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18819444" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1166,7 +1167,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update db initialization" />
     <MESSAGE value="Special case for 100% ANI." />
     <MESSAGE value="Avoid multiple visit to database" />
     <MESSAGE value="Send emails about results" />
@@ -1191,7 +1191,8 @@
     <MESSAGE value="Dev - Test how well can we trust mash, or sourmash&#10;Debug" />
     <MESSAGE value="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included" />
     <MESSAGE value="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug" />
+    <MESSAGE value="Reassign LIN based on new scheme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reassign LIN based on new scheme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1755,13 +1756,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/reassign_LIN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="47" column="24" lean-forward="false" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
+        <state relative-caret-position="63">
+          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
           <folding>
             <element signature="e#235#262#0" expanded="true" />
-            <marker date="1493315642000" expanded="true" signature="523:565" ph="select Genom... S" />
-            <marker date="1493315642000" expanded="true" signature="523:586" ph="select Genom... LIN" />
-            <marker date="1493315642000" expanded="true" signature="927:1018" ph="insert into LIN... " />
+            <marker date="1493315846000" expanded="true" signature="558:600" ph="select Genom... S" />
+            <marker date="1493315846000" expanded="true" signature="558:621" ph="select Genom... LIN" />
+            <marker date="1493315846000" expanded="true" signature="962:1053" ph="insert into LIN... " />
           </folding>
         </state>
       </provider>
