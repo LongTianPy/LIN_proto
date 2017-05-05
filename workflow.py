@@ -14,6 +14,7 @@ import MySQLdb
 from MySQLdb import Connect
 import pandas as pd
 import os
+from os.path import isdir, isfile, join
 import sys
 from sklearn.cluster import KMeans
 from LoadingExternalInfo import LoadInfo

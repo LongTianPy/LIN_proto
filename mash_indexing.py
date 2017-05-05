@@ -26,7 +26,7 @@ working_dir = '/home/linproject/Workspace/New/workspace/'
 def connect_to_db():
     conn = Connect("localhost","root")
     c = conn.cursor()
-    c.execute("use LINdb_Mash_index")
+    c.execute("use LINdb")
     return conn, c
 
 def prepare_input(c):
@@ -140,7 +140,7 @@ def LINgroup_indexing(cursor, New_Genome_ID, New_Genome_filepath , working_dir, 
             similarity_pool = {}
             previous_route = "" # To initiate
             current_level = 0
-            while current_level < 19:
+            while current_level < 18:
                 previous_route, current_level = go_through_LIN_table(previous_route=previous_route,
                                                                      current_level=current_level, LIN_table=LIN_table,
                                                                      cursor=cursor, reverse_LIN_dict=reverse_LIN_dict,
@@ -204,7 +204,7 @@ def mash_indexing(cursor, new_Genome_ID, User_ID,conn):
         top_rep_bac = df_rep_bac.index[0]
         cursor.execute("select LIN from LIN where Genome_ID={0} and Scheme_ID=4".format(top_rep_bac))
         top_LIN_rep_bac = cursor.fetchone()[0]
-        top_LINgroup_rep_bac = ",".join(top_LIN_rep_bac.split(",")[:7])
+        top_LINgroup_rep_bac = ",".join(top_LIN_rep_bac.split(",")[:6])
         df_LINgroup = mash_func.sourmash_searching(sourmash_dir=sourmash_dir,LINgroup=top_LINgroup_rep_bac,
                                                    current_sig_path=new_SigPath,current_genome=new_Genome_ID)
         SubjectGenomes = df_LINgroup.index
@@ -262,12 +262,12 @@ if __name__ == "__main__":
     #     startpoint += 1
     for i in range(1,len(Genome_ID)):
         new_Genome_ID = Genome_ID[i]
-        new_FilePath = df_Genome.get_value(new_Genome_ID,"FilePath")
-        shutil.copy(new_FilePath, sourmash_dir + "{0}.fasta".format(new_Genome_ID))
-        new_SigPath = mash_func.create_signature(Genome_ID=new_Genome_ID,sourmash_dir=sourmash_dir,cursor=c,conn=conn)
+        # new_FilePath = df_Genome.get_value(new_Genome_ID,"FilePath")
+        # shutil.copy(new_FilePath, sourmash_dir + "{0}.fasta".format(new_Genome_ID))
+        # new_SigPath = mash_func.create_signature(Genome_ID=new_Genome_ID,sourmash_dir=sourmash_dir,cursor=c,conn=conn)
         new_LIN, SubjectGenome, ANIb_result = mash_indexing(cursor=c,new_Genome_ID=new_Genome_ID,
                                                             new_SigPath=new_SigPath, User_ID=2)
-        new_LINgroup = ",".join(new_LIN.split(",")[:7])
+        new_LINgroup = ",".join(new_LIN.split(",")[:6])
         if not isdir(sourmash_dir + new_LINgroup):
             os.mkdir(sourmash_dir + new_LINgroup)
             shutil.copy(new_SigPath,sourmash_dir+"rep_bac/")
