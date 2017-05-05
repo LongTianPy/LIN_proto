@@ -195,7 +195,7 @@ def mash_indexing(cursor, new_Genome_ID, User_ID,conn):
     :return: G level LINgroup
     """
     cursor.execute("select FilePath from Genome where Genome_ID={0}".format(new_Genome_ID))
-    new_FilePath = c.fetchone()[0]
+    new_FilePath = cursor.fetchone()[0]
     shutil.copy(new_FilePath, sourmash_dir + "{0}.fasta".format(new_Genome_ID))
     new_SigPath = mash_func.create_signature(Genome_ID=new_Genome_ID, sourmash_dir=sourmash_dir, cursor=cursor)
     df_rep_bac = mash_func.sourmash_searching(sourmash_dir=sourmash_dir,LINgroup="rep_bac",
