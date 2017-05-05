@@ -73,7 +73,7 @@ def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_
         for each_LIN_dictionary_key in LIN_dictionary.keys():
             LIN_ANI_storage[each_LIN_dictionary_key] = []
             for each_next_number in LIN_dictionary[each_LIN_dictionary_key].keys():
-                subject_LIN = each_LIN_dictionary_key + "," + each_next_number + "".join([",0"]*(20-1-current_level-1))
+                subject_LIN = each_LIN_dictionary_key + "," + each_next_number + "".join([",0"]*(19-1-current_level-1))
                 subject_genome_ID = reverse_LIN_dict[subject_LIN]
                 if str(subject_genome_ID) in similarity_pool:
                     similarity = similarity_pool[str(subject_genome_ID)]
@@ -94,8 +94,8 @@ def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_
             leading_part_w_max_ANI = max(LIN_ANI_max_storage, key=LIN_ANI_max_storage.get) # The best current route
             return leading_part_w_max_ANI, current_level+1
         else:
-            leading_part_w_max_ANI = ",".join(previous_route.split(",") + ["0"] * (19 - current_level))
-            current_level = 19
+            leading_part_w_max_ANI = ",".join(previous_route.split(",") + ["0"] * (18 - current_level))
+            current_level = 18
             return leading_part_w_max_ANI, current_level
     else:
         return LIN_dictionary.keys()[0], current_level+1
