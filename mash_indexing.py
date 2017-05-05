@@ -260,7 +260,7 @@ if __name__ == "__main__":
     #     shutil.copy(new_SigPath,sourmash_dir+ "0,0,0,0,0,0,0/")
     #     shutil.copy(new_SigPath, sourmash_dir + "rep_bac/")
     #     startpoint += 1
-    for i in range(2,len(Genome_ID)):
+    for i in range(3,len(Genome_ID)):
         new_Genome_ID = Genome_ID[i]
         # new_FilePath = df_Genome.get_value(new_Genome_ID,"FilePath")
         # shutil.copy(new_FilePath, sourmash_dir + "{0}.fasta".format(new_Genome_ID))
