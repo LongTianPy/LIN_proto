@@ -106,7 +106,7 @@ def LINgroup_indexing(cursor, New_Genome_ID, New_Genome_filepath , working_dir, 
     tmp = cursor.fetchone()
     cutoff = tmp[0].split(",")
     cutoff = [float(i) / 100 for i in cutoff]
-    cursor.execute("SELECT Genome_ID, LIN FROM LIN")
+    cursor.execute("SELECT Genome_ID, LIN FROM LIN where Scheme_ID=4")
     tmp = cursor.fetchall()
     if len(tmp) == 0:
         new_LIN = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
@@ -150,7 +150,7 @@ def LINgroup_indexing(cursor, New_Genome_ID, New_Genome_filepath , working_dir, 
                                                                      similarity_pool=similarity_pool,
                                                                      cutoff=cutoff)
             # print previous_route
-            cursor.execute("SELECT Genome_ID, LIN FROM LIN WHERE LIN LIKE '{0}%'".format(previous_route))
+            cursor.execute("SELECT Genome_ID, LIN FROM LIN WHERE Scheme_ID=4 and LIN LIKE '{0}%'".format(previous_route))
             tmp = cursor.fetchall()
             final_candidate_LIN_table = pd.DataFrame()
             final_candidate_LIN_table["LIN"] = [i[1] for i in tmp]
@@ -202,7 +202,7 @@ def mash_indexing(cursor, new_Genome_ID, User_ID,conn):
                                               current_sig_path=new_SigPath,current_genome=new_Genome_ID)
     if len(df_rep_bac) != 0:
         top_rep_bac = df_rep_bac.index[0]
-        cursor.execute("select LIN from LIN where Genome_ID={0}".format(top_rep_bac))
+        cursor.execute("select LIN from LIN where Genome_ID={0} and Scheme_ID=4".format(top_rep_bac))
         top_LIN_rep_bac = cursor.fetchone()[0]
         top_LINgroup_rep_bac = ",".join(top_LIN_rep_bac.split(",")[:7])
         df_LINgroup = mash_func.sourmash_searching(sourmash_dir=sourmash_dir,LINgroup=top_LINgroup_rep_bac,
