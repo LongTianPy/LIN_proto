@@ -235,7 +235,7 @@ def mash_indexing(cursor, new_Genome_ID, User_ID,conn):
     cursor.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 4, '{1}', '{2}', {3})"
               .format(new_Genome_ID, new_LIN, SubjectGenome, ANIb_result))
     conn.commit()
-    return new_LIN, SubjectGenome, ANIb_result
+    return new_LIN, SubjectGenome, ANIb_result,new_SigPath
 
 
 # MAIN
@@ -265,7 +265,7 @@ if __name__ == "__main__":
         # new_FilePath = df_Genome.get_value(new_Genome_ID,"FilePath")
         # shutil.copy(new_FilePath, sourmash_dir + "{0}.fasta".format(new_Genome_ID))
         # new_SigPath = mash_func.create_signature(Genome_ID=new_Genome_ID,sourmash_dir=sourmash_dir,cursor=c,conn=conn)
-        new_LIN, SubjectGenome, ANIb_result = mash_indexing(cursor=c,new_Genome_ID=new_Genome_ID,
+        new_LIN, SubjectGenome, ANIb_result,new_SigPath = mash_indexing(cursor=c,new_Genome_ID=new_Genome_ID,
                                                             User_ID=2,conn=conn)
         new_LINgroup = ",".join(new_LIN.split(",")[:6])
         if not isdir(sourmash_dir + new_LINgroup):

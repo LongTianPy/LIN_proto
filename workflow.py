@@ -282,7 +282,7 @@ def main(argv=None): # The genome file name we are expecting for is a
     # new_LIN, top1_Genome_ID, top1_similarity = LINgroup_indexing.LINgroup_indexing(cursor=c,New_Genome_ID=new_Genome_ID,
     #                                                                                working_dir=workspace_dir,
     #                                                                                User_ID=User_ID)
-    new_LIN, SubjectGenome, ANIb_result = mash_indexing.mash_indexing(cursor=c, new_Genome_ID=new_Genome_ID,User_ID=User_ID,conn=db)
+    new_LIN, SubjectGenome, ANIb_result,new_SigPath = mash_indexing.mash_indexing(cursor=c, new_Genome_ID=new_Genome_ID,User_ID=User_ID,conn=db)
     logging.info("The LIN assigned to your genome is " + new_LIN)
     # c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 4, '{1}', '{2}', {3})"
     #           .format(new_Genome_ID, new_LIN, top1_Genome_ID, top1_similarity))
