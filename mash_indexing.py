@@ -50,7 +50,7 @@ def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_
     """
 
     this_threshold = cutoff[current_level]
-    cursor.execute("SELECT Genome_ID, LIN FROM LIN WHERE LIN LIKE '{0}%'".format(previous_route))
+    cursor.execute("SELECT Genome_ID, LIN FROM LIN WHERE Scheme_ID=4 and LIN LIKE '{0}%'".format(previous_route))
     tmp = cursor.fetchall()
     LIN_table_piece = pd.DataFrame()
     genomes_piece = [int(i[0]) for i in tmp]
