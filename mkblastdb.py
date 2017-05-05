@@ -12,7 +12,7 @@ from os.path import isfile, join, isdir
 def concat_genomes():
     conn = Connect("localhost","root")
     c = conn.cursor()
-    c.execute("use LINdb_Psy")
+    c.execute("use LINdb")
     c.execute("SELECT Genome_ID, FilePath FROM Genome")
     tmp = c.fetchall()
     Genome_ID = [str(i[0]) for i in tmp]

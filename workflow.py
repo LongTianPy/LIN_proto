@@ -9,6 +9,7 @@ genomic percentage identity and LIN assignment to the new genome.
 # import k_mer
 import LIN_Assign
 import LINgroup_indexing
+import mash_indexing
 import MySQLdb
 from MySQLdb import Connect
 import pandas as pd
@@ -27,6 +28,9 @@ from Bio import SeqIO
 import filecmp
 
 # import ExtractInfo
+
+sourmash_dir = "/home/linproject/Workspace/Sourmash/"
+rep_bac_dir = "/home/linproject/Workspace/Sourmash/rep_bac/"
 
 # INPUT
 #
@@ -92,7 +96,7 @@ def main(argv=None): # The genome file name we are expecting for is a
     db = Connect('localhost','root')
     c = db.cursor()
     logging.info("Connecting to the database")
-    c.execute('USE LINdb_Psy')
+    c.execute('USE LINdb')
     logging.basicConfig(level=logging.DEBUG, filename="/home/linproject/Workspace/LIN_log/logfile_{0}".format(User_ID),
                         filemode="a+", format="%(asctime)-15s %(levelname)-8s %(message)s")
     logging.info("#####################################")
@@ -274,19 +278,22 @@ def main(argv=None): # The genome file name we are expecting for is a
     #                                                                          ','.join(new_LIN_object.LIN)))
     # logging.info("The similarity to it is " + str(top1_similarity*100) + "%.")
     # new_LIN = LIN_Assign.Assign_LIN(new_LIN_object,c=c).new_LIN
-    new_LIN, top1_Genome_ID, top1_similarity = LINgroup_indexing.LINgroup_indexing(cursor=c,New_Genome_ID=new_Genome_ID,
-                                                                                   working_dir=workspace_dir,
-                                                                                   User_ID=User_ID)
-
+    # new_LIN, top1_Genome_ID, top1_similarity = LINgroup_indexing.LINgroup_indexing(cursor=c,New_Genome_ID=new_Genome_ID,
+    #                                                                                working_dir=workspace_dir,
+    #                                                                                User_ID=User_ID)
+    new_LIN, SubjectGenome, ANIb_result = mash_indexing.mash_indexing(cursor=c, new_Genome_ID=new_Genome_ID,User_ID=User_ID,conn=db)
     logging.info("The LIN assigned to your genome is " + new_LIN)
-    c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 3, '{1}', '{2}', {3})"
-              .format(new_Genome_ID, new_LIN, top1_Genome_ID, top1_similarity))
-    db.commit()
-
+    # c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 4, '{1}', '{2}', {3})"
+    #           .format(new_Genome_ID, new_LIN, top1_Genome_ID, top1_similarity))
+    # db.commit()
+    new_LINgroup = ",".join(new_LIN.split(",")[:7])
+    if not isdir(sourmash_dir + new_LINgroup):
+        os.mkdir(sourmash_dir + new_LINgroup)
+        shutil.copy(new_SigPath, sourmash_dir + "rep_bac/")
+    shutil.copy(new_SigPath, sourmash_dir + new_LINgroup + "/")
     # url = IntermediateResult.write_result_page(new_Genome_ID=new_Genome_ID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c, User_ID=User_ID,Interest_ID=Interest_ID_new_genome)
     # IntermediateResult.write_ANI_result(new_Genome_ID=new_Genome_ID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c,User_ID=User_ID,url=url,Interest_ID=Interest_ID_new_genome)
     # IntermediateResult.send_email(file_source="ANI",User_ID=User_ID,db_cursor=c)
-
     c.close()
     db.close()
     logging.info("Task completed.")

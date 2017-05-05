@@ -14,7 +14,7 @@ import shutil
 def connect_to_db():
     conn = Connect("localhost","root")
     c = conn.cursor()
-    c.execute("use LINdb_Psy")
+    c.execute("use LINdb")
     return c
 
 def fetch_genomes(cursor):
@@ -34,7 +34,7 @@ def fetch_genomes(cursor):
     return df, Genome_ID
 
 def fetch_scheme(cursor):
-    cursor.execute("select Cutoff from Scheme where Scheme_ID=3")
+    cursor.execute("select Cutoff from Scheme where Scheme_ID=4")
     tmp = cursor.fetchone()
     cutoff = tmp[0].split(",")
     cutoff = [float(i) / 100 for i in cutoff]

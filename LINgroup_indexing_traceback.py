@@ -54,7 +54,7 @@ def find_current_step(previous_route, current_level, similarity_pool,c, current_
 def LINgroup_indexing_traceback():
     conn = Connect("localhost","root")
     c = conn.cursor()
-    c.execute("use LINdb_Psy")
+    c.execute("use LINdb")
     c.execute("SELECT Genome_ID, SubjectGenome, LIN FROM LIN")
     tmp = c.fetchall()
     Genome_ID = [i[0] for i in tmp]

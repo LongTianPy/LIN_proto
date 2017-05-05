@@ -20,7 +20,7 @@ from functools import partial
 def connect_to_db():
     conn = Connect("localhost","root")
     c = conn.cursor()
-    c.execute("use LINdb_Psy")
+    c.execute("use LINdb")
     return conn, c
 
 def write_both_strand(Genome_ID,cursor,sourmash_dir):
@@ -38,7 +38,7 @@ def write_both_strand(Genome_ID,cursor,sourmash_dir):
         f.write(str(record.seq.reverse_complement()) + "\n")
     f.close()
 
-def create_signature(Genome_ID,sourmash_dir,cursor,conn):
+def create_signature(Genome_ID,sourmash_dir,cursor):
     sig_path = sourmash_dir+str(Genome_ID)+".sig"
     sourmash_cmd = "sourmash compute -o {0} {1}.fasta -k 10,31 -n 1000".format(sig_path,sourmash_dir+str(Genome_ID))
     os.system(sourmash_cmd)
@@ -158,7 +158,7 @@ def test_mash():
                 similarity[each_candidate] = ani
             top_hit = max(similarity,key=similarity.get)
             top_ani = similarity[top_hit]
-            new_LIN_obj = LIN_Assign.getLIN(Genome_ID=top_hit,Scheme_ID=3,similarity=top_ani,c=c)
+            new_LIN_obj = LIN_Assign.getLIN(Genome_ID=top_hit,Scheme_ID=4,similarity=top_ani,c=c)
             new_LIN = LIN_Assign.Assign_LIN(new_LIN_obj,c=c,current_genome=current_genome).new_LIN
             output_handler.write(line.format(current_genome,current_LIN,"N",current_G_LINgroup,
                                              new_LIN,len(similarity.keys())))

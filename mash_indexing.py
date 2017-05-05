@@ -102,7 +102,7 @@ def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_
 
 
 def LINgroup_indexing(cursor, New_Genome_ID, New_Genome_filepath , working_dir, User_ID):
-    cursor.execute("SELECT Cutoff FROM Scheme WHERE Scheme_ID=3")
+    cursor.execute("SELECT Cutoff FROM Scheme WHERE Scheme_ID=4")
     tmp = cursor.fetchone()
     cutoff = tmp[0].split(",")
     cutoff = [float(i) / 100 for i in cutoff]
@@ -134,7 +134,7 @@ def LINgroup_indexing(cursor, New_Genome_ID, New_Genome_filepath , working_dir, 
             similarity = ANIb_result
             top1_Genome_ID = LIN_table.index[0]
             top1_similarity = similarity
-            new_LIN_object = LIN_Assign.getLIN(Genome_ID=top1_Genome_ID, Scheme_ID=3, similarity=top1_similarity,c=cursor,current_genome=New_Genome_ID)
+            new_LIN_object = LIN_Assign.getLIN(Genome_ID=top1_Genome_ID, Scheme_ID=4, similarity=top1_similarity,c=cursor,current_genome=New_Genome_ID)
             new_LIN = LIN_Assign.Assign_LIN(new_LIN_object, c=cursor).new_LIN
         else:
             similarity_pool = {}
@@ -179,14 +179,14 @@ def LINgroup_indexing(cursor, New_Genome_ID, New_Genome_filepath , working_dir, 
             final_best_Genome_ID = str(max(LIN_ANI_storage,key=LIN_ANI_storage.get))
             # final_best_LIN = final_candidate_LIN_table.get_value(final_best_Genome_ID,"LIN")
             final_best_ANI = LIN_ANI_storage[final_best_Genome_ID]
-            new_getLIN_object = LIN_Assign.getLIN(Genome_ID=int(final_best_Genome_ID), Scheme_ID=3, similarity=final_best_ANI,
+            new_getLIN_object = LIN_Assign.getLIN(Genome_ID=int(final_best_Genome_ID), Scheme_ID=4, similarity=final_best_ANI,
                                               c=cursor)
             new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_getLIN_object,c=cursor,current_genome=New_Genome_ID).new_LIN
             SubjectGenome= int(final_best_Genome_ID)
             ANIb_result = final_best_ANI
     return new_LIN, SubjectGenome, ANIb_result
 
-def mash_indexing(cursor, new_Genome_ID, new_SigPath, User_ID):
+def mash_indexing(cursor, new_Genome_ID, User_ID,conn):
     """
     We will first look at if there is match from MinHash, if not, use LINgroup indexing until determine 
     the G level LINgroup
@@ -196,6 +196,8 @@ def mash_indexing(cursor, new_Genome_ID, new_SigPath, User_ID):
     """
     cursor.execute("select FilePath from Genome where Genome_ID={0}".format(new_Genome_ID))
     new_FilePath = c.fetchone()[0]
+    shutil.copy(new_FilePath, sourmash_dir + "{0}.fasta".format(new_Genome_ID))
+    new_SigPath = mash_func.create_signature(Genome_ID=new_Genome_ID, sourmash_dir=sourmash_dir, cursor=cursor)
     df_rep_bac = mash_func.sourmash_searching(sourmash_dir=sourmash_dir,LINgroup="rep_bac",
                                               current_sig_path=new_SigPath,current_genome=new_Genome_ID)
     if len(df_rep_bac) != 0:
@@ -221,7 +223,7 @@ def mash_indexing(cursor, new_Genome_ID, new_SigPath, User_ID):
             similarity_pool[str(SubjectGenome)] = ANIb_result
         SubjectGenome = str(max(similarity_pool,key=similarity_pool.get))
         ANIb_result = similarity_pool[SubjectGenome]
-        new_getLIN_object = LIN_Assign.getLIN(Genome_ID=SubjectGenome, Scheme_ID=3,
+        new_getLIN_object = LIN_Assign.getLIN(Genome_ID=SubjectGenome, Scheme_ID=4,
                                               similarity=ANIb_result,
                                               c=cursor)
         new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_getLIN_object, c=cursor, current_genome=new_Genome_ID).new_LIN
@@ -230,7 +232,7 @@ def mash_indexing(cursor, new_Genome_ID, new_SigPath, User_ID):
                                                                 New_Genome_filepath=new_FilePath,
                                                                 working_dir=workspace_dir,User_ID=User_ID)
 
-    cursor.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 3, '{1}', '{2}', {3})"
+    cursor.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 4, '{1}', '{2}', {3})"
               .format(new_Genome_ID, new_LIN, SubjectGenome, ANIb_result))
     conn.commit()
     return new_LIN, SubjectGenome, ANIb_result

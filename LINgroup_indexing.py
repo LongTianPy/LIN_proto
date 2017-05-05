@@ -85,7 +85,7 @@ def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_
 
 
 def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
-    cursor.execute("SELECT Cutoff FROM Scheme WHERE Scheme_ID=3")
+    cursor.execute("SELECT Cutoff FROM Scheme WHERE Scheme_ID=4")
     tmp = cursor.fetchone()
     cutoff = tmp[0].split(",")
     cutoff = [float(i) / 100 for i in cutoff]
@@ -119,7 +119,7 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
             similarity = ANIb_result
             top1_Genome_ID = LIN_table.index[0]
             top1_similarity = similarity
-            new_LIN_object = LIN_Assign.getLIN(Genome_ID=top1_Genome_ID, Scheme_ID=3, similarity=top1_similarity,c=cursor,current_genome=New_Genome_ID)
+            new_LIN_object = LIN_Assign.getLIN(Genome_ID=top1_Genome_ID, Scheme_ID=4, similarity=top1_similarity,c=cursor,current_genome=New_Genome_ID)
             new_LIN = LIN_Assign.Assign_LIN(new_LIN_object, c=cursor).new_LIN
         else:
             similarity_pool = {}
@@ -166,7 +166,7 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
             final_best_Genome_ID = str(max(LIN_ANI_storage,key=LIN_ANI_storage.get))
             # final_best_LIN = final_candidate_LIN_table.get_value(final_best_Genome_ID,"LIN")
             final_best_ANI = LIN_ANI_storage[final_best_Genome_ID]
-            new_getLIN_object = LIN_Assign.getLIN(Genome_ID=int(final_best_Genome_ID), Scheme_ID=3, similarity=final_best_ANI,
+            new_getLIN_object = LIN_Assign.getLIN(Genome_ID=int(final_best_Genome_ID), Scheme_ID=4, similarity=final_best_ANI,
                                               c=cursor)
             new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_getLIN_object,c=cursor,current_genome=New_Genome_ID).new_LIN
             top1_Genome_ID = int(final_best_Genome_ID)
