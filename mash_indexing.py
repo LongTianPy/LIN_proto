@@ -266,7 +266,7 @@ if __name__ == "__main__":
         # shutil.copy(new_FilePath, sourmash_dir + "{0}.fasta".format(new_Genome_ID))
         # new_SigPath = mash_func.create_signature(Genome_ID=new_Genome_ID,sourmash_dir=sourmash_dir,cursor=c,conn=conn)
         new_LIN, SubjectGenome, ANIb_result = mash_indexing(cursor=c,new_Genome_ID=new_Genome_ID,
-                                                            new_SigPath=new_SigPath, User_ID=2)
+                                                            User_ID=2,conn=conn)
         new_LINgroup = ",".join(new_LIN.split(",")[:6])
         if not isdir(sourmash_dir + new_LINgroup):
             os.mkdir(sourmash_dir + new_LINgroup)
