@@ -94,7 +94,10 @@ def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_
             leading_part_w_max_ANI = max(LIN_ANI_max_storage, key=LIN_ANI_max_storage.get) # The best current route
             return leading_part_w_max_ANI, current_level+1
         else:
-            leading_part_w_max_ANI = ",".join(previous_route.split(",") + ["0"] * (18 - current_level))
+            if previous_route != "":
+                leading_part_w_max_ANI = ",".join(previous_route.split(",") + ["0"] * (18 - current_level))
+            else:
+                leading_part_w_max_ANI = ",".join(["0"] * (18 - current_level))
             current_level = 18
             return leading_part_w_max_ANI, current_level
     else:
