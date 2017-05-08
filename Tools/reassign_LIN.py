@@ -19,7 +19,7 @@ def connect_to_db(db):
 
 def fetch_data(old):
     conn, c = connect_to_db(old)
-    c.execute("select Genome_ID, SubjectGenome, ANI from LIN")
+    c.execute("select Genome_ID, SubjectGenome, ANI from LIN where Scheme_ID=4")
     tmp = c.fetchall()
     Genome_ID = [int(i[0]) for i in tmp]
     SubjectGenome = [int(i[1]) for i in tmp]
@@ -44,8 +44,20 @@ def reassign(new,df):
             c.execute(sql.format(each_genome,subjectgenome,ani,new_LIN))
             conn.commit()
 
+def reassign2(new,df):
+    conn,c=connect_to_db(new)
+    Genome_ID=df.index
+    sql = "update LIN set LIN='{0}' where Scheme_ID=4 and Genome_ID={1}"
+    for query in Genome_ID[1:]:
+        subject = df.get_value(query,"SubjectGenome")
+        ani = df.get_value(query,"ANI")
+        new_getLIN_object=LIN_Assign.getLIN(Genome_ID=subject,Scheme_ID=4,similarity=ani,c=c)
+        new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_getLIN_object,c=c,current_genome=query).new_LIN
+        c.execute(sql.format(new_LIN,query))
+        conn.commit()
+
 
 # MAIN
 if __name__ == '__main__':
     df = fetch_data("LINdb")
-    reassign("LINdb",df)
+    reassign2("LINdb",df)
