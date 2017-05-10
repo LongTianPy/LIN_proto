@@ -288,7 +288,7 @@ def main(argv=None): # The genome file name we are expecting for is a
     # c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 4, '{1}', '{2}', {3})"
     #           .format(new_Genome_ID, new_LIN, top1_Genome_ID, top1_similarity))
     # db.commit()
-    new_LINgroup = ",".join(new_LIN.split(",")[:7])
+    new_LINgroup = ",".join(new_LIN.split(",")[:6])
     if not isdir(sourmash_dir + new_LINgroup):
         os.mkdir(sourmash_dir + new_LINgroup)
         shutil.copy(new_SigPath, sourmash_dir + "rep_bac/")
