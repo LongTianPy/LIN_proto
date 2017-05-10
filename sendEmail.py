@@ -11,6 +11,7 @@ from email.mime.base import MIMEBase
 from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import sys
 import mimetypes
 import os
 
@@ -103,10 +104,8 @@ def get_credentials():
         print('Storing credentials to ' + credential_path)
     return credentials
 
-def sendEmail(User_ID, subject,context,cursor):
+def sendEmail(user_email, subject,context):
     try:
-        cursor.execute("select Email from User where User_ID={0}".format(User_ID))
-        user_email = cursor.fetchone()[0]
         credentials = get_credentials()
         http = credentials.authorize(httplib2.Http())
         service = discovery.build('gmail', 'v1', http=http)
@@ -114,3 +113,12 @@ def sendEmail(User_ID, subject,context,cursor):
     except Exception, e:
         print e
         raise
+
+if __name__ == '__main__':
+    f = open("/var/www/html/CodeIgniter/application/views/email_result.txt", "r")
+    email_result = f.read()
+    f.close()
+    user_email = sys.argv[1]
+    subject = sys.argv[2].replace("_", " ")
+    context = email_result.format(sys.argv[3])
+    sendEmail(user_email=user_email,subject=subject,context=context)

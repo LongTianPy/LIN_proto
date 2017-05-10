@@ -298,12 +298,10 @@ def main(argv=None): # The genome file name we are expecting for is a
     c.execute("insert into Job (LIN_ID,User_ID,Job_uuid,Conserved_LIN) values ({0},{1},'{2}','{3}')".format(LIN_ID,User_ID,Job_uuid,conserved_LIN))
     db.commit()
 
-    f = open("/var/www/html/CodeIgniter/application/views/email_result.txt","r")
-    email_result = f.read()
-    f.close()
-    email_result = email_result.format("http://128.173.74.68/CodeIgniter/index.php/SubmissionResult?job={0}".format(Job_uuid))
-    sendEmail.sendEmail(User_ID=User_ID,subject="Submission result",context=email_result,cursor=c)
-
+    c.execute("select Email from User where User_ID={0}".format(User_ID))
+    user_email = c.fetchone()[0]
+    email_cmd = "python /home/Project/LIN_proto/sendEmail.py {0} Submission_result {1}".format(user_email,Job_uuid)
+    os.system(email_cmd)
     c.close()
     db.close()
     logging.info("Task completed.")
