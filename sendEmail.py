@@ -29,11 +29,11 @@ SCOPES = 'https://www.googleapis.com/auth/gmail.compose'
 CLIENT_SECRET_FILE = '/home/linproject/Workspace/Email/credential/cleint_secret.json'
 APPLICATION_NAME = 'LINbase'
 
-try:
-    import argparse
-    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
-except ImportError:
-    flags = None
+# try:
+#     import argparse
+#     flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+# except ImportError:
+#     flags = None
 
 def SendMessage(service, user_id, message):
   """Send an email message.
