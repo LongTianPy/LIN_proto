@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mash_indexing.py" afterPath="$PROJECT_DIR$/mash_indexing.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sendEmail.py" afterPath="$PROJECT_DIR$/sendEmail.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/workflow.py" afterPath="$PROJECT_DIR$/workflow.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -41,11 +39,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="workflow.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="workflow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/workflow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="284" column="89" lean-forward="false" selection-start-line="284" selection-start-column="89" selection-end-line="284" selection-end-column="89" />
+            <state relative-caret-position="454">
+              <caret line="309" column="57" lean-forward="true" selection-start-line="309" selection-start-column="57" selection-end-line="309" selection-end-column="57" />
               <folding>
                 <element signature="e#218#235#0" expanded="true" />
                 <marker date="1494374570000" expanded="true" signature="4254:4311" ph="INSERT INTO Submission... " />
@@ -171,12 +169,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sendEmail.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sendEmail.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sendEmail.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="113" column="13" lean-forward="false" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="513">
+              <caret line="108" column="40" lean-forward="false" selection-start-line="108" selection-start-column="40" selection-end-line="108" selection-end-column="40" />
+              <folding>
+                <marker date="1494374793000" expanded="true" signature="3107:3144" ph="select Email... User" />
+                <marker date="1494374793000" expanded="true" signature="3107:3147" ph="select Email... User" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -321,8 +322,8 @@
         <option value="$PROJECT_DIR$/LIN_Assign.py" />
         <option value="$PROJECT_DIR$/Tools/reassign_LIN.py" />
         <option value="$PROJECT_DIR$/mash_indexing.py" />
-        <option value="$PROJECT_DIR$/sendEmail.py" />
         <option value="$PROJECT_DIR$/workflow.py" />
+        <option value="$PROJECT_DIR$/sendEmail.py" />
       </list>
     </option>
   </component>
@@ -730,13 +731,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00574" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
-      <created>1492632711136</created>
-      <option name="number" value="00574" />
-      <option name="presentableId" value="LOCAL-00574" />
-      <option name="project" value="LOCAL" />
-      <updated>1492632711136</updated>
-    </task>
     <task id="LOCAL-00575" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
       <created>1492982045738</created>
       <option name="number" value="00575" />
@@ -1073,7 +1067,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494267462477</updated>
     </task>
-    <option name="localTasksCounter" value="623" />
+    <task id="LOCAL-00623" summary="Implement mash indexing into the whole workflow">
+      <created>1494374588685</created>
+      <option name="number" value="00623" />
+      <option name="presentableId" value="LOCAL-00623" />
+      <option name="project" value="LOCAL" />
+      <updated>1494374588685</updated>
+    </task>
+    <option name="localTasksCounter" value="624" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1710,18 +1711,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sendEmail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="113" column="13" lean-forward="false" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/workflow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="284" column="89" lean-forward="false" selection-start-line="284" selection-start-column="89" selection-end-line="284" selection-end-column="89" />
+        <state relative-caret-position="454">
+          <caret line="309" column="57" lean-forward="true" selection-start-line="309" selection-start-column="57" selection-end-line="309" selection-end-column="57" />
           <folding>
             <element signature="e#218#235#0" expanded="true" />
             <marker date="1494374570000" expanded="true" signature="4254:4311" ph="INSERT INTO Submission... " />
@@ -1755,6 +1748,17 @@
             <marker date="1494374570000" expanded="true" signature="15605:15703" ph="INSERT INTO LIN... " />
             <marker date="1494374570000" expanded="true" signature="16089:16143" ph="select LIN_I... LIN" />
             <marker date="1494374570000" expanded="true" signature="16244:16328" ph="insert into Job... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sendEmail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="108" column="40" lean-forward="false" selection-start-line="108" selection-start-column="40" selection-end-line="108" selection-end-column="40" />
+          <folding>
+            <marker date="1494374793000" expanded="true" signature="3107:3144" ph="select Email... User" />
+            <marker date="1494374793000" expanded="true" signature="3107:3147" ph="select Email... User" />
           </folding>
         </state>
       </provider>

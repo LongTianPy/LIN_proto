@@ -103,8 +103,10 @@ def get_credentials():
         print('Storing credentials to ' + credential_path)
     return credentials
 
-def sendEmail(User_ID, subject,context):
+def sendEmail(User_ID, subject,context,cursor):
     try:
+        cursor.execute("select Email from User where User_ID={0}".format(User_ID))
+        user_email = cursor.fetchone()[0]
         credentials = get_credentials()
         http = credentials.authorize(httplib2.Http())
         service = discovery.build('gmail', 'v1', http=http)
