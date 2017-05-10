@@ -115,6 +115,7 @@ def LINgroup_indexing(cursor, New_Genome_ID, New_Genome_filepath , working_dir, 
         new_LIN = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
         top1_Genome_ID = New_Genome_ID
         top1_similarity = 1
+        conserved_LIN = ""
     else:
         LIN_table = pd.DataFrame()
         genomes = [int(i[0]) for i in tmp]
@@ -187,7 +188,8 @@ def LINgroup_indexing(cursor, New_Genome_ID, New_Genome_filepath , working_dir, 
             new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_getLIN_object,c=cursor,current_genome=New_Genome_ID).new_LIN
             SubjectGenome= int(final_best_Genome_ID)
             ANIb_result = final_best_ANI
-    return new_LIN, SubjectGenome, ANIb_result
+        conserved_LIN = new_getLIN_object.conserved_LIN
+    return new_LIN, SubjectGenome, ANIb_result,conserved_LIN
 
 def mash_indexing(cursor, new_Genome_ID, User_ID,conn):
     """
@@ -230,15 +232,16 @@ def mash_indexing(cursor, new_Genome_ID, User_ID,conn):
                                               similarity=ANIb_result,
                                               c=cursor)
         new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_getLIN_object, c=cursor, current_genome=new_Genome_ID).new_LIN
+        conserved_LIN = new_getLIN_object.conserved_LIN
     else:
-        new_LIN, SubjectGenome, ANIb_result = LINgroup_indexing(cursor=cursor,New_Genome_ID=new_Genome_ID,
+        new_LIN, SubjectGenome, ANIb_result,conserved_LIN = LINgroup_indexing(cursor=cursor,New_Genome_ID=new_Genome_ID,
                                                                 New_Genome_filepath=new_FilePath,
                                                                 working_dir=workspace_dir,User_ID=User_ID)
 
     cursor.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 4, '{1}', '{2}', {3})"
               .format(new_Genome_ID, new_LIN, SubjectGenome, ANIb_result))
     conn.commit()
-    return new_LIN, SubjectGenome, ANIb_result,new_SigPath
+    return new_LIN, SubjectGenome, ANIb_result,new_SigPath,conserved_LIN
 
 
 # MAIN

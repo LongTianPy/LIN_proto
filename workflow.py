@@ -5,8 +5,6 @@ genomic percentage identity and LIN assignment to the new genome.
 """
 
 # IMPORT
-# import ANI_Wrapper_2
-# import k_mer
 import LIN_Assign
 import LINgroup_indexing
 import mash_indexing
@@ -27,6 +25,8 @@ from datetime import datetime
 from pytz import timezone
 from Bio import SeqIO
 import filecmp
+import uuid
+import sendEmail
 
 # import ExtractInfo
 
@@ -282,7 +282,7 @@ def main(argv=None): # The genome file name we are expecting for is a
     # new_LIN, top1_Genome_ID, top1_similarity = LINgroup_indexing.LINgroup_indexing(cursor=c,New_Genome_ID=new_Genome_ID,
     #                                                                                working_dir=workspace_dir,
     #                                                                                User_ID=User_ID)
-    new_LIN, SubjectGenome, ANIb_result,new_SigPath = mash_indexing.mash_indexing(cursor=c, new_Genome_ID=new_Genome_ID,User_ID=User_ID,conn=db)
+    new_LIN, SubjectGenome, ANIb_result,new_SigPath,conserved_LIN = mash_indexing.mash_indexing(cursor=c, new_Genome_ID=new_Genome_ID,User_ID=User_ID,conn=db)
     logging.info("The LIN assigned to your genome is " + new_LIN)
     # c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID, LIN, SubjectGenome, ANI) values ({0}, 4, '{1}', '{2}', {3})"
     #           .format(new_Genome_ID, new_LIN, top1_Genome_ID, top1_similarity))
@@ -292,9 +292,18 @@ def main(argv=None): # The genome file name we are expecting for is a
         os.mkdir(sourmash_dir + new_LINgroup)
         shutil.copy(new_SigPath, sourmash_dir + "rep_bac/")
     shutil.copy(new_SigPath, sourmash_dir + new_LINgroup + "/")
-    # url = IntermediateResult.write_result_page(new_Genome_ID=new_Genome_ID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c, User_ID=User_ID,Interest_ID=Interest_ID_new_genome)
-    # IntermediateResult.write_ANI_result(new_Genome_ID=new_Genome_ID,new_LIN_object=new_LIN_object,new_LIN=new_LIN,db_cursor=c,User_ID=User_ID,url=url,Interest_ID=Interest_ID_new_genome)
-    # IntermediateResult.send_email(file_source="ANI",User_ID=User_ID,db_cursor=c)
+    c.execute("select LIN_ID from LIN where Scheme_ID=4 and LIN='{0}'".format(new_LIN))
+    LIN_ID = int(c.fetchone()[0])
+    Job_uuid = str(uuid.uuid4())
+    c.execute("insert into Job (LIN_ID,User_ID,Job_uuid,Conserved_LIN) values ({0},{1},'{2}','{3}')".format(LIN_ID,User_ID,Job_uuid,conserved_LIN))
+    db.commit()
+
+    f = open("/var/www/html/CodeIgniter/application/views/email_result.txt","r")
+    email_result = f.read()
+    f.close()
+    email_result = email_result.format("http://128.173.74.68/CodeIgniter/index.php/SubmissionResult?job={0}".format(Job_uuid))
+    sendEmail.sendEmail(User_ID=User_ID,subject="Submission result",context=email_result)
+
     c.close()
     db.close()
     logging.info("Task completed.")

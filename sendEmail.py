@@ -103,14 +103,12 @@ def get_credentials():
         print('Storing credentials to ' + credential_path)
     return credentials
 
-if __name__ == "__main__":
-
+def sendEmail(User_ID, subject,context):
     try:
         credentials = get_credentials()
         http = credentials.authorize(httplib2.Http())
         service = discovery.build('gmail', 'v1', http=http)
-        SendMessage(service, "me", CreateMessage("LINbase@vt.edu", "longtian@vt.edu", "Test gmail automation", "Hello world 2"))
-
+        SendMessage(service, "me", CreateMessage("LINbase@vt.edu", user_email, subject, context))
     except Exception, e:
         print e
         raise
