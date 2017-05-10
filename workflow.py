@@ -302,7 +302,7 @@ def main(argv=None): # The genome file name we are expecting for is a
     email_result = f.read()
     f.close()
     email_result = email_result.format("http://128.173.74.68/CodeIgniter/index.php/SubmissionResult?job={0}".format(Job_uuid))
-    sendEmail.sendEmail(User_ID=User_ID,subject="Submission result",context=email_result)
+    sendEmail.sendEmail(User_ID=User_ID,subject="Submission result",context=email_result,cursor=c)
 
     c.close()
     db.close()
