@@ -301,7 +301,7 @@ def main(argv=None): # The genome file name we are expecting for is a
 
     c.execute("select Email from User where User_ID={0}".format(User_ID))
     user_email = c.fetchone()[0]
-    email_cmd = "python /home/linproject/Project/LIN_proto/sendEmail.py {0} Submission_result {1}".format(user_email,Job_uuid)
+    email_cmd = "python /home/linproject/Projects/LIN_proto/sendEmail.py {0} Submission_result {1}".format(user_email,Job_uuid)
     os.system(email_cmd)
     c.close()
     db.close()
