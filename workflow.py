@@ -27,6 +27,7 @@ from Bio import SeqIO
 import filecmp
 import uuid
 import sendEmail
+import shutil
 
 # import ExtractInfo
 
