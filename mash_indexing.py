@@ -188,7 +188,7 @@ def LINgroup_indexing(cursor, New_Genome_ID, New_Genome_filepath , working_dir, 
             new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_getLIN_object,c=cursor,current_genome=New_Genome_ID).new_LIN
             SubjectGenome= int(final_best_Genome_ID)
             ANIb_result = final_best_ANI
-        conserved_LIN = new_getLIN_object.conserved_LIN
+        conserved_LIN = ",".join(new_getLIN_object.conserved_LIN)
     return new_LIN, SubjectGenome, ANIb_result,conserved_LIN
 
 def mash_indexing(cursor, new_Genome_ID, User_ID,conn):
@@ -232,7 +232,7 @@ def mash_indexing(cursor, new_Genome_ID, User_ID,conn):
                                               similarity=ANIb_result,
                                               c=cursor)
         new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_getLIN_object, c=cursor, current_genome=new_Genome_ID).new_LIN
-        conserved_LIN = new_getLIN_object.conserved_LIN
+        conserved_LIN = ",".join(new_getLIN_object.conserved_LIN)
     else:
         new_LIN, SubjectGenome, ANIb_result,conserved_LIN = LINgroup_indexing(cursor=cursor,New_Genome_ID=new_Genome_ID,
                                                                 New_Genome_filepath=new_FilePath,
