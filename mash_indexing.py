@@ -73,7 +73,7 @@ def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_
         for each_LIN_dictionary_key in LIN_dictionary.keys():
             LIN_ANI_storage[each_LIN_dictionary_key] = []
             for each_next_number in LIN_dictionary[each_LIN_dictionary_key].keys():
-                subject_LIN = each_LIN_dictionary_key + "," + each_next_number + "".join([",0"]*(19-1-current_level-1))
+                subject_LIN = each_LIN_dictionary_key + "," + each_next_number + "".join([",0"]*(20-1-current_level-1))
                 subject_genome_ID = reverse_LIN_dict[subject_LIN]
                 if str(subject_genome_ID) in similarity_pool:
                     similarity = similarity_pool[str(subject_genome_ID)]
