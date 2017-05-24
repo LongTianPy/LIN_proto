@@ -14,7 +14,7 @@ import shutil
 def connect_to_db():
     conn = Connect("localhost","root")
     c = conn.cursor()
-    c.execute("use LINdb")
+    c.execute("USE LINdb_RefSeq")
     return c
 
 def fetch_genomes(cursor):

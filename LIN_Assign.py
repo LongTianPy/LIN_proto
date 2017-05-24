@@ -43,7 +43,7 @@ class getLIN(object):
         if similarity < cutoff[0]:
             idx_to_change = 0
         elif similarity >= cutoff[-1]:
-            idx_to_change = len(cutoff)-1
+            idx_to_change = "n/a"
         else:
             for i in range(len(cutoff)-1):
                 if cutoff[i] <= similarity < cutoff[i+1]:
@@ -90,8 +90,6 @@ class Assign_LIN(object):
         if type(idx_to_change) == int:
             LINs = [int(i[0].split(',')[idx_to_change]) for i in tmp]
             num_to_assign = str(max(LINs)+1)
-        else:
-            print "We have a 100% ANI match here."
         if type(idx_to_change) == int and idx_to_change != label_num - 1:
             tail = ['0'] * (label_num - 1 - idx_to_change)
             tail = ','.join(tail)

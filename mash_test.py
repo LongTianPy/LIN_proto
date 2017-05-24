@@ -24,7 +24,7 @@ def mash_dist(mash_exec, working_dir, new_Genome_ID):
 def db_connect():
     conn = Connect("localhost","root")
     c = conn.cursor()
-    c.execute("USE LINdb")
+    c.execute("USE LINdb_RefSeq")
     return c
 
 # MAIN

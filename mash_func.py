@@ -20,7 +20,7 @@ from functools import partial
 def connect_to_db():
     conn = Connect("localhost","root")
     c = conn.cursor()
-    c.execute("use LINdb")
+    c.execute("USE LINdb_RefSeq")
     return conn, c
 
 def write_both_strand(Genome_ID,cursor,sourmash_dir):

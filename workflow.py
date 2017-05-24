@@ -98,7 +98,7 @@ def main(argv=None): # The genome file name we are expecting for is a
     db = Connect('localhost','root')
     c = db.cursor()
     logging.info("Connecting to the database")
-    c.execute('USE LINdb')
+    c.execute('USE LINdb_RefSeq')
     logging.basicConfig(level=logging.DEBUG, filename="/home/linproject/Workspace/LIN_log/logfile_{0}".format(User_ID),
                         filemode="a+", format="%(asctime)-15s %(levelname)-8s %(message)s")
     logging.info("#####################################")

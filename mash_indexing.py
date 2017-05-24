@@ -26,7 +26,7 @@ working_dir = '/home/linproject/Workspace/New/workspace/'
 def connect_to_db():
     conn = Connect("localhost","root")
     c = conn.cursor()
-    c.execute("use LINdb")
+    c.execute("use LINdb_RefSeq")
     return conn, c
 
 def prepare_input(c):
