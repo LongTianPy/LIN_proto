@@ -7,7 +7,6 @@
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/Load_RefSeq.py" afterPath="$PROJECT_DIR$/Tools/Load_RefSeq.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/workflow.py" afterPath="$PROJECT_DIR$/workflow.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -40,10 +39,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="workflow.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="workflow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/workflow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1308">
+            <state relative-caret-position="15">
               <caret line="73" column="39" lean-forward="false" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="39" />
               <folding>
                 <element signature="e#218#235#0" expanded="true" />
@@ -73,14 +72,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Load_RefSeq.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Load_RefSeq.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/Load_RefSeq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="73" column="118" lean-forward="false" selection-start-line="73" selection-start-column="118" selection-end-line="73" selection-end-column="118" />
+            <state relative-caret-position="575">
+              <caret line="87" column="20" lean-forward="false" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
               <folding>
                 <element signature="e#102#116#0" expanded="true" />
-                <marker date="1495684506000" expanded="true" signature="947:985" ph="select Genom... Genome" />
+                <marker date="1495745465000" expanded="true" signature="390:428" ph="select Genom... Genome" />
               </folding>
             </state>
           </provider>
@@ -89,7 +88,7 @@
       <file leaf-file-name="LINgroup_indexing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1215">
+            <state relative-caret-position="-821">
               <caret line="84" column="0" lean-forward="false" selection-start-line="170" selection-start-column="21" selection-end-line="170" selection-end-column="43" />
               <folding />
             </state>
@@ -119,7 +118,7 @@
       <file leaf-file-name="mash_indexing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mash_indexing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
+            <state relative-caret-position="-3296">
               <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="29" selection-end-column="18" />
               <folding>
                 <element signature="e#399#418#0" expanded="true" />
@@ -153,9 +152,15 @@
       <file leaf-file-name="LINgroup_indexing_comparison.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-              <folding />
+            <state relative-caret-position="154">
+              <caret line="171" column="102" lean-forward="false" selection-start-line="171" selection-start-column="102" selection-end-line="171" selection-end-column="102" />
+              <folding>
+                <marker date="1495464528000" expanded="true" signature="473:603" ph="select Genom... Genome" />
+                <marker date="1495464528000" expanded="true" signature="1044:1087" ph="select Cutof... Scheme" />
+                <marker date="1495464528000" expanded="true" signature="1666:1741" ph="select Genom... LIN" />
+                <marker date="1495464528000" expanded="true" signature="3300:3344" ph="SELECT FileP... Genome" />
+                <marker date="1495464528000" expanded="true" signature="5259:5334" ph="select Genom... LIN" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -300,6 +305,7 @@
     <setting file="file://$PROJECT_DIR$/k_mer.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/IntermediateResult.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/LIN_visualization.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Tools/Load_RefSeq.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/FastANI_Toolbox.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/kmer_kmeans_ANI.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py" root0="SKIP_INSPECTION" />
@@ -769,13 +775,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00590" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
-      <created>1493043881038</created>
-      <option name="number" value="00590" />
-      <option name="presentableId" value="LOCAL-00590" />
-      <option name="project" value="LOCAL" />
-      <updated>1493043881038</updated>
-    </task>
     <task id="LOCAL-00591" summary="Dev - Test how well can we trust mash, or sourmash&#10;LIN_assignment included&#10;Debug">
       <created>1493056231072</created>
       <option name="number" value="00591" />
@@ -1112,7 +1111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495673591737</updated>
     </task>
-    <option name="localTasksCounter" value="639" />
+    <task id="LOCAL-00639" summary="Implement mash indexing into the whole workflow">
+      <created>1495685120943</created>
+      <option name="number" value="00639" />
+      <option name="presentableId" value="LOCAL-00639" />
+      <option name="project" value="LOCAL" />
+      <updated>1495685120943</updated>
+    </task>
+    <option name="localTasksCounter" value="640" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1138,13 +1144,13 @@
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896653" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1564,25 +1570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LINgroup_indexing_traceback.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="56" column="14" lean-forward="false" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
-          <folding>
-            <marker date="1495464528000" expanded="true" signature="440:515" ph="SELECT Genom... LIN" />
-            <marker date="1495464528000" expanded="true" signature="2486:2531" ph="SELECT Genom... LIN" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mash_func.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1699,7 +1686,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
+        <state relative-caret-position="-821">
           <caret line="84" column="0" lean-forward="false" selection-start-line="170" selection-start-column="21" selection-end-line="170" selection-end-column="43" />
           <folding />
         </state>
@@ -1725,7 +1712,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mash_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
+        <state relative-caret-position="-3296">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="29" selection-end-column="18" />
           <folding>
             <element signature="e#399#418#0" expanded="true" />
@@ -1755,20 +1742,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/Load_RefSeq.py">
+    <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="73" column="118" lean-forward="false" selection-start-line="73" selection-start-column="118" selection-end-line="73" selection-end-column="118" />
+        <state relative-caret-position="154">
+          <caret line="171" column="102" lean-forward="false" selection-start-line="171" selection-start-column="102" selection-end-line="171" selection-end-column="102" />
           <folding>
-            <element signature="e#102#116#0" expanded="true" />
-            <marker date="1495684506000" expanded="true" signature="947:985" ph="select Genom... Genome" />
+            <marker date="1495464528000" expanded="true" signature="473:603" ph="select Genom... Genome" />
+            <marker date="1495464528000" expanded="true" signature="1044:1087" ph="select Cutof... Scheme" />
+            <marker date="1495464528000" expanded="true" signature="1666:1741" ph="select Genom... LIN" />
+            <marker date="1495464528000" expanded="true" signature="3300:3344" ph="SELECT FileP... Genome" />
+            <marker date="1495464528000" expanded="true" signature="5259:5334" ph="select Genom... LIN" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LINgroup_indexing_traceback.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="56" column="14" lean-forward="false" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+          <folding>
+            <marker date="1495464528000" expanded="true" signature="440:515" ph="SELECT Genom... LIN" />
+            <marker date="1495464528000" expanded="true" signature="2486:2531" ph="SELECT Genom... LIN" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/workflow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1308">
+        <state relative-caret-position="15">
           <caret line="73" column="39" lean-forward="false" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="39" />
           <folding>
             <element signature="e#218#235#0" expanded="true" />
@@ -1793,6 +1794,17 @@
             <marker date="1495679133000" expanded="true" signature="9345:9399" ph="select LIN_I... LIN" />
             <marker date="1495679133000" expanded="true" signature="9500:9584" ph="insert into Job... " />
             <marker date="1495679133000" expanded="true" signature="9665:9702" ph="select Email... User" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/Load_RefSeq.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="87" column="20" lean-forward="false" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
+          <folding>
+            <element signature="e#102#116#0" expanded="true" />
+            <marker date="1495745465000" expanded="true" signature="390:428" ph="select Genom... Genome" />
           </folding>
         </state>
       </provider>
