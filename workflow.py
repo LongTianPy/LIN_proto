@@ -179,9 +179,10 @@ def main(argv=None): # The genome file name we are expecting for is a
     Attribute_ID_list = [int(id) for id in Attribute_ID_list]
     Attributes = Attributes.split("^^")
     for i in range(len(Attribute_ID_list)):
+        attributevalue = Attributes[i].replace("_"," ")
         c.execute("INSERT INTO AttributeValue (Attribute_ID, Genome_ID, Interest_ID, AttributeValue, User_ID, Private) "
                   "VALUES ({0}, {1}, {2}, '{3}', {4}, {5})".format(Attribute_ID_list[i], new_Genome_ID,
-                                                                   Interest_ID_new_genome, Attributes[i],
+                                                                   Interest_ID_new_genome, attributevalue,
                                                                    User_ID, privacy))
         db.commit()
 
