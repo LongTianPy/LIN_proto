@@ -9,6 +9,7 @@ from os import listdir
 from os.path import isfile, join
 import shutil
 from MySQLdb import Connect
+import sys
 
 # FUNCTIONS
 def connect_to_db():
@@ -116,8 +117,12 @@ def run_cmd():
     lines = [i.strip() for i in f.readlines()]
     f.close()
     for i in lines:
-        if lines.split(" ")[3] not in files:
+        try:
+            if lines.split(" ")[3] not in files:
+                print i
+        except:
             print i
+            sys.exit()
 
 
 
