@@ -5,6 +5,7 @@ I pulled bacteria genomes from NCBI refseq and got 6000+ genomes.
 
 # IMPORT
 import filecmp
+import os
 from os import listdir
 from os.path import isfile, join
 import shutil

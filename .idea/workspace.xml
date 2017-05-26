@@ -75,11 +75,10 @@
       <file leaf-file-name="Load_RefSeq.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/Load_RefSeq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="117" column="13" lean-forward="true" selection-start-line="117" selection-start-column="13" selection-end-line="117" selection-end-column="13" />
+            <state relative-caret-position="105">
+              <caret line="7" column="9" lean-forward="false" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
               <folding>
-                <element signature="e#102#116#0" expanded="true" />
-                <marker date="1495767426000" expanded="true" signature="423:461" ph="select Genom... Genome" />
+                <marker date="1495767468000" expanded="true" signature="433:471" ph="select Genom... Genome" />
               </folding>
             </state>
           </provider>
@@ -775,13 +774,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00610" summary="Implement mash indexing into the whole workflow">
-      <created>1494007247527</created>
-      <option name="number" value="00610" />
-      <option name="presentableId" value="LOCAL-00610" />
-      <option name="project" value="LOCAL" />
-      <updated>1494007247527</updated>
-    </task>
     <task id="LOCAL-00611" summary="Implement mash indexing into the whole workflow">
       <created>1494007331650</created>
       <option name="number" value="00611" />
@@ -1118,7 +1110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495767362985</updated>
     </task>
-    <option name="localTasksCounter" value="659" />
+    <task id="LOCAL-00659" summary="Implement mash indexing into the whole workflow">
+      <created>1495767440843</created>
+      <option name="number" value="00659" />
+      <option name="presentableId" value="LOCAL-00659" />
+      <option name="project" value="LOCAL" />
+      <updated>1495767440843</updated>
+    </task>
+    <option name="localTasksCounter" value="660" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1800,11 +1799,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/Load_RefSeq.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="117" column="13" lean-forward="true" selection-start-line="117" selection-start-column="13" selection-end-line="117" selection-end-column="13" />
+        <state relative-caret-position="105">
+          <caret line="7" column="9" lean-forward="false" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
           <folding>
-            <element signature="e#102#116#0" expanded="true" />
-            <marker date="1495767426000" expanded="true" signature="423:461" ph="select Genom... Genome" />
+            <marker date="1495767468000" expanded="true" signature="433:471" ph="select Genom... Genome" />
           </folding>
         </state>
       </provider>
