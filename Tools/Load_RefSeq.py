@@ -66,14 +66,6 @@ def load_refseq():
     asm_name = [i[15] for i in meta]
     # filename = [join(genome_path,i+"_genomic.fna") for i in ftp]
 
-
-    for i in range(len(accession)):
-        if filename[i] in refseq_genomes:
-            duplicated_genome = check_identical(filename[i],FilePath)
-            if not duplicated_genome:
-                shutil.copy(filename[i],working_dir)
-                cmd = "python /home/linproject/Projects/LIN_proto/workflow.py -i {0} -u 2 -s 6 ".format(filename[i].split("/")[-1])
-
     for i in range(len(filename)):
         filepath = filename[i]
         duplicated_genome = check_identical(filepath,c)
@@ -85,6 +77,85 @@ def load_refseq():
                 else:
                     organism = organism_name[i]
                 if organism.startswith("Candidatus"):
+                    Genus = "_".join(organism.split(" ")[:2])
+                    Species = organism.split(" ")[2]
+                    Subspecies = "N/A"
+                    if strain[i] != "":
+                        Strain = strain[i].replace(" ","_")
+                    else:
+                        Strain = "_".join(organism.split(" ")[3:])
+                else:
+                    Genus = organism.split(" ")[0]
+                    Species = organism.split(" ")[1]
+                    if strain[i] != "":
+                        Strain = strain[i].replace(" ","_")
+                    else:
+                        Strain = "_".join(organism.split(" ")[2:])
+            else:
+                Genus = "No_name"
+                Species = "No_name"
+                Subspecies = "N/A"
+                if strain[i] != "":
+                    Strain = strain[i].replace(" ","_")
+                else:
+                    Strain = organism_name[i].replace(" ","_")
+            Type_strain = "Yes"
+            NCBI_Accession = accession[i]
+            attribute = "^^".join([Genus,Species,Subspecies,Strain,Type_strain,NCBI_Accession])
+            print attribute
+
+
+
+
+            #     if "(" in organism_name[i]:
+            #         organism = organism_name[i].split("(")[0]
+            #     else:
+            #         organism = organism_name[i]
+            #     if organism.startswith("Candidatus"):
+            #         Genus = "_".join(organism.split(" ")[:2])
+            #         Species = organism.split(" ")[2]
+            #         if "subsp." in organism:
+            #             Subspecies = organism.split(" ")[4]
+            #             if len(organism.split(" ")) > 5:
+            #                 Strain = "_".join(organism.split(" ")[5:])
+            #             else:
+            #                 Strain = "_".join(strain[i])
+            #         elif "pv."  in organism:
+            #             Subspecies = "_".join(organism.split(" ")[3:5])
+            #             if len(organism.split(" ")) > 5:
+            #                 Strain = "_".join(organism.split(" ")[5:])
+            #             else:
+            #                 Strain = "_".join(strain[i])
+            #         else:
+            #             Subspecies = "N/A"
+            #             if len(organism.split(" ")) > 3:
+            #                 Strain = "_".join(organism.split(" ")[3:])
+            #             else:
+            #                 Strain = "_".join(strain[i])
+            #     else:
+            #         Genus = organism.split(" ")[0]
+            #         Species = organism.split(" ")[1]
+            #         if "subsp." in organism:
+            #             Subspecies = organism.split(" ")[3]
+            #             if len(organism.split(" ")) > 4:
+            #                 Strain = "_".join(organism.split(" ")[4:])
+            #             else:
+            #                 Strain = "_".join(strain[i])
+            #         elif "pv." in organism:
+            #             Subspecies = "_".join(organism.split(" ")[2:4])
+            #             if len(organism.split(" ")) > 4:
+            #                 Strain = "_".join(organism.split(" ")[4:])
+            #             else:
+            #                 Strain = "_".join(strain[i])
+            #         else:
+            #             Subspecies = "N/A"
+            #             if len(organism.split(" ")) > 2:
+            #                 Strain = "_".join(organism.split(" ")[2:])
+            #             else:
+            #                 Strain = "_".join(strain[i])
+            # else:
+
+
 
 
 
