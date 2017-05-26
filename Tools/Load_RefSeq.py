@@ -11,7 +11,7 @@ import shutil
 
 # FUNCTIONS
 def connect_to_db():
-    conn = connect_to_db("localhost","root")
+    conn = Connect("localhost","root")
     c = conn.cursor()
     c.execute("use LINdb_RefSeq")
     return conn, c
