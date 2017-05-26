@@ -37,7 +37,7 @@ def check_identical(new_file,c):
 def load_refseq():
     refseq_path = "/home/linproject/NCBI/"
     meta_data = "/home/linproject/NCBI/assembly_summary_type.txt"
-    genome_path = "/home/linproject/NCBI_refseq/Genomes/"
+    genome_path = "/home/linproject/NCBI/Genomes/"
     working_dir = "/home/linproject/Workspace/Psy_166/"
     conn, c = connect_to_db()
     refseq_genomes = [join(genome_path,f) for f in listdir(genome_path) if isfile(join(genome_path,f)) and f.endswith("fna")]
