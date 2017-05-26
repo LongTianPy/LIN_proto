@@ -8,6 +8,7 @@ import filecmp
 from os import listdir
 from os.path import isfile, join
 import shutil
+from MySQLdb import Connect
 
 # FUNCTIONS
 def connect_to_db():
