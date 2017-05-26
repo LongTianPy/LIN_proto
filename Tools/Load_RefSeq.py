@@ -117,12 +117,7 @@ def run_cmd():
     lines = [i.strip() for i in f.readlines()]
     f.close()
     for i in lines:
-        try:
-            if i.split(" ")[3] not in files:
-                print i
-        except:
-            print i
-            sys.exit()
+        os.system(i)
 
 
 
