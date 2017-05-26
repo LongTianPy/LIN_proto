@@ -118,7 +118,7 @@ def run_cmd():
     f.close()
     for i in lines:
         try:
-            if lines.split(" ")[3] not in files:
+            if i.split(" ")[3] not in files:
                 print i
         except:
             print i
