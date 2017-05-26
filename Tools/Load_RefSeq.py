@@ -47,7 +47,7 @@ def load_refseq():
     accession = [i[0] for i in meta]
     type = []
     filename = []
-    fiels = []
+    files = []
     for i in meta:
         if i[-2].startswith("ftp"):
             url = i[-2].split("/")[-1] + "_genomic.fna"
