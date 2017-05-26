@@ -47,12 +47,14 @@ def load_refseq():
     accession = [i[0] for i in meta]
     type = []
     filename = []
+    fiels = []
     for i in meta:
         if i[-2].startswith("ftp"):
             url = i[-2].split("/")[-1] + "_genomic.fna"
         else:
             url = i[-3].split("/")[-1] + "_genomic.fna"
         filename.append(join(genome_path,url))
+        files.append(url)
     organism_name = [i[7] for i in meta]
     infra = [i[8].split("=")[-1] for i in meta]
     strain = []
@@ -104,7 +106,8 @@ def load_refseq():
             Type_strain = "Yes"
             NCBI_Accession = accession[i]
             attribute = "^^".join([Genus,Species,Subspecies,Strain,Type_strain,NCBI_Accession])
-            print attribute
+            cmd = "python /home/linproject/Projects/LIN_proto/workflow -i {0} -u 2 -s 6 -t {0}".format(files[i],attribute)
+            print cmd
 
 if __name__ == '__main__':
     load_refseq()
