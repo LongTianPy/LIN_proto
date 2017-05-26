@@ -104,6 +104,9 @@ def load_refseq():
             attribute = "^^".join([Genus,Species,Subspecies,Strain,Type_strain,NCBI_Accession])
             print attribute
 
+if __name__ == '__main__':
+    load_refseq()
+
 
 
 
