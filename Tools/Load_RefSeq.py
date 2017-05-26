@@ -73,41 +73,41 @@ def load_refseq():
         filepath = filename[i]
         duplicated_genome = check_identical(filepath,c)
         if not duplicated_genome:
-            # shutil.copy(filepath,working_dir)
-            if organism_name[i][0].isupper():
-                if "(" in organism_name[i]:
-                    organism = organism_name[i].split("(")[0]
-                else:
-                    organism = organism_name[i]
-                if organism.startswith("Candidatus"):
-                    Genus = "_".join(organism.split(" ")[:2])
-                    Species = organism.split(" ")[2]
-                    Subspecies = "N/A"
-                    if strain[i] != "":
-                        Strain = strain[i].replace(" ","_")
-                    else:
-                        Strain = "_".join(organism.split(" ")[3:])
-                else:
-                    Genus = organism.split(" ")[0]
-                    Species = organism.split(" ")[1]
-                    Subspecies = "N/A"
-                    if strain[i] != "":
-                        Strain = strain[i].replace(" ","_")
-                    else:
-                        Strain = "_".join(organism.split(" ")[2:])
-            else:
-                Genus = "No_name"
-                Species = "No_name"
-                Subspecies = "N/A"
-                if strain[i] != "":
-                    Strain = strain[i].replace(" ","_")
-                else:
-                    Strain = organism_name[i].replace(" ","_")
-            Type_strain = "Yes"
-            NCBI_Accession = accession[i]
-            attribute = "^^".join([Genus,Species,Subspecies,Strain,Type_strain,NCBI_Accession])
-            cmd = "python /home/linproject/Projects/LIN_proto/workflow -i {0} -u 2 -s 6 -t {1}".format(files[i],attribute)
-            print cmd
+            shutil.copy(filepath,working_dir)
+            # if organism_name[i][0].isupper():
+            #     if "(" in organism_name[i]:
+            #         organism = organism_name[i].split("(")[0]
+            #     else:
+            #         organism = organism_name[i]
+            #     if organism.startswith("Candidatus"):
+            #         Genus = "_".join(organism.split(" ")[:2])
+            #         Species = organism.split(" ")[2]
+            #         Subspecies = "N/A"
+            #         if strain[i] != "":
+            #             Strain = strain[i].replace(" ","_")
+            #         else:
+            #             Strain = "_".join(organism.split(" ")[3:])
+            #     else:
+            #         Genus = organism.split(" ")[0]
+            #         Species = organism.split(" ")[1]
+            #         Subspecies = "N/A"
+            #         if strain[i] != "":
+            #             Strain = strain[i].replace(" ","_")
+            #         else:
+            #             Strain = "_".join(organism.split(" ")[2:])
+            # else:
+            #     Genus = "No_name"
+            #     Species = "No_name"
+            #     Subspecies = "N/A"
+            #     if strain[i] != "":
+            #         Strain = strain[i].replace(" ","_")
+            #     else:
+            #         Strain = organism_name[i].replace(" ","_")
+            # Type_strain = "Yes"
+            # NCBI_Accession = accession[i]
+            # attribute = "^^".join([Genus,Species,Subspecies,Strain,Type_strain,NCBI_Accession])
+            # cmd = "python /home/linproject/Projects/LIN_proto/workflow -i {0} -u 2 -s 6 -t {1}".format(files[i],attribute)
+            # print cmd
 
 if __name__ == '__main__':
     load_refseq()
