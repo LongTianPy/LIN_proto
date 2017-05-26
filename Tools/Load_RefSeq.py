@@ -88,6 +88,7 @@ def load_refseq():
                 else:
                     Genus = organism.split(" ")[0]
                     Species = organism.split(" ")[1]
+                    Subspecies = "N/A"
                     if strain[i] != "":
                         Strain = strain[i].replace(" ","_")
                     else:

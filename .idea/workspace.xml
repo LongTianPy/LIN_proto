@@ -75,11 +75,11 @@
       <file leaf-file-name="Load_RefSeq.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/Load_RefSeq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="39" column="40" lean-forward="false" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+            <state relative-caret-position="396">
+              <caret line="90" column="37" lean-forward="false" selection-start-line="90" selection-start-column="37" selection-end-line="90" selection-end-column="37" />
               <folding>
                 <element signature="e#102#116#0" expanded="true" />
-                <marker date="1495764547000" expanded="true" signature="412:450" ph="select Genom... Genome" />
+                <marker date="1495764585000" expanded="true" signature="412:450" ph="select Genom... Genome" />
               </folding>
             </state>
           </provider>
@@ -775,13 +775,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00597" summary="Reassign LIN based on new scheme">
-      <created>1493315848982</created>
-      <option name="number" value="00597" />
-      <option name="presentableId" value="LOCAL-00597" />
-      <option name="project" value="LOCAL" />
-      <updated>1493315848982</updated>
-    </task>
     <task id="LOCAL-00598" summary="Reassign LIN based on new scheme">
       <created>1493315877313</created>
       <option name="number" value="00598" />
@@ -1118,7 +1111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495764499413</updated>
     </task>
-    <option name="localTasksCounter" value="646" />
+    <task id="LOCAL-00646" summary="Implement mash indexing into the whole workflow">
+      <created>1495764550232</created>
+      <option name="number" value="00646" />
+      <option name="presentableId" value="LOCAL-00646" />
+      <option name="project" value="LOCAL" />
+      <updated>1495764550232</updated>
+    </task>
+    <option name="localTasksCounter" value="647" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1800,11 +1800,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/Load_RefSeq.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="39" column="40" lean-forward="false" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+        <state relative-caret-position="396">
+          <caret line="90" column="37" lean-forward="false" selection-start-line="90" selection-start-column="37" selection-end-line="90" selection-end-column="37" />
           <folding>
             <element signature="e#102#116#0" expanded="true" />
-            <marker date="1495764547000" expanded="true" signature="412:450" ph="select Genom... Genome" />
+            <marker date="1495764585000" expanded="true" signature="412:450" ph="select Genom... Genome" />
           </folding>
         </state>
       </provider>
