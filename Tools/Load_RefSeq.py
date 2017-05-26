@@ -71,7 +71,7 @@ def load_refseq():
         filepath = filename[i]
         duplicated_genome = check_identical(filepath,c)
         if not duplicated_genome:
-            shutil.copy(filepath,working_dir)
+            # shutil.copy(filepath,working_dir)
             if organism_name[i][0].isupper():
                 if "(" in organism_name[i]:
                     organism = organism_name[i].split("(")[0]
