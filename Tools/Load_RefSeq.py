@@ -106,7 +106,7 @@ def load_refseq():
             Type_strain = "Yes"
             NCBI_Accession = accession[i]
             attribute = "^^".join([Genus,Species,Subspecies,Strain,Type_strain,NCBI_Accession])
-            cmd = "python /home/linproject/Projects/LIN_proto/workflow -i {0} -u 2 -s 6 -t {0}".format(files[i],attribute)
+            cmd = "python /home/linproject/Projects/LIN_proto/workflow -i {0} -u 2 -s 6 -t {1}".format(files[i],attribute)
             print cmd
 
 if __name__ == '__main__':
