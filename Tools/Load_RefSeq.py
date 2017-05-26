@@ -122,7 +122,7 @@ def run_cmd():
 
 
 if __name__ == '__main__':
-    load_refseq()
+    run_cmd()
 
 
 
