@@ -109,6 +109,18 @@ def load_refseq():
             # cmd = "python /home/linproject/Projects/LIN_proto/workflow -i {0} -u 2 -s 6 -t {1}".format(files[i],attribute)
             # print cmd
 
+def run_cmd():
+    working_dir = "/home/linproject/Workspace/Psy_166/"
+    files = [f for f in listdir(working_dir)]
+    f = open("/home/linproject/NCBI/cmd.txt","r")
+    lines = [i.strip() for i in f.readlines()]
+    f.close()
+    for i in lines:
+        if lines.split(" ")[3] not in files:
+            print i
+
+
+
 if __name__ == '__main__':
     load_refseq()
 
