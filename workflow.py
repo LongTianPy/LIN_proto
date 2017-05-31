@@ -75,6 +75,19 @@ def get_contig_number(fastafile):
     f.close()
     return len(records)
 
+def update_LINgroup(Genome_ID,c,new_LIN,conn):
+    c.execute("select * from Description")
+    tmp = c.fetchall()
+    Description_ID = [int(i[0]) for i in tmp]
+    LINgroup = [i[1] for i in tmp]
+    members = [i[-1] for i in tmp]
+    df = pd.DataFrame()
+    for i in range(len(Description_ID)):
+        if new_LIN.startswith(LINgroup[i]):
+            this_member = ",".join(members[i].split(",").append(Genome_ID))
+            c.execute("update Description set Genome_IDs={0} where Description_ID={1}".format(this_member,Description_ID[i]))
+            conn.commit()
+
 # MAIN
 def main(argv=None): # The genome file name we are expecting for is a
     # There should be a script that uploads the genome sequence to a subfolder in the workspace where the name is
@@ -196,6 +209,7 @@ def main(argv=None): # The genome file name we are expecting for is a
         os.mkdir(sourmash_dir + new_LINgroup)
         shutil.copy(new_SigPath, sourmash_dir + "rep_bac/")
     shutil.copy(new_SigPath, sourmash_dir + new_LINgroup + "/")
+    update_LINgroup(Genome_ID=new_Genome_ID,c=c,new_LIN=new_LIN,conn=db)
     c.execute("select LIN_ID from LIN where Scheme_ID=4 and LIN='{0}'".format(new_LIN))
     LIN_ID = int(c.fetchone()[0])
     Job_uuid = str(uuid.uuid4())
