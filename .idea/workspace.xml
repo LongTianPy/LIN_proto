@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tools/get_meta.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/get_meta.py" afterPath="$PROJECT_DIR$/Tools/get_meta.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -212,21 +212,21 @@
       <file leaf-file-name="get_meta.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/get_meta.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="48" column="35" lean-forward="false" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
+            <state relative-caret-position="91">
+              <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
               <folding>
                 <element signature="e#107#134#0" expanded="true" />
-                <marker date="1497101048000" expanded="true" signature="298:352" ph="SELECT Attri... Interest" />
-                <marker date="1497101048000" expanded="true" signature="298:369" ph="SELECT Attri... Interest" />
-                <marker date="1497101048000" expanded="true" signature="298:371" ph="SELECT Attri... Interest" />
-                <marker date="1497101048000" expanded="true" signature="488:551" ph="SELECT Attri... Attribute" />
-                <marker date="1497101048000" expanded="true" signature="819:877" ph="SELECT Genom... AttributeValue" />
-                <marker date="1497101048000" expanded="true" signature="819:882" ph="SELECT Genom... AttributeValue" />
-                <marker date="1497101048000" expanded="true" signature="819:898" ph="SELECT Genom... AttributeValue" />
-                <marker date="1497101048000" expanded="true" signature="1234:1313" ph="SELECT Attri... AttributeValue" />
-                <marker date="1497101048000" expanded="true" signature="1234:1316" ph="SELECT Attri... AttributeValue" />
-                <marker date="1497101048000" expanded="true" signature="1534:1570" ph="select LIN f... LIN" />
-                <marker date="1497101048000" expanded="true" signature="1534:1589" ph="select LIN f... LIN" />
+                <marker date="1497101230000" expanded="true" signature="298:352" ph="SELECT Attri... Interest" />
+                <marker date="1497101230000" expanded="true" signature="298:369" ph="SELECT Attri... Interest" />
+                <marker date="1497101230000" expanded="true" signature="298:371" ph="SELECT Attri... Interest" />
+                <marker date="1497101230000" expanded="true" signature="488:551" ph="SELECT Attri... Attribute" />
+                <marker date="1497101230000" expanded="true" signature="819:877" ph="SELECT Genom... AttributeValue" />
+                <marker date="1497101230000" expanded="true" signature="819:882" ph="SELECT Genom... AttributeValue" />
+                <marker date="1497101230000" expanded="true" signature="819:898" ph="SELECT Genom... AttributeValue" />
+                <marker date="1497101230000" expanded="true" signature="1234:1313" ph="SELECT Attri... AttributeValue" />
+                <marker date="1497101230000" expanded="true" signature="1234:1316" ph="SELECT Attri... AttributeValue" />
+                <marker date="1497101230000" expanded="true" signature="1534:1570" ph="select LIN f... LIN" />
+                <marker date="1497101230000" expanded="true" signature="1534:1589" ph="select LIN f... LIN" />
               </folding>
             </state>
           </provider>
@@ -791,13 +791,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00613" summary="Implement mash indexing into the whole workflow">
-      <created>1494010766324</created>
-      <option name="number" value="00613" />
-      <option name="presentableId" value="LOCAL-00613" />
-      <option name="project" value="LOCAL" />
-      <updated>1494010766324</updated>
-    </task>
     <task id="LOCAL-00614" summary="Implement mash indexing into the whole workflow">
       <created>1494010993000</created>
       <option name="number" value="00614" />
@@ -1134,7 +1127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1496257769450</updated>
     </task>
-    <option name="localTasksCounter" value="662" />
+    <task id="LOCAL-00662" summary="Create get_meta.py for extracting metadata of bacteria">
+      <created>1497101073574</created>
+      <option name="number" value="00662" />
+      <option name="presentableId" value="LOCAL-00662" />
+      <option name="project" value="LOCAL" />
+      <updated>1497101073575</updated>
+    </task>
+    <option name="localTasksCounter" value="663" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1153,7 +1153,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19519095" sideWeight="0.51502144" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5369863" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5369863" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32768363" sideWeight="0.4892704" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.48497853" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18819444" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1229,7 +1229,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Send emails about results" />
     <MESSAGE value="Grammar check" />
     <MESSAGE value="To make the backend more secure." />
     <MESSAGE value="Writing HTML email" />
@@ -1254,7 +1253,8 @@
     <MESSAGE value="Reassign LIN based on new scheme" />
     <MESSAGE value="Implement mash indexing into the whole workflow" />
     <MESSAGE value="Add a LINgroup description update function after LIN assignment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add a LINgroup description update function after LIN assignment" />
+    <MESSAGE value="Create get_meta.py for extracting metadata of bacteria" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create get_meta.py for extracting metadata of bacteria" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1822,21 +1822,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/get_meta.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="48" column="35" lean-forward="false" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
+        <state relative-caret-position="91">
+          <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
           <folding>
             <element signature="e#107#134#0" expanded="true" />
-            <marker date="1497101048000" expanded="true" signature="298:352" ph="SELECT Attri... Interest" />
-            <marker date="1497101048000" expanded="true" signature="298:369" ph="SELECT Attri... Interest" />
-            <marker date="1497101048000" expanded="true" signature="298:371" ph="SELECT Attri... Interest" />
-            <marker date="1497101048000" expanded="true" signature="488:551" ph="SELECT Attri... Attribute" />
-            <marker date="1497101048000" expanded="true" signature="819:877" ph="SELECT Genom... AttributeValue" />
-            <marker date="1497101048000" expanded="true" signature="819:882" ph="SELECT Genom... AttributeValue" />
-            <marker date="1497101048000" expanded="true" signature="819:898" ph="SELECT Genom... AttributeValue" />
-            <marker date="1497101048000" expanded="true" signature="1234:1313" ph="SELECT Attri... AttributeValue" />
-            <marker date="1497101048000" expanded="true" signature="1234:1316" ph="SELECT Attri... AttributeValue" />
-            <marker date="1497101048000" expanded="true" signature="1534:1570" ph="select LIN f... LIN" />
-            <marker date="1497101048000" expanded="true" signature="1534:1589" ph="select LIN f... LIN" />
+            <marker date="1497101230000" expanded="true" signature="298:352" ph="SELECT Attri... Interest" />
+            <marker date="1497101230000" expanded="true" signature="298:369" ph="SELECT Attri... Interest" />
+            <marker date="1497101230000" expanded="true" signature="298:371" ph="SELECT Attri... Interest" />
+            <marker date="1497101230000" expanded="true" signature="488:551" ph="SELECT Attri... Attribute" />
+            <marker date="1497101230000" expanded="true" signature="819:877" ph="SELECT Genom... AttributeValue" />
+            <marker date="1497101230000" expanded="true" signature="819:882" ph="SELECT Genom... AttributeValue" />
+            <marker date="1497101230000" expanded="true" signature="819:898" ph="SELECT Genom... AttributeValue" />
+            <marker date="1497101230000" expanded="true" signature="1234:1313" ph="SELECT Attri... AttributeValue" />
+            <marker date="1497101230000" expanded="true" signature="1234:1316" ph="SELECT Attri... AttributeValue" />
+            <marker date="1497101230000" expanded="true" signature="1534:1570" ph="select LIN f... LIN" />
+            <marker date="1497101230000" expanded="true" signature="1534:1589" ph="select LIN f... LIN" />
           </folding>
         </state>
       </provider>

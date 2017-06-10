@@ -38,8 +38,8 @@ def extract_meta(value,output_file):
         tmp = c.fetchone()
         lin = tmp[0]
         df.set_value(each_genome,"LIN",lin)
-    writer = pd.ExcelWriter(output_file)
-    df.to_excel(excel_writer=writer)
+    ## writer = pd.ExcelWriter(output_file)
+    df.to_csv(output_file)
 
 
 # MAIN
