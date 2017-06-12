@@ -65,15 +65,35 @@ def write_file(gene_seq_file,out_dict):
         f.write(out_dict[i]+"\n")
     f.close()
 
-
+def get_house_keeping(dir):
+    homolog_files = [i for i in listdir(dir) if i.endswith("homologues")]
+    genome_id = {}
+    for file in homolog_files:
+        f = open(file,"r")
+        records = list(SeqIO.parse(f,"fasta"))
+        f.close()
+        for record in records:
+            if record.id not in genome_id:
+                genome_id[record.id] = [file]
+            else:
+                genome_id[record.id].append(file)
+    house_kept_genomes = [i for i in genome_id.keys() if len(genome_id[i])==8]
+    for file in homolog_files:
+        records = SeqIO.index(file,"fasta")
+        f = open(file+".house_kept","w")
+        for each_genome in house_kept_genomes:
+            f.write(">{0}\n".format(each_genome))
+            f.write("{0}\n".format(str(records[each_genome].seq)))
+        f.close()
 
 
 # MAIN
 if __name__ == '__main__':
     gene_seq_folder = sys.argv[1]
     gene_seq_files = [i for i in listdir(gene_seq_folder) if i.endswith("fas") or i.endswith("fasta")]
-    for gene_seq_file in gene_seq_files:
-        blast_out = blast_gene(gene_seq_file)
-        parsed_blast_out = parse_blast_out(gene_seq_file,blast_out)
-        out_dict = extract_seq(parsed_blast_out)
-        write_file(gene_seq_file,out_dict)
+    # for gene_seq_file in gene_seq_files:
+    #     blast_out = blast_gene(gene_seq_file)
+    #     parsed_blast_out = parse_blast_out(gene_seq_file,blast_out)
+    #     out_dict = extract_seq(parsed_blast_out)
+    #     write_file(gene_seq_file,out_dict)
+    get_house_keeping(gene_seq_folder)
