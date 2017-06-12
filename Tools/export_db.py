@@ -21,16 +21,16 @@ def export_table(c):
     SubjectGenome = [int(i[1]) for i in tmp]
     ANI = [i[2] for i in tmp]
     LIN = [i[3] for i in tmp]
-    c.execute("select AttributeValue from AttributeValue where Attribute_ID=1 AND Genome_ID in ({0})".format(",".join(Genome_ID)))
+    c.execute("select AttributeValue from AttributeValue where Attribute_ID=1 AND Genome_ID in ({0})".format(",".join([str(i) for i in Genome_ID])))
     tmp = c.fetchall()
     Genus = [i[0] for i in tmp]
-    c.execute("select AttributeValue from AttributeValue where Attribute_ID=2 AND Genome_ID in ({0})".format(",".join(Genome_ID)))
+    c.execute("select AttributeValue from AttributeValue where Attribute_ID=2 AND Genome_ID in ({0})".format(",".join([str(i) for i in Genome_ID])))
     tmp = c.fetchall()
     Species = [i[0] for i in tmp]
     # c.execute("select AttributeValue from AttributeValue where Attribute_ID=3")
     # tmp = c.fetchall()
     # Subspecies = [i[0] for i in tmp]
-    c.execute("select AttributeValue from AttributeValue where Attribute_ID=4 AND Genome_ID in ({0})".format(",".join(Genome_ID)))
+    c.execute("select AttributeValue from AttributeValue where Attribute_ID=4 AND Genome_ID in ({0})".format(",".join([str(i) for i in Genome_ID])))
     tmp = c.fetchall()
     Strain = [i[0] for i in tmp]
     df = pd.DataFrame({"SubjectGenome":SubjectGenome,"ANI":ANI,"LIN":LIN},index=Genome_ID)
