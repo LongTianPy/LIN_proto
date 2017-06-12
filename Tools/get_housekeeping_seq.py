@@ -74,6 +74,6 @@ if __name__ == '__main__':
     gene_seq_files = [i for i in listdir(gene_seq_folder) if i.endswith("fas") or i.endswith("fasta")]
     for gene_seq_file in gene_seq_files:
         blast_out = blast_gene(gene_seq_file)
-        parsed_blast_out = parse_blast_out(blast_out)
+        parsed_blast_out = parse_blast_out(gene_seq_file,blast_out)
         out_dict = extract_seq(parsed_blast_out)
         write_file(gene_seq_file,out_dict)
