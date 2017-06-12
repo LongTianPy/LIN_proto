@@ -19,7 +19,7 @@ db_seq = SeqIO.index(db,"fasta")
 
 # FUNCTIONS
 def blast_gene(gene_seq_file):
-    cmd = "blastall -p blastn -i {0} -o {0}.blast_out -d {1} -a 4 -m 8 -b 500 -e 1e-10".format(gene_seq_file,db)
+    cmd = "blastall -p blastn -i {0} -o {0}.blast_out -d {1} -a 8 -m 8 -b 500 -e 1e-10".format(gene_seq_file,db)
     os.system(cmd)
     return gene_seq_file+".blast_out"
 

@@ -12,8 +12,8 @@ from os.path import isfile, join, isdir
 def concat_genomes():
     conn = Connect("localhost","root")
     c = conn.cursor()
-    c.execute("USE LINdb_RefSeq")
-    c.execute("SELECT Genome_ID, FilePath FROM Genome")
+    c.execute("USE LINdb")
+    c.execute("SELECT Genome.Genome_ID, Genome.FilePath, LIN.LIN FROM Genome,LIN WHERE Genome.Genome_ID=LIN.Genome_ID AND LIN.Scheme_ID=4")
     tmp = c.fetchall()
     Genome_ID = [str(i[0]) for i in tmp]
     FilePath = [i[1] for i in tmp]

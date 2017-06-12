@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/export_db.py" afterPath="$PROJECT_DIR$/Tools/export_db.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/get_housekeeping_seq.py" afterPath="$PROJECT_DIR$/Tools/get_housekeeping_seq.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mkblastdb.py" afterPath="$PROJECT_DIR$/mkblastdb.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -150,8 +151,8 @@
       <file leaf-file-name="get_housekeeping_seq.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tools/get_housekeeping_seq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="573">
-              <caret line="74" column="42" lean-forward="false" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
+            <state relative-caret-position="391">
+              <caret line="56" column="35" lean-forward="false" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
               <folding>
                 <element signature="e#183#204#0" expanded="true" />
               </folding>
@@ -159,11 +160,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="export_db.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="export_db.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tools/export_db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="32" column="145" lean-forward="false" selection-start-line="32" selection-start-column="145" selection-end-line="32" selection-end-column="145" />
+            <state relative-caret-position="120">
+              <caret line="17" column="53" lean-forward="true" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
               <folding>
                 <marker date="1497291351000" expanded="true" signature="354:401" ph="select Genom... LIN" />
                 <marker date="1497291351000" expanded="true" signature="354:419" ph="select Genom... LIN" />
@@ -175,6 +176,19 @@
                 <marker date="1497291351000" expanded="true" signature="1162:1224" ph="select Attri... AttributeValue" />
                 <marker date="1497291351000" expanded="true" signature="1162:1247" ph="select Attri... AttributeValue" />
                 <marker date="1497291351000" expanded="true" signature="1162:1295" ph="select Attri... AttributeValue" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mkblastdb.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mkblastdb.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-57">
+              <caret line="15" column="137" lean-forward="false" selection-start-line="15" selection-start-column="137" selection-end-line="15" selection-end-column="137" />
+              <folding>
+                <marker date="1497293052000" expanded="true" signature="313:374" ph="SELECT Genom... Genome" />
+                <marker date="1497293052000" expanded="true" signature="313:435" ph="SELECT Genom... Genome" />
               </folding>
             </state>
           </provider>
@@ -317,13 +331,13 @@
         <option value="$PROJECT_DIR$/LINgroup_indexing_traceback.py" />
         <option value="$PROJECT_DIR$/mash_func.py" />
         <option value="$PROJECT_DIR$/mash_test.py" />
-        <option value="$PROJECT_DIR$/mkblastdb.py" />
         <option value="$PROJECT_DIR$/LIN_Assign.py" />
         <option value="$PROJECT_DIR$/Tools/Load_RefSeq.py" />
         <option value="$PROJECT_DIR$/workflow.py" />
         <option value="$PROJECT_DIR$/Tools/get_meta.py" />
-        <option value="$PROJECT_DIR$/Tools/get_housekeeping_seq.py" />
         <option value="$PROJECT_DIR$/Tools/export_db.py" />
+        <option value="$PROJECT_DIR$/Tools/get_housekeeping_seq.py" />
+        <option value="$PROJECT_DIR$/mkblastdb.py" />
       </list>
     </option>
   </component>
@@ -725,13 +739,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00618" summary="Implement mash indexing into the whole workflow">
-      <created>1494011469225</created>
-      <option name="number" value="00618" />
-      <option name="presentableId" value="LOCAL-00618" />
-      <option name="project" value="LOCAL" />
-      <updated>1494011469226</updated>
-    </task>
     <task id="LOCAL-00619" summary="Implement mash indexing into the whole workflow">
       <created>1494208850770</created>
       <option name="number" value="00619" />
@@ -1068,7 +1075,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497291225982</updated>
     </task>
-    <option name="localTasksCounter" value="667" />
+    <task id="LOCAL-00667" summary="Added get_housekeeping_seq.py for extracting house keeping gene sequences across database">
+      <created>1497291353977</created>
+      <option name="number" value="00667" />
+      <option name="presentableId" value="LOCAL-00667" />
+      <option name="project" value="LOCAL" />
+      <updated>1497291353977</updated>
+    </task>
+    <option name="localTasksCounter" value="668" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1506,13 +1520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mkblastdb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db_build.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1704,7 +1711,7 @@
         <state relative-caret-position="330">
           <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
           <folding>
-            <element signature="e#84#93#0" expanded="true" />
+            <element signature="e#84#93#0" expanded="false" />
             <element signature="e#614#1130#0" expanded="false" />
             <element signature="e#3079#3274#0" expanded="false" />
             <element signature="e#3319#8195#0" expanded="false" />
@@ -1757,8 +1764,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/get_housekeeping_seq.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="74" column="42" lean-forward="false" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
+        <state relative-caret-position="391">
+          <caret line="56" column="35" lean-forward="false" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
           <folding>
             <element signature="e#183#204#0" expanded="true" />
           </folding>
@@ -1767,8 +1774,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/export_db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="32" column="145" lean-forward="false" selection-start-line="32" selection-start-column="145" selection-end-line="32" selection-end-column="145" />
+        <state relative-caret-position="120">
+          <caret line="17" column="53" lean-forward="true" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
           <folding>
             <marker date="1497291351000" expanded="true" signature="354:401" ph="select Genom... LIN" />
             <marker date="1497291351000" expanded="true" signature="354:419" ph="select Genom... LIN" />
@@ -1780,6 +1787,17 @@
             <marker date="1497291351000" expanded="true" signature="1162:1224" ph="select Attri... AttributeValue" />
             <marker date="1497291351000" expanded="true" signature="1162:1247" ph="select Attri... AttributeValue" />
             <marker date="1497291351000" expanded="true" signature="1162:1295" ph="select Attri... AttributeValue" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mkblastdb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-57">
+          <caret line="15" column="137" lean-forward="false" selection-start-line="15" selection-start-column="137" selection-end-line="15" selection-end-column="137" />
+          <folding>
+            <marker date="1497293052000" expanded="true" signature="313:374" ph="SELECT Genom... Genome" />
+            <marker date="1497293052000" expanded="true" signature="313:435" ph="SELECT Genom... Genome" />
           </folding>
         </state>
       </provider>
