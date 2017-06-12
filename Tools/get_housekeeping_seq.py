@@ -61,7 +61,7 @@ def write_file(gene_seq_file,out_dict):
         genus = meta.get_value(int(i),"Genus")
         species = meta.get_value(int(i),"Species")
         strain = meta.get_value(int(i),"Strain")
-        f.write(">{0} {1} {2}\n".format(genus,species,strain))
+        f.write(">{0} {1} {2} | Genome_ID={3}\n".format(genus,species,strain,i))
         f.write(out_dict[i]+"\n")
     f.close()
 

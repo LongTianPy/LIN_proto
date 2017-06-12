@@ -150,8 +150,8 @@
       <file leaf-file-name="get_housekeeping_seq.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/get_housekeeping_seq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="76" column="66" lean-forward="false" selection-start-line="76" selection-start-column="66" selection-end-line="76" selection-end-column="66" />
+            <state relative-caret-position="348">
+              <caret line="63" column="78" lean-forward="false" selection-start-line="63" selection-start-column="78" selection-end-line="63" selection-end-column="78" />
               <folding>
                 <element signature="e#183#204#0" expanded="true" />
               </folding>
@@ -738,13 +738,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00624" summary="Implement mash indexing into the whole workflow">
-      <created>1494374797843</created>
-      <option name="number" value="00624" />
-      <option name="presentableId" value="LOCAL-00624" />
-      <option name="project" value="LOCAL" />
-      <updated>1494374797843</updated>
-    </task>
     <task id="LOCAL-00625" summary="Implement mash indexing into the whole workflow">
       <created>1494380147665</created>
       <option name="number" value="00625" />
@@ -1081,7 +1074,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497296751111</updated>
     </task>
-    <option name="localTasksCounter" value="673" />
+    <task id="LOCAL-00673" summary="debug get_housekeeping_seq.py">
+      <created>1497296849789</created>
+      <option name="number" value="00673" />
+      <option name="presentableId" value="LOCAL-00673" />
+      <option name="project" value="LOCAL" />
+      <updated>1497296849789</updated>
+    </task>
+    <option name="localTasksCounter" value="674" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1798,8 +1798,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/get_housekeeping_seq.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="76" column="66" lean-forward="false" selection-start-line="76" selection-start-column="66" selection-end-line="76" selection-end-column="66" />
+        <state relative-caret-position="348">
+          <caret line="63" column="78" lean-forward="false" selection-start-line="63" selection-start-column="78" selection-end-line="63" selection-end-column="78" />
           <folding>
             <element signature="e#183#204#0" expanded="true" />
           </folding>
