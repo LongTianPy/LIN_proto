@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tools/get_housekeeping_seq.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
@@ -719,13 +718,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00615" summary="Implement mash indexing into the whole workflow">
-      <created>1494011002622</created>
-      <option name="number" value="00615" />
-      <option name="presentableId" value="LOCAL-00615" />
-      <option name="project" value="LOCAL" />
-      <updated>1494011002622</updated>
-    </task>
     <task id="LOCAL-00616" summary="Implement mash indexing into the whole workflow">
       <created>1494011083502</created>
       <option name="number" value="00616" />
@@ -1062,7 +1054,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497101232344</updated>
     </task>
-    <option name="localTasksCounter" value="664" />
+    <task id="LOCAL-00664" summary="Added get_housekeeping_seq.py for extracting house keeping gene sequences across database">
+      <created>1497288725858</created>
+      <option name="number" value="00664" />
+      <option name="presentableId" value="LOCAL-00664" />
+      <option name="project" value="LOCAL" />
+      <updated>1497288725858</updated>
+    </task>
+    <option name="localTasksCounter" value="665" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1157,7 +1156,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Grammar check" />
     <MESSAGE value="To make the backend more secure." />
     <MESSAGE value="Writing HTML email" />
     <MESSAGE value="Re-start with Psy" />
@@ -1182,7 +1180,8 @@
     <MESSAGE value="Implement mash indexing into the whole workflow" />
     <MESSAGE value="Add a LINgroup description update function after LIN assignment" />
     <MESSAGE value="Create get_meta.py for extracting metadata of bacteria" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create get_meta.py for extracting metadata of bacteria" />
+    <MESSAGE value="Added get_housekeeping_seq.py for extracting house keeping gene sequences across database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added get_housekeeping_seq.py for extracting house keeping gene sequences across database" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
