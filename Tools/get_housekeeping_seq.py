@@ -55,17 +55,14 @@ def get_meta(db="LINdb"):
 
 
 def write_file(gene_seq_file,out_dict):
-    meta = get_meta(db="LINdb")
     f = open(gene_seq_file+".homologues","w")
     for i in out_dict.keys():
-        genus = meta.get_value(int(i),"Genus")
-        species = meta.get_value(int(i),"Species")
-        strain = meta.get_value(int(i),"Strain")
-        f.write(">{0} {1} {2} | Genome_ID={3}\n".format(genus,species,strain,i))
+        f.write(">{0}\n".format(i))
         f.write(out_dict[i]+"\n")
     f.close()
 
 def get_house_keeping(dir):
+    meta = get_meta(db="LINdb")
     homolog_files = [i for i in listdir(dir) if i.endswith("homologues")]
     genome_id = {}
     for file in homolog_files:
@@ -82,7 +79,10 @@ def get_house_keeping(dir):
         records = SeqIO.index(file,"fasta")
         f = open(file+".house_kept","w")
         for each_genome in house_kept_genomes:
-            f.write(">{0}\n".format(each_genome))
+            genus = meta.get_value(int(each_genome), "Genus")
+            species = meta.get_value(int(each_genome), "Species")
+            strain = meta.get_value(int(each_genome), "Strain")
+            f.write(">{0} {1} {2} | Genome_ID={3}\n".format(genus, species, strain, each_genome))
             f.write("{0}\n".format(str(records[each_genome].seq)))
         f.close()
 
@@ -91,9 +91,9 @@ def get_house_keeping(dir):
 if __name__ == '__main__':
     gene_seq_folder = sys.argv[1]
     gene_seq_files = [i for i in listdir(gene_seq_folder) if i.endswith("fas") or i.endswith("fasta")]
-    # for gene_seq_file in gene_seq_files:
-    #     blast_out = blast_gene(gene_seq_file)
-    #     parsed_blast_out = parse_blast_out(gene_seq_file,blast_out)
-    #     out_dict = extract_seq(parsed_blast_out)
-    #     write_file(gene_seq_file,out_dict)
+    for gene_seq_file in gene_seq_files:
+        blast_out = blast_gene(gene_seq_file)
+        parsed_blast_out = parse_blast_out(gene_seq_file,blast_out)
+        out_dict = extract_seq(parsed_blast_out)
+        write_file(gene_seq_file,out_dict)
     get_house_keeping(gene_seq_folder)
