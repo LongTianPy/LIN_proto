@@ -14,7 +14,7 @@ from export_db import connect_to_db, export_table
 import pandas as pd
 # import multiprocessing as mp
 
-db = "/var/www/html/blast/db/genome.fasta"
+db = "/var/www/html/blast/db/genome_new.fasta"
 db_seq = SeqIO.index(db,"fasta")
 
 # FUNCTIONS

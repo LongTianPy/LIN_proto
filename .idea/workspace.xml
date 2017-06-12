@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mkblastdb.py" afterPath="$PROJECT_DIR$/mkblastdb.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/get_housekeeping_seq.py" afterPath="$PROJECT_DIR$/Tools/get_housekeeping_seq.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -42,7 +42,7 @@
       <file leaf-file-name="workflow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/workflow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2820">
+            <state relative-caret-position="229">
               <caret line="210" column="63" lean-forward="false" selection-start-line="210" selection-start-column="63" selection-end-line="210" selection-end-column="63" />
               <folding>
                 <element signature="e#218#235#0" expanded="true" />
@@ -147,11 +147,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="get_housekeeping_seq.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="get_housekeeping_seq.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/get_housekeeping_seq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="56" column="35" lean-forward="false" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
+            <state relative-caret-position="240">
+              <caret line="16" column="45" lean-forward="false" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
               <folding>
                 <element signature="e#183#204#0" expanded="true" />
               </folding>
@@ -180,11 +180,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mkblastdb.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mkblastdb.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mkblastdb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="49" column="18" lean-forward="true" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
+            <state relative-caret-position="483">
+              <caret line="51" column="37" lean-forward="false" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="37" />
               <folding>
                 <marker date="1497293293000" expanded="true" signature="313:374" ph="SELECT Genom... Genome" />
                 <marker date="1497293293000" expanded="true" signature="313:435" ph="SELECT Genom... Genome" />
@@ -335,8 +335,8 @@
         <option value="$PROJECT_DIR$/workflow.py" />
         <option value="$PROJECT_DIR$/Tools/get_meta.py" />
         <option value="$PROJECT_DIR$/Tools/export_db.py" />
-        <option value="$PROJECT_DIR$/Tools/get_housekeeping_seq.py" />
         <option value="$PROJECT_DIR$/mkblastdb.py" />
+        <option value="$PROJECT_DIR$/Tools/get_housekeeping_seq.py" />
       </list>
     </option>
   </component>
@@ -738,13 +738,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00620" summary="Implement mash indexing into the whole workflow">
-      <created>1494209071942</created>
-      <option name="number" value="00620" />
-      <option name="presentableId" value="LOCAL-00620" />
-      <option name="project" value="LOCAL" />
-      <updated>1494209071943</updated>
-    </task>
     <task id="LOCAL-00621" summary="Implement mash indexing into the whole workflow">
       <created>1494265893618</created>
       <option name="number" value="00621" />
@@ -1081,7 +1074,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497293066036</updated>
     </task>
-    <option name="localTasksCounter" value="669" />
+    <task id="LOCAL-00669" summary="Corrected makeblastdb.py">
+      <created>1497293295279</created>
+      <option name="number" value="00669" />
+      <option name="presentableId" value="LOCAL-00669" />
+      <option name="project" value="LOCAL" />
+      <updated>1497293295279</updated>
+    </task>
+    <option name="localTasksCounter" value="670" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1639,40 +1639,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/workflow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2820">
-          <caret line="210" column="63" lean-forward="false" selection-start-line="210" selection-start-column="63" selection-end-line="210" selection-end-column="63" />
-          <folding>
-            <element signature="e#218#235#0" expanded="true" />
-            <marker date="1496257740000" expanded="true" signature="2878:2903" ph="select * fro... Description" />
-            <marker date="1496257740000" expanded="true" signature="3253:3312" ph="update Descr... " />
-            <marker date="1496257740000" expanded="true" signature="3253:3315" ph="update Descr... " />
-            <marker date="1496257740000" expanded="true" signature="4842:4899" ph="INSERT INTO Submission... " />
-            <marker date="1496257740000" expanded="true" signature="5005:5074" ph="SELECT Submi... Submission" />
-            <marker date="1496257740000" expanded="true" signature="5428:5529" ph="INSERT INTO Genome... " />
-            <marker date="1496257740000" expanded="true" signature="5674:5725" ph="select Genom... Genome" />
-            <marker date="1496257740000" expanded="true" signature="5908:5961" ph="SELECT Attri... Interest" />
-            <marker date="1496257740000" expanded="true" signature="6240:6402" ph="INSERT INTO AttributeValue... " />
-            <marker date="1496257740000" expanded="true" signature="6712:6750" ph="SELECT Genom... Genome" />
-            <marker date="1496257740000" expanded="true" signature="7374:7431" ph="INSERT INTO Submission... " />
-            <marker date="1496257740000" expanded="true" signature="7531:7600" ph="SELECT Submi... Submission" />
-            <marker date="1496257740000" expanded="true" signature="7926:8027" ph="INSERT INTO Genome... " />
-            <marker date="1496257740000" expanded="true" signature="8166:8217" ph="select Genom... Genome" />
-            <marker date="1496257740000" expanded="true" signature="8390:8416" ph="SELECT Attri... Attribute" />
-            <marker date="1496257740000" expanded="true" signature="8390:8430" ph="SELECT Attri... Interest" />
-            <marker date="1496257740000" expanded="true" signature="8390:8443" ph="SELECT Attri... Interest" />
-            <marker date="1496257740000" expanded="true" signature="8390:8446" ph="SELECT Attri... Interest" />
-            <marker date="1496257740000" expanded="true" signature="8766:8865" ph="INSERT INTO AttributeValue... " />
-            <marker date="1496257740000" expanded="true" signature="8766:8926" ph="INSERT INTO AttributeValue... " />
-            <marker date="1496257740000" expanded="true" signature="9428:9526" ph="INSERT INTO LIN... " />
-            <marker date="1496257740000" expanded="true" signature="9985:10039" ph="select LIN_I... LIN" />
-            <marker date="1496257740000" expanded="true" signature="10140:10224" ph="insert into Job... " />
-            <marker date="1496257740000" expanded="true" signature="10305:10342" ph="select Email... User" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mash_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1761,12 +1727,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/get_housekeeping_seq.py">
+    <entry file="file://$PROJECT_DIR$/mkblastdb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="56" column="35" lean-forward="false" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
+        <state relative-caret-position="483">
+          <caret line="51" column="37" lean-forward="false" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="37" />
           <folding>
-            <element signature="e#183#204#0" expanded="true" />
+            <marker date="1497293293000" expanded="true" signature="313:374" ph="SELECT Genom... Genome" />
+            <marker date="1497293293000" expanded="true" signature="313:435" ph="SELECT Genom... Genome" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/workflow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="210" column="63" lean-forward="false" selection-start-line="210" selection-start-column="63" selection-end-line="210" selection-end-column="63" />
+          <folding>
+            <element signature="e#218#235#0" expanded="true" />
+            <marker date="1496257740000" expanded="true" signature="2878:2903" ph="select * fro... Description" />
+            <marker date="1496257740000" expanded="true" signature="3253:3312" ph="update Descr... " />
+            <marker date="1496257740000" expanded="true" signature="3253:3315" ph="update Descr... " />
+            <marker date="1496257740000" expanded="true" signature="4842:4899" ph="INSERT INTO Submission... " />
+            <marker date="1496257740000" expanded="true" signature="5005:5074" ph="SELECT Submi... Submission" />
+            <marker date="1496257740000" expanded="true" signature="5428:5529" ph="INSERT INTO Genome... " />
+            <marker date="1496257740000" expanded="true" signature="5674:5725" ph="select Genom... Genome" />
+            <marker date="1496257740000" expanded="true" signature="5908:5961" ph="SELECT Attri... Interest" />
+            <marker date="1496257740000" expanded="true" signature="6240:6402" ph="INSERT INTO AttributeValue... " />
+            <marker date="1496257740000" expanded="true" signature="6712:6750" ph="SELECT Genom... Genome" />
+            <marker date="1496257740000" expanded="true" signature="7374:7431" ph="INSERT INTO Submission... " />
+            <marker date="1496257740000" expanded="true" signature="7531:7600" ph="SELECT Submi... Submission" />
+            <marker date="1496257740000" expanded="true" signature="7926:8027" ph="INSERT INTO Genome... " />
+            <marker date="1496257740000" expanded="true" signature="8166:8217" ph="select Genom... Genome" />
+            <marker date="1496257740000" expanded="true" signature="8390:8416" ph="SELECT Attri... Attribute" />
+            <marker date="1496257740000" expanded="true" signature="8390:8430" ph="SELECT Attri... Interest" />
+            <marker date="1496257740000" expanded="true" signature="8390:8443" ph="SELECT Attri... Interest" />
+            <marker date="1496257740000" expanded="true" signature="8390:8446" ph="SELECT Attri... Interest" />
+            <marker date="1496257740000" expanded="true" signature="8766:8865" ph="INSERT INTO AttributeValue... " />
+            <marker date="1496257740000" expanded="true" signature="8766:8926" ph="INSERT INTO AttributeValue... " />
+            <marker date="1496257740000" expanded="true" signature="9428:9526" ph="INSERT INTO LIN... " />
+            <marker date="1496257740000" expanded="true" signature="9985:10039" ph="select LIN_I... LIN" />
+            <marker date="1496257740000" expanded="true" signature="10140:10224" ph="insert into Job... " />
+            <marker date="1496257740000" expanded="true" signature="10305:10342" ph="select Email... User" />
           </folding>
         </state>
       </provider>
@@ -1790,13 +1791,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mkblastdb.py">
+    <entry file="file://$PROJECT_DIR$/Tools/get_housekeeping_seq.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="49" column="18" lean-forward="true" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
+        <state relative-caret-position="240">
+          <caret line="16" column="45" lean-forward="false" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
           <folding>
-            <marker date="1497293293000" expanded="true" signature="313:374" ph="SELECT Genom... Genome" />
-            <marker date="1497293293000" expanded="true" signature="313:435" ph="SELECT Genom... Genome" />
+            <element signature="e#183#204#0" expanded="true" />
           </folding>
         </state>
       </provider>
