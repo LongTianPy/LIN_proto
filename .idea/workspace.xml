@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/get_housekeeping_seq.py" afterPath="$PROJECT_DIR$/Tools/get_housekeeping_seq.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mkblastdb.py" afterPath="$PROJECT_DIR$/mkblastdb.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
@@ -184,11 +183,11 @@
       <file leaf-file-name="mkblastdb.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mkblastdb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-57">
-              <caret line="15" column="137" lean-forward="false" selection-start-line="15" selection-start-column="137" selection-end-line="15" selection-end-column="137" />
+            <state relative-caret-position="453">
+              <caret line="49" column="18" lean-forward="true" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
               <folding>
-                <marker date="1497293052000" expanded="true" signature="313:374" ph="SELECT Genom... Genome" />
-                <marker date="1497293052000" expanded="true" signature="313:435" ph="SELECT Genom... Genome" />
+                <marker date="1497293293000" expanded="true" signature="313:374" ph="SELECT Genom... Genome" />
+                <marker date="1497293293000" expanded="true" signature="313:435" ph="SELECT Genom... Genome" />
               </folding>
             </state>
           </provider>
@@ -739,13 +738,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00619" summary="Implement mash indexing into the whole workflow">
-      <created>1494208850770</created>
-      <option name="number" value="00619" />
-      <option name="presentableId" value="LOCAL-00619" />
-      <option name="project" value="LOCAL" />
-      <updated>1494208850770</updated>
-    </task>
     <task id="LOCAL-00620" summary="Implement mash indexing into the whole workflow">
       <created>1494209071942</created>
       <option name="number" value="00620" />
@@ -1082,7 +1074,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497291353977</updated>
     </task>
-    <option name="localTasksCounter" value="668" />
+    <task id="LOCAL-00668" summary="Corrected makeblastdb.py">
+      <created>1497293066036</created>
+      <option name="number" value="00668" />
+      <option name="presentableId" value="LOCAL-00668" />
+      <option name="project" value="LOCAL" />
+      <updated>1497293066036</updated>
+    </task>
+    <option name="localTasksCounter" value="669" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1177,7 +1176,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="To make the backend more secure." />
     <MESSAGE value="Writing HTML email" />
     <MESSAGE value="Re-start with Psy" />
     <MESSAGE value="Result page - debug" />
@@ -1202,7 +1200,8 @@
     <MESSAGE value="Add a LINgroup description update function after LIN assignment" />
     <MESSAGE value="Create get_meta.py for extracting metadata of bacteria" />
     <MESSAGE value="Added get_housekeeping_seq.py for extracting house keeping gene sequences across database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added get_housekeeping_seq.py for extracting house keeping gene sequences across database" />
+    <MESSAGE value="Corrected makeblastdb.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrected makeblastdb.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1793,11 +1792,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mkblastdb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
-          <caret line="15" column="137" lean-forward="false" selection-start-line="15" selection-start-column="137" selection-end-line="15" selection-end-column="137" />
+        <state relative-caret-position="453">
+          <caret line="49" column="18" lean-forward="true" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
           <folding>
-            <marker date="1497293052000" expanded="true" signature="313:374" ph="SELECT Genom... Genome" />
-            <marker date="1497293052000" expanded="true" signature="313:435" ph="SELECT Genom... Genome" />
+            <marker date="1497293293000" expanded="true" signature="313:374" ph="SELECT Genom... Genome" />
+            <marker date="1497293293000" expanded="true" signature="313:435" ph="SELECT Genom... Genome" />
           </folding>
         </state>
       </provider>
