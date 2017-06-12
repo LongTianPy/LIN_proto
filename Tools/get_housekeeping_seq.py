@@ -45,7 +45,7 @@ def extract_seq(df):
         if df[key][0] < df[key][1]:
             out_dict[key] = str(db_seq[key].seq)[df[key][0]-1:df[key][1]]
         else:
-            out_dict[key] = str(db_seq[key].seq[df[key][0]-1:df[key][1]].reverse_complement())
+            out_dict[key] = str(db_seq[key].seq[df[key][1]-1:df[key][0]].reverse_complement())
     return out_dict
 
 def get_meta(db="LINdb"):
