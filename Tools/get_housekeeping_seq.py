@@ -23,13 +23,17 @@ def blast_gene(gene_seq_file):
     os.system(cmd)
     return gene_seq_file+".blast_out"
 
-def parse_blast_out(blast_out):
+def parse_blast_out(gene_seq_file, blast_out):
     f = open(blast_out,"r")
     lines = [i.strip().split("\t") for i in f.readlines()]
     f.close()
+    f = open(gene_seq_file)
+    record = list(SeqIO.parse(f,"fasta"))
+    f.close()
+    seq_len = len(record[0].seq)
     df = {}
     for line in lines:
-        if line[1] not in df:
+        if line[1] not in df and int(line[3])==seq_len:
             df[line[1]] = [int(line[8]), int(line[9])]
         else:
             continue
