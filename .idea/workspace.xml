@@ -150,8 +150,8 @@
       <file leaf-file-name="get_housekeeping_seq.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/get_housekeeping_seq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="45" lean-forward="false" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+            <state relative-caret-position="332">
+              <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
               <folding>
                 <element signature="e#183#204#0" expanded="true" />
               </folding>
@@ -738,13 +738,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00621" summary="Implement mash indexing into the whole workflow">
-      <created>1494265893618</created>
-      <option name="number" value="00621" />
-      <option name="presentableId" value="LOCAL-00621" />
-      <option name="project" value="LOCAL" />
-      <updated>1494265893618</updated>
-    </task>
     <task id="LOCAL-00622" summary="Implement mash indexing into the whole workflow">
       <created>1494267462477</created>
       <option name="number" value="00622" />
@@ -1081,7 +1074,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497293295279</updated>
     </task>
-    <option name="localTasksCounter" value="670" />
+    <task id="LOCAL-00670" summary="debug get_housekeeping_seq.py">
+      <created>1497294680493</created>
+      <option name="number" value="00670" />
+      <option name="presentableId" value="LOCAL-00670" />
+      <option name="project" value="LOCAL" />
+      <updated>1497294680494</updated>
+    </task>
+    <option name="localTasksCounter" value="671" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1176,7 +1176,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Writing HTML email" />
     <MESSAGE value="Re-start with Psy" />
     <MESSAGE value="Result page - debug" />
     <MESSAGE value="Dev - FastANI_Toolbox" />
@@ -1201,7 +1200,8 @@
     <MESSAGE value="Create get_meta.py for extracting metadata of bacteria" />
     <MESSAGE value="Added get_housekeeping_seq.py for extracting house keeping gene sequences across database" />
     <MESSAGE value="Corrected makeblastdb.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrected makeblastdb.py" />
+    <MESSAGE value="debug get_housekeeping_seq.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug get_housekeeping_seq.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1793,8 +1793,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/get_housekeeping_seq.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="45" lean-forward="false" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+        <state relative-caret-position="332">
+          <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
           <folding>
             <element signature="e#183#204#0" expanded="true" />
           </folding>

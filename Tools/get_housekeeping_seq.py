@@ -52,7 +52,7 @@ def get_meta(db="LINdb"):
 
 def write_file(gene_seq_file,out_dict):
     meta = get_meta(db="LINdb")
-    f = open(gene_seq_file,"w")
+    f = open(gene_seq_file+".homologues","w")
     for i in out_dict.keys():
         genus = meta.get_value(int(i),"Genus")
         species = meta.get_value(int(i),"Species")
