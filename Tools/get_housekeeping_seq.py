@@ -74,7 +74,7 @@ def get_house_keeping(dir):
                 genome_id[record.id] = [file]
             else:
                 genome_id[record.id].append(file)
-    house_kept_genomes = [i for i in genome_id.keys() if len(genome_id[i])==8]
+    house_kept_genomes = [i for i in genome_id.keys() if len(genome_id[i])==len(homolog_files)]
     for file in homolog_files:
         records = SeqIO.index(file,"fasta")
         f = open(file+".house_kept","w")

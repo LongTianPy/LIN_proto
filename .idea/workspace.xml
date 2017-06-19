@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/get_housekeeping_seq.py" afterPath="$PROJECT_DIR$/Tools/get_housekeeping_seq.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -41,7 +42,7 @@
       <file leaf-file-name="workflow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/workflow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
+            <state relative-caret-position="2820">
               <caret line="210" column="63" lean-forward="false" selection-start-line="210" selection-start-column="63" selection-end-line="210" selection-end-column="63" />
               <folding>
                 <element signature="e#218#235#0" expanded="true" />
@@ -149,8 +150,8 @@
       <file leaf-file-name="get_housekeeping_seq.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/get_housekeeping_seq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="96" column="48" lean-forward="true" selection-start-line="96" selection-start-column="48" selection-end-line="96" selection-end-column="48" />
+            <state relative-caret-position="250">
+              <caret line="76" column="93" lean-forward="false" selection-start-line="76" selection-start-column="93" selection-end-line="76" selection-end-column="93" />
               <folding>
                 <element signature="e#183#204#0" expanded="true" />
               </folding>
@@ -161,8 +162,8 @@
       <file leaf-file-name="export_db.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tools/export_db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="17" column="53" lean-forward="true" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+            <state relative-caret-position="225">
+              <caret line="17" column="53" lean-forward="false" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
               <folding>
                 <marker date="1497291351000" expanded="true" signature="354:401" ph="select Genom... LIN" />
                 <marker date="1497291351000" expanded="true" signature="354:419" ph="select Genom... LIN" />
@@ -182,7 +183,7 @@
       <file leaf-file-name="mkblastdb.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mkblastdb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
+            <state relative-caret-position="720">
               <caret line="51" column="37" lean-forward="false" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="37" />
               <folding>
                 <marker date="1497293293000" expanded="true" signature="313:374" ph="SELECT Genom... Genome" />
@@ -346,7 +347,6 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="327" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="825" />
@@ -385,7 +385,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -414,7 +414,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -737,13 +737,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
-    </task>
-    <task id="LOCAL-00629" summary="Implement mash indexing into the whole workflow">
-      <created>1494381628158</created>
-      <option name="number" value="00629" />
-      <option name="presentableId" value="LOCAL-00629" />
-      <option name="project" value="LOCAL" />
-      <updated>1494381628158</updated>
     </task>
     <task id="LOCAL-00630" summary="Implement mash indexing into the whole workflow">
       <created>1494381633874</created>
@@ -1081,7 +1074,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497299244320</updated>
     </task>
-    <option name="localTasksCounter" value="678" />
+    <task id="LOCAL-00678" summary="Established get_housekeeping_seq.py">
+      <created>1497299453732</created>
+      <option name="number" value="00678" />
+      <option name="presentableId" value="LOCAL-00678" />
+      <option name="project" value="LOCAL" />
+      <updated>1497299453732</updated>
+    </task>
+    <option name="localTasksCounter" value="679" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1094,7 +1094,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="327" y="23" width="1440" height="825" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="825" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1176,7 +1176,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Re-start with Psy" />
     <MESSAGE value="Result page - debug" />
     <MESSAGE value="Dev - FastANI_Toolbox" />
     <MESSAGE value="Database &lt;Add&gt;" />
@@ -1201,7 +1200,8 @@
     <MESSAGE value="Added get_housekeeping_seq.py for extracting house keeping gene sequences across database" />
     <MESSAGE value="Corrected makeblastdb.py" />
     <MESSAGE value="debug get_housekeeping_seq.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug get_housekeeping_seq.py" />
+    <MESSAGE value="Established get_housekeeping_seq.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Established get_housekeeping_seq.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1595,17 +1595,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1230">
           <caret line="83" column="21" lean-forward="false" selection-start-line="83" selection-start-column="21" selection-end-line="83" selection-end-column="21" />
-          <folding>
-            <marker date="1495655097000" expanded="true" signature="501:545" ph="SELECT Label... Scheme" />
-            <marker date="1495655097000" expanded="true" signature="501:548" ph="SELECT Label... Scheme" />
-            <marker date="1495655097000" expanded="true" signature="1066:1126" ph="SELECT LIN f... LIN" />
-            <marker date="1495655097000" expanded="true" signature="1294:1336" ph="SELECT Cutof... Scheme" />
-            <marker date="1495655097000" expanded="true" signature="2986:3030" ph="SELECT LIN.L... LIN" />
-            <marker date="1495655097000" expanded="true" signature="2986:3033" ph="SELECT LIN.L... LIN" />
-            <marker date="1495655097000" expanded="true" signature="2986:3048" ph="SELECT LIN.L... LIN" />
-            <marker date="1495655097000" expanded="true" signature="2986:3049" ph="SELECT LIN.L... LIN" />
-            <marker date="1495655097000" expanded="true" signature="3137:3224" ph="SELECT LIN.L... LIN" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1627,10 +1616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="825">
           <caret line="56" column="14" lean-forward="false" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
-          <folding>
-            <marker date="1495464528000" expanded="true" signature="440:515" ph="SELECT Genom... LIN" />
-            <marker date="1495464528000" expanded="true" signature="2486:2531" ph="SELECT Genom... LIN" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1715,26 +1700,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
           <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <element signature="e#107#134#0" expanded="true" />
-            <marker date="1497101230000" expanded="true" signature="298:352" ph="SELECT Attri... Interest" />
-            <marker date="1497101230000" expanded="true" signature="298:369" ph="SELECT Attri... Interest" />
-            <marker date="1497101230000" expanded="true" signature="298:371" ph="SELECT Attri... Interest" />
-            <marker date="1497101230000" expanded="true" signature="488:551" ph="SELECT Attri... Attribute" />
-            <marker date="1497101230000" expanded="true" signature="819:877" ph="SELECT Genom... AttributeValue" />
-            <marker date="1497101230000" expanded="true" signature="819:882" ph="SELECT Genom... AttributeValue" />
-            <marker date="1497101230000" expanded="true" signature="819:898" ph="SELECT Genom... AttributeValue" />
-            <marker date="1497101230000" expanded="true" signature="1234:1313" ph="SELECT Attri... AttributeValue" />
-            <marker date="1497101230000" expanded="true" signature="1234:1316" ph="SELECT Attri... AttributeValue" />
-            <marker date="1497101230000" expanded="true" signature="1534:1570" ph="select LIN f... LIN" />
-            <marker date="1497101230000" expanded="true" signature="1534:1589" ph="select LIN f... LIN" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mkblastdb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
+        <state relative-caret-position="720">
           <caret line="51" column="37" lean-forward="false" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="37" />
           <folding>
             <marker date="1497293293000" expanded="true" signature="313:374" ph="SELECT Genom... Genome" />
@@ -1745,7 +1716,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/workflow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
+        <state relative-caret-position="2820">
           <caret line="210" column="63" lean-forward="false" selection-start-line="210" selection-start-column="63" selection-end-line="210" selection-end-column="63" />
           <folding>
             <element signature="e#218#235#0" expanded="true" />
@@ -1779,8 +1750,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/export_db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="17" column="53" lean-forward="true" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+        <state relative-caret-position="225">
+          <caret line="17" column="53" lean-forward="false" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
           <folding>
             <marker date="1497291351000" expanded="true" signature="354:401" ph="select Genom... LIN" />
             <marker date="1497291351000" expanded="true" signature="354:419" ph="select Genom... LIN" />
@@ -1798,8 +1769,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/get_housekeeping_seq.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="96" column="48" lean-forward="true" selection-start-line="96" selection-start-column="48" selection-end-line="96" selection-end-column="48" />
+        <state relative-caret-position="250">
+          <caret line="76" column="93" lean-forward="false" selection-start-line="76" selection-start-column="93" selection-end-line="76" selection-end-column="93" />
           <folding>
             <element signature="e#183#204#0" expanded="true" />
           </folding>
