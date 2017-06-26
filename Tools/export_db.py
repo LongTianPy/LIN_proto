@@ -21,23 +21,36 @@ def export_table(c):
     SubjectGenome = [int(i[1]) for i in tmp]
     ANI = [i[2] for i in tmp]
     LIN = [i[3] for i in tmp]
-    c.execute("select AttributeValue from AttributeValue where Attribute_ID=1 AND Genome_ID in ({0})".format(",".join([str(i) for i in Genome_ID])))
-    tmp = c.fetchall()
-    Genus = [i[0] for i in tmp]
-    c.execute("select AttributeValue from AttributeValue where Attribute_ID=2 AND Genome_ID in ({0})".format(",".join([str(i) for i in Genome_ID])))
-    tmp = c.fetchall()
-    Species = [i[0] for i in tmp]
-    # c.execute("select AttributeValue from AttributeValue where Attribute_ID=3")
+    # c.execute("select AttributeValue from AttributeValue where Attribute_ID=1 AND Genome_ID in ({0})".format(",".join([str(i) for i in Genome_ID])))
     # tmp = c.fetchall()
-    # Subspecies = [i[0] for i in tmp]
-    c.execute("select AttributeValue from AttributeValue where Attribute_ID=4 AND Genome_ID in ({0})".format(",".join([str(i) for i in Genome_ID])))
-    tmp = c.fetchall()
-    Strain = [i[0] for i in tmp]
-    df = pd.DataFrame({"SubjectGenome":SubjectGenome,"ANI":ANI,"LIN":LIN},index=Genome_ID)
-    df["Genus"] = Genus
-    df["Species"] = Species
-    # df["Subspecies"] = Subspecies
-    df["Strain"] = Strain
+    # Genus = [i[0] for i in tmp]
+    # c.execute("select AttributeValue from AttributeValue where Attribute_ID=2 AND Genome_ID in ({0})".format(",".join([str(i) for i in Genome_ID])))
+    # tmp = c.fetchall()
+    # Species = [i[0] for i in tmp]
+    # # c.execute("select AttributeValue from AttributeValue where Attribute_ID=3")
+    # # tmp = c.fetchall()
+    # # Subspecies = [i[0] for i in tmp]
+    # c.execute("select AttributeValue from AttributeValue where Attribute_ID=4 AND Genome_ID in ({0})".format(",".join([str(i) for i in Genome_ID])))
+    # tmp = c.fetchall()
+    # Strain = [i[0] for i in tmp]
+    name_dict = {}
+    for each_genome in Genome_ID:
+        c.execute("select AttributeValue from AttributeValue where Attribtue_ID=1 AND Genome_ID={0}".format(each_genome))
+        tmp = c.fetchone()
+        genus = tmp[0]
+        c.execute(
+            "select AttributeValue from AttributeValue where Attribtue_ID=2 AND Genome_ID={0}".format(each_genome))
+        tmp = c.fetchone()
+        species = tmp[0]
+        c.execute(
+            "select AttributeValue from AttributeValue where Attribtue_ID=3 AND Genome_ID={0}".format(each_genome))
+        tmp = c.fetchone()
+        strain = tmp[0]
+        name_dict[str(each_genome)] = [genus,species,strain]
+    Genomes = [" ".join(name_dict[str(i)]) for i in Genome_ID]
+    SubjectGenome_names = [" ".join(name_dict[str(i)]) for i in SubjectGenome]
+    df = pd.DataFrame({"Genome":Genomes,"SubjectGenome":SubjectGenome_names,"ANI":ANI,"LIN":LIN},index=Genome_ID)
+
     return df
 
 def main(db):
