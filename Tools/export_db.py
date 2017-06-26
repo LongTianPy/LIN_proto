@@ -49,7 +49,7 @@ def export_table(c):
         except:
             species = ""
         c.execute(
-            "select AttributeValue from AttributeValue where Attribute_ID=3 AND Genome_ID={0}".format(each_genome))
+            "select AttributeValue from AttributeValue where Attribute_ID=4 AND Genome_ID={0}".format(each_genome))
         tmp = c.fetchone()
         try:
             strain = tmp[0]
