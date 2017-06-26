@@ -35,15 +35,15 @@ def export_table(c):
     # Strain = [i[0] for i in tmp]
     name_dict = {}
     for each_genome in Genome_ID:
-        c.execute("select AttributeValue from AttributeValue where Attribtue_ID=1 AND Genome_ID={0}".format(each_genome))
+        c.execute("select AttributeValue from AttributeValue where Attribute_ID=1 AND Genome_ID={0}".format(each_genome))
         tmp = c.fetchone()
         genus = tmp[0]
         c.execute(
-            "select AttributeValue from AttributeValue where Attribtue_ID=2 AND Genome_ID={0}".format(each_genome))
+            "select AttributeValue from AttributeValue where Attribute_ID=2 AND Genome_ID={0}".format(each_genome))
         tmp = c.fetchone()
         species = tmp[0]
         c.execute(
-            "select AttributeValue from AttributeValue where Attribtue_ID=3 AND Genome_ID={0}".format(each_genome))
+            "select AttributeValue from AttributeValue where Attribute_ID=3 AND Genome_ID={0}".format(each_genome))
         tmp = c.fetchone()
         strain = tmp[0]
         name_dict[str(each_genome)] = [genus,species,strain]
