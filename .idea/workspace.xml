@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tools/ANI_calculation.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/ANI_calculation.py" afterPath="$PROJECT_DIR$/Tools/ANI_calculation.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -164,8 +164,8 @@
       <file leaf-file-name="ANI_calculation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6">
-              <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+            <state relative-caret-position="366">
+              <caret line="57" column="19" lean-forward="true" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
               <folding>
                 <element signature="e#195#223#0" expanded="true" />
               </folding>
@@ -728,13 +728,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00635" summary="Implement mash indexing into the whole workflow">
-      <created>1494383058524</created>
-      <option name="number" value="00635" />
-      <option name="presentableId" value="LOCAL-00635" />
-      <option name="project" value="LOCAL" />
-      <updated>1494383058524</updated>
-    </task>
     <task id="LOCAL-00636" summary="Implement mash indexing into the whole workflow">
       <created>1494525179265</created>
       <option name="number" value="00636" />
@@ -1071,7 +1064,14 @@
       <option name="project" value="LOCAL" />
       <updated>1498509256592</updated>
     </task>
-    <option name="localTasksCounter" value="684" />
+    <task id="LOCAL-00684" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
+      <created>1498594497015</created>
+      <option name="number" value="00684" />
+      <option name="presentableId" value="LOCAL-00684" />
+      <option name="project" value="LOCAL" />
+      <updated>1498594497016</updated>
+    </task>
+    <option name="localTasksCounter" value="685" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1166,7 +1166,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Dev - FastANI_Toolbox" />
     <MESSAGE value="Database &lt;Add&gt;" />
     <MESSAGE value="Debug" />
     <MESSAGE value="Implementation of LINgroup indexing method" />
@@ -1191,7 +1190,8 @@
     <MESSAGE value="debug get_housekeeping_seq.py" />
     <MESSAGE value="Established get_housekeeping_seq.py" />
     <MESSAGE value="Modified export_db.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modified export_db.py" />
+    <MESSAGE value="Create ANI_calculation for multiprocessing in dragonstooth@VT" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create ANI_calculation for multiprocessing in dragonstooth@VT" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1750,8 +1750,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6">
-          <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+        <state relative-caret-position="366">
+          <caret line="57" column="19" lean-forward="true" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
           <folding>
             <element signature="e#195#223#0" expanded="true" />
           </folding>
