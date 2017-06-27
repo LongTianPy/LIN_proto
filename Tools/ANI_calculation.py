@@ -34,7 +34,7 @@ def use_pyani(pair_str,ANI,cov,aln):
         os.mkdir(workstation)
     shutil.copy(pair[0],workstation)
     shutil.copy(pair[1],workstation)
-    cmd = "python /home/longtian/dragonstooth/python/bin/average_nucleotide_identity.py -i {0} -o {0}/output" \
+    cmd = "python3 /home/longtian/dragonstooth/python/bin/average_nucleotide_identity.py -i {0} -o {0}/output" \
           "-m ANIblastall --nocompress".format(workstation)
     os.system(cmd)
     ANI_df = pd.read_table("{0}/ANIblastall_percentage_identity.tab".format(workstation),header=0,index_col=0)
