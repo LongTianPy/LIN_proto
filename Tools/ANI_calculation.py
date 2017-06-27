@@ -22,7 +22,10 @@ def create_job_map(working_dir):
     for i in range(len(files)):
         for other_file in files[i:]:
             job_pairs.append([files[i],other_file])
-    return  job_pairs
+    f = open("job_list.txt")
+    for i in job_pairs:
+        f.write(i[0] + "\t" + i[1] + "\n")
+    return job_pairs
 
 def use_pyani(pair,ANI,cov,aln):
     workstation = str(uuid.uuid4())
