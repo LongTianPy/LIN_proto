@@ -57,7 +57,7 @@ if __name__ == '__main__':
     cov = pd.DataFrame(0,index=files,columns=files)
     aln = pd.DataFrame(0,index=files,columns=files)
     partial_use_pyani = partial(use_pyani,ANI=ANI,cov=cov,aln=aln)
-    pool_size = 288
+    pool_size = 100
     pool = mp.Pool(processes=pool_size)
     pool.map(partial_use_pyani,job_pairs)
     os.mkdir("output")
