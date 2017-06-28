@@ -8,7 +8,7 @@
 import multiprocessing as mp
 import os
 from os import listdir
-from os.path import isdir
+from os.path import isdir, isfile, join
 import shutil
 import pandas as pd
 import sys
@@ -17,7 +17,7 @@ import uuid
 
 # FUNCTIONS
 def create_job_map(working_dir):
-    files = [file for file in listdir(working_dir)]
+    files = [file for file in listdir(working_dir) if isfile(join(working_dir,file))]
     job_pairs = []
     for i in range(len(files)):
         for other_file in files[i:]:
@@ -26,6 +26,8 @@ def create_job_map(working_dir):
 
 def use_pyani(pair_str,ANI,cov,aln):
     pair = pair_str.split("+")
+    query = ".".join(pair[0].split(".")[:-1])
+    subject = ".".join(pair[1].split(".")[:-1])
     workstation = str(uuid.uuid4())
     if not isdir(workstation):
         os.mkdir(workstation)
@@ -39,17 +41,17 @@ def use_pyani(pair_str,ANI,cov,aln):
     ANI_df = pd.read_table("{0}/output/ANIblastall_percentage_identity.tab".format(workstation),header=0,index_col=0)
     cov_df = pd.read_table("{0}/output/ANIblastall_alignment_coverage.tab".format(workstation),header=0,index_col=0)
     aln_df = pd.read_table("{0}/output/ANIblastall_alignment_lengths.tab".format(workstation),header=0,index_col=0)
-    ANI.set_value(pair[0],pair[1],ANI_df.get_value(pair[0],pair[1]))
-    ANI.set_value(pair[1],pair[0],ANI_df.get_value(pair[1],pair[0]))
-    cov.set_value(pair[0], pair[1], cov_df.get_value(pair[0], pair[1]))
-    cov.set_value(pair[1], pair[0], cov_df.get_value(pair[1], pair[0]))
-    aln.set_value(pair[0], pair[1], aln_df.get_value(pair[0], pair[1]))
-    aln.set_value(pair[1], pair[0], aln_df.get_value(pair[1], pair[0]))
+    ANI.set_value(query,subject,ANI_df.get_value(query,subject))
+    ANI.set_value(subject,query,ANI_df.get_value(subject,query))
+    cov.set_value(query, subject, cov_df.get_value(query, subject))
+    cov.set_value(subject, query, cov_df.get_value(subject, query))
+    aln.set_value(query, subject, aln_df.get_value(query, subject))
+    aln.set_value(subject, query, aln_df.get_value(subject, query))
 
 # MAIN
 if __name__ == '__main__':
     working_dir = sys.argv[1]
-    files = [file for file in listdir(working_dir)]
+    files = [".".join(file.split(".")[:-1]) for file in listdir(working_dir)]
     job_pairs = create_job_map(working_dir=working_dir)
     ANI = pd.DataFrame(0,index=files,columns=files)
     cov = pd.DataFrame(0,index=files,columns=files)
