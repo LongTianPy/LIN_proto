@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tools/use_bbmap.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/ANI_calculation.py" afterPath="$PROJECT_DIR$/Tools/ANI_calculation.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -67,8 +67,8 @@
       <file leaf-file-name="workflow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/workflow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="214" column="32" lean-forward="true" selection-start-line="214" selection-start-column="15" selection-end-line="214" selection-end-column="32" />
+            <state relative-caret-position="3210">
+              <caret line="214" column="32" lean-forward="false" selection-start-line="214" selection-start-column="15" selection-end-line="214" selection-end-column="32" />
               <folding>
                 <element signature="e#218#235#0" expanded="true" />
                 <marker date="1496257740000" expanded="true" signature="2878:2903" ph="select * fro... Description" />
@@ -103,7 +103,7 @@
       <file leaf-file-name="mash_indexing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mash_indexing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="1170">
               <caret line="84" column="103" lean-forward="false" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="103" />
               <folding>
                 <marker date="1495464528000" expanded="true" signature="972:1010" ph="select Genom... Genome" />
@@ -136,7 +136,7 @@
       <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mash_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-805">
+            <state relative-caret-position="165">
               <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
               <folding>
                 <element signature="e#614#1130#0" expanded="false" />
@@ -161,13 +161,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ANI_calculation.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ANI_calculation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="59" column="19" lean-forward="false" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+            <state relative-caret-position="349">
+              <caret line="55" column="44" lean-forward="false" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
               <folding>
                 <element signature="e#195#223#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="use_bbmap.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+              <folding>
+                <element signature="e#36#45#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -176,7 +188,7 @@
       <file leaf-file-name="mkblastdb.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mkblastdb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
+            <state relative-caret-position="705">
               <caret line="50" column="37" lean-forward="false" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="37" />
               <folding />
             </state>
@@ -278,7 +290,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/KMer/src/KMerPrep.py" />
         <option value="$PROJECT_DIR$/KMer/test/GenerateMatrix.py" />
         <option value="$PROJECT_DIR$/KMer/test/Run.py" />
         <option value="$PROJECT_DIR$/KMer/test/ParseGenome.py" />
@@ -329,6 +340,7 @@
         <option value="$PROJECT_DIR$/Tools/get_housekeeping_seq.py" />
         <option value="$PROJECT_DIR$/Tools/export_db.py" />
         <option value="$PROJECT_DIR$/Tools/ANI_calculation.py" />
+        <option value="$PROJECT_DIR$/Tools/use_bbmap.py" />
       </list>
     </option>
   </component>
@@ -339,8 +351,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1846" />
-    <option name="y" value="190" />
+    <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="825" />
   </component>
@@ -378,7 +389,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -407,7 +418,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -730,20 +741,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
-    </task>
-    <task id="LOCAL-00648" summary="Implement mash indexing into the whole workflow">
-      <created>1495766012213</created>
-      <option name="number" value="00648" />
-      <option name="presentableId" value="LOCAL-00648" />
-      <option name="project" value="LOCAL" />
-      <updated>1495766012213</updated>
-    </task>
-    <task id="LOCAL-00649" summary="Implement mash indexing into the whole workflow">
-      <created>1495766103046</created>
-      <option name="number" value="00649" />
-      <option name="presentableId" value="LOCAL-00649" />
-      <option name="project" value="LOCAL" />
-      <updated>1495766103047</updated>
     </task>
     <task id="LOCAL-00650" summary="Implement mash indexing into the whole workflow">
       <created>1495766163350</created>
@@ -1074,7 +1071,21 @@
       <option name="project" value="LOCAL" />
       <updated>1498614155719</updated>
     </task>
-    <option name="localTasksCounter" value="697" />
+    <task id="LOCAL-00697" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
+      <created>1498618747456</created>
+      <option name="number" value="00697" />
+      <option name="presentableId" value="LOCAL-00697" />
+      <option name="project" value="LOCAL" />
+      <updated>1498618747456</updated>
+    </task>
+    <task id="LOCAL-00698" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
+      <created>1498655375129</created>
+      <option name="number" value="00698" />
+      <option name="presentableId" value="LOCAL-00698" />
+      <option name="project" value="LOCAL" />
+      <updated>1498655375129</updated>
+    </task>
+    <option name="localTasksCounter" value="699" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1087,14 +1098,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1846" y="190" width="1440" height="825" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="825" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19452055" sideWeight="0.51502144" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5369863" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32768363" sideWeight="0.4892704" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13972603" sideWeight="0.48497853" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13972603" sideWeight="0.48497853" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18819444" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1254,13 +1266,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/KMer/test/Run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="16" column="21" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KMer/test/Run2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1653,7 +1658,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mkblastdb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
+        <state relative-caret-position="705">
           <caret line="50" column="37" lean-forward="false" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="37" />
           <folding />
         </state>
@@ -1661,7 +1666,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mash_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
+        <state relative-caret-position="1170">
           <caret line="84" column="103" lean-forward="false" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="103" />
           <folding>
             <marker date="1495464528000" expanded="true" signature="972:1010" ph="select Genom... Genome" />
@@ -1692,7 +1697,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mash_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-805">
+        <state relative-caret-position="165">
           <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
           <folding>
             <element signature="e#614#1130#0" expanded="false" />
@@ -1718,8 +1723,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/workflow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="214" column="32" lean-forward="true" selection-start-line="214" selection-start-column="15" selection-end-line="214" selection-end-column="32" />
+        <state relative-caret-position="3210">
+          <caret line="214" column="32" lean-forward="false" selection-start-line="214" selection-start-column="15" selection-end-line="214" selection-end-column="32" />
           <folding>
             <element signature="e#218#235#0" expanded="true" />
             <marker date="1496257740000" expanded="true" signature="2878:2903" ph="select * fro... Description" />
@@ -1752,10 +1757,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="59" column="19" lean-forward="false" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+        <state relative-caret-position="349">
+          <caret line="55" column="44" lean-forward="false" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
           <folding>
             <element signature="e#195#223#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+          <folding>
+            <element signature="e#36#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
