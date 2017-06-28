@@ -24,7 +24,7 @@ def create_job_map(working_dir):
             job_pairs.append(files[i] + "+" +other_file)
     return job_pairs
 
-def use_pyani(pair_str,ANI,cov,aln):
+def use_pyani(pair_str):
     pair = pair_str.split("+")
     query = ".".join(pair[0].split(".")[:-1])
     subject = ".".join(pair[1].split(".")[:-1])
@@ -38,30 +38,33 @@ def use_pyani(pair_str,ANI,cov,aln):
     shutil.copy(pair[1],workstation)
     cmd = "python3 /home/longtian/dragonstooth/python/bin/average_nucleotide_identity.py -i {0} -o {0}/output -m ANIblastall --nocompress".format(workstation)
     os.system(cmd)
-    ANI_df = pd.read_table("{0}/output/ANIblastall_percentage_identity.tab".format(workstation),header=0,index_col=0)
-    cov_df = pd.read_table("{0}/output/ANIblastall_alignment_coverage.tab".format(workstation),header=0,index_col=0)
-    aln_df = pd.read_table("{0}/output/ANIblastall_alignment_lengths.tab".format(workstation),header=0,index_col=0)
-    ANI.set_value(query,subject,ANI_df.get_value(query,subject))
-    ANI.set_value(subject,query,ANI_df.get_value(subject,query))
-    cov.set_value(query, subject, cov_df.get_value(query, subject))
-    cov.set_value(subject, query, cov_df.get_value(subject, query))
-    aln.set_value(query, subject, aln_df.get_value(query, subject))
-    aln.set_value(subject, query, aln_df.get_value(subject, query))
+    # ANI_df = pd.read_table("{0}/output/ANIblastall_percentage_identity.tab".format(workstation),header=0,index_col=0)
+    # cov_df = pd.read_table("{0}/output/ANIblastall_alignment_coverage.tab".format(workstation),header=0,index_col=0)
+    # aln_df = pd.read_table("{0}/output/ANIblastall_alignment_lengths.tab".format(workstation),header=0,index_col=0)
+    # ANI.set_value(query,subject,ANI_df.get_value(query,subject))
+    # ANI.set_value(subject,query,ANI_df.get_value(subject,query))
+    # cov.set_value(query, subject, cov_df.get_value(query, subject))
+    # cov.set_value(subject, query, cov_df.get_value(subject, query))
+    # aln.set_value(query, subject, aln_df.get_value(query, subject))
+    # aln.set_value(subject, query, aln_df.get_value(subject, query))
 
 # MAIN
 if __name__ == '__main__':
     working_dir = sys.argv[1]
+    dirs = [dir for dir in listdir(working_dir) if isdir(dir)]
+    for dir in dirs:
+        shutil.rmtree(join(working_dir,dir))
     files = [".".join(file.split(".")[:-1]) for file in listdir(working_dir) if isfile(join(working_dir, file))]
     job_pairs = create_job_map(working_dir=working_dir)
-    ANI = pd.DataFrame(0,index=files,columns=files)
-    cov = pd.DataFrame(0,index=files,columns=files)
-    aln = pd.DataFrame(0,index=files,columns=files)
-    partial_use_pyani = partial(use_pyani,ANI=ANI,cov=cov,aln=aln)
-    pool_size = 100
+    # ANI = pd.DataFrame(0,index=files,columns=files)
+    # cov = pd.DataFrame(0,index=files,columns=files)
+    # aln = pd.DataFrame(0,index=files,columns=files)
+    # partial_use_pyani = partial(use_pyani,ANI=ANI,cov=cov,aln=aln)
+    pool_size = 200
     pool = mp.Pool(processes=pool_size)
-    pool.map(partial_use_pyani,job_pairs)
-    os.mkdir("output")
-    ANI.to_csv("output/ANI.csv")
-    cov.to_csv("output/coverage.csv")
-    aln.to_csv("output/alignment_length.csv")
+    pool.map(use_pyani,job_pairs)
+    # os.mkdir("output")
+    # ANI.to_csv("output/ANI.csv")
+    # cov.to_csv("output/coverage.csv")
+    # aln.to_csv("output/alignment_length.csv")
 
