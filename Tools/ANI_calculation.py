@@ -51,7 +51,7 @@ def use_pyani(pair_str,ANI,cov,aln):
 # MAIN
 if __name__ == '__main__':
     working_dir = sys.argv[1]
-    files = [".".join(file.split(".")[:-1]) for file in listdir(working_dir)]
+    files = [".".join(file.split(".")[:-1]) for file in listdir(working_dir) if isfile(join(working_dir, file))]
     job_pairs = create_job_map(working_dir=working_dir)
     ANI = pd.DataFrame(0,index=files,columns=files)
     cov = pd.DataFrame(0,index=files,columns=files)
