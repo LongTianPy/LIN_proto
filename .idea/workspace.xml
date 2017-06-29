@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tools/use_bbmap.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/ANI_calculation.py" afterPath="$PROJECT_DIR$/Tools/ANI_calculation.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -161,11 +161,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ANI_calculation.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ANI_calculation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="55" column="44" lean-forward="false" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
+            <state relative-caret-position="372">
+              <caret line="62" column="19" lean-forward="true" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
               <folding>
                 <element signature="e#195#223#0" expanded="true" />
               </folding>
@@ -173,7 +173,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="use_bbmap.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="use_bbmap.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
@@ -339,8 +339,8 @@
         <option value="$PROJECT_DIR$/mkblastdb.py" />
         <option value="$PROJECT_DIR$/Tools/get_housekeeping_seq.py" />
         <option value="$PROJECT_DIR$/Tools/export_db.py" />
-        <option value="$PROJECT_DIR$/Tools/ANI_calculation.py" />
         <option value="$PROJECT_DIR$/Tools/use_bbmap.py" />
+        <option value="$PROJECT_DIR$/Tools/ANI_calculation.py" />
       </list>
     </option>
   </component>
@@ -389,7 +389,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -419,6 +418,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -741,13 +741,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
-    </task>
-    <task id="LOCAL-00650" summary="Implement mash indexing into the whole workflow">
-      <created>1495766163350</created>
-      <option name="number" value="00650" />
-      <option name="presentableId" value="LOCAL-00650" />
-      <option name="project" value="LOCAL" />
-      <updated>1495766163350</updated>
     </task>
     <task id="LOCAL-00651" summary="Implement mash indexing into the whole workflow">
       <created>1495766185926</created>
@@ -1085,7 +1078,14 @@
       <option name="project" value="LOCAL" />
       <updated>1498655375129</updated>
     </task>
-    <option name="localTasksCounter" value="699" />
+    <task id="LOCAL-00699" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
+      <created>1498682813080</created>
+      <option name="number" value="00699" />
+      <option name="presentableId" value="LOCAL-00699" />
+      <option name="project" value="LOCAL" />
+      <updated>1498682813081</updated>
+    </task>
+    <option name="localTasksCounter" value="700" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1755,22 +1755,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="55" column="44" lean-forward="false" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
-          <folding>
-            <element signature="e#195#223#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
           <folding>
             <element signature="e#36#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="62" column="19" lean-forward="true" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+          <folding>
+            <element signature="e#195#223#0" expanded="true" />
           </folding>
         </state>
       </provider>
