@@ -24,6 +24,22 @@ def create_job_map(working_dir):
             job_pairs.append(files[i] + "+" +other_file)
     return job_pairs
 
+def check_done_jobs(working_dir,job_pairs):
+    done_jobs = []
+    undones = []
+    dirs = [join(working_dir,dir) for dir in listdir(working_dir) if isdir(join(working_dir,dir))]
+    for dir in dirs:
+        files = [file for file in listdir(dir) if isfile(join(dir,file)) and file.endswith(".fasta")]
+        if isdir(join(dir,"output")) and "ANIblastall_percentage_identity.tab" in listdir(join(dir,"output")):
+            done_jobs.append("+".join(files))
+        else:
+            undones.append("+".join(files))
+    for i in job_pairs:
+        if i not in done_jobs:
+            undones.append(i)
+    return undones
+
+
 def use_pyani(pair_str,ANI,cov,aln):
     pair = pair_str.split("+")
     query = ".".join(pair[0].split(".")[:-1])
@@ -56,13 +72,19 @@ if __name__ == '__main__':
         shutil.rmtree(join(working_dir,dir))
     files = [".".join(file.split(".")[:-1]) for file in listdir(working_dir) if isfile(join(working_dir, file))]
     job_pairs = create_job_map(working_dir=working_dir)
-    ANI = pd.DataFrame(0,index=files,columns=files)
-    cov = pd.DataFrame(0,index=files,columns=files)
-    aln = pd.DataFrame(0,index=files,columns=files)
-    partial_use_pyani = partial(use_pyani,ANI=ANI,cov=cov,aln=aln)
-    pool_size = 200
-    pool = mp.Pool(processes=pool_size)
-    pool.map(partial_use_pyani,job_pairs)
+    undone_job_pairs = check_done_jobs(working_dir=working_dir, job_pairs=job_pairs)
+    print undone_job_pairs
+    #
+    #
+    # ANI = pd.DataFrame(0,index=files,columns=files)
+    # cov = pd.DataFrame(0,index=files,columns=files)
+    # aln = pd.DataFrame(0,index=files,columns=files)
+    # partial_use_pyani = partial(use_pyani,ANI=ANI,cov=cov,aln=aln)
+    # pool_size = 200
+    # pool = mp.Pool(processes=pool_size)
+    # pool.map(partial_use_pyani,job_pairs)
+
+
     # os.mkdir("output")
     # ANI.to_csv("output/ANI.csv")
     # cov.to_csv("output/coverage.csv")
