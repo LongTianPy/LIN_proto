@@ -34,6 +34,7 @@ def check_done_jobs(working_dir,job_pairs):
             done_jobs.append("+".join(files))
         else:
             undones.append("+".join(files))
+    print(len(done_jobs))
     for i in job_pairs:
         if i not in done_jobs:
             undones.append(i)
