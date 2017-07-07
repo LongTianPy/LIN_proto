@@ -90,10 +90,12 @@ def fill_dfs(each_dir,ANI,cov,aln):
 
 def mp_fill_dfs(working_dir,ANI,cov,aln):
     dirs = [join(working_dir,dir) for dir in listdir(working_dir) if isdir(join(working_dir,dir))]
-    partial_fill_dfs = partial(fill_dfs,ANI=ANI,cov=cov,aln=aln)
-    pool_size = 200
-    pool = mp.Pool(processes=pool_size)
-    pool.map(partial_fill_dfs,dirs)
+    # partial_fill_dfs = partial(fill_dfs,ANI=ANI,cov=cov,aln=aln)
+    # pool_size = 200
+    # pool = mp.Pool(processes=pool_size)
+    # pool.map(partial_fill_dfs,dirs)
+    for dir in dirs:
+        fill_dfs(dir,ANI=ANI, cov=cov, aln=aln)
     return ANI,cov,aln
 
 
