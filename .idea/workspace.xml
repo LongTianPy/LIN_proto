@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/LIN_proto.iml" afterPath="$PROJECT_DIR$/.idea/LIN_proto.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/ANI_calculation.py" afterPath="$PROJECT_DIR$/Tools/ANI_calculation.py" />
     </list>
@@ -104,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="327">
-              <caret line="79" column="51" lean-forward="true" selection-start-line="79" selection-start-column="51" selection-end-line="79" selection-end-column="51" />
+              <caret line="79" column="51" lean-forward="false" selection-start-line="79" selection-start-column="51" selection-end-line="79" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -174,8 +177,8 @@
       <file leaf-file-name="ANI_calculation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="36" column="23" lean-forward="false" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+            <state relative-caret-position="-323">
+              <caret line="41" column="18" lean-forward="true" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
               <folding>
                 <element signature="e#195#223#0" expanded="true" />
               </folding>
@@ -187,7 +190,7 @@
         <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+              <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
               <folding>
                 <element signature="e#36#45#0" expanded="true" />
               </folding>
@@ -289,6 +292,7 @@
     <setting file="file://$PROJECT_DIR$/db_build.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Tools/compute_mash_d.csv.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Tools/get_housekeeping_seq.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Tools/ANI_calculation.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/KMerPrep.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/ParseGenome.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/ANIbWrapper.py" root0="SKIP_INSPECTION" />
@@ -372,10 +376,16 @@
           <State>
             <id />
           </State>
+          <State>
+            <id>Pyramid</id>
+          </State>
+          <State>
+            <id>Python</id>
+          </State>
         </expanded-state>
         <selected-state>
           <State>
-            <id>Buildout</id>
+            <id>PyInterpreterInspection</id>
           </State>
         </selected-state>
       </profile-state>
@@ -448,7 +458,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="922" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
@@ -751,13 +761,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
-    </task>
-    <task id="LOCAL-00654" summary="Implement mash indexing into the whole workflow">
-      <created>1495766566569</created>
-      <option name="number" value="00654" />
-      <option name="presentableId" value="LOCAL-00654" />
-      <option name="project" value="LOCAL" />
-      <updated>1495766566569</updated>
     </task>
     <task id="LOCAL-00655" summary="Implement mash indexing into the whole workflow">
       <created>1495766960297</created>
@@ -1095,7 +1098,14 @@
       <option name="project" value="LOCAL" />
       <updated>1499373729963</updated>
     </task>
-    <option name="localTasksCounter" value="703" />
+    <task id="LOCAL-00703" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
+      <created>1499374429799</created>
+      <option name="number" value="00703" />
+      <option name="presentableId" value="LOCAL-00703" />
+      <option name="project" value="LOCAL" />
+      <updated>1499374429799</updated>
+    </task>
+    <option name="localTasksCounter" value="704" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1727,7 +1737,7 @@
     <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
           <folding>
             <element signature="e#36#45#0" expanded="true" />
           </folding>
@@ -1771,15 +1781,15 @@
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
-          <caret line="79" column="51" lean-forward="true" selection-start-line="79" selection-start-column="51" selection-end-line="79" selection-end-column="51" />
+          <caret line="79" column="51" lean-forward="false" selection-start-line="79" selection-start-column="51" selection-end-line="79" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="36" column="23" lean-forward="false" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+        <state relative-caret-position="-323">
+          <caret line="41" column="18" lean-forward="true" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
           <folding>
             <element signature="e#195#223#0" expanded="true" />
           </folding>

@@ -33,11 +33,12 @@ def check_done_jobs(working_dir,job_pairs):
         if isdir(join(dir,"output")) and "ANIblastall_percentage_identity.tab" in listdir(join(dir,"output")):
             done_jobs.append("+".join(files))
         else:
+            # shutil.rmtree(dir)
             undones.append("+".join(files))
     print(len(done_jobs))
-    for i in job_pairs:
-        if i not in done_jobs:
-            undones.append(i)
+
+    tmp_undones = set(job_pairs) - set(done_jobs)
+    undones = set(undones) | tmp_undones
     return undones
 
 
@@ -69,8 +70,8 @@ def use_pyani(pair_str,ANI,cov,aln):
 if __name__ == '__main__':
     working_dir = sys.argv[1]
     dirs = [dir for dir in listdir(working_dir) if isdir(dir)]
-    for dir in dirs:
-        shutil.rmtree(join(working_dir,dir))
+    # for dir in dirs:
+    #     shutil.rmtree(join(working_dir,dir))
     files = [".".join(file.split(".")[:-1]) for file in listdir(working_dir) if isfile(join(working_dir, file))]
     job_pairs = create_job_map(working_dir=working_dir)
     undone_job_pairs = check_done_jobs(working_dir=working_dir, job_pairs=job_pairs)
