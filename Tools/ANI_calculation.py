@@ -66,13 +66,36 @@ def use_pyani(pair_str,ANI,cov,aln):
     # aln.set_value(query, subject, aln_df.get_value(query, subject))
     # aln.set_value(subject, query, aln_df.get_value(subject, query))
 
+def fill_dfs(each_dir,ANI,cov,aln):
+    files = [file for file in listdir(each_dir) if isfile(join(each_dir,file)) and file.endswith(".fasta")]
+    prefix = [str(i.split(".")[0]) for i in files]
+    ani_df = pd.read_table(each_dir+"/output/ANIblastall_percentage_identity.tab",header=0,index_col=0)
+    cov_df = pd.read_table(each_dir+"/output/ANIblastall_alignment_coverage.tab",header=0,index_col=0)
+    aln_df = pd.read_table(each_dir+"/output/ANIblastall_alignment_lengths.tab",header=0,index_col=0)
+    ANI.set_value(int(prefix[0]), prefix[1], ani_df.get_value(int(prefix[0]),prefix[1]))
+    ANI.set_value(int(prefix[1]), prefix[0], ani_df.get_value(int(prefix[1]), prefix[0]))
+    cov.set_value(int(prefix[0]), prefix[1], cov_df.get_value(int(prefix[0]), prefix[1]))
+    cov.set_value(int(prefix[1]), prefix[0], cov_df.get_value(int(prefix[1]), prefix[0]))
+    aln.set_value(int(prefix[0]), prefix[1], aln_df.get_value(int(prefix[0]), prefix[1]))
+    aln.set_value(int(prefix[1]), prefix[0], aln_df.get_value(int(prefix[1]), prefix[0]))
+
+def mp_fill_dfs(working_dir,ANI,cov,aln):
+    dirs = [join(working_dir,dir) for dir in listdir(working_dir) if isdir(join(working_dir,dir))]
+    partial_fill_dfs = partial(fill_dfs,ANI=ANI,cov=cov,aln=aln)
+    pool_size = 200
+    pool = mp.Pool(processes=pool_size)
+    pool.map(partial_fill_dfs,dirs)
+    return ANI,cov,aln
+
+
+
 # MAIN
 if __name__ == '__main__':
     working_dir = sys.argv[1]
     dirs = [dir for dir in listdir(working_dir) if isdir(dir)]
     # for dir in dirs:
     #     shutil.rmtree(join(working_dir,dir))
-    files = [".".join(file.split(".")[:-1]) for file in listdir(working_dir) if isfile(join(working_dir, file))]
+    files = [str(file.split(".")[:-1]) for file in listdir(working_dir) if isfile(join(working_dir, file))]
     job_pairs = create_job_map(working_dir=working_dir)
     # undone_job_pairs = check_done_jobs(working_dir=working_dir, job_pairs=job_pairs)
     # print(undone_job_pairs)
@@ -81,14 +104,15 @@ if __name__ == '__main__':
     ANI = pd.DataFrame(0,index=files,columns=files)
     cov = pd.DataFrame(0,index=files,columns=files)
     aln = pd.DataFrame(0,index=files,columns=files)
-    partial_use_pyani = partial(use_pyani,ANI=ANI,cov=cov,aln=aln)
-    pool_size = 200
-    pool = mp.Pool(processes=pool_size)
-    pool.map(partial_use_pyani,job_pairs)
+    # partial_use_pyani = partial(use_pyani,ANI=ANI,cov=cov,aln=aln)
+    # pool_size = 200
+    # pool = mp.Pool(processes=pool_size)
+    # pool.map(partial_use_pyani,job_pairs)
 
-
-    # os.mkdir("output")
-    # ANI.to_csv("output/ANI.csv")
-    # cov.to_csv("output/coverage.csv")
-    # aln.to_csv("output/alignment_length.csv")
+    ANI_tb, cov_tb, aln_tb = mp_fill_dfs(working_dir=working_dir,ANI=ANI, cov=cov, aln=aln)
+    if not isdir("/work/dragonstooth/longtian/Data/output"):
+        os.mkdir("/work/dragonstooth/longtian/Data/output")
+    ANI_tb.to_csv("/work/dragonstooth/longtian/Data/output/ANI.csv")
+    cov_tb.to_csv("/work/dragonstooth/longtian/Data/output/coverage.csv")
+    aln_tb.to_csv("/work/dragonstooth/longtian/Data/output/alignment_length.csv")
 
