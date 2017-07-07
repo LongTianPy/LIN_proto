@@ -92,11 +92,11 @@ def mp_fill_dfs(working_dir,ANI,cov,aln):
 # MAIN
 if __name__ == '__main__':
     working_dir = sys.argv[1]
-    dirs = [dir for dir in listdir(working_dir) if isdir(dir)]
+    # dirs = [dir for dir in listdir(working_dir) if isdir(dir)]
     # for dir in dirs:
     #     shutil.rmtree(join(working_dir,dir))
-    files = [str(file.split(".")[:-1]) for file in listdir(working_dir) if isfile(join(working_dir, file))]
-    job_pairs = create_job_map(working_dir=working_dir)
+    # files = [str(file.split(".")[:-1]) for file in listdir(working_dir) if isfile(join(working_dir, file))]
+    # job_pairs = create_job_map(working_dir=working_dir)
     # undone_job_pairs = check_done_jobs(working_dir=working_dir, job_pairs=job_pairs)
     # print(undone_job_pairs)
     #
@@ -108,7 +108,6 @@ if __name__ == '__main__':
     # pool_size = 200
     # pool = mp.Pool(processes=pool_size)
     # pool.map(partial_use_pyani,job_pairs)
-
     ANI_tb, cov_tb, aln_tb = mp_fill_dfs(working_dir=working_dir,ANI=ANI, cov=cov, aln=aln)
     if not isdir("/work/dragonstooth/longtian/Data/output"):
         os.mkdir("/work/dragonstooth/longtian/Data/output")
