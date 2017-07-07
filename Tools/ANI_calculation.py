@@ -73,20 +73,22 @@ def fill_dfs(each_dir,ANI,cov,aln):
         ani_df = pd.read_table(each_dir+"/output/ANIblastall_percentage_identity.tab",header=0,index_col=0)
         cov_df = pd.read_table(each_dir+"/output/ANIblastall_alignment_coverage.tab",header=0,index_col=0)
         aln_df = pd.read_table(each_dir+"/output/ANIblastall_alignment_lengths.tab",header=0,index_col=0)
-        # ANI.set_value(int(prefix[0]), prefix[1], ani_df.get_value(int(prefix[0]),prefix[1]))
-        # ANI.set_value(int(prefix[1]), prefix[0], ani_df.get_value(int(prefix[1]), prefix[0]))
-        # cov.set_value(int(prefix[0]), prefix[1], cov_df.get_value(int(prefix[0]), prefix[1]))
-        # cov.set_value(int(prefix[1]), prefix[0], cov_df.get_value(int(prefix[1]), prefix[0]))
-        # aln.set_value(int(prefix[0]), prefix[1], aln_df.get_value(int(prefix[0]), prefix[1]))
-        # aln.set_value(int(prefix[1]), prefix[0], aln_df.get_value(int(prefix[1]), prefix[0]))
-        ANI.ix[int(prefix[0]), prefix[1]] = ani_df.get_value(int(prefix[0]), prefix[1])
-        ANI.ix[int(prefix[1]), prefix[0]] = ani_df.get_value(int(prefix[1]), prefix[0])
-        cov.ix[int(prefix[0]), prefix[1]] = cov_df.get_value(int(prefix[0]), prefix[1])
-        cov.ix[int(prefix[1]), prefix[0]] = cov_df.get_value(int(prefix[1]), prefix[0])
-        aln.ix[int(prefix[0]), prefix[1]] = aln_df.get_value(int(prefix[0]), prefix[1])
-        aln.ix[int(prefix[1]), prefix[0]] = aln_df.get_value(int(prefix[1]), prefix[0])
+        ANI.set_value(int(prefix[0]), prefix[1], ani_df.get_value(int(prefix[0]),prefix[1]))
+        ANI.set_value(int(prefix[1]), prefix[0], ani_df.get_value(int(prefix[1]), prefix[0]))
+        cov.set_value(int(prefix[0]), prefix[1], cov_df.get_value(int(prefix[0]), prefix[1]))
+        cov.set_value(int(prefix[1]), prefix[0], cov_df.get_value(int(prefix[1]), prefix[0]))
+        aln.set_value(int(prefix[0]), prefix[1], aln_df.get_value(int(prefix[0]), prefix[1]))
+        aln.set_value(int(prefix[1]), prefix[0], aln_df.get_value(int(prefix[1]), prefix[0]))
+        # ANI.ix[int(prefix[0]), prefix[1]] = ani_df.get_value(int(prefix[0]), prefix[1])
+        # ANI.ix[int(prefix[1]), prefix[0]] = ani_df.get_value(int(prefix[1]), prefix[0])
+        # cov.ix[int(prefix[0]), prefix[1]] = cov_df.get_value(int(prefix[0]), prefix[1])
+        # cov.ix[int(prefix[1]), prefix[0]] = cov_df.get_value(int(prefix[1]), prefix[0])
+        # aln.ix[int(prefix[0]), prefix[1]] = aln_df.get_value(int(prefix[0]), prefix[1])
+        # aln.ix[int(prefix[1]), prefix[0]] = aln_df.get_value(int(prefix[1]), prefix[0])
+        return ANI,cov,aln
     except:
         pass
+
 
 def mp_fill_dfs(working_dir,ANI,cov,aln):
     dirs = [join(working_dir,dir) for dir in listdir(working_dir) if isdir(join(working_dir,dir))]
@@ -95,7 +97,7 @@ def mp_fill_dfs(working_dir,ANI,cov,aln):
     # pool = mp.Pool(processes=pool_size)
     # pool.map(partial_fill_dfs,dirs)
     for dir in dirs:
-        fill_dfs(dir,ANI=ANI, cov=cov, aln=aln)
+        ANI, cov, aln = fill_dfs(dir,ANI=ANI, cov=cov, aln=aln)
     return ANI,cov,aln
 
 
