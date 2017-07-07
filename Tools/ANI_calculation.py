@@ -95,7 +95,7 @@ if __name__ == '__main__':
     # dirs = [dir for dir in listdir(working_dir) if isdir(dir)]
     # for dir in dirs:
     #     shutil.rmtree(join(working_dir,dir))
-    # files = [str(file.split(".")[:-1]) for file in listdir(working_dir) if isfile(join(working_dir, file))]
+    files = [str(file.split(".")[:-1]) for file in listdir(working_dir) if isfile(join(working_dir, file))]
     # job_pairs = create_job_map(working_dir=working_dir)
     # undone_job_pairs = check_done_jobs(working_dir=working_dir, job_pairs=job_pairs)
     # print(undone_job_pairs)
