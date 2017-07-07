@@ -174,8 +174,8 @@
       <file leaf-file-name="ANI_calculation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="97" column="4" lean-forward="true" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="4" />
+            <state relative-caret-position="307">
+              <caret line="82" column="12" lean-forward="false" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
               <folding>
                 <element signature="e#195#223#0" expanded="true" />
               </folding>
@@ -759,13 +759,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00659" summary="Implement mash indexing into the whole workflow">
-      <created>1495767440843</created>
-      <option name="number" value="00659" />
-      <option name="presentableId" value="LOCAL-00659" />
-      <option name="project" value="LOCAL" />
-      <updated>1495767440843</updated>
-    </task>
     <task id="LOCAL-00660" summary="Implement mash indexing into the whole workflow">
       <created>1495767470847</created>
       <option name="number" value="00660" />
@@ -1102,7 +1095,14 @@
       <option name="project" value="LOCAL" />
       <updated>1499440200259</updated>
     </task>
-    <option name="localTasksCounter" value="708" />
+    <task id="LOCAL-00708" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
+      <created>1499440373117</created>
+      <option name="number" value="00708" />
+      <option name="presentableId" value="LOCAL-00708" />
+      <option name="project" value="LOCAL" />
+      <updated>1499440373117</updated>
+    </task>
+    <option name="localTasksCounter" value="709" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1785,8 +1785,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="97" column="4" lean-forward="true" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="4" />
+        <state relative-caret-position="307">
+          <caret line="82" column="12" lean-forward="false" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
           <folding>
             <element signature="e#195#223#0" expanded="true" />
           </folding>
