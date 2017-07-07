@@ -74,17 +74,17 @@ if __name__ == '__main__':
     #     shutil.rmtree(join(working_dir,dir))
     files = [".".join(file.split(".")[:-1]) for file in listdir(working_dir) if isfile(join(working_dir, file))]
     job_pairs = create_job_map(working_dir=working_dir)
-    undone_job_pairs = check_done_jobs(working_dir=working_dir, job_pairs=job_pairs)
-    print(undone_job_pairs)
+    # undone_job_pairs = check_done_jobs(working_dir=working_dir, job_pairs=job_pairs)
+    # print(undone_job_pairs)
     #
     #
-    # ANI = pd.DataFrame(0,index=files,columns=files)
-    # cov = pd.DataFrame(0,index=files,columns=files)
-    # aln = pd.DataFrame(0,index=files,columns=files)
-    # partial_use_pyani = partial(use_pyani,ANI=ANI,cov=cov,aln=aln)
-    # pool_size = 200
-    # pool = mp.Pool(processes=pool_size)
-    # pool.map(partial_use_pyani,job_pairs)
+    ANI = pd.DataFrame(0,index=files,columns=files)
+    cov = pd.DataFrame(0,index=files,columns=files)
+    aln = pd.DataFrame(0,index=files,columns=files)
+    partial_use_pyani = partial(use_pyani,ANI=ANI,cov=cov,aln=aln)
+    pool_size = 200
+    pool = mp.Pool(processes=pool_size)
+    pool.map(partial_use_pyani,job_pairs)
 
 
     # os.mkdir("output")
