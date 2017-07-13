@@ -109,22 +109,23 @@ if __name__ == '__main__':
     # for dir in dirs:
     #     shutil.rmtree(join(working_dir,dir))
     files = [str(file.split(".")[0]) for file in listdir(working_dir) if isfile(join(working_dir, file))]
-    # job_pairs = create_job_map(working_dir=working_dir)
+    job_pairs = create_job_map(working_dir=working_dir)
     # undone_job_pairs = check_done_jobs(working_dir=working_dir, job_pairs=job_pairs)
     # print(undone_job_pairs)
     #
     #
-    ANI = pd.DataFrame(0,index=files,columns=files)
-    cov = pd.DataFrame(0,index=files,columns=files)
-    aln = pd.DataFrame(0,index=files,columns=files)
-    # partial_use_pyani = partial(use_pyani,ANI=ANI,cov=cov,aln=aln)
-    # pool_size = 200
-    # pool = mp.Pool(processes=pool_size)
-    # pool.map(partial_use_pyani,job_pairs)
-    ANI_tb, cov_tb, aln_tb = mp_fill_dfs(working_dir=working_dir,ANI=ANI, cov=cov, aln=aln)
-    if not isdir("/work/dragonstooth/longtian/Data/output"):
-        os.mkdir("/work/dragonstooth/longtian/Data/output")
-    ANI_tb.to_csv("/work/dragonstooth/longtian/Data/output/ANI.csv")
-    cov_tb.to_csv("/work/dragonstooth/longtian/Data/output/coverage.csv")
-    aln_tb.to_csv("/work/dragonstooth/longtian/Data/output/alignment_length.csv")
+    row_names = [int(i) for i in files]
+    ANI = pd.DataFrame(0,index=row_names,columns=files)
+    cov = pd.DataFrame(0,index=row_names,columns=files)
+    aln = pd.DataFrame(0,index=row_names,columns=files)
+    partial_use_pyani = partial(use_pyani,ANI=ANI,cov=cov,aln=aln)
+    pool_size = mp.cpu_count()
+    pool = mp.Pool(processes=pool_size)
+    pool.map(partial_use_pyani,job_pairs)
+    # ANI_tb, cov_tb, aln_tb = mp_fill_dfs(working_dir=working_dir,ANI=ANI, cov=cov, aln=aln)
+    # if not isdir("/work/dragonstooth/longtian/Data/output"):
+    #     os.mkdir("/work/dragonstooth/longtian/Data/output")
+    # ANI_tb.to_csv("/work/dragonstooth/longtian/Data/output/ANI.csv")
+    # cov_tb.to_csv("/work/dragonstooth/longtian/Data/output/coverage.csv")
+    # aln_tb.to_csv("/work/dragonstooth/longtian/Data/output/alignment_length.csv")
 
