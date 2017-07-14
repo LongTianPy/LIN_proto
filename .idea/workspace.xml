@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/longtian.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/longtian.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/use_bbmap.py" afterPath="$PROJECT_DIR$/Tools/use_bbmap.py" />
     </list>
@@ -187,8 +186,8 @@
       <file leaf-file-name="use_bbmap.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="525">
+              <caret line="35" column="68" lean-forward="false" selection-start-line="35" selection-start-column="68" selection-end-line="35" selection-end-column="68" />
               <folding>
                 <element signature="e#36#45#0" expanded="true" />
               </folding>
@@ -293,6 +292,7 @@
     <setting file="file://$PROJECT_DIR$/Tools/get_housekeeping_seq.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Tools/ANI_calculation.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/KMerPrep.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Tools/use_bbmap.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/ParseGenome.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/ANIbWrapper.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/GenerateMatrix.py" root0="SKIP_INSPECTION" />
@@ -761,13 +761,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00667" summary="Added get_housekeeping_seq.py for extracting house keeping gene sequences across database">
-      <created>1497291353977</created>
-      <option name="number" value="00667" />
-      <option name="presentableId" value="LOCAL-00667" />
-      <option name="project" value="LOCAL" />
-      <updated>1497291353977</updated>
-    </task>
     <task id="LOCAL-00668" summary="Corrected makeblastdb.py">
       <created>1497293066036</created>
       <option name="number" value="00668" />
@@ -1104,7 +1097,14 @@
       <option name="project" value="LOCAL" />
       <updated>1499985103466</updated>
     </task>
-    <option name="localTasksCounter" value="716" />
+    <task id="LOCAL-00716" summary="change use_bbmap.py">
+      <created>1500061139419</created>
+      <option name="number" value="00716" />
+      <option name="presentableId" value="LOCAL-00716" />
+      <option name="project" value="LOCAL" />
+      <updated>1500061139420</updated>
+    </task>
+    <option name="localTasksCounter" value="717" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1121,11 +1121,11 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19452055" sideWeight="0.51502144" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13972603" sideWeight="0.51805556" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5369863" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32768363" sideWeight="0.4892704" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13972603" sideWeight="0.48497853" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13972603" sideWeight="0.48194444" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18819444" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1199,7 +1199,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Database &lt;Add&gt;" />
     <MESSAGE value="Debug" />
     <MESSAGE value="Implementation of LINgroup indexing method" />
     <MESSAGE value="LIN tree visualization in D3.js" />
@@ -1224,7 +1223,8 @@
     <MESSAGE value="Established get_housekeeping_seq.py" />
     <MESSAGE value="Modified export_db.py" />
     <MESSAGE value="Create ANI_calculation for multiprocessing in dragonstooth@VT" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create ANI_calculation for multiprocessing in dragonstooth@VT" />
+    <MESSAGE value="change use_bbmap.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="change use_bbmap.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1788,8 +1788,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="525">
+          <caret line="35" column="68" lean-forward="false" selection-start-line="35" selection-start-column="68" selection-end-line="35" selection-end-column="68" />
           <folding>
             <element signature="e#36#45#0" expanded="true" />
           </folding>
