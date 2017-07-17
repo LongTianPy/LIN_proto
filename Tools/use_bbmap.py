@@ -53,11 +53,12 @@ def fill_df(result_dir):
     for file in files:
         this = int(file.split(".")[0])
         df = parse_bbmap_result(file=file)
+        print(df)
         idx = df.index
         for i in idx:
-            wkid_df.ix[this,str(i)] = df.get_value(i,"wkid")
-            kid_df.ix[this,str(i)] = df.get_value(i,"kid")
-            est_ANI_df.ix[this,str(i)] = df.get_value(i,"est_ani")
+            wkid_df.set_value(this,str(i),df.get_value(i,"wkid"))
+            kid_df.set_value(this,str(i), df.get_value(i,"kid"))
+            est_ANI_df.set_value(this,str(i),df.get_value(i,"est_ani"))
     wkid_df.to_csv("../wkid.csv")
     kid_df.to_csv("../kid.csv")
     est_ANI_df.to_csv("../est_ANI.csv")
