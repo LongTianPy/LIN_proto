@@ -29,18 +29,18 @@ def run_comparesketch(working_dir,result_dir):
 def parse_bbmap_result(file):
     f = open(file,"r")
     lines = [i.strip().split("\t") for i in f.readlines()[3:-1]]
-f.close()
-wkid = []
-kid = []
-est_ani = []
-subject = []
-for i in lines:
-    subject.append(i[-1].split(" ")[0].split(".")[0])
-    wkid.append(float(i[0][:-1])/100)
-    kid.append(float(i[1][:-1])/100)
-    est_ani.append(float(i[2][:-1])/100)
-    df = pd.DataFrame({"wkid":wkid,"kid":kid,"est_ani":est_ani},index=[int(i) for i in subject])
-    return df
+    f.close()
+    wkid = []
+    kid = []
+    est_ani = []
+    subject = []
+    for i in lines:
+        subject.append(i[-1].split(" ")[0].split(".")[0])
+        wkid.append(float(i[0][:-1])/100)
+        kid.append(float(i[1][:-1])/100)
+        est_ani.append(float(i[2][:-1])/100)
+        df = pd.DataFrame({"wkid":wkid,"kid":kid,"est_ani":est_ani},index=[int(i) for i in subject])
+        return df
 
 def fill_df(result_dir):
     os.chdir(result_dir)
