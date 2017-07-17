@@ -4,7 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/FastANI_Toolbox.py" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
+    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="change use_bbmap.py">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/use_bbmap.py" afterPath="$PROJECT_DIR$/Tools/use_bbmap.py" />
     </list>
@@ -171,23 +171,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ANI_calculation.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="106" column="29" lean-forward="false" selection-start-line="106" selection-start-column="29" selection-end-line="106" selection-end-column="29" />
-              <folding>
-                <element signature="e#195#223#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="use_bbmap.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="68" lean-forward="false" selection-start-line="35" selection-start-column="68" selection-end-line="35" selection-end-column="68" />
+            <state relative-caret-position="732">
+              <caret line="73" column="34" lean-forward="false" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
               <folding>
                 <element signature="e#36#45#0" expanded="true" />
               </folding>
@@ -761,13 +749,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00668" summary="Corrected makeblastdb.py">
-      <created>1497293066036</created>
-      <option name="number" value="00668" />
-      <option name="presentableId" value="LOCAL-00668" />
-      <option name="project" value="LOCAL" />
-      <updated>1497293066036</updated>
-    </task>
     <task id="LOCAL-00669" summary="Corrected makeblastdb.py">
       <created>1497293295279</created>
       <option name="number" value="00669" />
@@ -1104,7 +1085,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500061139420</updated>
     </task>
-    <option name="localTasksCounter" value="717" />
+    <task id="LOCAL-00717" summary="change use_bbmap.py">
+      <created>1500066578117</created>
+      <option name="number" value="00717" />
+      <option name="presentableId" value="LOCAL-00717" />
+      <option name="project" value="LOCAL" />
+      <updated>1500066578117</updated>
+    </task>
+    <option name="localTasksCounter" value="718" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1700,32 +1688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mash_func.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-          <folding>
-            <element signature="e#614#1130#0" expanded="false" />
-            <element signature="e#3079#3274#0" expanded="false" />
-            <element signature="e#3319#8195#0" expanded="false" />
-            <element signature="e#9610#11552#0" expanded="false" />
-            <marker date="1495464528000" expanded="true" signature="630:674" ph="select FileP... Genome" />
-            <marker date="1495464528000" expanded="true" signature="630:677" ph="select FileP... Genome" />
-            <marker date="1495464528000" expanded="true" signature="1402:1469" ph="insert into Signature... " />
-            <marker date="1495464528000" expanded="true" signature="3086:3184" ph="INSERT INTO LIN... " />
-            <marker date="1495464528000" expanded="true" signature="8391:8435" ph="select FileP... Genome" />
-            <marker date="1495464528000" expanded="true" signature="8391:8438" ph="select FileP... Genome" />
-            <marker date="1495464528000" expanded="true" signature="8544:8588" ph="select FileP... Genome" />
-            <marker date="1495464528000" expanded="true" signature="10042:10094" ph="SELECT FileP... Genome" />
-            <marker date="1495464528000" expanded="true" signature="10042:10097" ph="SELECT Signa... Signature" />
-            <marker date="1495464528000" expanded="true" signature="10428:10532" ph="SELECT Signa... LIN" />
-            <marker date="1495464528000" expanded="true" signature="10428:10535" ph="SELECT Genom... LIN" />
-            <marker date="1495464528000" expanded="true" signature="10733:10785" ph="SELECT Signa... Signature" />
-            <marker date="1495464528000" expanded="true" signature="10733:10788" ph="SELECT Signa... Signature" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/workflow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2880">
@@ -1778,7 +1740,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
+        <state relative-caret-position="954">
           <caret line="106" column="29" lean-forward="false" selection-start-line="106" selection-start-column="29" selection-end-line="106" selection-end-column="29" />
           <folding>
             <element signature="e#195#223#0" expanded="true" />
@@ -1786,10 +1748,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mash_func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+          <folding>
+            <element signature="e#614#1130#0" expanded="false" />
+            <element signature="e#3079#3274#0" expanded="false" />
+            <element signature="e#3319#8195#0" expanded="false" />
+            <element signature="e#9610#11552#0" expanded="false" />
+            <marker date="1495464528000" expanded="true" signature="630:674" ph="select FileP... Genome" />
+            <marker date="1495464528000" expanded="true" signature="630:677" ph="select FileP... Genome" />
+            <marker date="1495464528000" expanded="true" signature="1402:1469" ph="insert into Signature... " />
+            <marker date="1495464528000" expanded="true" signature="3086:3184" ph="INSERT INTO LIN... " />
+            <marker date="1495464528000" expanded="true" signature="8391:8435" ph="select FileP... Genome" />
+            <marker date="1495464528000" expanded="true" signature="8391:8438" ph="select FileP... Genome" />
+            <marker date="1495464528000" expanded="true" signature="8544:8588" ph="select FileP... Genome" />
+            <marker date="1495464528000" expanded="true" signature="10042:10094" ph="SELECT FileP... Genome" />
+            <marker date="1495464528000" expanded="true" signature="10042:10097" ph="SELECT Signa... Signature" />
+            <marker date="1495464528000" expanded="true" signature="10428:10532" ph="SELECT Signa... LIN" />
+            <marker date="1495464528000" expanded="true" signature="10428:10535" ph="SELECT Genom... LIN" />
+            <marker date="1495464528000" expanded="true" signature="10733:10785" ph="SELECT Signa... Signature" />
+            <marker date="1495464528000" expanded="true" signature="10733:10788" ph="SELECT Signa... Signature" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="68" lean-forward="false" selection-start-line="35" selection-start-column="68" selection-end-line="35" selection-end-column="68" />
+        <state relative-caret-position="732">
+          <caret line="73" column="34" lean-forward="false" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
           <folding>
             <element signature="e#36#45#0" expanded="true" />
           </folding>
