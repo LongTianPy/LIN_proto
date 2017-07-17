@@ -174,8 +174,8 @@
       <file leaf-file-name="use_bbmap.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="60" column="71" lean-forward="false" selection-start-line="60" selection-start-column="71" selection-end-line="60" selection-end-column="71" />
+            <state relative-caret-position="531">
+              <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
               <folding>
                 <element signature="e#36#45#0" expanded="true" />
               </folding>
@@ -750,13 +750,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00672" summary="debug get_housekeeping_seq.py">
-      <created>1497296751111</created>
-      <option name="number" value="00672" />
-      <option name="presentableId" value="LOCAL-00672" />
-      <option name="project" value="LOCAL" />
-      <updated>1497296751111</updated>
-    </task>
     <task id="LOCAL-00673" summary="debug get_housekeeping_seq.py">
       <created>1497296849789</created>
       <option name="number" value="00673" />
@@ -1093,7 +1086,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500317005099</updated>
     </task>
-    <option name="localTasksCounter" value="721" />
+    <task id="LOCAL-00721" summary="change use_bbmap.py">
+      <created>1500317521420</created>
+      <option name="number" value="00721" />
+      <option name="presentableId" value="LOCAL-00721" />
+      <option name="project" value="LOCAL" />
+      <updated>1500317521420</updated>
+    </task>
+    <option name="localTasksCounter" value="722" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1777,8 +1777,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="60" column="71" lean-forward="false" selection-start-line="60" selection-start-column="71" selection-end-line="60" selection-end-column="71" />
+        <state relative-caret-position="531">
+          <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
           <folding>
             <element signature="e#36#45#0" expanded="true" />
           </folding>
