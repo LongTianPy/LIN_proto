@@ -4,7 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/FastANI_Toolbox.py" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="change use_bbmap.py">
+    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/use_bbmap.py" afterPath="$PROJECT_DIR$/Tools/use_bbmap.py" />
     </list>
@@ -174,8 +174,8 @@
       <file leaf-file-name="use_bbmap.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="732">
-              <caret line="73" column="34" lean-forward="false" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
+            <state relative-caret-position="87">
+              <caret line="30" column="62" lean-forward="false" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
               <folding>
                 <element signature="e#36#45#0" expanded="true" />
               </folding>
@@ -352,6 +352,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="312" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="825" />
@@ -749,13 +750,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00669" summary="Corrected makeblastdb.py">
-      <created>1497293295279</created>
-      <option name="number" value="00669" />
-      <option name="presentableId" value="LOCAL-00669" />
-      <option name="project" value="LOCAL" />
-      <updated>1497293295279</updated>
-    </task>
     <task id="LOCAL-00670" summary="debug get_housekeeping_seq.py">
       <created>1497294680493</created>
       <option name="number" value="00670" />
@@ -1092,7 +1086,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500066578117</updated>
     </task>
-    <option name="localTasksCounter" value="718" />
+    <task id="LOCAL-00718" summary="change use_bbmap.py">
+      <created>1500316492549</created>
+      <option name="number" value="00718" />
+      <option name="presentableId" value="LOCAL-00718" />
+      <option name="project" value="LOCAL" />
+      <updated>1500316492549</updated>
+    </task>
+    <option name="localTasksCounter" value="719" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1105,7 +1106,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="825" extended-state="6" />
+    <frame x="312" y="23" width="1440" height="825" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1776,8 +1777,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
-          <caret line="73" column="34" lean-forward="false" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
+        <state relative-caret-position="87">
+          <caret line="30" column="62" lean-forward="false" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
           <folding>
             <element signature="e#36#45#0" expanded="true" />
           </folding>
