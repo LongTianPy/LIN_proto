@@ -8,11 +8,11 @@ from os import listdir
 from os.path import isfile,isdir,join
 import sys
 import pandas as pd
-import matplotlib.pyplot as plt
-from pandas.stats.api import ols
-import matplotlib as mpl
-mpl.rc('text', usetex=True)
-mpl.rcParams['text.latex.preamble']=[r"\usepackage{amssymb}",
+# import matplotlib.pyplot as plt
+# from pandas.stats.api import ols
+# import matplotlib as mpl
+# mpl.rc('text', usetex=True)
+# mpl.rcParams['text.latex.preamble']=[r"\usepackage{amssymb}",
                                      r"\usepackage{amsmath}"]
 
 # FUNCTIONS
