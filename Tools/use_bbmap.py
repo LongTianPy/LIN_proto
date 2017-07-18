@@ -85,15 +85,15 @@ def concat_dfs(df_dir):
             df.loc[idx_count, "est_ANI"] = est_ANI.get_value(idx, col)
             idx_count += 1
     df.to_csv("concat_df.csv")
-    df_ols = ols(x=df["est_ANI"], y=df["wkid"])
-    beta1 = df_ols.beta.x
-    beta0 = df_ols.beta.intercept
-    plt.plot(df["est_ANI"], df["wkid"], ".b")
-    plt.xlabel("Estimated ANI")
-    plt.ylabel("WKID(Weighted k-mer identity)")
-    plt.plot(df["est_ANI"], df["est_ANI"] * beta1 + beta0, "-r")
-    plt.title("r'Correlation between estimated ANI and weighted k-mer identity'")
-    plt.savefig("ANI_vs_wkid.pdf")
+    # df_ols = ols(x=df["est_ANI"], y=df["wkid"])
+    # beta1 = df_ols.beta.x
+    # beta0 = df_ols.beta.intercept
+    # plt.plot(df["est_ANI"], df["wkid"], ".b")
+    # plt.xlabel("Estimated ANI")
+    # plt.ylabel("WKID(Weighted k-mer identity)")
+    # plt.plot(df["est_ANI"], df["est_ANI"] * beta1 + beta0, "-r")
+    # plt.title("r'Correlation between estimated ANI and weighted k-mer identity'")
+    # plt.savefig("ANI_vs_wkid.pdf")
 
 # MAIN
 if __name__ == '__main__':
