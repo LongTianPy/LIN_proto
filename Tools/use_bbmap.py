@@ -8,6 +8,12 @@ from os import listdir
 from os.path import isfile,isdir,join
 import sys
 import pandas as pd
+import matplotlib.pyplot as plt
+from pandas.stats.api import ols
+import matplotlib as mpl
+mpl.rc('text', usetex=True)
+mpl.rcParams['text.latex.preamble']=[r"\usepackage{amssymb}",
+                                     r"\usepackage{amsmath}"]
 
 # FUNCTIONS
 #working_dir = "/home/linproject/Workspace_playaround/bbmap_sketches"
@@ -63,13 +69,40 @@ def fill_df(result_dir):
     kid_df.to_csv("../kid.csv")
     est_ANI_df.to_csv("../est_ANI.csv")
 
+def concat_dfs(df_dir):
+    os.chdir(df_dir)
+    est_ANI = pd.read_csv("est_ANI.csv", header=0, index_col=0)
+    wkid = pd.read_csv("wkid.csv", header=0, index_col=0)
+    kid = pd.read_csv("kid.csv", header=0, index_col=0)
+    idxs = est_ANI.index
+    cols = est_ANI.columns
+    df = pd.DataFrame(columns=['Query Genome', 'Subject Genome', 'wkid', 'kid', 'est_ANI'])
+    idx_count = 1
+    for idx in idxs:
+        for col in cols:
+            df.loc[idx_count, "wkid"] = wkid.get_value(idx, col)
+            df.loc[idx_count, "kid"] = kid.get_value(idx, col)
+            df.loc[idx_count, "est_ANI"] = est_ANI.get_value(idx, col)
+            idx_count += 1
+    df.to_csv("concat_df.csv")
+    df_ols = ols(x=df["est_ANI"], y=df["wkid"])
+    beta1 = df_ols.beta.x
+    beta0 = df_ols.beta.intercept
+    plt.plot(df["est_ANI"], df["wkid"], ".b")
+    plt.xlabel("Estimated ANI")
+    plt.ylabel("WKID(Weighted k-mer identity)")
+    plt.plot(df["est_ANI"], df["est_ANI"] * beta1 + beta0, "-r")
+    plt.title("r'Correlation between estimated ANI and weighted k-mer identity'")
+    plt.savefig("ANI_vs_wkid.pdf")
 
 # MAIN
 if __name__ == '__main__':
     working_dir = sys.argv[1]
     genome_dir = sys.argv[2]
     result_dir = sys.argv[3]
+    df_dir = sys.argv[4]
     # create_sketches(working_dir=working_dir, genome_dir=genome_dir)
     # os.chdir(working_dir)
     # run_comparesketch(working_dir=working_dir,result_dir=result_dir)
-    fill_df(result_dir=result_dir)
+    # fill_df(result_dir=result_dir)
+    concat_dfs(df_dir=df_dir)
