@@ -12,8 +12,7 @@ import pandas as pd
 # from pandas.stats.api import ols
 # import matplotlib as mpl
 # mpl.rc('text', usetex=True)
-# mpl.rcParams['text.latex.preamble']=[r"\usepackage{amssymb}",
-                                     r"\usepackage{amsmath}"]
+# mpl.rcParams['text.latex.preamble']=[r"\usepackage{amssymb}", r"\usepackage{amsmath}"]
 
 # FUNCTIONS
 #working_dir = "/home/linproject/Workspace_playaround/bbmap_sketches"
