@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tools/manipulate_df.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/use_bbmap.py" afterPath="$PROJECT_DIR$/Tools/use_bbmap.py" />
     </list>
@@ -103,79 +104,49 @@
       <file leaf-file-name="LINgroup_indexing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
+            <state relative-caret-position="327">
               <caret line="79" column="51" lean-forward="false" selection-start-line="79" selection-start-column="51" selection-end-line="79" selection-end-column="51" />
+              <folding>
+                <marker date="1494005171000" expanded="true" signature="1072:1124" ph="SELECT Genom... LIN" />
+                <marker date="1494005171000" expanded="true" signature="2689:2733" ph="SELECT FileP... Genome" />
+                <marker date="1494005171000" expanded="true" signature="4440:4483" ph="SELECT Cutof... Scheme" />
+                <marker date="1494005171000" expanded="true" signature="4611:4655" ph="SELECT FileP... Genome" />
+                <marker date="1494005171000" expanded="true" signature="4750:4780" ph="SELECT Genom... LIN" />
+                <marker date="1494005171000" expanded="true" signature="5375:5419" ph="SELECT FileP... Genome" />
+                <marker date="1494005171000" expanded="true" signature="7765:7817" ph="SELECT Genom... LIN" />
+                <marker date="1494005171000" expanded="true" signature="8344:8388" ph="SELECT FileP... Genome" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ANI_calculation.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="74" column="82" lean-forward="false" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="82" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mash_indexing.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mash_indexing.py">
+      <file leaf-file-name="manipulate_df.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Tools/manipulate_df.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1170">
-              <caret line="84" column="103" lean-forward="false" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="103" />
+            <state relative-caret-position="456">
+              <caret line="61" column="19" lean-forward="false" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
               <folding>
-                <marker date="1495464528000" expanded="true" signature="972:1010" ph="select Genom... Genome" />
-                <marker date="1495464528000" expanded="true" signature="1802:1870" ph="SELECT Genom... LIN" />
-                <marker date="1495464528000" expanded="true" signature="3435:3479" ph="SELECT FileP... Genome" />
-                <marker date="1495464528000" expanded="true" signature="5347:5389" ph="SELECT Cutof... Scheme" />
-                <marker date="1495464528000" expanded="true" signature="5347:5390" ph="SELECT Cutof... Scheme" />
-                <marker date="1495464528000" expanded="true" signature="5518:5548" ph="SELECT Genom... LIN" />
-                <marker date="1495464528000" expanded="true" signature="5518:5566" ph="SELECT Genom... LIN" />
-                <marker date="1495464528000" expanded="true" signature="6188:6232" ph="SELECT FileP... Genome" />
-                <marker date="1495464528000" expanded="true" signature="8504:8572" ph="SELECT Genom... LIN" />
-                <marker date="1495464528000" expanded="true" signature="9099:9143" ph="SELECT FileP... Genome" />
-                <marker date="1495464528000" expanded="true" signature="11589:11633" ph="select FileP... Genome" />
-                <marker date="1495464528000" expanded="true" signature="11589:11636" ph="select FileP... Genome" />
-                <marker date="1495464528000" expanded="true" signature="12185:12221" ph="select LIN f... LIN" />
-                <marker date="1495464528000" expanded="true" signature="12185:12224" ph="select LIN f... LIN" />
-                <marker date="1495464528000" expanded="true" signature="12185:12240" ph="select LIN f... LIN" />
-                <marker date="1495464528000" expanded="true" signature="12745:12789" ph="select FileP... Genome" />
-                <marker date="1495464528000" expanded="true" signature="12745:12792" ph="select FileP... Genome" />
-                <marker date="1495464528000" expanded="true" signature="14537:14635" ph="INSERT INTO LIN... " />
-                <marker date="1495464528000" expanded="true" signature="14990:15012" ph="select * fro... Ge" />
-                <marker date="1495464528000" expanded="true" signature="14990:15015" ph="select * fro... LIN" />
-                <marker date="1495464528000" expanded="true" signature="15506:15572" ph="insert into LIN... " />
-                <marker date="1495464528000" expanded="true" signature="15506:15651" ph="insert into LIN... " />
+                <element signature="e#36#55#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mash_func.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-              <folding>
-                <element signature="e#614#1130#0" expanded="false" />
-                <element signature="e#3079#3274#0" expanded="false" />
-                <element signature="e#3319#8195#0" expanded="false" />
-                <element signature="e#9610#11552#0" expanded="false" />
-                <marker date="1495464528000" expanded="true" signature="630:674" ph="select FileP... Genome" />
-                <marker date="1495464528000" expanded="true" signature="630:677" ph="select FileP... Genome" />
-                <marker date="1495464528000" expanded="true" signature="1402:1469" ph="insert into Signature... " />
-                <marker date="1495464528000" expanded="true" signature="3086:3184" ph="INSERT INTO LIN... " />
-                <marker date="1495464528000" expanded="true" signature="8391:8435" ph="select FileP... Genome" />
-                <marker date="1495464528000" expanded="true" signature="8391:8438" ph="select FileP... Genome" />
-                <marker date="1495464528000" expanded="true" signature="8544:8588" ph="select FileP... Genome" />
-                <marker date="1495464528000" expanded="true" signature="10042:10094" ph="SELECT FileP... Genome" />
-                <marker date="1495464528000" expanded="true" signature="10042:10097" ph="SELECT Signa... Signature" />
-                <marker date="1495464528000" expanded="true" signature="10428:10532" ph="SELECT Signa... LIN" />
-                <marker date="1495464528000" expanded="true" signature="10428:10535" ph="SELECT Genom... LIN" />
-                <marker date="1495464528000" expanded="true" signature="10733:10785" ph="SELECT Signa... Signature" />
-                <marker date="1495464528000" expanded="true" signature="10733:10788" ph="SELECT Signa... Signature" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="use_bbmap.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="use_bbmap.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="64" lean-forward="false" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
+            <state relative-caret-position="209">
+              <caret line="63" column="23" lean-forward="false" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="23" />
               <folding>
                 <element signature="e#36#45#0" expanded="true" />
               </folding>
@@ -186,7 +157,7 @@
       <file leaf-file-name="plot_correlation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tools/plot_correlation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
+            <state relative-caret-position="380">
               <caret line="87" column="73" lean-forward="true" selection-start-line="87" selection-start-column="73" selection-end-line="87" selection-end-column="73" />
               <folding>
                 <element signature="e#125#144#0" expanded="true" />
@@ -217,7 +188,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>print</find>
       <find>Scheme_ID=</find>
       <find>L</find>
       <find>LIN</find>
@@ -247,6 +217,7 @@
       <find>uuid</find>
       <find>pair[1]</find>
       <find>set_value(</find>
+      <find>.loc</find>
     </findStrings>
     <replaceStrings>
       <replace>['0']*20</replace>
@@ -303,7 +274,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/KMer/test/Run.py" />
         <option value="$PROJECT_DIR$/KMer/test/ParseGenome.py" />
         <option value="$PROJECT_DIR$/NewMatrix/GenerateMatrix.py" />
         <option value="$PROJECT_DIR$/NewMatrix/GenenerateMatrixMemory.py" />
@@ -354,6 +324,7 @@
         <option value="$PROJECT_DIR$/Tools/ANI_calculation.py" />
         <option value="$PROJECT_DIR$/Tools/use.py" />
         <option value="$PROJECT_DIR$/Tools/use_bbmap.py" />
+        <option value="$PROJECT_DIR$/Tools/manipulate_df.py" />
       </list>
     </option>
   </component>
@@ -761,13 +732,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00678" summary="Established get_housekeeping_seq.py">
-      <created>1497299453732</created>
-      <option name="number" value="00678" />
-      <option name="presentableId" value="LOCAL-00678" />
-      <option name="project" value="LOCAL" />
-      <updated>1497299453732</updated>
-    </task>
     <task id="LOCAL-00679" summary="Established get_housekeeping_seq.py">
       <created>1497893965392</created>
       <option name="number" value="00679" />
@@ -1104,7 +1068,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500405683801</updated>
     </task>
-    <option name="localTasksCounter" value="727" />
+    <task id="LOCAL-00727" summary="change use_bbmap.py">
+      <created>1500405741825</created>
+      <option name="number" value="00727" />
+      <option name="presentableId" value="LOCAL-00727" />
+      <option name="project" value="LOCAL" />
+      <updated>1500405741825</updated>
+    </task>
+    <option name="localTasksCounter" value="728" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1285,13 +1256,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/KMer/test/KMerPrep.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KMer/test/ParseGenome.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1659,37 +1623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mash_indexing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1170">
-          <caret line="84" column="103" lean-forward="false" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="103" />
-          <folding>
-            <marker date="1495464528000" expanded="true" signature="972:1010" ph="select Genom... Genome" />
-            <marker date="1495464528000" expanded="true" signature="1802:1870" ph="SELECT Genom... LIN" />
-            <marker date="1495464528000" expanded="true" signature="3435:3479" ph="SELECT FileP... Genome" />
-            <marker date="1495464528000" expanded="true" signature="5347:5389" ph="SELECT Cutof... Scheme" />
-            <marker date="1495464528000" expanded="true" signature="5347:5390" ph="SELECT Cutof... Scheme" />
-            <marker date="1495464528000" expanded="true" signature="5518:5548" ph="SELECT Genom... LIN" />
-            <marker date="1495464528000" expanded="true" signature="5518:5566" ph="SELECT Genom... LIN" />
-            <marker date="1495464528000" expanded="true" signature="6188:6232" ph="SELECT FileP... Genome" />
-            <marker date="1495464528000" expanded="true" signature="8504:8572" ph="SELECT Genom... LIN" />
-            <marker date="1495464528000" expanded="true" signature="9099:9143" ph="SELECT FileP... Genome" />
-            <marker date="1495464528000" expanded="true" signature="11589:11633" ph="select FileP... Genome" />
-            <marker date="1495464528000" expanded="true" signature="11589:11636" ph="select FileP... Genome" />
-            <marker date="1495464528000" expanded="true" signature="12185:12221" ph="select LIN f... LIN" />
-            <marker date="1495464528000" expanded="true" signature="12185:12224" ph="select LIN f... LIN" />
-            <marker date="1495464528000" expanded="true" signature="12185:12240" ph="select LIN f... LIN" />
-            <marker date="1495464528000" expanded="true" signature="12745:12789" ph="select FileP... Genome" />
-            <marker date="1495464528000" expanded="true" signature="12745:12792" ph="select FileP... Genome" />
-            <marker date="1495464528000" expanded="true" signature="14537:14635" ph="INSERT INTO LIN... " />
-            <marker date="1495464528000" expanded="true" signature="14990:15012" ph="select * fro... Ge" />
-            <marker date="1495464528000" expanded="true" signature="14990:15015" ph="select * fro... LIN" />
-            <marker date="1495464528000" expanded="true" signature="15506:15572" ph="insert into LIN... " />
-            <marker date="1495464528000" expanded="true" signature="15506:15651" ph="insert into LIN... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/workflow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2880">
@@ -1724,14 +1657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="79" column="51" lean-forward="false" selection-start-line="79" selection-start-column="51" selection-end-line="79" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tools/use.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1740,12 +1665,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
+    <entry file="file://$PROJECT_DIR$/Tools/plot_correlation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="954">
-          <caret line="106" column="29" lean-forward="false" selection-start-line="106" selection-start-column="29" selection-end-line="106" selection-end-column="29" />
+        <state relative-caret-position="380">
+          <caret line="87" column="73" lean-forward="true" selection-start-line="87" selection-start-column="73" selection-end-line="87" selection-end-column="73" />
           <folding>
-            <element signature="e#195#223#0" expanded="false" />
+            <element signature="e#125#144#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1776,22 +1701,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tools/plot_correlation.py">
+    <entry file="file://$PROJECT_DIR$/mash_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="87" column="73" lean-forward="true" selection-start-line="87" selection-start-column="73" selection-end-line="87" selection-end-column="73" />
+        <state relative-caret-position="532">
+          <caret line="84" column="103" lean-forward="false" selection-start-line="84" selection-start-column="41" selection-end-line="84" selection-end-column="103" />
           <folding>
-            <element signature="e#125#144#0" expanded="true" />
+            <marker date="1495464528000" expanded="true" signature="972:1010" ph="select Genom... Genome" />
+            <marker date="1495464528000" expanded="true" signature="1802:1870" ph="SELECT Genom... LIN" />
+            <marker date="1495464528000" expanded="true" signature="3435:3479" ph="SELECT FileP... Genome" />
+            <marker date="1495464528000" expanded="true" signature="5347:5389" ph="SELECT Cutof... Scheme" />
+            <marker date="1495464528000" expanded="true" signature="5347:5390" ph="SELECT Cutof... Scheme" />
+            <marker date="1495464528000" expanded="true" signature="5518:5548" ph="SELECT Genom... LIN" />
+            <marker date="1495464528000" expanded="true" signature="5518:5566" ph="SELECT Genom... LIN" />
+            <marker date="1495464528000" expanded="true" signature="6188:6232" ph="SELECT FileP... Genome" />
+            <marker date="1495464528000" expanded="true" signature="8504:8572" ph="SELECT Genom... LIN" />
+            <marker date="1495464528000" expanded="true" signature="9099:9143" ph="SELECT FileP... Genome" />
+            <marker date="1495464528000" expanded="true" signature="11589:11633" ph="select FileP... Genome" />
+            <marker date="1495464528000" expanded="true" signature="11589:11636" ph="select FileP... Genome" />
+            <marker date="1495464528000" expanded="true" signature="12185:12221" ph="select LIN f... LIN" />
+            <marker date="1495464528000" expanded="true" signature="12185:12224" ph="select LIN f... LIN" />
+            <marker date="1495464528000" expanded="true" signature="12185:12240" ph="select LIN f... LIN" />
+            <marker date="1495464528000" expanded="true" signature="12745:12789" ph="select FileP... Genome" />
+            <marker date="1495464528000" expanded="true" signature="12745:12792" ph="select FileP... Genome" />
+            <marker date="1495464528000" expanded="true" signature="14537:14635" ph="INSERT INTO LIN... " />
+            <marker date="1495464528000" expanded="true" signature="14990:15012" ph="select * fro... Ge" />
+            <marker date="1495464528000" expanded="true" signature="14990:15015" ph="select * fro... LIN" />
+            <marker date="1495464528000" expanded="true" signature="15506:15572" ph="insert into LIN... " />
+            <marker date="1495464528000" expanded="true" signature="15506:15651" ph="insert into LIN... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="79" column="51" lean-forward="false" selection-start-line="79" selection-start-column="51" selection-end-line="79" selection-end-column="51" />
+          <folding>
+            <marker date="1494005171000" expanded="true" signature="1072:1124" ph="SELECT Genom... LIN" />
+            <marker date="1494005171000" expanded="true" signature="2689:2733" ph="SELECT FileP... Genome" />
+            <marker date="1494005171000" expanded="true" signature="4440:4483" ph="SELECT Cutof... Scheme" />
+            <marker date="1494005171000" expanded="true" signature="4611:4655" ph="SELECT FileP... Genome" />
+            <marker date="1494005171000" expanded="true" signature="4750:4780" ph="SELECT Genom... LIN" />
+            <marker date="1494005171000" expanded="true" signature="5375:5419" ph="SELECT FileP... Genome" />
+            <marker date="1494005171000" expanded="true" signature="7765:7817" ph="SELECT Genom... LIN" />
+            <marker date="1494005171000" expanded="true" signature="8344:8388" ph="SELECT FileP... Genome" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="64" lean-forward="false" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
+        <state relative-caret-position="209">
+          <caret line="63" column="23" lean-forward="false" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="23" />
           <folding>
             <element signature="e#36#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="74" column="82" lean-forward="false" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/manipulate_df.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="61" column="19" lean-forward="false" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
+          <folding>
+            <element signature="e#36#55#0" expanded="true" />
           </folding>
         </state>
       </provider>

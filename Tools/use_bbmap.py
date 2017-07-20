@@ -75,8 +75,16 @@ def concat_dfs(df_dir):
     kid = pd.read_csv("kid.csv", header=0, index_col=0)
     idxs = est_ANI.index
     cols = est_ANI.columns
-    df = pd.DataFrame(columns=['Query Genome', 'Subject Genome', 'wkid', 'kid', 'est_ANI'])
+    total = len(idxs) * len(cols)
+    df = pd.DataFrame(columns=['wkid', 'kid', 'est_ANI'],index=[i+1 for i in range(total)])
+    job_pairs = []
+    for idx in idxs:
+        for col in cols:
+            job_pairs.append(str(idx) + "_" + str(col))
     idx_count = 1
+
+
+
     for idx in idxs:
         for col in cols:
             df.loc[idx_count, "wkid"] = wkid.get_value(idx, col)
