@@ -41,11 +41,12 @@ def create_empty_dfs(working_dir):
 def fill_dfs(job_pair,ani,cov,aln):
     idx = job_pair[0]
     dir = job_pair[1]
+    print(dir)
     file1 = job_pair[2]
     file2 = job_pair[3]
-    ani_df = pd.read_table(join(dir,"/output/ANIblastall_percentage_identity.tab"),header=0,index_col=0)
-    cov_df = pd.read_table(join(dir,"/output/ANIblastall_alignment_coverage.tab"),header=0,index_col=0)
-    aln_df = pd.read_table(join(dir,"/output/ANIblastall_alignment_lengths.tab"),header=0,index_col=0)
+    ani_df = pd.read_table(dir+"/output/ANIblastall_percentage_identity.tab",header=0,index_col=0)
+    cov_df = pd.read_table(dir+"/output/ANIblastall_alignment_coverage.tab",header=0,index_col=0)
+    aln_df = pd.read_table(dir+"/output/ANIblastall_alignment_lengths.tab",header=0,index_col=0)
     ani.loc[int(file1),file2] = ani_df.get_value(int(file1),file2)
     ani.loc[int(file2),file1] = ani_df.get_value(int(file2),file1)
     cov.loc[int(file1), file2] = cov_df.get_value(int(file1), file2)
