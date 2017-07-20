@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tools/manipulate_df.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/use_bbmap.py" afterPath="$PROJECT_DIR$/Tools/use_bbmap.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/manipulate_df.py" afterPath="$PROJECT_DIR$/Tools/manipulate_df.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -133,8 +132,8 @@
       <file leaf-file-name="manipulate_df.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/manipulate_df.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="61" column="19" lean-forward="false" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
+            <state relative-caret-position="299">
+              <caret line="25" column="86" lean-forward="true" selection-start-line="25" selection-start-column="86" selection-end-line="25" selection-end-column="86" />
               <folding>
                 <element signature="e#36#55#0" expanded="true" />
               </folding>
@@ -732,13 +731,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00679" summary="Established get_housekeeping_seq.py">
-      <created>1497893965392</created>
-      <option name="number" value="00679" />
-      <option name="presentableId" value="LOCAL-00679" />
-      <option name="project" value="LOCAL" />
-      <updated>1497893965392</updated>
-    </task>
     <task id="LOCAL-00680" summary="Established get_housekeeping_seq.py">
       <created>1498508722929</created>
       <option name="number" value="00680" />
@@ -1075,7 +1067,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500405741825</updated>
     </task>
-    <option name="localTasksCounter" value="728" />
+    <task id="LOCAL-00728" summary="create manipulate_df.py for output processing">
+      <created>1500573627889</created>
+      <option name="number" value="00728" />
+      <option name="presentableId" value="LOCAL-00728" />
+      <option name="project" value="LOCAL" />
+      <updated>1500573627889</updated>
+    </task>
+    <option name="localTasksCounter" value="729" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1170,7 +1169,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Debug" />
     <MESSAGE value="Implementation of LINgroup indexing method" />
     <MESSAGE value="LIN tree visualization in D3.js" />
     <MESSAGE value="Re-arrange" />
@@ -1195,7 +1193,8 @@
     <MESSAGE value="Modified export_db.py" />
     <MESSAGE value="Create ANI_calculation for multiprocessing in dragonstooth@VT" />
     <MESSAGE value="change use_bbmap.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="change use_bbmap.py" />
+    <MESSAGE value="create manipulate_df.py for output processing" />
+    <option name="LAST_COMMIT_MESSAGE" value="create manipulate_df.py for output processing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1769,8 +1768,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/manipulate_df.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="61" column="19" lean-forward="false" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
+        <state relative-caret-position="299">
+          <caret line="25" column="86" lean-forward="true" selection-start-line="25" selection-start-column="86" selection-end-line="25" selection-end-column="86" />
           <folding>
             <element signature="e#36#55#0" expanded="true" />
           </folding>

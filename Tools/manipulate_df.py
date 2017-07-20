@@ -20,7 +20,10 @@ def create_job_map(working_dir):
         if "output" in listdir(i):
             if "ANIblastall_percentage_identity.tab" in listdir(join(i,"output")):
                 files = [file for file in listdir(i) if file.endswith(".fasta")]
-                prefix = [str(file.split(".")[0]) for file in files]
+                if len(files)>1:
+                    prefix = [str(file.split(".")[0]) for file in files]
+                else:
+                    prefix = [str(files[0].split(".")[0]),str(files[0].split(".")[0])]
                 job_map.append([idx_count,i,prefix[0],prefix[1]])
                 idx_count += 1
     return job_map
