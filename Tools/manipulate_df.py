@@ -26,6 +26,7 @@ def create_job_map(working_dir):
                     prefix = [str(files[0].split(".")[0]),str(files[0].split(".")[0])]
                 job_map.append([idx_count,i,prefix[0],prefix[1]])
                 idx_count += 1
+    print(job_map[:10])
     return job_map
 
 def create_empty_dfs(working_dir):

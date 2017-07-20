@@ -132,8 +132,8 @@
       <file leaf-file-name="manipulate_df.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/manipulate_df.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="25" column="86" lean-forward="true" selection-start-line="25" selection-start-column="86" selection-end-line="25" selection-end-column="86" />
+            <state relative-caret-position="217">
+              <caret line="28" column="21" lean-forward="false" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
               <folding>
                 <element signature="e#36#55#0" expanded="true" />
               </folding>
@@ -731,13 +731,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00680" summary="Established get_housekeeping_seq.py">
-      <created>1498508722929</created>
-      <option name="number" value="00680" />
-      <option name="presentableId" value="LOCAL-00680" />
-      <option name="project" value="LOCAL" />
-      <updated>1498508722929</updated>
-    </task>
     <task id="LOCAL-00681" summary="Modified export_db.py">
       <created>1498508841166</created>
       <option name="number" value="00681" />
@@ -1074,7 +1067,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500573627889</updated>
     </task>
-    <option name="localTasksCounter" value="729" />
+    <task id="LOCAL-00729" summary="create manipulate_df.py for output processing">
+      <created>1500574281950</created>
+      <option name="number" value="00729" />
+      <option name="presentableId" value="LOCAL-00729" />
+      <option name="project" value="LOCAL" />
+      <updated>1500574281950</updated>
+    </task>
+    <option name="localTasksCounter" value="730" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1768,8 +1768,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/manipulate_df.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="25" column="86" lean-forward="true" selection-start-line="25" selection-start-column="86" selection-end-line="25" selection-end-column="86" />
+        <state relative-caret-position="217">
+          <caret line="28" column="21" lean-forward="false" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
           <folding>
             <element signature="e#36#55#0" expanded="true" />
           </folding>
