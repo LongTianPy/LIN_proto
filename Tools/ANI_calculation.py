@@ -19,8 +19,8 @@ import uuid
 def create_job_map(working_dir):
     files = [file for file in listdir(working_dir) if isfile(join(working_dir,file))]
     job_pairs = []
-    for i in range(len(files)):
-        for other_file in files[i:]:
+    for i in range(len(files))[:-1]:
+        for other_file in files[i+1:]:
             job_pairs.append(files[i] + "+" +other_file)
     return job_pairs
 
@@ -46,16 +46,15 @@ def use_pyani(pair_str,ANI,cov,aln):
     pair = pair_str.split("+")
     query = ".".join(pair[0].split(".")[:-1])
     subject = ".".join(pair[1].split(".")[:-1])
-    workstation = str(uuid.uuid4())
+    workstation = pair_str
     if not isdir(workstation):
         os.mkdir(workstation)
-    else:
-        workstation = str(uuid.uuid4())
-        os.mkdir(workstation)
-    shutil.copy(pair[0],workstation)
-    shutil.copy(pair[1],workstation)
-    cmd = "python3 /home/longtian/dragonstooth/python/bin/average_nucleotide_identity.py -i {0} -o {0}/output -m ANIblastall --nocompress".format(workstation)
-    os.system(cmd)
+        shutil.copy(pair[0], workstation)
+        shutil.copy(pair[1], workstation)
+        cmd = "python3 /home/longtian/dragonstooth/python/bin/average_nucleotide_identity.py -i {0} -o {0}/output -m ANIblastall --nocompress".format(
+            workstation)
+        os.system(cmd)
+
     # ANI_df = pd.read_table("{0}/output/ANIblastall_percentage_identity.tab".format(workstation),header=0,index_col=0)
     # cov_df = pd.read_table("{0}/output/ANIblastall_alignment_coverage.tab".format(workstation),header=0,index_col=0)
     # aln_df = pd.read_table("{0}/output/ANIblastall_alignment_lengths.tab".format(workstation),header=0,index_col=0)

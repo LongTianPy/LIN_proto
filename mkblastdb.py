@@ -12,7 +12,7 @@ from os.path import isfile, join, isdir
 def concat_genomes():
     conn = Connect("localhost","root")
     c = conn.cursor()
-    c.execute("USE LINdb")
+    c.execute("USE LINdb_RefSeq")
     c.execute("SELECT Genome.Genome_ID, Genome.FilePath, LIN.LIN FROM Genome,LIN WHERE Genome.Genome_ID=LIN.Genome_ID AND LIN.Scheme_ID=4")
     tmp = c.fetchall()
     Genome_ID = [str(i[0]) for i in tmp]
@@ -20,7 +20,7 @@ def concat_genomes():
     del tmp
     c.close()
     db_dir = "/var/www/html/blast/db/"
-    db_fasta_file = "genome_new.fasta"
+    db_fasta_file = "LINdb_RefSeq.fasta"
     if not isfile(join(db_dir,db_fasta_file)):
         out_handler = open(join(db_dir,db_fasta_file),"w")
         for i in range(len(Genome_ID)):
