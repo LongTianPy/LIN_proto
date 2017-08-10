@@ -20,7 +20,7 @@ def concat_genomes():
     del tmp
     c.close()
     db_dir = "/var/www/html/blast/db/"
-    db_fasta_file = "LINdb_RefSeq.fasta"
+    db_fasta_file = "LINdb_tmp.fasta"
     if not isfile(join(db_dir,db_fasta_file)):
         out_handler = open(join(db_dir,db_fasta_file),"w")
         for i in range(len(Genome_ID)):
@@ -49,7 +49,7 @@ def concat_genomes():
 
 def makeblastdb():
     db_dir = "/var/www/html/blast/db/"
-    db_fasta_file = "genome_new.fasta"
+    db_fasta_file = "LINdb_tmp.fasta"
     makeblastdb_cmd = "makeblastdb -in {0} -dbtype nucl -hash_index -logfile {1}error_log".format(join(db_dir,db_fasta_file),db_dir)
     os.system(makeblastdb_cmd)
 

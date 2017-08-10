@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tools/make_tree.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call_bbmap.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/workflow2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/longtian.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/longtian.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tools/mpi_ANI_calculation.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/ANI_calculation.py" afterPath="$PROJECT_DIR$/Tools/ANI_calculation.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mkblastdb.py" afterPath="$PROJECT_DIR$/mkblastdb.py" />
@@ -47,7 +44,7 @@
       <file leaf-file-name="workflow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/workflow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1470">
+            <state relative-caret-position="1800">
               <caret line="120" column="63" lean-forward="false" selection-start-line="120" selection-start-column="4" selection-end-line="120" selection-end-column="63" />
               <folding>
                 <element signature="e#218#235#0" expanded="true" />
@@ -83,7 +80,7 @@
       <file leaf-file-name="make_tree.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tools/make_tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
+            <state relative-caret-position="930">
               <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
               <folding>
                 <element signature="e#114#141#0" expanded="true" />
@@ -112,7 +109,7 @@
       <file leaf-file-name="use_bbmap.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
+            <state relative-caret-position="585">
               <caret line="43" column="41" lean-forward="false" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
               <folding />
             </state>
@@ -122,7 +119,7 @@
       <file leaf-file-name="workflow2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/workflow2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
+            <state relative-caret-position="795">
               <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding>
                 <element signature="e#114#131#0" expanded="true" />
@@ -148,20 +145,22 @@
       <file leaf-file-name="ANI_calculation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-163">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="174">
+              <caret line="19" column="82" lean-forward="true" selection-start-line="19" selection-start-column="82" selection-end-line="19" selection-end-column="82" />
+              <folding>
+                <element signature="e#195#223#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mkblastdb.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mkblastdb.py">
+      <file leaf-file-name="mpi_ANI_calculation.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tools/mpi_ANI_calculation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="22" column="33" lean-forward="false" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+            <state relative-caret-position="330">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
-                <marker date="1501858000000" expanded="true" signature="320:442" ph="SELECT Genom... Genome" />
+                <element signature="e#86#108#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -266,7 +265,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/NewMatrix/Distance_pandas.py" />
         <option value="$PROJECT_DIR$/KMer/src/ANIbWrapper.py" />
         <option value="$PROJECT_DIR$/ANI_Wrapper.py" />
         <option value="$PROJECT_DIR$/KMer/LIN_assign.py" />
@@ -317,6 +315,7 @@
         <option value="$PROJECT_DIR$/call_bbmap.py" />
         <option value="$PROJECT_DIR$/mkblastdb.py" />
         <option value="$PROJECT_DIR$/Tools/ANI_calculation.py" />
+        <option value="$PROJECT_DIR$/Tools/mpi_ANI_calculation.py" />
       </list>
     </option>
   </component>
@@ -371,7 +370,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -401,6 +399,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -723,13 +722,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
-    </task>
-    <task id="LOCAL-00683" summary="Modified export_db.py">
-      <created>1498509256592</created>
-      <option name="number" value="00683" />
-      <option name="presentableId" value="LOCAL-00683" />
-      <option name="project" value="LOCAL" />
-      <updated>1498509256592</updated>
     </task>
     <task id="LOCAL-00684" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
       <created>1498594497015</created>
@@ -1067,7 +1059,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500574773085</updated>
     </task>
-    <option name="localTasksCounter" value="732" />
+    <task id="LOCAL-00732" summary="changed a lot">
+      <created>1502114525968</created>
+      <option name="number" value="00732" />
+      <option name="presentableId" value="LOCAL-00732" />
+      <option name="project" value="LOCAL" />
+      <updated>1502114525969</updated>
+    </task>
+    <option name="localTasksCounter" value="733" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1162,7 +1161,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implementation of LINgroup indexing method" />
     <MESSAGE value="LIN tree visualization in D3.js" />
     <MESSAGE value="Re-arrange" />
     <MESSAGE value="Create mkblastdb.py" />
@@ -1187,7 +1185,8 @@
     <MESSAGE value="Create ANI_calculation for multiprocessing in dragonstooth@VT" />
     <MESSAGE value="change use_bbmap.py" />
     <MESSAGE value="create manipulate_df.py for output processing" />
-    <option name="LAST_COMMIT_MESSAGE" value="create manipulate_df.py for output processing" />
+    <MESSAGE value="changed a lot" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed a lot" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1248,13 +1247,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/NewMatrix/GenerateMatrix.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="32" column="33" lean-forward="false" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NewMatrix/Distance_pandas.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1641,7 +1633,7 @@
     <entry file="file://$PROJECT_DIR$/preprocess.py" />
     <entry file="file://$PROJECT_DIR$/workflow2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
+        <state relative-caret-position="795">
           <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
             <element signature="e#114#131#0" expanded="true" />
@@ -1649,21 +1641,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/call_bbmap.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="38" lean-forward="false" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
-          <folding>
-            <element signature="e#36#45#0" expanded="true" />
-            <marker date="1501682202000" expanded="true" signature="344:388" ph="select FileP... Genome" />
-            <marker date="1501682202000" expanded="true" signature="344:391" ph="select FileP... Genome" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/workflow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
+        <state relative-caret-position="1800">
           <caret line="120" column="63" lean-forward="false" selection-start-line="120" selection-start-column="4" selection-end-line="120" selection-end-column="63" />
           <folding>
             <element signature="e#218#235#0" expanded="true" />
@@ -1697,7 +1677,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/make_tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
+        <state relative-caret-position="930">
           <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding>
             <element signature="e#114#141#0" expanded="true" />
@@ -1722,7 +1702,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
+        <state relative-caret-position="585">
           <caret line="43" column="41" lean-forward="false" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
           <folding />
         </state>
@@ -1730,19 +1710,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mkblastdb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="22" column="33" lean-forward="false" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+        <state relative-caret-position="571">
+          <caret line="51" column="30" lean-forward="false" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
           <folding>
-            <marker date="1501858000000" expanded="true" signature="320:442" ph="SELECT Genom... Genome" />
+            <marker date="1502119382000" expanded="true" signature="320:442" ph="SELECT Genom... Genome" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/call_bbmap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="38" lean-forward="false" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+          <folding>
+            <element signature="e#36#45#0" expanded="true" />
+            <marker date="1501682202000" expanded="true" signature="344:388" ph="select FileP... Genome" />
+            <marker date="1501682202000" expanded="true" signature="344:391" ph="select FileP... Genome" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tools/mpi_ANI_calculation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="e#86#108#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-163">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="174">
+          <caret line="19" column="82" lean-forward="true" selection-start-line="19" selection-start-column="82" selection-end-line="19" selection-end-column="82" />
+          <folding>
+            <element signature="e#195#223#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

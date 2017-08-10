@@ -41,7 +41,6 @@ def check_done_jobs(working_dir,job_pairs):
     undones = set(undones) | tmp_undones
     return undones
 
-
 def use_pyani(pair_str,ANI,cov,aln):
     pair = pair_str.split("+")
     query = ".".join(pair[0].split(".")[:-1])
