@@ -155,7 +155,7 @@
       <file leaf-file-name="mpi_ANI_calculation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/mpi_ANI_calculation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="604">
+            <state relative-caret-position="559">
               <caret line="49" column="36" lean-forward="false" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
               <folding>
                 <element signature="e#86#108#0" expanded="true" />
@@ -324,9 +324,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="529" />
     <option name="y" value="23" />
-    <option name="width" value="720" />
+    <option name="width" value="1440" />
     <option name="height" value="825" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -722,13 +721,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00685" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
-      <created>1498594984531</created>
-      <option name="number" value="00685" />
-      <option name="presentableId" value="LOCAL-00685" />
-      <option name="project" value="LOCAL" />
-      <updated>1498594984531</updated>
-    </task>
     <task id="LOCAL-00686" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
       <created>1498595732589</created>
       <option name="number" value="00686" />
@@ -1065,7 +1057,14 @@
       <option name="project" value="LOCAL" />
       <updated>1502387595044</updated>
     </task>
-    <option name="localTasksCounter" value="734" />
+    <task id="LOCAL-00734" summary="developing ani calculation for mpi">
+      <created>1502394869200</created>
+      <option name="number" value="00734" />
+      <option name="presentableId" value="LOCAL-00734" />
+      <option name="project" value="LOCAL" />
+      <updated>1502394869200</updated>
+    </task>
+    <option name="localTasksCounter" value="735" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1078,7 +1077,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="529" y="23" width="720" height="825" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="825" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1087,7 +1086,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5369863" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32768363" sideWeight="0.4892704" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13972603" sideWeight="0.48194444" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24791667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24791667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1741,7 +1740,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/mpi_ANI_calculation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
+        <state relative-caret-position="559">
           <caret line="49" column="36" lean-forward="false" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
           <folding>
             <element signature="e#86#108#0" expanded="true" />

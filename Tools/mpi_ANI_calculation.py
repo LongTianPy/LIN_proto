@@ -44,7 +44,7 @@ if __name__ == '__main__':
     rank = comm.Get_rank()
     size = comm.Get_size()
     number = len(job_pairs)
-    for i in range(number):
-        idx = random.randint(0,number)
+    for i in range(rank,number,size):
+        idx = i
         job_pair = job_pairs[idx]
         use_pyani(job_pair=job_pair)
