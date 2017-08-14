@@ -30,7 +30,7 @@ def use_pyani(job_pair):
             os.mkdir(workstation)
             shutil.copy(query,workstation)
             shutil.copy(subject,workstation)
-            cmd = "python3 /home/longtian/dragonstooth/python/bin/average_nucleotide_identity.py -i {0} -o {0}/output -m ANIblastall --nocompress"
+            cmd = "python3 /home/longtian/dragonstooth/python/bin/average_nucleotide_identity.py -i {0} -o {0}/output -m ANIblastall"
             os.system(cmd.format(workstation))
         except FileExistsError:
             pass

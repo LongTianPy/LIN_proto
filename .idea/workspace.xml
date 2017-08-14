@@ -155,8 +155,8 @@
       <file leaf-file-name="mpi_ANI_calculation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/mpi_ANI_calculation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="559">
-              <caret line="49" column="36" lean-forward="false" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
+            <state relative-caret-position="318">
+              <caret line="32" column="132" lean-forward="false" selection-start-line="32" selection-start-column="132" selection-end-line="32" selection-end-column="132" />
               <folding>
                 <element signature="e#86#108#0" expanded="true" />
               </folding>
@@ -721,13 +721,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00686" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
-      <created>1498595732589</created>
-      <option name="number" value="00686" />
-      <option name="presentableId" value="LOCAL-00686" />
-      <option name="project" value="LOCAL" />
-      <updated>1498595732589</updated>
-    </task>
     <task id="LOCAL-00687" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
       <created>1498595960982</created>
       <option name="number" value="00687" />
@@ -1064,7 +1057,14 @@
       <option name="project" value="LOCAL" />
       <updated>1502394869200</updated>
     </task>
-    <option name="localTasksCounter" value="735" />
+    <task id="LOCAL-00735" summary="developing ani calculation for mpi">
+      <created>1502460399821</created>
+      <option name="number" value="00735" />
+      <option name="presentableId" value="LOCAL-00735" />
+      <option name="project" value="LOCAL" />
+      <updated>1502460399821</updated>
+    </task>
+    <option name="localTasksCounter" value="736" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1740,8 +1740,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/mpi_ANI_calculation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="49" column="36" lean-forward="false" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
+        <state relative-caret-position="318">
+          <caret line="32" column="132" lean-forward="false" selection-start-line="32" selection-start-column="132" selection-end-line="32" selection-end-column="132" />
           <folding>
             <element signature="e#86#108#0" expanded="true" />
           </folding>
