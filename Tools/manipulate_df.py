@@ -62,7 +62,7 @@ if __name__ == '__main__':
     ani, cov, aln = create_empty_dfs(working_dir=working_dir)
     for each_job in job_map:
         ani, cov, aln = fill_dfs(job_pair=each_job, ani=ani, cov=cov, aln=aln)
-    ani.to_csv("../ANI.csv")
-    cov.to_csv("../cov.csv")
-    aln.to_csv("../aln.cov")
+    ani.to_csv("../pyani_ANI.csv")
+    cov.to_csv("../pyani_cov.csv")
+    aln.to_csv("../pyani_aln.cov")
 

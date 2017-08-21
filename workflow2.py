@@ -51,9 +51,10 @@ def get_parsed_args():
 
 ### Pre-process to see if there's duplication
 ### Use either bbmap or sourmash to do this and return the result if it's a new genome
-
+### By expectation, this returns The MinHash top hit, estimated ANI, and the Jaccard similarity
 
 ### Load the new genome into database with metadata
+
 
 ### Assign LIN
 
