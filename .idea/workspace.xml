@@ -7,7 +7,6 @@
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tools/manipulate_df.py" afterPath="$PROJECT_DIR$/Tools/manipulate_df.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/workflow2.py" afterPath="$PROJECT_DIR$/workflow2.py" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -130,8 +129,8 @@
       <file leaf-file-name="manipulate_df.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/manipulate_df.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="66" column="25" lean-forward="false" selection-start-line="66" selection-start-column="25" selection-end-line="66" selection-end-column="25" />
+            <state relative-caret-position="552">
+              <caret line="55" column="4" lean-forward="true" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -708,13 +707,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00688" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
-      <created>1498596817363</created>
-      <option name="number" value="00688" />
-      <option name="presentableId" value="LOCAL-00688" />
-      <option name="project" value="LOCAL" />
-      <updated>1498596817363</updated>
-    </task>
     <task id="LOCAL-00689" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
       <created>1498597120079</created>
       <option name="number" value="00689" />
@@ -1051,7 +1043,14 @@
       <option name="project" value="LOCAL" />
       <updated>1502742365616</updated>
     </task>
-    <option name="localTasksCounter" value="737" />
+    <task id="LOCAL-00737" summary="developing ani calculation for mpi&#10;Fix: compress intermediate files">
+      <created>1503346966662</created>
+      <option name="number" value="00737" />
+      <option name="presentableId" value="LOCAL-00737" />
+      <option name="project" value="LOCAL" />
+      <updated>1503346966662</updated>
+    </task>
+    <option name="localTasksCounter" value="738" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1730,8 +1729,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/manipulate_df.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="66" column="25" lean-forward="false" selection-start-line="66" selection-start-column="25" selection-end-line="66" selection-end-column="25" />
+        <state relative-caret-position="552">
+          <caret line="55" column="4" lean-forward="true" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="4" />
           <folding />
         </state>
       </provider>
