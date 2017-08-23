@@ -129,9 +129,78 @@
       <file leaf-file-name="manipulate_df.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/manipulate_df.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="55" column="4" lean-forward="true" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="4" />
+            <state relative-caret-position="528">
+              <caret line="63" column="8" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db_build.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db_build.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-132">
+              <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+              <folding>
+                <element signature="e#19#33#0" expanded="true" />
+                <marker date="1494005259000" expanded="true" signature="237:505" ph="CREATE TABLE... Genome" />
+                <marker date="1494005259000" expanded="true" signature="523:631" ph="CREATE TABLE... Signature" />
+                <marker date="1494005259000" expanded="true" signature="523:669" ph="CREATE TABLE... Signature" />
+                <marker date="1494005259000" expanded="true" signature="687:890" ph="CREATE TABLE... Interest" />
+                <marker date="1494005259000" expanded="true" signature="908:1070" ph="CREATE TABLE... Attribute" />
+                <marker date="1494005259000" expanded="true" signature="1088:1375" ph="CREATE TABLE... LIN" />
+                <marker date="1494005259000" expanded="true" signature="1393:1575" ph="CREATE TABLE... Scheme" />
+                <marker date="1494005259000" expanded="true" signature="1593:1779" ph="CREATE TABLE... Submission" />
+                <marker date="1494005259000" expanded="true" signature="1806:2093" ph="CREATE TABLE... User" />
+                <marker date="1494005259000" expanded="true" signature="2120:2387" ph="CREATE TABLE... AttributeValue" />
+                <marker date="1494005259000" expanded="true" signature="2405:2932" ph="CREATE TABLE... Genome_to_Attribute" />
+                <marker date="1494005259000" expanded="true" signature="2959:3177" ph="CREATE TABLE... Description" />
+                <marker date="1494005259000" expanded="true" signature="3204:3361" ph="CREATE TABLE... Description_Items" />
+                <marker date="1494005259000" expanded="true" signature="3388:3602" ph="CREATE TABLE... LIN_to_Description" />
+                <marker date="1494005259000" expanded="true" signature="3904:3958" ph="INSERT INTO Attribute... " />
+                <marker date="1494005259000" expanded="true" signature="3976:4032" ph="INSERT INTO Attribute... " />
+                <marker date="1494005259000" expanded="true" signature="4050:4118" ph="INSERT INTO Attribute... " />
+                <marker date="1494005259000" expanded="true" signature="4136:4191" ph="INSERT INTO Attribute... " />
+                <marker date="1494005259000" expanded="true" signature="4209:4269" ph="INSERT INTO Attribute... " />
+                <marker date="1494005259000" expanded="true" signature="4287:4351" ph="INSERT INTO Attribute... " />
+                <marker date="1494005259000" expanded="true" signature="4369:4435" ph="INSERT INTO Attribute... " />
+                <marker date="1494005259000" expanded="true" signature="4453:4516" ph="INSERT INTO Attribute... " />
+                <marker date="1494005259000" expanded="true" signature="4534:4590" ph="INSERT INTO Attribute... " />
+                <marker date="1494005259000" expanded="true" signature="4608:4684" ph="INSERT INTO Attribute... " />
+                <marker date="1494005259000" expanded="true" signature="4727:4814" ph="INSERT INTO Attribute... " />
+                <marker date="1494005259000" expanded="true" signature="4832:4888" ph="INSERT INTO Attribute... " />
+                <marker date="1494005259000" expanded="true" signature="4922:4994" ph="INSERT INTO Attribute... " />
+                <marker date="1494005259000" expanded="true" signature="5012:5065" ph="INSERT INTO Attribute... " />
+                <marker date="1494005259000" expanded="true" signature="5107:5212" ph="INSERT INTO Interest... " />
+                <marker date="1494005259000" expanded="true" signature="5239:5348" ph="INSERT INTO Interest... " />
+                <marker date="1494005259000" expanded="true" signature="5379:5467" ph="INSERT INTO Scheme... " />
+                <marker date="1494005259000" expanded="true" signature="5494:5669" ph="INSERT INTO Scheme... " />
+                <marker date="1494005259000" expanded="true" signature="5696:5848" ph="INSERT INTO Scheme... " />
+                <marker date="1494005259000" expanded="true" signature="5890:5960" ph="INSERT INTO Description_Items... " />
+                <marker date="1494005259000" expanded="true" signature="5978:6050" ph="INSERT INTO Description_Items... " />
+                <marker date="1494005259000" expanded="true" signature="6068:6141" ph="INSERT INTO Description_Items... " />
+                <marker date="1494005259000" expanded="true" signature="6159:6231" ph="INSERT INTO Description_Items... " />
+                <marker date="1494005259000" expanded="true" signature="6249:6317" ph="INSERT INTO Description_Items... " />
+                <marker date="1494005259000" expanded="true" signature="6437:6538" ph="insert into User... " />
+                <marker date="1494005259000" expanded="true" signature="6437:6665" ph="insert into User... " />
+                <marker date="1494005259000" expanded="true" signature="6683:6745" ph="INSERT INTO Submission... " />
+                <marker date="1494005259000" expanded="true" signature="6772:6935" ph="INSERT INTO Genome... " />
+                <marker date="1494005259000" expanded="true" signature="6962:6965" ph="INSERT INTO AttributeValue... " />
+                <marker date="1494005259000" expanded="true" signature="6962:7103" ph="INSERT INTO AttributeValue... " />
+                <marker date="1494005259000" expanded="true" signature="7130:7268" ph="INSERT INTO AttributeValue... " />
+                <marker date="1494005259000" expanded="true" signature="7295:7435" ph="INSERT INTO AttributeValue... " />
+                <marker date="1494005259000" expanded="true" signature="7462:7598" ph="INSERT INTO AttributeValue... " />
+                <marker date="1494005259000" expanded="true" signature="7625:7757" ph="INSERT INTO AttributeValue... " />
+                <marker date="1494005259000" expanded="true" signature="7784:7923" ph="INSERT INTO AttributeValue... " />
+                <marker date="1494005259000" expanded="true" signature="7950:8082" ph="INSERT INTO AttributeValue... " />
+                <marker date="1494005259000" expanded="true" signature="8109:8247" ph="INSERT INTO AttributeValue... " />
+                <marker date="1494005259000" expanded="true" signature="8274:8418" ph="INSERT INTO AttributeValue... " />
+                <marker date="1494005259000" expanded="true" signature="8445:8599" ph="INSERT INTO AttributeValue... " />
+                <marker date="1494005259000" expanded="true" signature="8626:8777" ph="INSERT INTO AttributeValue... " />
+                <marker date="1494005259000" expanded="true" signature="8804:8959" ph="INSERT INTO AttributeValue... " />
+                <marker date="1494005259000" expanded="true" signature="8977:9120" ph="INSERT INTO LIN... " />
+                <marker date="1494005259000" expanded="true" signature="8994:9120" ph="INSERT INTO LIN... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -707,13 +776,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00689" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
-      <created>1498597120079</created>
-      <option name="number" value="00689" />
-      <option name="presentableId" value="LOCAL-00689" />
-      <option name="project" value="LOCAL" />
-      <updated>1498597120079</updated>
-    </task>
     <task id="LOCAL-00690" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
       <created>1498597151739</created>
       <option name="number" value="00690" />
@@ -1050,7 +1112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1503346966662</updated>
     </task>
-    <option name="localTasksCounter" value="738" />
+    <task id="LOCAL-00738" summary="developing ani calculation for mpi&#10;Fix: compress intermediate files">
+      <created>1503421075313</created>
+      <option name="number" value="00738" />
+      <option name="presentableId" value="LOCAL-00738" />
+      <option name="project" value="LOCAL" />
+      <updated>1503421075313</updated>
+    </task>
+    <option name="localTasksCounter" value="739" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1413,73 +1482,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db_build.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding>
-            <element signature="e#19#33#0" expanded="true" />
-            <marker date="1494005259000" expanded="true" signature="237:505" ph="CREATE TABLE... Genome" />
-            <marker date="1494005259000" expanded="true" signature="523:631" ph="CREATE TABLE... Signature" />
-            <marker date="1494005259000" expanded="true" signature="523:669" ph="CREATE TABLE... Signature" />
-            <marker date="1494005259000" expanded="true" signature="687:890" ph="CREATE TABLE... Interest" />
-            <marker date="1494005259000" expanded="true" signature="908:1070" ph="CREATE TABLE... Attribute" />
-            <marker date="1494005259000" expanded="true" signature="1088:1375" ph="CREATE TABLE... LIN" />
-            <marker date="1494005259000" expanded="true" signature="1393:1575" ph="CREATE TABLE... Scheme" />
-            <marker date="1494005259000" expanded="true" signature="1593:1779" ph="CREATE TABLE... Submission" />
-            <marker date="1494005259000" expanded="true" signature="1806:2093" ph="CREATE TABLE... User" />
-            <marker date="1494005259000" expanded="true" signature="2120:2387" ph="CREATE TABLE... AttributeValue" />
-            <marker date="1494005259000" expanded="true" signature="2405:2932" ph="CREATE TABLE... Genome_to_Attribute" />
-            <marker date="1494005259000" expanded="true" signature="2959:3177" ph="CREATE TABLE... Description" />
-            <marker date="1494005259000" expanded="true" signature="3204:3361" ph="CREATE TABLE... Description_Items" />
-            <marker date="1494005259000" expanded="true" signature="3388:3602" ph="CREATE TABLE... LIN_to_Description" />
-            <marker date="1494005259000" expanded="true" signature="3904:3958" ph="INSERT INTO Attribute... " />
-            <marker date="1494005259000" expanded="true" signature="3976:4032" ph="INSERT INTO Attribute... " />
-            <marker date="1494005259000" expanded="true" signature="4050:4118" ph="INSERT INTO Attribute... " />
-            <marker date="1494005259000" expanded="true" signature="4136:4191" ph="INSERT INTO Attribute... " />
-            <marker date="1494005259000" expanded="true" signature="4209:4269" ph="INSERT INTO Attribute... " />
-            <marker date="1494005259000" expanded="true" signature="4287:4351" ph="INSERT INTO Attribute... " />
-            <marker date="1494005259000" expanded="true" signature="4369:4435" ph="INSERT INTO Attribute... " />
-            <marker date="1494005259000" expanded="true" signature="4453:4516" ph="INSERT INTO Attribute... " />
-            <marker date="1494005259000" expanded="true" signature="4534:4590" ph="INSERT INTO Attribute... " />
-            <marker date="1494005259000" expanded="true" signature="4608:4684" ph="INSERT INTO Attribute... " />
-            <marker date="1494005259000" expanded="true" signature="4727:4814" ph="INSERT INTO Attribute... " />
-            <marker date="1494005259000" expanded="true" signature="4832:4888" ph="INSERT INTO Attribute... " />
-            <marker date="1494005259000" expanded="true" signature="4922:4994" ph="INSERT INTO Attribute... " />
-            <marker date="1494005259000" expanded="true" signature="5012:5065" ph="INSERT INTO Attribute... " />
-            <marker date="1494005259000" expanded="true" signature="5107:5212" ph="INSERT INTO Interest... " />
-            <marker date="1494005259000" expanded="true" signature="5239:5348" ph="INSERT INTO Interest... " />
-            <marker date="1494005259000" expanded="true" signature="5379:5467" ph="INSERT INTO Scheme... " />
-            <marker date="1494005259000" expanded="true" signature="5494:5669" ph="INSERT INTO Scheme... " />
-            <marker date="1494005259000" expanded="true" signature="5696:5848" ph="INSERT INTO Scheme... " />
-            <marker date="1494005259000" expanded="true" signature="5890:5960" ph="INSERT INTO Description_Items... " />
-            <marker date="1494005259000" expanded="true" signature="5978:6050" ph="INSERT INTO Description_Items... " />
-            <marker date="1494005259000" expanded="true" signature="6068:6141" ph="INSERT INTO Description_Items... " />
-            <marker date="1494005259000" expanded="true" signature="6159:6231" ph="INSERT INTO Description_Items... " />
-            <marker date="1494005259000" expanded="true" signature="6249:6317" ph="INSERT INTO Description_Items... " />
-            <marker date="1494005259000" expanded="true" signature="6437:6538" ph="insert into User... " />
-            <marker date="1494005259000" expanded="true" signature="6437:6665" ph="insert into User... " />
-            <marker date="1494005259000" expanded="true" signature="6683:6745" ph="INSERT INTO Submission... " />
-            <marker date="1494005259000" expanded="true" signature="6772:6935" ph="INSERT INTO Genome... " />
-            <marker date="1494005259000" expanded="true" signature="6962:6965" ph="INSERT INTO AttributeValue... " />
-            <marker date="1494005259000" expanded="true" signature="6962:7103" ph="INSERT INTO AttributeValue... " />
-            <marker date="1494005259000" expanded="true" signature="7130:7268" ph="INSERT INTO AttributeValue... " />
-            <marker date="1494005259000" expanded="true" signature="7295:7435" ph="INSERT INTO AttributeValue... " />
-            <marker date="1494005259000" expanded="true" signature="7462:7598" ph="INSERT INTO AttributeValue... " />
-            <marker date="1494005259000" expanded="true" signature="7625:7757" ph="INSERT INTO AttributeValue... " />
-            <marker date="1494005259000" expanded="true" signature="7784:7923" ph="INSERT INTO AttributeValue... " />
-            <marker date="1494005259000" expanded="true" signature="7950:8082" ph="INSERT INTO AttributeValue... " />
-            <marker date="1494005259000" expanded="true" signature="8109:8247" ph="INSERT INTO AttributeValue... " />
-            <marker date="1494005259000" expanded="true" signature="8274:8418" ph="INSERT INTO AttributeValue... " />
-            <marker date="1494005259000" expanded="true" signature="8445:8599" ph="INSERT INTO AttributeValue... " />
-            <marker date="1494005259000" expanded="true" signature="8626:8777" ph="INSERT INTO AttributeValue... " />
-            <marker date="1494005259000" expanded="true" signature="8804:8959" ph="INSERT INTO AttributeValue... " />
-            <marker date="1494005259000" expanded="true" signature="8977:9120" ph="INSERT INTO LIN... " />
-            <marker date="1494005259000" expanded="true" signature="8994:9120" ph="INSERT INTO LIN... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2505">
@@ -1705,16 +1707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/workflow2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding>
-            <element signature="e#114#131#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/call_bbmap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1727,10 +1719,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/workflow2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="e#114#131#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_build.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-132">
+          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding>
+            <element signature="e#19#33#0" expanded="true" />
+            <marker date="1494005259000" expanded="true" signature="237:505" ph="CREATE TABLE... Genome" />
+            <marker date="1494005259000" expanded="true" signature="523:631" ph="CREATE TABLE... Signature" />
+            <marker date="1494005259000" expanded="true" signature="523:669" ph="CREATE TABLE... Signature" />
+            <marker date="1494005259000" expanded="true" signature="687:890" ph="CREATE TABLE... Interest" />
+            <marker date="1494005259000" expanded="true" signature="908:1070" ph="CREATE TABLE... Attribute" />
+            <marker date="1494005259000" expanded="true" signature="1088:1375" ph="CREATE TABLE... LIN" />
+            <marker date="1494005259000" expanded="true" signature="1393:1575" ph="CREATE TABLE... Scheme" />
+            <marker date="1494005259000" expanded="true" signature="1593:1779" ph="CREATE TABLE... Submission" />
+            <marker date="1494005259000" expanded="true" signature="1806:2093" ph="CREATE TABLE... User" />
+            <marker date="1494005259000" expanded="true" signature="2120:2387" ph="CREATE TABLE... AttributeValue" />
+            <marker date="1494005259000" expanded="true" signature="2405:2932" ph="CREATE TABLE... Genome_to_Attribute" />
+            <marker date="1494005259000" expanded="true" signature="2959:3177" ph="CREATE TABLE... Description" />
+            <marker date="1494005259000" expanded="true" signature="3204:3361" ph="CREATE TABLE... Description_Items" />
+            <marker date="1494005259000" expanded="true" signature="3388:3602" ph="CREATE TABLE... LIN_to_Description" />
+            <marker date="1494005259000" expanded="true" signature="3904:3958" ph="INSERT INTO Attribute... " />
+            <marker date="1494005259000" expanded="true" signature="3976:4032" ph="INSERT INTO Attribute... " />
+            <marker date="1494005259000" expanded="true" signature="4050:4118" ph="INSERT INTO Attribute... " />
+            <marker date="1494005259000" expanded="true" signature="4136:4191" ph="INSERT INTO Attribute... " />
+            <marker date="1494005259000" expanded="true" signature="4209:4269" ph="INSERT INTO Attribute... " />
+            <marker date="1494005259000" expanded="true" signature="4287:4351" ph="INSERT INTO Attribute... " />
+            <marker date="1494005259000" expanded="true" signature="4369:4435" ph="INSERT INTO Attribute... " />
+            <marker date="1494005259000" expanded="true" signature="4453:4516" ph="INSERT INTO Attribute... " />
+            <marker date="1494005259000" expanded="true" signature="4534:4590" ph="INSERT INTO Attribute... " />
+            <marker date="1494005259000" expanded="true" signature="4608:4684" ph="INSERT INTO Attribute... " />
+            <marker date="1494005259000" expanded="true" signature="4727:4814" ph="INSERT INTO Attribute... " />
+            <marker date="1494005259000" expanded="true" signature="4832:4888" ph="INSERT INTO Attribute... " />
+            <marker date="1494005259000" expanded="true" signature="4922:4994" ph="INSERT INTO Attribute... " />
+            <marker date="1494005259000" expanded="true" signature="5012:5065" ph="INSERT INTO Attribute... " />
+            <marker date="1494005259000" expanded="true" signature="5107:5212" ph="INSERT INTO Interest... " />
+            <marker date="1494005259000" expanded="true" signature="5239:5348" ph="INSERT INTO Interest... " />
+            <marker date="1494005259000" expanded="true" signature="5379:5467" ph="INSERT INTO Scheme... " />
+            <marker date="1494005259000" expanded="true" signature="5494:5669" ph="INSERT INTO Scheme... " />
+            <marker date="1494005259000" expanded="true" signature="5696:5848" ph="INSERT INTO Scheme... " />
+            <marker date="1494005259000" expanded="true" signature="5890:5960" ph="INSERT INTO Description_Items... " />
+            <marker date="1494005259000" expanded="true" signature="5978:6050" ph="INSERT INTO Description_Items... " />
+            <marker date="1494005259000" expanded="true" signature="6068:6141" ph="INSERT INTO Description_Items... " />
+            <marker date="1494005259000" expanded="true" signature="6159:6231" ph="INSERT INTO Description_Items... " />
+            <marker date="1494005259000" expanded="true" signature="6249:6317" ph="INSERT INTO Description_Items... " />
+            <marker date="1494005259000" expanded="true" signature="6437:6538" ph="insert into User... " />
+            <marker date="1494005259000" expanded="true" signature="6437:6665" ph="insert into User... " />
+            <marker date="1494005259000" expanded="true" signature="6683:6745" ph="INSERT INTO Submission... " />
+            <marker date="1494005259000" expanded="true" signature="6772:6935" ph="INSERT INTO Genome... " />
+            <marker date="1494005259000" expanded="true" signature="6962:6965" ph="INSERT INTO AttributeValue... " />
+            <marker date="1494005259000" expanded="true" signature="6962:7103" ph="INSERT INTO AttributeValue... " />
+            <marker date="1494005259000" expanded="true" signature="7130:7268" ph="INSERT INTO AttributeValue... " />
+            <marker date="1494005259000" expanded="true" signature="7295:7435" ph="INSERT INTO AttributeValue... " />
+            <marker date="1494005259000" expanded="true" signature="7462:7598" ph="INSERT INTO AttributeValue... " />
+            <marker date="1494005259000" expanded="true" signature="7625:7757" ph="INSERT INTO AttributeValue... " />
+            <marker date="1494005259000" expanded="true" signature="7784:7923" ph="INSERT INTO AttributeValue... " />
+            <marker date="1494005259000" expanded="true" signature="7950:8082" ph="INSERT INTO AttributeValue... " />
+            <marker date="1494005259000" expanded="true" signature="8109:8247" ph="INSERT INTO AttributeValue... " />
+            <marker date="1494005259000" expanded="true" signature="8274:8418" ph="INSERT INTO AttributeValue... " />
+            <marker date="1494005259000" expanded="true" signature="8445:8599" ph="INSERT INTO AttributeValue... " />
+            <marker date="1494005259000" expanded="true" signature="8626:8777" ph="INSERT INTO AttributeValue... " />
+            <marker date="1494005259000" expanded="true" signature="8804:8959" ph="INSERT INTO AttributeValue... " />
+            <marker date="1494005259000" expanded="true" signature="8977:9120" ph="INSERT INTO LIN... " />
+            <marker date="1494005259000" expanded="true" signature="8994:9120" ph="INSERT INTO LIN... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Tools/manipulate_df.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="55" column="4" lean-forward="true" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="4" />
+        <state relative-caret-position="528">
+          <caret line="63" column="8" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
           <folding />
         </state>
       </provider>
