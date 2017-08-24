@@ -33,9 +33,9 @@ def create_empty_dfs(working_dir):
     files = [file for file in listdir(working_dir) if isfile(join(working_dir,file)) and file.endswith(".fasta")]
     cols = [str(file.split(".")[0]) for file in files]
     idxs = [int(i) for i in cols]
-    ani = pd.DataFrame(columns=cols,index=idxs).to_sparse()
-    cov = pd.DataFrame(columns=cols,index=idxs).to_sparse()
-    aln = pd.DataFrame(columns=cols,index=idxs).to_sparse()
+    ani = pd.DataFrame(columns=cols,index=idxs)
+    cov = pd.DataFrame(columns=cols,index=idxs)
+    aln = pd.DataFrame(columns=cols,index=idxs)
     return ani, cov, aln
 
 def fill_dfs(job_pair,ani,cov,aln):

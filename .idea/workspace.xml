@@ -129,8 +129,8 @@
       <file leaf-file-name="manipulate_df.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tools/manipulate_df.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="45" column="23" lean-forward="false" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
+            <state relative-caret-position="390">
+              <caret line="35" column="47" lean-forward="true" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
               <folding>
                 <element signature="e#36#55#0" expanded="true" />
               </folding>
@@ -709,13 +709,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00695" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
-      <created>1498613957587</created>
-      <option name="number" value="00695" />
-      <option name="presentableId" value="LOCAL-00695" />
-      <option name="project" value="LOCAL" />
-      <updated>1498613957587</updated>
-    </task>
     <task id="LOCAL-00696" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
       <created>1498614155719</created>
       <option name="number" value="00696" />
@@ -1052,7 +1045,14 @@
       <option name="project" value="LOCAL" />
       <updated>1503541091770</updated>
     </task>
-    <option name="localTasksCounter" value="744" />
+    <task id="LOCAL-00744" summary="developing ani calculation for mpi&#10;Fix: compress intermediate files">
+      <created>1503541715311</created>
+      <option name="number" value="00744" />
+      <option name="presentableId" value="LOCAL-00744" />
+      <option name="project" value="LOCAL" />
+      <updated>1503541715311</updated>
+    </task>
+    <option name="localTasksCounter" value="745" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1732,8 +1732,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/manipulate_df.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="45" column="23" lean-forward="false" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
+        <state relative-caret-position="390">
+          <caret line="35" column="47" lean-forward="true" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
           <folding>
             <element signature="e#36#55#0" expanded="true" />
           </folding>
