@@ -42,9 +42,8 @@ def fill_dfs(job_pair,ani,cov,aln):
     idx = job_pair[0]
     dir = job_pair[1]
     print(dir)
-    [file1,file2] = dir.split("+")
-    file1 = file1.split(".")[0]
-    file2 = file2.split(".")[0]
+    file1 = job_pair[2]
+    file2 = job_pair[3]
     ani_df = pd.read_table(dir+"/output/ANIblastall_percentage_identity.tab",header=0,index_col=0)
     cov_df = pd.read_table(dir+"/output/ANIblastall_alignment_coverage.tab",header=0,index_col=0)
     aln_df = pd.read_table(dir+"/output/ANIblastall_alignment_lengths.tab",header=0,index_col=0)
@@ -64,7 +63,7 @@ if __name__ == '__main__':
     #         f.write("\t".join(i))
     #         f.write("\n")
     f = open("../job_map.txt","r")
-    job_map = [i.strip().split("\t")[:2] for i in f.readlines()]
+    job_map = [i.strip().split("\t") for i in f.readlines()]
     f.close()
     print(job_map)
     ani, cov, aln = create_empty_dfs(working_dir=working_dir)
