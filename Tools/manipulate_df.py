@@ -36,9 +36,10 @@ def create_empty_dfs(working_dir):
     ani = pd.DataFrame(columns=cols,index=idxs)
     cov = pd.DataFrame(columns=cols,index=idxs)
     aln = pd.DataFrame(columns=cols,index=idxs)
-    return ani, cov, aln
+    hadamard = pd.DataFrame(columns=cols,index=idxs)
+    return ani, cov, aln, hadamard
 
-def fill_dfs(job_pair,ani,cov,aln):
+def fill_dfs(job_pair,ani,cov,aln,hadamard):
     idx = job_pair[0]
     dir = job_pair[1]
     print(dir)
@@ -47,13 +48,16 @@ def fill_dfs(job_pair,ani,cov,aln):
     ani_df = pd.read_table(dir+"/output/ANIblastall_percentage_identity.tab",header=0,index_col=0)
     cov_df = pd.read_table(dir+"/output/ANIblastall_alignment_coverage.tab",header=0,index_col=0)
     aln_df = pd.read_table(dir+"/output/ANIblastall_alignment_lengths.tab",header=0,index_col=0)
+    hada_df = pd.read_table(dir+"/output/ANIblastall_hadamard.tab",header=0,index_col=0)
     ani.loc[int(file1),file2] = ani_df.get_value(int(file1),file2)
     ani.loc[int(file2),file1] = ani_df.get_value(int(file2),file1)
     cov.loc[int(file1), file2] = cov_df.get_value(int(file1), file2)
     cov.loc[int(file2), file1] = cov_df.get_value(int(file2), file1)
     aln.loc[int(file1), file2] = aln_df.get_value(int(file1), file2)
     aln.loc[int(file2), file1] = aln_df.get_value(int(file2), file1)
-    return ani, cov, aln
+    hadamard.loc[int(file1), file2] = hada_df.get_value(int(file1), file2)
+    hadamard.loc[int(file2), file1] = hada_df.get_value(int(file2), file1)
+    return ani, cov, aln, hadamard
 # MAIN
 if __name__ == '__main__':
     working_dir = sys.argv[1]
@@ -66,10 +70,11 @@ if __name__ == '__main__':
     job_map = [i.strip().split("\t") for i in f.readlines()]
     f.close()
     print(job_map)
-    ani, cov, aln = create_empty_dfs(working_dir=working_dir)
+    ani, cov, aln, hadamard = create_empty_dfs(working_dir=working_dir)
     for each_job in job_map:
-        ani, cov, aln = fill_dfs(job_pair=each_job, ani=ani, cov=cov, aln=aln)
-    ani.to_csv("../pyani_ANI.csv")
-    cov.to_csv("../pyani_cov.csv")
-    aln.to_csv("../pyani_aln.cov")
+        ani, cov, aln, hadamard = fill_dfs(job_pair=each_job, ani=ani, cov=cov, aln=aln,hadamard=hadamard)
+    # ani.to_csv("../pyani_ANI.csv")
+    # cov.to_csv("../pyani_cov.csv")
+    # aln.to_csv("../pyani_aln.csv")
+    hadamard.to_csv("../pyani_hadamard.csv")
 
