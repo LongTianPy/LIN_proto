@@ -30,7 +30,7 @@ def create_job_map(working_dir):
     return job_map
 
 def create_empty_dfs(working_dir):
-    files = [file for file in listdir(working_dir) if file.endswith(".fasta")]
+    files = [file for file in listdir(working_dir) if isfile(join(working_dir,file)) and file.endswith(".fasta")]
     cols = [str(file.split(".")[0]) for file in files]
     idxs = [int(i) for i in cols]
     ani = pd.DataFrame(columns=cols,index=idxs).to_sparse()
@@ -64,6 +64,7 @@ if __name__ == '__main__':
     f = open("../job_map.txt","r")
     job_map = [i.strip().split("\t")[:2] for i in f.readlines()]
     f.close()
+    print(job_map)
     ani, cov, aln = create_empty_dfs(working_dir=working_dir)
     for each_job in job_map:
         ani, cov, aln = fill_dfs(job_pair=each_job, ani=ani, cov=cov, aln=aln)
