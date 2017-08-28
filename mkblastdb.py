@@ -7,20 +7,21 @@ from Bio import SeqIO
 from MySQLdb import Connect
 import os
 from os.path import isfile, join, isdir
+import sys
 
 # FUNCTIONS
-def concat_genomes():
+def concat_genomes(db):
     conn = Connect("localhost","root")
     c = conn.cursor()
-    c.execute("USE LINdb_RefSeq")
+    c.execute("USE {0}".format(db))
     c.execute("SELECT Genome.Genome_ID, Genome.FilePath, LIN.LIN FROM Genome,LIN WHERE Genome.Genome_ID=LIN.Genome_ID AND LIN.Scheme_ID=4")
     tmp = c.fetchall()
     Genome_ID = [str(i[0]) for i in tmp]
     FilePath = [i[1] for i in tmp]
     del tmp
     c.close()
-    db_dir = "/var/www/html/blast/db/"
-    db_fasta_file = "LINdb_tmp.fasta"
+    db_dir = "/home/linproject/Workspace/BLAST/db"
+    db_fasta_file = "{0}.fasta".format(db)
     if not isfile(join(db_dir,db_fasta_file)):
         out_handler = open(join(db_dir,db_fasta_file),"w")
         for i in range(len(Genome_ID)):
@@ -46,14 +47,15 @@ def concat_genomes():
                     out_handler.write(str(record.seq))
                 out_handler.write("\n")
         out_handler.close()
+    return db_fasta_file
 
-def makeblastdb():
-    db_dir = "/var/www/html/blast/db/"
-    db_fasta_file = "LINdb_tmp.fasta"
+def makeblastdb(db_fasta_file):
+    db_dir = "/home/linproject/Workspace/BLAST/db"
     makeblastdb_cmd = "makeblastdb -in {0} -dbtype nucl -hash_index -logfile {1}error_log".format(join(db_dir,db_fasta_file),db_dir)
     os.system(makeblastdb_cmd)
 
 # MAIN
 if __name__ == "__main__":
-    concat_genomes()
-    makeblastdb()
+    db = sys.argv[1]
+    db_fasta_file = concat_genomes(db=db)
+    makeblastdb(db_fasta_file=db_fasta_file)
