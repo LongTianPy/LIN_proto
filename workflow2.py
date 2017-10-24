@@ -129,12 +129,9 @@ def load_new_metadata(c,db,args):
     return new_Genome_ID
 
 
-def create_sketch(filepath,mode,Genome_ID=None):
-    if mode == "check_duplication":
-        dest = sourmash_tmp+"tmp.sig"
-    else:
-        dest = sourmash_dir+str(Genome_ID)+".sig"
-    cmd = "sourmash compute -o {0} {1} -k 21,31 -n 1000".format(dest,filepath)
+def create_sketch(filepath):
+    dest = sourmash_tmp+"tmp.sig"
+    cmd = "sourmash compute -o {0} {1} -k 31 -n 1000".format(dest,filepath)
     os.system(cmd)
 
 def compare_sketch():
@@ -328,11 +325,12 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
                     else:
                         sub_df.loc[subject_genome_ID, "Same_family"] = 0
                     return sub_df
-            partial_parallel_each_position = partial(parallel_each_position,similarity_pool=similarity_pool)
-            pool = mp.Pool(4)
-            results = pool.map(partial_parallel_each_position,LIN_dictionary[each_LIN_dictionary_key].keys())
-            for i in results:
-                LIN_ANI_storage[each_LIN_dictionary_key].append(i)
+            # partial_parallel_each_position = partial(parallel_each_position,similarity_pool=similarity_pool)
+            # pool = mp.Pool(4)
+            # results = pool.map(partial_parallel_each_position,LIN_dictionary[each_LIN_dictionary_key].keys())
+            for each_next_number in LIN_dictionary[each_LIN_dictionary_key].keys():
+                sub_df = parallel_each_position(each_next_number=each_next_number,similarity_pool=similarity_pool)
+                LIN_ANI_storage[each_LIN_dictionary_key].append(sub_df)
                 similarity_pool = similarity_pool.append(sub_df)
             each_df = LIN_ANI_storage[each_LIN_dictionary_key][LIN_ANI_storage[each_LIN_dictionary_key]["Same_family"]==1]
             if each_df.empty:
@@ -454,7 +452,7 @@ if __name__ == '__main__':
         c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID,SubjectGenome,ANI,Coverage,LIN) values "
                   "({0},4,{1},{2},{3},'{4}')".format(new_genome_ID,SubjectGenome,ANIb_result,cov_result,new_LIN))
         db.commit()
-        create_sketch(new_genome_filepath,mode="Save",Genome_ID=new_genome_ID)
+        os.system("cp {0} {1}".format(sourmash_tmp+"tmp.sig",sourmash_dir+str(new_genome_ID)+".sig"))
         update_LINgroup(Genome_ID=new_genome_ID,c=c,new_LIN=new_LIN,conn=db)
         c.execute("SELECT LIN_ID FROM LIN WHERE Scheme_ID=4 AND Genome_ID={0}".format(new_genome_ID))
         LIN_ID = c.fetchone()[0]
