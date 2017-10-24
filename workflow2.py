@@ -123,7 +123,7 @@ def load_new_metadata(c,db,args):
     for i in range(len(Attribute_ID_list)):
         attributevalue = Attributes[i].replace("_"," ")
         sql = "insert into AttributeValue (Genome_ID,Interest_ID,Attribute_ID,AttributeValue,User_ID,Private) VALUES ({0},{1},{2},'{3}',{4},{5})".format(new_Genome_ID,args.Interest_ID, Attribute_ID_list[i],attributevalue,args.User_ID,args.privacy)
-        print(sql)
+        # print(sql)
         c.execute(sql)
         db.commit()
     return new_Genome_ID
@@ -442,7 +442,7 @@ if __name__ == '__main__':
     if new_LIN:
         new_genome_ID = load_new_metadata(c=c,db=db,args=args)
         c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID,SubjectGenome,ANI,Coverage,LIN) values "
-                  "({0},4,{1},{2},{3},'{4}')".format_map(new_genome_ID,SubjectGenome,ANIb_result,cov_result,new_LIN))
+                  "({0},4,{1},{2},{3},'{4}')".format(new_genome_ID,SubjectGenome,ANIb_result,cov_result,new_LIN))
         db.commit()
         create_sketch(new_genome_filepath,mode="Save",Genome_ID=new_genome_ID)
         update_LINgroup(Genome_ID=new_genome_ID,c=c,new_LIN=new_LIN,conn=db)
