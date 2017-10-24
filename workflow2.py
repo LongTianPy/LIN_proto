@@ -133,7 +133,7 @@ def create_sketch(filepath,mode,Genome_ID=None):
         dest = sourmash_tmp+"tmp.sig"
     else:
         dest = sourmash_dir+str(Genome_ID)+".sig"
-    cmd = "sourmash compute -o {0} {1} -k 21,31 -m 1000".format(dest,filepath)
+    cmd = "sourmash compute -o {0} {1} -k 21,31 -n 1000".format(dest,filepath)
     os.system(cmd)
 
 def compare_sketch():
