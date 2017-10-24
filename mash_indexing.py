@@ -104,6 +104,7 @@ def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_
         return LIN_dictionary.keys()[0], current_level+1
 
 
+
 def LINgroup_indexing(cursor, New_Genome_ID, New_Genome_filepath , working_dir, User_ID):
     cursor.execute("SELECT Cutoff FROM Scheme WHERE Scheme_ID=4")
     tmp = cursor.fetchone()
@@ -138,7 +139,7 @@ def LINgroup_indexing(cursor, New_Genome_ID, New_Genome_filepath , working_dir, 
             similarity = ANIb_result
             top1_Genome_ID = LIN_table.index[0]
             top1_similarity = similarity
-            new_LIN_object = LIN_Assign.getLIN(Genome_ID=top1_Genome_ID, Scheme_ID=4, similarity=top1_similarity,c=cursor,current_genome=New_Genome_ID)
+            new_LIN_object = LIN_Assign.getLIN(Genome_ID=top1_Genome_ID, Scheme_ID=4, similarity=top1_similarity,c=cursor)
             new_LIN = LIN_Assign.Assign_LIN(new_LIN_object, c=cursor).new_LIN
         else:
             similarity_pool = {}
@@ -185,11 +186,120 @@ def LINgroup_indexing(cursor, New_Genome_ID, New_Genome_filepath , working_dir, 
             final_best_ANI = LIN_ANI_storage[final_best_Genome_ID]
             new_getLIN_object = LIN_Assign.getLIN(Genome_ID=int(final_best_Genome_ID), Scheme_ID=4, similarity=final_best_ANI,
                                               c=cursor)
-            new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_getLIN_object,c=cursor,current_genome=New_Genome_ID).new_LIN
+            new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_getLIN_object,c=cursor).new_LIN
             SubjectGenome= int(final_best_Genome_ID)
             ANIb_result = final_best_ANI
         conserved_LIN = ",".join(new_getLIN_object.conserved_LIN)
     return new_LIN, SubjectGenome, ANIb_result,conserved_LIN
+
+def LINgroup_indexing_2(cursor, New_Genome_ID, New_Genome_filepath , working_dir, User_ID):
+    cursor.execute("SELECT Cutoff FROM Scheme WHERE Scheme_ID=4")
+    tmp = cursor.fetchone()
+    cutoff = tmp[0].split(",")
+    cutoff = [float(i) / 100 for i in cutoff]
+    cursor.execute("SELECT Genome_ID, LIN FROM LIN where Scheme_ID=4")
+    tmp = cursor.fetchall()
+    if len(tmp) == 0:
+        new_LIN = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
+        top1_Genome_ID = New_Genome_ID
+        top1_similarity = 1
+        conserved_LIN = ""
+    else:
+        LIN_table = pd.DataFrame()
+        genomes = [int(i[0]) for i in tmp]
+        LIN_table["LIN"] = [i[1].split(",") for i in tmp]
+        LIN_table.index = genomes
+        reverse_LIN_dict = {",".join(LIN_table.get_value(each_genome, "LIN")):each_genome for each_genome in genomes}
+        if len(LIN_table.index) == 1:
+            subject_genome_ID = LIN_table.index[0]
+            cursor.execute("SELECT FilePath from Genome WHERE Genome_ID={0}".format(LIN_table.index[0]))
+            Subject_Genome_filepath = cursor.fetchone()[0]
+            shutil.copyfile(New_Genome_filepath, working_dir + "{0}.fasta".format(New_Genome_ID))
+            shutil.copyfile(Subject_Genome_filepath, working_dir + "{0}.fasta".format(LIN_table.index[0]))
+            pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py -i {0} -o {0}{" \
+                        "1}_output/ -m ANIblastall --nocompress".format(
+                working_dir, User_ID)
+            os.system(pyani_cmd)
+            ANIb_result = pd.read_table(working_dir + "{0}_output/ANIblastall_percentage_identity.tab".format(User_ID),
+                                         header=0, index_col=0).get_value(int(New_Genome_ID),str(subject_genome_ID))
+            os.system('rm -rf {0}*'.format(working_dir))
+            similarity = ANIb_result
+            top1_Genome_ID = LIN_table.index[0]
+            top1_similarity = similarity
+            new_LIN_object = LIN_Assign.getLIN(Genome_ID=top1_Genome_ID, Scheme_ID=4, similarity=top1_similarity,c=cursor)
+            new_LIN = LIN_Assign.Assign_LIN(new_LIN_object, c=cursor).new_LIN
+        else:
+            similarity_pool = pd.DataFrame()
+            previous_route = "" # To initiate
+            current_level = 0
+            while current_level < 19:
+                previous_route, current_level = go_through_LIN_table(previous_route=previous_route,
+                                                                     current_level=current_level, LIN_table=LIN_table,
+                                                                     cursor=cursor, reverse_LIN_dict=reverse_LIN_dict,
+                                                                     New_Genome_filepath=New_Genome_filepath,
+                                                                     working_dir=working_dir,
+                                                                     New_Genome_ID=New_Genome_ID, User_ID=User_ID,
+                                                                     similarity_pool=similarity_pool,
+                                                                     cutoff=cutoff)
+            # print previous_route
+            cursor.execute("SELECT Genome_ID, LIN FROM LIN WHERE Scheme_ID=4 and LIN LIKE '{0}%'".format(previous_route))
+            tmp = cursor.fetchall()
+            final_candidate_LIN_table = pd.DataFrame()
+            final_candidate_LIN_table["LIN"] = [i[1] for i in tmp]
+            final_candidate_LIN_table.index = [int(i[0]) for i in tmp]
+            LIN_ANI_storage = {}
+            for each_final_candidate in final_candidate_LIN_table.index:
+                if str(each_final_candidate) not in similarity_pool:
+                    subject_genome_ID = each_final_candidate
+                    cursor.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(subject_genome_ID))
+                    subject_genome_filepath = cursor.fetchone()[0]
+                    shutil.copyfile(New_Genome_filepath, working_dir + "{0}.fasta".format(New_Genome_ID))
+                    shutil.copyfile(subject_genome_filepath, working_dir + "{0}.fasta".format(subject_genome_ID))
+                    pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py -i {0} -o {0}{1}_output/ -m ANIblastall --nocompress".format(
+                        working_dir, User_ID)
+                    os.system(pyani_cmd)
+                    ANIb_result = pd.read_table(
+                        working_dir + "{0}_output/ANIblastall_percentage_identity.tab".format(User_ID), header=0,
+                        index_col=0).get_value(int(New_Genome_ID), str(subject_genome_ID))
+                    os.system("rm -rf {0}*".format(working_dir))
+                    similarity = ANIb_result
+                    similarity_pool[str(subject_genome_ID)] = similarity
+                    LIN_ANI_storage[str(subject_genome_ID)] = similarity
+                else:
+                    LIN_ANI_storage[str(each_final_candidate)] = similarity_pool[str(each_final_candidate)]
+            # LIN_ANI_storage = {str(each_final_candidate):similarity_pool[str(each_final_candidate)] for each_final_candidate in final_candidate_LIN_table.index}
+            final_best_Genome_ID = str(max(LIN_ANI_storage,key=LIN_ANI_storage.get))
+            # final_best_LIN = final_candidate_LIN_table.get_value(final_best_Genome_ID,"LIN")
+            final_best_ANI = LIN_ANI_storage[final_best_Genome_ID]
+            new_getLIN_object = LIN_Assign.getLIN(Genome_ID=int(final_best_Genome_ID), Scheme_ID=4, similarity=final_best_ANI,
+                                              c=cursor)
+            new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_getLIN_object,c=cursor).new_LIN
+            SubjectGenome= int(final_best_Genome_ID)
+            ANIb_result = final_best_ANI
+        conserved_LIN = ",".join(new_getLIN_object.conserved_LIN)
+    return new_LIN, SubjectGenome, ANIb_result,conserved_LIN
+
+def each_ANI_calculation(new_genome_ID,new_genome_filepath,subject_genome_ID,similarity_pool,cursor,working_dir):
+    if str(subject_genome_ID) not in similarity_pool.index:
+        os.mkdir(working_dir+"{0}".format(subject_genome_ID))
+        cursor.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(subject_genome_ID))
+        subject_genome_filepath = cursor.fetchone()[0]
+        shutil.copyfile(new_genome_filepath,working_dir+"{0}/"+"{1}.fasta".format(subject_genome_ID,new_genome_ID))
+        shutil.copy(subject_genome_filepath,working_dir+"{0}/"+"{0}.fasta".format(subject_genome_ID))
+        pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py -i {0} -o {0}output/ -m ANIblastall --nocompress".format(working_dir+"{0}/".format(subject_genome_ID))
+        os.system(pyani_cmd)
+        ANIb_result = pd.read_table(
+                working_dir+str(subject_genome_ID)+"/output/ANIblastall_percentage_identity.tab",
+                header=0,index_col=0
+        ).get_value(int(new_genome_ID),str(subject_genome_ID))
+        cov_result = pd.read_table(
+                working_dir+str(subject_genome_ID)+"/output/ANIblastall_alignment_coverage.tab"
+        ).get_value(int(new_genome_ID),str(subject_genome_ID))
+        os.system("rm -rf {0}".format(working_dir+str(subject_genome_ID)+"/"))
+        df = pd.DataFrame(0,index=int(subject_genome_ID),columns=["ANI","cov"])
+        df.loc[int(subject_genome_ID),"ANI"]=ANIb_result
+        df.loc[int(subject_genome_ID),"cov"]=cov_result
+        return df
 
 def mash_indexing(cursor, new_Genome_ID, User_ID,conn):
     """
@@ -231,7 +341,7 @@ def mash_indexing(cursor, new_Genome_ID, User_ID,conn):
         new_getLIN_object = LIN_Assign.getLIN(Genome_ID=SubjectGenome, Scheme_ID=4,
                                               similarity=ANIb_result,
                                               c=cursor)
-        new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_getLIN_object, c=cursor, current_genome=new_Genome_ID).new_LIN
+        new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_getLIN_object, c=cursor).new_LIN
         conserved_LIN = ",".join(new_getLIN_object.conserved_LIN)
     else:
         new_LIN, SubjectGenome, ANIb_result,conserved_LIN = LINgroup_indexing(cursor=cursor,New_Genome_ID=new_Genome_ID,

@@ -61,14 +61,13 @@ class getLIN(object):
 class Assign_LIN(object):
     """ Get the biggest number assigned to the idx_to_change with the same conserved part of LIN
     """
-    def __init__(self, getLIN_object,c,current_genome):
+    def __init__(self, getLIN_object,c):
         self.idx_to_change = getLIN_object.idx_to_change
         self.conserved_LIN = ','.join(getLIN_object.conserved_LIN)
         self.label_num = getLIN_object.label_num
         self.c=c
-        self.current_genome = current_genome
         self.assign()
-    def assign(self, idx_to_change=None, conserved_LIN=None, label_num=None,c=None,current_genome=None):
+    def assign(self, idx_to_change=None, conserved_LIN=None, label_num=None,c=None):
         if not idx_to_change:
             idx_to_change = self.idx_to_change
         if not conserved_LIN:
@@ -77,13 +76,11 @@ class Assign_LIN(object):
             label_num = self.label_num
         if not c:
             c=self.c
-        if not current_genome:
-            current_genome = self.current_genome
         if conserved_LIN == '':
-            c.execute("SELECT LIN.LIN FROM LIN where LIN.Genome_ID<{0} and Scheme_ID=4".format(current_genome))
+            c.execute("SELECT LIN.LIN FROM LIN where Scheme_ID=4")
             tmp = c.fetchall()
         else:
-            sql="SELECT LIN.LIN from LIN WHERE LIN.Genome_ID<{0} and LIN.LIN LIKE '{1}%' and Scheme_ID=4".format(current_genome,conserved_LIN)
+            sql="SELECT LIN.LIN from LIN WHERE LIN.LIN LIKE '{0}%' and Scheme_ID=4".format(conserved_LIN)
             # print sql
             c.execute(sql)
             tmp = c.fetchall()

@@ -178,8 +178,8 @@ def main(argv=None): # The genome file name we are expecting for is a
     new_GenomeName = new_genome.split('.')[0]
     contig_number = get_contig_number(original_folder+new_genome)
     # As well as its Interest_ID
-    c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath, GenomeName) values ({0}, {1}, "{2}", "{3}")'
-              .format(Interest_ID_new_genome ,Submission_ID, original_folder+new_genome, new_GenomeName))
+    c.execute('INSERT INTO Genome (Interest_ID, Submission_ID, FilePath) values ({0}, {1}, "{2}")'
+              .format(Interest_ID_new_genome ,Submission_ID, original_folder+new_genome))
     db.commit()
     c.execute('select Genome_ID from Genome where GenomeName="{0}"'.format(new_GenomeName))
     tmp = c.fetchone()
