@@ -401,6 +401,8 @@ if __name__ == '__main__':
         top1_coverage = 1
         conserved_LIN = ""
         SubjectGenome = top1_Genome_ID
+        ANIb_result = top1_similarity
+        cov_result = top1_coverage
     else:
         compare_sketch()
         df = parse_result()
