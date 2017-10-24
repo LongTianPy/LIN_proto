@@ -123,7 +123,7 @@ def load_new_metadata(c,db,args):
         attributevalue = Attributes[i].replace("_"," ")
         c.execute("insert into AttributeValue (Attribute_ID,Genome_ID,Interest,_ID,AttributeValue,User_ID,Private) "
                   "VALUES ({0},{1},{2},'{3}',{4},{5})".format(Attribute_ID_list[i],new_Genome_ID,args.Interest_ID,
-                                                              attributevalue,args.User_ID,args.privacy))
+                                                              attributevalue[i],args.User_ID,args.privacy))
         db.commit()
     return new_Genome_ID
 
