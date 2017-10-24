@@ -207,7 +207,7 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
                 previous_route,current_level = go_through_LIN_table(previous_route,current_level,cursor,
                                                                     reverse_LIN_dict,new_genome_filepath,
                                                                     workspace_dir,similarity_pool,cutoff)
-            if previous_route == ",".join(["0"]*20)
+            if previous_route == ",".join(["0"]*20):
                 top1_similarity = 0.1
                 top1_coverage = 0.1
                 top1_Genome_ID = 1
