@@ -110,7 +110,7 @@ def load_new_metadata(c,db,args):
     db.commit()
     c.execute("SELECT Submission_ID FROM Submission where User_ID={0} and Time='{1}'".format(User_ID,standardtime))
     Submission_ID = int(c.fetchone()[0])
-    os.system("cp {0} (1}".format(tmp_folder+args.new_genome,original_folder+args.new_genome))
+    os.system("cp {0} {1}".format(tmp_folder+args.new_genome,original_folder+args.new_genome))
     c.execute("INSERT INTO Genome (Interest_ID, Submission_ID, FilePath) VALUES ({0}, {1}, '{2}')"
               .format(args.Interest_ID, Submission_ID, original_folder+args.new_genome))
     db.commit()
