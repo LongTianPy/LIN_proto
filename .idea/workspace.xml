@@ -256,43 +256,43 @@
           <file leaf-file-name="workflow2.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/workflow2.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="201">
-                  <caret line="34" column="58" lean-forward="false" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
+                <state relative-caret-position="462">
+                  <caret line="141" column="71" lean-forward="false" selection-start-line="141" selection-start-column="71" selection-end-line="141" selection-end-column="71" />
                   <folding>
                     <element signature="e#114#131#0" expanded="true" />
-                    <element signature="e#5574#6056#0" expanded="false" />
-                    <marker date="1508872888000" expanded="true" signature="3018:3078" ph="SELECT FileP... Genome" />
-                    <marker date="1508872888000" expanded="true" signature="3018:3139" ph="SELECT Genom... Genome" />
-                    <marker date="1508872888000" expanded="true" signature="3434:3491" ph="INSERT INTO Submission... " />
-                    <marker date="1508872888000" expanded="true" signature="3560:3629" ph="SELECT Submi... Submission" />
-                    <marker date="1508872888000" expanded="true" signature="3812:3894" ph="INSERT INTO Genome... " />
-                    <marker date="1508872888000" expanded="true" signature="4016:4065" ph="SELECT Genom... Genome" />
-                    <marker date="1508872888000" expanded="true" signature="4016:4068" ph="SELECT Genom... Genome" />
-                    <marker date="1508872888000" expanded="true" signature="4149:4202" ph="SELECT Attri... Interest" />
-                    <marker date="1508872888000" expanded="true" signature="4149:4205" ph="SELECT Attri... Interest" />
-                    <marker date="1508872888000" expanded="true" signature="4468:4563" ph="insert into AttributeValue... " />
-                    <marker date="1508872888000" expanded="true" signature="4468:4619" ph="insert into AttributeValue... " />
-                    <marker date="1508872888000" expanded="true" signature="4468:4785" ph="insert into AttributeValue... " />
-                    <marker date="1508872888000" expanded="true" signature="6151:6194" ph="SELECT Cutof... Scheme" />
-                    <marker date="1508872888000" expanded="true" signature="9617:9685" ph="SELECT Genom... LIN" />
-                    <marker date="1508872888000" expanded="true" signature="10241:10285" ph="SELECT FileP... Genome" />
-                    <marker date="1508872888000" expanded="true" signature="10241:10288" ph="SELECT FileP... Genome" />
-                    <marker date="1508872888000" expanded="true" signature="13632:13699" ph="SELECT Genom... LIN" />
-                    <marker date="1508872888000" expanded="true" signature="15296:15340" ph="SELECT FileP... Genome" />
-                    <marker date="1508872888000" expanded="true" signature="15296:15343" ph="SELECT FileP... Genome" />
-                    <marker date="1508872888000" expanded="true" signature="18893:18918" ph="select * fro... Description" />
-                    <marker date="1508872888000" expanded="true" signature="19268:19327" ph="update Descr... " />
-                    <marker date="1508872888000" expanded="true" signature="23266:23389" ph="INSERT INTO LIN... " />
-                    <marker date="1508872888000" expanded="true" signature="23658:23680" ph="SELECT LIN_I... LIN" />
-                    <marker date="1508872888000" expanded="true" signature="23658:23713" ph="SELECT LIN_I... LIN" />
-                    <marker date="1508872888000" expanded="true" signature="23658:23716" ph="SELECT LIN_I... LIN" />
-                    <marker date="1508872888000" expanded="true" signature="23830:23894" ph="INSERT INTO Job... " />
-                    <marker date="1508872888000" expanded="true" signature="23830:23914" ph="INSERT INTO Job... " />
-                    <marker date="1508872888000" expanded="true" signature="24341:24364" ph="SELECt Email... User" />
-                    <marker date="1508872888000" expanded="true" signature="24341:24378" ph="SELECT Email... User" />
-                    <marker date="1508872888000" expanded="true" signature="24341:24381" ph="SELECT Email... User" />
-                    <marker date="1508872888000" expanded="true" signature="24643:24727" ph="INSERT INTO Duplicated_upload... " />
-                    <marker date="1508872888000" expanded="true" signature="24799:24836" ph="SELECT Email... User" />
+                    <element signature="e#5591#6073#0" expanded="false" />
+                    <marker date="1508873005000" expanded="true" signature="3018:3078" ph="SELECT FileP... Genome" />
+                    <marker date="1508873005000" expanded="true" signature="3018:3139" ph="SELECT Genom... Genome" />
+                    <marker date="1508873005000" expanded="true" signature="3434:3491" ph="INSERT INTO Submission... " />
+                    <marker date="1508873005000" expanded="true" signature="3560:3629" ph="SELECT Submi... Submission" />
+                    <marker date="1508873005000" expanded="true" signature="3812:3894" ph="INSERT INTO Genome... " />
+                    <marker date="1508873005000" expanded="true" signature="4016:4065" ph="SELECT Genom... Genome" />
+                    <marker date="1508873005000" expanded="true" signature="4016:4068" ph="SELECT Genom... Genome" />
+                    <marker date="1508873005000" expanded="true" signature="4149:4202" ph="SELECT Attri... Interest" />
+                    <marker date="1508873005000" expanded="true" signature="4149:4205" ph="SELECT Attri... Interest" />
+                    <marker date="1508873005000" expanded="true" signature="4468:4563" ph="insert into AttributeValue... " />
+                    <marker date="1508873005000" expanded="true" signature="4468:4619" ph="insert into AttributeValue... " />
+                    <marker date="1508873005000" expanded="true" signature="4468:4785" ph="insert into AttributeValue... " />
+                    <marker date="1508873005000" expanded="true" signature="6168:6211" ph="SELECT Cutof... Scheme" />
+                    <marker date="1508873005000" expanded="true" signature="9634:9702" ph="SELECT Genom... LIN" />
+                    <marker date="1508873005000" expanded="true" signature="10258:10302" ph="SELECT FileP... Genome" />
+                    <marker date="1508873005000" expanded="true" signature="10258:10305" ph="SELECT FileP... Genome" />
+                    <marker date="1508873005000" expanded="true" signature="13649:13716" ph="SELECT Genom... LIN" />
+                    <marker date="1508873005000" expanded="true" signature="15313:15357" ph="SELECT FileP... Genome" />
+                    <marker date="1508873005000" expanded="true" signature="15313:15360" ph="SELECT FileP... Genome" />
+                    <marker date="1508873005000" expanded="true" signature="18910:18935" ph="select * fro... Description" />
+                    <marker date="1508873005000" expanded="true" signature="19285:19344" ph="update Descr... " />
+                    <marker date="1508873005000" expanded="true" signature="23283:23406" ph="INSERT INTO LIN... " />
+                    <marker date="1508873005000" expanded="true" signature="23675:23697" ph="SELECT LIN_I... LIN" />
+                    <marker date="1508873005000" expanded="true" signature="23675:23730" ph="SELECT LIN_I... LIN" />
+                    <marker date="1508873005000" expanded="true" signature="23675:23733" ph="SELECT LIN_I... LIN" />
+                    <marker date="1508873005000" expanded="true" signature="23847:23911" ph="INSERT INTO Job... " />
+                    <marker date="1508873005000" expanded="true" signature="23847:23931" ph="INSERT INTO Job... " />
+                    <marker date="1508873005000" expanded="true" signature="24358:24381" ph="SELECt Email... User" />
+                    <marker date="1508873005000" expanded="true" signature="24358:24395" ph="SELECT Email... User" />
+                    <marker date="1508873005000" expanded="true" signature="24358:24398" ph="SELECT Email... User" />
+                    <marker date="1508873005000" expanded="true" signature="24660:24744" ph="INSERT INTO Duplicated_upload... " />
+                    <marker date="1508873005000" expanded="true" signature="24816:24853" ph="SELECT Email... User" />
                   </folding>
                 </state>
               </provider>
@@ -840,13 +840,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00703" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
-      <created>1499374429799</created>
-      <option name="number" value="00703" />
-      <option name="presentableId" value="LOCAL-00703" />
-      <option name="project" value="LOCAL" />
-      <updated>1499374429799</updated>
-    </task>
     <task id="LOCAL-00704" summary="Create ANI_calculation for multiprocessing in dragonstooth@VT">
       <created>1499394367762</created>
       <option name="number" value="00704" />
@@ -1183,7 +1176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508871467840</updated>
     </task>
-    <option name="localTasksCounter" value="752" />
+    <task id="LOCAL-00752" summary="A new workflow&#10;debug: line 210, 136">
+      <created>1508872898193</created>
+      <option name="number" value="00752" />
+      <option name="presentableId" value="LOCAL-00752" />
+      <option name="project" value="LOCAL" />
+      <updated>1508872898193</updated>
+    </task>
+    <option name="localTasksCounter" value="753" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1870,43 +1870,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/workflow2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="34" column="58" lean-forward="false" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
+        <state relative-caret-position="462">
+          <caret line="141" column="71" lean-forward="false" selection-start-line="141" selection-start-column="71" selection-end-line="141" selection-end-column="71" />
           <folding>
             <element signature="e#114#131#0" expanded="true" />
-            <element signature="e#5574#6056#0" expanded="false" />
-            <marker date="1508872888000" expanded="true" signature="3018:3078" ph="SELECT FileP... Genome" />
-            <marker date="1508872888000" expanded="true" signature="3018:3139" ph="SELECT Genom... Genome" />
-            <marker date="1508872888000" expanded="true" signature="3434:3491" ph="INSERT INTO Submission... " />
-            <marker date="1508872888000" expanded="true" signature="3560:3629" ph="SELECT Submi... Submission" />
-            <marker date="1508872888000" expanded="true" signature="3812:3894" ph="INSERT INTO Genome... " />
-            <marker date="1508872888000" expanded="true" signature="4016:4065" ph="SELECT Genom... Genome" />
-            <marker date="1508872888000" expanded="true" signature="4016:4068" ph="SELECT Genom... Genome" />
-            <marker date="1508872888000" expanded="true" signature="4149:4202" ph="SELECT Attri... Interest" />
-            <marker date="1508872888000" expanded="true" signature="4149:4205" ph="SELECT Attri... Interest" />
-            <marker date="1508872888000" expanded="true" signature="4468:4563" ph="insert into AttributeValue... " />
-            <marker date="1508872888000" expanded="true" signature="4468:4619" ph="insert into AttributeValue... " />
-            <marker date="1508872888000" expanded="true" signature="4468:4785" ph="insert into AttributeValue... " />
-            <marker date="1508872888000" expanded="true" signature="6151:6194" ph="SELECT Cutof... Scheme" />
-            <marker date="1508872888000" expanded="true" signature="9617:9685" ph="SELECT Genom... LIN" />
-            <marker date="1508872888000" expanded="true" signature="10241:10285" ph="SELECT FileP... Genome" />
-            <marker date="1508872888000" expanded="true" signature="10241:10288" ph="SELECT FileP... Genome" />
-            <marker date="1508872888000" expanded="true" signature="13632:13699" ph="SELECT Genom... LIN" />
-            <marker date="1508872888000" expanded="true" signature="15296:15340" ph="SELECT FileP... Genome" />
-            <marker date="1508872888000" expanded="true" signature="15296:15343" ph="SELECT FileP... Genome" />
-            <marker date="1508872888000" expanded="true" signature="18893:18918" ph="select * fro... Description" />
-            <marker date="1508872888000" expanded="true" signature="19268:19327" ph="update Descr... " />
-            <marker date="1508872888000" expanded="true" signature="23266:23389" ph="INSERT INTO LIN... " />
-            <marker date="1508872888000" expanded="true" signature="23658:23680" ph="SELECT LIN_I... LIN" />
-            <marker date="1508872888000" expanded="true" signature="23658:23713" ph="SELECT LIN_I... LIN" />
-            <marker date="1508872888000" expanded="true" signature="23658:23716" ph="SELECT LIN_I... LIN" />
-            <marker date="1508872888000" expanded="true" signature="23830:23894" ph="INSERT INTO Job... " />
-            <marker date="1508872888000" expanded="true" signature="23830:23914" ph="INSERT INTO Job... " />
-            <marker date="1508872888000" expanded="true" signature="24341:24364" ph="SELECt Email... User" />
-            <marker date="1508872888000" expanded="true" signature="24341:24378" ph="SELECT Email... User" />
-            <marker date="1508872888000" expanded="true" signature="24341:24381" ph="SELECT Email... User" />
-            <marker date="1508872888000" expanded="true" signature="24643:24727" ph="INSERT INTO Duplicated_upload... " />
-            <marker date="1508872888000" expanded="true" signature="24799:24836" ph="SELECT Email... User" />
+            <element signature="e#5591#6073#0" expanded="false" />
+            <marker date="1508873005000" expanded="true" signature="3018:3078" ph="SELECT FileP... Genome" />
+            <marker date="1508873005000" expanded="true" signature="3018:3139" ph="SELECT Genom... Genome" />
+            <marker date="1508873005000" expanded="true" signature="3434:3491" ph="INSERT INTO Submission... " />
+            <marker date="1508873005000" expanded="true" signature="3560:3629" ph="SELECT Submi... Submission" />
+            <marker date="1508873005000" expanded="true" signature="3812:3894" ph="INSERT INTO Genome... " />
+            <marker date="1508873005000" expanded="true" signature="4016:4065" ph="SELECT Genom... Genome" />
+            <marker date="1508873005000" expanded="true" signature="4016:4068" ph="SELECT Genom... Genome" />
+            <marker date="1508873005000" expanded="true" signature="4149:4202" ph="SELECT Attri... Interest" />
+            <marker date="1508873005000" expanded="true" signature="4149:4205" ph="SELECT Attri... Interest" />
+            <marker date="1508873005000" expanded="true" signature="4468:4563" ph="insert into AttributeValue... " />
+            <marker date="1508873005000" expanded="true" signature="4468:4619" ph="insert into AttributeValue... " />
+            <marker date="1508873005000" expanded="true" signature="4468:4785" ph="insert into AttributeValue... " />
+            <marker date="1508873005000" expanded="true" signature="6168:6211" ph="SELECT Cutof... Scheme" />
+            <marker date="1508873005000" expanded="true" signature="9634:9702" ph="SELECT Genom... LIN" />
+            <marker date="1508873005000" expanded="true" signature="10258:10302" ph="SELECT FileP... Genome" />
+            <marker date="1508873005000" expanded="true" signature="10258:10305" ph="SELECT FileP... Genome" />
+            <marker date="1508873005000" expanded="true" signature="13649:13716" ph="SELECT Genom... LIN" />
+            <marker date="1508873005000" expanded="true" signature="15313:15357" ph="SELECT FileP... Genome" />
+            <marker date="1508873005000" expanded="true" signature="15313:15360" ph="SELECT FileP... Genome" />
+            <marker date="1508873005000" expanded="true" signature="18910:18935" ph="select * fro... Description" />
+            <marker date="1508873005000" expanded="true" signature="19285:19344" ph="update Descr... " />
+            <marker date="1508873005000" expanded="true" signature="23283:23406" ph="INSERT INTO LIN... " />
+            <marker date="1508873005000" expanded="true" signature="23675:23697" ph="SELECT LIN_I... LIN" />
+            <marker date="1508873005000" expanded="true" signature="23675:23730" ph="SELECT LIN_I... LIN" />
+            <marker date="1508873005000" expanded="true" signature="23675:23733" ph="SELECT LIN_I... LIN" />
+            <marker date="1508873005000" expanded="true" signature="23847:23911" ph="INSERT INTO Job... " />
+            <marker date="1508873005000" expanded="true" signature="23847:23931" ph="INSERT INTO Job... " />
+            <marker date="1508873005000" expanded="true" signature="24358:24381" ph="SELECt Email... User" />
+            <marker date="1508873005000" expanded="true" signature="24358:24395" ph="SELECT Email... User" />
+            <marker date="1508873005000" expanded="true" signature="24358:24398" ph="SELECT Email... User" />
+            <marker date="1508873005000" expanded="true" signature="24660:24744" ph="INSERT INTO Duplicated_upload... " />
+            <marker date="1508873005000" expanded="true" signature="24816:24853" ph="SELECT Email... User" />
           </folding>
         </state>
       </provider>
