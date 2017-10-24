@@ -394,51 +394,58 @@ if __name__ == '__main__':
     db, c = connect_to_db()
     metadata = extract_metadata(c=c)
     create_sketch(tmp_folder+new_genome,"check_duplication")
-    compare_sketch()
-    df = parse_result()
-    if df.empty:
-        ## LINgroup indexing
-        new_LIN, SubjectGenome, ANIb_result, cov_result, conserved_LIN = LINgroup_indexing(cursor=c,metadata=metadata,new_genome_filepath=new_genome_filepath)
+    if metadata.empty:
+        new_LIN = ",".join(["0"] * 20)
+        top1_Genome_ID = 1
+        top1_similarity = 1
+        top1_coverage = 1
+        conserved_LIN = ""
     else:
-        if df.get_value(df.index[0],"Jaccard_similarity") == 1:
-            # Same genome found
-            SubjectGenome = df.index[0]
-            # There is a table about same genome, better record it
-            [new_LIN, ANIb_result,cov_result,conserved_LIN] = [None]*4
+        compare_sketch()
+        df = parse_result()
+        if df.empty:
+            ## LINgroup indexing
+            new_LIN, SubjectGenome, ANIb_result, cov_result, conserved_LIN = LINgroup_indexing(cursor=c,metadata=metadata,new_genome_filepath=new_genome_filepath)
         else:
-            for each_subject_genome_ID in df.index[:4]:
-                sub_working_dir = workspace_dir + str(each_subject_genome_ID) + "/"
-                if not isdir(sub_working_dir):
-                    os.mkdir(sub_working_dir)
-                subject_genome_filepath = metadata.get_value(each_subject_genome_ID, "FilePath")
-                shutil.copyfile(new_genome_filepath, sub_working_dir + "tmp.fasta")
-                shutil.copyfile(subject_genome_filepath, sub_working_dir + "{0}.fasta".format_map(each_subject_genome_ID))
-                pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                            "-i {0} -o {0}output -m ANIblastall --nocompress".format(sub_working_dir)
-                os.system(pyani_cmd)
-                ANIb_result = pd.read_table(sub_working_dir + "output/ANIblastall_percentage_identity.tab", sep="\t",
-                                            header=0,
-                                            index_col=0).get_value(tmp, str(subject_genome_ID))
-                cov_result = pd.read_table(sub_working_dir + "output/ANIblastall_alignment_coverage.tab", sep="\t",
-                                           header=0,
-                                           index_col=0).get_value(tmp, str(subject_genome_ID))
-                os.system("rm -rf {0}".format(sub_working_dir))
-                predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid=df.get_value(each_subject_genome_ID,"Jaccard_similarity"))
-                if predict.same_family:
-                    break
-                else:
-                    continue
-            if predict.same_family:
-                new_LIN_object = LIN_Assign.getLIN(Genome_ID=each_subject_genome_ID,Scheme_ID=4,similarity=ANIb_result,c=c)
-                new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=c).new_LIN
-                conserved_LIN = ",".join(new_LIN_object.conserved_LIN)
-                SubjectGenome = each_subject_genome_ID
+            if df.get_value(df.index[0],"Jaccard_similarity") == 1:
+                # Same genome found
+                SubjectGenome = df.index[0]
+                # There is a table about same genome, better record it
+                [new_LIN, ANIb_result,cov_result,conserved_LIN] = [None]*4
             else:
-                new_LIN_object = LIN_Assign.getLIN(Genome_ID=each_subject_genome_ID, Scheme_ID=4, similarity=ANIb_result,
-                                                   c=c)
-                new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=cursor).new_LIN
-                conserved_LIN = ""
-                SubjectGenome = each_subject_genome_ID
+                for each_subject_genome_ID in df.index[:4]:
+                    sub_working_dir = workspace_dir + str(each_subject_genome_ID) + "/"
+                    if not isdir(sub_working_dir):
+                        os.mkdir(sub_working_dir)
+                    subject_genome_filepath = metadata.get_value(each_subject_genome_ID, "FilePath")
+                    shutil.copyfile(new_genome_filepath, sub_working_dir + "tmp.fasta")
+                    shutil.copyfile(subject_genome_filepath, sub_working_dir + "{0}.fasta".format_map(each_subject_genome_ID))
+                    pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
+                                "-i {0} -o {0}output -m ANIblastall --nocompress".format(sub_working_dir)
+                    os.system(pyani_cmd)
+                    ANIb_result = pd.read_table(sub_working_dir + "output/ANIblastall_percentage_identity.tab", sep="\t",
+                                                header=0,
+                                                index_col=0).get_value(tmp, str(subject_genome_ID))
+                    cov_result = pd.read_table(sub_working_dir + "output/ANIblastall_alignment_coverage.tab", sep="\t",
+                                               header=0,
+                                               index_col=0).get_value(tmp, str(subject_genome_ID))
+                    os.system("rm -rf {0}".format(sub_working_dir))
+                    predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid=df.get_value(each_subject_genome_ID,"Jaccard_similarity"))
+                    if predict.same_family:
+                        break
+                    else:
+                        continue
+                if predict.same_family:
+                    new_LIN_object = LIN_Assign.getLIN(Genome_ID=each_subject_genome_ID,Scheme_ID=4,similarity=ANIb_result,c=c)
+                    new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=c).new_LIN
+                    conserved_LIN = ",".join(new_LIN_object.conserved_LIN)
+                    SubjectGenome = each_subject_genome_ID
+                else:
+                    new_LIN_object = LIN_Assign.getLIN(Genome_ID=each_subject_genome_ID, Scheme_ID=4, similarity=ANIb_result,
+                                                       c=c)
+                    new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=cursor).new_LIN
+                    conserved_LIN = ""
+                    SubjectGenome = each_subject_genome_ID
     if new_LIN:
         new_genome_ID = load_new_metadata(c=c,db=db,args=args)
         c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID,SubjectGenome,ANI,Coverage,LIN) values "
