@@ -184,9 +184,9 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
                         "-i {0} -o {0}output -m ANIblastall --nocompress".format(sub_working_dir)
             os.system(pyani_cmd)
             ANIb_result = pd.read_table(sub_working_dir+"output/ANIblastall_percentage_identity.tab",sep="\t",header=0,
-                                        index_col=0).get_value(tmp,str(subject_genome_ID))
+                                        index_col=0).get_value('tmp',str(subject_genome_ID))
             cov_result = pd.read_table(sub_working_dir+"output/ANIblastall_alignment_coverage.tab",sep="\t",header=0,
-                                        index_col=0).get_value(tmp,str(subject_genome_ID))
+                                        index_col=0).get_value('tmp',str(subject_genome_ID))
             os.system("rm -rf {0}".format(sub_working_dir))
             predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid="N/A")
             if predict.same_family:
@@ -242,10 +242,10 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
                         os.system(pyani_cmd)
                         ANIb_result = pd.read_table(sub_working_dir + "output/ANIblastall_percentage_identity.tab",
                                                     sep="\t", header=0,
-                                                    index_col=0).get_value(tmp, str(subject_genome_ID))
+                                                    index_col=0).get_value('tmp', str(subject_genome_ID))
                         cov_result = pd.read_table(sub_working_dir + "output/ANIblastall_alignment_coverage.tab",
                                                    sep="\t", header=0,
-                                                   index_col=0).get_value(tmp, str(subject_genome_ID))
+                                                   index_col=0).get_value('tmp', str(subject_genome_ID))
                         os.system("rm -rf {0}".format(sub_working_dir))
                         predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid="N/A")
                         sub_df = pd.DataFrame(0, index=[subject_genome_ID], columns=["ANI", "Coverage", "Same_family"])
@@ -314,10 +314,10 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
                     os.system(pyani_cmd)
                     ANIb_result = pd.read_table(sub_working_dir + "output/ANIblastall_percentage_identity.tab", sep="\t",
                                                 header=0,
-                                                index_col=0).get_value(tmp, str(subject_genome_ID))
+                                                index_col=0).get_value('tmp', str(subject_genome_ID))
                     cov_result = pd.read_table(sub_working_dir + "output/ANIblastall_alignment_coverage.tab", sep="\t",
                                                header=0,
-                                               index_col=0).get_value(tmp, str(subject_genome_ID))
+                                               index_col=0).get_value('tmp', str(subject_genome_ID))
                     os.system("rm -rf {0}".format(sub_working_dir))
                     predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid=0)
                     sub_df = pd.DataFrame(0,index=[subject_genome_ID],columns=["ANI","Coverage","Same_family"])
@@ -428,10 +428,10 @@ if __name__ == '__main__':
                     os.system(pyani_cmd)
                     ANIb_result = pd.read_table(sub_working_dir + "output/ANIblastall_percentage_identity.tab", sep="\t",
                                                 header=0,
-                                                index_col=0).get_value(tmp, str(subject_genome_ID))
+                                                index_col=0).get_value('tmp', str(subject_genome_ID))
                     cov_result = pd.read_table(sub_working_dir + "output/ANIblastall_alignment_coverage.tab", sep="\t",
                                                header=0,
-                                               index_col=0).get_value(tmp, str(subject_genome_ID))
+                                               index_col=0).get_value('tmp', str(subject_genome_ID))
                     os.system("rm -rf {0}".format(sub_working_dir))
                     predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid=df.get_value(each_subject_genome_ID,"Jaccard_similarity"))
                     if predict.same_family:
