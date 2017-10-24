@@ -167,6 +167,7 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
         new_LIN = ",".join(["0"]*len(cutoff))
         top1_Genome_ID = None
         top1_similarity = 1
+        top1_coverage = 1
         conserved_LIN = ""
     else:
         reverse_LIN_dict = {",".join(metadata.get_value(each_genome, "LIN")): each_genome for each_genome in metadata.index}
