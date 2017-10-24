@@ -448,6 +448,8 @@ if __name__ == '__main__':
                     SubjectGenome = each_subject_genome_ID
     if new_LIN:
         new_genome_ID = load_new_metadata(c=c,db=db,args=args)
+        if not SubjectGenome:
+            SubjectGenome = top1_Genome_ID
         c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID,SubjectGenome,ANI,Coverage,LIN) values "
                   "({0},4,{1},{2},{3},'{4}')".format(new_genome_ID,SubjectGenome,ANIb_result,cov_result,new_LIN))
         db.commit()
