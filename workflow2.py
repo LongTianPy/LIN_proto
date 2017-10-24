@@ -391,7 +391,7 @@ if __name__ == '__main__':
     standardtime = currenttime.strftime(fmt_time_display)
     db, c = connect_to_db()
     metadata = extract_metadata(c=c)
-    create_sketch(tmp_folder+new_genome,"check_duplication")
+    create_sketch(tmp_folder+new_genome)
     if metadata.empty:
         new_LIN = ",".join(["0"] * 20)
         top1_Genome_ID = 1
