@@ -330,7 +330,7 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
                     return sub_df
             partial_parallel_each_position = partial(parallel_each_position,similarity_pool=similarity_pool)
             pool = mp.Pool(4)
-            results = pool.map(parallel_each_position(LIN_dictionary[each_LIN_dictionary_key].keys()))
+            results = pool.map(partial_parallel_each_position,LIN_dictionary[each_LIN_dictionary_key].keys())
             for i in results:
                 LIN_ANI_storage[each_LIN_dictionary_key].append(i)
                 similarity_pool = similarity_pool.append(sub_df)
