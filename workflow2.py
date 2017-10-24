@@ -117,13 +117,13 @@ def load_new_metadata(c,db,args):
     c.execute("SELECT Genome_ID FROM Genome WHERE Submission_ID={0}".format(Submission_ID))
     new_Genome_ID = int(c.fetchone()[0])
     c.execute("SELECT Attribute_IDs FROM Interest WHERE Interest_ID={0}".format(args.Interest_ID))
-    Attribute_ID_list = [int(id) for id in c.fetchone()[0].split(",")]
+    tmp = c.fetchone()[0].split(",")
+    Attribute_ID_list = [int(id) for id in tmp]
     Attributes = args.Attributes.split("^^")
     for i in range(len(Attribute_ID_list)):
         attributevalue = Attributes[i].replace("_"," ")
         c.execute("insert into AttributeValue (Attribute_ID,Genome_ID,Interest,_ID,AttributeValue,User_ID,Private) "
-                  "VALUES ({0},{1},{2},'{3}',{4},{5})".format(Attribute_ID_list[i],new_Genome_ID,args.Interest_ID,
-                                                              attributevalue[i],args.User_ID,args.privacy))
+                  "VALUES ({0},{1},{2},'{3}',{4},{5})".format(Attribute_ID_list[i],new_Genome_ID,args.Interest_ID,attributevalue,args.User_ID,args.privacy))
         db.commit()
     return new_Genome_ID
 
