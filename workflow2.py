@@ -272,7 +272,7 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
                 final_best_ANI = sorted_df.get_value(final_best_Genome_ID,"ANI")
                 final_best_coverage = sorted_df.get_value(final_best_Genome_ID,"Coverage")
                 new_LIN_object = LIN_Assign.getLIN(Genome_ID=final_best_Genome_ID,Scheme_ID=4,similarity=final_best_ANI,c=cursor)
-                new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object,c=cursor)
+                new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object,c=cursor).new_LIN
                 conserved_LIN = ",".join(new_LIN_object.conserved_LIN)
                 top1_Genome_ID = final_best_Genome_ID
                 top1_similarity = final_best_ANI
