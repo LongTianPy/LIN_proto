@@ -435,7 +435,7 @@ if __name__ == '__main__':
                         os.mkdir(sub_working_dir)
                     subject_genome_filepath = metadata.get_value(int(each_subject_genome_ID), "FilePath")
                     shutil.copyfile(new_genome_filepath, sub_working_dir + "tmp.fasta")
-                    shutil.copyfile(subject_genome_filepath, sub_working_dir + "{0}.fasta".format_map(each_subject_genome_ID))
+                    shutil.copyfile(subject_genome_filepath, sub_working_dir + "{0}.fasta".format(each_subject_genome_ID))
                     pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
                                 "-i {0} -o {0}output -m ANIblastall --nocompress -f".format(sub_working_dir)
                     os.system(pyani_cmd)
