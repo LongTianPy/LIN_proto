@@ -441,10 +441,10 @@ if __name__ == '__main__':
                     os.system(pyani_cmd)
                     ANIb_result = pd.read_table(sub_working_dir + "output/ANIblastall_percentage_identity.tab", sep="\t",
                                                 header=0,
-                                                index_col=0).get_value('tmp', str(subject_genome_ID))
+                                                index_col=0).get_value('tmp', str(each_subject_genome_ID))
                     cov_result = pd.read_table(sub_working_dir + "output/ANIblastall_alignment_coverage.tab", sep="\t",
                                                header=0,
-                                               index_col=0).get_value('tmp', str(subject_genome_ID))
+                                               index_col=0).get_value('tmp', str(each_subject_genome_ID))
                     os.system("rm -rf {0}*".format(sub_working_dir))
                     if isdir(sub_working_dir):
                         os.system("rmdir {0}".format(sub_working_dir))
