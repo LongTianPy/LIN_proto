@@ -152,7 +152,7 @@ def parse_result():
     else:
         mash_d = [float(i[1]) for i in lines]
         df["Jaccard_similarity"] = mash_d
-        df.index = [i[0].split("/")[-1].split(".")[0] for i in lines]
+        df.index = [i[2].split("/")[-1].split(".")[0] for i in lines]
         # df = df[df["Jaccard_similarity"] > (df.get_value(df.index[0], "Jaccard_similarity") - 0.05)]
         return df
 
