@@ -178,13 +178,13 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
             shutil.copyfile(new_genome_filepath, sub_working_dir + "tmp.fasta")
             shutil.copyfile(subject_genome_filepath, sub_working_dir + "{0}.fasta".format(subject_genome_ID))
             pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                        "-i {0} -o {0}output -m ANIblastall --nocompress".format(sub_working_dir)
+                        "-i {0} -o {0}output -m ANIblastall --nocompress -f".format(sub_working_dir)
             os.system(pyani_cmd)
             ANIb_result = pd.read_table(sub_working_dir+"output/ANIblastall_percentage_identity.tab",sep="\t",header=0,
                                         index_col=0).get_value('tmp',str(subject_genome_ID))
             cov_result = pd.read_table(sub_working_dir+"output/ANIblastall_alignment_coverage.tab",sep="\t",header=0,
                                         index_col=0).get_value('tmp',str(subject_genome_ID))
-            os.system("rm -rf {0}".format(sub_working_dir))
+            os.system("rm -rf {0}*".format(sub_working_dir))
             predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid="N/A")
             if predict.same_family:
                 top1_similarity = ANIb_result
@@ -235,7 +235,7 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
                         shutil.copyfile(subject_genome_filepath,
                                         sub_working_dir + "{0}.fasta".format(subject_genome_ID))
                         pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                                    "-i {0} -o {0}output -m ANIblastall --nocompress".format(sub_working_dir)
+                                    "-i {0} -o {0}output -m ANIblastall --nocompress -f".format(sub_working_dir)
                         os.system(pyani_cmd)
                         ANIb_result = pd.read_table(sub_working_dir + "output/ANIblastall_percentage_identity.tab",
                                                     sep="\t", header=0,
@@ -243,7 +243,7 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
                         cov_result = pd.read_table(sub_working_dir + "output/ANIblastall_alignment_coverage.tab",
                                                    sep="\t", header=0,
                                                    index_col=0).get_value('tmp', str(subject_genome_ID))
-                        os.system("rm -rf {0}".format(sub_working_dir))
+                        os.system("rm -rf {0}*".format(sub_working_dir))
                         predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid="N/A")
                         sub_df = pd.DataFrame(0, index=[subject_genome_ID], columns=["ANI", "Coverage", "Same_family"])
                         sub_df.loc[subject_genome_ID, "ANI"] = ANIb_result
@@ -313,7 +313,7 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
                     shutil.copyfile(new_genome_filepath,sub_working_dir+"tmp.fasta")
                     shutil.copyfile(subject_genome_filepath, sub_working_dir + "{0}.fasta".format(subject_genome_ID))
                     pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                            "-i {0} -o {0}output -m ANIblastall --nocompress".format(sub_working_dir)
+                            "-i {0} -o {0}output -m ANIblastall --nocompress -f".format(sub_working_dir)
                     os.system(pyani_cmd)
                     ANIb_result = pd.read_table(sub_working_dir + "output/ANIblastall_percentage_identity.tab", sep="\t",
                                                 header=0,
@@ -321,7 +321,7 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
                     cov_result = pd.read_table(sub_working_dir + "output/ANIblastall_alignment_coverage.tab", sep="\t",
                                                header=0,
                                                index_col=0).get_value('tmp', str(subject_genome_ID))
-                    os.system("rm -rf {0}".format(sub_working_dir))
+                    os.system("rm -rf {0}*".format(sub_working_dir))
                     predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid=0)
                     sub_df = pd.DataFrame(0,index=[subject_genome_ID],columns=["ANI","Coverage","Same_family"])
                     sub_df.loc[subject_genome_ID,"ANI"] = ANIb_result
@@ -429,7 +429,7 @@ if __name__ == '__main__':
                     shutil.copyfile(new_genome_filepath, sub_working_dir + "tmp.fasta")
                     shutil.copyfile(subject_genome_filepath, sub_working_dir + "{0}.fasta".format_map(each_subject_genome_ID))
                     pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                                "-i {0} -o {0}output -m ANIblastall --nocompress".format(sub_working_dir)
+                                "-i {0} -o {0}output -m ANIblastall --nocompress -f".format(sub_working_dir)
                     os.system(pyani_cmd)
                     ANIb_result = pd.read_table(sub_working_dir + "output/ANIblastall_percentage_identity.tab", sep="\t",
                                                 header=0,
@@ -437,7 +437,7 @@ if __name__ == '__main__':
                     cov_result = pd.read_table(sub_working_dir + "output/ANIblastall_alignment_coverage.tab", sep="\t",
                                                header=0,
                                                index_col=0).get_value('tmp', str(subject_genome_ID))
-                    os.system("rm -rf {0}".format(sub_working_dir))
+                    os.system("rm -rf {0}*".format(sub_working_dir))
                     predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid=df.get_value(each_subject_genome_ID,"Jaccard_similarity"))
                     if predict.same_family:
                         break
