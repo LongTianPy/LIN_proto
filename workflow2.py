@@ -476,6 +476,6 @@ if __name__ == '__main__':
         email_cmd = "python /home/linproject/Projects/LIN_proto/duplicated_upload.py {0} Submission_result {1}".format(
                 user_email,SubjectGenome)
         # os.system(email_cmd)
-    # os.system("rm {0}".format(new_genome_filepath))
+    os.system("rm {0}".format(new_genome_filepath))
     c.close()
     db.close()
