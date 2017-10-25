@@ -292,6 +292,7 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
         each_LIN = LIN_table_piece.get_value(each_genome,"LIN")
         each_leading_part = ",".join(each_LIN[:current_level+1])
         if each_leading_part not in LIN_dictionary:
+            print(current_level)
             LIN_dictionary[each_leading_part] = {each_LIN[current_level+1]:[each_genome]}
         else:
             if each_LIN[current_level+1] not in LIN_dictionary[each_leading_part]:
@@ -351,19 +352,20 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
             else:
                 LIN_ANI_max_storage[each_LIN_dictionary_key] = max(each_df["ANI"])
         if max(LIN_ANI_max_storage.values()) == 0:
-            current_level = 19
-            return ",".join(["0"]*20), current_level
+            next_level = 20
+            return ",".join(["0"]*20), next_level
         else:
             if max(LIN_ANI_max_storage.values()) > this_threshold:
                 leading_part_w_max_ANI = max(LIN_ANI_max_storage,key=LIN_ANI_max_storage.get)
-                return leading_part_w_max_ANI, current_level+1
+                next_level = current_level + 1
+                return leading_part_w_max_ANI, next_level
             else:
                 if previous_route != "":
                     leading_part_w_max_ANI = ",".join(previous_route.split(",") + ["0"] * (19 - current_level))
                 else:
                     leading_part_w_max_ANI = ",".join(["0"] * (18 - current_level))
-                current_level = 19
-                return leading_part_w_max_ANI, current_level
+                next_level = 20
+                return leading_part_w_max_ANI, next_level
     else:
         return LIN_dictionary.keys()[0], current_level+1
 
