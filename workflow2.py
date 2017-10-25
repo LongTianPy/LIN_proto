@@ -332,7 +332,8 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
                 sub_df = parallel_each_position(each_next_number=each_next_number,similarity_pool=similarity_pool)
                 LIN_ANI_storage[each_LIN_dictionary_key].append(sub_df)
                 similarity_pool = similarity_pool.append(sub_df)
-            each_df = LIN_ANI_storage[each_LIN_dictionary_key][LIN_ANI_storage[each_LIN_dictionary_key]["Same_family"]==1]
+            small_df = LIN_ANI_storage[each_LIN_dictionary_key]
+            each_df = small_df[small_df["Same_family"]==1]
             if each_df.empty:
                 LIN_ANI_max_storage[each_LIN_dictionary_key] = 0
             else:
