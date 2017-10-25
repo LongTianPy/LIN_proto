@@ -185,6 +185,8 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
             cov_result = pd.read_table(sub_working_dir+"output/ANIblastall_alignment_coverage.tab",sep="\t",header=0,
                                         index_col=0).get_value('tmp',str(subject_genome_ID))
             os.system("rm -rf {0}*".format(sub_working_dir))
+            if isdir(sub_working_dir):
+                os.system("rmdir {0}".format(sub_working_dir))
             predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid="N/A")
             if predict.same_family:
                 top1_similarity = ANIb_result
@@ -244,6 +246,8 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
                                                    sep="\t", header=0,
                                                    index_col=0).get_value('tmp', str(subject_genome_ID))
                         os.system("rm -rf {0}*".format(sub_working_dir))
+                        if isdir(sub_working_dir):
+                            os.system("rmdir {0}".format(sub_working_dir))
                         predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid="N/A")
                         sub_df = pd.DataFrame(0, index=[subject_genome_ID], columns=["ANI", "Coverage", "Same_family"])
                         sub_df.loc[subject_genome_ID, "ANI"] = ANIb_result
@@ -322,6 +326,8 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
                                                header=0,
                                                index_col=0).get_value('tmp', str(subject_genome_ID))
                     os.system("rm -rf {0}*".format(sub_working_dir))
+                    if isdir(sub_working_dir):
+                        os.system("rmdir {0}".format(sub_working_dir))
                     predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid=0)
                     sub_df = pd.DataFrame(0,index=[subject_genome_ID],columns=["ANI","Coverage","Same_family"])
                     sub_df.loc[subject_genome_ID,"ANI"] = ANIb_result
@@ -438,6 +444,8 @@ if __name__ == '__main__':
                                                header=0,
                                                index_col=0).get_value('tmp', str(subject_genome_ID))
                     os.system("rm -rf {0}*".format(sub_working_dir))
+                    if isdir(sub_working_dir):
+                        os.system("rmdir {0}".format(sub_working_dir))
                     predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid=df.get_value(each_subject_genome_ID,"Jaccard_similarity"))
                     if predict.same_family:
                         break
