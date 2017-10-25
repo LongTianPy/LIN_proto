@@ -263,7 +263,7 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
                 for each_final_candidate in final_candidate_LIN_table.index:
                     sub_df = calculate_ANI(each_final_candidate=each_final_candidate)
                     LIN_ANI_storage = LIN_ANI_storage.append(sub_df)
-                sorted_df = LIN_ANI_storage.sort("ANI",ascending=False)
+                sorted_df = LIN_ANI_storage.sort_values("ANI",ascending=False)
                 final_best_Genome_ID = sorted_df.index[0]
                 final_best_ANI = sorted_df.get_value(final_best_Genome_ID,"ANI")
                 final_best_coverage = sorted_df.get_value(final_best_Genome_ID,"Coverage")
