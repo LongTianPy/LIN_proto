@@ -330,7 +330,7 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
             # results = pool.map(partial_parallel_each_position,LIN_dictionary[each_LIN_dictionary_key].keys())
             for each_next_number in LIN_dictionary[each_LIN_dictionary_key].keys():
                 sub_df = parallel_each_position(each_next_number=each_next_number,similarity_pool=similarity_pool)
-                LIN_ANI_storage[each_LIN_dictionary_key].append(sub_df)
+                LIN_ANI_storage[each_LIN_dictionary_key] = LIN_ANI_storage[each_LIN_dictionary_key].append(sub_df)
                 similarity_pool = similarity_pool.append(sub_df)
             small_df = LIN_ANI_storage[each_LIN_dictionary_key]
             each_df = small_df[small_df["Same_family"]==1]
