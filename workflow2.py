@@ -292,7 +292,7 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
         each_LIN = LIN_table_piece.get_value(each_genome,"LIN")
         each_leading_part = ",".join(each_LIN[:current_level+1])
         if each_leading_part not in LIN_dictionary:
-            print(current_level)
+            # print(current_level)
             LIN_dictionary[each_leading_part] = {each_LIN[current_level+1]:[each_genome]}
         else:
             if each_LIN[current_level+1] not in LIN_dictionary[each_leading_part]:
@@ -433,7 +433,7 @@ if __name__ == '__main__':
                     sub_working_dir = workspace_dir + str(each_subject_genome_ID) + "/"
                     if not isdir(sub_working_dir):
                         os.mkdir(sub_working_dir)
-                    subject_genome_filepath = metadata.get_value(each_subject_genome_ID, "FilePath")
+                    subject_genome_filepath = metadata.get_value(int(each_subject_genome_ID), "FilePath")
                     shutil.copyfile(new_genome_filepath, sub_working_dir + "tmp.fasta")
                     shutil.copyfile(subject_genome_filepath, sub_working_dir + "{0}.fasta".format_map(each_subject_genome_ID))
                     pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
