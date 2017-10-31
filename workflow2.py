@@ -134,8 +134,12 @@ def create_sketch(filepath):
     cmd = "sourmash compute -o {0} {1} -k 31 -n 1000".format(dest,filepath)
     os.system(cmd)
 
-def compare_sketch():
-    folder_size = len([file for file in os.listdir(sourmash_dir) if isfile(join(sourmash_dir,file))])
+def compare_sketch(LINgroup):
+    if LINgroup == "rep_bac":
+        dest = rep_bac_dir
+    else:
+        dest = sourmash_dir + LINgroup + "/"
+    folder_size = len([file for file in os.listdir(dest) if isfile(join(dest,file))])
     cmd = "sourmash search {0} {1}*.sig -n {2} > {3}"
     cmd = cmd.format(sourmash_tmp+"tmp.sig", sourmash_dir, folder_size, sourmash_result+"tmp_result.txt")
     os.system(cmd)
@@ -417,13 +421,27 @@ if __name__ == '__main__':
         ANIb_result = top1_similarity
         cov_result = top1_coverage
     else:
-        compare_sketch()
+        compare_sketch(LINgroup="rep_bac")
         df = parse_result()
         if df.empty:
+            print("###########################################################")
+            print("System message:")
+            print("No Jaccard similarity detected, will use LINgroup indexing.")
+            print("###########################################################")
             ## LINgroup indexing
             new_LIN, SubjectGenome, ANIb_result, cov_result, conserved_LIN = LINgroup_indexing(cursor=c,metadata=metadata,new_genome_filepath=new_genome_filepath)
         else:
+            rep_bac_Genome_ID = int(df.index[0])
+            rep_bac_LIN = metadata.get_value(rep_bac_Genome_ID,"LIN")
+            rep_bac_LINgroup = ",".join(rep_bac_LIN.split(",")[:6])
+            compare_sketch(LINgroup=rep_bac_LINgroup)
+            df = parse_result()
             if df.get_value(df.index[0],"Jaccard_similarity") == 1:
+                print("###########################################################")
+                print("System message:")
+                print("100% Jaccard similarity detected, checking duplication.")
+                print("LIN will be assigned if new genome.")
+                print("###########################################################")
                 # Same genome found
                 sub_df = df[df["Jaccard_similarity"]==1]
                 ANIb_result = 0
@@ -449,18 +467,29 @@ if __name__ == '__main__':
                                                header=0,
                                                index_col=0).get_value('tmp', str(each_subject_genome_ID))
                     os.system("rm -rf {0}*".format(sub_working_dir))
-                    if this_ANIb_result > ANIb_result:
+                    if this_ANIb_result > 0.99999:
                         ANIb_result = this_ANIb_result
                         cov_result = this_cov_result
                         SubjectGenome = each_subject_genome_ID
+                        break
                     else:
-                        continue
+                        if this_ANIb_result > ANIb_result:
+                            ANIb_result = this_ANIb_result
+                            cov_result = this_cov_result
+                            SubjectGenome = each_subject_genome_ID
+                        else:
+                            continue
                 new_LIN_object = LIN_Assign.getLIN(Genome_ID=SubjectGenome, Scheme_ID=4,
                                                    similarity=ANIb_result, c=c)
                 new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=c).new_LIN
                 conserved_LIN = ",".join(new_LIN_object.conserved_LIN)
                 
             else:
+                print("###########################################################")
+                print("System message:")
+                print("Jaccard similarity detected, calculating ANIs.")
+                print("LIN will be assigned.")
+                print("###########################################################")
                 for each_subject_genome_ID in df.index[:4]:
                     sub_working_dir = workspace_dir + str(each_subject_genome_ID) + "/"
                     if not isdir(sub_working_dir):
@@ -499,11 +528,24 @@ if __name__ == '__main__':
     c.execute("SELECT EXISTS(SELECT LIN FROM LIN WHERE LIN='{0}')".format(new_LIN))
     duplication = c.fetchone()[0] # 0 = no, 1 = yes
     if duplication == 0:
+        print("###########################################################")
+        print("System message:")
+        print("New genome uploaded.")
+        print("LIN will be assigned.")
+        print("###########################################################")
         new_genome_ID = load_new_metadata(c=c,db=db,args=args)
         c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID,SubjectGenome,ANI,Coverage,LIN) values "
                   "({0},4,{1},{2},{3},'{4}')".format(new_genome_ID,SubjectGenome,ANIb_result,cov_result,new_LIN))
         db.commit()
         os.system("cp {0} {1}".format(sourmash_tmp+"tmp.sig",sourmash_dir+str(new_genome_ID)+".sig"))
+        this_95_LINgroup = ",".join(new_LIN.split(",")[:6])
+        this_95_LINgroup_path = sourmash_dir + this_95_LINgroup + "/"
+        c.execute("SELECT EXISTS(SELECT LIN FROM LIN WHERE LIN LIKE '{0}%')".format(this_95_LINgroup))
+        LINgroup_exists = c.fetchone()[0]
+        if LINgroup_exists == 0: # It's a new rep_bac
+            os.system("cp {0} {1}".format(sourmash_tmp+"tmp.sig", rep_bac_dir + str(new_genome_ID)+".sig"))
+            os.mkdir(this_95_LINgroup_path)
+        os.system("cp {0} {1}".format(sourmash_tmp+"tmp.sig",this_95_LINgroup_path+str(new_genome_ID)+".sig"))
         update_LINgroup(Genome_ID=new_genome_ID,c=c,new_LIN=new_LIN,conn=db)
         c.execute("SELECT LIN_ID FROM LIN WHERE Scheme_ID=4 AND Genome_ID={0}".format(new_genome_ID))
         LIN_ID = c.fetchone()[0]
@@ -519,6 +561,10 @@ if __name__ == '__main__':
             user_email, Job_uuid)
         # os.system(email_cmd)
     else:
+        print("###########################################################")
+        print("System message:")
+        print("Duplicate submission found, recording.")
+        print("###########################################################")
         c.execute("INSERT INTO Duplicated_upload (Reference_Genome_ID,Who_uploads_too) VALUES ({0},{1})".format(SubjectGenome,User_ID))
         db.commit()
         c.execute("SELECT Email FROM User WHERE User_ID={0}".format(User_ID))
