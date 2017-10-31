@@ -141,7 +141,7 @@ def compare_sketch(LINgroup):
         dest = sourmash_dir + LINgroup + "/"
     folder_size = len([file for file in os.listdir(dest) if isfile(join(dest,file))])
     cmd = "sourmash search {0} {1}*.sig -n {2} > {3}"
-    cmd = cmd.format(sourmash_tmp+"tmp.sig", sourmash_dir, folder_size, sourmash_result+"tmp_result.txt")
+    cmd = cmd.format(sourmash_tmp+"tmp.sig", dest, folder_size, sourmash_result+"tmp_result.txt")
     os.system(cmd)
 ### By expectation, this returns The MinHash top hit, estimated ANI, and the Jaccard similarity
 ### Load the new genome into database with metadata
