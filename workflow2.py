@@ -483,7 +483,6 @@ if __name__ == '__main__':
                                                    similarity=ANIb_result, c=c)
                 new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=c).new_LIN
                 conserved_LIN = ",".join(new_LIN_object.conserved_LIN)
-                
             else:
                 print("###########################################################")
                 print("System message:")
