@@ -417,7 +417,7 @@ if __name__ == '__main__':
             file_duplication = 1
             SubjectGenome = int(i)
             break
-    if file_duplicatio == 0:
+    if file_duplication == 0:
         create_sketch(tmp_folder+new_genome)
         if metadata.empty:
             new_LIN = ",".join(["0"] * 20)
