@@ -457,7 +457,7 @@ if __name__ == '__main__':
                     SubjectGenome = 0
                     # There is a table about same genome, better record it
                     #[new_LIN, ANIb_result,cov_result,conserved_LIN] = [None]*4
-                    for each_subject_genome_ID in sub_df.index:
+                    for each_subject_genome_ID in sub_df.index[:3]:
                         subject_genome_filepath = metadata.get_value(int(each_subject_genome_ID),"FilePath")
                         sub_working_dir = workspace_dir + str(each_subject_genome_ID) + "/"
                         if not isdir(sub_working_dir):
@@ -497,7 +497,7 @@ if __name__ == '__main__':
                     print("Jaccard similarity detected, calculating ANIs.")
                     print("LIN will be assigned.")
                     print("###########################################################")
-                    for each_subject_genome_ID in df.index[:4]:
+                    for each_subject_genome_ID in df.index[:3]:
                         sub_working_dir = workspace_dir + str(each_subject_genome_ID) + "/"
                         if not isdir(sub_working_dir):
                             os.mkdir(sub_working_dir)
