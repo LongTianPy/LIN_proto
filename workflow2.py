@@ -582,7 +582,7 @@ if __name__ == '__main__':
             user_email = c.fetchone()[0]
             email_cmd = "python /home/linproject/Projects/LIN_proto/duplicated_upload.py {0} Submission_result {1}".format(
                     user_email,SubjectGenome)
-            # os.system(email_cmd)
+            os.system(email_cmd)
     else:
         print("###########################################################")
         print("System message:")
@@ -596,7 +596,7 @@ if __name__ == '__main__':
         user_email = c.fetchone()[0]
         email_cmd = "python /home/linproject/Projects/LIN_proto/duplicated_upload.py {0} Submission_result {1}".format(
                 user_email, SubjectGenome)
-        # os.system(email_cmd)
+        os.system(email_cmd)
     os.system("rm {0}".format(new_genome_filepath))
     c.close()
     db.close()
