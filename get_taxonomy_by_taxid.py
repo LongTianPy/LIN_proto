@@ -21,9 +21,9 @@ def extract_taxonomy(tax_id):
     handler = Entrez.efetch(db="taxonomy", id=tax_id, rettype="xml")
     record = Entrez.read(handler)[0]
     lineage = record["LineageEx"]  # Returns a list of dictionaries
-    full_lineage = [i['ScientificName'] for i in lineage]
-    full_tax_ids = [i['TaxId'] for i in lineage]
-    full_rank = [i['Rank'] for i in lineage]
+    full_lineage = ";".join([i['ScientificName'] for i in lineage])
+    full_tax_ids = ";".join([i['TaxId'] for i in lineage])
+    full_rank = ";".join([i['Rank'] for i in lineage])
     return full_lineage, full_tax_ids, full_rank
 
 
