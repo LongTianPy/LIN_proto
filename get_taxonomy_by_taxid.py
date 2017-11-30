@@ -33,7 +33,8 @@ def extract_taxonomy(tax_id):
 if __name__ == '__main__':
     conn,c = connect_to_db()
     c.execute("select LIN.Genome_ID,AttributeValue.AttributeValue,LIN.LIN from AttributeValue,LIN WHERE "
-              "LIN.Genome_ID=AttributeValue.Genome_ID Attribute_ID=15 and AttributeValue<>'N/A'")
+              "LIN.Genome_ID=AttributeValue.Genome_ID and AttributeValue.Attribute_ID=15 "
+              "and AttributeValue.AttributeValue<>'N/A'")
     tmp = c.fetchall()
     Genome_ID = [int(i[0]) for i in tmp]
     Tax_ID = [str(i[1]) for i in tmp]

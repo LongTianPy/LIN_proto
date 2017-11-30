@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
-    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="Added rep_bac to speed up MinHash identification">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/get_taxonomy_by_taxid.py" />
+    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/workflow2.py" afterPath="$PROJECT_DIR$/workflow2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/get_taxonomy_by_taxid.py" afterPath="$PROJECT_DIR$/get_taxonomy_by_taxid.py" />
     </list>
     <ignored path="LIN_proto.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -100,7 +99,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workflow2.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="workflow2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/workflow2.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="101">
@@ -149,15 +148,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="get_taxonomy_by_taxid.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mkblastdb.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mkblastdb.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="45" column="38" lean-forward="false" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
+              <folding>
+                <marker date="1503932111000" expanded="true" signature="335:457" ph="SELECT Genom... Genome" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get_taxonomy_by_taxid.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/get_taxonomy_by_taxid.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="16" selection-end-column="18" />
+            <state relative-caret-position="116">
+              <caret line="36" column="14" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
               <folding>
                 <element signature="e#36#58#0" expanded="true" />
-                <marker date="1511882203709" expanded="true" signature="804:841" ph="select Genom... a" />
-                <marker date="1511882203709" expanded="true" signature="804:903" ph="select Genom... AttributeValue" />
+                <marker date="1512067414197" expanded="true" signature="804:868" ph="select Genom... a" />
+                <marker date="1512067414197" expanded="true" signature="804:1041" ph="select Genom... AttributeValue" />
               </folding>
             </state>
           </provider>
@@ -343,8 +354,8 @@
         <option value="$PROJECT_DIR$/duplicated_upload.py" />
         <option value="$PROJECT_DIR$/LINgroup_signatures,py.py" />
         <option value="$PROJECT_DIR$/LINgroup_signatures.py" />
-        <option value="$PROJECT_DIR$/get_taxonomy_by_taxid.py" />
         <option value="$PROJECT_DIR$/workflow2.py" />
+        <option value="$PROJECT_DIR$/get_taxonomy_by_taxid.py" />
       </list>
     </option>
   </component>
@@ -733,20 +744,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00743" summary="developing ani calculation for mpi&#10;Fix: compress intermediate files">
-      <created>1503541091770</created>
-      <option name="number" value="00743" />
-      <option name="presentableId" value="LOCAL-00743" />
-      <option name="project" value="LOCAL" />
-      <updated>1503541091770</updated>
-    </task>
-    <task id="LOCAL-00744" summary="developing ani calculation for mpi&#10;Fix: compress intermediate files">
-      <created>1503541715311</created>
-      <option name="number" value="00744" />
-      <option name="presentableId" value="LOCAL-00744" />
-      <option name="project" value="LOCAL" />
-      <updated>1503541715311</updated>
-    </task>
     <task id="LOCAL-00745" summary="developing ani calculation for mpi&#10;Fix: compress intermediate files">
       <created>1503542035312</created>
       <option name="number" value="00745" />
@@ -1076,7 +1073,21 @@
       <option name="project" value="LOCAL" />
       <updated>1510370300567</updated>
     </task>
-    <option name="localTasksCounter" value="792" />
+    <task id="LOCAL-00792" summary="enable email sending">
+      <created>1511963747776</created>
+      <option name="number" value="00792" />
+      <option name="presentableId" value="LOCAL-00792" />
+      <option name="project" value="LOCAL" />
+      <updated>1511963747776</updated>
+    </task>
+    <task id="LOCAL-00793" summary="extract taxonomy by tax ids">
+      <created>1512067329639</created>
+      <option name="number" value="00793" />
+      <option name="presentableId" value="LOCAL-00793" />
+      <option name="project" value="LOCAL" />
+      <updated>1512067329639</updated>
+    </task>
+    <option name="localTasksCounter" value="794" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1090,14 +1101,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="825" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13972603" sideWeight="0.51805556" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5369863" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32768363" sideWeight="0.4892704" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30136988" sideWeight="0.48194444" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30136988" sideWeight="0.48194444" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21388888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1171,8 +1181,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="debug get_housekeeping_seq.py" />
-    <MESSAGE value="Established get_housekeeping_seq.py" />
     <MESSAGE value="Modified export_db.py" />
     <MESSAGE value="Create ANI_calculation for multiprocessing in dragonstooth@VT" />
     <MESSAGE value="change use_bbmap.py" />
@@ -1196,7 +1204,9 @@
     <MESSAGE value="debug line 447" />
     <MESSAGE value="Changed how duplicated genome is identified" />
     <MESSAGE value="Added rep_bac to speed up MinHash identification" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added rep_bac to speed up MinHash identification" />
+    <MESSAGE value="enable email sending" />
+    <MESSAGE value="extract taxonomy by tax ids" />
+    <option name="LAST_COMMIT_MESSAGE" value="extract taxonomy by tax ids" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1474,13 +1484,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mkblastdb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="45" column="38" lean-forward="false" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tools/plot_correlation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1185">
@@ -1717,18 +1720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/get_taxonomy_by_taxid.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="16" selection-end-column="18" />
-          <folding>
-            <element signature="e#36#58#0" expanded="true" />
-            <marker date="1511882203709" expanded="true" signature="804:841" ph="select Genom... a" />
-            <marker date="1511882203709" expanded="true" signature="804:903" ph="select Genom... AttributeValue" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/workflow2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
@@ -1772,6 +1763,28 @@
             <marker date="1511963726382" expanded="true" signature="32609:32646" ph="SELECT Email... User" />
             <marker date="1511963726382" expanded="true" signature="33197:33281" ph="INSERT INTO Duplicated_upload... " />
             <marker date="1511963726382" expanded="true" signature="33460:33497" ph="SELECT Email... User" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mkblastdb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="45" column="38" lean-forward="false" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
+          <folding>
+            <marker date="1503932111000" expanded="true" signature="335:457" ph="SELECT Genom... Genome" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/get_taxonomy_by_taxid.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="36" column="14" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+          <folding>
+            <element signature="e#36#58#0" expanded="true" />
+            <marker date="1512067414197" expanded="true" signature="804:868" ph="select Genom... a" />
+            <marker date="1512067414197" expanded="true" signature="804:1041" ph="select Genom... AttributeValue" />
           </folding>
         </state>
       </provider>
