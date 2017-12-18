@@ -49,13 +49,13 @@ def concat_genomes(db):
         out_handler.close()
     return db_fasta_file
 
-def makeblastdb(db_fasta_file):
-    db_dir = "/home/linproject/Workspace/BLAST/db"
-    makeblastdb_cmd = "makeblastdb -in {0} -dbtype nucl -hash_index -logfile {1}error_log".format(join(db_dir,db_fasta_file),db_dir)
+def makeblastdb(db_fasta_file,db):
+    db_dir = "/home/linproject/Workspace/BLAST/db/"
+    makeblastdb_cmd = "makeblastdb -in {0} -dbtype nucl -hash_index -logfile {1}error_log -out {2}".format(join(db_dir,db_fasta_file),db_dir,db_dir+db)
     os.system(makeblastdb_cmd)
 
 # MAIN
 if __name__ == "__main__":
     db = sys.argv[1]
     db_fasta_file = concat_genomes(db=db)
-    makeblastdb(db_fasta_file=db_fasta_file)
+    makeblastdb(db_fasta_file=db_fasta_file,db=db)
