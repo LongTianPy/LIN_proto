@@ -231,7 +231,7 @@ def load_new_metadata_newversion(c,db,args):
         for rank in ranks:
             if lineage[rank] != ['N/A','N/A']:
                 rank_id = ranks_dict[rank]
-                check_and_load_w_taxid(lineage[rank],c,conn,rank_id,new_Genome_ID)
+                check_and_load_w_taxid(lineage[rank],c,db,rank_id,new_Genome_ID)
     else:
         check_and_load(genus, c, db, 6, new_Genome_ID)
         check_and_load(species, c, db, 7, new_Genome_ID)
