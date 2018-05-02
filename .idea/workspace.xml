@@ -4,10 +4,10 @@
     <bookmark url="file://$PROJECT_DIR$/FastANI_Toolbox.py" />
   </component>
   <component name="ChangeListManager">
-    <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/workflow2.py" beforeDir="false" afterPath="$PROJECT_DIR$/workflow2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
+    <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -40,33 +40,33 @@
       <file leaf-file-name="workflow2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/workflow2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="180" column="21" lean-forward="true" selection-start-line="180" selection-start-column="21" selection-end-line="180" selection-end-column="21" />
+            <state relative-caret-position="111">
+              <caret line="178" column="23" lean-forward="true" selection-start-line="178" selection-start-column="23" selection-end-line="178" selection-end-column="23" />
               <folding>
                 <element signature="e#114#131#0" expanded="true" />
                 <element signature="e#3743#5119#0" />
                 <element signature="e#10839#18787#0" />
                 <element signature="e#18929#24602#0" />
                 <element signature="e#24658#25267#0" />
-                <marker date="1525287183971" expanded="true" signature="3343:3403" ph="SELECT FileP... Genome" />
-                <marker date="1525287183971" expanded="true" signature="3343:3464" ph="SELECT Genom... Genome" />
-                <marker date="1525287183971" expanded="true" signature="35412:35462" ph="SELECT EXIST... " />
-                <marker date="1525287183971" expanded="true" signature="35426:35461" ph="SELECT LIN F... LIN" />
-                <marker date="1525287183971" expanded="true" signature="36089:36145" ph="SELECT EXIST... " />
-                <marker date="1525287183971" expanded="true" signature="36103:36144" ph="SELECT LIN F... LIN" />
-                <marker date="1525287183971" expanded="true" signature="36242:36369" ph="INSERT INTO LIN... " />
-                <marker date="1525287183971" expanded="true" signature="37236:37258" ph="SELECT LIN_I... LIN" />
-                <marker date="1525287183971" expanded="true" signature="37236:37291" ph="SELECT LIN_I... LIN" />
-                <marker date="1525287183971" expanded="true" signature="37236:37294" ph="SELECT LIN_I... LIN" />
-                <marker date="1525287183971" expanded="true" signature="37420:37484" ph="INSERT INTO Job... " />
-                <marker date="1525287183971" expanded="true" signature="37420:37504" ph="INSERT INTO Job... " />
-                <marker date="1525287183971" expanded="true" signature="37951:37974" ph="SELECt Email... User" />
-                <marker date="1525287183971" expanded="true" signature="37951:37988" ph="SELECT Email... User" />
-                <marker date="1525287183971" expanded="true" signature="37951:37991" ph="SELECT Email... User" />
-                <marker date="1525287183971" expanded="true" signature="38536:38620" ph="INSERT INTO Duplicated_upload... " />
-                <marker date="1525287183971" expanded="true" signature="38700:38737" ph="SELECT Email... User" />
-                <marker date="1525287183971" expanded="true" signature="39288:39372" ph="INSERT INTO Duplicated_upload... " />
-                <marker date="1525287183971" expanded="true" signature="39551:39588" ph="SELECT Email... User" />
+                <marker date="1525293584756" expanded="true" signature="3343:3403" ph="SELECT FileP... Genome" />
+                <marker date="1525293584756" expanded="true" signature="3343:3464" ph="SELECT Genom... Genome" />
+                <marker date="1525293584756" expanded="true" signature="35412:35462" ph="SELECT EXIST... " />
+                <marker date="1525293584756" expanded="true" signature="35426:35461" ph="SELECT LIN F... LIN" />
+                <marker date="1525293584756" expanded="true" signature="36089:36145" ph="SELECT EXIST... " />
+                <marker date="1525293584756" expanded="true" signature="36103:36144" ph="SELECT LIN F... LIN" />
+                <marker date="1525293584756" expanded="true" signature="36242:36369" ph="INSERT INTO LIN... " />
+                <marker date="1525293584756" expanded="true" signature="37236:37258" ph="SELECT LIN_I... LIN" />
+                <marker date="1525293584756" expanded="true" signature="37236:37291" ph="SELECT LIN_I... LIN" />
+                <marker date="1525293584756" expanded="true" signature="37236:37294" ph="SELECT LIN_I... LIN" />
+                <marker date="1525293584756" expanded="true" signature="37420:37484" ph="INSERT INTO Job... " />
+                <marker date="1525293584756" expanded="true" signature="37420:37504" ph="INSERT INTO Job... " />
+                <marker date="1525293584756" expanded="true" signature="37951:37974" ph="SELECt Email... User" />
+                <marker date="1525293584756" expanded="true" signature="37951:37988" ph="SELECT Email... User" />
+                <marker date="1525293584756" expanded="true" signature="37951:37991" ph="SELECT Email... User" />
+                <marker date="1525293584756" expanded="true" signature="38536:38620" ph="INSERT INTO Duplicated_upload... " />
+                <marker date="1525293584756" expanded="true" signature="38700:38737" ph="SELECT Email... User" />
+                <marker date="1525293584756" expanded="true" signature="39288:39372" ph="INSERT INTO Duplicated_upload... " />
+                <marker date="1525293584756" expanded="true" signature="39551:39588" ph="SELECT Email... User" />
               </folding>
             </state>
           </provider>
@@ -111,7 +111,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fasta</find>
       <find>uuid</find>
       <find>pair[1]</find>
       <find>set_value(</find>
@@ -141,6 +140,7 @@
       <find>email</find>
       <find>load</find>
       <find>LINdb_</find>
+      <find>c.execute('</find>
     </findStrings>
     <replaceStrings>
       <replace>['0']*20</replace>
@@ -624,27 +624,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00752" summary="A new workflow&#10;debug: line 210, 136">
-      <created>1508872898193</created>
-      <option name="number" value="00752" />
-      <option name="presentableId" value="LOCAL-00752" />
-      <option name="project" value="LOCAL" />
-      <updated>1508872898193</updated>
-    </task>
-    <task id="LOCAL-00753" summary="A new workflow&#10;debug: line 142">
-      <created>1508873032638</created>
-      <option name="number" value="00753" />
-      <option name="presentableId" value="LOCAL-00753" />
-      <option name="project" value="LOCAL" />
-      <updated>1508873032639</updated>
-    </task>
-    <task id="LOCAL-00754" summary="A new workflow&#10;debug: line 170">
-      <created>1508873247346</created>
-      <option name="number" value="00754" />
-      <option name="presentableId" value="LOCAL-00754" />
-      <option name="project" value="LOCAL" />
-      <updated>1508873247346</updated>
-    </task>
     <task id="LOCAL-00755" summary="A new workflow&#10;debug: line 113">
       <created>1508873400571</created>
       <option name="number" value="00755" />
@@ -967,7 +946,28 @@
       <option name="project" value="LOCAL" />
       <updated>1525283213139</updated>
     </task>
-    <option name="localTasksCounter" value="801" />
+    <task id="LOCAL-00801" summary="new way of loading metadata">
+      <created>1525291994915</created>
+      <option name="number" value="00801" />
+      <option name="presentableId" value="LOCAL-00801" />
+      <option name="project" value="LOCAL" />
+      <updated>1525291994915</updated>
+    </task>
+    <task id="LOCAL-00802" summary="new way of loading metadata">
+      <created>1525292102713</created>
+      <option name="number" value="00802" />
+      <option name="presentableId" value="LOCAL-00802" />
+      <option name="project" value="LOCAL" />
+      <updated>1525292102713</updated>
+    </task>
+    <task id="LOCAL-00803" summary="new way of loading metadata">
+      <created>1525293587515</created>
+      <option name="number" value="00803" />
+      <option name="presentableId" value="LOCAL-00803" />
+      <option name="project" value="LOCAL" />
+      <updated>1525293587515</updated>
+    </task>
+    <option name="localTasksCounter" value="804" />
     <servers />
   </component>
   <component name="TodoView">
@@ -981,6 +981,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="825" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="0" weight="0.32957748" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.51805556" side_tool="true" weight="0.13972603" />
@@ -1586,33 +1587,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/workflow2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="180" column="21" lean-forward="true" selection-start-line="180" selection-start-column="21" selection-end-line="180" selection-end-column="21" />
+        <state relative-caret-position="111">
+          <caret line="178" column="23" lean-forward="true" selection-start-line="178" selection-start-column="23" selection-end-line="178" selection-end-column="23" />
           <folding>
             <element signature="e#114#131#0" expanded="true" />
             <element signature="e#3743#5119#0" />
             <element signature="e#10839#18787#0" />
             <element signature="e#18929#24602#0" />
             <element signature="e#24658#25267#0" />
-            <marker date="1525287183971" expanded="true" signature="3343:3403" ph="SELECT FileP... Genome" />
-            <marker date="1525287183971" expanded="true" signature="3343:3464" ph="SELECT Genom... Genome" />
-            <marker date="1525287183971" expanded="true" signature="35412:35462" ph="SELECT EXIST... " />
-            <marker date="1525287183971" expanded="true" signature="35426:35461" ph="SELECT LIN F... LIN" />
-            <marker date="1525287183971" expanded="true" signature="36089:36145" ph="SELECT EXIST... " />
-            <marker date="1525287183971" expanded="true" signature="36103:36144" ph="SELECT LIN F... LIN" />
-            <marker date="1525287183971" expanded="true" signature="36242:36369" ph="INSERT INTO LIN... " />
-            <marker date="1525287183971" expanded="true" signature="37236:37258" ph="SELECT LIN_I... LIN" />
-            <marker date="1525287183971" expanded="true" signature="37236:37291" ph="SELECT LIN_I... LIN" />
-            <marker date="1525287183971" expanded="true" signature="37236:37294" ph="SELECT LIN_I... LIN" />
-            <marker date="1525287183971" expanded="true" signature="37420:37484" ph="INSERT INTO Job... " />
-            <marker date="1525287183971" expanded="true" signature="37420:37504" ph="INSERT INTO Job... " />
-            <marker date="1525287183971" expanded="true" signature="37951:37974" ph="SELECt Email... User" />
-            <marker date="1525287183971" expanded="true" signature="37951:37988" ph="SELECT Email... User" />
-            <marker date="1525287183971" expanded="true" signature="37951:37991" ph="SELECT Email... User" />
-            <marker date="1525287183971" expanded="true" signature="38536:38620" ph="INSERT INTO Duplicated_upload... " />
-            <marker date="1525287183971" expanded="true" signature="38700:38737" ph="SELECT Email... User" />
-            <marker date="1525287183971" expanded="true" signature="39288:39372" ph="INSERT INTO Duplicated_upload... " />
-            <marker date="1525287183971" expanded="true" signature="39551:39588" ph="SELECT Email... User" />
+            <marker date="1525293584756" expanded="true" signature="3343:3403" ph="SELECT FileP... Genome" />
+            <marker date="1525293584756" expanded="true" signature="3343:3464" ph="SELECT Genom... Genome" />
+            <marker date="1525293584756" expanded="true" signature="35412:35462" ph="SELECT EXIST... " />
+            <marker date="1525293584756" expanded="true" signature="35426:35461" ph="SELECT LIN F... LIN" />
+            <marker date="1525293584756" expanded="true" signature="36089:36145" ph="SELECT EXIST... " />
+            <marker date="1525293584756" expanded="true" signature="36103:36144" ph="SELECT LIN F... LIN" />
+            <marker date="1525293584756" expanded="true" signature="36242:36369" ph="INSERT INTO LIN... " />
+            <marker date="1525293584756" expanded="true" signature="37236:37258" ph="SELECT LIN_I... LIN" />
+            <marker date="1525293584756" expanded="true" signature="37236:37291" ph="SELECT LIN_I... LIN" />
+            <marker date="1525293584756" expanded="true" signature="37236:37294" ph="SELECT LIN_I... LIN" />
+            <marker date="1525293584756" expanded="true" signature="37420:37484" ph="INSERT INTO Job... " />
+            <marker date="1525293584756" expanded="true" signature="37420:37504" ph="INSERT INTO Job... " />
+            <marker date="1525293584756" expanded="true" signature="37951:37974" ph="SELECt Email... User" />
+            <marker date="1525293584756" expanded="true" signature="37951:37988" ph="SELECT Email... User" />
+            <marker date="1525293584756" expanded="true" signature="37951:37991" ph="SELECT Email... User" />
+            <marker date="1525293584756" expanded="true" signature="38536:38620" ph="INSERT INTO Duplicated_upload... " />
+            <marker date="1525293584756" expanded="true" signature="38700:38737" ph="SELECT Email... User" />
+            <marker date="1525293584756" expanded="true" signature="39288:39372" ph="INSERT INTO Duplicated_upload... " />
+            <marker date="1525293584756" expanded="true" signature="39551:39588" ph="SELECT Email... User" />
           </folding>
         </state>
       </provider>
