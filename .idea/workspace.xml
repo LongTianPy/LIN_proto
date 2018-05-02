@@ -4,10 +4,8 @@
     <bookmark url="file://$PROJECT_DIR$/FastANI_Toolbox.py" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
+    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="" />
     <ignored path="LIN_proto.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -68,15 +66,6 @@
                 <marker date="1525293584756" expanded="true" signature="39288:39372" ph="INSERT INTO Duplicated_upload... " />
                 <marker date="1525293584756" expanded="true" signature="39551:39588" ph="SELECT Email... User" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -250,8 +239,8 @@
         <option value="$PROJECT_DIR$/LINgroup_signatures.py" />
         <option value="$PROJECT_DIR$/get_taxonomy_by_taxid.py" />
         <option value="$PROJECT_DIR$/mkblastdb.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/workflow2.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -624,20 +613,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00755" summary="A new workflow&#10;debug: line 113">
-      <created>1508873400571</created>
-      <option name="number" value="00755" />
-      <option name="presentableId" value="LOCAL-00755" />
-      <option name="project" value="LOCAL" />
-      <updated>1508873400571</updated>
-    </task>
-    <task id="LOCAL-00756" summary="A new workflow&#10;debug: line 126">
-      <created>1508873696755</created>
-      <option name="number" value="00756" />
-      <option name="presentableId" value="LOCAL-00756" />
-      <option name="project" value="LOCAL" />
-      <updated>1508873696755</updated>
-    </task>
     <task id="LOCAL-00757" summary="A new workflow&#10;debug: line 126">
       <created>1508873923584</created>
       <option name="number" value="00757" />
@@ -967,7 +942,21 @@
       <option name="project" value="LOCAL" />
       <updated>1525293587515</updated>
     </task>
-    <option name="localTasksCounter" value="804" />
+    <task id="LOCAL-00804" summary="new way of loading metadata">
+      <created>1525293752509</created>
+      <option name="number" value="00804" />
+      <option name="presentableId" value="LOCAL-00804" />
+      <option name="project" value="LOCAL" />
+      <updated>1525293752509</updated>
+    </task>
+    <task id="LOCAL-00805" summary="ignore some files">
+      <created>1525293862749</created>
+      <option name="number" value="00805" />
+      <option name="presentableId" value="LOCAL-00805" />
+      <option name="project" value="LOCAL" />
+      <updated>1525293862749</updated>
+    </task>
+    <option name="localTasksCounter" value="806" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1065,7 +1054,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Create ANI_calculation for multiprocessing in dragonstooth@VT" />
     <MESSAGE value="change use_bbmap.py" />
     <MESSAGE value="create manipulate_df.py for output processing" />
     <MESSAGE value="changed a lot" />
@@ -1090,7 +1078,8 @@
     <MESSAGE value="enable email sending" />
     <MESSAGE value="extract taxonomy by tax ids" />
     <MESSAGE value="new way of loading metadata" />
-    <option name="LAST_COMMIT_MESSAGE" value="new way of loading metadata" />
+    <MESSAGE value="ignore some files" />
+    <option name="LAST_COMMIT_MESSAGE" value="ignore some files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1580,8 +1569,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+        <state relative-caret-position="15">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
         </state>
       </provider>
     </entry>
