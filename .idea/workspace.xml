@@ -4,12 +4,8 @@
     <bookmark url="file://$PROJECT_DIR$/FastANI_Toolbox.py" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="new way of loading metadata" />
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
-    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workflow2.py" beforeDir="false" afterPath="$PROJECT_DIR$/workflow2.py" afterDir="false" />
-    </list>
     <ignored path="LIN_proto.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -42,13 +38,15 @@
       <file leaf-file-name="workflow2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/workflow2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="215" column="60" lean-forward="true" selection-start-line="215" selection-start-column="60" selection-end-line="215" selection-end-column="60" />
+            <state relative-caret-position="1425">
+              <caret line="643" column="8" lean-forward="true" selection-start-line="643" selection-start-column="8" selection-end-line="643" selection-end-column="8" />
               <folding>
                 <element signature="e#114#131#0" expanded="true" />
-                <element signature="e#9580#9704#0" />
-                <element signature="e#9740#10104#0" />
-                <element signature="e#10278#10758#0" />
+                <element signature="e#3743#5119#0" />
+                <element signature="e#5164#6318#0" />
+                <element signature="e#6356#6537#0" />
+                <element signature="e#6595#7281#0" />
+                <element signature="e#7332#9568#0" />
                 <element signature="e#10839#18787#0" />
                 <element signature="e#18929#24602#0" />
                 <element signature="e#24658#25267#0" />
@@ -278,8 +276,7 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="113" />
-    <option name="y" value="150" />
+    <option name="y" value="33" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
@@ -638,13 +635,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00749" summary="A new workflow">
-      <created>1508870952067</created>
-      <option name="number" value="00749" />
-      <option name="presentableId" value="LOCAL-00749" />
-      <option name="project" value="LOCAL" />
-      <updated>1508870952068</updated>
-    </task>
     <task id="LOCAL-00750" summary="A new workflow&#10;debug: line 210">
       <created>1508871253109</created>
       <option name="number" value="00750" />
@@ -981,7 +971,14 @@
       <option name="project" value="LOCAL" />
       <updated>1525273812233</updated>
     </task>
-    <option name="localTasksCounter" value="798" />
+    <task id="LOCAL-00798" summary="new way of loading metadata">
+      <created>1525278336252</created>
+      <option name="number" value="00798" />
+      <option name="presentableId" value="LOCAL-00798" />
+      <option name="project" value="LOCAL" />
+      <updated>1525278336252</updated>
+    </task>
+    <option name="localTasksCounter" value="799" />
     <servers />
   </component>
   <component name="TodoView">
@@ -994,7 +991,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="113" y="150" width="1440" height="877" extended-state="0" />
+    <frame x="0" y="33" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="0" weight="0.32957748" />
@@ -1596,13 +1593,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/workflow2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="215" column="60" lean-forward="true" selection-start-line="215" selection-start-column="60" selection-end-line="215" selection-end-column="60" />
+        <state relative-caret-position="1425">
+          <caret line="643" column="8" lean-forward="true" selection-start-line="643" selection-start-column="8" selection-end-line="643" selection-end-column="8" />
           <folding>
             <element signature="e#114#131#0" expanded="true" />
-            <element signature="e#9580#9704#0" />
-            <element signature="e#9740#10104#0" />
-            <element signature="e#10278#10758#0" />
+            <element signature="e#3743#5119#0" />
+            <element signature="e#5164#6318#0" />
+            <element signature="e#6356#6537#0" />
+            <element signature="e#6595#7281#0" />
+            <element signature="e#7332#9568#0" />
             <element signature="e#10839#18787#0" />
             <element signature="e#18929#24602#0" />
             <element signature="e#24658#25267#0" />
