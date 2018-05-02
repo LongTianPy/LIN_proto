@@ -21,14 +21,13 @@ import logging.handlers
 import argparse
 from datetime import datetime
 from pytz import timezone
-from Bio import SeqIO
+from Bio import SeqIO, Entrez
 import filecmp
 import uuid
 import sendEmail
 import shutil
 import multiprocessing as mp
 from functools import partial
-import filecmp
 
 # VARIABLES
 sourmash_dir = "/home/linproject/Workspace/Sourmash2/all_sketches/"
@@ -44,7 +43,11 @@ bbmap_results = "/home/linproject/Workspace/bbmap/results/"
 original_folder  = '/home/linproject/Workspace/LINdb/'
 tmp_folder = '/home/linproject/Workspace/tmp_upload/'
 workspace_dir = '/home/linproject/Workspace/New/workspace/'
+ranks = ['superkingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species','strain']
+ranks_dict = {'superkingdom':1, 'phylum':2, 'class':3, 'order':4, 'family':5, 'genus':6, 'species':7, 'strain':9}
+Entrez.email = "aaa@bb.cc"
 
+# OBJECTS
 class DecisionTree(object):
     def __init__(self,ANI,cov,wkid):
         self.decide(ANI=ANI,cov=cov,wkid=wkid)
@@ -81,7 +84,8 @@ def get_parsed_args():
     parser.add_argument("-i", dest="new_genome", help="xxxxxx.fasta")
     parser.add_argument("-u", dest="User_ID", help="An interger")
     parser.add_argument("-s", dest="Interest_ID", help="Interest ID")
-    parser.add_argument("-t", dest="Attributes", help="Attributes")
+    parser.add_argument("-t", dest="Taxonomy", help="Taxonomy")
+    parser.add_argument("-a", dest="Attributes",help="Attributes")
     parser.add_argument("-p", dest="privacy", help="Is it private information")
     args = parser.parse_args()
     return args
@@ -128,6 +132,97 @@ def load_new_metadata(c,db,args):
         c.execute(sql)
         db.commit()
     return new_Genome_ID
+
+def extract_taxonomy_by_taxid(tax_id):
+    name_list = {rank:[] for rank in ranks}
+    handler = Entrez.efetch(db='taxonomy',id=str(tax_id),retmode='xml')
+    record = Entrez.read(handler)[0]
+    lineage_list = record["LineageEx"]
+    for taxon in lineage_list:
+        if taxon["Rank"] in ranks:
+            name_list[taxon["Rank"]] = [taxon["ScientificName"],taxon["TaxId"]]
+    species_name_full = name_list["species"][0]
+    genus_name = name_list["genus"][0]
+    species_name_simple = species_name_full[len(genus_name)+1:]
+    strain_name_full = record['ScientificName']
+    strain_name_simple = strain_name_full[len(species_name_full)+1:]
+    name_list["species"][0] = species_name_simple
+    name_list["strain"] = [strain_name_simple,tax_id]
+    for i in name_list.keys():
+        if name_list[i] == []:
+            name_list[i] = ["N/A","N/A"]
+    current_strain_name = name_list["strain"][0].replace("=","")
+    current_strain_name_list = current_strain_name.split(" ")
+    remove_duplicate = []
+    for i in current_strain_name_list:
+        if i not in remove_duplicate:
+            remove_duplicate.append(i)
+    name_list["strain"][0] = " ".join(remove_duplicate)
+    return name_list
+
+def get_Tax_ID_by_entry(entry):
+    handler = Entrez.esearch(db='taxonomy',term=entry)
+    record = Entrez.read(handler)
+    if record["Count"] != '0':
+        return record["IdList"][0]
+    else:
+        return 'N/A'
+
+def check_and_load(entry,c,conn,Rank_ID,Genome_ID):
+    c.execute("select exists(select NCBI_Tax_ID from NCBI_Tax_ID where Taxon='{0}' and Rank_ID=6)".format(entry))
+    tmp = c.fetchone()[0]
+    if tmp == 1:
+        c.execute("select NCBI_Tax_ID from NCBI_Tax_ID where Taxon='{0}' and Rank_ID={1}".format(genus,Rank_ID))
+        tax_id = c.fetchone()[0]
+    else:
+        tax_id = get_Tax_ID_by_entry(entry)
+    if tax_id != 'N/A':
+        c.execute('insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID) values ({0},{1},{2})'.format(Genome_ID,Rank_ID,int(tax_id)))
+        conn.commit()
+    else:
+        c.execute('insert into Taxonomy (Genome_ID,Rank_ID,Taxon) values ({0},{1},"{2}")'.format(Genome_ID.Rank_ID,entry))
+        conn.commit()
+
+def load_new_metadata_newversion(c,db,args):
+    c.execute("INSERT INTO Submission (User_ID, Time) VALUES ({0},'{1}')".format(args.User_ID, standardtime))
+    db.commit()
+    c.execute("SELECT Submission_ID FROM Submission where User_ID={0} and Time='{1}'".format(User_ID, standardtime))
+    Submission_ID = int(c.fetchone()[0])
+    os.system("cp {0} {1}".format(tmp_folder + args.new_genome, original_folder + args.new_genome))
+    c.execute("INSERT INTO Genome (Interest_ID, Submission_ID, FilePath) VALUES ({0}, {1}, '{2}')"
+              .format(args.Interest_ID, Submission_ID, original_folder + args.new_genome))
+    db.commit()
+    c.execute("SELECT Genome_ID FROM Genome WHERE Submission_ID={0}".format(Submission_ID))
+    new_Genome_ID = int(c.fetchone()[0])
+    c.execute("SELECT Attribute_IDs FROM Interest WHERE Interest_ID={0}".format(args.Interest_ID))
+    tmp = c.fetchone()[0].split(",")
+    Attribute_ID_list = [int(id) for id in tmp]
+    Taxonomy = args.Taxonomy.split("^^")
+    Attributes = args.Attributes.split("^^")
+    Tax_ID = Attributes[1]
+    genus = Taxonomy[0]
+    species = Taxonomy[1]
+    strain = Taxonomy[-1]
+    intraspecies_type = [Taxonomy[i] for i in  range(len(Taxonomy[2:-1])) if i%2==0]
+    intraspecies_value = [Taxonomy[i] for i in range(len(Taxonomy[2:-1])) if i%2!=0]
+    intraspecies = []
+    for i in range(len(intraspecies_type)):
+        if intraspecies_type[i] != "N/A" and intraspecies_value[i] != "N/A":
+            intraspecies.append([intraspecies_type[i],intraspecies_value[i]])
+    check_and_load(genus,c,db,6,new_Genome_ID)
+    check_and_load(species,c,db,7,new_Genome_ID)
+    for row in intraspecies:
+        check_and_load(row[1],c,db,row[0],new_Genome_ID)
+    c.execute('insert into Taxonomy (Genome_ID,Rank_ID,Taxon) values ({0},{1},"{2}")'.format(new_Genome_ID,20,strain))
+    db.commit()
+    for i in range(len(Attribute_ID_list)):
+        attributevalue = Attributes[i].replace("_"," ")
+        sql = "insert into AttributeValue (Genome_ID,Interest_ID,Attribute_ID,AttributeValue,User_ID,Private) VALUES ({0},{1},{2},'{3}',{4},{5})".format(new_Genome_ID,args.Interest_ID, Attribute_ID_list[i],attributevalue,args.User_ID,args.privacy)
+        # print(sql)
+        c.execute(sql)
+        db.commit()
+    return new_Genome_ID
+
 
 
 def create_sketch(filepath):
@@ -397,6 +492,7 @@ if __name__ == '__main__':
     new_genome_filepath = tmp_folder + new_genome
     User_ID = int(args.User_ID)
     Interest_ID_new_genome = int(args.Interest_ID)
+    Taxonomy = args.Taxonomy
     Attributes = args.Attributes
     privacy = args.privacy
     if privacy == "True":
@@ -540,7 +636,7 @@ if __name__ == '__main__':
             print("New genome uploaded.")
             print("LIN will be assigned.")
             print("###########################################################")
-            new_genome_ID = load_new_metadata(c=c,db=db,args=args)
+            new_genome_ID = load_new_metadata_newversion(c=c,db=db,args=args)
             this_95_LINgroup = ",".join(new_LIN.split(",")[:6])
             this_95_LINgroup_path = sourmash_dir + this_95_LINgroup + "/"
             c.execute("SELECT EXISTS(SELECT LIN FROM LIN WHERE LIN LIKE '{0}%')".format(this_95_LINgroup))

@@ -4,11 +4,13 @@
     <bookmark url="file://$PROJECT_DIR$/FastANI_Toolbox.py" />
   </component>
   <component name="ChangeListManager">
-    <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mkblastdb.py" afterPath="$PROJECT_DIR$/mkblastdb.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/longtian.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/longtian.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workflow2.py" beforeDir="false" afterPath="$PROJECT_DIR$/workflow2.py" afterDir="false" />
     </list>
+    <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -38,235 +40,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LIN_Assign.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LIN_Assign.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="81" column="13" lean-forward="false" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
-              <folding>
-                <marker date="1508529598000" expanded="true" signature="501:545" ph="SELECT Label... Scheme" />
-                <marker date="1508529598000" expanded="true" signature="1066:1126" ph="SELECT LIN f... LIN" />
-                <marker date="1508529598000" expanded="true" signature="1294:1336" ph="SELECT Cutof... Scheme" />
-                <marker date="1508529598000" expanded="true" signature="2826:2867" ph="SELECT LIN.L... LIN" />
-                <marker date="1508529598000" expanded="true" signature="2932:2997" ph="SELECT LIN.L... LIN" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mash_indexing.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mash_indexing.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="107" column="89" lean-forward="false" selection-start-line="107" selection-start-column="89" selection-end-line="107" selection-end-column="89" />
-              <folding>
-                <element signature="e#399#418#0" expanded="true" />
-                <element signature="e#1417#5234#0" expanded="false" />
-                <element signature="e#5332#11234#0" expanded="false" />
-                <element signature="e#11332#17246#0" expanded="false" />
-                <element signature="e#17366#18800#0" expanded="false" />
-                <marker date="1508729123000" expanded="true" signature="972:1010" ph="select Genom... Genome" />
-                <marker date="1508729123000" expanded="true" signature="1802:1870" ph="SELECT Genom... LIN" />
-                <marker date="1508729123000" expanded="true" signature="3435:3479" ph="SELECT FileP... Genome" />
-                <marker date="1508729123000" expanded="true" signature="5348:5390" ph="SELECT Cutof... Scheme" />
-                <marker date="1508729123000" expanded="true" signature="5348:5391" ph="SELECT Cutof... Scheme" />
-                <marker date="1508729123000" expanded="true" signature="5519:5549" ph="SELECT Genom... LIN" />
-                <marker date="1508729123000" expanded="true" signature="5519:5567" ph="SELECT Genom... LIN" />
-                <marker date="1508729123000" expanded="true" signature="6189:6233" ph="SELECT FileP... Genome" />
-                <marker date="1508729123000" expanded="true" signature="8476:8544" ph="SELECT Genom... LIN" />
-                <marker date="1508729123000" expanded="true" signature="9071:9115" ph="SELECT FileP... Genome" />
-                <marker date="1508729123000" expanded="true" signature="11348:11391" ph="SELECT Cutof... Scheme" />
-                <marker date="1508729123000" expanded="true" signature="11519:11567" ph="SELECT Genom... LIN" />
-                <marker date="1508729123000" expanded="true" signature="12189:12233" ph="SELECT FileP... Genome" />
-                <marker date="1508729123000" expanded="true" signature="14488:14556" ph="SELECT Genom... LIN" />
-                <marker date="1508729123000" expanded="true" signature="15083:15127" ph="SELECT FileP... Genome" />
-                <marker date="1508729123000" expanded="true" signature="17508:17552" ph="SELECT FileP... Genome" />
-                <marker date="1508729123000" expanded="true" signature="17508:17555" ph="SELECT FileP... Genome" />
-                <marker date="1508729123000" expanded="true" signature="19098:19142" ph="select FileP... Genome" />
-                <marker date="1508729123000" expanded="true" signature="19098:19145" ph="select FileP... Genome" />
-                <marker date="1508729123000" expanded="true" signature="19694:19730" ph="select LIN f... LIN" />
-                <marker date="1508729123000" expanded="true" signature="19694:19733" ph="select LIN f... LIN" />
-                <marker date="1508729123000" expanded="true" signature="19694:19749" ph="select LIN f... LIN" />
-                <marker date="1508729123000" expanded="true" signature="20254:20298" ph="select FileP... Genome" />
-                <marker date="1508729123000" expanded="true" signature="20254:20301" ph="select FileP... Genome" />
-                <marker date="1508729123000" expanded="true" signature="22016:22114" ph="INSERT INTO LIN... " />
-                <marker date="1508729123000" expanded="true" signature="22469:22491" ph="select * fro... Ge" />
-                <marker date="1508729123000" expanded="true" signature="22469:22494" ph="select * fro... LIN" />
-                <marker date="1508729123000" expanded="true" signature="22985:23051" ph="insert into LIN... " />
-                <marker date="1508729123000" expanded="true" signature="22985:23130" ph="insert into LIN... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="workflow2.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="workflow2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/workflow2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1335">
-              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="93" selection-end-column="18" />
+            <state relative-caret-position="-29">
+              <caret line="638" column="56" selection-start-line="638" selection-start-column="56" selection-end-line="638" selection-end-column="56" />
               <folding>
                 <element signature="e#114#131#0" expanded="true" />
-                <element signature="e#6115#14063#0" expanded="false" />
-                <element signature="e#14205#19878#0" expanded="false" />
-                <marker date="1511963726382" expanded="true" signature="3039:3099" ph="SELECT FileP... Genome" />
-                <marker date="1511963726382" expanded="true" signature="3039:3160" ph="SELECT Genom... Genome" />
-                <marker date="1511963726382" expanded="true" signature="3455:3512" ph="INSERT INTO Submission... " />
-                <marker date="1511963726382" expanded="true" signature="3581:3650" ph="SELECT Submi... Submission" />
-                <marker date="1511963726382" expanded="true" signature="3833:3915" ph="INSERT INTO Genome... " />
-                <marker date="1511963726382" expanded="true" signature="4037:4086" ph="SELECT Genom... Genome" />
-                <marker date="1511963726382" expanded="true" signature="4037:4089" ph="SELECT Genom... Genome" />
-                <marker date="1511963726382" expanded="true" signature="4170:4223" ph="SELECT Attri... Interest" />
-                <marker date="1511963726382" expanded="true" signature="4170:4226" ph="SELECT Attri... Interest" />
-                <marker date="1511963726382" expanded="true" signature="4499:4628" ph="insert into AttributeValue... " />
-                <marker date="1511963726382" expanded="true" signature="4774:4775" ph="insert into AttributeValue... " />
-                <marker date="1511963726382" expanded="true" signature="6131:6174" ph="SELECT Cutof... Scheme" />
-                <marker date="1511963726382" expanded="true" signature="9721:9789" ph="SELECT Genom... LIN" />
-                <marker date="1511963726382" expanded="true" signature="10345:10389" ph="SELECT FileP... Genome" />
-                <marker date="1511963726382" expanded="true" signature="14264:14331" ph="SELECT Genom... LIN" />
-                <marker date="1511963726382" expanded="true" signature="15963:16007" ph="SELECT FileP... Genome" />
-                <marker date="1511963726382" expanded="true" signature="19945:19970" ph="select * fro... Description" />
-                <marker date="1511963726382" expanded="true" signature="20320:20379" ph="update Descr... " />
-                <marker date="1511963726382" expanded="true" signature="29332:29382" ph="SELECT EXIST... " />
-                <marker date="1511963726382" expanded="true" signature="29346:29381" ph="SELECT LIN F... LIN" />
-                <marker date="1511963726382" expanded="true" signature="29998:30054" ph="SELECT EXIST... " />
-                <marker date="1511963726382" expanded="true" signature="30012:30053" ph="SELECT LIN F... LIN" />
-                <marker date="1511963726382" expanded="true" signature="30151:30278" ph="INSERT INTO LIN... " />
-                <marker date="1511963726382" expanded="true" signature="31145:31167" ph="SELECT LIN_I... LIN" />
-                <marker date="1511963726382" expanded="true" signature="31145:31200" ph="SELECT LIN_I... LIN" />
-                <marker date="1511963726382" expanded="true" signature="31145:31203" ph="SELECT LIN_I... LIN" />
-                <marker date="1511963726382" expanded="true" signature="31329:31393" ph="INSERT INTO Job... " />
-                <marker date="1511963726382" expanded="true" signature="31329:31413" ph="INSERT INTO Job... " />
-                <marker date="1511963726382" expanded="true" signature="31860:31883" ph="SELECt Email... User" />
-                <marker date="1511963726382" expanded="true" signature="31860:31897" ph="SELECT Email... User" />
-                <marker date="1511963726382" expanded="true" signature="31860:31900" ph="SELECT Email... User" />
-                <marker date="1511963726382" expanded="true" signature="32445:32529" ph="INSERT INTO Duplicated_upload... " />
-                <marker date="1511963726382" expanded="true" signature="32609:32646" ph="SELECT Email... User" />
-                <marker date="1511963726382" expanded="true" signature="33197:33281" ph="INSERT INTO Duplicated_upload... " />
-                <marker date="1511963726382" expanded="true" signature="33460:33497" ph="SELECT Email... User" />
+                <element signature="e#9580#9704#0" />
+                <element signature="e#9740#10104#0" />
+                <element signature="e#10278#10758#0" />
+                <element signature="e#10839#18787#0" />
+                <element signature="e#18929#24602#0" />
+                <element signature="e#24658#25267#0" />
+                <marker date="1525273755652" expanded="true" signature="3338:3398" ph="SELECT FileP... Genome" />
+                <marker date="1525273755652" expanded="true" signature="3338:3459" ph="SELECT Genom... Genome" />
+                <marker date="1525273755652" expanded="true" signature="3754:3811" ph="INSERT INTO Submission... " />
+                <marker date="1525273755652" expanded="true" signature="3880:3949" ph="SELECT Submi... Submission" />
+                <marker date="1525273755652" expanded="true" signature="4132:4214" ph="INSERT INTO Genome... " />
+                <marker date="1525273755652" expanded="true" signature="4336:4385" ph="SELECT Genom... Genome" />
+                <marker date="1525273755652" expanded="true" signature="4336:4388" ph="SELECT Genom... Genome" />
+                <marker date="1525273755652" expanded="true" signature="4469:4522" ph="SELECT Attri... Interest" />
+                <marker date="1525273755652" expanded="true" signature="4469:4525" ph="SELECT Attri... Interest" />
+                <marker date="1525273755652" expanded="true" signature="4798:4927" ph="insert into AttributeValue... " />
+                <marker date="1525273755652" expanded="true" signature="5073:5074" ph="insert into AttributeValue... " />
+                <marker date="1525273755652" expanded="true" signature="24694:24719" ph="select * fro... Description" />
+                <marker date="1525273755652" expanded="true" signature="25069:25128" ph="update Descr... " />
+                <marker date="1525273755652" expanded="true" signature="34110:34160" ph="SELECT EXIST... " />
+                <marker date="1525273755652" expanded="true" signature="34124:34159" ph="SELECT LIN F... LIN" />
+                <marker date="1525273755652" expanded="true" signature="34787:34843" ph="SELECT EXIST... " />
+                <marker date="1525273755652" expanded="true" signature="34801:34842" ph="SELECT LIN F... LIN" />
+                <marker date="1525273755652" expanded="true" signature="34940:35067" ph="INSERT INTO LIN... " />
+                <marker date="1525273755652" expanded="true" signature="35934:35956" ph="SELECT LIN_I... LIN" />
+                <marker date="1525273755652" expanded="true" signature="35934:35989" ph="SELECT LIN_I... LIN" />
+                <marker date="1525273755652" expanded="true" signature="35934:35992" ph="SELECT LIN_I... LIN" />
+                <marker date="1525273755652" expanded="true" signature="36118:36182" ph="INSERT INTO Job... " />
+                <marker date="1525273755652" expanded="true" signature="36118:36202" ph="INSERT INTO Job... " />
+                <marker date="1525273755652" expanded="true" signature="36649:36672" ph="SELECt Email... User" />
+                <marker date="1525273755652" expanded="true" signature="36649:36686" ph="SELECT Email... User" />
+                <marker date="1525273755652" expanded="true" signature="36649:36689" ph="SELECT Email... User" />
+                <marker date="1525273755652" expanded="true" signature="37234:37318" ph="INSERT INTO Duplicated_upload... " />
+                <marker date="1525273755652" expanded="true" signature="37398:37435" ph="SELECT Email... User" />
+                <marker date="1525273755652" expanded="true" signature="37986:38070" ph="INSERT INTO Duplicated_upload... " />
+                <marker date="1525273755652" expanded="true" signature="38249:38286" ph="SELECT Email... User" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mkblastdb.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mkblastdb.py">
+      <file leaf-file-name="sendEmail.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sendEmail.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="44" column="22" lean-forward="false" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
-              <folding>
-                <marker date="1513627181618" expanded="true" signature="335:457" ph="SELECT Genom... Genome" />
-              </folding>
+            <state relative-caret-position="1485">
+              <caret line="118" column="27" selection-start-line="118" selection-start-column="27" selection-end-line="118" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="get_taxonomy_by_taxid.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/get_taxonomy_by_taxid.py">
+      <file leaf-file-name="duplicated_upload.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/duplicated_upload.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding>
-                <element signature="e#36#58#0" expanded="true" />
-                <marker date="1512069196722" expanded="true" signature="834:898" ph="select Genom... a" />
-                <marker date="1512069196722" expanded="true" signature="834:1071" ph="select Genom... AttributeValue" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="db_build.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db_build.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="46" column="20" lean-forward="false" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
-              <folding>
-                <element signature="e#19#33#0" expanded="true" />
-                <marker date="1508525534000" expanded="true" signature="237:463" ph="CREATE TABLE... Genome" />
-                <marker date="1508525534000" expanded="true" signature="481:589" ph="CREATE TABLE... Signature" />
-                <marker date="1508525534000" expanded="true" signature="481:627" ph="CREATE TABLE... Signature" />
-                <marker date="1508525534000" expanded="true" signature="645:848" ph="CREATE TABLE... Interest" />
-                <marker date="1508525534000" expanded="true" signature="866:1028" ph="CREATE TABLE... Attribute" />
-                <marker date="1508525534000" expanded="true" signature="1046:1333" ph="CREATE TABLE... LIN" />
-                <marker date="1508525534000" expanded="true" signature="1351:1533" ph="CREATE TABLE... Scheme" />
-                <marker date="1508525534000" expanded="true" signature="1551:1737" ph="CREATE TABLE... Submission" />
-                <marker date="1508525534000" expanded="true" signature="1764:2051" ph="CREATE TABLE... User" />
-                <marker date="1508525534000" expanded="true" signature="2078:2341" ph="CREATE TABLE... AttributeValue" />
-                <marker date="1508525534000" expanded="true" signature="2925:3143" ph="CREATE TABLE... Description" />
-                <marker date="1508525534000" expanded="true" signature="3170:3327" ph="CREATE TABLE... Description_Items" />
-                <marker date="1508525534000" expanded="true" signature="3354:3568" ph="CREATE TABLE... LIN_to_Description" />
-                <marker date="1508525534000" expanded="true" signature="3870:3924" ph="INSERT INTO Attribute... " />
-                <marker date="1508525534000" expanded="true" signature="3942:3998" ph="INSERT INTO Attribute... " />
-                <marker date="1508525534000" expanded="true" signature="4016:4084" ph="INSERT INTO Attribute... " />
-                <marker date="1508525534000" expanded="true" signature="4102:4157" ph="INSERT INTO Attribute... " />
-                <marker date="1508525534000" expanded="true" signature="4175:4235" ph="INSERT INTO Attribute... " />
-                <marker date="1508525534000" expanded="true" signature="4253:4317" ph="INSERT INTO Attribute... " />
-                <marker date="1508525534000" expanded="true" signature="4335:4401" ph="INSERT INTO Attribute... " />
-                <marker date="1508525534000" expanded="true" signature="4419:4482" ph="INSERT INTO Attribute... " />
-                <marker date="1508525534000" expanded="true" signature="4500:4556" ph="INSERT INTO Attribute... " />
-                <marker date="1508525534000" expanded="true" signature="4574:4650" ph="INSERT INTO Attribute... " />
-                <marker date="1508525534000" expanded="true" signature="4693:4780" ph="INSERT INTO Attribute... " />
-                <marker date="1508525534000" expanded="true" signature="4798:4854" ph="INSERT INTO Attribute... " />
-                <marker date="1508525534000" expanded="true" signature="4888:4960" ph="INSERT INTO Attribute... " />
-                <marker date="1508525534000" expanded="true" signature="4978:5031" ph="INSERT INTO Attribute... " />
-                <marker date="1508525534000" expanded="true" signature="5073:5178" ph="INSERT INTO Interest... " />
-                <marker date="1508525534000" expanded="true" signature="5205:5314" ph="INSERT INTO Interest... " />
-                <marker date="1508525534000" expanded="true" signature="5345:5433" ph="INSERT INTO Scheme... " />
-                <marker date="1508525534000" expanded="true" signature="5460:5635" ph="INSERT INTO Scheme... " />
-                <marker date="1508525534000" expanded="true" signature="5662:5814" ph="INSERT INTO Scheme... " />
-                <marker date="1508525534000" expanded="true" signature="5856:5926" ph="INSERT INTO Description_Items... " />
-                <marker date="1508525534000" expanded="true" signature="5944:6016" ph="INSERT INTO Description_Items... " />
-                <marker date="1508525534000" expanded="true" signature="6034:6107" ph="INSERT INTO Description_Items... " />
-                <marker date="1508525534000" expanded="true" signature="6125:6197" ph="INSERT INTO Description_Items... " />
-                <marker date="1508525534000" expanded="true" signature="6215:6283" ph="INSERT INTO Description_Items... " />
-                <marker date="1508525534000" expanded="true" signature="6403:6504" ph="insert into User... " />
-                <marker date="1508525534000" expanded="true" signature="6403:6631" ph="insert into User... " />
-                <marker date="1508525534000" expanded="true" signature="6649:6711" ph="INSERT INTO Submission... " />
-                <marker date="1508525534000" expanded="true" signature="6738:6901" ph="INSERT INTO Genome... " />
-                <marker date="1508525534000" expanded="true" signature="6928:6931" ph="INSERT INTO AttributeValue... " />
-                <marker date="1508525534000" expanded="true" signature="6928:7069" ph="INSERT INTO AttributeValue... " />
-                <marker date="1508525534000" expanded="true" signature="7096:7234" ph="INSERT INTO AttributeValue... " />
-                <marker date="1508525534000" expanded="true" signature="7261:7401" ph="INSERT INTO AttributeValue... " />
-                <marker date="1508525534000" expanded="true" signature="7428:7564" ph="INSERT INTO AttributeValue... " />
-                <marker date="1508525534000" expanded="true" signature="7591:7723" ph="INSERT INTO AttributeValue... " />
-                <marker date="1508525534000" expanded="true" signature="7750:7889" ph="INSERT INTO AttributeValue... " />
-                <marker date="1508525534000" expanded="true" signature="7916:8048" ph="INSERT INTO AttributeValue... " />
-                <marker date="1508525534000" expanded="true" signature="8075:8213" ph="INSERT INTO AttributeValue... " />
-                <marker date="1508525534000" expanded="true" signature="8240:8384" ph="INSERT INTO AttributeValue... " />
-                <marker date="1508525534000" expanded="true" signature="8411:8565" ph="INSERT INTO AttributeValue... " />
-                <marker date="1508525534000" expanded="true" signature="8592:8743" ph="INSERT INTO AttributeValue... " />
-                <marker date="1508525534000" expanded="true" signature="8770:8925" ph="INSERT INTO AttributeValue... " />
-                <marker date="1508525534000" expanded="true" signature="8943:9086" ph="INSERT INTO LIN... " />
-                <marker date="1508525534000" expanded="true" signature="8960:9086" ph="INSERT INTO LIN... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mash_func.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mash_func.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="23" selection-end-column="18" />
-              <folding>
-                <element signature="e#84#93#0" expanded="true" />
-                <element signature="e#614#1130#0" expanded="false" />
-                <element signature="e#3079#3274#0" expanded="false" />
-                <element signature="e#3319#8195#0" expanded="false" />
-                <element signature="e#9610#11552#0" expanded="false" />
-                <marker date="1508359818000" expanded="true" signature="630:674" ph="select FileP... Genome" />
-                <marker date="1508359818000" expanded="true" signature="630:677" ph="select FileP... Genome" />
-                <marker date="1508359818000" expanded="true" signature="1402:1469" ph="insert into Signature... " />
-                <marker date="1508359818000" expanded="true" signature="3086:3184" ph="INSERT INTO LIN... " />
-                <marker date="1508359818000" expanded="true" signature="8391:8435" ph="select FileP... Genome" />
-                <marker date="1508359818000" expanded="true" signature="8391:8438" ph="select FileP... Genome" />
-                <marker date="1508359818000" expanded="true" signature="8544:8588" ph="select FileP... Genome" />
-                <marker date="1508359818000" expanded="true" signature="10042:10094" ph="SELECT FileP... Genome" />
-                <marker date="1508359818000" expanded="true" signature="10042:10097" ph="SELECT Signa... Signature" />
-                <marker date="1508359818000" expanded="true" signature="10428:10532" ph="SELECT Signa... LIN" />
-                <marker date="1508359818000" expanded="true" signature="10428:10535" ph="SELECT Genom... LIN" />
-                <marker date="1508359818000" expanded="true" signature="10733:10785" ph="SELECT Signa... Signature" />
-                <marker date="1508359818000" expanded="true" signature="10733:10788" ph="SELECT Signa... Signature" />
-              </folding>
+            <state relative-caret-position="1125">
+              <caret line="94" column="54" selection-start-line="94" selection-start-column="54" selection-end-line="94" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -283,7 +118,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&quot;Use LINdb</find>
       <find>&quot;Use LINdb&quot;</find>
       <find>fasta</find>
       <find>uuid</find>
@@ -298,7 +132,6 @@
       <find>-m</find>
       <find>current_genome</find>
       <find>AttributeValue</find>
-      <find>load</find>
       <find>get_value(tmp</find>
       <find>parallel_each_position</find>
       <find>create</find>
@@ -313,6 +146,8 @@
       <find>SubjectGenome</find>
       <find>df</find>
       <find>rm -rf</find>
+      <find>email</find>
+      <find>load</find>
     </findStrings>
     <replaceStrings>
       <replace>['0']*20</replace>
@@ -336,39 +171,39 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/mash_test.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/mash_func.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Tools/ANI_calculation.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Tools/use_bbmap.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/IntermediateResult.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/NewMatrix/Distance_pandas.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/NewMatrix/GenerateMatrix.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/IntermediateResult.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/NewMatrix/GenerateMatrixMemory.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/kmer_kmeans_ANI.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/db_build.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/mash_func.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/mash_indexing.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Tools/get_housekeeping_seq.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/workflow2.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/mkblastdb.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/workflow.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/ParseGenome.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/KMerPrep.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/ANIbWrapper.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/LIN_Assign.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/GenerateMatrix.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/src/Run.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/mkblastdb.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/LINgroup_indexing_traceback.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/LIN_Assign.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/workflow2.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/k_mer.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/KMer/test/ParseGenome.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/LIN_visualization.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/KMer/test/ParseGenome.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/FastANI_Toolbox.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/test/KMerPrep.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/KMer/test/GenerateMatrix.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/FastANI_Toolbox.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Tools/Load_RefSeq.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/LINgroup_indexing.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Tools/Load_RefSeq.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/db_build.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Tools/compute_mash_d.csv.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Tools/make_tree.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/ANI_Wrapper_2.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Tools/get_housekeeping_seq.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -421,9 +256,9 @@
         <option value="$PROJECT_DIR$/duplicated_upload.py" />
         <option value="$PROJECT_DIR$/LINgroup_signatures,py.py" />
         <option value="$PROJECT_DIR$/LINgroup_signatures.py" />
-        <option value="$PROJECT_DIR$/workflow2.py" />
         <option value="$PROJECT_DIR$/get_taxonomy_by_taxid.py" />
         <option value="$PROJECT_DIR$/mkblastdb.py" />
+        <option value="$PROJECT_DIR$/workflow2.py" />
       </list>
     </option>
   </component>
@@ -433,10 +268,13 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+    <option name="y" value="75" />
     <option name="width" value="1440" />
-    <option name="height" value="825" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -464,17 +302,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -490,7 +318,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -510,7 +337,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="922" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
@@ -540,13 +367,43 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.mash_indexing">
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
+    <configuration name="db_build" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="LIN_proto" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/db_build.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="mash_indexing" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="LIN_proto" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mash_indexing.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -659,76 +516,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="LIN_proto" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Nosetests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="LIN_proto" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;.&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="LIN_proto" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;.&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="py.test">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="LIN_proto" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;.&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -749,55 +536,88 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <configuration name="db_build" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="true" type="tests" factoryName="Doctests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
+      <envs />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="LIN_proto" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/db_build.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
     </configuration>
-    <configuration name="mash_indexing" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <module name="LIN_proto" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="LIN_proto" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mash_indexing.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Python.db_build" />
-      <item index="1" class="java.lang.String" itemvalue="Python.mash_indexing" />
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <module name="LIN_proto" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <module name="LIN_proto" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.db_build" />
+      <item itemvalue="Python.mash_indexing" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.mash_indexing" />
-        <item index="1" class="java.lang.String" itemvalue="Python.db_build" />
+      <list>
+        <item itemvalue="Python.mash_indexing" />
+        <item itemvalue="Python.db_build" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -810,13 +630,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
-    </task>
-    <task id="LOCAL-00747" summary="developing ani calculation for mpi&#10;Fix: compress intermediate files">
-      <created>1503598460508</created>
-      <option name="number" value="00747" />
-      <option name="presentableId" value="LOCAL-00747" />
-      <option name="project" value="LOCAL" />
-      <updated>1503598460508</updated>
     </task>
     <task id="LOCAL-00748" summary="developing ani calculation for mpi&#10;Fix: compress intermediate files">
       <created>1503932113681</created>
@@ -1154,7 +967,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512069201714</updated>
     </task>
-    <option name="localTasksCounter" value="796" />
+    <task id="LOCAL-00796" summary="extract taxonomy by tax ids">
+      <created>1513631612049</created>
+      <option name="number" value="00796" />
+      <option name="presentableId" value="LOCAL-00796" />
+      <option name="project" value="LOCAL" />
+      <updated>1513631612049</updated>
+    </task>
+    <option name="localTasksCounter" value="797" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1167,44 +987,48 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="825" extended-state="6" />
+    <frame x="0" y="75" width="1440" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13972603" sideWeight="0.51805556" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5369863" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32768363" sideWeight="0.4892704" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3" sideWeight="0.48194444" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21388888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896653" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info anchor="bottom" id="TODO" order="0" weight="0.32957748" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.51805556" side_tool="true" weight="0.13972603" />
+      <window_info anchor="bottom" id="Database Changes" order="2" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="5" weight="0.5369863" />
+      <window_info anchor="bottom" id="Python Console" order="4" sideWeight="0.4892704" weight="0.32768363" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.32876712" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.48194444" weight="0.29871795" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21388888" />
+      <window_info anchor="right" id="R Packages" order="0" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="right" id="R Graphics" order="0" />
+      <window_info anchor="right" id="Database" order="0" weight="0.3297568" />
+      <window_info anchor="right" id="SciView" order="1" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.32876712" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.32876712" />
+      <window_info anchor="bottom" id="Application Servers" order="2" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.32896653" />
+      <window_info anchor="right" id="Data View" order="1" />
     </layout>
     <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896653" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13972603" sideWeight="0.51805556" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5369863" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32768363" sideWeight="0.4892704" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13972603" sideWeight="0.48194444" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18819444" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info anchor="bottom" id="Version Control" order="5" weight="0.5369863" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.18819444" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info anchor="right" id="R Graphics" order="1" />
+      <window_info anchor="bottom" id="TODO" order="0" weight="0.32957748" />
+      <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.32876712" />
+      <window_info anchor="right" id="R Packages" order="0" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.32876712" />
+      <window_info anchor="right" id="Database" order="2" weight="0.3297568" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.48194444" visible="true" weight="0.13972603" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.51805556" side_tool="true" weight="0.13972603" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.32957748" />
+      <window_info anchor="bottom" id="Application Servers" order="2" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.32896653" />
+      <window_info anchor="right" id="Data View" order="3" />
+      <window_info anchor="bottom" id="Python Console" order="4" sideWeight="0.4892704" weight="0.32768363" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1335,54 +1159,127 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/workflow2.py</url>
-          <line>164</line>
+          <line>259</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/workflow2.py</url>
+          <line>381</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="20" />
+      <option name="time" value="21" />
     </breakpoint-manager>
-    <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/mash_func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="19" selection-start-line="19" selection-end-line="23" selection-end-column="18" />
+          <folding>
+            <element signature="e#84#93#0" expanded="true" />
+            <element signature="e#614#1130#0" />
+            <element signature="e#3079#3274#0" />
+            <element signature="e#3319#8195#0" />
+            <marker date="1508359818000" expanded="true" signature="1402:1469" ph="insert into Signature... " />
+            <marker date="1508359818000" expanded="true" signature="8391:8435" ph="select FileP... Genome" />
+            <marker date="1508359818000" expanded="true" signature="8391:8438" ph="select FileP... Genome" />
+            <marker date="1508359818000" expanded="true" signature="8544:8588" ph="select FileP... Genome" />
+            <marker date="1508359818000" expanded="true" signature="10042:10094" ph="SELECT FileP... Genome" />
+            <marker date="1508359818000" expanded="true" signature="10042:10097" ph="SELECT Signa... Signature" />
+            <marker date="1508359818000" expanded="true" signature="10428:10532" ph="SELECT Signa... LIN" />
+            <marker date="1508359818000" expanded="true" signature="10428:10535" ph="SELECT Genom... LIN" />
+            <marker date="1508359818000" expanded="true" signature="10733:10785" ph="SELECT Signa... Signature" />
+            <marker date="1508359818000" expanded="true" signature="10733:10788" ph="SELECT Signa... Signature" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/workflow2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="159" column="8" selection-start-line="159" selection-start-column="8" selection-end-line="159" selection-end-column="8" />
+          <folding>
+            <element signature="e#114#131#0" expanded="true" />
+            <element signature="e#9580#9704#0" />
+            <element signature="e#9740#10104#0" />
+            <element signature="e#10278#10758#0" />
+            <element signature="e#10839#18787#0" />
+            <element signature="e#18929#24602#0" />
+            <element signature="e#24658#25267#0" />
+            <marker date="1525273755652" expanded="true" signature="3338:3398" ph="SELECT FileP... Genome" />
+            <marker date="1525273755652" expanded="true" signature="3338:3459" ph="SELECT Genom... Genome" />
+            <marker date="1525273755652" expanded="true" signature="3754:3811" ph="INSERT INTO Submission... " />
+            <marker date="1525273755652" expanded="true" signature="3880:3949" ph="SELECT Submi... Submission" />
+            <marker date="1525273755652" expanded="true" signature="4132:4214" ph="INSERT INTO Genome... " />
+            <marker date="1525273755652" expanded="true" signature="4336:4385" ph="SELECT Genom... Genome" />
+            <marker date="1525273755652" expanded="true" signature="4336:4388" ph="SELECT Genom... Genome" />
+            <marker date="1525273755652" expanded="true" signature="4469:4522" ph="SELECT Attri... Interest" />
+            <marker date="1525273755652" expanded="true" signature="4469:4525" ph="SELECT Attri... Interest" />
+            <marker date="1525273755652" expanded="true" signature="4798:4927" ph="insert into AttributeValue... " />
+            <marker date="1525273755652" expanded="true" signature="5073:5074" ph="insert into AttributeValue... " />
+            <marker date="1525273755652" expanded="true" signature="24694:24719" ph="select * fro... Description" />
+            <marker date="1525273755652" expanded="true" signature="25069:25128" ph="update Descr... " />
+            <marker date="1525273755652" expanded="true" signature="34110:34160" ph="SELECT EXIST... " />
+            <marker date="1525273755652" expanded="true" signature="34124:34159" ph="SELECT LIN F... LIN" />
+            <marker date="1525273755652" expanded="true" signature="34787:34843" ph="SELECT EXIST... " />
+            <marker date="1525273755652" expanded="true" signature="34801:34842" ph="SELECT LIN F... LIN" />
+            <marker date="1525273755652" expanded="true" signature="34940:35067" ph="INSERT INTO LIN... " />
+            <marker date="1525273755652" expanded="true" signature="35934:35956" ph="SELECT LIN_I... LIN" />
+            <marker date="1525273755652" expanded="true" signature="35934:35989" ph="SELECT LIN_I... LIN" />
+            <marker date="1525273755652" expanded="true" signature="35934:35992" ph="SELECT LIN_I... LIN" />
+            <marker date="1525273755652" expanded="true" signature="36118:36182" ph="INSERT INTO Job... " />
+            <marker date="1525273755652" expanded="true" signature="36118:36202" ph="INSERT INTO Job... " />
+            <marker date="1525273755652" expanded="true" signature="36649:36672" ph="SELECt Email... User" />
+            <marker date="1525273755652" expanded="true" signature="36649:36686" ph="SELECT Email... User" />
+            <marker date="1525273755652" expanded="true" signature="36649:36689" ph="SELECT Email... User" />
+            <marker date="1525273755652" expanded="true" signature="37234:37318" ph="INSERT INTO Duplicated_upload... " />
+            <marker date="1525273755652" expanded="true" signature="37398:37435" ph="SELECT Email... User" />
+            <marker date="1525273755652" expanded="true" signature="37986:38070" ph="INSERT INTO Duplicated_upload... " />
+            <marker date="1525273755652" expanded="true" signature="38249:38286" ph="SELECT Email... User" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ExtractInfo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LoadingExternalInfo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/KMer/src/KMerPrep.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="14" column="57" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="14" selection-end-column="57" />
+          <caret line="14" column="57" selection-start-line="13" selection-start-column="4" selection-end-line="14" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kmer_kmeans_ANI.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FastANI_Toolbox.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
-          <caret line="59" column="95" lean-forward="false" selection-start-line="59" selection-start-column="95" selection-end-line="59" selection-end-column="95" />
+          <caret line="59" column="95" selection-start-line="59" selection-start-column="95" selection-end-line="59" selection-end-column="95" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -1390,51 +1287,36 @@
     <entry file="file://$PROJECT_DIR$/k_mer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="930">
-          <caret line="70" column="51" lean-forward="false" selection-start-line="70" selection-start-column="51" selection-end-line="70" selection-end-column="51" />
+          <caret line="70" column="51" selection-start-line="70" selection-start-column="51" selection-end-line="70" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/implemented_kmer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LIN_visualization.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
-          <caret line="61" column="33" lean-forward="false" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+          <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing_evaluation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="34" />
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing.md" />
-    <entry file="file://$PROJECT_DIR$/Tools/Whatsinside.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tools/load_uncultured.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1455,42 +1337,42 @@
     <entry file="file://$PROJECT_DIR$/Tools/reassign_LIN.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
-          <caret line="56" column="21" lean-forward="false" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
+          <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mash_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing_comparison.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2505">
-          <caret line="171" column="102" lean-forward="false" selection-start-line="171" selection-start-column="102" selection-end-line="171" selection-end-column="102" />
+          <caret line="171" column="102" selection-start-line="171" selection-start-column="102" selection-end-line="171" selection-end-column="102" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing_traceback.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="825">
-          <caret line="56" column="14" lean-forward="false" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+          <caret line="56" column="14" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/Load_RefSeq.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="9" lean-forward="false" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/get_meta.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
         </state>
       </provider>
     </entry>
@@ -1507,83 +1389,59 @@
     <entry file="file://$PROJECT_DIR$/Tools/export_db.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
-          <caret line="51" column="75" lean-forward="false" selection-start-line="51" selection-start-column="75" selection-end-line="51" selection-end-column="75" />
+          <caret line="51" column="75" selection-start-line="51" selection-start-column="75" selection-end-line="51" selection-end-column="75" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/use.py" />
-    <entry file="file://$PROJECT_DIR$/ANI_Wrapper_2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1170">
-          <caret line="87" column="85" lean-forward="false" selection-start-line="87" selection-start-column="82" selection-end-line="87" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/preprocess.py" />
     <entry file="file://$PROJECT_DIR$/Tools/make_tree.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
-          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/call_bbmap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
-          <caret line="28" column="38" lean-forward="false" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/submission.qsub">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="583">
-          <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Notes.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="135">
-            <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Notes.md" />
     <entry file="file://$PROJECT_DIR$/Tools/plot_correlation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1185">
-          <caret line="84" column="28" lean-forward="false" selection-start-line="84" selection-start-column="28" selection-end-line="84" selection-end-column="28" />
-          <folding />
+          <caret line="84" column="28" selection-start-line="84" selection-start-column="28" selection-end-line="84" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/dragonstooth_sourmash.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="79" column="51" lean-forward="false" selection-start-line="79" selection-start-column="51" selection-end-line="79" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Mash_indexing.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="79" column="51" selection-start-line="79" selection-start-column="51" selection-end-line="79" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
-          <caret line="43" column="41" lean-forward="false" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
+          <caret line="43" column="41" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -1601,13 +1459,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sendEmail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="97" column="42" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="123" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/workflow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -1615,49 +1466,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/duplicated_upload.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="94" column="54" lean-forward="true" selection-start-line="94" selection-start-column="54" selection-end-line="94" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tools/ANI_calculation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1096">
-          <caret line="107" column="38" lean-forward="false" selection-start-line="107" selection-start-column="38" selection-end-line="107" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LIN_Assign.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="81" column="13" lean-forward="false" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
-          <folding>
-            <marker date="1508529598000" expanded="true" signature="501:545" ph="SELECT Label... Scheme" />
-            <marker date="1508529598000" expanded="true" signature="1066:1126" ph="SELECT LIN f... LIN" />
-            <marker date="1508529598000" expanded="true" signature="1294:1336" ph="SELECT Cutof... Scheme" />
-            <marker date="1508529598000" expanded="true" signature="2826:2867" ph="SELECT LIN.L... LIN" />
-            <marker date="1508529598000" expanded="true" signature="2932:2997" ph="SELECT LIN.L... LIN" />
-          </folding>
+          <caret line="107" column="38" selection-start-line="107" selection-start-column="38" selection-end-line="107" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LINgroup_signatures,py.py" />
     <entry file="file://$PROJECT_DIR$/mash_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="23" selection-end-column="18" />
+        <state relative-caret-position="120">
+          <caret line="19" selection-start-line="19" selection-end-line="23" selection-end-column="18" />
           <folding>
             <element signature="e#84#93#0" expanded="true" />
-            <element signature="e#614#1130#0" expanded="false" />
-            <element signature="e#3079#3274#0" expanded="false" />
-            <element signature="e#3319#8195#0" expanded="false" />
-            <element signature="e#9610#11552#0" expanded="false" />
-            <marker date="1508359818000" expanded="true" signature="630:674" ph="select FileP... Genome" />
-            <marker date="1508359818000" expanded="true" signature="630:677" ph="select FileP... Genome" />
+            <element signature="e#614#1130#0" />
+            <element signature="e#3079#3274#0" />
+            <element signature="e#3319#8195#0" />
             <marker date="1508359818000" expanded="true" signature="1402:1469" ph="insert into Signature... " />
-            <marker date="1508359818000" expanded="true" signature="3086:3184" ph="INSERT INTO LIN... " />
             <marker date="1508359818000" expanded="true" signature="8391:8435" ph="select FileP... Genome" />
             <marker date="1508359818000" expanded="true" signature="8391:8438" ph="select FileP... Genome" />
             <marker date="1508359818000" expanded="true" signature="8544:8588" ph="select FileP... Genome" />
@@ -1674,59 +1500,16 @@
     <entry file="file://$PROJECT_DIR$/LINgroup_signatures.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="719">
-          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mash_indexing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="107" column="89" lean-forward="false" selection-start-line="107" selection-start-column="89" selection-end-line="107" selection-end-column="89" />
-          <folding>
-            <element signature="e#399#418#0" expanded="true" />
-            <element signature="e#1417#5234#0" expanded="false" />
-            <element signature="e#5332#11234#0" expanded="false" />
-            <element signature="e#11332#17246#0" expanded="false" />
-            <element signature="e#17366#18800#0" expanded="false" />
-            <marker date="1508729123000" expanded="true" signature="972:1010" ph="select Genom... Genome" />
-            <marker date="1508729123000" expanded="true" signature="1802:1870" ph="SELECT Genom... LIN" />
-            <marker date="1508729123000" expanded="true" signature="3435:3479" ph="SELECT FileP... Genome" />
-            <marker date="1508729123000" expanded="true" signature="5348:5390" ph="SELECT Cutof... Scheme" />
-            <marker date="1508729123000" expanded="true" signature="5348:5391" ph="SELECT Cutof... Scheme" />
-            <marker date="1508729123000" expanded="true" signature="5519:5549" ph="SELECT Genom... LIN" />
-            <marker date="1508729123000" expanded="true" signature="5519:5567" ph="SELECT Genom... LIN" />
-            <marker date="1508729123000" expanded="true" signature="6189:6233" ph="SELECT FileP... Genome" />
-            <marker date="1508729123000" expanded="true" signature="8476:8544" ph="SELECT Genom... LIN" />
-            <marker date="1508729123000" expanded="true" signature="9071:9115" ph="SELECT FileP... Genome" />
-            <marker date="1508729123000" expanded="true" signature="11348:11391" ph="SELECT Cutof... Scheme" />
-            <marker date="1508729123000" expanded="true" signature="11519:11567" ph="SELECT Genom... LIN" />
-            <marker date="1508729123000" expanded="true" signature="12189:12233" ph="SELECT FileP... Genome" />
-            <marker date="1508729123000" expanded="true" signature="14488:14556" ph="SELECT Genom... LIN" />
-            <marker date="1508729123000" expanded="true" signature="15083:15127" ph="SELECT FileP... Genome" />
-            <marker date="1508729123000" expanded="true" signature="17508:17552" ph="SELECT FileP... Genome" />
-            <marker date="1508729123000" expanded="true" signature="17508:17555" ph="SELECT FileP... Genome" />
-            <marker date="1508729123000" expanded="true" signature="19098:19142" ph="select FileP... Genome" />
-            <marker date="1508729123000" expanded="true" signature="19098:19145" ph="select FileP... Genome" />
-            <marker date="1508729123000" expanded="true" signature="19694:19730" ph="select LIN f... LIN" />
-            <marker date="1508729123000" expanded="true" signature="19694:19733" ph="select LIN f... LIN" />
-            <marker date="1508729123000" expanded="true" signature="19694:19749" ph="select LIN f... LIN" />
-            <marker date="1508729123000" expanded="true" signature="20254:20298" ph="select FileP... Genome" />
-            <marker date="1508729123000" expanded="true" signature="20254:20301" ph="select FileP... Genome" />
-            <marker date="1508729123000" expanded="true" signature="22016:22114" ph="INSERT INTO LIN... " />
-            <marker date="1508729123000" expanded="true" signature="22469:22491" ph="select * fro... Ge" />
-            <marker date="1508729123000" expanded="true" signature="22469:22494" ph="select * fro... LIN" />
-            <marker date="1508729123000" expanded="true" signature="22985:23051" ph="insert into LIN... " />
-            <marker date="1508729123000" expanded="true" signature="22985:23130" ph="insert into LIN... " />
-          </folding>
+          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db_build.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="46" column="20" lean-forward="false" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+        <state relative-caret-position="742">
+          <caret line="60" column="10" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
           <folding>
-            <element signature="e#19#33#0" expanded="true" />
+            <element signature="e#19#33#0" />
             <marker date="1508525534000" expanded="true" signature="237:463" ph="CREATE TABLE... Genome" />
             <marker date="1508525534000" expanded="true" signature="481:589" ph="CREATE TABLE... Signature" />
             <marker date="1508525534000" expanded="true" signature="481:627" ph="CREATE TABLE... Signature" />
@@ -1787,71 +1570,124 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ANI_Wrapper_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="554">
+          <caret line="87" column="85" selection-start-line="87" selection-start-column="82" selection-end-line="87" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/get_taxonomy_by_taxid.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mkblastdb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/duplicated_upload.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1125">
+          <caret line="94" column="54" selection-start-line="94" selection-start-column="54" selection-end-line="94" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sendEmail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1485">
+          <caret line="118" column="27" selection-start-line="118" selection-start-column="27" selection-end-line="118" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LIN_Assign.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="81" column="13" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
           <folding>
-            <element signature="e#36#58#0" expanded="true" />
-            <marker date="1512069196722" expanded="true" signature="834:898" ph="select Genom... a" />
-            <marker date="1512069196722" expanded="true" signature="834:1071" ph="select Genom... AttributeValue" />
+            <marker date="1508529598000" expanded="true" signature="501:545" ph="SELECT Label... Scheme" />
+            <marker date="1508529598000" expanded="true" signature="1066:1126" ph="SELECT LIN f... LIN" />
+            <marker date="1508529598000" expanded="true" signature="1294:1336" ph="SELECT Cutof... Scheme" />
+            <marker date="1508529598000" expanded="true" signature="2826:2867" ph="SELECT LIN.L... LIN" />
+            <marker date="1508529598000" expanded="true" signature="2932:2997" ph="SELECT LIN.L... LIN" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mash_indexing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="107" column="89" selection-start-line="107" selection-start-column="89" selection-end-line="107" selection-end-column="89" />
+          <folding>
+            <element signature="e#399#418#0" expanded="true" />
+            <element signature="e#1417#5234#0" />
+            <element signature="e#5332#11234#0" />
+            <element signature="e#11332#17246#0" />
+            <element signature="e#17366#18800#0" />
+            <marker date="1508729123000" expanded="true" signature="972:1010" ph="select Genom... Genome" />
+            <marker date="1508729123000" expanded="true" signature="19098:19142" ph="select FileP... Genome" />
+            <marker date="1508729123000" expanded="true" signature="19098:19145" ph="select FileP... Genome" />
+            <marker date="1508729123000" expanded="true" signature="19694:19730" ph="select LIN f... LIN" />
+            <marker date="1508729123000" expanded="true" signature="19694:19733" ph="select LIN f... LIN" />
+            <marker date="1508729123000" expanded="true" signature="19694:19749" ph="select LIN f... LIN" />
+            <marker date="1508729123000" expanded="true" signature="20254:20298" ph="select FileP... Genome" />
+            <marker date="1508729123000" expanded="true" signature="20254:20301" ph="select FileP... Genome" />
+            <marker date="1508729123000" expanded="true" signature="22016:22114" ph="INSERT INTO LIN... " />
+            <marker date="1508729123000" expanded="true" signature="22469:22491" ph="select * fro... Ge" />
+            <marker date="1508729123000" expanded="true" signature="22469:22494" ph="select * fro... LIN" />
+            <marker date="1508729123000" expanded="true" signature="22985:23051" ph="insert into LIN... " />
+            <marker date="1508729123000" expanded="true" signature="22985:23130" ph="insert into LIN... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/workflow2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1335">
-          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="93" selection-end-column="18" />
+        <state relative-caret-position="-29">
+          <caret line="638" column="56" selection-start-line="638" selection-start-column="56" selection-end-line="638" selection-end-column="56" />
           <folding>
             <element signature="e#114#131#0" expanded="true" />
-            <element signature="e#6115#14063#0" expanded="false" />
-            <element signature="e#14205#19878#0" expanded="false" />
-            <marker date="1511963726382" expanded="true" signature="3039:3099" ph="SELECT FileP... Genome" />
-            <marker date="1511963726382" expanded="true" signature="3039:3160" ph="SELECT Genom... Genome" />
-            <marker date="1511963726382" expanded="true" signature="3455:3512" ph="INSERT INTO Submission... " />
-            <marker date="1511963726382" expanded="true" signature="3581:3650" ph="SELECT Submi... Submission" />
-            <marker date="1511963726382" expanded="true" signature="3833:3915" ph="INSERT INTO Genome... " />
-            <marker date="1511963726382" expanded="true" signature="4037:4086" ph="SELECT Genom... Genome" />
-            <marker date="1511963726382" expanded="true" signature="4037:4089" ph="SELECT Genom... Genome" />
-            <marker date="1511963726382" expanded="true" signature="4170:4223" ph="SELECT Attri... Interest" />
-            <marker date="1511963726382" expanded="true" signature="4170:4226" ph="SELECT Attri... Interest" />
-            <marker date="1511963726382" expanded="true" signature="4499:4628" ph="insert into AttributeValue... " />
-            <marker date="1511963726382" expanded="true" signature="4774:4775" ph="insert into AttributeValue... " />
-            <marker date="1511963726382" expanded="true" signature="6131:6174" ph="SELECT Cutof... Scheme" />
-            <marker date="1511963726382" expanded="true" signature="9721:9789" ph="SELECT Genom... LIN" />
-            <marker date="1511963726382" expanded="true" signature="10345:10389" ph="SELECT FileP... Genome" />
-            <marker date="1511963726382" expanded="true" signature="14264:14331" ph="SELECT Genom... LIN" />
-            <marker date="1511963726382" expanded="true" signature="15963:16007" ph="SELECT FileP... Genome" />
-            <marker date="1511963726382" expanded="true" signature="19945:19970" ph="select * fro... Description" />
-            <marker date="1511963726382" expanded="true" signature="20320:20379" ph="update Descr... " />
-            <marker date="1511963726382" expanded="true" signature="29332:29382" ph="SELECT EXIST... " />
-            <marker date="1511963726382" expanded="true" signature="29346:29381" ph="SELECT LIN F... LIN" />
-            <marker date="1511963726382" expanded="true" signature="29998:30054" ph="SELECT EXIST... " />
-            <marker date="1511963726382" expanded="true" signature="30012:30053" ph="SELECT LIN F... LIN" />
-            <marker date="1511963726382" expanded="true" signature="30151:30278" ph="INSERT INTO LIN... " />
-            <marker date="1511963726382" expanded="true" signature="31145:31167" ph="SELECT LIN_I... LIN" />
-            <marker date="1511963726382" expanded="true" signature="31145:31200" ph="SELECT LIN_I... LIN" />
-            <marker date="1511963726382" expanded="true" signature="31145:31203" ph="SELECT LIN_I... LIN" />
-            <marker date="1511963726382" expanded="true" signature="31329:31393" ph="INSERT INTO Job... " />
-            <marker date="1511963726382" expanded="true" signature="31329:31413" ph="INSERT INTO Job... " />
-            <marker date="1511963726382" expanded="true" signature="31860:31883" ph="SELECt Email... User" />
-            <marker date="1511963726382" expanded="true" signature="31860:31897" ph="SELECT Email... User" />
-            <marker date="1511963726382" expanded="true" signature="31860:31900" ph="SELECT Email... User" />
-            <marker date="1511963726382" expanded="true" signature="32445:32529" ph="INSERT INTO Duplicated_upload... " />
-            <marker date="1511963726382" expanded="true" signature="32609:32646" ph="SELECT Email... User" />
-            <marker date="1511963726382" expanded="true" signature="33197:33281" ph="INSERT INTO Duplicated_upload... " />
-            <marker date="1511963726382" expanded="true" signature="33460:33497" ph="SELECT Email... User" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mkblastdb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="44" column="22" lean-forward="false" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
-          <folding>
-            <marker date="1513627181618" expanded="true" signature="335:457" ph="SELECT Genom... Genome" />
+            <element signature="e#9580#9704#0" />
+            <element signature="e#9740#10104#0" />
+            <element signature="e#10278#10758#0" />
+            <element signature="e#10839#18787#0" />
+            <element signature="e#18929#24602#0" />
+            <element signature="e#24658#25267#0" />
+            <marker date="1525273755652" expanded="true" signature="3338:3398" ph="SELECT FileP... Genome" />
+            <marker date="1525273755652" expanded="true" signature="3338:3459" ph="SELECT Genom... Genome" />
+            <marker date="1525273755652" expanded="true" signature="3754:3811" ph="INSERT INTO Submission... " />
+            <marker date="1525273755652" expanded="true" signature="3880:3949" ph="SELECT Submi... Submission" />
+            <marker date="1525273755652" expanded="true" signature="4132:4214" ph="INSERT INTO Genome... " />
+            <marker date="1525273755652" expanded="true" signature="4336:4385" ph="SELECT Genom... Genome" />
+            <marker date="1525273755652" expanded="true" signature="4336:4388" ph="SELECT Genom... Genome" />
+            <marker date="1525273755652" expanded="true" signature="4469:4522" ph="SELECT Attri... Interest" />
+            <marker date="1525273755652" expanded="true" signature="4469:4525" ph="SELECT Attri... Interest" />
+            <marker date="1525273755652" expanded="true" signature="4798:4927" ph="insert into AttributeValue... " />
+            <marker date="1525273755652" expanded="true" signature="5073:5074" ph="insert into AttributeValue... " />
+            <marker date="1525273755652" expanded="true" signature="24694:24719" ph="select * fro... Description" />
+            <marker date="1525273755652" expanded="true" signature="25069:25128" ph="update Descr... " />
+            <marker date="1525273755652" expanded="true" signature="34110:34160" ph="SELECT EXIST... " />
+            <marker date="1525273755652" expanded="true" signature="34124:34159" ph="SELECT LIN F... LIN" />
+            <marker date="1525273755652" expanded="true" signature="34787:34843" ph="SELECT EXIST... " />
+            <marker date="1525273755652" expanded="true" signature="34801:34842" ph="SELECT LIN F... LIN" />
+            <marker date="1525273755652" expanded="true" signature="34940:35067" ph="INSERT INTO LIN... " />
+            <marker date="1525273755652" expanded="true" signature="35934:35956" ph="SELECT LIN_I... LIN" />
+            <marker date="1525273755652" expanded="true" signature="35934:35989" ph="SELECT LIN_I... LIN" />
+            <marker date="1525273755652" expanded="true" signature="35934:35992" ph="SELECT LIN_I... LIN" />
+            <marker date="1525273755652" expanded="true" signature="36118:36182" ph="INSERT INTO Job... " />
+            <marker date="1525273755652" expanded="true" signature="36118:36202" ph="INSERT INTO Job... " />
+            <marker date="1525273755652" expanded="true" signature="36649:36672" ph="SELECt Email... User" />
+            <marker date="1525273755652" expanded="true" signature="36649:36686" ph="SELECT Email... User" />
+            <marker date="1525273755652" expanded="true" signature="36649:36689" ph="SELECT Email... User" />
+            <marker date="1525273755652" expanded="true" signature="37234:37318" ph="INSERT INTO Duplicated_upload... " />
+            <marker date="1525273755652" expanded="true" signature="37398:37435" ph="SELECT Email... User" />
+            <marker date="1525273755652" expanded="true" signature="37986:38070" ph="INSERT INTO Duplicated_upload... " />
+            <marker date="1525273755652" expanded="true" signature="38249:38286" ph="SELECT Email... User" />
           </folding>
         </state>
       </provider>
