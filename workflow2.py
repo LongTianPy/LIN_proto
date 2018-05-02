@@ -238,7 +238,7 @@ def load_new_metadata_newversion(c,db,args):
     if intraspecies != []:
         for row in intraspecies:
             check_and_load(row[1],c,db,row[0],new_Genome_ID)
-    c.execute('insert into Taxonomy (Genome_ID,Rank_ID,Taxon) values ({0},{1},"{2}")'.format(new_Genome_ID,20,strain))
+    c.execute("insert into Taxonomy (Genome_ID,Rank_ID,Taxon) values ({0},{1},'{2}')".format(new_Genome_ID,20,strain))
     db.commit()
     for i in range(len(Attribute_ID_list)):
         attributevalue = Attributes[i].replace("_"," ")
