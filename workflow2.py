@@ -180,7 +180,7 @@ def check_and_load(entry,c,conn,Rank_ID,Genome_ID):
         c.execute('insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID) values ({0},{1},{2})'.format(Genome_ID,Rank_ID,int(tax_id)))
         conn.commit()
     else:
-        c.execute('insert into Taxonomy (Genome_ID,Rank_ID,Taxon) values ({0},{1},"{2}")'.format(Genome_ID.Rank_ID,entry))
+        c.execute('insert into Taxonomy (Genome_ID,Rank_ID,Taxon) values ({0},{1},"{2}")'.format(Genome_ID,Rank_ID,entry))
         conn.commit()
 
 def load_new_metadata_newversion(c,db,args):
