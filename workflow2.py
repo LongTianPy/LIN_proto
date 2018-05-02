@@ -185,7 +185,7 @@ def check_and_load(entry,c,conn,Rank_ID,Genome_ID):
 
 def check_and_load_w_taxid(tax_list,c,conn,Rank_ID,Genome_ID):
     [taxon,taxid] = tax_list
-    c.execute("select exists(select NCBI_Tax_ID from NCBI_Tax_ID where NCBI_Tax_ID={0}} and Rank_ID={1}})".format(taxid,Rank_ID))
+    c.execute("select exists(select NCBI_Tax_ID from NCBI_Tax_ID where NCBI_Tax_ID={0} and Rank_ID={1})".format(taxid,Rank_ID))
     tmp = c.fetchone()[0]
     if tmp == 1:
         c.execute('insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID) values ({0},{1},{2})'.format(Genome_ID, Rank_ID,
