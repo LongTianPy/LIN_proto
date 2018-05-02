@@ -169,18 +169,32 @@ def get_Tax_ID_by_entry(entry):
         return 'N/A'
 
 def check_and_load(entry,c,conn,Rank_ID,Genome_ID):
-    c.execute("select exists(select NCBI_Tax_ID from NCBI_Tax_ID where Taxon='{0}' and Rank_ID=6)".format(entry))
+    c.execute("select exists(select NCBI_Tax_ID from NCBI_Tax_ID where Taxon='{0}' and Rank_ID={1})".format(entry,Rank_ID))
     tmp = c.fetchone()[0]
     if tmp == 1:
         c.execute("select NCBI_Tax_ID from NCBI_Tax_ID where Taxon='{0}' and Rank_ID={1}".format(genus,Rank_ID))
         tax_id = c.fetchone()[0]
     else:
-        tax_id = get_Tax_ID_by_entry(entry)
+        tax_id = 'N/A'
     if tax_id != 'N/A':
         c.execute('insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID) values ({0},{1},{2})'.format(Genome_ID,Rank_ID,int(tax_id)))
         conn.commit()
     else:
-        c.execute('insert into Taxonomy (Genome_ID,Rank_ID,Taxon) values ({0},{1},"{2}")'.format(Genome_ID,Rank_ID,entry))
+        c.execute("insert into Taxonomy (Genome_ID,Rank_ID,Taxon) values ({0},{1},'{2}')".format(Genome_ID,Rank_ID,entry))
+        conn.commit()
+
+def check_and_load_w_taxid(tax_list,c,conn,Rank_ID,Genome_ID):
+    [taxon,taxid] = tax_list
+    c.execute("select exists(select NCBI_Tax_ID from NCBI_Tax_ID where NCBI_Tax_ID={0}} and Rank_ID={1}})".format(taxid,Rank_ID))
+    tmp = c.fetchone()[0]
+    if tmp == 1:
+        c.execute('insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID) values ({0},{1},{2})'.format(Genome_ID, Rank_ID,
+                                                                                                     int(tax_id)))
+        conn.commit()
+    else:
+        c.execute("insert into NCBI_Tax_ID (NCBI_Tax_ID,Taxon,Rank_ID) values ({0},'{1}',{2})".format(taxid,taxon,Rank_ID))
+        conn.commit()
+        c.execute("insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID) values ({0},{1},{2})".format(Genome_ID,Rank_ID,taxid))
         conn.commit()
 
 def load_new_metadata_newversion(c,db,args):
@@ -209,8 +223,18 @@ def load_new_metadata_newversion(c,db,args):
     for i in range(len(intraspecies_type)):
         if intraspecies_type[i] != "N/A" and intraspecies_value[i] != "N/A":
             intraspecies.append([intraspecies_type[i],intraspecies_value[i]])
-    check_and_load(genus,c,db,6,new_Genome_ID)
-    check_and_load(species,c,db,7,new_Genome_ID)
+    # check_and_load(genus,c,db,6,new_Genome_ID)
+    # check_and_load(species,c,db,7,new_Genome_ID)
+    if Tax_ID != 'N/A':
+        lineage = extract_taxonomy_by_taxid(tax_id=Tax_ID)
+        lineage['strain'] = strain
+        for rank in ranks:
+            if lineage[rank] != ['N/A','N/A']:
+                rank_id = ranks_dict[rank]
+                check_and_load_w_taxid(lineage[rank],c,conn,rank_id,new_Genome_ID)
+    else:
+        check_and_load(genus, c, db, 6, new_Genome_ID)
+        check_and_load(species, c, db, 7, new_Genome_ID)
     if intraspecies != []:
         for row in intraspecies:
             check_and_load(row[1],c,db,row[0],new_Genome_ID)
