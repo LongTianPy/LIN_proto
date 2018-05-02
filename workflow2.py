@@ -189,7 +189,7 @@ def check_and_load_w_taxid(tax_list,c,conn,Rank_ID,Genome_ID):
     tmp = c.fetchone()[0]
     if tmp == 1:
         c.execute('insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID) values ({0},{1},{2})'.format(Genome_ID, Rank_ID,
-                                                                                                     int(tax_id)))
+                                                                                                     int(taxid)))
         conn.commit()
     else:
         c.execute("insert into NCBI_Tax_ID (NCBI_Tax_ID,Taxon,Rank_ID) values ({0},'{1}',{2})".format(taxid,taxon,Rank_ID))
