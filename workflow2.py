@@ -217,12 +217,13 @@ def load_new_metadata_newversion(c,db,args):
     genus = Taxonomy[0]
     species = Taxonomy[1]
     strain = Taxonomy[-1]
-    intraspecies_type = [Taxonomy[i] for i in  range(len(Taxonomy[2:-1])) if i%2==0]
-    intraspecies_value = [Taxonomy[i] for i in range(len(Taxonomy[2:-1])) if i%2!=0]
-    intraspecies = []
-    for i in range(len(intraspecies_type)):
-        if intraspecies_type[i] != "N/A" and intraspecies_value[i] != "N/A":
-            intraspecies.append([intraspecies_type[i],intraspecies_value[i]])
+    if len(Taxonomy)>3:
+        intraspecies_type = [Taxonomy[i] for i in  range(len(Taxonomy[2:-1])) if i%2==0]
+        intraspecies_value = [Taxonomy[i] for i in range(len(Taxonomy[2:-1])) if i%2!=0]
+        intraspecies = []
+        for i in range(len(intraspecies_type)):
+            if intraspecies_type[i] != "N/A" and intraspecies_value[i] != "N/A":
+                intraspecies.append([intraspecies_type[i],intraspecies_value[i]])
     # check_and_load(genus,c,db,6,new_Genome_ID)
     # check_and_load(species,c,db,7,new_Genome_ID)
     if Tax_ID != 'N/A':
@@ -231,13 +232,15 @@ def load_new_metadata_newversion(c,db,args):
         for rank in ranks:
             if lineage[rank] != ['N/A','N/A']:
                 rank_id = ranks_dict[rank]
+                print(lineage[rank])
                 check_and_load_w_taxid(lineage[rank],c,db,rank_id,new_Genome_ID)
     else:
         check_and_load(genus, c, db, 6, new_Genome_ID)
         check_and_load(species, c, db, 7, new_Genome_ID)
-    if intraspecies != []:
-        for row in intraspecies:
-            check_and_load(row[1],c,db,row[0],new_Genome_ID)
+    if len(Taxonomy)>3:
+        if intraspecies != []:
+            for row in intraspecies:
+                check_and_load(row[1],c,db,row[0],new_Genome_ID)
     c.execute("insert into Taxonomy (Genome_ID,Rank_ID,Taxon) values ({0},{1},'{2}')".format(new_Genome_ID,20,strain))
     db.commit()
     for i in range(len(Attribute_ID_list)):
