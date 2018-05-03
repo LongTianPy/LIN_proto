@@ -228,7 +228,7 @@ def load_new_metadata_newversion(c,db,args):
     # check_and_load(species,c,db,7,new_Genome_ID)
     if Tax_ID != 'N/A':
         lineage = extract_taxonomy_by_taxid(tax_id=Tax_ID)
-        lineage['strain'] = strain
+        lineage['strain'] = [strain,Tax_ID]
         for rank in ranks:
             if lineage[rank] != ['N/A','N/A']:
                 rank_id = ranks_dict[rank]
