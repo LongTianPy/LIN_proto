@@ -218,8 +218,8 @@ def load_new_metadata_newversion(c,db,args):
     species = Taxonomy[1]
     strain = Taxonomy[-1]
     if len(Taxonomy)>3:
-        intraspecies_type = [Taxonomy[i] for i in  range(len(Taxonomy[2:-1])) if i%2==0]
-        intraspecies_value = [Taxonomy[i] for i in range(len(Taxonomy[2:-1])) if i%2!=0]
+        intraspecies_type = [Taxonomy[2:-1][i] for i in  range(len(Taxonomy[2:-1])) if i%2==0]
+        intraspecies_value = [Taxonomy[2:-1][i] for i in range(len(Taxonomy[2:-1])) if i%2!=0]
         intraspecies = []
         for i in range(len(intraspecies_type)):
             if intraspecies_type[i] != "N/A" and intraspecies_value[i] != "N/A":
