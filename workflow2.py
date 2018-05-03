@@ -224,6 +224,7 @@ def load_new_metadata_newversion(c,db,args):
         for i in range(len(intraspecies_type)):
             if intraspecies_type[i] != "N/A" and intraspecies_value[i] != "N/A":
                 intraspecies.append([intraspecies_type[i],intraspecies_value[i]])
+    print(intraspecies)
     # check_and_load(genus,c,db,6,new_Genome_ID)
     # check_and_load(species,c,db,7,new_Genome_ID)
     if Tax_ID != 'N/A':
