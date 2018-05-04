@@ -695,7 +695,7 @@ if __name__ == '__main__':
             user_email = c.fetchone()[0]
             email_cmd = "python /home/linproject/Projects/LIN_proto/sendEmail.py {0} Submission_result {1}".format(
                 user_email, Job_uuid)
-            # os.system(email_cmd)
+            os.system(email_cmd)
         else:
             print("###########################################################")
             print("System message:")
