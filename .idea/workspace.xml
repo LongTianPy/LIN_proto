@@ -4,8 +4,11 @@
     <bookmark url="file://$PROJECT_DIR$/FastANI_Toolbox.py" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workflow2.py" beforeDir="false" afterPath="$PROJECT_DIR$/workflow2.py" afterDir="false" />
+    </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
-    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="" />
     <ignored path="LIN_proto.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -38,33 +41,29 @@
       <file leaf-file-name="workflow2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/workflow2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="675" column="105" lean-forward="true" selection-start-line="675" selection-start-column="105" selection-end-line="675" selection-end-column="105" />
+            <state relative-caret-position="349">
+              <caret line="726" column="13" lean-forward="true" selection-start-line="726" selection-start-column="13" selection-end-line="726" selection-end-column="13" />
               <folding>
                 <element signature="e#114#131#0" expanded="true" />
-                <element signature="e#3743#5119#0" />
-                <element signature="e#10839#18787#0" />
-                <element signature="e#18929#24602#0" />
-                <element signature="e#24658#25267#0" />
-                <marker date="1525365341455" expanded="true" signature="3343:3403" ph="SELECT FileP... Genome" />
-                <marker date="1525365341455" expanded="true" signature="3343:3464" ph="SELECT Genom... Genome" />
-                <marker date="1525365341455" expanded="true" signature="35573:35623" ph="SELECT EXIST... " />
-                <marker date="1525365341455" expanded="true" signature="35587:35622" ph="SELECT LIN F... LIN" />
-                <marker date="1525365341455" expanded="true" signature="36250:36306" ph="SELECT EXIST... " />
-                <marker date="1525365341455" expanded="true" signature="36264:36305" ph="SELECT LIN F... LIN" />
-                <marker date="1525365341455" expanded="true" signature="36403:36530" ph="INSERT INTO LIN... " />
-                <marker date="1525365341455" expanded="true" signature="37397:37419" ph="SELECT LIN_I... LIN" />
-                <marker date="1525365341455" expanded="true" signature="37397:37452" ph="SELECT LIN_I... LIN" />
-                <marker date="1525365341455" expanded="true" signature="37397:37455" ph="SELECT LIN_I... LIN" />
-                <marker date="1525365341455" expanded="true" signature="37581:37645" ph="INSERT INTO Job... " />
-                <marker date="1525365341455" expanded="true" signature="37581:37665" ph="INSERT INTO Job... " />
-                <marker date="1525365341455" expanded="true" signature="38112:38135" ph="SELECt Email... User" />
-                <marker date="1525365341455" expanded="true" signature="38112:38149" ph="SELECT Email... User" />
-                <marker date="1525365341455" expanded="true" signature="38112:38152" ph="SELECT Email... User" />
-                <marker date="1525365341455" expanded="true" signature="38697:38781" ph="INSERT INTO Duplicated_upload... " />
-                <marker date="1525365341455" expanded="true" signature="38861:38898" ph="SELECT Email... User" />
-                <marker date="1525365341455" expanded="true" signature="39449:39533" ph="INSERT INTO Duplicated_upload... " />
-                <marker date="1525365341455" expanded="true" signature="39712:39749" ph="SELECT Email... User" />
+                <marker date="1525441151927" expanded="true" signature="3415:3475" ph="SELECT FileP... Genome" />
+                <marker date="1525441151927" expanded="true" signature="3415:3536" ph="SELECT Genom... Genome" />
+                <marker date="1525441151927" expanded="true" signature="35647:35697" ph="SELECT EXIST... " />
+                <marker date="1525441151927" expanded="true" signature="35661:35696" ph="SELECT LIN F... LIN" />
+                <marker date="1525441151927" expanded="true" signature="36324:36380" ph="SELECT EXIST... " />
+                <marker date="1525441151927" expanded="true" signature="36338:36379" ph="SELECT LIN F... LIN" />
+                <marker date="1525441151927" expanded="true" signature="36477:36604" ph="INSERT INTO LIN... " />
+                <marker date="1525441151927" expanded="true" signature="37471:37493" ph="SELECT LIN_I... LIN" />
+                <marker date="1525441151927" expanded="true" signature="37471:37526" ph="SELECT LIN_I... LIN" />
+                <marker date="1525441151927" expanded="true" signature="37471:37529" ph="SELECT LIN_I... LIN" />
+                <marker date="1525441151927" expanded="true" signature="37655:37719" ph="INSERT INTO Job... " />
+                <marker date="1525441151927" expanded="true" signature="37655:37739" ph="INSERT INTO Job... " />
+                <marker date="1525441151927" expanded="true" signature="38186:38209" ph="SELECt Email... User" />
+                <marker date="1525441151927" expanded="true" signature="38186:38223" ph="SELECT Email... User" />
+                <marker date="1525441151927" expanded="true" signature="38186:38226" ph="SELECT Email... User" />
+                <marker date="1525441151927" expanded="true" signature="38769:38853" ph="INSERT INTO Duplicated_upload... " />
+                <marker date="1525441151927" expanded="true" signature="38933:38970" ph="SELECT Email... User" />
+                <marker date="1525441151927" expanded="true" signature="39521:39605" ph="INSERT INTO Duplicated_upload... " />
+                <marker date="1525441151927" expanded="true" signature="39784:39821" ph="SELECT Email... User" />
               </folding>
             </state>
           </provider>
@@ -121,11 +120,11 @@
       <find>pool.map</find>
       <find>reverse</find>
       <find>--nocompress</find>
-      <find>rm -rf {0}</find>
+      <find />
       <find>Assign_LIN</find>
       <find>SubjectGenome</find>
       <find>df</find>
-      <find>rm -rf</find>
+      <find />
       <find>email</find>
       <find>load</find>
       <find>LINdb_</find>
@@ -135,10 +134,10 @@
       <replace>['0']*20</replace>
       <replace>get_value</replace>
       <replace>LINdb</replace>
-      <replace>&quot;USE LINdb_RefSeq&quot;</replace>
+      <replace />
       <replace>subject</replace>
       <replace>ix[</replace>
-      <replace>self.same_family =</replace>
+      <replace />
       <replace>each_subject_genome_ID</replace>
     </replaceStrings>
   </component>
@@ -253,9 +252,8 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="362" />
-    <option name="y" value="88" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="203" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
@@ -614,20 +612,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00766" summary="debug line 333">
-      <created>1508881194232</created>
-      <option name="number" value="00766" />
-      <option name="presentableId" value="LOCAL-00766" />
-      <option name="project" value="LOCAL" />
-      <updated>1508881194232</updated>
-    </task>
-    <task id="LOCAL-00767" summary="debug line 333">
-      <created>1508881417199</created>
-      <option name="number" value="00767" />
-      <option name="presentableId" value="LOCAL-00767" />
-      <option name="project" value="LOCAL" />
-      <updated>1508881417199</updated>
-    </task>
     <task id="LOCAL-00768" summary="debug line 333">
       <created>1508893682309</created>
       <option name="number" value="00768" />
@@ -957,7 +941,21 @@
       <option name="project" value="LOCAL" />
       <updated>1525365401089</updated>
     </task>
-    <option name="localTasksCounter" value="815" />
+    <task id="LOCAL-00815" summary="email function re-enabled">
+      <created>1525437432092</created>
+      <option name="number" value="00815" />
+      <option name="presentableId" value="LOCAL-00815" />
+      <option name="project" value="LOCAL" />
+      <updated>1525437432093</updated>
+    </task>
+    <task id="LOCAL-00816" summary="email function re-enabled">
+      <created>1525438965170</created>
+      <option name="number" value="00816" />
+      <option name="presentableId" value="LOCAL-00816" />
+      <option name="project" value="LOCAL" />
+      <updated>1525438965170</updated>
+    </task>
+    <option name="localTasksCounter" value="817" />
     <servers />
   </component>
   <component name="TodoView">
@@ -970,7 +968,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="362" y="88" width="1440" height="877" extended-state="0" />
+    <frame x="0" y="203" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="0" weight="0.32957748" />
@@ -979,8 +977,8 @@
       <window_info anchor="bottom" id="Version Control" order="5" weight="0.53589743" />
       <window_info anchor="bottom" id="Python Console" order="4" sideWeight="0.4892704" weight="0.32768363" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.32876712" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.48194444" visible="true" weight="0.29871795" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21388888" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.48194444" visible="true" weight="0.29871795" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21388888" />
       <window_info anchor="right" id="R Packages" order="0" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="R Graphics" order="0" />
@@ -989,29 +987,29 @@
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.32876712" />
-      <window_info anchor="bottom" id="Find" order="3" weight="0.32876712" />
       <window_info anchor="bottom" id="Application Servers" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.32876712" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32896653" />
       <window_info anchor="right" id="Data View" order="1" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="Version Control" order="5" weight="0.5369863" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.32876712" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.18819444" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info anchor="right" id="R Graphics" order="1" />
       <window_info anchor="bottom" id="TODO" order="0" weight="0.32957748" />
-      <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.32876712" />
       <window_info anchor="right" id="R Packages" order="0" />
+      <window_info anchor="bottom" id="Python Console" order="4" sideWeight="0.4892704" weight="0.32768363" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.32876712" />
       <window_info anchor="right" id="Database" order="2" weight="0.3297568" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.48194444" visible="true" weight="0.13972603" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.51805556" side_tool="true" weight="0.13972603" />
+      <window_info anchor="bottom" id="Version Control" order="5" weight="0.5369863" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.32957748" />
       <window_info anchor="bottom" id="Application Servers" order="2" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32896653" />
       <window_info anchor="right" id="Data View" order="3" />
-      <window_info anchor="bottom" id="Python Console" order="4" sideWeight="0.4892704" weight="0.32768363" />
+      <window_info id="Favorites" order="1" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1055,7 +1053,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create manipulate_df.py for output processing" />
     <MESSAGE value="changed a lot" />
     <MESSAGE value="developing ani calculation for mpi" />
     <MESSAGE value="developing ani calculation for mpi&#10;Fix: compress intermediate files" />
@@ -1080,7 +1077,8 @@
     <MESSAGE value="new way of loading metadata" />
     <MESSAGE value="ignore some files" />
     <MESSAGE value="debug" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug" />
+    <MESSAGE value="email function re-enabled" />
+    <option name="LAST_COMMIT_MESSAGE" value="email function re-enabled" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1142,17 +1140,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/workflow2.py</url>
-          <line>288</line>
+          <line>289</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/workflow2.py</url>
-          <line>410</line>
+          <line>411</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/workflow2.py</url>
-          <line>199</line>
+          <line>200</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
@@ -1160,6 +1158,13 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/duplicated_upload.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1125">
+          <caret line="94" column="54" selection-start-line="94" selection-start-column="54" selection-end-line="94" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ExtractInfo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1565,9 +1570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simple_workflow">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1577,33 +1579,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/workflow2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="675" column="105" lean-forward="true" selection-start-line="675" selection-start-column="105" selection-end-line="675" selection-end-column="105" />
+        <state relative-caret-position="349">
+          <caret line="726" column="13" lean-forward="true" selection-start-line="726" selection-start-column="13" selection-end-line="726" selection-end-column="13" />
           <folding>
             <element signature="e#114#131#0" expanded="true" />
-            <element signature="e#3743#5119#0" />
-            <element signature="e#10839#18787#0" />
-            <element signature="e#18929#24602#0" />
-            <element signature="e#24658#25267#0" />
-            <marker date="1525365341455" expanded="true" signature="3343:3403" ph="SELECT FileP... Genome" />
-            <marker date="1525365341455" expanded="true" signature="3343:3464" ph="SELECT Genom... Genome" />
-            <marker date="1525365341455" expanded="true" signature="35573:35623" ph="SELECT EXIST... " />
-            <marker date="1525365341455" expanded="true" signature="35587:35622" ph="SELECT LIN F... LIN" />
-            <marker date="1525365341455" expanded="true" signature="36250:36306" ph="SELECT EXIST... " />
-            <marker date="1525365341455" expanded="true" signature="36264:36305" ph="SELECT LIN F... LIN" />
-            <marker date="1525365341455" expanded="true" signature="36403:36530" ph="INSERT INTO LIN... " />
-            <marker date="1525365341455" expanded="true" signature="37397:37419" ph="SELECT LIN_I... LIN" />
-            <marker date="1525365341455" expanded="true" signature="37397:37452" ph="SELECT LIN_I... LIN" />
-            <marker date="1525365341455" expanded="true" signature="37397:37455" ph="SELECT LIN_I... LIN" />
-            <marker date="1525365341455" expanded="true" signature="37581:37645" ph="INSERT INTO Job... " />
-            <marker date="1525365341455" expanded="true" signature="37581:37665" ph="INSERT INTO Job... " />
-            <marker date="1525365341455" expanded="true" signature="38112:38135" ph="SELECt Email... User" />
-            <marker date="1525365341455" expanded="true" signature="38112:38149" ph="SELECT Email... User" />
-            <marker date="1525365341455" expanded="true" signature="38112:38152" ph="SELECT Email... User" />
-            <marker date="1525365341455" expanded="true" signature="38697:38781" ph="INSERT INTO Duplicated_upload... " />
-            <marker date="1525365341455" expanded="true" signature="38861:38898" ph="SELECT Email... User" />
-            <marker date="1525365341455" expanded="true" signature="39449:39533" ph="INSERT INTO Duplicated_upload... " />
-            <marker date="1525365341455" expanded="true" signature="39712:39749" ph="SELECT Email... User" />
+            <marker date="1525441151927" expanded="true" signature="3415:3475" ph="SELECT FileP... Genome" />
+            <marker date="1525441151927" expanded="true" signature="3415:3536" ph="SELECT Genom... Genome" />
+            <marker date="1525441151927" expanded="true" signature="35647:35697" ph="SELECT EXIST... " />
+            <marker date="1525441151927" expanded="true" signature="35661:35696" ph="SELECT LIN F... LIN" />
+            <marker date="1525441151927" expanded="true" signature="36324:36380" ph="SELECT EXIST... " />
+            <marker date="1525441151927" expanded="true" signature="36338:36379" ph="SELECT LIN F... LIN" />
+            <marker date="1525441151927" expanded="true" signature="36477:36604" ph="INSERT INTO LIN... " />
+            <marker date="1525441151927" expanded="true" signature="37471:37493" ph="SELECT LIN_I... LIN" />
+            <marker date="1525441151927" expanded="true" signature="37471:37526" ph="SELECT LIN_I... LIN" />
+            <marker date="1525441151927" expanded="true" signature="37471:37529" ph="SELECT LIN_I... LIN" />
+            <marker date="1525441151927" expanded="true" signature="37655:37719" ph="INSERT INTO Job... " />
+            <marker date="1525441151927" expanded="true" signature="37655:37739" ph="INSERT INTO Job... " />
+            <marker date="1525441151927" expanded="true" signature="38186:38209" ph="SELECt Email... User" />
+            <marker date="1525441151927" expanded="true" signature="38186:38223" ph="SELECT Email... User" />
+            <marker date="1525441151927" expanded="true" signature="38186:38226" ph="SELECT Email... User" />
+            <marker date="1525441151927" expanded="true" signature="38769:38853" ph="INSERT INTO Duplicated_upload... " />
+            <marker date="1525441151927" expanded="true" signature="38933:38970" ph="SELECT Email... User" />
+            <marker date="1525441151927" expanded="true" signature="39521:39605" ph="INSERT INTO Duplicated_upload... " />
+            <marker date="1525441151927" expanded="true" signature="39784:39821" ph="SELECT Email... User" />
           </folding>
         </state>
       </provider>
