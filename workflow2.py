@@ -28,7 +28,6 @@ import sendEmail
 import shutil
 import multiprocessing as mp
 from functools import partial
-from Bio.Entrez.Parser import DataHandler
 
 # VARIABLES
 sourmash_dir = "/home/linproject/Workspace/Sourmash2/all_sketches/"
@@ -47,7 +46,7 @@ workspace_dir = '/home/linproject/Workspace/New/workspace/'
 ranks = ['superkingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species','strain']
 ranks_dict = {'superkingdom':1, 'phylum':2, 'class':3, 'order':4, 'family':5, 'genus':6, 'species':7, 'strain':9}
 Entrez.email = "aaa@bb.cc"
-DataHandler.local_dtd_dir = ''
+
 # OBJECTS
 class DecisionTree(object):
     def __init__(self,ANI,cov,wkid):
