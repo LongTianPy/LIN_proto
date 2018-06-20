@@ -27,7 +27,7 @@ from oauth2client import tools
 from apiclient import errors
 
 SCOPES = 'https://www.googleapis.com/auth/gmail.compose'
-CLIENT_SECRET_FILE = '/home/linproject/Workspace/Email/credential/cleint_secret.json'
+CLIENT_SECRET_FILE = '/home/linproject/Workspace/Email/credential/sendEmail.json'
 APPLICATION_NAME = 'LINbase'
 
 # try:

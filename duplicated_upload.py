@@ -115,7 +115,7 @@ def sendEmail(user_email, subject,context):
         raise
 
 if __name__ == '__main__':
-    f = open("/var/www/html/CodeIgniter/application/views/duplication_upload.txt", "r")
+    f = open("/var/www/html/CodeIgniter/application/views/duplicate_upload.txt", "r")
     email_result = f.read()
     f.close()
     user_email = sys.argv[1]
