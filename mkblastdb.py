@@ -34,7 +34,7 @@ def concat_genomes(db):
             out_handler.write("\n")
         out_handler.close()
     else:
-        out_handler = open(join(db_dir,db_fasta_file),"a")
+        out_handler = open(join(db_dir,db_fasta_file),"a+")
         db_records = list(SeqIO.parse(out_handler,"fasta"))
         num_of_records = len(db_records)
         if num_of_records < len(Genome_ID):
