@@ -34,6 +34,6 @@ if __name__ == '__main__':
     make_reference_list(c)
     input_genome = join(genome_dir,sys.argv[1])
     output_file = sys.argv[2]
-    fastANI_cmd = "fastANI -q {0} -r {1} -o {2}/{3}".format(input_genome,reference_list_file,working_dir,output_file)
+    fastANI_cmd = "fastANI -q {0} -rl {1} -o {2}/{3}".format(input_genome,reference_list_file,working_dir,output_file)
     os.system(fastANI_cmd)
 
