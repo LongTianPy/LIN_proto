@@ -14,7 +14,7 @@ import pandas as pd
 
 # VARIABLES
 sourmash_dir = "/home/linproject/Workspace/Sourmash2/all_sketches/"
-working_dir = "/home/linproject/Workspace/Genome_identification"
+working_dir = "/home/linproject/Workspace/Genome_identification/"
 genome_dir = "/home/linproject/Workspace/Genome_identification/uploaded_genome"
 rep_bac_dir = "/home/linproject/Workspace/Sourmash/rep_bac/"
 FastANI_cmd = "fastANI -q {0} -r {1} -o /home/linproject/Workspace/Genome_identification/{2}"
@@ -43,9 +43,9 @@ def compare_sketch(LINgroup,output):
         dest = sourmash_dir + LINgroup + "/"
     folder_size = len([file for file in os.listdir(dest) if isfile(join(dest,file))])
     cmd = "sourmash search {0} {1}*.sig -n {2} > {3}"
-    cmd = cmd.format(join(working_dir,"tmp.sig"), dest, folder_size, join(working_dir,output))
+    cmd = cmd.format(working_dir+output, dest, folder_size, join(working_dir,output+".mash_out"))
     os.system(cmd)
-    return join(working_dir,output)
+    return join(working_dir,output+".mash_out")
 
 def parse_result(result_file):
     f = open(result_file,"r")
