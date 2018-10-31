@@ -77,7 +77,7 @@ if __name__ == '__main__':
         current_max_value = 0
         current_max_genome_id = ''
         for lingroup in lingroups:
-            representative_bacterium_LIN = lingroup + "," + ",".join([0]*(20-lingroups[lingroup]))
+            representative_bacterium_LIN = lingroup + "," + ",".join(['0']*(20-lingroups[lingroup]))
             c.execute("select LIN.Genome_ID,Genome.FilePath from LIN, Genome where LIN.Genome_ID=Genome.Genome_ID and LIN='{0}'".format(representative_bacterium_LIN))
             tmp = c.fetchall()
             representative_bacterium_Genome_ID = tmp[0][0]
