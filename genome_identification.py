@@ -82,12 +82,12 @@ if __name__ == '__main__':
             tmp = c.fetchall()
             representative_bacterium_Genome_ID = tmp[0][0]
             representative_bacterium_FilePath = tmp[0][1]
-            run_FastANI = FastANI_cmd.format(input_genome,representative_bacterium_FilePath,output_stamp+'_'+representative_bacterium_Genome_ID)
+            run_FastANI = FastANI_cmd.format(input_genome,representative_bacterium_FilePath,output_stamp+'_'+str(representative_bacterium_Genome_ID))
             os.system(run_FastANI)
-            with open(working_dir+output_stamp+'_'+representative_bacterium_Genome_ID,"r") as f:
+            with open(working_dir+output_stamp+'_'+str(representative_bacterium_Genome_ID),"r") as f:
                 try:
                     line = f.readlines()[0].strip().split("\t")
-                    ani = float(line[2])
+                    ani = float(line[2])/100
                 except:
                     ani = 0
             if ani > current_max_value:
@@ -116,11 +116,11 @@ if __name__ == '__main__':
         current_max_genome_id= int(df.index[0])
         c.execute("select FilePath from Genome where Genome_ID={0}".format(current_max_genome_id))
         current_max_filepath = c.fetchone()[0]
-        run_FastANI = FastANI_cmd.format(input_genome,current_max_filepath,output_stamp+"_"+current_max_genome_id)
+        run_FastANI = FastANI_cmd.format(input_genome,current_max_filepath,output_stamp+"_"+str(current_max_genome_id))
         os.system(run_FastANI)
-        with open(working_dir+output_stamp+'_'+current_max_genome_id,"r") as f:
+        with open(working_dir+output_stamp+'_'+str(current_max_genome_id),"r") as f:
             line = f.readlines()[0].strip().split("\t")
-        ani = float(line[2])
+        ani = float(line[2])/100
         current_max_value = ani
         print("{0}\t{1}\t{2}".format(rep_bac_LINgroup,current_max_genome_id,current_max_value))
 
