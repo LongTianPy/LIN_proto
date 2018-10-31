@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="genome identification script">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genome_identification.py" beforeDir="false" afterPath="$PROJECT_DIR$/genome_identification.py" afterDir="false" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -58,14 +59,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="8" />
-          <entry key="py" value="3485" />
+          <entry key="py" value="3546" />
           <entry key="txt" value="78" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="86" />
-          <entry key="Python" value="3485" />
+          <entry key="Python" value="3546" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -80,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/workflow2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4740">
-              <caret line="565" column="17" lean-forward="true" selection-start-line="565" selection-start-column="17" selection-end-line="565" selection-end-column="17" />
+            <state relative-caret-position="104">
+              <caret line="33" column="61" lean-forward="true" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
               <folding>
                 <element signature="e#114#131#0" expanded="true" />
                 <marker date="1525442694437" expanded="true" signature="3343:3403" ph="SELECT FileP... Genome" />
@@ -111,11 +112,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/genome_identification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-881">
-              <caret line="32" column="35" lean-forward="true" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+            <state relative-caret-position="270">
+              <caret line="18" selection-start-line="18" selection-end-line="18" selection-end-column="61" />
               <folding>
                 <element signature="e#172#181#0" expanded="true" />
-                <marker date="1541009164011" expanded="true" signature="1666:2061" ph="..." />
+                <marker date="1541018658391" expanded="true" signature="1683:2078" ph="..." />
               </folding>
             </state>
           </provider>
@@ -170,8 +171,8 @@
       <find>email</find>
       <find>fetchone</find>
       <find>.empty</find>
-      <find>parse_result</find>
       <find>output</find>
+      <find>parse_result</find>
     </findStrings>
     <replaceStrings>
       <replace>['0']*20</replace>
@@ -531,20 +532,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00777" summary="debug line 266">
-      <created>1508896930014</created>
-      <option name="number" value="00777" />
-      <option name="presentableId" value="LOCAL-00777" />
-      <option name="project" value="LOCAL" />
-      <updated>1508896930014</updated>
-    </task>
-    <task id="LOCAL-00778" summary="debug line 266">
-      <created>1508897672869</created>
-      <option name="number" value="00778" />
-      <option name="presentableId" value="LOCAL-00778" />
-      <option name="project" value="LOCAL" />
-      <updated>1508897672869</updated>
-    </task>
     <task id="LOCAL-00779" summary="debug line 266">
       <created>1508898547455</created>
       <option name="number" value="00779" />
@@ -874,7 +861,21 @@
       <option name="project" value="LOCAL" />
       <updated>1541009192885</updated>
     </task>
-    <option name="localTasksCounter" value="826" />
+    <task id="LOCAL-00826" summary="genome identification script">
+      <created>1541013606611</created>
+      <option name="number" value="00826" />
+      <option name="presentableId" value="LOCAL-00826" />
+      <option name="project" value="LOCAL" />
+      <updated>1541013606611</updated>
+    </task>
+    <task id="LOCAL-00827" summary="genome identification script">
+      <created>1541015208454</created>
+      <option name="number" value="00827" />
+      <option name="presentableId" value="LOCAL-00827" />
+      <option name="project" value="LOCAL" />
+      <updated>1541015208455</updated>
+    </task>
+    <option name="localTasksCounter" value="828" />
     <servers />
   </component>
   <component name="TodoView">
@@ -898,7 +899,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Python Console" order="3" />
       <window_info anchor="bottom" id="Debug" order="4" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="5" visible="true" weight="0.16422947" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="5" visible="true" weight="0.5421822" />
       <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
@@ -1460,8 +1461,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/workflow2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4740">
-          <caret line="565" column="17" lean-forward="true" selection-start-line="565" selection-start-column="17" selection-end-line="565" selection-end-column="17" />
+        <state relative-caret-position="104">
+          <caret line="33" column="61" lean-forward="true" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
           <folding>
             <element signature="e#114#131#0" expanded="true" />
             <marker date="1525442694437" expanded="true" signature="3343:3403" ph="SELECT FileP... Genome" />
@@ -1489,11 +1490,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/genome_identification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-881">
-          <caret line="32" column="35" lean-forward="true" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+        <state relative-caret-position="270">
+          <caret line="18" selection-start-line="18" selection-end-line="18" selection-end-column="61" />
           <folding>
             <element signature="e#172#181#0" expanded="true" />
-            <marker date="1541009164011" expanded="true" signature="1666:2061" ph="..." />
+            <marker date="1541018658391" expanded="true" signature="1683:2078" ph="..." />
           </folding>
         </state>
       </provider>

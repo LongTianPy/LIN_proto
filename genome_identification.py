@@ -16,7 +16,7 @@ import pandas as pd
 sourmash_dir = "/home/linproject/Workspace/Sourmash2/all_sketches/"
 working_dir = "/home/linproject/Workspace/Genome_identification/"
 genome_dir = "/home/linproject/Workspace/Genome_identification/uploaded_genome"
-rep_bac_dir = "/home/linproject/Workspace/Sourmash/rep_bac/"
+rep_bac_dir = "/home/linproject/Workspace/Sourmash2/rep_bac/"
 FastANI_cmd = "fastANI -q {0} -r {1} -o /home/linproject/Workspace/Genome_identification/{2}"
 scheme = [0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 0.96, 0.97, 0.98, 0.985, 0.99, 0.9925, 0.995, 0.9975, 0.9990000000000001,
           0.99925, 0.9995, 0.9997499999999999, 0.9998999999999999, 0.9999899999999999]
@@ -111,7 +111,7 @@ if __name__ == '__main__':
         c.execute("select LIN from LIN where Genome_ID={0} and Scheme_ID=4".format(rep_bac_Genome_ID))
         rep_bac_LIN = c.fetchone()[0]
         rep_bac_LINgroup = ",".join(rep_bac_LIN.split(",")[:6])
-        compare_sketch(rep_bac_LINgroup,output_stamp)
+        rep_bac_result = compare_sketch(rep_bac_LINgroup,output_stamp)
         df = parse_result(rep_bac_result)
         current_max_genome_id= int(df.index[0])
         c.execute("select FilePath from Genome where Genome_ID={0}".format(current_max_genome_id))
