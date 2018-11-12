@@ -127,6 +127,6 @@ def genome_identification(genome_filepath):
         current_max_value = ani
         c.execute("select LIN from LIN where Genome_ID={0}".format(current_max_genome_id))
         best_LIN = c.fetchone()[0]
-        result = {"LINgroup":rep_bac_dir,"LIN":best_LIN,"FastANI":current_max_value}
+        result = {"LINgroup":rep_bac_LINgroup,"LIN":best_LIN,"FastANI":current_max_value}
         # print("{0}\t{1}\t{2}".format(rep_bac_LINgroup,current_max_genome_id,current_max_value))
     return result

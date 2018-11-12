@@ -110,27 +110,39 @@ def extract_metadata(c):
     metadata.index = Genome_ID
     return metadata
 
-def load_new_metadata(c,db,args):
-    c.execute("INSERT INTO Submission (User_ID, Time) VALUES ({0},'{1}')".format(args.User_ID, standardtime))
+def load_new_metadata(c,db,Interest_ID,new_genome,Attributes,User_ID,standardtime,privacy):
+    c.execute("INSERT INTO Submission (User_ID, Time) VALUES ({0},'{1}')".format(User_ID, standardtime))
     db.commit()
     c.execute("SELECT Submission_ID FROM Submission where User_ID={0} and Time='{1}'".format(User_ID,standardtime))
     Submission_ID = int(c.fetchone()[0])
-    os.system("cp {0} {1}".format(tmp_folder+args.new_genome,original_folder+args.new_genome))
+    os.system("cp {0} {1}".format(tmp_folder+new_genome,original_folder+new_genome))
     c.execute("INSERT INTO Genome (Interest_ID, Submission_ID, FilePath) VALUES ({0}, {1}, '{2}')"
-              .format(args.Interest_ID, Submission_ID, original_folder+args.new_genome))
+              .format(Interest_ID, Submission_ID, original_folder+new_genome))
     db.commit()
     c.execute("SELECT Genome_ID FROM Genome WHERE Submission_ID={0}".format(Submission_ID))
     new_Genome_ID = int(c.fetchone()[0])
-    c.execute("SELECT Attribute_IDs FROM Interest WHERE Interest_ID={0}".format(args.Interest_ID))
-    tmp = c.fetchone()[0].split(",")
-    Attribute_ID_list = [int(id) for id in tmp]
-    Attributes = args.Attributes.split("^^")
-    for i in range(len(Attribute_ID_list)):
-        attributevalue = Attributes[i].replace("_"," ")
-        sql = "insert into AttributeValue (Genome_ID,Interest_ID,Attribute_ID,AttributeValue,User_ID,Private) VALUES ({0},{1},{2},'{3}',{4},{5})".format(new_Genome_ID,args.Interest_ID, Attribute_ID_list[i],attributevalue,args.User_ID,args.privacy)
-        # print(sql)
-        c.execute(sql)
-        db.commit()
+    # c.execute("SELECT Attribute_IDs FROM Interest WHERE Interest_ID={0}".format(args.Interest_ID))
+    # tmp = c.fetchone()[0].split(",")
+    # Attribute_ID_list = [int(id) for id in tmp]
+    # Attributes = args.Attributes.split("^^")
+    # for i in range(len(Attribute_ID_list)):
+    #     attributevalue = Attributes[i].replace("_"," ")
+    #     sql = "insert into AttributeValue (Genome_ID,Interest_ID,Attribute_ID,AttributeValue,User_ID,Private) VALUES ({0},{1},{2},'{3}',{4},{5})".format(new_Genome_ID,args.Interest_ID, Attribute_ID_list[i],attributevalue,args.User_ID,args.privacy)
+    #     # print(sql)
+    #     c.execute(sql)
+    #     db.commit()
+    insert_sql = "INSERT INTO AttributeValue (Genome_ID,Interest_ID,Attribute_ID,AttributeValue,User_ID,Private) VALUES "
+    insert_values = []
+    for key in Attributes:
+        attributename = str(key)
+        c.execute("SELECT Attribute_ID FROM Attribute WHERE AttributeName='{0}'".format(attributename))
+        attribute_id = c.fetchone()[0]
+        attributevalue = Attributes[key]
+        insert_values.append("({0},{1},{2},'{3}',{4},{5})".format(new_Genome_ID,Interest_ID,attribute_id,attributevalue,args.User_ID,privacy))
+    insert_values = ",".join(insert_values)
+    insert_sql = insert_sql + insert_values
+    c.execute(insert_sql)
+    db.commit()
     return new_Genome_ID
 
 def extract_taxonomy_by_taxid(tax_id):
@@ -169,19 +181,20 @@ def get_Tax_ID_by_entry(entry):
         return 'N/A'
 
 def check_and_load(entry,c,conn,Rank_ID,Genome_ID):
-    c.execute("select exists(select NCBI_Tax_ID from NCBI_Tax_ID where Taxon='{0}' and Rank_ID={1})".format(entry,Rank_ID))
-    tmp = c.fetchone()[0]
-    if tmp == 1:
-        c.execute("select NCBI_Tax_ID from NCBI_Tax_ID where Taxon='{0}' and Rank_ID={1}".format(genus,Rank_ID))
-        tax_id = c.fetchone()[0]
-    else:
-        tax_id = 'N/A'
-    if tax_id != 'N/A':
-        c.execute('insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID) values ({0},{1},{2})'.format(Genome_ID,Rank_ID,int(tax_id)))
-        conn.commit()
-    else:
-        c.execute("insert into Taxonomy (Genome_ID,Rank_ID,Taxon) values ({0},{1},'{2}')".format(Genome_ID,Rank_ID,entry))
-        conn.commit()
+    if entry != "":
+        c.execute("select exists(select NCBI_Tax_ID from NCBI_Tax_ID where Taxon='{0}' and Rank_ID={1})".format(entry,Rank_ID))
+        tmp = c.fetchone()[0]
+        if tmp == 1:
+            c.execute("select NCBI_Tax_ID from NCBI_Tax_ID where Taxon='{0}' and Rank_ID={1}".format(genus,Rank_ID))
+            tax_id = c.fetchone()[0]
+        else:
+            tax_id = 'N/A'
+        if tax_id != 'N/A':
+            c.execute('insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID) values ({0},{1},{2})'.format(Genome_ID,Rank_ID,int(tax_id)))
+            conn.commit()
+        else:
+            c.execute("insert into Taxonomy (Genome_ID,Rank_ID,Taxon) values ({0},{1},'{2}')".format(Genome_ID,Rank_ID,entry))
+            conn.commit()
 
 def check_and_load_w_taxid(tax_list,c,conn,Rank_ID,Genome_ID):
     [taxon,taxid] = tax_list
@@ -197,14 +210,14 @@ def check_and_load_w_taxid(tax_list,c,conn,Rank_ID,Genome_ID):
         c.execute("insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID) values ({0},{1},{2})".format(Genome_ID,Rank_ID,taxid))
         conn.commit()
 
-def load_new_metadata_newversion(c,db,args):
-    c.execute("INSERT INTO Submission (User_ID, Time) VALUES ({0},'{1}')".format(args.User_ID, standardtime))
+def load_new_metadata_newversion(c,db,Interest_ID,new_genome,Taxonomy,Attributes,User_ID,standardtime):
+    c.execute("INSERT INTO Submission (User_ID, Time) VALUES ({0},'{1}')".format(User_ID, standardtime))
     db.commit()
     c.execute("SELECT Submission_ID FROM Submission where User_ID={0} and Time='{1}'".format(User_ID, standardtime))
     Submission_ID = int(c.fetchone()[0])
-    os.system("cp {0} {1}".format(tmp_folder + args.new_genome, original_folder + args.new_genome))
+    os.system("cp {0} {1}".format(tmp_folder + new_genome, original_folder + new_genome))
     c.execute("INSERT INTO Genome (Interest_ID, Submission_ID, FilePath) VALUES ({0}, {1}, '{2}')"
-              .format(args.Interest_ID, Submission_ID, original_folder + args.new_genome))
+              .format(Interest_ID, Submission_ID, original_folder + aew_genome))
     db.commit()
     c.execute("SELECT Genome_ID FROM Genome WHERE Submission_ID={0}".format(Submission_ID))
     new_Genome_ID = int(c.fetchone()[0])
@@ -213,20 +226,34 @@ def load_new_metadata_newversion(c,db,args):
     Attribute_ID_list = [int(id) for id in tmp]
     Taxonomy = args.Taxonomy.split("^^")
     Attributes = args.Attributes.split("^^")
-    Tax_ID = Attributes[1]
-    genus = Taxonomy[0]
-    species = Taxonomy[1]
-    strain = Taxonomy[-1]
-    if len(Taxonomy)>3:
-        intraspecies_type = [Taxonomy[2:-1][i] for i in  range(len(Taxonomy[2:-1])) if i%2==0]
-        intraspecies_value = [Taxonomy[2:-1][i] for i in range(len(Taxonomy[2:-1])) if i%2!=0]
-        intraspecies = []
-        for i in range(len(intraspecies_type)):
-            if intraspecies_type[i] != "N/A" and intraspecies_value[i] != "N/A":
-                intraspecies.append([intraspecies_type[i],intraspecies_value[i]])
+    Tax_ID = Attributes["NCBI Taxonomy ID"]
+    genus = Taxonomy["genus"]
+    species = Taxonomy["species"]
+    strain = Taxonomy["strain"]
+    # if len(Taxonomy)>3:
+    #     intraspecies_type = [Taxonomy[2:-1][i] for i in  range(len(Taxonomy[2:-1])) if i%2==0]
+    #     intraspecies_value = [Taxonomy[2:-1][i] for i in range(len(Taxonomy[2:-1])) if i%2!=0]
+    #     intraspecies = []
+    #     for i in range(len(intraspecies_type)):
+    #         if intraspecies_type[i] != "N/A" and intraspecies_value[i] != "N/A":
+    #             intraspecies.append([intraspecies_type[i],intraspecies_value[i]])
     # print(intraspecies)
     # check_and_load(genus,c,db,6,new_Genome_ID)
     # check_and_load(species,c,db,7,new_Genome_ID)
+    if Tax_ID != 'N/A':
+        lineage = extract_taxonomy_by_taxid(tax_id=Tax_ID)
+        lineage['strain'] = [strain,Tax_ID]
+        for rank in ranks:
+            if lineage[rank] != ['N/A','N/A']:
+                rank_id = ranks_dict[rank]
+                print(lineage[rank])
+                check_and_load_w_taxid(lineage[rank],c,db,rank_id,new_Genome_ID)
+    else:
+        for i in Taxonomy:
+            check_and_load(Taxonomy[i],c,db,rank_to_id(str(i)),new_Genome_ID)
+
+
+
     if Tax_ID != 'N/A':
         lineage = extract_taxonomy_by_taxid(tax_id=Tax_ID)
         lineage['strain'] = [strain,Tax_ID]
@@ -512,6 +539,214 @@ def update_LINgroup(Genome_ID, c, new_LIN, conn):
                                                                                               Description_ID[i]))
             conn.commit()
 ### Email
+
+
+def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privacy):
+    if privacy == "True":
+        privacy = 1
+    else:
+        privacy = 0
+    estern = timezone("EST")
+    currenttime = eastern.localize(datetime.now())
+    fmt_time_display = '%Y-%m-%d %H:%M:%S %Z%z'
+    standardtime = currenttime.strftime(fmt_time_display)
+    db, c = connect_to_db()
+    metadata = extract_metadata(c)
+    file_duplication = 0
+    for i in metadata.index:
+        if filecmp.cmp(new_genome_filepath,metadata.get_value(i,"FilePath")):
+            file_duplication = 1
+            SubjectGenome = int(i)
+            break
+    if file_duplication == 0:
+        create_sketch(tmp_folder + new_genome)
+        if metadata.empty:
+            new_LIN = ",".join(["0"] * 20)
+            top1_Genome_ID = 1
+            top1_similarity = 1
+            top1_coverage = 1
+            conserved_LIN = ""
+            SubjectGenome = top1_Genome_ID
+            ANIb_result = top1_similarity
+            cov_result = top1_coverage
+        else:
+            compare_sketch(LINgroup="rep_bac")
+            df = parse_result()
+            if df.empty:
+                print("###########################################################")
+                print("System message:")
+                print("No Jaccard similarity detected, will use LINgroup indexing.")
+                print("###########################################################")
+                ## LINgroup indexing
+                new_LIN, SubjectGenome, ANIb_result, cov_result, conserved_LIN = LINgroup_indexing(cursor=c,metadata=metadata,new_genome_filepath=new_genome_filepath)
+            else:
+                rep_bac_Genome_ID = int(df.index[0])
+                rep_bac_LIN = metadata.get_value(rep_bac_Genome_ID,"LIN")
+                rep_bac_LINgroup = ",".join(rep_bac_LIN.split(",")[:6])
+                compare_sketch(LINgroup=rep_bac_LINgroup)
+                df = parse_result()
+                if df.get_value(df.index[0],"Jaccard_similarity") == 1:
+                    print("###########################################################")
+                    print("System message:")
+                    print("100% Jaccard similarity detected, checking duplication.")
+                    print("LIN will be assigned if new genome.")
+                    print("###########################################################")
+                    # Same genome found
+                    sub_df = df[df["Jaccard_similarity"]==1]
+                    ANIb_result = 0
+                    cov_result = 0
+                    SubjectGenome = 0
+                    # There is a table about same genome, better record it
+                    #[new_LIN, ANIb_result,cov_result,conserved_LIN] = [None]*4
+                    for each_subject_genome_ID in sub_df.index[:3]:
+                        subject_genome_filepath = metadata.get_value(int(each_subject_genome_ID),"FilePath")
+                        sub_working_dir = workspace_dir + str(each_subject_genome_ID) + "/"
+                        if not isdir(sub_working_dir):
+                            os.mkdir(sub_working_dir)
+                        shutil.copyfile(new_genome_filepath, sub_working_dir+"tmp.fasta")
+                        shutil.copyfile(subject_genome_filepath,sub_working_dir+"{0}.fasta".format(each_subject_genome_ID))
+                        pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
+                                    "-i {0} -o {0}output -m ANIblastall --nocompress -f".format(sub_working_dir)
+                        os.system(pyani_cmd)
+                        this_ANIb_result = pd.read_table(sub_working_dir + "output/ANIblastall_percentage_identity.tab",
+                                                    sep="\t",
+                                                    header=0,
+                                                    index_col=0).get_value('tmp', str(each_subject_genome_ID))
+                        this_cov_result = pd.read_table(sub_working_dir + "output/ANIblastall_alignment_coverage.tab", sep="\t",
+                                                   header=0,
+                                                   index_col=0).get_value('tmp', str(each_subject_genome_ID))
+                        os.system("rm -rf {0}".format(sub_working_dir))
+                        if this_ANIb_result > 0.99999:
+                            ANIb_result = this_ANIb_result
+                            cov_result = this_cov_result
+                            SubjectGenome = each_subject_genome_ID
+                            break
+                        else:
+                            if this_ANIb_result > ANIb_result:
+                                ANIb_result = this_ANIb_result
+                                cov_result = this_cov_result
+                                SubjectGenome = each_subject_genome_ID
+                            else:
+                                continue
+                    new_LIN_object = LIN_Assign.getLIN(Genome_ID=SubjectGenome, Scheme_ID=4,
+                                                       similarity=ANIb_result, c=c)
+                    new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=c).new_LIN
+                    conserved_LIN = ",".join(new_LIN_object.conserved_LIN)
+                else:
+                    print("###########################################################")
+                    print("System message:")
+                    print("Jaccard similarity detected, calculating ANIs.")
+                    print("LIN will be assigned.")
+                    print("###########################################################")
+                    for each_subject_genome_ID in df.index[:3]:
+                        sub_working_dir = workspace_dir + str(each_subject_genome_ID) + "/"
+                        if not isdir(sub_working_dir):
+                            os.mkdir(sub_working_dir)
+                        subject_genome_filepath = metadata.get_value(int(each_subject_genome_ID), "FilePath")
+                        shutil.copyfile(new_genome_filepath, sub_working_dir + "tmp.fasta")
+                        shutil.copyfile(subject_genome_filepath, sub_working_dir + "{0}.fasta".format(each_subject_genome_ID))
+                        pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
+                                    "-i {0} -o {0}output -m ANIblastall --nocompress -f".format(sub_working_dir)
+                        os.system(pyani_cmd)
+                        ANIb_result = pd.read_table(sub_working_dir + "output/ANIblastall_percentage_identity.tab", sep="\t",
+                                                    header=0,
+                                                    index_col=0).get_value('tmp', str(each_subject_genome_ID))
+                        cov_result = pd.read_table(sub_working_dir + "output/ANIblastall_alignment_coverage.tab", sep="\t",
+                                                   header=0,
+                                                   index_col=0).get_value('tmp', str(each_subject_genome_ID))
+                        os.system("rm -rf {0}".format(sub_working_dir))
+                        if isdir(sub_working_dir):
+                            os.system("rmdir {0}".format(sub_working_dir))
+                        predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid=df.get_value(each_subject_genome_ID,"Jaccard_similarity"))
+                        if predict.same_family:
+                            break
+                        else:
+                            continue
+                    if predict.same_family:
+                        new_LIN_object = LIN_Assign.getLIN(Genome_ID=each_subject_genome_ID,Scheme_ID=4,similarity=ANIb_result,c=c)
+                        new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=c).new_LIN
+                        conserved_LIN = ",".join(new_LIN_object.conserved_LIN)
+                        SubjectGenome = each_subject_genome_ID
+                    else:
+                        new_LIN_object = LIN_Assign.getLIN(Genome_ID=each_subject_genome_ID, Scheme_ID=4, similarity=ANIb_result,
+                                                           c=c)
+                        new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=cursor).new_LIN
+                        conserved_LIN = ""
+                        SubjectGenome = each_subject_genome_ID
+        c.execute("SELECT EXISTS(SELECT LIN FROM LIN WHERE LIN='{0}')".format(new_LIN))
+        duplication = c.fetchone()[0]  # 0 = no, 1 = yes
+        if duplication == 0:
+            print("###########################################################")
+            print("System message:")
+            print("New genome uploaded.")
+            print("LIN will be assigned.")
+            print("###########################################################")
+            new_genome_ID = load_new_metadata_newversion(c=c, db=db, args=args)
+            this_95_LINgroup = ",".join(new_LIN.split(",")[:6])
+            this_95_LINgroup_path = sourmash_dir + this_95_LINgroup + "/"
+            c.execute("SELECT EXISTS(SELECT LIN FROM LIN WHERE LIN LIKE '{0}%')".format(this_95_LINgroup))
+            LINgroup_exists = c.fetchone()[0]
+            c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID,SubjectGenome,ANI,Coverage,LIN) values "
+                      "({0},4,{1},{2},{3},'{4}')".format(new_genome_ID, SubjectGenome, ANIb_result, cov_result,
+                                                         new_LIN))
+            db.commit()
+            os.system("cp {0} {1}".format(sourmash_tmp + "tmp.sig", sourmash_dir + str(new_genome_ID) + ".sig"))
+            if LINgroup_exists == 0:  # It's a new rep_bac
+                os.system("cp {0} {1}".format(sourmash_tmp + "tmp.sig", rep_bac_dir + str(new_genome_ID) + ".sig"))
+                if not isdir(this_95_LINgroup_path):
+                    os.mkdir(this_95_LINgroup_path)
+                    os.system("cp {0} {1}".format(sourmash_tmp + "tmp.sig",
+                                                  this_95_LINgroup_path + str(new_genome_ID) + ".sig"))
+            else:
+                os.system(
+                        "cp {0} {1}".format(sourmash_tmp + "tmp.sig",
+                                            this_95_LINgroup_path + str(new_genome_ID) + ".sig"))
+            update_LINgroup(Genome_ID=new_genome_ID, c=c, new_LIN=new_LIN, conn=db)
+            c.execute("SELECT LIN_ID FROM LIN WHERE Scheme_ID=4 AND Genome_ID={0}".format(new_genome_ID))
+            LIN_ID = c.fetchone()[0]
+            Job_uuid = str(uuid.uuid4())
+            c.execute(
+                "INSERT INTO Job (LIN_ID,User_ID,Job_uuid,Conserved_LIN) VALUES ({0},{1},'{2}','{3}')".format(LIN_ID,
+                                                                                                              User_ID,
+                                                                                                              Job_uuid,
+                                                                                                              conserved_LIN))
+            db.commit()
+            c.execute("SELECT Email FROM User WHERE User_ID={0}".format(User_ID))
+            user_email = c.fetchone()[0]
+            email_cmd = "python /home/linproject/Projects/LIN_proto/sendEmail.py {0} Submission_result {1}".format(
+                    user_email, Job_uuid)
+            os.system(email_cmd)
+        else:
+            print("###########################################################")
+            print("System message:")
+            print("Duplicate submission found, recording.")
+            print("###########################################################")
+            c.execute("INSERT INTO Duplicated_upload (Reference_Genome_ID,Who_uploads_too) VALUES ({0},{1})".format(
+                SubjectGenome, User_ID))
+            db.commit()
+            c.execute("SELECT Email FROM User WHERE User_ID={0}".format(User_ID))
+            user_email = c.fetchone()[0]
+            email_cmd = "python /home/linproject/Projects/LIN_proto/duplicated_upload.py {0} Submission_result {1}".format(
+                    user_email, SubjectGenome)
+            os.system(email_cmd)
+    else:
+        print("###########################################################")
+        print("System message:")
+        print("Duplicate submission found, recording.")
+        print("###########################################################")
+        c.execute(
+                "INSERT INTO Duplicated_upload (Reference_Genome_ID,Who_uploads_too) VALUES ({0},{1})".format(
+                    SubjectGenome,
+                    User_ID))
+        db.commit()
+        c.execute("SELECT Email FROM User WHERE User_ID={0}".format(User_ID))
+        user_email = c.fetchone()[0]
+        email_cmd = "python /home/linproject/Projects/LIN_proto/duplicated_upload.py {0} Submission_result {1}".format(
+                user_email, SubjectGenome)
+        os.system(email_cmd)
+    os.system("rm {0}".format(new_genome_filepath))
+    c.close()
+    db.close()
 
 
 # MAIN
