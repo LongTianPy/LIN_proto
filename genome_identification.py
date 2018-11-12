@@ -61,10 +61,10 @@ def parse_result(result_file):
         return df
 
 # MAIN
-if __name__ == '__main__':
+def genome_identification(genome_filepath):
     conn, c = connect_to_db()
-    input_genome = join(genome_dir,sys.argv[1])
-    output_stamp = sys.argv[2]
+    input_genome = genome_filepath
+    output_stamp = "tmp"
     tmp_sig = create_sketch(input_genome,output_stamp)
     rep_bac_result = compare_sketch("rep_bac",output_stamp)
     df = parse_result(rep_bac_result)
@@ -101,11 +101,14 @@ if __name__ == '__main__':
         if current_max_value != 0:
             level = len(current_lingroup.split(","))
             if scheme[level-1] <= current_max_value:
-                print("{0}\t{1}\t{2}".format(current_lingroup,current_max_genome_id,current_max_value))
+                c.execute("select LIN from LIN where Genome_ID={0}".format(current_max_genome_id))
+                best_LIN = c.fetchone()[0]
+                result = {"LINgroup":current_lingroup,"LIN":best_LIN,"FastANI":current_max_value}
+                # print("{0}\t{1}\t{2}".format(current_lingroup,current_max_genome_id,current_max_value))
             else:
-                print("Nothing")
+                result = {}
         else:
-            print("Nothing")
+            result = {}
     else:
         rep_bac_Genome_ID = int(df.index[0])
         c.execute("select LIN from LIN where Genome_ID={0} and Scheme_ID=4".format(rep_bac_Genome_ID))
@@ -122,9 +125,8 @@ if __name__ == '__main__':
             line = f.readlines()[0].strip().split("\t")
         ani = float(line[2])/100
         current_max_value = ani
-        print("{0}\t{1}\t{2}".format(rep_bac_LINgroup,current_max_genome_id,current_max_value))
-
-
-
-
-
+        c.execute("select LIN from LIN where Genome_ID={0}".format(current_max_genome_id))
+        best_LIN = c.fetchone()[0]
+        result = {"LINgroup":rep_bac_dir,"LIN":best_LIN,"FastANI":current_max_value}
+        # print("{0}\t{1}\t{2}".format(rep_bac_LINgroup,current_max_genome_id,current_max_value))
+    return result
