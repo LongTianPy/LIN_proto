@@ -705,6 +705,8 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
                     user_email, Job_uuid)
             os.system(email_cmd)
             c.execute("SELECT LIN FROM LIN WHERE Genome_ID={0}".format(SubjectGenome))
+            best_LIN = c.fetchone()[0]
+            result = {"new LIN":new_LIN, "best LIN":best_LIN,"ANI":ANIb_result,"LINgroup":conserved_LIN}
         else:
             print("###########################################################")
             print("System message:")
@@ -718,6 +720,9 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
             email_cmd = "python /home/linproject/Projects/LIN_proto/duplicated_upload.py {0} Submission_result {1}".format(
                     user_email, SubjectGenome)
             os.system(email_cmd)
+            c.execute("SELECT LIN FROM LIN WHERE Genome_ID={0}".format(SubjectGenome))
+            best_LIN = c.fetchone()[0]
+            result = {"best LIN": best_LIN}
     else:
         # duplicate genome file detected
         print("###########################################################")
@@ -734,6 +739,9 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
         email_cmd = "python /home/linproject/Projects/LIN_proto/duplicated_upload.py {0} Submission_result {1}".format(
                 user_email, SubjectGenome)
         os.system(email_cmd)
+        c.execute("SELECT LIN FROM LIN WHERE Genome_ID={0}".format(SubjectGenome))
+        best_LIN = c.fetchone()[0]
+        result = {"best LIN": best_LIN}
     os.system("rm {0}".format(new_genome_filepath))
     c.close()
     db.close()
