@@ -4,11 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/FastANI_Toolbox.py" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="genome identification script">
-      <change beforePath="$PROJECT_DIR$/.idea/LIN_proto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LIN_proto.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="deleted .gitignore" />
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,26 +46,26 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="py" value="2" />
+          <entry key="py" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="2" />
+          <entry key="Python" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="9" />
-          <entry key="py" value="5074" />
-          <entry key="txt" value="147" />
+          <entry key="py" value="5079" />
+          <entry key="txt" value="184" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="156" />
-          <entry key="Python" value="5074" />
+          <entry key="PLAIN_TEXT" value="193" />
+          <entry key="Python" value="5079" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -116,7 +112,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/genome_identification.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
@@ -128,11 +124,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+            <state relative-caret-position="476">
+              <caret line="174" column="100" selection-start-line="174" selection-start-column="100" selection-end-line="174" selection-end-column="100" />
             </state>
           </provider>
         </entry>
@@ -253,7 +249,6 @@
         <option value="$PROJECT_DIR$/LIN_visualization.py" />
         <option value="$PROJECT_DIR$/implemented_kmer.py" />
         <option value="$PROJECT_DIR$/Tools/Whatsinside.md" />
-        <option value="$PROJECT_DIR$/LINgroup_indexing.py" />
         <option value="$PROJECT_DIR$/Tools/load_uncultured.py" />
         <option value="$PROJECT_DIR$/Notes.md" />
         <option value="$PROJECT_DIR$/Tools/compute_mash_d.csv.py" />
@@ -291,6 +286,7 @@
         <option value="$PROJECT_DIR$/genome_identification.py" />
         <option value="$PROJECT_DIR$/workflow2.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/LINgroup_indexing.py" />
       </list>
     </option>
   </component>
@@ -1593,20 +1589,6 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
     </task>
-    <task id="LOCAL-00783" summary="Changed how duplicated genome is identified">
-      <created>1509467105306</created>
-      <option name="number" value="00783" />
-      <option name="presentableId" value="LOCAL-00783" />
-      <option name="project" value="LOCAL" />
-      <updated>1509467105306</updated>
-    </task>
-    <task id="LOCAL-00784" summary="Added rep_bac to speed up MinHash identification">
-      <created>1509491259199</created>
-      <option name="number" value="00784" />
-      <option name="presentableId" value="LOCAL-00784" />
-      <option name="project" value="LOCAL" />
-      <updated>1509491259199</updated>
-    </task>
     <task id="LOCAL-00785" summary="Added rep_bac to speed up MinHash identification">
       <created>1509491490084</created>
       <option name="number" value="00785" />
@@ -1936,7 +1918,21 @@
       <option name="project" value="LOCAL" />
       <updated>1543427150766</updated>
     </task>
-    <option name="localTasksCounter" value="832" />
+    <task id="LOCAL-00832" summary="modify for python3">
+      <created>1543442297899</created>
+      <option name="number" value="00832" />
+      <option name="presentableId" value="LOCAL-00832" />
+      <option name="project" value="LOCAL" />
+      <updated>1543442297899</updated>
+    </task>
+    <task id="LOCAL-00833" summary="deleted .gitignore">
+      <created>1543442344145</created>
+      <option name="number" value="00833" />
+      <option name="presentableId" value="LOCAL-00833" />
+      <option name="project" value="LOCAL" />
+      <updated>1543442344145</updated>
+    </task>
+    <option name="localTasksCounter" value="834" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2025,8 +2021,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="A new workflow" />
-    <MESSAGE value="A new workflow&#10;debug: line 210" />
     <MESSAGE value="A new workflow&#10;debug: line 210, 136" />
     <MESSAGE value="A new workflow&#10;debug: line 142" />
     <MESSAGE value="A new workflow&#10;debug: line 170" />
@@ -2050,7 +2044,9 @@
     <MESSAGE value="change file open mode" />
     <MESSAGE value="genome identification script" />
     <MESSAGE value="wrap workflow as a function and return dictionary" />
-    <option name="LAST_COMMIT_MESSAGE" value="wrap workflow as a function and return dictionary" />
+    <MESSAGE value="modify for python3" />
+    <MESSAGE value="deleted .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted .gitignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2314,13 +2310,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="79" column="51" selection-start-line="79" selection-start-column="51" selection-end-line="79" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tools/use_bbmap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
@@ -2479,13 +2468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/genome_identification.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -2493,6 +2475,20 @@
           <folding>
             <marker date="1542655728968" expanded="true" signature="1637:2032" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LINgroup_indexing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="174" column="100" selection-start-line="174" selection-start-column="100" selection-end-line="174" selection-end-column="100" />
         </state>
       </provider>
     </entry>
