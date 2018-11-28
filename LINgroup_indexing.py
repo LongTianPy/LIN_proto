@@ -171,7 +171,7 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
             new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_getLIN_object,c=cursor,current_genome=New_Genome_ID).new_LIN
             top1_Genome_ID = int(final_best_Genome_ID)
             top1_similarity = final_best_ANI
-            print "The size of current database is " + str(len(LIN_table.index))
-            print "The number of calculations done is " + str(len(similarity_pool.keys())) + "\n\n"
+            print("The size of current database is " + str(len(LIN_table.index)))
+            print("The number of calculations done is " + str(len(similarity_pool.keys())) + "\n\n")
     return new_LIN, top1_Genome_ID, top1_similarity
 
