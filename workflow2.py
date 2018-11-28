@@ -745,6 +745,7 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
     os.system("rm {0}".format(new_genome_filepath))
     c.close()
     db.close()
+    return result
 
 
 # MAIN
