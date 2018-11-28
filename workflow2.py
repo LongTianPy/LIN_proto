@@ -44,7 +44,7 @@ original_folder  = '/home/linproject/Workspace/LINdb/'
 tmp_folder = '/home/linproject/Workspace/tmp_upload/'
 workspace_dir = '/home/linproject/Workspace/New/workspace/'
 ranks = ['superkingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species','strain']
-ranks_dict = {'superkingdom':1, 'phylum':2, 'class':3, 'order':4, 'family':5, 'genus':6, 'species':7, 'strain':9}
+# ranks_dict = {'superkingdom':1, 'phylum':2, 'class':3, 'order':4, 'family':5, 'genus':6, 'species':7, 'strain':20}
 Entrez.email = "aaa@bb.cc"
 
 # OBJECTS
@@ -92,7 +92,7 @@ def get_parsed_args():
 
 ### Connect to database
 def connect_to_db():
-    conn = Connect("localhost", "root")
+    conn = Connect("localhost", "LINbase","Latham@537")
     c = conn.cursor()
     c.execute("use LINdb_NCBI_RefSeq_test")
     return conn, c
@@ -109,6 +109,25 @@ def extract_metadata(c):
     metadata["LIN"] = LIN
     metadata.index = Genome_ID
     return metadata
+
+def extract_ranks(c):
+    ranks_dict = pd.DataFrame()
+    c.execute("select Rank_ID,Rank,Rank_order from Taxonomic_ranks")
+    tmp = c.fetchall()
+    Rank_ID = [int(i[0]) for i in tmp]
+    Rank = [i[1] for i in tmp]
+    Rank_order = [i[2] for i in tmp]
+    ranks_dict["Rank_ID"] = Rank_ID
+    ranks_dict["Rank_order"] = Rank_order
+    ranks_dict.index=Rank
+    return ranks_dict
+
+def extract_attributes(c):
+    c.execute("select * from Attribute")
+    tmp = c.fetchall()
+    attributes_dict = {i[1]:int(i[0]) for i in tmp}
+    return attributes_dict
+
 
 def load_new_metadata(c,db,Interest_ID,new_genome,Attributes,User_ID,standardtime,privacy):
     c.execute("INSERT INTO Submission (User_ID, Time) VALUES ({0},'{1}')".format(User_ID, standardtime))
@@ -210,7 +229,18 @@ def check_and_load_w_taxid(tax_list,c,conn,Rank_ID,Genome_ID):
         c.execute("insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID) values ({0},{1},{2})".format(Genome_ID,Rank_ID,taxid))
         conn.commit()
 
-def load_new_metadata_newversion(c,db,Interest_ID,new_genome,Taxonomy,Attributes,User_ID,standardtime):
+def load_attributes(c,db,Attributes,new_genome,Interest_ID,User_ID,privacy,attributes_dict):
+    base_sql = "INSERT INTO AttributeValue (Genome_ID,Interest_ID,Attribute_ID,AttributeValue,User_ID,Private) VALUES ({0},{1},{2},'{3}',{4},{5})"
+    for i in Attributes:
+        sql = base_sql.format(new_genome,Interest_ID,attributes_dict[i],Attributes[i],User_ID,privacy)
+        c.execute(sql)
+        db.commit()
+
+
+
+
+
+def load_new_metadata_newversion(c,db,Interest_ID,new_genome,Taxonomy,Attributes,User_ID,ranks_dict,privacy,standardtime):
     c.execute("INSERT INTO Submission (User_ID, Time) VALUES ({0},'{1}')".format(User_ID, standardtime))
     db.commit()
     c.execute("SELECT Submission_ID FROM Submission where User_ID={0} and Time='{1}'".format(User_ID, standardtime))
@@ -221,65 +251,21 @@ def load_new_metadata_newversion(c,db,Interest_ID,new_genome,Taxonomy,Attributes
     db.commit()
     c.execute("SELECT Genome_ID FROM Genome WHERE Submission_ID={0}".format(Submission_ID))
     new_Genome_ID = int(c.fetchone()[0])
-    c.execute("SELECT Attribute_IDs FROM Interest WHERE Interest_ID={0}".format(args.Interest_ID))
-    tmp = c.fetchone()[0].split(",")
-    Attribute_ID_list = [int(id) for id in tmp]
-    Taxonomy = args.Taxonomy.split("^^")
-    Attributes = args.Attributes.split("^^")
     Tax_ID = Attributes["NCBI Taxonomy ID"]
-    genus = Taxonomy["genus"]
-    species = Taxonomy["species"]
-    strain = Taxonomy["strain"]
-    # if len(Taxonomy)>3:
-    #     intraspecies_type = [Taxonomy[2:-1][i] for i in  range(len(Taxonomy[2:-1])) if i%2==0]
-    #     intraspecies_value = [Taxonomy[2:-1][i] for i in range(len(Taxonomy[2:-1])) if i%2!=0]
-    #     intraspecies = []
-    #     for i in range(len(intraspecies_type)):
-    #         if intraspecies_type[i] != "N/A" and intraspecies_value[i] != "N/A":
-    #             intraspecies.append([intraspecies_type[i],intraspecies_value[i]])
-    # print(intraspecies)
-    # check_and_load(genus,c,db,6,new_Genome_ID)
-    # check_and_load(species,c,db,7,new_Genome_ID)
     if Tax_ID != 'N/A':
         lineage = extract_taxonomy_by_taxid(tax_id=Tax_ID)
         lineage['strain'] = [strain,Tax_ID]
         for rank in ranks:
             if lineage[rank] != ['N/A','N/A']:
-                rank_id = ranks_dict[rank]
+                rank_id = ranks_dict.loc[rank,"Rank_ID"]
                 print(lineage[rank])
                 check_and_load_w_taxid(lineage[rank],c,db,rank_id,new_Genome_ID)
     else:
         for i in Taxonomy:
-            check_and_load(Taxonomy[i],c,db,rank_to_id(str(i)),new_Genome_ID)
-
-
-
-    if Tax_ID != 'N/A':
-        lineage = extract_taxonomy_by_taxid(tax_id=Tax_ID)
-        lineage['strain'] = [strain,Tax_ID]
-        for rank in ranks:
-            if lineage[rank] != ['N/A','N/A']:
-                rank_id = ranks_dict[rank]
-                print(lineage[rank])
-                check_and_load_w_taxid(lineage[rank],c,db,rank_id,new_Genome_ID)
-    else:
-        check_and_load(genus, c, db, 6, new_Genome_ID)
-        check_and_load(species, c, db, 7, new_Genome_ID)
-    if len(Taxonomy)>3:
-        if intraspecies != []:
-            for row in intraspecies:
-                check_and_load(row[1],c,db,row[0],new_Genome_ID)
-    c.execute("insert into Taxonomy (Genome_ID,Rank_ID,Taxon) values ({0},{1},'{2}')".format(new_Genome_ID,20,strain))
-    db.commit()
-    for i in range(len(Attribute_ID_list)):
-        attributevalue = Attributes[i].replace("_"," ")
-        sql = "insert into AttributeValue (Genome_ID,Interest_ID,Attribute_ID,AttributeValue,User_ID,Private) VALUES ({0},{1},{2},'{3}',{4},{5})".format(new_Genome_ID,args.Interest_ID, Attribute_ID_list[i],attributevalue,args.User_ID,args.privacy)
-        # print(sql)
-        c.execute(sql)
-        db.commit()
+            check_and_load(Taxonomy[i],c,db,ranks_dict.loc[i,"Rank_ID"],new_Genome_ID)
+    attributes_dict = extract_attributes(c)
+    load_attributes(c,db,Attributes,new_Genome_ID,Interest_ID,User_ID,privacy,attributes_dict)
     return new_Genome_ID
-
-
 
 def create_sketch(filepath):
     dest = sourmash_tmp+"tmp.sig"
@@ -552,6 +538,7 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
     standardtime = currenttime.strftime(fmt_time_display)
     db, c = connect_to_db()
     metadata = extract_metadata(c)
+    ranks_dict = extract_ranks(c)
     file_duplication = 0
     for i in metadata.index:
         if filecmp.cmp(new_genome_filepath,metadata.get_value(i,"FilePath")):
@@ -561,6 +548,7 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
     if file_duplication == 0:
         create_sketch(tmp_folder + new_genome)
         if metadata.empty:
+            # if this is the first genome ever in the database
             new_LIN = ",".join(["0"] * 20)
             top1_Genome_ID = 1
             top1_similarity = 1
@@ -716,6 +704,7 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
             email_cmd = "python /home/linproject/Projects/LIN_proto/sendEmail.py {0} Submission_result {1}".format(
                     user_email, Job_uuid)
             os.system(email_cmd)
+            c.execute("SELECT LIN FROM LIN WHERE Genome_ID={0}".format(SubjectGenome))
         else:
             print("###########################################################")
             print("System message:")
@@ -730,6 +719,7 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
                     user_email, SubjectGenome)
             os.system(email_cmd)
     else:
+        # duplicate genome file detected
         print("###########################################################")
         print("System message:")
         print("Duplicate submission found, recording.")

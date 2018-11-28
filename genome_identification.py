@@ -1,7 +1,8 @@
 #!/usr/bin/python
 """ Workflow for genome identification of LINbase
     No metadata needed.
-    Still use MinHash to identify the most similar LINgroup first
+
+    Input is a uuid that points to the folder with the same name fasta file inside.
 """
 
 # IMPORT
@@ -11,11 +12,12 @@ import sys
 from os.path import join, isfile
 from MySQLdb import Connect
 import pandas as pd
+import uuid
 
 # VARIABLES
 sourmash_dir = "/home/linproject/Workspace/Sourmash2/all_sketches/"
-working_dir = "/home/linproject/Workspace/Genome_identification/"
-genome_dir = "/home/linproject/Workspace/Genome_identification/uploaded_genome"
+# working_dir = "/home/linproject/Workspace/Genome_identification/"
+# genome_dir = "/home/linproject/Workspace/Genome_identification/uploaded_genome"
 rep_bac_dir = "/home/linproject/Workspace/Sourmash2/rep_bac/"
 FastANI_cmd = "fastANI -q {0} -r {1} -o /home/linproject/Workspace/Genome_identification/{2}"
 scheme = [0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 0.96, 0.97, 0.98, 0.985, 0.99, 0.9925, 0.995, 0.9975, 0.9990000000000001,
@@ -31,21 +33,21 @@ def connect_to_db():
     return conn, c
 
 def create_sketch(filepath,output):
-    dest = join(working_dir,output)
+    dest = output
     cmd = "sourmash compute -o {0} {1} -k 31 -n 1000".format(dest,filepath)
     os.system(cmd)
     return dest
 
-def compare_sketch(LINgroup,output):
+def compare_sketch(tmp_sig,LINgroup,output):
     if LINgroup == "rep_bac":
         dest = rep_bac_dir
     else:
         dest = sourmash_dir + LINgroup + "/"
     folder_size = len([file for file in os.listdir(dest) if isfile(join(dest,file))])
     cmd = "sourmash search {0} {1}*.sig -n {2} > {3}"
-    cmd = cmd.format(working_dir+output, dest, folder_size, join(working_dir,output+".mash_out"))
+    cmd = cmd.format(tmp_sig, dest, folder_size, output)
     os.system(cmd)
-    return join(working_dir,output+".mash_out")
+    return output
 
 def parse_result(result_file):
     f = open(result_file,"r")
@@ -61,12 +63,13 @@ def parse_result(result_file):
         return df
 
 # MAIN
-def genome_identification(genome_filepath):
+def genome_identification(dir):
     conn, c = connect_to_db()
-    input_genome = genome_filepath
-    output_stamp = "tmp"
-    tmp_sig = create_sketch(input_genome,output_stamp)
-    rep_bac_result = compare_sketch("rep_bac",output_stamp)
+    working_dir = dir
+    input_genome = [join(dir,f) for f in listdir(dir) if f.endswith(".fasta")][0]
+    output_stamp = str(uuid.uuid4())
+    tmp_sig = create_sketch(input_genome,join(working_dir,output_stamp)+".sig")
+    rep_bac_result = compare_sketch(tmp_sig,"rep_bac",join(working_dir,output_stamp+".mash_out"))
     df = parse_result(rep_bac_result)
     if df.empty: # Then there's no 95% level LINgroups matched
         # Check if there is any LINgroup matched to it.
