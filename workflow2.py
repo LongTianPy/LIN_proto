@@ -204,7 +204,7 @@ def check_and_load(entry,c,conn,Rank_ID,Genome_ID):
         c.execute("select exists(select NCBI_Tax_ID from NCBI_Tax_ID where Taxon='{0}' and Rank_ID={1})".format(entry,Rank_ID))
         tmp = c.fetchone()[0]
         if tmp == 1:
-            c.execute("select NCBI_Tax_ID from NCBI_Tax_ID where Taxon='{0}' and Rank_ID={1}".format(genus,Rank_ID))
+            c.execute("select NCBI_Tax_ID from NCBI_Tax_ID where Taxon='{0}' and Rank_ID={1}".format(entry,Rank_ID))
             tax_id = c.fetchone()[0]
         else:
             tax_id = 'N/A'
