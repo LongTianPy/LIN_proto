@@ -541,7 +541,7 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
     ranks_dict = extract_ranks(c)
     file_duplication = 0
     for i in metadata.index:
-        if filecmp.cmp(new_genome_filepath,metadata.get_value(i,"FilePath")):
+        if filecmp.cmp(tmp_folder + new_genome,metadata.get_value(i,"FilePath")):
             file_duplication = 1
             SubjectGenome = int(i)
             break
