@@ -252,7 +252,8 @@ def load_new_metadata_newversion(c,db,Interest_ID,new_genome,Taxonomy,Attributes
     c.execute("SELECT Genome_ID FROM Genome WHERE Submission_ID={0}".format(Submission_ID))
     new_Genome_ID = int(c.fetchone()[0])
     Tax_ID = Attributes["NCBI Taxonomy ID"]
-    if Tax_ID != 'N/A':
+    try:
+        Tax_ID = int(Tax_ID)
         lineage = extract_taxonomy_by_taxid(tax_id=Tax_ID)
         lineage['strain'] = [strain,Tax_ID]
         for rank in ranks:
@@ -260,7 +261,7 @@ def load_new_metadata_newversion(c,db,Interest_ID,new_genome,Taxonomy,Attributes
                 rank_id = ranks_dict.loc[rank,"Rank_ID"]
                 print(lineage[rank])
                 check_and_load_w_taxid(lineage[rank],c,db,rank_id,new_Genome_ID)
-    else:
+    except:
         for i in Taxonomy:
             check_and_load(Taxonomy[i],c,db,ranks_dict.loc[i,"Rank_ID"],new_Genome_ID)
     attributes_dict = extract_attributes(c)
