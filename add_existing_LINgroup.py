@@ -15,7 +15,8 @@ def connect_to_db():
     c.execute("use LINdb_NCBI_RefSeq_test")
     return conn, c
 
-def add_LINgroup(c,conn):
+def add_LINgroup():
+    conn, c = connect_to_db()
     c.execute("SELECT Genome_ID,LIN FROM LIN WHERE Scheme_ID=4")
     tmp = c.fetchall()
     Genome_ID = [int(i[0]) for i in tmp]
