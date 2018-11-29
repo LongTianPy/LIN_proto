@@ -247,7 +247,7 @@ def load_new_metadata_newversion(c,db,Interest_ID,new_genome,Taxonomy,Attributes
     Submission_ID = int(c.fetchone()[0])
     os.system("cp {0} {1}".format(tmp_folder + new_genome, original_folder + new_genome))
     c.execute("INSERT INTO Genome (Interest_ID, Submission_ID, FilePath) VALUES ({0}, {1}, '{2}')"
-              .format(Interest_ID, Submission_ID, original_folder + aew_genome))
+              .format(Interest_ID, Submission_ID, original_folder + new_genome))
     db.commit()
     c.execute("SELECT Genome_ID FROM Genome WHERE Submission_ID={0}".format(Submission_ID))
     new_Genome_ID = int(c.fetchone()[0])
