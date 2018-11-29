@@ -539,6 +539,7 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
     db, c = connect_to_db()
     metadata = extract_metadata(c)
     ranks_dict = extract_ranks(c)
+    new_genome_filepath = tmp_folder + new_genome
     file_duplication = 0
     for i in metadata.index:
         if filecmp.cmp(tmp_folder + new_genome,metadata.get_value(i,"FilePath")):
@@ -745,6 +746,7 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
     os.system("rm {0}".format(new_genome_filepath))
     c.close()
     db.close()
+    os.system("rm {0}tmp.sig".format(sourmash_tmp))
     return result
 
 
