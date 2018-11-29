@@ -672,7 +672,8 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
             print("###########################################################")
             new_genome_ID = load_new_metadata_newversion(c=c,db=db,Interest_ID=Interest_ID_new_genome,
                                                          new_genome=new_genome,Taxonomy=Taxonomy,
-                                                         Attributes=Attributes,User_ID=User_ID,standardtime=standardtime,
+                                                         Attributes=Attributes,User_ID=User_ID, ranks_dict=ranks_dict,
+                                                         standardtime=standardtime,
                                                          privacy=privacy)
             this_95_LINgroup = ",".join(new_LIN.split(",")[:6])
             this_95_LINgroup_path = sourmash_dir + this_95_LINgroup + "/"
