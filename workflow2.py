@@ -263,7 +263,12 @@ def load_new_metadata_newversion(c,db,Interest_ID,new_genome,Taxonomy,Attributes
                 check_and_load_w_taxid(lineage[rank],c,db,rank_id,new_Genome_ID)
     except:
         for i in Taxonomy:
-            check_and_load(Taxonomy[i],c,db,ranks_dict.loc[i,"Rank_ID"],new_Genome_ID)
+            if i == " species":
+                full_species_name = Taxonomy["genus"] + " " + Taxonomy["species"]
+                check_and_load(full_species_name, c, db, ranks_dict.loc[i, "Rank_ID"], new_Genome_ID)
+            else:
+                check_and_load(Taxonomy[i],c,db,ranks_dict.loc[i,"Rank_ID"],new_Genome_ID)
+
     attributes_dict = extract_attributes(c)
     load_attributes(c,db,Attributes,new_Genome_ID,Interest_ID,User_ID,privacy,attributes_dict)
     return new_Genome_ID

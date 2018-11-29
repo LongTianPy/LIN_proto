@@ -27,7 +27,7 @@ scheme = [0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 0.96, 0.97, 0.98, 0.985, 0.99, 0.9925
 
 # FUNCTIONS
 def connect_to_db():
-    conn = Connect("localhost", "root")
+    conn = Connect("localhost", "LINbase","Latham@537")
     c = conn.cursor()
     c.execute("use LINdb_NCBI_RefSeq_test")
     return conn, c
