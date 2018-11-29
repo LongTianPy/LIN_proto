@@ -65,9 +65,9 @@ def go_through_LIN_table(previous_route, current_level,LIN_table,cursor,reverse_
                     subject_genome_filepath = cursor.fetchone()[0]
                     shutil.copyfile(New_Genome_filepath,working_dir+"{0}.fasta".format(New_Genome_ID))
                     shutil.copyfile(subject_genome_filepath,working_dir+"{0}.fasta".format(subject_genome_ID))
-                    pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py -i {0} -o {0}{1}_output/ -m ANIblastall --nocompress".format(working_dir,User_ID)
+                    pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py -i {0} -o {0}{1}_output/ -m ANIb --nocompress".format(working_dir,User_ID)
                     os.system(pyani_cmd)
-                    ANIb_result = pd.read_table(working_dir+"{0}_output/ANIblastall_percentage_identity.tab".format(User_ID), header=0, index_col=0).get_value(int(New_Genome_ID),str(subject_genome_ID))
+                    ANIb_result = pd.read_table(working_dir+"{0}_output/ANIb_percentage_identity.tab".format(User_ID), header=0, index_col=0).get_value(int(New_Genome_ID),str(subject_genome_ID))
                     os.system("rm -rf {0}*".format(working_dir))
                     similarity = ANIb_result
                     similarity_pool[str(subject_genome_ID)] = similarity
@@ -110,10 +110,10 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
             shutil.copyfile(New_Genome_filepath, working_dir + "{0}.fasta".format(New_Genome_ID))
             shutil.copyfile(Subject_Genome_filepath, working_dir + "{0}.fasta".format(LIN_table.index[0]))
             pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py -i {0} -o {0}{" \
-                        "1}_output/ -m ANIblastall --nocompress".format(
+                        "1}_output/ -m ANIb --nocompress".format(
                 working_dir, User_ID)
             os.system(pyani_cmd)
-            ANIb_result = pd.read_table(working_dir + "{0}_output/ANIblastall_percentage_identity.tab".format(User_ID),
+            ANIb_result = pd.read_table(working_dir + "{0}_output/ANIb_percentage_identity.tab".format(User_ID),
                                          header=0, index_col=0).get_value(int(New_Genome_ID),str(subject_genome_ID))
             os.system('rm -rf {0}*'.format(working_dir))
             similarity = ANIb_result
@@ -150,11 +150,11 @@ def LINgroup_indexing(cursor, New_Genome_ID, working_dir, User_ID):
                     subject_genome_filepath = cursor.fetchone()[0]
                     shutil.copyfile(New_Genome_filepath, working_dir + "{0}.fasta".format(New_Genome_ID))
                     shutil.copyfile(subject_genome_filepath, working_dir + "{0}.fasta".format(subject_genome_ID))
-                    pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py -i {0} -o {0}{1}_output/ -m ANIblastall --nocompress".format(
+                    pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py -i {0} -o {0}{1}_output/ -m ANIb --nocompress".format(
                         working_dir, User_ID)
                     os.system(pyani_cmd)
                     ANIb_result = pd.read_table(
-                        working_dir + "{0}_output/ANIblastall_percentage_identity.tab".format(User_ID), header=0,
+                        working_dir + "{0}_output/ANIb_percentage_identity.tab".format(User_ID), header=0,
                         index_col=0).get_value(int(New_Genome_ID), str(subject_genome_ID))
                     os.system("rm -rf {0}*".format(working_dir))
                     similarity = ANIb_result

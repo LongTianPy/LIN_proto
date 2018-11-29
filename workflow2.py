@@ -320,11 +320,11 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
             shutil.copyfile(new_genome_filepath, sub_working_dir + "tmp.fasta")
             shutil.copyfile(subject_genome_filepath, sub_working_dir + "{0}.fasta".format(subject_genome_ID))
             pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                        "-i {0} -o {0}output -m ANIblastall --nocompress -f".format(sub_working_dir)
+                        "-i {0} -o {0}output -m ANIb --nocompress -f".format(sub_working_dir)
             os.system(pyani_cmd)
-            ANIb_result = pd.read_table(sub_working_dir+"output/ANIblastall_percentage_identity.tab",sep="\t",header=0,
+            ANIb_result = pd.read_table(sub_working_dir+"output/ANIb_percentage_identity.tab",sep="\t",header=0,
                                         index_col=0).get_value('tmp',str(subject_genome_ID))
-            cov_result = pd.read_table(sub_working_dir+"output/ANIblastall_alignment_coverage.tab",sep="\t",header=0,
+            cov_result = pd.read_table(sub_working_dir+"output/ANIb_alignment_coverage.tab",sep="\t",header=0,
                                         index_col=0).get_value('tmp',str(subject_genome_ID))
             os.system("rm -rf {0}".format(sub_working_dir))
             if isdir(sub_working_dir):
@@ -379,12 +379,12 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
                         shutil.copyfile(subject_genome_filepath,
                                         sub_working_dir + "{0}.fasta".format(subject_genome_ID))
                         pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                                    "-i {0} -o {0}output -m ANIblastall --nocompress -f".format(sub_working_dir)
+                                    "-i {0} -o {0}output -m ANIb --nocompress -f".format(sub_working_dir)
                         os.system(pyani_cmd)
-                        ANIb_result = pd.read_table(sub_working_dir + "output/ANIblastall_percentage_identity.tab",
+                        ANIb_result = pd.read_table(sub_working_dir + "output/ANIb_percentage_identity.tab",
                                                     sep="\t", header=0,
                                                     index_col=0).get_value('tmp', str(subject_genome_ID))
-                        cov_result = pd.read_table(sub_working_dir + "output/ANIblastall_alignment_coverage.tab",
+                        cov_result = pd.read_table(sub_working_dir + "output/ANIb_alignment_coverage.tab",
                                                    sep="\t", header=0,
                                                    index_col=0).get_value('tmp', str(subject_genome_ID))
                         os.system("rm -rf {0}".format(sub_working_dir))
@@ -460,12 +460,12 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
                     shutil.copyfile(new_genome_filepath,sub_working_dir+"tmp.fasta")
                     shutil.copyfile(subject_genome_filepath, sub_working_dir + "{0}.fasta".format(subject_genome_ID))
                     pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                            "-i {0} -o {0}output -m ANIblastall --nocompress -f".format(sub_working_dir)
+                            "-i {0} -o {0}output -m ANIb --nocompress -f".format(sub_working_dir)
                     os.system(pyani_cmd)
-                    ANIb_result = pd.read_table(sub_working_dir + "output/ANIblastall_percentage_identity.tab", sep="\t",
+                    ANIb_result = pd.read_table(sub_working_dir + "output/ANIb_percentage_identity.tab", sep="\t",
                                                 header=0,
                                                 index_col=0).get_value('tmp', str(subject_genome_ID))
-                    cov_result = pd.read_table(sub_working_dir + "output/ANIblastall_alignment_coverage.tab", sep="\t",
+                    cov_result = pd.read_table(sub_working_dir + "output/ANIb_alignment_coverage.tab", sep="\t",
                                                header=0,
                                                index_col=0).get_value('tmp', str(subject_genome_ID))
                     os.system("rm -rf {0}".format(sub_working_dir))
@@ -532,7 +532,7 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
         privacy = 1
     else:
         privacy = 0
-    estern = timezone("EST")
+    eastern = timezone("EST")
     currenttime = eastern.localize(datetime.now())
     fmt_time_display = '%Y-%m-%d %H:%M:%S %Z%z'
     standardtime = currenttime.strftime(fmt_time_display)
@@ -594,13 +594,13 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
                         shutil.copyfile(new_genome_filepath, sub_working_dir+"tmp.fasta")
                         shutil.copyfile(subject_genome_filepath,sub_working_dir+"{0}.fasta".format(each_subject_genome_ID))
                         pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                                    "-i {0} -o {0}output -m ANIblastall --nocompress -f".format(sub_working_dir)
+                                    "-i {0} -o {0}output -m ANIb --nocompress -f".format(sub_working_dir)
                         os.system(pyani_cmd)
-                        this_ANIb_result = pd.read_table(sub_working_dir + "output/ANIblastall_percentage_identity.tab",
+                        this_ANIb_result = pd.read_table(sub_working_dir + "output/ANIb_percentage_identity.tab",
                                                     sep="\t",
                                                     header=0,
                                                     index_col=0).get_value('tmp', str(each_subject_genome_ID))
-                        this_cov_result = pd.read_table(sub_working_dir + "output/ANIblastall_alignment_coverage.tab", sep="\t",
+                        this_cov_result = pd.read_table(sub_working_dir + "output/ANIb_alignment_coverage.tab", sep="\t",
                                                    header=0,
                                                    index_col=0).get_value('tmp', str(each_subject_genome_ID))
                         os.system("rm -rf {0}".format(sub_working_dir))
@@ -634,12 +634,12 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
                         shutil.copyfile(new_genome_filepath, sub_working_dir + "tmp.fasta")
                         shutil.copyfile(subject_genome_filepath, sub_working_dir + "{0}.fasta".format(each_subject_genome_ID))
                         pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                                    "-i {0} -o {0}output -m ANIblastall --nocompress -f".format(sub_working_dir)
+                                    "-i {0} -o {0}output -m ANIb --nocompress -f".format(sub_working_dir)
                         os.system(pyani_cmd)
-                        ANIb_result = pd.read_table(sub_working_dir + "output/ANIblastall_percentage_identity.tab", sep="\t",
+                        ANIb_result = pd.read_table(sub_working_dir + "output/ANIb_percentage_identity.tab", sep="\t",
                                                     header=0,
                                                     index_col=0).get_value('tmp', str(each_subject_genome_ID))
-                        cov_result = pd.read_table(sub_working_dir + "output/ANIblastall_alignment_coverage.tab", sep="\t",
+                        cov_result = pd.read_table(sub_working_dir + "output/ANIb_alignment_coverage.tab", sep="\t",
                                                    header=0,
                                                    index_col=0).get_value('tmp', str(each_subject_genome_ID))
                         os.system("rm -rf {0}".format(sub_working_dir))
@@ -824,13 +824,13 @@ if __name__ == '__main__':
                         shutil.copyfile(new_genome_filepath, sub_working_dir+"tmp.fasta")
                         shutil.copyfile(subject_genome_filepath,sub_working_dir+"{0}.fasta".format(each_subject_genome_ID))
                         pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                                    "-i {0} -o {0}output -m ANIblastall --nocompress -f".format(sub_working_dir)
+                                    "-i {0} -o {0}output -m ANIb --nocompress -f".format(sub_working_dir)
                         os.system(pyani_cmd)
-                        this_ANIb_result = pd.read_table(sub_working_dir + "output/ANIblastall_percentage_identity.tab",
+                        this_ANIb_result = pd.read_table(sub_working_dir + "output/ANIb_percentage_identity.tab",
                                                     sep="\t",
                                                     header=0,
                                                     index_col=0).get_value('tmp', str(each_subject_genome_ID))
-                        this_cov_result = pd.read_table(sub_working_dir + "output/ANIblastall_alignment_coverage.tab", sep="\t",
+                        this_cov_result = pd.read_table(sub_working_dir + "output/ANIb_alignment_coverage.tab", sep="\t",
                                                    header=0,
                                                    index_col=0).get_value('tmp', str(each_subject_genome_ID))
                         os.system("rm -rf {0}".format(sub_working_dir))
@@ -864,12 +864,12 @@ if __name__ == '__main__':
                         shutil.copyfile(new_genome_filepath, sub_working_dir + "tmp.fasta")
                         shutil.copyfile(subject_genome_filepath, sub_working_dir + "{0}.fasta".format(each_subject_genome_ID))
                         pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                                    "-i {0} -o {0}output -m ANIblastall --nocompress -f".format(sub_working_dir)
+                                    "-i {0} -o {0}output -m ANIb --nocompress -f".format(sub_working_dir)
                         os.system(pyani_cmd)
-                        ANIb_result = pd.read_table(sub_working_dir + "output/ANIblastall_percentage_identity.tab", sep="\t",
+                        ANIb_result = pd.read_table(sub_working_dir + "output/ANIb_percentage_identity.tab", sep="\t",
                                                     header=0,
                                                     index_col=0).get_value('tmp', str(each_subject_genome_ID))
-                        cov_result = pd.read_table(sub_working_dir + "output/ANIblastall_alignment_coverage.tab", sep="\t",
+                        cov_result = pd.read_table(sub_working_dir + "output/ANIb_alignment_coverage.tab", sep="\t",
                                                    header=0,
                                                    index_col=0).get_value('tmp', str(each_subject_genome_ID))
                         os.system("rm -rf {0}".format(sub_working_dir))
