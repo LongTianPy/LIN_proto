@@ -670,7 +670,10 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
             print("New genome uploaded.")
             print("LIN will be assigned.")
             print("###########################################################")
-            new_genome_ID = load_new_metadata_newversion(c=c, db=db, args=args)
+            new_genome_ID = load_new_metadata_newversion(c=c,db=db,Interest_ID=Interest_ID_new_genome,
+                                                         new_genome=new_genome,Taxonomy=Taxonomy,
+                                                         Attributes=Attributes,User_ID=User_ID,standardtime=standardtime,
+                                                         privacy=privacy)
             this_95_LINgroup = ",".join(new_LIN.split(",")[:6])
             this_95_LINgroup_path = sourmash_dir + this_95_LINgroup + "/"
             c.execute("SELECT EXISTS(SELECT LIN FROM LIN WHERE LIN LIKE '{0}%')".format(this_95_LINgroup))
