@@ -112,7 +112,7 @@ def sendEmail(user_email, subject,context):
         raise
 
 if __name__ == '__main__':
-    f = open("/var/www/html/CodeIgniter/application/views/email_result.txt", "r")
+    f = open("/var/www/html/LINbase/application/views/email_result.txt", "r")
     email_result = f.read()
     f.close()
     user_email = sys.argv[1]

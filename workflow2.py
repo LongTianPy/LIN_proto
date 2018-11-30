@@ -702,20 +702,20 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
                         "cp {0} {1}".format(sourmash_tmp + "tmp.sig",
                                             this_95_LINgroup_path + str(new_genome_ID) + ".sig"))
             update_LINgroup(Genome_ID=new_genome_ID, c=c, new_LIN=new_LIN, conn=db)
-            c.execute("SELECT LIN_ID FROM LIN WHERE Scheme_ID=4 AND Genome_ID={0}".format(new_genome_ID))
-            LIN_ID = c.fetchone()[0]
-            Job_uuid = str(uuid.uuid4())
-            c.execute(
-                "INSERT INTO Job (LIN_ID,User_ID,Job_uuid,Conserved_LIN) VALUES ({0},{1},'{2}','{3}')".format(LIN_ID,
-                                                                                                              User_ID,
-                                                                                                              Job_uuid,
-                                                                                                              conserved_LIN))
-            db.commit()
-            c.execute("SELECT Email FROM User WHERE User_ID={0}".format(User_ID))
-            user_email = c.fetchone()[0]
-            email_cmd = "python /home/linproject/Projects/LIN_proto/sendEmail.py {0} Submission_result {1}".format(
-                    user_email, Job_uuid)
-            os.system(email_cmd)
+            # c.execute("SELECT LIN_ID FROM LIN WHERE Scheme_ID=4 AND Genome_ID={0}".format(new_genome_ID))
+            # LIN_ID = c.fetchone()[0]
+            # Job_uuid = str(uuid.uuid4())
+            # c.execute(
+            #     "INSERT INTO Job (LIN_ID,User_ID,Job_uuid,Conserved_LIN) VALUES ({0},{1},'{2}','{3}')".format(LIN_ID,
+            #                                                                                                   User_ID,
+            #                                                                                                   Job_uuid,
+            #                                                                                                   conserved_LIN))
+            # db.commit()
+            # c.execute("SELECT Email FROM User WHERE User_ID={0}".format(User_ID))
+            # user_email = c.fetchone()[0]
+            # email_cmd = "python /home/linproject/Projects/LIN_proto/sendEmail.py {0} Submission_result {1}".format(
+            #         user_email, Job_uuid)
+            # os.system(email_cmd)
             c.execute("SELECT LIN FROM LIN WHERE Genome_ID={0}".format(SubjectGenome))
             best_LIN = c.fetchone()[0]
             result = {"new LIN":new_LIN, "best LIN":best_LIN,"ANI":ANIb_result,"LINgroup":conserved_LIN}
@@ -727,11 +727,16 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
             c.execute("INSERT INTO Duplicated_upload (Reference_Genome_ID,Who_uploads_too) VALUES ({0},{1})".format(
                 SubjectGenome, User_ID))
             db.commit()
-            c.execute("SELECT Email FROM User WHERE User_ID={0}".format(User_ID))
-            user_email = c.fetchone()[0]
-            email_cmd = "python /home/linproject/Projects/LIN_proto/duplicated_upload.py {0} Submission_result {1}".format(
-                    user_email, SubjectGenome)
-            os.system(email_cmd)
+            # Job_uuid = str(uuid.uuid4())
+            # c.execute(
+            #         "INSERT INTO Job (User_ID,Job_uuid) VALUES ({0},'{1}')".format(
+            #             User_ID,
+            #             Job_uuid))
+            # c.execute("SELECT Email FROM User WHERE User_ID={0}".format(User_ID))
+            # user_email = c.fetchone()[0]
+            # email_cmd = "python /home/linproject/Projects/LIN_proto/duplicated_upload.py {0} Submission_result {1}".format(
+            #         user_email, SubjectGenome)
+            # os.system(email_cmd)
             c.execute("SELECT LIN FROM LIN WHERE Genome_ID={0}".format(SubjectGenome))
             best_LIN = c.fetchone()[0]
             result = {"best LIN": best_LIN}
@@ -746,11 +751,11 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
                     SubjectGenome,
                     User_ID))
         db.commit()
-        c.execute("SELECT Email FROM User WHERE User_ID={0}".format(User_ID))
-        user_email = c.fetchone()[0]
-        email_cmd = "python /home/linproject/Projects/LIN_proto/duplicated_upload.py {0} Submission_result {1}".format(
-                user_email, SubjectGenome)
-        os.system(email_cmd)
+        # c.execute("SELECT Email FROM User WHERE User_ID={0}".format(User_ID))
+        # user_email = c.fetchone()[0]
+        # email_cmd = "python /home/linproject/Projects/LIN_proto/duplicated_upload.py {0} Submission_result {1}".format(
+        #         user_email, SubjectGenome)
+        # os.system(email_cmd)
         c.execute("SELECT LIN FROM LIN WHERE Genome_ID={0}".format(SubjectGenome))
         best_LIN = c.fetchone()[0]
         result = {"best LIN": best_LIN}
