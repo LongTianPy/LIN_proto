@@ -518,18 +518,19 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
         return LIN_dictionary.keys()[0], current_level+1
 
 def update_LINgroup(Genome_ID, c, new_LIN, conn):
-    c.execute("select * from Description")
+    c.execute("select LINgroup_ID,LINgroup from LINgroup")
     tmp = c.fetchall()
-    Description_ID = [int(i[0]) for i in tmp]
+    LINgroup_ID = [int(i[0]) for i in tmp]
     LINgroup = [i[1] for i in tmp]
-    members = [i[-1] for i in tmp]
-    df = pd.DataFrame()
-    for i in range(len(Description_ID)):
+    belongs_to = []
+    for i in range(len(LINgroup_ID)):
         if new_LIN.startswith(LINgroup[i]):
-            this_member = ",".join(members[i].split(",").append(Genome_ID))
-            c.execute("update Description set Genome_IDs={0} where Description_ID={1}".format(this_member,
-                                                                                              Description_ID[i]))
-            conn.commit()
+            belongs_to.append(str(LINgroup_ID[i]))
+    if belongs_to != []:
+        c.execute("UPDATE Genome SET LINgroup='{0}' WHERE Genome_ID={1}".format(",".join(belongs_to), Genome_ID))
+        conn.commit()
+
+
 ### Email
 
 

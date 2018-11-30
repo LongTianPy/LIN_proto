@@ -28,8 +28,14 @@ def add_LINgroup():
     for i in range(len(Genome_ID)):
         for j in range(len(LINgroup_ID)):
             if LIN[i].startswith(LINgroup[j]):
-                sql = "UPDATE Genome SET LINgroup=CONCAT(LINgroup,',{0}') WHERE Genome_ID={1}"
-                c.execute(sql.format(str(LINgroup_ID[j]), Genome_ID[i]))
-                conn.commit()
+                c.execute("SELECT LINgroup FROM Genome WHERE Genome_ID={0}".format(Genome_ID[i]))
+                if c.fetchone()[0] == "":
+                    sql = "UPDATE Genome SET LINgroup='{0}' WHERE Genome_ID={1}".format(str(LINgroup_ID[j]), Genome_ID[i])
+                    c.execute(sql)
+                    conn.commit()
+                else:
+                    sql = "UPDATE Genome SET LINgroup=CONCAT(LINgroup,',{0}') WHERE Genome_ID={1}"
+                    c.execute(sql.format(str(LINgroup_ID[j]), Genome_ID[i]))
+                    conn.commit()
 
 # MAIN
