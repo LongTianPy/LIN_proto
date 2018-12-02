@@ -86,7 +86,7 @@ def get_parsed_args():
     parser.add_argument("-s", dest="Interest_ID", help="Interest ID")
     parser.add_argument("-t", dest="Taxonomy", help="Taxonomy")
     parser.add_argument("-a", dest="Attributes",help="Attributes")
-    parser.add_argument("-p", dest="privacy", help="Is it private information")
+    # parser.add_argument("-p", dest="privacy", help="Is it private information")
     args = parser.parse_args()
     return args
 
@@ -150,14 +150,14 @@ def load_new_metadata(c,db,Interest_ID,new_genome,Attributes,User_ID,standardtim
     #     # print(sql)
     #     c.execute(sql)
     #     db.commit()
-    insert_sql = "INSERT INTO AttributeValue (Genome_ID,Interest_ID,Attribute_ID,AttributeValue,User_ID,Private) VALUES "
+    insert_sql = "INSERT INTO AttributeValue (Genome_ID,Interest_ID,Attribute_ID,AttributeValue,User_ID) VALUES "
     insert_values = []
     for key in Attributes:
         attributename = str(key)
         c.execute("SELECT Attribute_ID FROM Attribute WHERE AttributeName='{0}'".format(attributename))
         attribute_id = c.fetchone()[0]
         attributevalue = Attributes[key]
-        insert_values.append("({0},{1},{2},'{3}',{4},{5})".format(new_Genome_ID,Interest_ID,attribute_id,attributevalue,args.User_ID,privacy))
+        insert_values.append("({0},{1},{2},'{3}',{4})".format(new_Genome_ID,Interest_ID,attribute_id,attributevalue,args.User_ID))
     insert_values = ",".join(insert_values)
     insert_sql = insert_sql + insert_values
     c.execute(insert_sql)
@@ -229,10 +229,10 @@ def check_and_load_w_taxid(tax_list,c,conn,Rank_ID,Genome_ID):
         c.execute("insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID) values ({0},{1},{2})".format(Genome_ID,Rank_ID,taxid))
         conn.commit()
 
-def load_attributes(c,db,Attributes,new_genome,Interest_ID,User_ID,privacy,attributes_dict):
-    base_sql = "INSERT INTO AttributeValue (Genome_ID,Interest_ID,Attribute_ID,AttributeValue,User_ID,Private) VALUES ({0},{1},{2},'{3}',{4},{5})"
+def load_attributes(c,db,Attributes,new_genome,Interest_ID,User_ID,attributes_dict):
+    base_sql = "INSERT INTO AttributeValue (Genome_ID,Interest_ID,Attribute_ID,AttributeValue,User_ID) VALUES ({0},{1},{2},'{3}',{4})"
     for i in Attributes:
-        sql = base_sql.format(new_genome,Interest_ID,attributes_dict[i],Attributes[i],User_ID,privacy)
+        sql = base_sql.format(new_genome,Interest_ID,attributes_dict[i],Attributes[i],User_ID)
         c.execute(sql)
         db.commit()
 
@@ -240,7 +240,7 @@ def load_attributes(c,db,Attributes,new_genome,Interest_ID,User_ID,privacy,attri
 
 
 
-def load_new_metadata_newversion(c,db,Interest_ID,new_genome,Taxonomy,Attributes,User_ID,ranks_dict,privacy,standardtime):
+def load_new_metadata_newversion(c,db,Interest_ID,new_genome,Taxonomy,Attributes,User_ID,ranks_dict,standardtime):
     c.execute("INSERT INTO Submission (User_ID, Time) VALUES ({0},'{1}')".format(User_ID, standardtime))
     db.commit()
     c.execute("SELECT Submission_ID FROM Submission where User_ID={0} and Time='{1}'".format(User_ID, standardtime))
@@ -270,7 +270,7 @@ def load_new_metadata_newversion(c,db,Interest_ID,new_genome,Taxonomy,Attributes
                 check_and_load(Taxonomy[i],c,db,ranks_dict.loc[i,"Rank_ID"],new_Genome_ID)
 
     attributes_dict = extract_attributes(c)
-    load_attributes(c,db,Attributes,new_Genome_ID,Interest_ID,User_ID,privacy,attributes_dict)
+    load_attributes(c,db,Attributes,new_Genome_ID,Interest_ID,User_ID,attributes_dict)
     return new_Genome_ID
 
 def create_sketch(filepath):
@@ -530,15 +530,22 @@ def update_LINgroup(Genome_ID, c, new_LIN, conn):
         c.execute("UPDATE Genome SET LINgroup='{0}' WHERE Genome_ID={1}".format(",".join(belongs_to), Genome_ID))
         conn.commit()
 
+def check_belonged_LINgroups(conservevd_LIN,c):
+    c.execute("select LINgroup_ID,LINgroup from LINgroup")
+    tmp = c.fetchall()
+    LINgroup_ID = [int(i[0]) for i in tmp]
+    LINgroup = [i[1] for i in tmp]
+    belongs_to = []
+    for i in range(len(LINgroup_ID)):
+        if new_LIN.startswith(LINgroup[i]):
+            belongs_to.append(LINgroup_ID[i])
+    return belongs_to
+
 
 ### Email
 
 
-def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privacy):
-    if privacy == "True":
-        privacy = 1
-    else:
-        privacy = 0
+def Genome_Submission(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes):
     eastern = timezone("EST")
     currenttime = eastern.localize(datetime.now())
     fmt_time_display = '%Y-%m-%d %H:%M:%S %Z%z'
@@ -681,7 +688,7 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
                                                          new_genome=new_genome,Taxonomy=Taxonomy,
                                                          Attributes=Attributes,User_ID=User_ID, ranks_dict=ranks_dict,
                                                          standardtime=standardtime,
-                                                         privacy=privacy)
+                                                        )
             this_95_LINgroup = ",".join(new_LIN.split(",")[:6])
             this_95_LINgroup_path = sourmash_dir + this_95_LINgroup + "/"
             c.execute("SELECT EXISTS(SELECT LIN FROM LIN WHERE LIN LIKE '{0}%')".format(this_95_LINgroup))
@@ -718,7 +725,8 @@ def wrapper(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes,privac
             # os.system(email_cmd)
             c.execute("SELECT LIN FROM LIN WHERE Genome_ID={0}".format(SubjectGenome))
             best_LIN = c.fetchone()[0]
-            result = {"new LIN":new_LIN, "best LIN":best_LIN,"ANI":ANIb_result,"LINgroup":conserved_LIN}
+            belongs_to = check_belonged_LINgroups(conserved_LIN,c)
+            result = {"new LIN":new_LIN, "best LIN":best_LIN,"ANI":ANIb_result,"LINgroup":conserved_LIN,"LINgroup_IDs":belongs_to}
         else:
             print("###########################################################")
             print("System message:")

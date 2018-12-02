@@ -62,8 +62,19 @@ def parse_result(result_file):
         df.index = [i[2].split("/")[-1].split(".")[0] for i in lines]
         return df
 
+def check_belonged_LINgroups(conservevd_LIN,c):
+    c.execute("select LINgroup_ID,LINgroup from LINgroup")
+    tmp = c.fetchall()
+    LINgroup_ID = [int(i[0]) for i in tmp]
+    LINgroup = [i[1] for i in tmp]
+    belongs_to = []
+    for i in range(len(LINgroup_ID)):
+        if new_LIN.startswith(LINgroup[i]):
+            belongs_to.append(LINgroup_ID[i])
+    return belongs_to
+
 # MAIN
-def genome_identification(dir):
+def Genome_Identification(dir):
     conn, c = connect_to_db()
     working_dir = dir
     input_genome = [join(dir,f) for f in listdir(dir) if f.endswith(".fasta")][0]
@@ -73,7 +84,9 @@ def genome_identification(dir):
     df = parse_result(rep_bac_result)
     if df.empty: # Then there's no 95% level LINgroups matched
         # Check if there is any LINgroup matched to it.
-        c.execute("select distinct(LINgroup),(length(LINgroup)-length(replace(LINgroup,',',''))) as level from LINgroup where DescriptionType_ID<4 and (length(LINgroup)-length(replace(LINgroup,',','')))<=5;")
+        c.execute("select distinct(LINgroup),(length(LINgroup)-length(replace(LINgroup,',',''))) as level from "
+                  "LINgroup where DescriptionType_ID<4 and (length(LINgroup)-length(replace(LINgroup,',','')))<=5 "
+                  "order by LINgroup ASC;")
         tmp = c.fetchall()
         lingroups = {str(i[0]):int(i[1]) for i in tmp}
         current_lingroup = ''
@@ -106,7 +119,8 @@ def genome_identification(dir):
             if scheme[level-1] <= current_max_value:
                 c.execute("select LIN from LIN where Genome_ID={0}".format(current_max_genome_id))
                 best_LIN = c.fetchone()[0]
-                result = {"LINgroup":current_lingroup,"LIN":best_LIN,"FastANI":current_max_value}
+                belongs_to = check_belonged_LINgroups(current_lingroup,c)
+                result = {"LINgroup":current_lingroup,"best LIN":best_LIN,"FastANI":current_max_value,"LINgroup_IDs":belongs_to}
                 # print("{0}\t{1}\t{2}".format(current_lingroup,current_max_genome_id,current_max_value))
             else:
                 result = {}
@@ -130,6 +144,15 @@ def genome_identification(dir):
         current_max_value = ani
         c.execute("select LIN from LIN where Genome_ID={0}".format(current_max_genome_id))
         best_LIN = c.fetchone()[0]
-        result = {"LINgroup":rep_bac_LINgroup,"LIN":best_LIN,"FastANI":current_max_value}
+        for i in range(len(scheme)):
+            if i < 19:
+                if ani > scheme[i] and ani < scheme[i+1]:
+                    LINgroup = best_LIN[:i+1]
+                else:
+                    i += 1
+            else:
+                LINgroup = best_LIN
+        belongs_to = check_belonged_LINgroups(current_lingroup, c)
+        result = {"LINgroup":LINgroup,"best LIN":best_LIN,"FastANI":current_max_value,"LINgroup_IDs":belongs_to}
         # print("{0}\t{1}\t{2}".format(rep_bac_LINgroup,current_max_genome_id,current_max_value))
     return result
