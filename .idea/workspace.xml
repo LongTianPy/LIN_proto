@@ -4,10 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/FastANI_Toolbox.py" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="debugging workflow2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workflow2.py" beforeDir="false" afterPath="$PROJECT_DIR$/workflow2.py" afterDir="false" />
-    </list>
+    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="debugging workflow2" />
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,8 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/workflow2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="549" column="24" selection-start-line="549" selection-start-column="24" selection-end-line="549" selection-end-column="24" />
+            <state relative-caret-position="-397">
+              <caret line="737" column="61" selection-start-line="737" selection-start-column="61" selection-end-line="737" selection-end-column="61" />
               <folding>
                 <element signature="e#114#131#0" expanded="true" />
                 <element signature="e#12892#20798#0" />
@@ -513,14 +510,7 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
       <workItem from="1543859056913" duration="8000" />
-      <workItem from="1543859080685" duration="5653000" />
-    </task>
-    <task id="LOCAL-00803" summary="new way of loading metadata">
-      <created>1525293587515</created>
-      <option name="number" value="00803" />
-      <option name="presentableId" value="LOCAL-00803" />
-      <option name="project" value="LOCAL" />
-      <updated>1525293587515</updated>
+      <workItem from="1543859080685" duration="9264000" />
     </task>
     <task id="LOCAL-00804" summary="new way of loading metadata">
       <created>1525293752509</created>
@@ -858,11 +848,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543865062744</updated>
     </task>
-    <option name="localTasksCounter" value="852" />
+    <task id="LOCAL-00852" summary="debugging workflow2">
+      <created>1543865412886</created>
+      <option name="number" value="00852" />
+      <option name="presentableId" value="LOCAL-00852" />
+      <option name="project" value="LOCAL" />
+      <updated>1543865412886</updated>
+    </task>
+    <option name="localTasksCounter" value="853" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5661000" />
+    <option name="totallyTimeSpent" value="9272000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -875,7 +872,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1005" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3370607" />
       <window_info id="Structure" order="1" side_tool="true" />
@@ -1397,8 +1393,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/workflow2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="549" column="24" selection-start-line="549" selection-start-column="24" selection-end-line="549" selection-end-column="24" />
+        <state relative-caret-position="-397">
+          <caret line="737" column="61" selection-start-line="737" selection-start-column="61" selection-end-line="737" selection-end-column="61" />
           <folding>
             <element signature="e#114#131#0" expanded="true" />
             <element signature="e#12892#20798#0" />
