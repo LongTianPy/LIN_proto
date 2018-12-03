@@ -547,7 +547,7 @@ def check_belonged_LINgroups(conservevd_LIN,c):
     LINgroup = [i[1] for i in tmp]
     belongs_to = []
     for i in range(len(LINgroup_ID)):
-        if new_LIN.startswith(LINgroup[i]):
+        if conserved_LIN.startswith(LINgroup[i]):
             belongs_to.append(LINgroup_ID[i])
     return belongs_to
 
