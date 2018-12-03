@@ -177,7 +177,7 @@ def extract_taxonomy_by_taxid(tax_id):
     species_name_simple = species_name_full[len(genus_name)+1:]
     strain_name_full = record['ScientificName']
     strain_name_simple = strain_name_full[len(species_name_full)+1:]
-    name_list["species"][0] = species_name_simple
+    name_list["species"][0] = species_name_full
     name_list["strain"] = [strain_name_simple,tax_id]
     for i in name_list.keys():
         if name_list[i] == []:
@@ -209,10 +209,10 @@ def check_and_load(entry,c,conn,Rank_ID,Genome_ID):
         else:
             tax_id = 'N/A'
         if tax_id != 'N/A':
-            c.execute('insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID) values ({0},{1},{2})'.format(Genome_ID,Rank_ID,int(tax_id)))
+            c.execute('insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID,Taxon) values ({0},{1},{2},"")'.format(Genome_ID,Rank_ID,int(tax_id)))
             conn.commit()
         else:
-            c.execute("insert into Taxonomy (Genome_ID,Rank_ID,Taxon) values ({0},{1},'{2}')".format(Genome_ID,Rank_ID,entry))
+            c.execute("insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID,Taxon) values ({0},{1},0,'{2}')".format(Genome_ID,Rank_ID,entry))
             conn.commit()
 
 def check_and_load_w_taxid(tax_list,c,conn,Rank_ID,Genome_ID):
@@ -220,14 +220,28 @@ def check_and_load_w_taxid(tax_list,c,conn,Rank_ID,Genome_ID):
     c.execute("select exists(select NCBI_Tax_ID from NCBI_Tax_ID where NCBI_Tax_ID={0} and Rank_ID={1})".format(taxid,Rank_ID))
     tmp = c.fetchone()[0]
     if tmp == 1:
-        c.execute('insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID) values ({0},{1},{2})'.format(Genome_ID, Rank_ID,
+        c.execute('insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID,Taxon) values ({0},{1},{2},"")'.format(Genome_ID, Rank_ID,
                                                                                                      int(taxid)))
         conn.commit()
     else:
         c.execute("insert into NCBI_Tax_ID (NCBI_Tax_ID,Taxon,Rank_ID) values ({0},'{1}',{2})".format(taxid,taxon,Rank_ID))
         conn.commit()
-        c.execute("insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID) values ({0},{1},{2})".format(Genome_ID,Rank_ID,taxid))
+        c.execute("insert into Taxonomy (Genome_ID,Rank_ID,NCBI_Tax_ID,Taxon) values ({0},{1},{2},'')".format(Genome_ID,Rank_ID,taxid))
         conn.commit()
+
+def fill_all_taxonomy_lineage(c,conn,Genome_ID):
+    c.execute("SELECT Rank_ID,NCBI_Tax_ID FROM Taxonomy WHERE Genome_ID={0} AND NCBI_Tax_ID IS NOT NULL ORDER BY Rank_ID ASC".format(Genome_ID))
+    tmp = c.fetchone()
+    if tmp is not None:
+        [rank_id, tax_id] = tmp
+        print(tmp)
+        while int(rank_id)>1:
+            c.execute("select * from NCBI_Tax_ID where NCBI_Tax_ID={0}".format(tax_id,rank_id))
+            tmp = c.fetchone()
+            c.execute("insert into Taxonomy (Genome_ID, Rank_ID,NCBI_Tax_ID,Taxon) values ({0}, {1}, {2},'')".format(Genome_ID,tmp[3]-1,tmp[1]))
+            conn.commit()
+            [rank_id,tax_id] = [tmp[3]-1, tmp[1]]
+
 
 def load_attributes(c,db,Attributes,new_genome,Interest_ID,User_ID,attributes_dict):
     base_sql = "INSERT INTO AttributeValue (Genome_ID,Interest_ID,Attribute_ID,AttributeValue,User_ID) VALUES ({0},{1},{2},'{3}',{4})"
@@ -235,10 +249,6 @@ def load_attributes(c,db,Attributes,new_genome,Interest_ID,User_ID,attributes_di
         sql = base_sql.format(new_genome,Interest_ID,attributes_dict[i],Attributes[i],User_ID)
         c.execute(sql)
         db.commit()
-
-
-
-
 
 def load_new_metadata_newversion(c,db,Interest_ID,new_genome,Taxonomy,Attributes,User_ID,ranks_dict,standardtime):
     c.execute("INSERT INTO Submission (User_ID, Time) VALUES ({0},'{1}')".format(User_ID, standardtime))
@@ -263,12 +273,12 @@ def load_new_metadata_newversion(c,db,Interest_ID,new_genome,Taxonomy,Attributes
                 check_and_load_w_taxid(lineage[rank],c,db,rank_id,new_Genome_ID)
     except:
         for i in Taxonomy:
-            if i == " species":
+            if i == "species":
                 full_species_name = Taxonomy["genus"] + " " + Taxonomy["species"]
                 check_and_load(full_species_name, c, db, ranks_dict.loc[i, "Rank_ID"], new_Genome_ID)
             else:
                 check_and_load(Taxonomy[i],c,db,ranks_dict.loc[i,"Rank_ID"],new_Genome_ID)
-
+            fill_all_taxonomy_lineage(c,conn,new_Genome_ID)
     attributes_dict = extract_attributes(c)
     load_attributes(c,db,Attributes,new_Genome_ID,Interest_ID,User_ID,attributes_dict)
     return new_Genome_ID
