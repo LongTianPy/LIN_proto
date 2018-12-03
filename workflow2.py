@@ -278,7 +278,7 @@ def load_new_metadata_newversion(c,db,Interest_ID,new_genome,Taxonomy,Attributes
                 check_and_load(full_species_name, c, db, ranks_dict.loc[i, "Rank_ID"], new_Genome_ID)
             else:
                 check_and_load(Taxonomy[i],c,db,ranks_dict.loc[i,"Rank_ID"],new_Genome_ID)
-            fill_all_taxonomy_lineage(c,conn,new_Genome_ID)
+        fill_all_taxonomy_lineage(c,db,new_Genome_ID)
     attributes_dict = extract_attributes(c)
     load_attributes(c,db,Attributes,new_Genome_ID,Interest_ID,User_ID,attributes_dict)
     return new_Genome_ID
