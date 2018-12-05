@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="debugging workflow2">
       <change afterPath="$PROJECT_DIR$/batch_submission.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workflow2.py" beforeDir="false" afterPath="$PROJECT_DIR$/workflow2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -38,11 +37,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/workflow2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="557" column="54" selection-start-line="557" selection-start-column="54" selection-end-line="557" selection-end-column="54" />
+            <state relative-caret-position="695">
+              <caret line="597" column="153" lean-forward="true" selection-start-line="597" selection-start-column="153" selection-end-line="597" selection-end-column="153" />
               <folding>
                 <element signature="e#114#131#0" expanded="true" />
                 <element signature="e#12892#20798#0" />
@@ -151,6 +150,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="117">
               <caret line="150" column="105" selection-start-line="150" selection-start-column="105" selection-end-line="150" selection-end-column="105" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -317,13 +325,13 @@
         <option value="$PROJECT_DIR$/duplicated_upload.py" />
         <option value="$PROJECT_DIR$/mkblastdb.py" />
         <option value="$PROJECT_DIR$/ANI_Wrapper_2.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/LINgroup_indexing.py" />
         <option value="$PROJECT_DIR$/add_existing_LINgroup.py" />
         <option value="$PROJECT_DIR$/sendEmail.py" />
         <option value="$PROJECT_DIR$/genome_identification.py" />
         <option value="$PROJECT_DIR$/batch_submission.py" />
         <option value="$PROJECT_DIR$/workflow2.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -520,14 +528,7 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
       <workItem from="1543859056913" duration="8000" />
-      <workItem from="1543859080685" duration="23758000" />
-    </task>
-    <task id="LOCAL-00804" summary="new way of loading metadata">
-      <created>1525293752509</created>
-      <option name="number" value="00804" />
-      <option name="presentableId" value="LOCAL-00804" />
-      <option name="project" value="LOCAL" />
-      <updated>1525293752509</updated>
+      <workItem from="1543859080685" duration="24064000" />
     </task>
     <task id="LOCAL-00805" summary="ignore some files">
       <created>1525293862749</created>
@@ -865,11 +866,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543865412886</updated>
     </task>
-    <option name="localTasksCounter" value="853" />
+    <task id="LOCAL-00853" summary="Take Username and InterestName as input instead of user id and interest id">
+      <created>1544044985284</created>
+      <option name="number" value="00853" />
+      <option name="presentableId" value="LOCAL-00853" />
+      <option name="project" value="LOCAL" />
+      <updated>1544044985284</updated>
+    </task>
+    <option name="localTasksCounter" value="854" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23766000" />
+    <option name="totallyTimeSpent" value="24072000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -882,9 +890,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1005" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3370607" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3370607" />
       <window_info id="Structure" order="1" side_tool="true" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -893,7 +900,7 @@
       <window_info anchor="bottom" id="Run" order="3" />
       <window_info anchor="bottom" id="Python Console" order="4" />
       <window_info anchor="bottom" id="Debug" order="5" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="6" visible="true" weight="0.32921347" />
+      <window_info anchor="bottom" id="Terminal" order="6" visible="true" weight="0.32921347" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="right" id="SciView" order="0" />
@@ -946,7 +953,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="debug line 177" />
     <MESSAGE value="debug line 335" />
     <MESSAGE value="debug line 266" />
     <MESSAGE value="debug line 447" />
@@ -971,7 +977,8 @@
     <MESSAGE value="1. fill lineage if no tax id entered&#10;2. if not available, ncbi tax id will still be entered as 0 to taxonomy" />
     <MESSAGE value="default value for LINgroup of Genome table is '' (empty string)" />
     <MESSAGE value="debugging workflow2" />
-    <option name="LAST_COMMIT_MESSAGE" value="debugging workflow2" />
+    <MESSAGE value="Take Username and InterestName as input instead of user id and interest id" />
+    <option name="LAST_COMMIT_MESSAGE" value="Take Username and InterestName as input instead of user id and interest id" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1353,13 +1360,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sendEmail.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="517">
@@ -1409,8 +1409,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/workflow2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="557" column="54" selection-start-line="557" selection-start-column="54" selection-end-line="557" selection-end-column="54" />
+        <state relative-caret-position="695">
+          <caret line="597" column="153" lean-forward="true" selection-start-line="597" selection-start-column="153" selection-end-line="597" selection-end-column="153" />
           <folding>
             <element signature="e#114#131#0" expanded="true" />
             <element signature="e#12892#20798#0" />
@@ -1478,6 +1478,13 @@
             <marker date="1544044867679" expanded="true" signature="55805:55889" ph="INSERT INTO Duplicated_upload... " />
             <marker date="1544044867679" expanded="true" signature="56068:56105" ph="SELECT Email... User" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
         </state>
       </provider>
     </entry>
