@@ -555,12 +555,16 @@ def check_belonged_LINgroups(conservevd_LIN,c):
 ### Email
 
 
-def Genome_Submission(new_genome,User_ID,Interest_ID_new_genome,Taxonomy,Attributes):
+def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
     eastern = timezone("EST")
     currenttime = eastern.localize(datetime.now())
     fmt_time_display = '%Y-%m-%d %H:%M:%S %Z%z'
     standardtime = currenttime.strftime(fmt_time_display)
     db, c = connect_to_db()
+    c.execute("SELECT User_ID FROM User WHERE Username='{0}'".format(Username))
+    User_ID = int(c.fetchone()[0])
+    c.execute("SELECT Interest_ID FROM Interest WHERE InterestName='{0}'".format(InterestName))
+    Interest_ID_new_genome = int(c.fetchone()[0])
     metadata = extract_metadata(c)
     ranks_dict = extract_ranks(c)
     new_genome_filepath = tmp_folder + new_genome
