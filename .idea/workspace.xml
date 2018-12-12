@@ -4,8 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/FastANI_Toolbox.py" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="debugging workflow2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="debugging genome identification when df.empty">
       <change beforePath="$PROJECT_DIR$/genome_identification.py" beforeDir="false" afterPath="$PROJECT_DIR$/genome_identification.py" afterDir="false" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
@@ -40,14 +39,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/workflow2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4623">
-              <caret line="765" column="59" selection-start-line="765" selection-start-column="59" selection-end-line="765" selection-end-column="59" />
+            <state relative-caret-position="311">
+              <caret line="784" column="39" lean-forward="true" selection-start-line="782" selection-start-column="8" selection-end-line="784" selection-end-column="39" />
               <folding>
                 <element signature="e#114#131#0" expanded="true" />
                 <element signature="e#13713#21645#0" />
                 <element signature="e#21787#27454#0" />
                 <element signature="e#27510#27979#0" />
                 <element signature="e#28032#28363#0" />
+                <element signature="e#29310#42286#0" />
                 <marker date="1544650210015" expanded="true" signature="3378:3438" ph="SELECT FileP... Genome" />
                 <marker date="1544650210015" expanded="true" signature="3378:3499" ph="SELECT Genom... Genome" />
                 <marker date="1544650210015" expanded="true" signature="3766:4297" ph="..." />
@@ -80,18 +80,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/genome_identification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="87" column="8" lean-forward="true" selection-start-line="87" selection-start-column="8" selection-end-line="89" selection-end-column="43" />
+            <state relative-caret-position="345">
+              <caret line="187" column="98" selection-start-line="187" selection-start-column="98" selection-end-line="187" selection-end-column="98" />
               <folding>
                 <element signature="e#191#200#0" expanded="true" />
-                <marker date="1544650872649" expanded="true" signature="1590:2371" ph="..." />
-                <marker date="1544650872649" expanded="true" signature="2048:2089" ph="select LINgr... LINgroup" />
-                <marker date="1544650872649" expanded="true" signature="3001:3253" ph="select disti... LINgroup" />
-                <marker date="1544650872649" expanded="true" signature="3593:3697" ph="select LIN.G... LIN" />
-                <marker date="1544650872649" expanded="true" signature="4907:4943" ph="select LIN f... LIN" />
-                <marker date="1544650872649" expanded="true" signature="5489:5544" ph="select LIN f... LIN" />
-                <marker date="1544650872649" expanded="true" signature="5863:5907" ph="select FileP... Genome" />
-                <marker date="1544650872649" expanded="true" signature="6390:6426" ph="select LIN f... LIN" />
+                <marker date="1544651292223" expanded="true" signature="1590:2808" ph="..." />
+                <marker date="1544651292223" expanded="true" signature="2048:2089" ph="select LINgr... LINgroup" />
               </folding>
             </state>
           </provider>
@@ -490,14 +484,7 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
       <workItem from="1543859056913" duration="8000" />
-      <workItem from="1543859080685" duration="47001000" />
-    </task>
-    <task id="LOCAL-00818" summary="email function re-enabled">
-      <created>1525442699375</created>
-      <option name="number" value="00818" />
-      <option name="presentableId" value="LOCAL-00818" />
-      <option name="project" value="LOCAL" />
-      <updated>1525442699375</updated>
+      <workItem from="1543859080685" duration="47420000" />
     </task>
     <task id="LOCAL-00819" summary="email function re-enabled">
       <created>1525450362902</created>
@@ -835,11 +822,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544650213666</updated>
     </task>
-    <option name="localTasksCounter" value="867" />
+    <task id="LOCAL-00867" summary="debugging genome identification when df.empty">
+      <created>1544650967237</created>
+      <option name="number" value="00867" />
+      <option name="presentableId" value="LOCAL-00867" />
+      <option name="project" value="LOCAL" />
+      <updated>1544650967237</updated>
+    </task>
+    <option name="localTasksCounter" value="868" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47009000" />
+    <option name="totallyTimeSpent" value="47428000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -916,7 +910,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed how duplicated genome is identified" />
     <MESSAGE value="Added rep_bac to speed up MinHash identification" />
     <MESSAGE value="enable email sending" />
     <MESSAGE value="extract taxonomy by tax ids" />
@@ -941,7 +934,8 @@
     <MESSAGE value="debugging genome identification" />
     <MESSAGE value="silence stderr" />
     <MESSAGE value="debugging workflow2" />
-    <option name="LAST_COMMIT_MESSAGE" value="debugging workflow2" />
+    <MESSAGE value="debugging genome identification when df.empty" />
+    <option name="LAST_COMMIT_MESSAGE" value="debugging genome identification when df.empty" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1345,16 +1339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sendEmail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="114" column="35" selection-start-line="114" selection-start-column="35" selection-end-line="114" selection-end-column="35" />
-          <folding>
-            <element signature="e#82#95#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mash_func.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1976">
@@ -1369,14 +1353,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/workflow2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4623">
-          <caret line="765" column="59" selection-start-line="765" selection-start-column="59" selection-end-line="765" selection-end-column="59" />
+        <state relative-caret-position="311">
+          <caret line="784" column="39" lean-forward="true" selection-start-line="782" selection-start-column="8" selection-end-line="784" selection-end-column="39" />
           <folding>
             <element signature="e#114#131#0" expanded="true" />
             <element signature="e#13713#21645#0" />
             <element signature="e#21787#27454#0" />
             <element signature="e#27510#27979#0" />
             <element signature="e#28032#28363#0" />
+            <element signature="e#29310#42286#0" />
             <marker date="1544650210015" expanded="true" signature="3378:3438" ph="SELECT FileP... Genome" />
             <marker date="1544650210015" expanded="true" signature="3378:3499" ph="SELECT Genom... Genome" />
             <marker date="1544650210015" expanded="true" signature="3766:4297" ph="..." />
@@ -1393,20 +1378,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sendEmail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="114" column="35" selection-start-line="114" selection-start-column="35" selection-end-line="114" selection-end-column="35" />
+          <folding>
+            <element signature="e#82#95#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/genome_identification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="87" column="8" lean-forward="true" selection-start-line="87" selection-start-column="8" selection-end-line="89" selection-end-column="43" />
+        <state relative-caret-position="345">
+          <caret line="187" column="98" selection-start-line="187" selection-start-column="98" selection-end-line="187" selection-end-column="98" />
           <folding>
             <element signature="e#191#200#0" expanded="true" />
-            <marker date="1544650872649" expanded="true" signature="1590:2371" ph="..." />
-            <marker date="1544650872649" expanded="true" signature="2048:2089" ph="select LINgr... LINgroup" />
-            <marker date="1544650872649" expanded="true" signature="3001:3253" ph="select disti... LINgroup" />
-            <marker date="1544650872649" expanded="true" signature="3593:3697" ph="select LIN.G... LIN" />
-            <marker date="1544650872649" expanded="true" signature="4907:4943" ph="select LIN f... LIN" />
-            <marker date="1544650872649" expanded="true" signature="5489:5544" ph="select LIN f... LIN" />
-            <marker date="1544650872649" expanded="true" signature="5863:5907" ph="select FileP... Genome" />
-            <marker date="1544650872649" expanded="true" signature="6390:6426" ph="select LIN f... LIN" />
+            <marker date="1544651292223" expanded="true" signature="1590:2808" ph="..." />
+            <marker date="1544651292223" expanded="true" signature="2048:2089" ph="select LINgr... LINgroup" />
           </folding>
         </state>
       </provider>
