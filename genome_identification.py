@@ -34,7 +34,7 @@ def connect_to_db():
 
 def create_sketch(filepath,output):
     dest = output
-    cmd = "sourmash compute -o {0} {1} -k 31 -n 1000".format(dest,filepath)
+    cmd = "sourmash compute -o {0} {1} -k 31 -n 1000 > /dev/null 2>&1".format(dest,filepath)
     os.system(cmd)
     return dest
 
@@ -44,7 +44,7 @@ def compare_sketch(tmp_sig,LINgroup,output):
     else:
         dest = sourmash_dir + LINgroup + "/"
     folder_size = len([file for file in os.listdir(dest) if isfile(join(dest,file))])
-    cmd = "sourmash search {0} {1}*.sig -n {2} > {3}"
+    cmd = "sourmash search {0} {1}*.sig -n {2} > {3} 2> /dev/null"
     cmd = cmd.format(tmp_sig, dest, folder_size, output)
     os.system(cmd)
     return output
@@ -77,7 +77,7 @@ def check_belonged_LINgroups(conservevd_LIN,c):
 def Genome_Identification(dir):
     conn, c = connect_to_db()
     working_dir = dir
-    FastANI_cmd = "fastANI -q {0} -r {1} -o {2}"
+    FastANI_cmd = "fastANI -q {0} -r {1} -o {2} > /dev/null 2>&1"
     input_genome = [join(dir,f) for f in listdir(dir) if f.endswith(".fasta")][0]
     output_stamp = str(uuid.uuid4())
     tmp_sig = create_sketch(input_genome,join(working_dir,output_stamp)+".sig")
