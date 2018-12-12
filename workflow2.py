@@ -41,7 +41,7 @@ bbmap_all_sketches = "/home/linproject/Workspace/bbmap/all_sketches/"
 bbmap_tmp = "/home/linproject/Workspace/bbmap/tmp_sketches/"
 bbmap_results = "/home/linproject/Workspace/bbmap/results/"
 original_folder  = '/home/linproject/Workspace/LINdb/'
-tmp_folder = '/home/linproject/Workspace/tmp_upload/'
+tmp_folder = '/var/www/html/LINbase/tmp_uploads/'
 workspace_dir = '/home/linproject/Workspace/New/workspace/'
 ranks = ['superkingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species','strain']
 # ranks_dict = {'superkingdom':1, 'phylum':2, 'class':3, 'order':4, 'family':5, 'genus':6, 'species':7, 'strain':20}
@@ -781,7 +781,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
         c.execute("SELECT LIN FROM LIN WHERE Genome_ID={0}".format(SubjectGenome))
         best_LIN = c.fetchone()[0]
         result = {"best LIN": best_LIN}
-    os.system("rm {0}".format(new_genome_filepath))
+    # os.system("rm {0}".format(new_genome_filepath))
     c.close()
     db.close()
     os.system("rm {0}tmp.sig".format(sourmash_tmp))
@@ -996,6 +996,6 @@ if __name__ == '__main__':
         email_cmd = "python /home/linproject/Projects/LIN_proto/duplicated_upload.py {0} Submission_result {1}".format(
                 user_email, SubjectGenome)
         os.system(email_cmd)
-    os.system("rm {0}".format(new_genome_filepath))
+    # os.system("rm {0}".format(new_genome_filepath))
     c.close()
     db.close()
