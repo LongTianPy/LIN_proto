@@ -57,7 +57,7 @@ def sourmash_searching(sourmash_dir,LINgroup,current_sig_path,current_genome):
     # copied_sig = target_folder + str(current_genome) + ".sig"
     files = [i for i in listdir(target_folder) if isfile(join(target_folder,i))]
     size = len(files)
-    print size
+    print(size)
     cmd = "sourmash search {0} {1}*.sig -n {2} > {1}{3}result.txt".format(current_sig_path,target_folder,size,current_genome)
     # print cmd
     os.system(cmd)

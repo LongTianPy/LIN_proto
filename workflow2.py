@@ -6,28 +6,28 @@
 # IMPORT
 import LIN_Assign
 import LINgroup_indexing
-import mash_indexing
+# import mash_indexing
 import MySQLdb
 from MySQLdb import Connect
 import pandas as pd
 import os
 from os.path import isdir, isfile, join
 import sys
-from LoadingExternalInfo import LoadInfo
-import ExtractInfo
-import IntermediateResult
-import logging
-import logging.handlers
+# from LoadingExternalInfo import LoadInfo
+# import ExtractInfo
+# import IntermediateResult
+# import logging
+# import logging.handlers
 import argparse
 from datetime import datetime
 from pytz import timezone
 from Bio import SeqIO, Entrez
 import filecmp
 import uuid
-import sendEmail
+# import sendEmail
 import shutil
-import multiprocessing as mp
-from functools import partial
+# import multiprocessing as mp
+# from functools import partial
 
 # VARIABLES
 sourmash_dir = "/home/linproject/Workspace/Sourmash2/all_sketches/"
