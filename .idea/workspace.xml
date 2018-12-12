@@ -39,7 +39,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/workflow2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
+            <state relative-caret-position="5505">
               <caret line="784" column="39" lean-forward="true" selection-start-line="782" selection-start-column="8" selection-end-line="784" selection-end-column="39" />
               <folding>
                 <element signature="e#114#131#0" expanded="true" />
@@ -80,12 +80,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/genome_identification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="187" column="98" selection-start-line="187" selection-start-column="98" selection-end-line="187" selection-end-column="98" />
+            <state relative-caret-position="191">
+              <caret line="127" column="105" selection-start-line="127" selection-start-column="105" selection-end-line="127" selection-end-column="105" />
               <folding>
                 <element signature="e#191#200#0" expanded="true" />
-                <marker date="1544651292223" expanded="true" signature="1590:2808" ph="..." />
-                <marker date="1544651292223" expanded="true" signature="2048:2089" ph="select LINgr... LINgroup" />
+                <marker date="1544651584511" expanded="true" signature="1605:2823" ph="..." />
+                <marker date="1544651584511" expanded="true" signature="2063:2104" ph="select LINgr... LINgroup" />
               </folding>
             </state>
           </provider>
@@ -484,35 +484,7 @@
       <option name="presentableId" value="Default" />
       <updated>1449503620886</updated>
       <workItem from="1543859056913" duration="8000" />
-      <workItem from="1543859080685" duration="47420000" />
-    </task>
-    <task id="LOCAL-00819" summary="email function re-enabled">
-      <created>1525450362902</created>
-      <option name="number" value="00819" />
-      <option name="presentableId" value="LOCAL-00819" />
-      <option name="project" value="LOCAL" />
-      <updated>1525450362902</updated>
-    </task>
-    <task id="LOCAL-00820" summary="email function re-enabled">
-      <created>1529459951149</created>
-      <option name="number" value="00820" />
-      <option name="presentableId" value="LOCAL-00820" />
-      <option name="project" value="LOCAL" />
-      <updated>1529459951149</updated>
-    </task>
-    <task id="LOCAL-00821" summary="change file open mode">
-      <created>1537391134770</created>
-      <option name="number" value="00821" />
-      <option name="presentableId" value="LOCAL-00821" />
-      <option name="project" value="LOCAL" />
-      <updated>1537391134771</updated>
-    </task>
-    <task id="LOCAL-00822" summary="genome identification script">
-      <created>1540318419522</created>
-      <option name="number" value="00822" />
-      <option name="presentableId" value="LOCAL-00822" />
-      <option name="project" value="LOCAL" />
-      <updated>1540318419522</updated>
+      <workItem from="1543859080685" duration="47700000" />
     </task>
     <task id="LOCAL-00823" summary="change file open mode">
       <created>1540318659965</created>
@@ -829,11 +801,39 @@
       <option name="project" value="LOCAL" />
       <updated>1544650967237</updated>
     </task>
-    <option name="localTasksCounter" value="868" />
+    <task id="LOCAL-00868" summary="debugging genome identification when df.empty">
+      <created>1544651296237</created>
+      <option name="number" value="00868" />
+      <option name="presentableId" value="LOCAL-00868" />
+      <option name="project" value="LOCAL" />
+      <updated>1544651296237</updated>
+    </task>
+    <task id="LOCAL-00869" summary="debugging genome identification when df.empty">
+      <created>1544651416203</created>
+      <option name="number" value="00869" />
+      <option name="presentableId" value="LOCAL-00869" />
+      <option name="project" value="LOCAL" />
+      <updated>1544651416203</updated>
+    </task>
+    <task id="LOCAL-00870" summary="debugging genome identification when df.empty">
+      <created>1544651462332</created>
+      <option name="number" value="00870" />
+      <option name="presentableId" value="LOCAL-00870" />
+      <option name="project" value="LOCAL" />
+      <updated>1544651462332</updated>
+    </task>
+    <task id="LOCAL-00871" summary="debugging genome identification when df.empty">
+      <created>1544651501803</created>
+      <option name="number" value="00871" />
+      <option name="presentableId" value="LOCAL-00871" />
+      <option name="project" value="LOCAL" />
+      <updated>1544651501803</updated>
+    </task>
+    <option name="localTasksCounter" value="872" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47428000" />
+    <option name="totallyTimeSpent" value="47708000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1351,9 +1351,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sendEmail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="114" column="35" selection-start-line="114" selection-start-column="35" selection-end-line="114" selection-end-column="35" />
+          <folding>
+            <element signature="e#82#95#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/workflow2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
+        <state relative-caret-position="5505">
           <caret line="784" column="39" lean-forward="true" selection-start-line="782" selection-start-column="8" selection-end-line="784" selection-end-column="39" />
           <folding>
             <element signature="e#114#131#0" expanded="true" />
@@ -1378,24 +1388,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sendEmail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="114" column="35" selection-start-line="114" selection-start-column="35" selection-end-line="114" selection-end-column="35" />
-          <folding>
-            <element signature="e#82#95#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/genome_identification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="187" column="98" selection-start-line="187" selection-start-column="98" selection-end-line="187" selection-end-column="98" />
+        <state relative-caret-position="191">
+          <caret line="127" column="105" selection-start-line="127" selection-start-column="105" selection-end-line="127" selection-end-column="105" />
           <folding>
             <element signature="e#191#200#0" expanded="true" />
-            <marker date="1544651292223" expanded="true" signature="1590:2808" ph="..." />
-            <marker date="1544651292223" expanded="true" signature="2048:2089" ph="select LINgr... LINgroup" />
+            <marker date="1544651584511" expanded="true" signature="1605:2823" ph="..." />
+            <marker date="1544651584511" expanded="true" signature="2063:2104" ph="select LINgr... LINgroup" />
           </folding>
         </state>
       </provider>

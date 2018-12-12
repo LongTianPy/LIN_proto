@@ -123,7 +123,7 @@ def Genome_Identification(dir):
                 representative_bacterium_Genome_ID = tmp[0][0]
                 representative_bacterium_FilePath = tmp[0][1]
                 run_FastANI = FastANI_cmd.format(input_genome, representative_bacterium_FilePath,
-                                                 output_stamp + '_' + str(representative_bacterium_Genome_ID))
+                                                 join(working_dir,output_stamp + '_' + str(representative_bacterium_Genome_ID)))
                 os.system(run_FastANI)
                 with open(join(working_dir, output_stamp + '_' + str(representative_bacterium_Genome_ID)), "r") as f:
                     try:
