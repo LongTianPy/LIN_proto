@@ -153,7 +153,7 @@ def Genome_Identification(dir):
                     i += 1
             else:
                 LINgroup = best_LIN
-        belongs_to = check_belonged_LINgroups(current_lingroup, c)
+        belongs_to = check_belonged_LINgroups(LINgroup, c)
         result = {"LINgroup":LINgroup,"best LIN":best_LIN,"FastANI":current_max_value,"LINgroup_IDs":belongs_to}
         # print("{0}\t{1}\t{2}".format(rep_bac_LINgroup,current_max_genome_id,current_max_value))
     return result
