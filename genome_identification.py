@@ -125,7 +125,7 @@ def Genome_Identification(dir):
                 run_FastANI = FastANI_cmd.format(input_genome, representative_bacterium_FilePath,
                                                  output_stamp + '_' + str(representative_bacterium_Genome_ID))
                 os.system(run_FastANI)
-                with open(working_dir + output_stamp + '_' + str(representative_bacterium_Genome_ID), "r") as f:
+                with open(join(working_dir, output_stamp + '_' + str(representative_bacterium_Genome_ID)), "r") as f:
                     try:
                         line = f.readlines()[0].strip().split("\t")
                         ani = float(line[2]) / 100
