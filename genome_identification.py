@@ -19,7 +19,7 @@ sourmash_dir = "/home/linproject/Workspace/Sourmash2/all_sketches/"
 # working_dir = "/home/linproject/Workspace/Genome_identification/"
 # genome_dir = "/home/linproject/Workspace/Genome_identification/uploaded_genome"
 rep_bac_dir = "/home/linproject/Workspace/Sourmash2/rep_bac/"
-FastANI_cmd = "fastANI -q {0} -r {1} -o /home/linproject/Workspace/Genome_identification/{2}"
+
 scheme = [0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 0.96, 0.97, 0.98, 0.985, 0.99, 0.9925, 0.995, 0.9975, 0.9990000000000001,
           0.99925, 0.9995, 0.9997499999999999, 0.9998999999999999, 0.9999899999999999]
 
@@ -77,6 +77,7 @@ def check_belonged_LINgroups(conservevd_LIN,c):
 def Genome_Identification(dir):
     conn, c = connect_to_db()
     working_dir = dir
+    FastANI_cmd = "fastANI -q {0} -r {1} -o {2}"
     input_genome = [join(dir,f) for f in listdir(dir) if f.endswith(".fasta")][0]
     output_stamp = str(uuid.uuid4())
     tmp_sig = create_sketch(input_genome,join(working_dir,output_stamp)+".sig")
@@ -136,9 +137,9 @@ def Genome_Identification(dir):
         current_max_genome_id= int(df.index[0])
         c.execute("select FilePath from Genome where Genome_ID={0}".format(current_max_genome_id))
         current_max_filepath = c.fetchone()[0]
-        run_FastANI = FastANI_cmd.format(input_genome,current_max_filepath,output_stamp+"_"+str(current_max_genome_id))
+        run_FastANI = FastANI_cmd.format(input_genome,current_max_filepath,join(working_dir,output_stamp+'_'+str(current_max_genome_id)))
         os.system(run_FastANI)
-        with open(working_dir+output_stamp+'_'+str(current_max_genome_id),"r") as f:
+        with open(join(working_dir,output_stamp+'_'+str(current_max_genome_id),"r")) as f:
             line = f.readlines()[0].strip().split("\t")
         ani = float(line[2])/100
         current_max_value = ani
