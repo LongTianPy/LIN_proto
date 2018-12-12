@@ -85,7 +85,7 @@ def Genome_Identification(dir):
     df = parse_result(rep_bac_result)
     if df.empty: # Then there's no 95% level LINgroups matched
         # Check if there is any LINgroup matched to it.
-        c.execute("select distinct(LINgroup),(length(LINgroup)-length(replace(LINgroup,',',''))) as level from "
+        c.execute("select distinct(LINgroup),(1+length(LINgroup)-length(replace(LINgroup,',',''))) as level from "
                   "LINgroup where DescriptionType_ID<4 and (length(LINgroup)-length(replace(LINgroup,',','')))<=5 "
                   "order by LINgroup ASC;")
         tmp = c.fetchall()
