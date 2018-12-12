@@ -139,7 +139,7 @@ def Genome_Identification(dir):
         current_max_filepath = c.fetchone()[0]
         run_FastANI = FastANI_cmd.format(input_genome,current_max_filepath,join(working_dir,output_stamp+'_'+str(current_max_genome_id)))
         os.system(run_FastANI)
-        with open(join(working_dir,output_stamp+'_'+str(current_max_genome_id),"r")) as f:
+        with open(join(working_dir,output_stamp+'_'+str(current_max_genome_id)),"r") as f:
             line = f.readlines()[0].strip().split("\t")
         ani = float(line[2])/100
         current_max_value = ani
