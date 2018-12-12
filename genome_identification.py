@@ -93,6 +93,7 @@ def Genome_Identification(dir):
     working_dir = dir
     FastANI_cmd = "fastANI -q {0} -r {1} -o {2} > /dev/null 2>&1"
     input_genome = [join(dir,f) for f in listdir(dir) if f.endswith(".fasta")][0]
+    file_duplication = 0
     for i in metadata.index:
         if filecmp.cmp(input_genome,metadata.get_value(i,"FilePath")):
             file_duplication = 1
