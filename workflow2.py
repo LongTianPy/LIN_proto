@@ -540,7 +540,7 @@ def update_LINgroup(Genome_ID, c, new_LIN, conn):
         c.execute("UPDATE Genome SET LINgroup='{0}' WHERE Genome_ID={1}".format(",".join(belongs_to), Genome_ID))
         conn.commit()
 
-def check_belonged_LINgroups(conservevd_LIN,c):
+def check_belonged_LINgroups(conserved_LIN,c):
     c.execute("select LINgroup_ID,LINgroup from LINgroup")
     tmp = c.fetchall()
     LINgroup_ID = [int(i[0]) for i in tmp]
