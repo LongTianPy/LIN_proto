@@ -131,7 +131,7 @@ def Genome_Identification(dir):
         c.execute("select LIN from LIN where Genome_ID={0} and Scheme_ID=4".format(rep_bac_Genome_ID))
         rep_bac_LIN = c.fetchone()[0]
         rep_bac_LINgroup = ",".join(rep_bac_LIN.split(",")[:6])
-        rep_bac_result = compare_sketch(rep_bac_LINgroup,output_stamp)
+        rep_bac_result = compare_sketch(tmp_sig,rep_bac_LINgroup,output_stamp)
         df = parse_result(rep_bac_result)
         current_max_genome_id= int(df.index[0])
         c.execute("select FilePath from Genome where Genome_ID={0}".format(current_max_genome_id))

@@ -617,7 +617,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                     #[new_LIN, ANIb_result,cov_result,conserved_LIN] = [None]*4
                     for each_subject_genome_ID in sub_df.index[:3]:
                         subject_genome_filepath = metadata.get_value(int(each_subject_genome_ID),"FilePath")
-                        sub_working_dir = workspace_dir + str(each_subject_genome_ID) + "/"
+                        sub_working_dir = workspace_dir + uuid.uuid4() + "/"
                         if not isdir(sub_working_dir):
                             os.mkdir(sub_working_dir)
                         shutil.copyfile(new_genome_filepath, sub_working_dir+"tmp.fasta")
@@ -687,7 +687,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                     else:
                         new_LIN_object = LIN_Assign.getLIN(Genome_ID=each_subject_genome_ID, Scheme_ID=4, similarity=ANIb_result,
                                                            c=c)
-                        new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=cursor).new_LIN
+                        new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=c).new_LIN
                         conserved_LIN = ""
                         SubjectGenome = each_subject_genome_ID
         c.execute("SELECT EXISTS(SELECT LIN FROM LIN WHERE LIN='{0}')".format(new_LIN))
