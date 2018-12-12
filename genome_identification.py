@@ -13,6 +13,7 @@ from os.path import join, isfile
 from MySQLdb import Connect
 import pandas as pd
 import uuid
+import filecmp
 
 # VARIABLES
 sourmash_dir = "/home/linproject/Workspace/Sourmash2/all_sketches/"
