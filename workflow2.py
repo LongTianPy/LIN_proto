@@ -147,7 +147,7 @@ def load_new_metadata(c,db,Interest_ID,new_genome,Attributes,User_ID,standardtim
     # for i in range(len(Attribute_ID_list)):
     #     attributevalue = Attributes[i].replace("_"," ")
     #     sql = "insert into AttributeValue (Genome_ID,Interest_ID,Attribute_ID,AttributeValue,User_ID,Private) VALUES ({0},{1},{2},'{3}',{4},{5})".format(new_Genome_ID,args.Interest_ID, Attribute_ID_list[i],attributevalue,args.User_ID,args.privacy)
-    #     # print(sql)
+    #     # # print(sql)
     #     c.execute(sql)
     #     db.commit()
     insert_sql = "INSERT INTO AttributeValue (Genome_ID,Interest_ID,Attribute_ID,AttributeValue,User_ID) VALUES "
@@ -234,7 +234,7 @@ def fill_all_taxonomy_lineage(c,conn,Genome_ID):
     tmp = c.fetchone()
     if tmp is not None:
         [rank_id, tax_id] = tmp
-        print(tmp)
+        # print(tmp)
         while int(rank_id)>1:
             c.execute("select * from NCBI_Tax_ID where NCBI_Tax_ID={0}".format(tax_id,rank_id))
             tmp = c.fetchone()
@@ -269,7 +269,7 @@ def load_new_metadata_newversion(c,db,Interest_ID,new_genome,Taxonomy,Attributes
         for rank in ranks:
             if lineage[rank] != ['N/A','N/A']:
                 rank_id = ranks_dict.loc[rank,"Rank_ID"]
-                print(lineage[rank])
+                # print(lineage[rank])
                 check_and_load_w_taxid(lineage[rank],c,db,rank_id,new_Genome_ID)
     except:
         for i in Taxonomy:
@@ -450,7 +450,7 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
         each_LIN = LIN_table_piece.get_value(each_genome,"LIN")
         each_leading_part = ",".join(each_LIN[:current_level+1])
         if each_leading_part not in LIN_dictionary:
-            # print(current_level)
+            # # print(current_level)
             LIN_dictionary[each_leading_part] = {each_LIN[current_level+1]:[each_genome]}
         else:
             if each_LIN[current_level+1] not in LIN_dictionary[each_leading_part]:
@@ -590,10 +590,10 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
             compare_sketch(LINgroup="rep_bac")
             df = parse_result()
             if df.empty:
-                print("###########################################################")
-                print("System message:")
-                print("No Jaccard similarity detected, will use LINgroup indexing.")
-                print("###########################################################")
+                # print("###########################################################")
+                # print("System message:")
+                # print("No Jaccard similarity detected, will use LINgroup indexing.")
+                # print("###########################################################")
                 ## LINgroup indexing
                 new_LIN, SubjectGenome, ANIb_result, cov_result, conserved_LIN = LINgroup_indexing(cursor=c,metadata=metadata,new_genome_filepath=new_genome_filepath)
             else:
@@ -603,11 +603,11 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                 compare_sketch(LINgroup=rep_bac_LINgroup)
                 df = parse_result()
                 if df.get_value(df.index[0],"Jaccard_similarity") == 1:
-                    print("###########################################################")
-                    print("System message:")
-                    print("100% Jaccard similarity detected, checking duplication.")
-                    print("LIN will be assigned if new genome.")
-                    print("###########################################################")
+                    # print("###########################################################")
+                    # print("System message:")
+                    # print("100% Jaccard similarity detected, checking duplication.")
+                    # print("LIN will be assigned if new genome.")
+                    # print("###########################################################")
                     # Same genome found
                     sub_df = df[df["Jaccard_similarity"]==1]
                     ANIb_result = 0
@@ -650,11 +650,11 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                     new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=c).new_LIN
                     conserved_LIN = ",".join(new_LIN_object.conserved_LIN)
                 else:
-                    print("###########################################################")
-                    print("System message:")
-                    print("Jaccard similarity detected, calculating ANIs.")
-                    print("LIN will be assigned.")
-                    print("###########################################################")
+                    # print("###########################################################")
+                    # print("System message:")
+                    # print("Jaccard similarity detected, calculating ANIs.")
+                    # print("LIN will be assigned.")
+                    # print("###########################################################")
                     for each_subject_genome_ID in df.index[:3]:
                         sub_working_dir = workspace_dir + str(each_subject_genome_ID) + "/"
                         if not isdir(sub_working_dir):
@@ -693,11 +693,11 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
         c.execute("SELECT EXISTS(SELECT LIN FROM LIN WHERE LIN='{0}')".format(new_LIN))
         duplication = c.fetchone()[0]  # 0 = no, 1 = yes
         if duplication == 0:
-            print("###########################################################")
-            print("System message:")
-            print("New genome uploaded.")
-            print("LIN will be assigned.")
-            print("###########################################################")
+            # print("###########################################################")
+            # print("System message:")
+            # print("New genome uploaded.")
+            # print("LIN will be assigned.")
+            # print("###########################################################")
             new_genome_ID = load_new_metadata_newversion(c=c,db=db,Interest_ID=Interest_ID_new_genome,
                                                          new_genome=new_genome,Taxonomy=Taxonomy,
                                                          Attributes=Attributes,User_ID=User_ID, ranks_dict=ranks_dict,
@@ -742,10 +742,10 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
             belongs_to = check_belonged_LINgroups(conserved_LIN,c)
             result = {"new LIN":new_LIN, "best LIN":best_LIN,"ANI":ANIb_result,"LINgroup":conserved_LIN,"LINgroup_IDs":belongs_to}
         else:
-            print("###########################################################")
-            print("System message:")
-            print("Duplicate submission found, recording.")
-            print("###########################################################")
+            # print("###########################################################")
+            # print("System message:")
+            # print("Duplicate submission found, recording.")
+            # print("###########################################################")
             c.execute("INSERT INTO Duplicated_upload (Reference_Genome_ID,Who_uploads_too) VALUES ({0},{1})".format(
                 SubjectGenome, User_ID))
             db.commit()
@@ -764,10 +764,10 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
             result = {"best LIN": best_LIN}
     else:
         # duplicate genome file detected
-        print("###########################################################")
-        print("System message:")
-        print("Duplicate submission found, recording.")
-        print("###########################################################")
+        # print("###########################################################")
+        # print("System message:")
+        # print("Duplicate submission found, recording.")
+        # print("###########################################################")
         c.execute(
                 "INSERT INTO Duplicated_upload (Reference_Genome_ID,Who_uploads_too) VALUES ({0},{1})".format(
                     SubjectGenome,
@@ -831,10 +831,10 @@ if __name__ == '__main__':
             compare_sketch(LINgroup="rep_bac")
             df = parse_result()
             if df.empty:
-                print("###########################################################")
-                print("System message:")
-                print("No Jaccard similarity detected, will use LINgroup indexing.")
-                print("###########################################################")
+                # print("###########################################################")
+                # print("System message:")
+                # print("No Jaccard similarity detected, will use LINgroup indexing.")
+                # print("###########################################################")
                 ## LINgroup indexing
                 new_LIN, SubjectGenome, ANIb_result, cov_result, conserved_LIN = LINgroup_indexing(cursor=c,metadata=metadata,new_genome_filepath=new_genome_filepath)
             else:
@@ -844,11 +844,11 @@ if __name__ == '__main__':
                 compare_sketch(LINgroup=rep_bac_LINgroup)
                 df = parse_result()
                 if df.get_value(df.index[0],"Jaccard_similarity") == 1:
-                    print("###########################################################")
-                    print("System message:")
-                    print("100% Jaccard similarity detected, checking duplication.")
-                    print("LIN will be assigned if new genome.")
-                    print("###########################################################")
+                    # print("###########################################################")
+                    # print("System message:")
+                    # print("100% Jaccard similarity detected, checking duplication.")
+                    # print("LIN will be assigned if new genome.")
+                    # print("###########################################################")
                     # Same genome found
                     sub_df = df[df["Jaccard_similarity"]==1]
                     ANIb_result = 0
@@ -891,11 +891,11 @@ if __name__ == '__main__':
                     new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=c).new_LIN
                     conserved_LIN = ",".join(new_LIN_object.conserved_LIN)
                 else:
-                    print("###########################################################")
-                    print("System message:")
-                    print("Jaccard similarity detected, calculating ANIs.")
-                    print("LIN will be assigned.")
-                    print("###########################################################")
+                    # print("###########################################################")
+                    # print("System message:")
+                    # print("Jaccard similarity detected, calculating ANIs.")
+                    # print("LIN will be assigned.")
+                    # print("###########################################################")
                     for each_subject_genome_ID in df.index[:3]:
                         sub_working_dir = workspace_dir + str(each_subject_genome_ID) + "/"
                         if not isdir(sub_working_dir):
@@ -934,11 +934,11 @@ if __name__ == '__main__':
         c.execute("SELECT EXISTS(SELECT LIN FROM LIN WHERE LIN='{0}')".format(new_LIN))
         duplication = c.fetchone()[0] # 0 = no, 1 = yes
         if duplication == 0:
-            print("###########################################################")
-            print("System message:")
-            print("New genome uploaded.")
-            print("LIN will be assigned.")
-            print("###########################################################")
+            # print("###########################################################")
+            # print("System message:")
+            # print("New genome uploaded.")
+            # print("LIN will be assigned.")
+            # print("###########################################################")
             new_genome_ID = load_new_metadata_newversion(c=c,db=db,args=args)
             this_95_LINgroup = ",".join(new_LIN.split(",")[:6])
             this_95_LINgroup_path = sourmash_dir + this_95_LINgroup + "/"
@@ -971,10 +971,10 @@ if __name__ == '__main__':
                 user_email, Job_uuid)
             os.system(email_cmd)
         else:
-            print("###########################################################")
-            print("System message:")
-            print("Duplicate submission found, recording.")
-            print("###########################################################")
+            # print("###########################################################")
+            # print("System message:")
+            # print("Duplicate submission found, recording.")
+            # print("###########################################################")
             c.execute("INSERT INTO Duplicated_upload (Reference_Genome_ID,Who_uploads_too) VALUES ({0},{1})".format(SubjectGenome,User_ID))
             db.commit()
             c.execute("SELECT Email FROM User WHERE User_ID={0}".format(User_ID))
@@ -983,10 +983,10 @@ if __name__ == '__main__':
                     user_email,SubjectGenome)
             os.system(email_cmd)
     else:
-        print("###########################################################")
-        print("System message:")
-        print("Duplicate submission found, recording.")
-        print("###########################################################")
+        # print("###########################################################")
+        # print("System message:")
+        # print("Duplicate submission found, recording.")
+        # print("###########################################################")
         c.execute(
             "INSERT INTO Duplicated_upload (Reference_Genome_ID,Who_uploads_too) VALUES ({0},{1})".format(SubjectGenome,
                                                                                                           User_ID))
