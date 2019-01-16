@@ -439,7 +439,7 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
 
 def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,new_genome_filepath,working_dir,similarity_pool,cutoff):
     this_threshold = cutoff[current_level]
-    cursor.execute("SELECT Genome_ID,LIN FROM LIN WHERE Scheme_ID=4 and LIN LIKE '{0}%'".format(previous_route))
+    cursor.execute("SELECT Genome_ID,LIN FROM LIN WHERE Scheme_ID=4 and LIN LIKE '{0},%'".format(previous_route))
     tmp = cursor.fetchall()
     LIN_table_piece = pd.DataFrame()
     genomes_piece = [int(i[0]) for i in tmp]
@@ -525,7 +525,7 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
                 next_level = 20
                 return leading_part_w_max_ANI, next_level
     else:
-        return LIN_dictionary.keys()[0], current_level+1
+        return list(LIN_dictionary)[0], current_level+1
 
 def update_LINgroup(Genome_ID, c, new_LIN, conn):
     c.execute("select LINgroup_ID,LINgroup from LINgroup")
