@@ -73,7 +73,7 @@ def compare_signatures_pairwisely(all_sig, working_dir):
         working_dir += "/"
     cmd = "sourmash compare {0}/*.sig -k 31 -o {1}all_sig_matrix.txt --csv {1}all_sig.csv -q"
     os.system(cmd.format(all_sig, working_dir))
-    df = pd.read_csv("{0}all_sig.csv".format(working_dir), sep=",", header=0)
+    df = pd.read_csv("{0}".format(join(working_dir,"all_sig.csv")), sep=",", header=0)
     df.index = df.columns
     return df
 
@@ -85,7 +85,8 @@ def generate_coarse_distance_matrix(genome_filepath, working_dir):
 
 
 def import_existing_distance_matrix(existing_df):
-    df = pd.read_csv(existing_df, sep="\t", header=0, index_col=0)
+    df = pd.read_csv(existing_df, sep="\t", header=0)
+    df.index = df.columns
     return df
 
 
@@ -166,7 +167,12 @@ if __name__ == '__main__':
     genome_filepath = sys.argv[1]
     working_dir = sys.argv[2]
     threshold = sys.argv[3]
-    uploaded_cluster_to_LINgroup = coarse_search(genome_filepath,working_dir,threshold)
+    if len(sys.argv) == 5:
+        precomputed = sys.argv[4]
+    else:
+        precomputed = None
+    uploaded_cluster_to_LINgroup = coarse_search(genome_filepath,working_dir,threshold,precomputed)
+
     for each in uploaded_cluster_to_LINgroup:
         print(each)
         print(uploaded_cluster_to_LINgroup[each])
