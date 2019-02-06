@@ -32,8 +32,8 @@ import workflow2
 from scipy.cluster import hierarchy
 
 # VARIABLES
-sourmash_dir = "/home/linproject/Workspace/Sourmash2/all_sketches/"
-rep_bac_dir = "/home/linproject/Workspace/Sourmash2/rep_bac/"
+sourmash_dir = "/home/linproject/Workspace/Sourmash2.0/all_sketches/"
+rep_bac_dir = "/home/linproject/Workspace/Sourmash2.0/rep_bac/"
 sourmash_batch_tmp = "/home/linproject/Workspace/Sourmash2/batch_tmp/"
 sourmash_batch_tmp_rep_bac = "/home/linproject/Workspace/Sourmash2/batch_tmp/rep_bac/"
 sourmash_batch_result = "/home/linproject/Workspace/Sourmash2/batch_result/"

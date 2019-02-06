@@ -15,8 +15,8 @@ from scipy.cluster import hierarchy
 from scipy.spatial import distance
 
 # VARIABLES
-sourmash_dir = "/home/linproject/Workspace/Sourmash2/all_sketches/"
-rep_bac_dir = "/home/linproject/Workspace/Sourmash2/rep_bac/"
+sourmash_dir = "/home/linproject/Workspace/Sourmash2.0/all_sketches/"
+rep_bac_dir = "/home/linproject/Workspace/Sourmash2.0/rep_bac/"
 
 # FUNCTIONS
 def connect_to_db():
