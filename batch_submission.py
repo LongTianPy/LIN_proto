@@ -73,7 +73,7 @@ def compare_signatures_pairwisely(all_sig, working_dir):
         working_dir += "/"
     cmd = "sourmash compare {0}/*.sig -k 31 -o {1}all_sig_matrix.txt --csv {1}all_sig.csv -q"
     os.system(cmd.format(all_sig, working_dir))
-    df = pd.read_csv("{0}".format(join(working_dir,"all_sig.csv")), sep=",", header=0)
+    df = pd.read_csv("{0}".format(join(working_dir,"all_sig.csv")), sep=",", header=0,dtype='S32')
     df.index = df.columns
     return df
 
@@ -85,7 +85,7 @@ def generate_coarse_distance_matrix(genome_filepath, working_dir):
 
 
 def import_existing_distance_matrix(existing_df):
-    df = pd.read_csv(existing_df, sep=",", header=0)
+    df = pd.read_csv(existing_df, sep=",", header=0,dtype='S32')
     df.index = df.columns
     return df
 
