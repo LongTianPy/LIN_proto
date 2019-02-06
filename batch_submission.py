@@ -113,7 +113,7 @@ def cluster_by_threshold(df, threshold):
 
 
 def pick_representative(clusters, working_dir):
-    uploaded_rep_bac = {clusters[i][0]:clusters.keys()[i] for i in clusters.keys()}
+    uploaded_rep_bac = {clusters[i][0]:clusters.keys() for i in clusters.keys()}
     uploaded_rep_bac_dir = join(working_dir, "signatures", "rep_bac")
     sig_to_fasta = {}
     os.mkdir(uploaded_rep_bac_dir)
