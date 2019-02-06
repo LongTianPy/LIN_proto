@@ -67,20 +67,19 @@ def create_signature(genome_filepath, working_dir):
         os.system(cmd.format(genome_filepath, each, all_sig, ".".join(each.split(".")[:-1])))
     return all_sig
 
-
-def compare_signatures_pairwisely(all_sig, working_dir):
+def compare_signatures_pairwisely(all_sig, working_dir,k):
     if not working_dir.endswith("/"):
         working_dir += "/"
-    cmd = "sourmash compare {0}/*.sig -k 31 -o {1}all_sig_matrix.txt --csv {1}all_sig.csv -q"
-    os.system(cmd.format(all_sig, working_dir))
+    cmd = "sourmash compare {0}/*.sig -k {2} -o {1}all_sig_matrix.txt --csv {1}all_sig.csv -q"
+    os.system(cmd.format(all_sig, working_dir,k))
     df = pd.read_csv("{0}".format(join(working_dir,"all_sig.csv")), sep=",", header=0,dtype='float')
     df.index = df.columns
     return df
 
 
-def generate_coarse_distance_matrix(genome_filepath, working_dir):
+def generate_coarse_distance_matrix(genome_filepath, working_dir, k):
     all_sig = create_signature(genome_filepath, working_dir)
-    df = compare_signatures_pairwisely(all_sig, working_dir)
+    df = compare_signatures_pairwisely(all_sig, working_dir, k)
     return df
 
 
@@ -132,12 +131,12 @@ def parse_sourmash_search(file):
     else:
         return lines[1][2]
 
-def compare_uploaded_with_existing_rep_bac(uploaded_rep_bac, uploaded_rep_bac_dir, sig_to_fasta, rep_bac_dir,working_dir,c):
+def compare_uploaded_with_existing_rep_bac(k,uploaded_rep_bac, uploaded_rep_bac_dir, sig_to_fasta, rep_bac_dir,working_dir,c):
     uploaded_cluster_to_LINgroup = {}
-    cmd = "sourmash search {0} {1}*.sig -o {2}"
+    cmd = "sourmash search {0} {1}*.sig -o {2} -k {3} -q"
     # rep_bac = [f[:-4] for f in os.listdir(uploaded_rep_bac_dir) if isfile(join(uploaded_rep_bac_dir,f) and f.endswith(".sig"))]
     for i in sig_to_fasta.keys():
-        os.system(cmd.format(join(uploaded_rep_bac_dir, i), rep_bac_dir, join(working_dir,"tmp.csv")))
+        os.system(cmd.format(join(uploaded_rep_bac_dir, i), rep_bac_dir, join(working_dir,"tmp.csv")),k)
         best_rep_bac = parse_sourmash_search(join(working_dir,"tmp.csv"))
         if best_rep_bac != '':
             genome_id = int(best_rep_bac.split('.')[0])
@@ -149,10 +148,10 @@ def compare_uploaded_with_existing_rep_bac(uploaded_rep_bac, uploaded_rep_bac_di
         uploaded_cluster_to_LINgroup[uploaded_rep_bac[sig_to_fasta[i]]] = lingroup
     return uploaded_cluster_to_LINgroup
 
-def coarse_search(genome_filepath, working_dir, threshold = 0.08,precomputed_sim_matrix = None):
+def coarse_search(genome_filepath, working_dir, k, threshold = 0.08,precomputed_sim_matrix = None):
     conn, c = connect_to_db()
     if precomputed_sim_matrix is None:
-        df = generate_coarse_distance_matrix(genome_filepath, working_dir)
+        df = generate_coarse_distance_matrix(genome_filepath, working_dir, k)
     else:
         df = import_existing_distance_matrix(precomputed_sim_matrix)
     clusters = cluster_by_threshold(df,threshold)
@@ -163,16 +162,18 @@ def coarse_search(genome_filepath, working_dir, threshold = 0.08,precomputed_sim
 
 
 
+
 # MAIN
 if __name__ == '__main__':
     genome_filepath = sys.argv[1]
     working_dir = sys.argv[2]
     threshold = float(sys.argv[3])
-    if len(sys.argv) == 5:
-        precomputed = sys.argv[4]
+    k = int(sys.argv[4])
+    if len(sys.argv) == 6:
+        precomputed = sys.argv[5]
     else:
         precomputed = None
-    uploaded_cluster_to_LINgroup = coarse_search(genome_filepath,working_dir,threshold,precomputed)
+    uploaded_cluster_to_LINgroup = coarse_search(genome_filepath,working_dir, k,threshold,precomputed)
 
     for each in uploaded_cluster_to_LINgroup:
         print(each)

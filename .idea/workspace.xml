@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="batch upload">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/batch_submission.py" beforeDir="false" afterPath="$PROJECT_DIR$/batch_submission.py" afterDir="false" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
@@ -111,8 +112,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/batch_submission.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="87" column="62" selection-start-line="87" selection-start-column="62" selection-end-line="87" selection-end-column="62" />
+            <state relative-caret-position="183">
+              <caret line="67" column="18" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
               <folding>
                 <element signature="e#36#53#0" expanded="true" />
               </folding>
@@ -124,7 +125,7 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -301,9 +302,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="884" />
-    <option name="y" value="26" />
-    <option name="width" value="1799" />
+    <option name="x" value="141" />
+    <option name="y" value="126" />
+    <option name="width" value="1440" />
     <option name="height" value="825" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -499,28 +500,7 @@
       <workItem from="1547495630887" duration="305000" />
       <workItem from="1547655646522" duration="4322000" />
       <workItem from="1547838362907" duration="302000" />
-      <workItem from="1549036529563" duration="19663000" />
-    </task>
-    <task id="LOCAL-00837" summary="debugging wrapper of workflow2">
-      <created>1543517266438</created>
-      <option name="number" value="00837" />
-      <option name="presentableId" value="LOCAL-00837" />
-      <option name="project" value="LOCAL" />
-      <updated>1543517266439</updated>
-    </task>
-    <task id="LOCAL-00838" summary="debugging wrapper of workflow2">
-      <created>1543517796246</created>
-      <option name="number" value="00838" />
-      <option name="presentableId" value="LOCAL-00838" />
-      <option name="project" value="LOCAL" />
-      <updated>1543517796246</updated>
-    </task>
-    <task id="LOCAL-00839" summary="debugging wrapper of workflow2">
-      <created>1543518055411</created>
-      <option name="number" value="00839" />
-      <option name="presentableId" value="LOCAL-00839" />
-      <option name="project" value="LOCAL" />
-      <updated>1543518055411</updated>
+      <workItem from="1549036529563" duration="20775000" />
     </task>
     <task id="LOCAL-00840" summary="debugging wrapper of workflow2">
       <created>1543518080551</created>
@@ -844,11 +824,32 @@
       <option name="project" value="LOCAL" />
       <updated>1549424011263</updated>
     </task>
-    <option name="localTasksCounter" value="886" />
+    <task id="LOCAL-00886" summary="batch upload">
+      <created>1549424372670</created>
+      <option name="number" value="00886" />
+      <option name="presentableId" value="LOCAL-00886" />
+      <option name="project" value="LOCAL" />
+      <updated>1549424372670</updated>
+    </task>
+    <task id="LOCAL-00887" summary="batch upload">
+      <created>1549424422639</created>
+      <option name="number" value="00887" />
+      <option name="presentableId" value="LOCAL-00887" />
+      <option name="project" value="LOCAL" />
+      <updated>1549424422639</updated>
+    </task>
+    <task id="LOCAL-00888" summary="batch upload">
+      <created>1549424471165</created>
+      <option name="number" value="00888" />
+      <option name="presentableId" value="LOCAL-00888" />
+      <option name="project" value="LOCAL" />
+      <updated>1549424471165</updated>
+    </task>
+    <option name="localTasksCounter" value="889" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77115000" />
+    <option name="totallyTimeSpent" value="78227000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -860,10 +861,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="884" y="26" width="1799" height="825" extended-state="0" />
+    <frame x="141" y="126" width="1440" height="825" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19635743" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24678111" />
       <window_info id="Structure" order="1" side_tool="true" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" />
@@ -1127,14 +1128,14 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/batch_submission.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="87" column="62" selection-start-line="87" selection-start-column="62" selection-end-line="87" selection-end-column="62" />
+        <state relative-caret-position="183">
+          <caret line="67" column="18" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
           <folding>
             <element signature="e#36#53#0" expanded="true" />
           </folding>
