@@ -167,7 +167,7 @@ def coarse_search(genome_filepath, working_dir, threshold = 0.08,precomputed_sim
 if __name__ == '__main__':
     genome_filepath = sys.argv[1]
     working_dir = sys.argv[2]
-    threshold = sys.argv[3]
+    threshold = float(sys.argv[3])
     if len(sys.argv) == 5:
         precomputed = sys.argv[4]
     else:
