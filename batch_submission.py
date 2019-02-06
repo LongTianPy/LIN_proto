@@ -166,4 +166,7 @@ if __name__ == '__main__':
     genome_filepath = sys.argv[1]
     working_dir = sys.argv[2]
     threshold = sys.argv[3]
-    uploaded_cluster_to_LINgroup = coarse_search()
+    uploaded_cluster_to_LINgroup = coarse_search(genome_filepath,working_dir,threshold)
+    for each in uploaded_cluster_to_LINgroup:
+        print(each)
+        print(uploaded_cluster_to_LINgroup[each])
