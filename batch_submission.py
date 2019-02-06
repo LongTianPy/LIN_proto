@@ -23,7 +23,7 @@ from pytz import timezone
 from Bio import SeqIO, Entrez
 import filecmp
 import uuid
-import sendEmail
+# import sendEmail
 import shutil
 import multiprocessing as mp
 from functools import partial
