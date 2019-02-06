@@ -85,7 +85,7 @@ def generate_coarse_distance_matrix(genome_filepath, working_dir):
 
 
 def import_existing_distance_matrix(existing_df):
-    df = pd.read_csv(existing_df, sep="\t", header=0)
+    df = pd.read_csv(existing_df, sep=",", header=0)
     df.index = df.columns
     return df
 
