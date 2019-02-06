@@ -113,11 +113,12 @@ def cluster_by_threshold(df, threshold):
 
 
 def pick_representative(clusters, working_dir):
-    uploaded_rep_bac = {clusters[i][0]:clusters.keys() for i in clusters.keys()}
+    uploaded_rep_bac = {clusters[i][0]:i for i in clusters.keys()}
     uploaded_rep_bac_dir = join(working_dir, "signatures", "rep_bac")
     sig_to_fasta = {}
-    os.mkdir(uploaded_rep_bac_dir)
-    cmd = "sourmash compute {0} -k 21,31,51 -n 1000 -o {2}/{3}.sig > /dev/null 2>&1"
+    if not isdir(uploaded_rep_bac_dir):
+        os.mkdir(uploaded_rep_bac_dir)
+    cmd = "sourmash compute {0} -k 21,31,51 -n 1000 -o {1}/{2}.sig > /dev/null 2>&1"
     for each in uploaded_rep_bac.keys():
         os.system(cmd.format(each, uploaded_rep_bac_dir, ".".join(each.split("/")[-1].split(".")[:-1])))
         sig_to_fasta[".".join(each.split("/")[-1].split(".")[:-1])+".sig"] = each

@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="batch upload">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/batch_submission.py" beforeDir="false" afterPath="$PROJECT_DIR$/batch_submission.py" afterDir="false" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
     <ignored path="LIN_proto.iws" />
@@ -111,8 +112,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/batch_submission.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="88" column="25" lean-forward="true" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
+            <state relative-caret-position="249">
+              <caret line="123" column="8" lean-forward="true" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="81" />
               <folding>
                 <element signature="e#36#53#0" expanded="true" />
               </folding>
@@ -499,21 +500,7 @@
       <workItem from="1547495630887" duration="305000" />
       <workItem from="1547655646522" duration="4322000" />
       <workItem from="1547838362907" duration="302000" />
-      <workItem from="1549036529563" duration="17889000" />
-    </task>
-    <task id="LOCAL-00834" summary="re-add gitignore">
-      <created>1543442453492</created>
-      <option name="number" value="00834" />
-      <option name="presentableId" value="LOCAL-00834" />
-      <option name="project" value="LOCAL" />
-      <updated>1543442453492</updated>
-    </task>
-    <task id="LOCAL-00835" summary="re-add gitignore">
-      <created>1543516315614</created>
-      <option name="number" value="00835" />
-      <option name="presentableId" value="LOCAL-00835" />
-      <option name="project" value="LOCAL" />
-      <updated>1543516315614</updated>
+      <workItem from="1549036529563" duration="19224000" />
     </task>
     <task id="LOCAL-00836" summary="debugging wrapper of workflow2">
       <created>1543516605348</created>
@@ -844,11 +831,25 @@
       <option name="project" value="LOCAL" />
       <updated>1549422434639</updated>
     </task>
-    <option name="localTasksCounter" value="883" />
+    <task id="LOCAL-00883" summary="batch upload">
+      <created>1549422514123</created>
+      <option name="number" value="00883" />
+      <option name="presentableId" value="LOCAL-00883" />
+      <option name="project" value="LOCAL" />
+      <updated>1549422514123</updated>
+    </task>
+    <task id="LOCAL-00884" summary="batch upload">
+      <created>1549422753654</created>
+      <option name="number" value="00884" />
+      <option name="presentableId" value="LOCAL-00884" />
+      <option name="project" value="LOCAL" />
+      <updated>1549422753654</updated>
+    </task>
+    <option name="localTasksCounter" value="885" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75341000" />
+    <option name="totallyTimeSpent" value="76676000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1133,8 +1134,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/batch_submission.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="88" column="25" lean-forward="true" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
+        <state relative-caret-position="249">
+          <caret line="123" column="8" lean-forward="true" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="81" />
           <folding>
             <element signature="e#36#53#0" expanded="true" />
           </folding>
