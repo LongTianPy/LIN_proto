@@ -30,6 +30,7 @@ from functools import partial
 from uuid import uuid4
 import workflow2
 from scipy.cluster import hierarchy
+import json
 
 # VARIABLES
 sourmash_dir = "/home/linproject/Workspace/Sourmash2.0/all_sketches/"
@@ -58,21 +59,29 @@ def create_signature(genome_filepath, working_dir):
     if not genome_filepath.endswith('/'):
         genome_filepath = genome_filepath + "/"
     signatures_dir = join(working_dir, 'signatures')
-    os.mkdir(signatures_dir)
+    if not isdir(signatures_dir):
+        os.mkdir(signatures_dir)
     all_sig = join(signatures_dir, 'all')
-    os.mkdir(all_sig)
-    genome_files = [f for f in os.listdir(genome_filepath) if os.path.isfile(join(genome_filepath, f))]
-    cmd = "sourmash compute {0}{1} -k 21,31,51 -n 1000 -o {2}/{3}.sig > /dev/null 2>&1"
-    for each in genome_files:
-        os.system(cmd.format(genome_filepath, each, all_sig, ".".join(each.split(".")[:-1])))
+    if not isdir(all_sig):
+        os.mkdir(all_sig)
+    else:
+        sig_files = [file for file in os.listdir(all_sig) if file.endswith("sig")]
+    genome_files = [file for file in os.listdir(genome_filepath)]
+    if len(sig_files) == len(genome_files):
+        return all_sig
+    else:
+        genome_files = [f for f in os.listdir(genome_filepath) if os.path.isfile(join(genome_filepath, f))]
+        cmd = "sourmash compute {0}{1} -k 21,31,51 -n 1000 -o {2}/{3}.sig > /dev/null 2>&1"
+        for each in genome_files:
+            os.system(cmd.format(genome_filepath, each, all_sig, ".".join(each.split(".")[:-1])))
     return all_sig
 
 def compare_signatures_pairwisely(all_sig, working_dir,k):
     if not working_dir.endswith("/"):
         working_dir += "/"
-    cmd = "sourmash compare {0}/*.sig -k {2} -o {1}all_sig_matrix.txt --csv {1}all_sig.csv -q"
+    cmd = "sourmash compare {0}/*.sig -k {2} -o {1}all_sig_matrix.txt --csv {1}all_sig_k{2}.csv -q"
     os.system(cmd.format(all_sig, working_dir,k))
-    df = pd.read_csv("{0}".format(join(working_dir,"all_sig.csv")), sep=",", header=0,dtype='float')
+    df = pd.read_csv("{0}".format(join(working_dir,"all_sig_k{0}.csv".format(k))), sep=",", header=0,dtype='float')
     df.index = df.columns
     return df
 
@@ -158,6 +167,8 @@ def coarse_search(genome_filepath, working_dir, k, threshold = 0.08,precomputed_
     uploaded_rep_bac, uploaded_rep_bac_dir, sig_to_fasta = pick_representative(clusters, working_dir)
     uploaded_cluster_to_LINgroup = compare_uploaded_with_existing_rep_bac(uploaded_rep_bac, uploaded_rep_bac_dir,
                                                                           sig_to_fasta, rep_bac_dir, working_dir, c)
+    with open(join(working_dir,"cluster_to_LINgroup.json"),"w") as f:
+        json.dump(uploaded_cluster_to_LINgroup,f)
     return uploaded_cluster_to_LINgroup
 
 
@@ -175,6 +186,3 @@ if __name__ == '__main__':
         precomputed = None
     uploaded_cluster_to_LINgroup = coarse_search(genome_filepath,working_dir, k,threshold,precomputed)
 
-    for each in uploaded_cluster_to_LINgroup:
-        print(each)
-        print(uploaded_cluster_to_LINgroup[each])
