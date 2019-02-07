@@ -178,7 +178,7 @@ def coarse_search(genome_filepath, working_dir, k, threshold = 0.08,precomputed_
     else:
         df = import_existing_distance_matrix(precomputed_sim_matrix)
     clusters = cluster_by_threshold(df,threshold)
-    uploaded_rep_bac, uploaded_rep_bac_dir, sig_to_fasta = pick_representative(clusters, working_dir)
+    uploaded_rep_bac, uploaded_rep_bac_dir, sig_to_fasta = pick_representative(clusters, working_dir,file_map)
     uploaded_cluster_to_LINgroup = compare_uploaded_with_existing_rep_bac(k, uploaded_rep_bac, uploaded_rep_bac_dir,
                                                                           sig_to_fasta, rep_bac_dir, working_dir, c)
     print("Exporting the files")
