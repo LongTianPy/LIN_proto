@@ -67,17 +67,20 @@ def create_signature(genome_filepath, working_dir):
         os.mkdir(all_sig)
     else:
         sig_files = [file for file in os.listdir(all_sig) if file.endswith("sig")]
-    genome_files = [file for file in os.listdir(genome_filepath)]
+    genome_files = [f for f in os.listdir(genome_filepath) if os.path.isfile(join(genome_filepath, f))]
+    file_map = {}
     if len(sig_files) == len(genome_files):
+        for each in genome_files:
+            file_map[each] = "{0}/{1}.sig".format(all_sig, ".".join(each.split(".")[:-1]))
         print("Signatures found, skipping...")
-        return all_sig
+        return all_sig, file_map
     else:
-        genome_files = [f for f in os.listdir(genome_filepath) if os.path.isfile(join(genome_filepath, f))]
         cmd = "sourmash compute {0}{1} -k 21,31,51 -n 1000 -o {2}/{3}.sig > /dev/null 2>&1"
         for each in genome_files:
             os.system(cmd.format(genome_filepath, each, all_sig, ".".join(each.split(".")[:-1])))
+            file_map[each] = "{0}/{1}.sig".format(all_sig, ".".join(each.split(".")[:-1]))
         print("Signatures created.")
-    return all_sig
+    return all_sig, file_map
 
 def compare_signatures_pairwisely(all_sig, working_dir,k):
     print("Pairwisely comparing signatures, k={0}".format(k))
@@ -91,9 +94,9 @@ def compare_signatures_pairwisely(all_sig, working_dir,k):
 
 
 def generate_coarse_distance_matrix(genome_filepath, working_dir, k):
-    all_sig = create_signature(genome_filepath, working_dir)
+    all_sig, file_map = create_signature(genome_filepath, working_dir)
     df = compare_signatures_pairwisely(all_sig, working_dir, k)
-    return df
+    return df, file_map
 
 
 def import_existing_distance_matrix(existing_df):
@@ -127,16 +130,18 @@ def cluster_by_threshold(df, threshold):
     return clusters
 
 
-def pick_representative(clusters, working_dir):
+def pick_representative(clusters, working_dir,file_map):
     print("Selecting the first genome of each cluster as the representative genome")
     uploaded_rep_bac = {clusters[i][0]:i for i in clusters.keys()}
     uploaded_rep_bac_dir = join(working_dir, "signatures", "rep_bac")
     sig_to_fasta = {}
-    if not isdir(uploaded_rep_bac_dir):
-        os.mkdir(uploaded_rep_bac_dir)
-    cmd = "sourmash compute {0} -k 21,31,51 -n 1000 -o {1}/{2}.sig > /dev/null 2>&1"
+    if isdir(uploaded_rep_bac_dir):
+        shutil.rmtree(uploaded_rep_bac_dir)
+    os.mkdir(uploaded_rep_bac_dir)
+    # cmd = "sourmash compute {0} -k 21,31,51 -n 1000 -o {1}/{2}.sig > /dev/null 2>&1"
     for each in uploaded_rep_bac.keys():
-        os.system(cmd.format(each, uploaded_rep_bac_dir, ".".join(each.split("/")[-1].split(".")[:-1])))
+        shutil.copy(file_map[each], uploaded_rep_bac_dir)
+        # os.system(cmd.format(each, uploaded_rep_bac_dir, ".".join(each.split("/")[-1].split(".")[:-1])))
         sig_to_fasta[".".join(each.split("/")[-1].split(".")[:-1])+".sig"] = each
     return uploaded_rep_bac, uploaded_rep_bac_dir, sig_to_fasta
 
@@ -154,7 +159,7 @@ def compare_uploaded_with_existing_rep_bac(k,uploaded_rep_bac, uploaded_rep_bac_
     cmd = "sourmash search {0} {1}*.sig -o {2} -k {3} -q"
     # rep_bac = [f[:-4] for f in os.listdir(uploaded_rep_bac_dir) if isfile(join(uploaded_rep_bac_dir,f) and f.endswith(".sig"))]
     for i in sig_to_fasta.keys():
-        os.system(cmd.format(join(uploaded_rep_bac_dir, i), rep_bac_dir, join(working_dir,"tmp.csv")),k)
+        os.system(cmd.format(join(uploaded_rep_bac_dir, i), rep_bac_dir, join(working_dir,"tmp.csv"),k))
         best_rep_bac = parse_sourmash_search(join(working_dir,"tmp.csv"))
         if best_rep_bac != '':
             genome_id = int(best_rep_bac.split('.')[0])
@@ -169,7 +174,7 @@ def compare_uploaded_with_existing_rep_bac(k,uploaded_rep_bac, uploaded_rep_bac_
 def coarse_search(genome_filepath, working_dir, k, threshold = 0.08,precomputed_sim_matrix = None):
     conn, c = connect_to_db()
     if precomputed_sim_matrix is None:
-        df = generate_coarse_distance_matrix(genome_filepath, working_dir, k)
+        df, file_map = generate_coarse_distance_matrix(genome_filepath, working_dir, k)
     else:
         df = import_existing_distance_matrix(precomputed_sim_matrix)
     clusters = cluster_by_threshold(df,threshold)
