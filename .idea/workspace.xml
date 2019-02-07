@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24397b0e-227c-47b1-8fcf-aaa1158c5c80" name="Default" comment="batch upload">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/batch_submission.py" beforeDir="false" afterPath="$PROJECT_DIR$/batch_submission.py" afterDir="false" />
     </list>
     <list id="cd95f54f-1bcb-4db8-881d-c6573eecf8e5" name="exclude_main" comment="exclude changes made to workflow.py" />
@@ -112,8 +111,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/batch_submission.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="177" column="9" lean-forward="true" selection-start-line="177" selection-start-column="9" selection-end-line="177" selection-end-column="9" />
+            <state relative-caret-position="426">
+              <caret line="82" column="18" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
               <folding>
                 <element signature="e#36#53#0" expanded="true" />
               </folding>
@@ -500,14 +499,7 @@
       <workItem from="1547495630887" duration="305000" />
       <workItem from="1547655646522" duration="4322000" />
       <workItem from="1547838362907" duration="302000" />
-      <workItem from="1549036529563" duration="24252000" />
-    </task>
-    <task id="LOCAL-00845" summary="fill the LINgroup column of Genome table">
-      <created>1543523109016</created>
-      <option name="number" value="00845" />
-      <option name="presentableId" value="LOCAL-00845" />
-      <option name="project" value="LOCAL" />
-      <updated>1543523109016</updated>
+      <workItem from="1549036529563" duration="24356000" />
     </task>
     <task id="LOCAL-00846" summary="debugging workflow2">
       <created>1543593511092</created>
@@ -845,11 +837,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549567261200</updated>
     </task>
-    <option name="localTasksCounter" value="894" />
+    <task id="LOCAL-00894" summary="batch upload">
+      <created>1549567308523</created>
+      <option name="number" value="00894" />
+      <option name="presentableId" value="LOCAL-00894" />
+      <option name="project" value="LOCAL" />
+      <updated>1549567308523</updated>
+    </task>
+    <option name="localTasksCounter" value="895" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81704000" />
+    <option name="totallyTimeSpent" value="81808000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1134,8 +1133,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/batch_submission.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="177" column="9" lean-forward="true" selection-start-line="177" selection-start-column="9" selection-end-line="177" selection-end-column="9" />
+        <state relative-caret-position="426">
+          <caret line="82" column="18" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
           <folding>
             <element signature="e#36#53#0" expanded="true" />
           </folding>
