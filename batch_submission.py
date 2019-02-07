@@ -122,7 +122,7 @@ def cluster_by_threshold(df, threshold):
             clusters[str(cutree[i][0])] = [labels[i]]
         else:
             clusters[str(cutree[i][0])].append(labels[i])
-    with open(join(working_dir,"clusters_k{0}.json".format(k)),"w") as f:
+    with open(join(working_dir,"clusters_k{0}.json"),"w") as f:
         json.dump(clusters,f)
     return clusters
 
