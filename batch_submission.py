@@ -71,13 +71,13 @@ def create_signature(genome_filepath, working_dir):
     file_map = {}
     if len(sig_files) == len(genome_files):
         for each in genome_files:
-            file_map[each] = "{0}/{1}.sig".format(all_sig, ".".join(each.split(".")[:-1]))
+            file_map[each] = "{0}/{1}.sig".format(all_sig, ".".join(each.split("/")[-1].split(".")[:-1]))
         print("Signatures found, skipping...")
     else:
         cmd = "sourmash compute {0}{1} -k 21,31,51 -n 1000 -o {2}/{3}.sig > /dev/null 2>&1"
         for each in genome_files:
             os.system(cmd.format(genome_filepath, each, all_sig, ".".join(each.split(".")[:-1])))
-            file_map[each] = "{0}/{1}.sig".format(all_sig, ".".join(each.split(".")[:-1]))
+            file_map[each] = "{0}/{1}.sig".format(all_sig, ".".join(each.split("/")[-1].split(".")[:-1]))
         print("Signatures created.")
     print(file_map)
     return all_sig, file_map
