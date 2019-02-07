@@ -67,7 +67,7 @@ def create_signature(genome_filepath, working_dir):
         os.mkdir(all_sig)
     else:
         sig_files = [file for file in os.listdir(all_sig) if file.endswith("sig")]
-    genome_files = [f for f in os.listdir(genome_filepath) if os.path.isfile(join(genome_filepath, f))]
+    genome_files = [join(genome_filepath,f) for f in os.listdir(genome_filepath) if os.path.isfile(join(genome_filepath, f))]
     file_map = {}
     if len(sig_files) == len(genome_files):
         for each in genome_files:
