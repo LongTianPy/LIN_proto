@@ -54,6 +54,7 @@ def connect_to_db():
 
 
 def create_signature(genome_filepath, working_dir):
+    print("Creating 21,31,51-mer signatures of given files")
     if not os.path.isdir(working_dir):
         os.mkdir(working_dir)
     if not genome_filepath.endswith('/'):
@@ -68,15 +69,18 @@ def create_signature(genome_filepath, working_dir):
         sig_files = [file for file in os.listdir(all_sig) if file.endswith("sig")]
     genome_files = [file for file in os.listdir(genome_filepath)]
     if len(sig_files) == len(genome_files):
+        print("Signatures found, skipping...")
         return all_sig
     else:
         genome_files = [f for f in os.listdir(genome_filepath) if os.path.isfile(join(genome_filepath, f))]
         cmd = "sourmash compute {0}{1} -k 21,31,51 -n 1000 -o {2}/{3}.sig > /dev/null 2>&1"
         for each in genome_files:
             os.system(cmd.format(genome_filepath, each, all_sig, ".".join(each.split(".")[:-1])))
+        print("Signatures created.")
     return all_sig
 
 def compare_signatures_pairwisely(all_sig, working_dir,k):
+    print("Pairwisely comparing signatures, k={0}".format(k))
     if not working_dir.endswith("/"):
         working_dir += "/"
     cmd = "sourmash compare {0}/*.sig -k {2} -o {1}all_sig_matrix.txt --csv {1}all_sig_k{2}.csv -q"
@@ -99,6 +103,7 @@ def import_existing_distance_matrix(existing_df):
 
 
 def cluster_by_threshold(df, threshold):
+    print("Clustering genomes at jaccard similarity threshold of {0}".format(threshold))
     samples = list(df.columns)
     sample_distances = {}
     for i in range(len(samples)):
@@ -117,10 +122,13 @@ def cluster_by_threshold(df, threshold):
             clusters[str(cutree[i][0])] = [labels[i]]
         else:
             clusters[str(cutree[i][0])].append(labels[i])
+    with open(join(working_dir,"clusters_k{0}.json".format(k)),"w") as f:
+        json.dump(clusters,f)
     return clusters
 
 
 def pick_representative(clusters, working_dir):
+    print("Selecting the first genome of each cluster as the representative genome")
     uploaded_rep_bac = {clusters[i][0]:i for i in clusters.keys()}
     uploaded_rep_bac_dir = join(working_dir, "signatures", "rep_bac")
     sig_to_fasta = {}
@@ -141,6 +149,7 @@ def parse_sourmash_search(file):
         return lines[1][2]
 
 def compare_uploaded_with_existing_rep_bac(k,uploaded_rep_bac, uploaded_rep_bac_dir, sig_to_fasta, rep_bac_dir,working_dir,c):
+    print("Comparing each representative genome to existing 95% LINgroups in LINbase")
     uploaded_cluster_to_LINgroup = {}
     cmd = "sourmash search {0} {1}*.sig -o {2} -k {3} -q"
     # rep_bac = [f[:-4] for f in os.listdir(uploaded_rep_bac_dir) if isfile(join(uploaded_rep_bac_dir,f) and f.endswith(".sig"))]
@@ -165,8 +174,9 @@ def coarse_search(genome_filepath, working_dir, k, threshold = 0.08,precomputed_
         df = import_existing_distance_matrix(precomputed_sim_matrix)
     clusters = cluster_by_threshold(df,threshold)
     uploaded_rep_bac, uploaded_rep_bac_dir, sig_to_fasta = pick_representative(clusters, working_dir)
-    uploaded_cluster_to_LINgroup = compare_uploaded_with_existing_rep_bac(uploaded_rep_bac, uploaded_rep_bac_dir,
+    uploaded_cluster_to_LINgroup = compare_uploaded_with_existing_rep_bac(k, uploaded_rep_bac, uploaded_rep_bac_dir,
                                                                           sig_to_fasta, rep_bac_dir, working_dir, c)
+    print("Exporting the files")
     with open(join(working_dir,"cluster_to_LINgroup.json"),"w") as f:
         json.dump(uploaded_cluster_to_LINgroup,f)
     return uploaded_cluster_to_LINgroup

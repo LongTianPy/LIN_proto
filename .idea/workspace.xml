@@ -112,8 +112,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/batch_submission.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="67" column="18" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+            <state relative-caret-position="398">
+              <caret line="178" column="32" selection-start-line="178" selection-start-column="32" selection-end-line="178" selection-end-column="32" />
               <folding>
                 <element signature="e#36#53#0" expanded="true" />
               </folding>
@@ -302,8 +302,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="141" />
-    <option name="y" value="126" />
+    <option name="x" value="472" />
+    <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="825" />
   </component>
@@ -500,21 +500,7 @@
       <workItem from="1547495630887" duration="305000" />
       <workItem from="1547655646522" duration="4322000" />
       <workItem from="1547838362907" duration="302000" />
-      <workItem from="1549036529563" duration="20775000" />
-    </task>
-    <task id="LOCAL-00840" summary="debugging wrapper of workflow2">
-      <created>1543518080551</created>
-      <option name="number" value="00840" />
-      <option name="presentableId" value="LOCAL-00840" />
-      <option name="project" value="LOCAL" />
-      <updated>1543518080551</updated>
-    </task>
-    <task id="LOCAL-00841" summary="debugging wrapper of workflow2">
-      <created>1543518493578</created>
-      <option name="number" value="00841" />
-      <option name="presentableId" value="LOCAL-00841" />
-      <option name="project" value="LOCAL" />
-      <updated>1543518493578</updated>
+      <workItem from="1549036529563" duration="23240000" />
     </task>
     <task id="LOCAL-00842" summary="debugging wrapper of workflow2">
       <created>1543518862948</created>
@@ -845,11 +831,25 @@
       <option name="project" value="LOCAL" />
       <updated>1549424471165</updated>
     </task>
-    <option name="localTasksCounter" value="889" />
+    <task id="LOCAL-00889" summary="batch upload">
+      <created>1549487745832</created>
+      <option name="number" value="00889" />
+      <option name="presentableId" value="LOCAL-00889" />
+      <option name="project" value="LOCAL" />
+      <updated>1549487745833</updated>
+    </task>
+    <task id="LOCAL-00890" summary="batch upload">
+      <created>1549564931581</created>
+      <option name="number" value="00890" />
+      <option name="presentableId" value="LOCAL-00890" />
+      <option name="project" value="LOCAL" />
+      <updated>1549564931581</updated>
+    </task>
+    <option name="localTasksCounter" value="891" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78227000" />
+    <option name="totallyTimeSpent" value="80692000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -861,7 +861,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="141" y="126" width="1440" height="825" extended-state="0" />
+    <frame x="472" y="23" width="1440" height="825" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24678111" />
@@ -1033,7 +1033,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/batch_submission.py</url>
-          <line>46</line>
+          <line>47</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -1134,8 +1134,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/batch_submission.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="67" column="18" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+        <state relative-caret-position="398">
+          <caret line="178" column="32" selection-start-line="178" selection-start-column="32" selection-end-line="178" selection-end-column="32" />
           <folding>
             <element signature="e#36#53#0" expanded="true" />
           </folding>
