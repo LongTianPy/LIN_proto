@@ -80,6 +80,7 @@ def create_signature(genome_filepath, working_dir):
             os.system(cmd.format(genome_filepath, each, all_sig, ".".join(each.split(".")[:-1])))
             file_map[each] = "{0}/{1}.sig".format(all_sig, ".".join(each.split(".")[:-1]))
         print("Signatures created.")
+    print(file_map)
     return all_sig, file_map
 
 def compare_signatures_pairwisely(all_sig, working_dir,k):
