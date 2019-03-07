@@ -32,8 +32,8 @@ def migrate(c):
     filepath = [i[1] for i in tmp]
     lin = [i[2] for i in tmp]
     df = pd.DataFrame()
-    pd["FilePath"] = filepath
-    pd["LINgroup"] = [",".join(i.split(",")[:6]) for i in lin]
+    df["FilePath"] = filepath
+    df["LINgroup"] = [",".join(i.split(",")[:6]) for i in lin]
     df.index = genome_id
     for i in genome_id:
         this_sig = create_signature(df.loc[i,'FilePath'], sourmash_dir+'{0}.sig'.format(i))
