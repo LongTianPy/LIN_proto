@@ -92,7 +92,7 @@ def get_parsed_args():
 
 ### Connect to database
 def connect_to_db():
-    conn = Connect("localhost", "LINbase","Latham@537")
+    conn = Connect("127.0.0.1", "LINbase","Latham@537")
     c = conn.cursor()
     c.execute("use LINdb_NCBI_RefSeq_test")
     return conn, c
@@ -288,6 +288,21 @@ def create_sketch(filepath):
     cmd = "sourmash compute -o {0} {1} -k 31 -n 1000 > /dev/null 2>&1".format(dest,filepath)
     os.system(cmd)
 
+def create_sketch2(filepath,dest):
+    cmd = "sourmash compute -o {0} {1} -k 21,31,51 -n 2000 -q > /dev/null 2>&1".format(dest, filepath)
+    os.system(cmd)
+    return dest
+
+def compare_sketch2(query,LINgroup):
+    if LINgroup == "rep_bac":
+        dest = rep_bac_dir
+    else:
+        dest = sourmash_dir + LINgroup + "/"
+    folder_size = len([file for file in os.listdir(dest) if isfile(join(dest,file))])
+    cmd = "sourmash search {0} {1}*.sig -n {2} -k 31 -q --threshold 0.0001 -o {3} 2> /dev/null"
+    cmd = cmd.format(query, dest, folder_size, sourmash_result+"tmp_result.txt")
+    os.system(cmd)
+
 def compare_sketch(LINgroup):
     if LINgroup == "rep_bac":
         dest = rep_bac_dir
@@ -313,6 +328,25 @@ def parse_result():
         df.index = [i[2].split("/")[-1].split(".")[0] for i in lines]
         # df = df[df["Jaccard_similarity"] > (df.get_value(df.index[0], "Jaccard_similarity") - 0.05)]
         return df
+
+def parse_result2():
+    df = pd.read_csv(sourmash_result + "tmp_result.txt",sep=",",header=0)
+    if df.empty:
+        return df
+    else:
+        ids = []
+        for each in df['filename']:
+            id = int(each.split('/')[-1].split('.')[0])
+            ids.append(id)
+        df.index = ids
+        return df
+
+### One method to replace LINgroup indexing is to when no 95% LINgroup is matched, iteratively check each position
+### prior to F position, when k=21, E: 0.1225, D: 0.0625, C: 0.0415, B: 0.0165, A: 0.0085
+def Jaccard_indexing(cursor,new_genome_filepath):
+    pass
+
+
 
 ### Assign LIN
 def LINgroup_indexing(cursor,metadata,new_genome_filepath):
@@ -578,7 +612,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
             SubjectGenome = int(i)
             break
     if file_duplication == 0:
-        create_sketch(tmp_folder + new_genome)
+        tmp_newgenome_sig = create_sketch2(tmp_folder + new_genome,sourmash_tmp+"tmp.sig")
         if metadata.empty:
             # if this is the first genome ever in the database
             new_LIN = ",".join(["0"] * 20)
@@ -590,8 +624,8 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
             ANIb_result = top1_similarity
             cov_result = top1_coverage
         else:
-            compare_sketch(LINgroup="rep_bac")
-            df = parse_result()
+            compare_sketch(tmp_newgenome_sig,LINgroup="rep_bac")
+            df = parse_result2()
             if df.empty:
                 # print("###########################################################")
                 # print("System message:")
@@ -603,8 +637,8 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                 rep_bac_Genome_ID = int(df.index[0])
                 rep_bac_LIN = metadata.get_value(rep_bac_Genome_ID,"LIN")
                 rep_bac_LINgroup = ",".join(rep_bac_LIN.split(",")[:6])
-                compare_sketch(LINgroup=rep_bac_LINgroup)
-                df = parse_result()
+                compare_sketch(tmp_newgenome_sig,LINgroup=rep_bac_LINgroup)
+                df = parse_result2()
                 if df.get_value(df.index[0],"Jaccard_similarity") == 1:
                     # print("###########################################################")
                     # print("System message:")
@@ -708,23 +742,25 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                                                         )
             this_95_LINgroup = ",".join(new_LIN.split(",")[:6])
             this_95_LINgroup_path = sourmash_dir + this_95_LINgroup + "/"
-            c.execute("SELECT EXISTS(SELECT LIN FROM LIN WHERE LIN LIKE '{0}%')".format(this_95_LINgroup))
-            LINgroup_exists = c.fetchone()[0]
+            # c.execute("SELECT EXISTS(SELECT LIN FROM LIN WHERE LIN LIKE '{0}%')".format(this_95_LINgroup))
+            # LINgroup_exists = c.fetchone()[0]
             c.execute("INSERT INTO LIN (Genome_ID, Scheme_ID,SubjectGenome,ANI,Coverage,LIN) values "
                       "({0},4,{1},{2},{3},'{4}')".format(new_genome_ID, SubjectGenome, ANIb_result, cov_result,
                                                          new_LIN))
             db.commit()
-            os.system("cp {0} {1}".format(sourmash_tmp + "tmp.sig", sourmash_dir + str(new_genome_ID) + ".sig"))
-            if LINgroup_exists == 0:  # It's a new rep_bac
-                os.system("cp {0} {1}".format(sourmash_tmp + "tmp.sig", rep_bac_dir + str(new_genome_ID) + ".sig"))
-                if not isdir(this_95_LINgroup_path):
-                    os.mkdir(this_95_LINgroup_path)
-                    os.system("cp {0} {1}".format(sourmash_tmp + "tmp.sig",
-                                                  this_95_LINgroup_path + str(new_genome_ID) + ".sig"))
+            c.execute('SELECT FilePath FROM Genome WHERE Genome_ID={0}'.format(new_genome_ID))
+            real_new_genome_filepath = c.fetchone()[0]
+            new_genome_sig = create_sketch2(real_new_genome_filepath, sourmash_dir + str(new_genome_ID) + ".sig")
+            # os.system("cp {0} {1}".format(sourmash_tmp + "tmp.sig", sourmash_dir + str(new_genome_ID) + ".sig"))
+            if not isdir(this_95_LINgroup_path):  # It's a new rep_bac
+                # os.system("cp {0} {1}".format(new_genome_sig, rep_bac_dir + str(new_genome_ID) + ".sig"))
+                shutil.copyfile(new_genome_sig, rep_bac_dir + str(new_genome_ID) + ".sig")
+                os.mkdir(this_95_LINgroup_path)
+                shutil.copyfile(new_genome_sig, this_95_LINgroup_path + str(new_genome_ID) + ".sig")
+                # os.system("cp {0} {1}".format(new_genome_sig,
+                #                               this_95_LINgroup_path + str(new_genome_ID) + ".sig"))
             else:
-                os.system(
-                        "cp {0} {1}".format(sourmash_tmp + "tmp.sig",
-                                            this_95_LINgroup_path + str(new_genome_ID) + ".sig"))
+                shutil.copyfile(new_genome_sig, this_95_LINgroup_path + str(new_genome_ID) + ".sig")
             update_LINgroup(Genome_ID=new_genome_ID, c=c, new_LIN=new_LIN, conn=db)
             # c.execute("SELECT LIN_ID FROM LIN WHERE Scheme_ID=4 AND Genome_ID={0}".format(new_genome_ID))
             # LIN_ID = c.fetchone()[0]
