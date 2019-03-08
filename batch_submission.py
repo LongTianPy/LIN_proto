@@ -105,7 +105,7 @@ def import_existing_distance_matrix(existing_df):
     return df
 
 
-def cluster_by_threshold(df, threshold):
+def cluster_by_threshold(working_dir,df, threshold):
     print("Clustering genomes at jaccard similarity threshold of {0}".format(threshold))
     samples = list(df.columns)
     sample_distances = {}
@@ -125,7 +125,7 @@ def cluster_by_threshold(df, threshold):
             clusters[str(cutree[i][0])] = [labels[i]]
         else:
             clusters[str(cutree[i][0])].append(labels[i])
-    with open(join(working_dir,"clusters_k{0}.json"),"w") as f:
+    with open(join(working_dir,"clusters_{0}.json".format(threshold)),"w") as f:
         json.dump(clusters,f)
     return clusters
 
@@ -177,7 +177,7 @@ def coarse_search(genome_filepath, working_dir, k, threshold = 0.08,precomputed_
         df, file_map = generate_coarse_distance_matrix(genome_filepath, working_dir, k)
     else:
         df = import_existing_distance_matrix(precomputed_sim_matrix)
-    clusters = cluster_by_threshold(df,threshold)
+    clusters = cluster_by_threshold(working_dir,df,threshold)
     uploaded_rep_bac, uploaded_rep_bac_dir, sig_to_fasta = pick_representative(clusters, working_dir,file_map)
     uploaded_cluster_to_LINgroup = compare_uploaded_with_existing_rep_bac(k, uploaded_rep_bac, uploaded_rep_bac_dir,
                                                                           sig_to_fasta, rep_bac_dir, working_dir, c)

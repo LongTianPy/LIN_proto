@@ -30,10 +30,10 @@ import shutil
 # from functools import partial
 
 # VARIABLES
-sourmash_dir = "/home/linproject/Workspace/Sourmash2/all_sketches/"
-rep_bac_dir = "/home/linproject/Workspace/Sourmash2/rep_bac/"
-sourmash_tmp = "/home/linproject/Workspace/Sourmash2/tmp_2/"
-sourmash_result = "/home/linproject/Workspace/Sourmash2/result/"
+sourmash_dir = "/home/linproject/Workspace/Sourmash2.0/all_sketches/"
+rep_bac_dir = "/home/linproject/Workspace/Sourmash2.0/rep_bac/"
+sourmash_tmp = "/home/linproject/Workspace/Sourmash2.0/tmp_2/"
+sourmash_result = "/home/linproject/Workspace/Sourmash2.0/result/"
 bbmap_bin = "/home/linproject/Projects/bbmap/"
 bbmap_dir = "/home/linproject/Workspace/bbmap/"
 bbmap_rep_bac_dir = "/home/linproject/Workspace/bbmap/rep_bac/"
