@@ -624,7 +624,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
             ANIb_result = top1_similarity
             cov_result = top1_coverage
         else:
-            compare_sketch(tmp_newgenome_sig,LINgroup="rep_bac")
+            compare_sketch2(tmp_newgenome_sig,"rep_bac")
             df = parse_result2()
             if df.empty:
                 # print("###########################################################")
@@ -637,7 +637,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                 rep_bac_Genome_ID = int(df.index[0])
                 rep_bac_LIN = metadata.get_value(rep_bac_Genome_ID,"LIN")
                 rep_bac_LINgroup = ",".join(rep_bac_LIN.split(",")[:6])
-                compare_sketch(tmp_newgenome_sig,LINgroup=rep_bac_LINgroup)
+                compare_sketch2(tmp_newgenome_sig,rep_bac_LINgroup)
                 df = parse_result2()
                 if df.get_value(df.index[0],"Jaccard_similarity") == 1:
                     # print("###########################################################")
