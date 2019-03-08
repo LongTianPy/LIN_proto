@@ -289,7 +289,7 @@ def create_sketch(filepath):
     os.system(cmd)
 
 def create_sketch2(filepath,dest):
-    cmd = "sourmash compute -o {0} {1} -k 21,31,51 -n 2000 -q > /dev/null 2>&1".format(dest, filepath)
+    cmd = "sourmash compute -o {0} {1} -k 21,31,51 -n 2000 -q".format(dest, filepath)
     os.system(cmd)
     return dest
 
@@ -639,14 +639,14 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                 rep_bac_LINgroup = ",".join(rep_bac_LIN.split(",")[:6])
                 compare_sketch2(tmp_newgenome_sig,rep_bac_LINgroup)
                 df = parse_result2()
-                if df.get_value(df.index[0],"Jaccard_similarity") == 1:
+                if df.get_value(df.index[0],"similarity") == 1:
                     # print("###########################################################")
                     # print("System message:")
                     # print("100% Jaccard similarity detected, checking duplication.")
                     # print("LIN will be assigned if new genome.")
                     # print("###########################################################")
                     # Same genome found
-                    sub_df = df[df["Jaccard_similarity"]==1]
+                    sub_df = df[df["similarity"]==1]
                     ANIb_result = 0
                     cov_result = 0
                     SubjectGenome = 0
@@ -711,7 +711,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                         os.system("rm -rf {0}".format(sub_working_dir))
                         if isdir(sub_working_dir):
                             os.system("rmdir {0}".format(sub_working_dir))
-                        predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid=df.get_value(each_subject_genome_ID,"Jaccard_similarity"))
+                        predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid=df.get_value(each_subject_genome_ID,"similarity"))
                         if predict.same_family:
                             break
                         else:
