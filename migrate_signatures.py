@@ -26,7 +26,8 @@ def create_signature(genome,dest):
     return dest
 
 def migrate(c):
-    c.execute("SELECT LIN.Genome_ID, Genome.FilePath, LIN.LIN FROM Genome,LIN WHERE Genome.Genome_ID=LIN.Genome_ID")
+    c.execute("SELECT LIN.Genome_ID, Genome.FilePath, LIN.LIN FROM Genome,LIN WHERE Genome.Genome_ID=LIN.Genome_ID AND "
+              "Genome.Genome_ID>5529")
     tmp = c.fetchall()
     genome_id = [int(i[0]) for i in tmp]
     filepath = [i[1] for i in tmp]
