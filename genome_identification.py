@@ -60,7 +60,6 @@ def parse_result(result_file):
             id = int(each.split('/')[-1].split('.')[0])
             ids.append(id)
         df.index = ids
-        df.columns[0] = 'Jaccard_similarity'
         return df
 
 def check_belonged_LINgroups(conservevd_LIN,c):

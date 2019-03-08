@@ -111,18 +111,18 @@
       <file leaf-file-name="genome_identification.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/genome_identification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-492">
-              <caret line="47" column="60" lean-forward="false" selection-start-line="47" selection-start-column="60" selection-end-line="47" selection-end-column="60" />
+            <state relative-caret-position="-1199">
+              <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
               <folding>
-                <marker date="1552056620112" expanded="true" signature="2066:2107" ph="select LINgr... LINgroup" />
-                <marker date="1552056620112" expanded="true" signature="2459:2580" ph="SELECT Genom... Genome" />
-                <marker date="1552056620112" expanded="true" signature="3770:4030" ph="select disti... LINgroup" />
-                <marker date="1552056620112" expanded="true" signature="4428:4532" ph="select LIN.G... LIN" />
-                <marker date="1552056620112" expanded="true" signature="5948:5984" ph="select LIN f... LIN" />
-                <marker date="1552056620112" expanded="true" signature="6616:6671" ph="select LIN f... LIN" />
-                <marker date="1552056620112" expanded="true" signature="7017:7061" ph="select FileP... Genome" />
-                <marker date="1552056620112" expanded="true" signature="7636:7672" ph="select LIN f... LIN" />
-                <marker date="1552056620112" expanded="true" signature="8390:8426" ph="SELECT LIN F... LIN" />
+                <marker date="1552056929469" expanded="true" signature="2021:2062" ph="select LINgr... LINgroup" />
+                <marker date="1552056929469" expanded="true" signature="2414:2535" ph="SELECT Genom... Genome" />
+                <marker date="1552056929469" expanded="true" signature="3725:3985" ph="select disti... LINgroup" />
+                <marker date="1552056929469" expanded="true" signature="4383:4487" ph="select LIN.G... LIN" />
+                <marker date="1552056929469" expanded="true" signature="5903:5939" ph="select LIN f... LIN" />
+                <marker date="1552056929469" expanded="true" signature="6571:6626" ph="select LIN f... LIN" />
+                <marker date="1552056929469" expanded="true" signature="6972:7016" ph="select FileP... Genome" />
+                <marker date="1552056929469" expanded="true" signature="7591:7627" ph="select LIN f... LIN" />
+                <marker date="1552056929469" expanded="true" signature="8345:8381" ph="SELECT LIN F... LIN" />
               </folding>
             </state>
           </provider>
@@ -511,13 +511,6 @@
       <workItem from="1547838362907" duration="302000" />
       <workItem from="1549036529563" duration="30845000" />
     </task>
-    <task id="LOCAL-00857" summary="debugging genome identification">
-      <created>1544646144541</created>
-      <option name="number" value="00857" />
-      <option name="presentableId" value="LOCAL-00857" />
-      <option name="project" value="LOCAL" />
-      <updated>1544646144541</updated>
-    </task>
     <task id="LOCAL-00858" summary="debugging workflow2">
       <created>1544646307500</created>
       <option name="number" value="00858" />
@@ -854,7 +847,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552018792411</updated>
     </task>
-    <option name="localTasksCounter" value="906" />
+    <task id="LOCAL-00906" summary="avail sourmash2 in genome identification">
+      <created>1552056653098</created>
+      <option name="number" value="00906" />
+      <option name="presentableId" value="LOCAL-00906" />
+      <option name="project" value="LOCAL" />
+      <updated>1552056653099</updated>
+    </task>
+    <option name="localTasksCounter" value="907" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -923,7 +923,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="genome identification script" />
     <MESSAGE value="wrap workflow as a function and return dictionary" />
     <MESSAGE value="modify for python3" />
     <MESSAGE value="deleted .gitignore" />
@@ -948,7 +947,8 @@
     <MESSAGE value="adapt to sourmash2.0&#10;bug fix" />
     <MESSAGE value="batch upload" />
     <MESSAGE value="bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
+    <MESSAGE value="avail sourmash2 in genome identification" />
+    <option name="LAST_COMMIT_MESSAGE" value="avail sourmash2 in genome identification" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1339,18 +1339,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/genome_identification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-492">
-          <caret line="47" column="60" lean-forward="false" selection-start-line="47" selection-start-column="60" selection-end-line="47" selection-end-column="60" />
+        <state relative-caret-position="-1199">
+          <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
           <folding>
-            <marker date="1552056620112" expanded="true" signature="2066:2107" ph="select LINgr... LINgroup" />
-            <marker date="1552056620112" expanded="true" signature="2459:2580" ph="SELECT Genom... Genome" />
-            <marker date="1552056620112" expanded="true" signature="3770:4030" ph="select disti... LINgroup" />
-            <marker date="1552056620112" expanded="true" signature="4428:4532" ph="select LIN.G... LIN" />
-            <marker date="1552056620112" expanded="true" signature="5948:5984" ph="select LIN f... LIN" />
-            <marker date="1552056620112" expanded="true" signature="6616:6671" ph="select LIN f... LIN" />
-            <marker date="1552056620112" expanded="true" signature="7017:7061" ph="select FileP... Genome" />
-            <marker date="1552056620112" expanded="true" signature="7636:7672" ph="select LIN f... LIN" />
-            <marker date="1552056620112" expanded="true" signature="8390:8426" ph="SELECT LIN F... LIN" />
+            <marker date="1552056929469" expanded="true" signature="2021:2062" ph="select LINgr... LINgroup" />
+            <marker date="1552056929469" expanded="true" signature="2414:2535" ph="SELECT Genom... Genome" />
+            <marker date="1552056929469" expanded="true" signature="3725:3985" ph="select disti... LINgroup" />
+            <marker date="1552056929469" expanded="true" signature="4383:4487" ph="select LIN.G... LIN" />
+            <marker date="1552056929469" expanded="true" signature="5903:5939" ph="select LIN f... LIN" />
+            <marker date="1552056929469" expanded="true" signature="6571:6626" ph="select LIN f... LIN" />
+            <marker date="1552056929469" expanded="true" signature="6972:7016" ph="select FileP... Genome" />
+            <marker date="1552056929469" expanded="true" signature="7591:7627" ph="select LIN f... LIN" />
+            <marker date="1552056929469" expanded="true" signature="8345:8381" ph="SELECT LIN F... LIN" />
           </folding>
         </state>
       </provider>
