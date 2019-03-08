@@ -16,10 +16,10 @@ import uuid
 import filecmp
 
 # VARIABLES
-sourmash_dir = "/home/linproject/Workspace/Sourmash2/all_sketches/"
+sourmash_dir = "/home/linproject/Workspace/Sourmash2.0/all_sketches/"
 # working_dir = "/home/linproject/Workspace/Genome_identification/"
 # genome_dir = "/home/linproject/Workspace/Genome_identification/uploaded_genome"
-rep_bac_dir = "/home/linproject/Workspace/Sourmash2/rep_bac/"
+rep_bac_dir = "/home/linproject/Workspace/Sourmash2.0/rep_bac/"
 
 scheme = [0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 0.96, 0.97, 0.98, 0.985, 0.99, 0.9925, 0.995, 0.9975, 0.9990000000000001,
           0.99925, 0.9995, 0.9997499999999999, 0.9998999999999999, 0.9999899999999999]
@@ -28,14 +28,14 @@ scheme = [0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 0.96, 0.97, 0.98, 0.985, 0.99, 0.9925
 
 # FUNCTIONS
 def connect_to_db():
-    conn = Connect("localhost", "LINbase","Latham@537")
+    conn = Connect("127.0.0.1", "LINbase","Latham@537")
     c = conn.cursor()
     c.execute("use LINdb_NCBI_RefSeq_test")
     return conn, c
 
 def create_sketch(filepath,output):
     dest = output
-    cmd = "sourmash compute -o {0} {1} -k 31 -n 1000 > /dev/null 2>&1".format(dest,filepath)
+    cmd = "sourmash compute -o {0} {1} -k 21,31,51 -n 2000 > /dev/null 2>&1".format(dest,filepath)
     os.system(cmd)
     return dest
 
@@ -45,22 +45,22 @@ def compare_sketch(tmp_sig,LINgroup,output):
     else:
         dest = sourmash_dir + LINgroup + "/"
     folder_size = len([file for file in os.listdir(dest) if isfile(join(dest,file))])
-    cmd = "sourmash search {0} {1}*.sig -n {2} > {3} 2> /dev/null"
+    cmd = "sourmash search {0} {1}*.sig -n {2} -o {3} -k 31 --threshold 0.0001 -q 2> /dev/null 2>&1"
     cmd = cmd.format(tmp_sig, dest, folder_size, output)
     os.system(cmd)
     return output
 
 def parse_result(result_file):
-    f = open(result_file,"r")
-    lines = [i.strip().split(" \t ") for i in f.readlines()[3:]]
-    f.close()
-    df = pd.DataFrame()
-    if len(lines) == 0:
+    df = pd.read_csv(result_file, sep=",", header=0)
+    if df.empty:
         return df
     else:
-        mash_d = [float(i[1]) for i in lines]
-        df["Jaccard_similarity"] = mash_d
-        df.index = [i[2].split("/")[-1].split(".")[0] for i in lines]
+        ids = []
+        for each in df['filename']:
+            id = int(each.split('/')[-1].split('.')[0])
+            ids.append(id)
+        df.index = ids
+        df.columns[0] = 'Jaccard_similarity'
         return df
 
 def check_belonged_LINgroups(conservevd_LIN,c):
