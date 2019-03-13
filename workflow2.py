@@ -826,5 +826,3 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
     c.close()
     db.close()
     return result
-
-s
