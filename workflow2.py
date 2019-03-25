@@ -70,7 +70,7 @@ class DecisionTree(object):
                 if cov > 0.229:
                     self.same_family = True
                 else:
-                    False
+                    self.same_family = False
             else:
                 self.same_family = False
 
