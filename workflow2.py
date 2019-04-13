@@ -230,7 +230,7 @@ def check_and_load_w_taxid(tax_list,c,conn,Rank_ID,Genome_ID):
         conn.commit()
 
 def fill_all_taxonomy_lineage(c,conn,Genome_ID):
-    c.execute("SELECT Rank_ID,NCBI_Tax_ID FROM Taxonomy WHERE Genome_ID={0} AND NCBI_Tax_ID IS NOT NULL ORDER BY Rank_ID ASC".format(Genome_ID))
+    c.execute("SELECT Rank_ID,NCBI_Tax_ID FROM Taxonomy WHERE Genome_ID={0} AND NCBI_Tax_ID<>0 ORDER BY Rank_ID ASC".format(Genome_ID))
     tmp = c.fetchone()
     if tmp is not None:
         [rank_id, tax_id] = tmp
