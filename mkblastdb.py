@@ -11,7 +11,7 @@ import sys
 
 # FUNCTIONS
 def concat_genomes(db):
-    conn = Connect("localhost","root")
+    conn = Connect("127.0.0.1","LINbase","Latham@537")
     c = conn.cursor()
     c.execute("USE {0}".format(db))
     c.execute("SELECT Genome.Genome_ID, Genome.FilePath, LIN.LIN FROM Genome,LIN WHERE Genome.Genome_ID=LIN.Genome_ID AND LIN.Scheme_ID=4")
@@ -51,7 +51,7 @@ def concat_genomes(db):
 
 def makeblastdb(db_fasta_file,db):
     db_dir = "/home/linproject/Workspace/BLAST/db/"
-    makeblastdb_cmd = "makeblastdb -in {0} -dbtype nucl -hash_index -logfile {1}error_log -out {2}".format(join(db_dir,db_fasta_file),db_dir,db_dir+db)
+    makeblastdb_cmd = "makeblastdb -in {0} -dbtype nucl -logfile {1}error_log -out {2}".format(join(db_dir,db_fasta_file),db_dir,db_dir+db)
     os.system(makeblastdb_cmd)
 
 # MAIN
