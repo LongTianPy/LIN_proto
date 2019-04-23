@@ -36,7 +36,7 @@ def compare(genome_ids,job_id):
         os.mkdir(working_dir)
     for i in genome_ids:
         shutil.copy(join(sourmash_dir,'{0}.sig'.format(i)), working_dir)
-    os.system('sourmash compare -k 21 {0} -o {1}'.format(join(working_dir,'*.sig'), join(working_dir,job_id)))
+    os.system('sourmash compare -k 21 {0} -o {1} -q'.format(join(working_dir,'*.sig'), join(working_dir,job_id)))
     matrix = join(working_dir,job_id)
     labels = join(working_dir,job_id+'.labels.txt')
     return matrix,labels
