@@ -48,7 +48,10 @@ def plot(matrix,labels,c,job_id):
             c.execute('SELECT Genome.Genome_ID,LIN.LIN FROM Genome LEFT JOIN LIN ON Genome.Genome_ID=LIN.Genome_ID WHERE Genome.FilePath="{0}"'.format(line))
             [id, lin] = c.fetchone()
             c.execute('SELECT NCBI_Tax_ID.Taxon nt, Taxonomy.Taxon tt FROM Taxonomy LEFT JOIN NCBI_Tax_ID ON Taxonomy.NCBI_Tax_ID=NCBI_Tax_ID.NCBI_Tax_ID WHERE Taxonomy.Genome_ID={0} AND Taxonomy.Rank_ID=20'.format(id))
-            [tt,nt] = c.fetchone()
+            try:
+                [tt,nt] = c.fetchone()
+            except:
+                print(id)
             if tt is None:
                 name = nt
             else:
