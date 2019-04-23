@@ -59,7 +59,7 @@ def plot(matrix,labels,c,job_id):
                 name = tt
             # f.write('{:<10}    {:<45}\n'.format(name,lin))
             f.write('{0}\n'.format(name))
-    os.system("sourmash plot {0} --labels 2> /dev/null".format(matrix))
+    os.system("sourmash plot {0} --labels > {1}".format(matrix, join(plot_dir,job_id,'stdout')))
     return join(plot_dir, job_id, '{0}.matrix.png'.format(job_id))
 
 def make_plot(LINgroup,job_id):
