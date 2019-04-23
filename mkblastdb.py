@@ -54,6 +54,7 @@ def makeblastdb(db_fasta_file,db):
     makeblastdb_cmd = "makeblastdb -in {0} -dbtype nucl -logfile {1}error_log -out {2}".format(join(db_dir,db_fasta_file),db_dir,db_dir+db)
     os.system(makeblastdb_cmd)
 
+
 # MAIN
 if __name__ == "__main__":
     db = sys.argv[1]
