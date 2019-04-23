@@ -34,6 +34,7 @@ def compare(genome_ids,job_id):
     working_dir = join(plot_dir + job_id)
     if not isdir(working_dir):
         os.mkdir(working_dir)
+    os.chdir(working_dir)
     for i in genome_ids:
         shutil.copy(join(sourmash_dir,'{0}.sig'.format(i)), working_dir)
     os.system('sourmash compare -k 21 {0} -o {1} -q'.format(join(working_dir,'*.sig'), join(working_dir,job_id)))
