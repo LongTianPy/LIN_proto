@@ -45,10 +45,10 @@ def plot(matrix,labels,c,job_id):
         lines = [i.strip() for i in f.readlines()]
     with open(labels,'w') as f:
         for line in lines:
-            # c.execute('SELECT Genome.Genome_ID,LIN.LIN FROM Genome LEFT JOIN LIN ON Genome.Genome_ID=LIN.Genome_ID WHERE Genome.FilePath="{0}"'.format(line))
-            # [id, lin] = c.fetchone()
-            # c.execute('SELECT NCBI_Tax_ID.Taxon nt, Taxonomy.Taxon tt FROM Taxonomy LEFT JOIN NCBI_Tax_ID ON Taxonomy.NCBI_Tax_ID=NCBI_Tax_ID.NCBI_Tax_ID WHERE Taxonomy.Genome_ID={0} AND Taxonomy.Rank_ID=20'.format(id))
-            c.execute("SELECT NCBI_Tax_ID.Taxon nt, Taxonomy.Taxon tt FROM Taxonomy LEFT JOIN NCBI_Tax_ID ON Taxonomy.NCBI_Tax_ID=NCBI_Tax_ID.NCBI_Tax_ID LEFT JOIN Genome ON Taxonomy.Genome_ID=Taxonomy.Genome_ID WHERE Genome.FilePath='{0}' AND Taxonomy.Rank_ID=20".format(line))
+            c.execute('SELECT Genome.Genome_ID,LIN.LIN FROM Genome LEFT JOIN LIN ON Genome.Genome_ID=LIN.Genome_ID WHERE Genome.FilePath="{0}"'.format(line))
+            [id, lin] = c.fetchone()
+            c.execute('SELECT NCBI_Tax_ID.Taxon nt, Taxonomy.Taxon tt FROM Taxonomy LEFT JOIN NCBI_Tax_ID ON Taxonomy.NCBI_Tax_ID=NCBI_Tax_ID.NCBI_Tax_ID WHERE Taxonomy.Genome_ID={0} AND Taxonomy.Rank_ID=20'.format(id))
+            # c.execute("SELECT NCBI_Tax_ID.Taxon nt, Taxonomy.Taxon tt FROM Taxonomy LEFT JOIN NCBI_Tax_ID ON Taxonomy.NCBI_Tax_ID=NCBI_Tax_ID.NCBI_Tax_ID LEFT JOIN Genome ON Taxonomy.Genome_ID=Taxonomy.Genome_ID WHERE Genome.FilePath='{0}' AND Taxonomy.Rank_ID=20".format(line))
             try:
                 [tt,nt] = c.fetchone()
             except:
