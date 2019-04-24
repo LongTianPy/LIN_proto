@@ -657,16 +657,15 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                         sub_working_dir = workspace_dir + str(uuid.uuid4()) + "/"
                         if not isdir(sub_working_dir):
                             os.mkdir(sub_working_dir)
-                        shutil.copyfile(new_genome_filepath, sub_working_dir+"tmp.fasta")
-                        shutil.copyfile(subject_genome_filepath,sub_working_dir+"{0}.fasta".format(each_subject_genome_ID))
+                        shutil.copyfile(new_genome_filepath, join(sub_working_dir, "tmp.fasta"))
+                        shutil.copyfile(subject_genome_filepath, join(sub_working_dir,"{0}.fasta".format(each_subject_genome_ID)))
                         pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                                    "-i {0} -o {0}output -m ANIb --nocompress -f".format(sub_working_dir)
+                                    "-i {0} -o {1} -m ANIb --nocompress -f".format(sub_working_dir,join(sub_working_dir,'output'))
                         os.system(pyani_cmd)
-                        this_ANIb_result = pd.read_table(sub_working_dir + "output/ANIb_percentage_identity.tab",
-                                                    sep="\t",
+                        ANIb_result = pd.read_table(join(sub_working_dir, "output","ANIb_percentage_identity.tab"), sep="\t",
                                                     header=0,
                                                     index_col=0).get_value('tmp', str(each_subject_genome_ID))
-                        this_cov_result = pd.read_table(sub_working_dir + "output/ANIb_alignment_coverage.tab", sep="\t",
+                        cov_result = pd.read_table(join(sub_working_dir, "output", "ANIb_alignment_coverage.tab"), sep="\t",
                                                    header=0,
                                                    index_col=0).get_value('tmp', str(each_subject_genome_ID))
                         os.system("rm -rf {0}".format(sub_working_dir))
@@ -693,24 +692,22 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                     # print("LIN will be assigned.")
                     # print("###########################################################")
                     for each_subject_genome_ID in df.index[:3]:
-                        sub_working_dir = workspace_dir + str(each_subject_genome_ID) + "/"
+                        sub_working_dir = join(workspace_dir, str(each_subject_genome_ID))
                         if not isdir(sub_working_dir):
                             os.mkdir(sub_working_dir)
                         subject_genome_filepath = metadata.get_value(int(each_subject_genome_ID), "FilePath")
-                        shutil.copyfile(new_genome_filepath, sub_working_dir + "tmp.fasta")
-                        shutil.copyfile(subject_genome_filepath, sub_working_dir + "{0}.fasta".format(each_subject_genome_ID))
+                        shutil.copyfile(new_genome_filepath, join(sub_working_dir, "tmp.fasta"))
+                        shutil.copyfile(subject_genome_filepath, join(sub_working_dir,"{0}.fasta".format(each_subject_genome_ID)))
                         pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                                    "-i {0} -o {0}output -m ANIb --nocompress -f".format(sub_working_dir)
+                                    "-i {0} -o {1} -m ANIb --nocompress -f".format(sub_working_dir,join(sub_working_dir,'output'))
                         os.system(pyani_cmd)
-                        ANIb_result = pd.read_table(sub_working_dir + "output/ANIb_percentage_identity.tab", sep="\t",
+                        ANIb_result = pd.read_table(join(sub_working_dir, "output","ANIb_percentage_identity.tab"), sep="\t",
                                                     header=0,
                                                     index_col=0).get_value('tmp', str(each_subject_genome_ID))
-                        cov_result = pd.read_table(sub_working_dir + "output/ANIb_alignment_coverage.tab", sep="\t",
+                        cov_result = pd.read_table(join(sub_working_dir, "output", "ANIb_alignment_coverage.tab"), sep="\t",
                                                    header=0,
                                                    index_col=0).get_value('tmp', str(each_subject_genome_ID))
                         os.system("rm -rf {0}".format(sub_working_dir))
-                        if isdir(sub_working_dir):
-                            os.system("rmdir {0}".format(sub_working_dir))
                         predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid=df.get_value(each_subject_genome_ID,"similarity"))
                         if predict.same_family:
                             break
