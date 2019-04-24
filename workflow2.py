@@ -376,7 +376,7 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
                                         index_col=0).get_value('tmp',str(subject_genome_ID))
             cov_result = pd.read_table(sub_working_dir+"output/ANIb_alignment_coverage.tab",sep="\t",header=0,
                                         index_col=0).get_value('tmp',str(subject_genome_ID))
-            os.system("rm -rf {0}".format(sub_working_dir))
+            # os.system("rm -rf {0}".format(sub_working_dir))
             if isdir(sub_working_dir):
                 os.system("rmdir {0}".format(sub_working_dir))
             predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid="N/A")
@@ -437,7 +437,7 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
                         cov_result = pd.read_table(sub_working_dir + "output/ANIb_alignment_coverage.tab",
                                                    sep="\t", header=0,
                                                    index_col=0).get_value('tmp', str(subject_genome_ID))
-                        os.system("rm -rf {0}".format(sub_working_dir))
+                        # os.system("rm -rf {0}".format(sub_working_dir))
                         if isdir(sub_working_dir):
                             os.system("rmdir {0}".format(sub_working_dir))
                         predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid="N/A")
@@ -521,7 +521,7 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
                     cov_result = pd.read_table(sub_working_dir + "output/ANIb_alignment_coverage.tab", sep="\t",
                                                header=0,
                                                index_col=0).get_value('tmp', str(subject_genome_ID))
-                    os.system("rm -rf {0}".format(sub_working_dir))
+                    # os.system("rm -rf {0}".format(sub_working_dir))
                     if isdir(sub_working_dir):
                         os.system("rmdir {0}".format(sub_working_dir))
                     predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid=0)
@@ -668,7 +668,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                         cov_result = pd.read_table(join(sub_working_dir, "output", "ANIb_alignment_coverage.tab"), sep="\t",
                                                    header=0,
                                                    index_col=0).get_value('tmp', str(each_subject_genome_ID))
-                        os.system("rm -rf {0}".format(sub_working_dir))
+                        # os.system("rm -rf {0}".format(sub_working_dir))
                         if this_ANIb_result > 0.99999:
                             ANIb_result = this_ANIb_result
                             cov_result = this_cov_result
@@ -707,7 +707,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                         cov_result = pd.read_table(join(sub_working_dir, "output", "ANIb_alignment_coverage.tab"), sep="\t",
                                                    header=0,
                                                    index_col=0).get_value('tmp', str(each_subject_genome_ID))
-                        os.system("rm -rf {0}".format(sub_working_dir))
+                        # # os.system("rm -rf {0}".format(sub_working_dir))
                         predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid=df.get_value(each_subject_genome_ID,"similarity"))
                         if predict.same_family:
                             break
@@ -823,4 +823,5 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
     db.commit()
     c.close()
     db.close()
+    os.system('rm -rf {0}/*'.format(workspace_dir))
     return result
