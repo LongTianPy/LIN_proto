@@ -299,7 +299,7 @@ def compare_sketch2(query,LINgroup):
     else:
         dest = sourmash_dir + LINgroup + "/"
     folder_size = len([file for file in os.listdir(dest) if isfile(join(dest,file))])
-    cmd = "sourmash search {0} {1}*.sig -n {2} -k 31 -q --threshold 0.0001 -o {3} 2> /dev/null"
+    cmd = "sourmash search {0} {1}*.sig -n {2} -k 31 -q --threshold 0.0001 -o {3}"
     cmd = cmd.format(query, dest, folder_size, sourmash_result+"tmp_result.txt")
     os.system(cmd)
 
@@ -309,7 +309,7 @@ def compare_sketch(LINgroup):
     else:
         dest = sourmash_dir + LINgroup + "/"
     folder_size = len([file for file in os.listdir(dest) if isfile(join(dest,file))])
-    cmd = "sourmash search {0} {1}*.sig -n {2} > {3} 2> /dev/null"
+    cmd = "sourmash search {0} {1}*.sig -n {2} > {3}"
     cmd = cmd.format(sourmash_tmp+"tmp.sig", dest, folder_size, sourmash_result+"tmp_result.txt")
     os.system(cmd)
 ### By expectation, this returns The MinHash top hit, estimated ANI, and the Jaccard similarity
@@ -370,7 +370,7 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
             shutil.copyfile(new_genome_filepath, sub_working_dir + "tmp.fasta")
             shutil.copyfile(subject_genome_filepath, sub_working_dir + "{0}.fasta".format(subject_genome_ID))
             pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                        "-i {0} -o {0}output -m ANIb --nocompress -f 2> /dev/null".format(sub_working_dir)
+                        "-i {0} -o {0}output -m ANIb --nocompress -f".format(sub_working_dir)
             os.system(pyani_cmd)
             ANIb_result = pd.read_table(sub_working_dir+"output/ANIb_percentage_identity.tab",sep="\t",header=0,
                                         index_col=0).get_value('tmp',str(subject_genome_ID))
@@ -429,7 +429,7 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
                         shutil.copyfile(subject_genome_filepath,
                                         sub_working_dir + "{0}.fasta".format(subject_genome_ID))
                         pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                                    "-i {0} -o {0}output -m ANIb --nocompress -f 2> /dev/null".format(sub_working_dir)
+                                    "-i {0} -o {0}output -m ANIb --nocompress -f".format(sub_working_dir)
                         os.system(pyani_cmd)
                         ANIb_result = pd.read_table(sub_working_dir + "output/ANIb_percentage_identity.tab",
                                                     sep="\t", header=0,
@@ -513,7 +513,7 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
                     shutil.copyfile(new_genome_filepath,sub_working_dir+"tmp.fasta")
                     shutil.copyfile(subject_genome_filepath, sub_working_dir + "{0}.fasta".format(subject_genome_ID))
                     pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                            "-i {0} -o {0}output -m ANIb --nocompress -f 2> /dev/null".format(sub_working_dir)
+                            "-i {0} -o {0}output -m ANIb --nocompress -f".format(sub_working_dir)
                     os.system(pyani_cmd)
                     ANIb_result = pd.read_table(sub_working_dir + "output/ANIb_percentage_identity.tab", sep="\t",
                                                 header=0,
@@ -660,7 +660,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                         shutil.copyfile(new_genome_filepath, sub_working_dir+"tmp.fasta")
                         shutil.copyfile(subject_genome_filepath,sub_working_dir+"{0}.fasta".format(each_subject_genome_ID))
                         pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                                    "-i {0} -o {0}output -m ANIb --nocompress -f 2> /dev/null".format(sub_working_dir)
+                                    "-i {0} -o {0}output -m ANIb --nocompress -f".format(sub_working_dir)
                         os.system(pyani_cmd)
                         this_ANIb_result = pd.read_table(sub_working_dir + "output/ANIb_percentage_identity.tab",
                                                     sep="\t",
@@ -700,7 +700,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                         shutil.copyfile(new_genome_filepath, sub_working_dir + "tmp.fasta")
                         shutil.copyfile(subject_genome_filepath, sub_working_dir + "{0}.fasta".format(each_subject_genome_ID))
                         pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
-                                    "-i {0} -o {0}output -m ANIb --nocompress -f 2> /dev/null".format(sub_working_dir)
+                                    "-i {0} -o {0}output -m ANIb --nocompress -f".format(sub_working_dir)
                         os.system(pyani_cmd)
                         ANIb_result = pd.read_table(sub_working_dir + "output/ANIb_percentage_identity.tab", sep="\t",
                                                     header=0,
