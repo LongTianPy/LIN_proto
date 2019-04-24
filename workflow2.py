@@ -823,6 +823,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
         best_LIN = c.fetchone()[0]
         result = {"best LIN": best_LIN}
     # os.system("rm {0}".format(new_genome_filepath))
+    db.commit()
     c.close()
     db.close()
     return result
