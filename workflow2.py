@@ -299,9 +299,10 @@ def compare_sketch2(query,LINgroup):
     else:
         dest = sourmash_dir + LINgroup + "/"
     folder_size = len([file for file in os.listdir(dest) if isfile(join(dest,file))])
-    cmd = "sourmash search {0} {1}*.sig -n {2} -k 31 -q --threshold 0.0001 -o {3}"
+    cmd = "sourmash search {0} {1}*.sig -n {2} -k 21 -q --threshold 0.0001 -o {3}"
     cmd = cmd.format(query, dest, folder_size, sourmash_result+"tmp_result.txt")
     os.system(cmd)
+
 
 def compare_sketch(LINgroup):
     if LINgroup == "rep_bac":
