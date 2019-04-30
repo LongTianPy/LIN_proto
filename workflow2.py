@@ -620,6 +620,9 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
     metadata = extract_metadata(c)
     ranks_dict = extract_ranks(c)
     new_genome_filepath = tmp_folder + new_genome
+    workspace_dir = join(workspace_dir,new_genome)
+    if not os.path.isdir(workspace_dir):
+        os.mkdir(workspace_dir)
     file_duplication = 0
     for i in metadata.index:
         if filecmp.cmp(tmp_folder + new_genome,metadata.get_value(i,"FilePath")):
