@@ -8,6 +8,7 @@ import LIN_Assign
 import sys
 # import mash_indexing
 try:
+    sys.path.append('/usr/lib64/python2.7/site-packages/')
     from MySQLdb import Connect
     import pandas as pd
     from datetime import datetime
