@@ -28,6 +28,8 @@ import uuid
 import shutil
 # import multiprocessing as mp
 # from functools import partial
+import time
+import uuid
 
 # VARIABLES
 sourmash_dir = "/home/linproject/Workspace/Sourmash2.0/all_sketches/"
@@ -613,7 +615,8 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
             SubjectGenome = int(i)
             break
     if file_duplication == 0:
-        tmp_newgenome_sig = create_sketch2(tmp_folder + new_genome,sourmash_tmp+"tmp.sig")
+        tmp_sig_filename = str(uuid.uuid4())+".sig"
+        tmp_newgenome_sig = create_sketch2(tmp_folder + new_genome,sourmash_tmp+tmp_sig_filename)
         if metadata.empty:
             # if this is the first genome ever in the database
             new_LIN = ",".join(["0"] * 20)
@@ -639,6 +642,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                 rep_bac_LIN = metadata.get_value(rep_bac_Genome_ID,"LIN")
                 rep_bac_LINgroup = ",".join(rep_bac_LIN.split(",")[:6])
                 compare_sketch2(tmp_newgenome_sig,rep_bac_LINgroup)
+                time.sleep(2)
                 df = parse_result2()
                 if df.get_value(df.index[0],"similarity") == 1:
                     # print("###########################################################")
@@ -799,8 +803,8 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
             c.execute("SELECT LIN FROM LIN WHERE Genome_ID={0}".format(SubjectGenome))
             best_LIN = c.fetchone()[0]
             result = {"best LIN": best_LIN}
-        # if isfile("{0}tmp.sig".format(sourmash_tmp)):
-        #     os.system("rm {0}tmp.sig".format(sourmash_tmp))
+        if isfile(new_genome_sig):
+            os.system("rm {0}".format(tmp_newgenome_sig))
     else:
         # duplicate genome file detected
         # print("###########################################################")
