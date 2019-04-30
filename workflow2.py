@@ -6,9 +6,11 @@
 # IMPORT
 import LIN_Assign
 # import mash_indexing
-import MySQLdb
-from MySQLdb import Connect
-import pandas as pd
+try:
+    from MySQLdb import Connect
+    import pandas as pd
+except:
+    pass
 import os
 from os.path import isdir, isfile, join
 import sys
@@ -374,6 +376,7 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
             pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
                         "-i {0} -o {0}output -m ANIb --nocompress -f".format(sub_working_dir)
             os.system(pyani_cmd)
+            time.sleep(3)
             ANIb_result = pd.read_table(sub_working_dir+"output/ANIb_percentage_identity.tab",sep="\t",header=0,
                                         index_col=0).get_value('tmp',str(subject_genome_ID))
             cov_result = pd.read_table(sub_working_dir+"output/ANIb_alignment_coverage.tab",sep="\t",header=0,
@@ -433,6 +436,7 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
                         pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
                                     "-i {0} -o {0}output -m ANIb --nocompress -f".format(sub_working_dir)
                         os.system(pyani_cmd)
+                        time.sleep(3)
                         ANIb_result = pd.read_table(sub_working_dir + "output/ANIb_percentage_identity.tab",
                                                     sep="\t", header=0,
                                                     index_col=0).get_value('tmp', str(subject_genome_ID))
@@ -517,6 +521,7 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
                     pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
                             "-i {0} -o {0}output -m ANIb --nocompress -f".format(sub_working_dir)
                     os.system(pyani_cmd)
+                    time.sleep(3)
                     ANIb_result = pd.read_table(sub_working_dir + "output/ANIb_percentage_identity.tab", sep="\t",
                                                 header=0,
                                                 index_col=0).get_value('tmp', str(subject_genome_ID))
@@ -666,6 +671,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                         pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
                                     "-i {0} -o {1} -m ANIb --nocompress -f".format(sub_working_dir,join(sub_working_dir,'output'))
                         os.system(pyani_cmd)
+                        time.sleep(5)
                         ANIb_result = pd.read_table(join(sub_working_dir, "output","ANIb_percentage_identity.tab"), sep="\t",
                                                     header=0,
                                                     index_col=0).get_value('tmp', str(each_subject_genome_ID))
@@ -705,6 +711,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                         pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
                                     "-i {0} -o {1} -m ANIb --nocompress -f".format(sub_working_dir,join(sub_working_dir,'output'))
                         os.system(pyani_cmd)
+                        time.sleep(3)
                         ANIb_result = pd.read_table(join(sub_working_dir, "output","ANIb_percentage_identity.tab"), sep="\t",
                                                     header=0,
                                                     index_col=0).get_value('tmp', str(each_subject_genome_ID))
