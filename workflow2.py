@@ -799,8 +799,8 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
             c.execute("SELECT LIN FROM LIN WHERE Genome_ID={0}".format(SubjectGenome))
             best_LIN = c.fetchone()[0]
             result = {"best LIN": best_LIN}
-        if isfile("{0}tmp.sig".format(sourmash_tmp)):
-            os.system("rm {0}tmp.sig".format(sourmash_tmp))
+        # if isfile("{0}tmp.sig".format(sourmash_tmp)):
+        #     os.system("rm {0}tmp.sig".format(sourmash_tmp))
     else:
         # duplicate genome file detected
         # print("###########################################################")
