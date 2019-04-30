@@ -5,7 +5,6 @@
 
 # IMPORT
 import LIN_Assign
-import LINgroup_indexing
 # import mash_indexing
 import MySQLdb
 from MySQLdb import Connect

@@ -8,6 +8,7 @@ LINgroup indexing is a method to select subject genome to calculate similarity
 # IMPORT
 import os
 import shutil
+
 import pandas as pd
 import LIN_Assign
 # OBJECT
