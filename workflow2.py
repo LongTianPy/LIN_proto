@@ -11,7 +11,7 @@ try:
     sys.path.append('/usr/lib64/python2.7/site-packages/')
     from MySQLdb import Connect
     import pandas as pd
-    from datetime import datetime
+    sys.path.append('/usr/lib/python2.7/site-packages/')
     from pytz import timezone
 except:
     pass
@@ -31,6 +31,7 @@ from os.path import isdir, isfile, join
 import argparse
 import filecmp
 import uuid
+from datetime import datetime
 # import sendEmail
 import shutil
 # import multiprocessing as mp
