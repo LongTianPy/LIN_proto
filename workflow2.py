@@ -294,6 +294,7 @@ def create_sketch(filepath):
 def create_sketch2(filepath,dest):
     cmd = "sourmash compute -o {0} {1} -k 21,31,51 -n 2000 -q".format(dest, filepath)
     os.system(cmd)
+    time.sleep(3)
     return dest
 
 def compare_sketch2(query,LINgroup):
@@ -316,6 +317,7 @@ def compare_sketch(LINgroup):
     cmd = "sourmash search {0} {1}*.sig -n {2} > {3}"
     cmd = cmd.format(sourmash_tmp+"tmp.sig", dest, folder_size, sourmash_result+"tmp_result.txt")
     os.system(cmd)
+    time.sleep(3)
 ### By expectation, this returns The MinHash top hit, estimated ANI, and the Jaccard similarity
 ### Load the new genome into database with metadata
 
