@@ -6,9 +6,6 @@ genome. See the new LIN assignment strategy for more details.
 """
 
 # IMPORT
-import MySQLdb
-from MySQLdb import Connect
-
 
 # OBJECT
 class getLIN(object):
