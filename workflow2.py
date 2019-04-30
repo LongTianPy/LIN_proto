@@ -11,9 +11,14 @@ try:
     import pandas as pd
     from datetime import datetime
     from pytz import timezone
-    from Bio import SeqIO, Entrez
 except:
     pass
+try:
+    sys.path.append('/usr/lib64/python2.7/site-packages/')
+    from Bio import SeqIO, Entrez
+except:
+    sys.path.append('/usr/local/lib/python3.5/site-packages/')
+    from Bio import SeqIO, Entrez
 import os
 from os.path import isdir, isfile, join
 import sys
