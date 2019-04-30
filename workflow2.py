@@ -377,7 +377,7 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
         if len(metadata.index) == 1:
             subject_genome_ID = metadata.index[0]
             subject_genome_filepath = metadata.get_value(subject_genome_ID,"FilePath")
-            sub_working_dir = workspace_dir + str(subject_genome_ID) + "/"
+            sub_working_dir = workspace_dir + str(uuid.uuid4()) + "/"
             if not isdir(sub_working_dir):
                 os.mkdir(sub_working_dir)
             shutil.copyfile(new_genome_filepath, sub_working_dir + "tmp.fasta")
@@ -392,7 +392,7 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
                                         index_col=0).get_value('tmp',str(subject_genome_ID))
             # os.system("rm -rf {0}".format(sub_working_dir))
             if isdir(sub_working_dir):
-                os.system("rmdir {0}".format(sub_working_dir))
+                shutil.rmtree(sub_working_dir)
             predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid="N/A")
             if predict.same_family:
                 top1_similarity = ANIb_result
@@ -436,7 +436,7 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
                         subject_genome_ID = each_final_candidate
                         cursor.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(subject_genome_ID))
                         subject_genome_filepath = cursor.fetchone()[0]
-                        sub_working_dir = workspace_dir + str(subject_genome_ID) + "/"
+                        sub_working_dir = workspace_dir + str(uuid.uuid4()) + "/"
                         if not isdir(sub_working_dir):
                             os.mkdir(sub_working_dir)
                         shutil.copyfile(new_genome_filepath, sub_working_dir + "tmp.fasta")
@@ -454,7 +454,7 @@ def LINgroup_indexing(cursor,metadata,new_genome_filepath):
                                                    index_col=0).get_value('tmp', str(subject_genome_ID))
                         # os.system("rm -rf {0}".format(sub_working_dir))
                         if isdir(sub_working_dir):
-                            os.system("rmdir {0}".format(sub_working_dir))
+                            shutil.rmtree(sub_working_dir)
                         predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid="N/A")
                         sub_df = pd.DataFrame(0, index=[subject_genome_ID], columns=["ANI", "Coverage", "Same_family"])
                         sub_df.loc[subject_genome_ID, "ANI"] = ANIb_result
@@ -522,7 +522,7 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
                 else:
                     cursor.execute("SELECT FilePath FROM Genome WHERE Genome_ID={0}".format(subject_genome_ID))
                     subject_genome_filepath = cursor.fetchone()[0]
-                    sub_working_dir = workspace_dir + str(subject_genome_ID) + "/"
+                    sub_working_dir = workspace_dir + str(uuid.uuid4()) + "/"
                     if not isdir(sub_working_dir):
                         os.mkdir(sub_working_dir)
                     shutil.copyfile(new_genome_filepath,sub_working_dir+"tmp.fasta")
@@ -539,7 +539,7 @@ def go_through_LIN_table(previous_route, current_level,cursor,reverse_LIN_dict,n
                                                index_col=0).get_value('tmp', str(subject_genome_ID))
                     # os.system("rm -rf {0}".format(sub_working_dir))
                     if isdir(sub_working_dir):
-                        os.system("rmdir {0}".format(sub_working_dir))
+                        shutil.rmtree(sub_working_dir)
                     predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid=0)
                     sub_df = pd.DataFrame(0,index=[subject_genome_ID],columns=["ANI","Coverage","Same_family"])
                     sub_df.loc[subject_genome_ID,"ANI"] = ANIb_result
@@ -621,9 +621,9 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
     metadata = extract_metadata(c)
     ranks_dict = extract_ranks(c)
     new_genome_filepath = tmp_folder + new_genome
-    workspace_dir = join(workspace_dir,new_genome)
-    if not os.path.isdir(workspace_dir):
-        os.mkdir(workspace_dir)
+    # workspace_dir = join(workspace_dir,new_genome)
+    # if not os.path.isdir(workspace_dir):
+    #     os.mkdir(workspace_dir)
     file_duplication = 0
     for i in metadata.index:
         if filecmp.cmp(tmp_folder + new_genome,metadata.get_value(i,"FilePath")):
@@ -691,6 +691,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                                                    header=0,
                                                    index_col=0).get_value('tmp', str(each_subject_genome_ID))
                         # os.system("rm -rf {0}".format(sub_working_dir))
+                        shutil.rmtree(sub_working_dir)
                         if this_ANIb_result > 0.99999:
                             ANIb_result = this_ANIb_result
                             cov_result = this_cov_result
@@ -714,7 +715,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                     # print("LIN will be assigned.")
                     # print("###########################################################")
                     for each_subject_genome_ID in df.index[:3]:
-                        sub_working_dir = join(workspace_dir, str(each_subject_genome_ID))
+                        sub_working_dir = workspace_dir + str(uuid.uuid4()) + "/"
                         if not isdir(sub_working_dir):
                             os.mkdir(sub_working_dir)
                         subject_genome_filepath = metadata.get_value(int(each_subject_genome_ID), "FilePath")
