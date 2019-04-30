@@ -5,6 +5,7 @@
 
 # IMPORT
 import LIN_Assign
+import sys
 # import mash_indexing
 try:
     from MySQLdb import Connect
@@ -21,7 +22,6 @@ except:
     from Bio import SeqIO, Entrez
 import os
 from os.path import isdir, isfile, join
-import sys
 # from LoadingExternalInfo import LoadInfo
 # import ExtractInfo
 # import IntermediateResult
