@@ -8,18 +8,14 @@ import LIN_Assign
 import sys
 # import mash_indexing
 try:
-    sys.path.append('/usr/lib64/python2.7/site-packages/')
     from MySQLdb import Connect
     import pandas as pd
-    sys.path.append('/usr/lib/python2.7/site-packages/')
     from pytz import timezone
 except:
     pass
 try:
-    sys.path.append('/usr/lib64/python2.7/site-packages/')
     from Bio import SeqIO, Entrez
 except:
-    sys.path.append('/usr/local/lib/python3.5/site-packages/')
     from Bio import SeqIO, Entrez
 import os
 from os.path import isdir, isfile, join
