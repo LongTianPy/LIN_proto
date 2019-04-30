@@ -9,6 +9,9 @@ import LIN_Assign
 try:
     from MySQLdb import Connect
     import pandas as pd
+    from datetime import datetime
+    from pytz import timezone
+    from Bio import SeqIO, Entrez
 except:
     pass
 import os
@@ -20,9 +23,6 @@ import sys
 # import logging
 # import logging.handlers
 import argparse
-from datetime import datetime
-from pytz import timezone
-from Bio import SeqIO, Entrez
 import filecmp
 import uuid
 # import sendEmail
