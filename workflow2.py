@@ -680,10 +680,10 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                                     "-i {0} -o {1} -m ANIb --nocompress -f".format(sub_working_dir,join(sub_working_dir,'output'))
                         os.system(pyani_cmd)
                         time.sleep(5)
-                        ANIb_result = pd.read_table(join(sub_working_dir, "output","ANIb_percentage_identity.tab"), sep="\t",
+                        this_ANIb_result = pd.read_table(join(sub_working_dir, "output","ANIb_percentage_identity.tab"), sep="\t",
                                                     header=0,
                                                     index_col=0).get_value('tmp', str(each_subject_genome_ID))
-                        cov_result = pd.read_table(join(sub_working_dir, "output", "ANIb_alignment_coverage.tab"), sep="\t",
+                        this_cov_result = pd.read_table(join(sub_working_dir, "output", "ANIb_alignment_coverage.tab"), sep="\t",
                                                    header=0,
                                                    index_col=0).get_value('tmp', str(each_subject_genome_ID))
                         # os.system("rm -rf {0}".format(sub_working_dir))
