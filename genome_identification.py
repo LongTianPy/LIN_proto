@@ -35,18 +35,18 @@ def connect_to_db():
 
 def create_sketch(filepath,output):
     dest = output
-    cmd = "sourmash compute -o {0} {1} -k 21,31,51 -n 2000 > /dev/null 2>&1".format(dest,filepath)
+    cmd = "sourmash compute -o {0} {1} -k 21,51 -n 2000 > /dev/null 2>&1".format(dest,filepath)
     os.system(cmd)
     return dest
 
-def compare_sketch(tmp_sig,LINgroup,output):
+def compare_sketch(tmp_sig,LINgroup,output,k):
     if LINgroup == "rep_bac":
         dest = rep_bac_dir
     else:
         dest = sourmash_dir + LINgroup + "/"
     folder_size = len([file for file in os.listdir(dest) if isfile(join(dest,file))])
-    cmd = "sourmash search {0} {1}*.sig -n {2} -o {3} -k 31 --threshold 0.0001 -q 2> /dev/null 2>&1"
-    cmd = cmd.format(tmp_sig, dest, folder_size, output)
+    cmd = "sourmash search {0} {1}*.sig -n {2} -o {3} -k {4} --threshold 0.0001 -q 2> /dev/null 2>&1"
+    cmd = cmd.format(tmp_sig, dest, folder_size, output,k)
     os.system(cmd)
     return output
 
@@ -63,7 +63,7 @@ def parse_result(result_file):
         return df
 
 def check_belonged_LINgroups(conservevd_LIN,c):
-    c.execute("select LINgroup_ID,LINgroup from LINgroup")
+    c.execute("select LINgroup_ID,LINgroup from LINgroup order by LINgroup asc")
     tmp = c.fetchall()
     LINgroup_ID = [int(i[0]) for i in tmp]
     LINgroup = [i[1] for i in tmp]
@@ -101,7 +101,7 @@ def Genome_Identification(dir):
     if file_duplication == 0:
         output_stamp = str(uuid.uuid4())
         tmp_sig = create_sketch(input_genome, join(working_dir, output_stamp) + ".sig")
-        rep_bac_result = compare_sketch(tmp_sig, "rep_bac", join(working_dir, output_stamp + ".mash_out"))
+        rep_bac_result = compare_sketch(tmp_sig, "rep_bac", join(working_dir, output_stamp + ".mash_out"),'21')
         df = parse_result(rep_bac_result)
         if df.empty:  # Then there's no 95% level LINgroups matched
             # Check if there is any LINgroup matched to it.
@@ -153,12 +153,18 @@ def Genome_Identification(dir):
                 result = {}
         else:
             rep_bac_Genome_ID = int(df.index[0])
+            jaccard_similarity = df[rep_bac_Genome_ID,'similarity']
             c.execute("select LIN from LIN where Genome_ID={0} and Scheme_ID=4".format(rep_bac_Genome_ID))
             rep_bac_LIN = c.fetchone()[0]
             rep_bac_LINgroup = ",".join(rep_bac_LIN.split(",")[:6])
-            rep_bac_result = compare_sketch(tmp_sig, rep_bac_LINgroup, output_stamp)
-            df = parse_result(rep_bac_result)
-            current_max_genome_id = int(df.index[0])
+            if jaccard_similarity > 0.2475:
+                rep_bac_result = compare_sketch(tmp_sig, rep_bac_LINgroup, output_stamp, '51')
+                df = parse_result(rep_bac_result)
+                current_max_genome_id = int(df.index[0])
+            else:
+                rep_bac_result = compare_sketch(tmp_sig, rep_bac_LINgroup, output_stamp, '21')
+                df = parse_result(rep_bac_result)
+                current_max_genome_id = int(df.index[0])
             c.execute("select FilePath from Genome where Genome_ID={0}".format(current_max_genome_id))
             current_max_filepath = c.fetchone()[0]
             run_FastANI = FastANI_cmd.format(input_genome, current_max_filepath,
