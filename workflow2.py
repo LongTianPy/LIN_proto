@@ -300,7 +300,7 @@ def create_sketch2(filepath,dest):
     time.sleep(3)
     return dest
 
-def compare_sketch2(query,LINgroup):
+def compare_sketch2(query,LINgroup,k):
     if LINgroup == "rep_bac":
         dest = rep_bac_dir
     else:
@@ -640,7 +640,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
             ANIb_result = top1_similarity
             cov_result = top1_coverage
         else:
-            compare_sketch2(tmp_newgenome_sig,"rep_bac")
+            compare_sketch2(tmp_newgenome_sig,"rep_bac",'21')
             df = parse_result2()
             if df.empty:
                 # print("###########################################################")
@@ -648,28 +648,36 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                 # print("No Jaccard similarity detected, will use LINgroup indexing.")
                 # print("###########################################################")
                 ## LINgroup indexing
-                new_LIN, SubjectGenome, ANIb_result, cov_result, conserved_LIN = LINgroup_indexing(cursor=c,metadata=metadata,new_genome_filepath=new_genome_filepath)
+                # new_LIN, SubjectGenome, ANIb_result, cov_result, conserved_LIN = LINgroup_indexing(cursor=c,metadata=metadata,new_genome_filepath=new_genome_filepath)
+                new_LIN_object = LIN_Assign.getLIN(Genome_ID=1, Scheme_ID=4,
+                                                   similarity=0.6,
+                                                   c=c)
+                new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=c).new_LIN
+                ANIb_result = 0.6
+                cov_result = 0
+                conserved_LIN = ""
+                SubjectGenome = 0
             else:
                 rep_bac_Genome_ID = int(df.index[0])
                 rep_bac_LIN = metadata.get_value(rep_bac_Genome_ID,"LIN")
                 rep_bac_LINgroup = ",".join(rep_bac_LIN.split(",")[:6])
-                compare_sketch2(tmp_newgenome_sig,rep_bac_LINgroup)
-                time.sleep(2)
-                df = parse_result2()
-                if df.get_value(df.index[0],"similarity") == 1:
+                jaccard_similarity = df.loc[rep_bac_Genome_ID,'similarity']
+                if jaccard_similarity > 0.2475:
+                    compare_sketch2(tmp_newgenome_sig, rep_bac_LINgroup,'51')
+                    time.sleep(2)
+                    df = parse_result2()
                     # print("###########################################################")
                     # print("System message:")
                     # print("100% Jaccard similarity detected, checking duplication.")
                     # print("LIN will be assigned if new genome.")
                     # print("###########################################################")
                     # Same genome found
-                    sub_df = df[df["similarity"]==1]
                     ANIb_result = 0
                     cov_result = 0
                     SubjectGenome = 0
                     # There is a table about same genome, better record it
                     #[new_LIN, ANIb_result,cov_result,conserved_LIN] = [None]*4
-                    for each_subject_genome_ID in sub_df.index[:3]:
+                    for each_subject_genome_ID in df.index[:3]:
                         subject_genome_filepath = metadata.get_value(int(each_subject_genome_ID),"FilePath")
                         sub_working_dir = workspace_dir + str(uuid.uuid4()) + "/"
                         if not isdir(sub_working_dir):
@@ -704,12 +712,18 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                                                        similarity=ANIb_result, c=c)
                     new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=c).new_LIN
                     conserved_LIN = ",".join(new_LIN_object.conserved_LIN)
-                else:
+                elif jaccard_similarity <= 0.2475 and jaccard_similarity > 0.0025:
                     # print("###########################################################")
                     # print("System message:")
                     # print("Jaccard similarity detected, calculating ANIs.")
                     # print("LIN will be assigned.")
                     # print("###########################################################")
+                    compare_sketch2(tmp_newgenome_sig, rep_bac_LINgroup, '21')
+                    time.sleep(2)
+                    df = parse_result2()
+                    ANIb_result = 0
+                    cov_result = 0
+                    SubjectGenome = 0
                     for each_subject_genome_ID in df.index[:3]:
                         sub_working_dir = workspace_dir + str(uuid.uuid4()) + "/"
                         if not isdir(sub_working_dir):
@@ -721,10 +735,10 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                                     "-i {0} -o {1} -m ANIb --nocompress -f".format(sub_working_dir,join(sub_working_dir,'output'))
                         os.system(pyani_cmd)
                         time.sleep(3)
-                        ANIb_result = pd.read_table(join(sub_working_dir, "output","ANIb_percentage_identity.tab"), sep="\t",
+                        this_ANIb_result = pd.read_table(join(sub_working_dir, "output","ANIb_percentage_identity.tab"), sep="\t",
                                                     header=0,
                                                     index_col=0).get_value('tmp', str(each_subject_genome_ID))
-                        cov_result = pd.read_table(join(sub_working_dir, "output", "ANIb_alignment_coverage.tab"), sep="\t",
+                        this_cov_result = pd.read_table(join(sub_working_dir, "output", "ANIb_alignment_coverage.tab"), sep="\t",
                                                    header=0,
                                                    index_col=0).get_value('tmp', str(each_subject_genome_ID))
                         # # os.system("rm -rf {0}".format(sub_working_dir))
@@ -733,17 +747,40 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                             break
                         else:
                             continue
-                    if predict.same_family:
-                        new_LIN_object = LIN_Assign.getLIN(Genome_ID=each_subject_genome_ID,Scheme_ID=4,similarity=ANIb_result,c=c)
-                        new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=c).new_LIN
-                        conserved_LIN = ",".join(new_LIN_object.conserved_LIN)
-                        SubjectGenome = each_subject_genome_ID
-                    else:
-                        new_LIN_object = LIN_Assign.getLIN(Genome_ID=each_subject_genome_ID, Scheme_ID=4, similarity=ANIb_result,
-                                                           c=c)
-                        new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=c).new_LIN
-                        conserved_LIN = ""
-                        SubjectGenome = each_subject_genome_ID
+                        if this_ANIb_result > ANIb_result:
+                            ANIb_result = this_ANIb_result
+                            cov_result = this_cov_result
+                            SubjectGenome = each_subject_genome_ID
+                    new_LIN_object = LIN_Assign.getLIN(Genome_ID=each_subject_genome_ID,Scheme_ID=4,similarity=ANIb_result,c=c)
+                    new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=c).new_LIN
+                    conserved_LIN = ",".join(new_LIN_object.conserved_LIN)
+                else:
+                    each_subject_genome_ID = int(df.index[0])
+                    sub_working_dir = workspace_dir + str(uuid.uuid4()) + "/"
+                    if not isdir(sub_working_dir):
+                        os.mkdir(sub_working_dir)
+                    subject_genome_filepath = metadata.get_value(int(each_subject_genome_ID), "FilePath")
+                    shutil.copyfile(new_genome_filepath, join(sub_working_dir, "tmp.fasta"))
+                    shutil.copyfile(subject_genome_filepath,
+                                    join(sub_working_dir, "{0}.fasta".format(each_subject_genome_ID)))
+                    pyani_cmd = "python3 /home/linproject/Projects/pyani/average_nucleotide_identity.py " \
+                                "-i {0} -o {1} -m ANIb --nocompress -f".format(sub_working_dir,
+                                                                               join(sub_working_dir, 'output'))
+                    os.system(pyani_cmd)
+                    time.sleep(3)
+                    ANIb_result = pd.read_table(
+                        join(sub_working_dir, "output", "ANIb_percentage_identity.tab"), sep="\t",
+                        header=0,
+                        index_col=0).get_value('tmp', str(each_subject_genome_ID))
+                    cov_result = pd.read_table(join(sub_working_dir, "output", "ANIb_alignment_coverage.tab"),
+                                                    sep="\t",
+                                                    header=0,
+                                                    index_col=0).get_value('tmp', str(each_subject_genome_ID))
+                    new_LIN_object = LIN_Assign.getLIN(Genome_ID=each_subject_genome_ID, Scheme_ID=4, similarity=ANIb_result,
+                                                       c=c)
+                    new_LIN = LIN_Assign.Assign_LIN(getLIN_object=new_LIN_object, c=c).new_LIN
+                    conserved_LIN = ""
+                    SubjectGenome = each_subject_genome_ID
         c.execute("SELECT EXISTS(SELECT LIN FROM LIN WHERE LIN='{0}')".format(new_LIN))
         duplication = c.fetchone()[0]  # 0 = no, 1 = yes
         if duplication == 0:

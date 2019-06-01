@@ -161,7 +161,7 @@ def Genome_Identification(dir):
                 rep_bac_result = compare_sketch(tmp_sig, rep_bac_LINgroup, output_stamp, '51')
                 df = parse_result(rep_bac_result)
                 current_max_genome_id = int(df.index[0])
-            else:
+            elif jaccard_similarity <= 0.2475 and jaccard_similarity > 0.0025:
                 rep_bac_result = compare_sketch(tmp_sig, rep_bac_LINgroup, output_stamp, '21')
                 df = parse_result(rep_bac_result)
                 current_max_genome_id = int(df.index[0])
