@@ -153,7 +153,7 @@ def Genome_Identification(dir):
                 result = {}
         else:
             rep_bac_Genome_ID = int(df.index[0])
-            jaccard_similarity = df[rep_bac_Genome_ID,'similarity']
+            jaccard_similarity = df.loc[rep_bac_Genome_ID,'similarity']
             c.execute("select LIN from LIN where Genome_ID={0} and Scheme_ID=4".format(rep_bac_Genome_ID))
             rep_bac_LIN = c.fetchone()[0]
             rep_bac_LINgroup = ",".join(rep_bac_LIN.split(",")[:6])
