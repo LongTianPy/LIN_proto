@@ -656,7 +656,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                 ANIb_result = 0.6
                 cov_result = 0
                 conserved_LIN = ""
-                SubjectGenome = 0
+                SubjectGenome = 1
             else:
                 rep_bac_Genome_ID = int(df.index[0])
                 rep_bac_LIN = metadata.get_value(rep_bac_Genome_ID,"LIN")
