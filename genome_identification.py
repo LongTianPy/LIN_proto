@@ -143,7 +143,20 @@ def Genome_Identification(dir):
                 if scheme[level - 1] <= current_max_value:
                     c.execute("select LIN from LIN where Genome_ID={0}".format(current_max_genome_id))
                     best_LIN = c.fetchone()[0]
-                    belongs_to = check_belonged_LINgroups(current_lingroup, c)
+                    for i in range(len(scheme)):
+                        if i < 19:
+                            if ani >= scheme[i] and ani < scheme[i + 1]:
+                                LINgroup = best_LIN[:i + 1]
+                                break
+                            elif ani < scheme[0]:
+                                LINgroup = ''
+                                break
+                            else:
+                                i += 1
+                        else:
+                            LINgroup = best_LIN
+                            break
+                    belongs_to = check_belonged_LINgroups(LINgroup, c)
                     result = {"LINgroup"    : current_lingroup, "best LIN": best_LIN, "FastANI": current_max_value,
                               "LINgroup_IDs": belongs_to}
                     # print("{0}\t{1}\t{2}".format(current_lingroup,current_max_genome_id,current_max_value))
@@ -178,12 +191,17 @@ def Genome_Identification(dir):
             best_LIN = c.fetchone()[0]
             for i in range(len(scheme)):
                 if i < 19:
-                    if ani > scheme[i] and ani < scheme[i + 1]:
+                    if ani >= scheme[i] and ani < scheme[i + 1]:
                         LINgroup = best_LIN[:i + 1]
+                        break
+                    elif ani < scheme[0]:
+                        LINgroup = ''
+                        break
                     else:
                         i += 1
                 else:
                     LINgroup = best_LIN
+                    break
             belongs_to = check_belonged_LINgroups(LINgroup, c)
             result = {"LINgroup"    : LINgroup, "best LIN": best_LIN, "FastANI": current_max_value,
                       "LINgroup_IDs": belongs_to}

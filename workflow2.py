@@ -6,33 +6,17 @@
 # IMPORT
 import LIN_Assign
 import sys
-# import mash_indexing
-try:
-    from MySQLdb import Connect
-    import pandas as pd
-    from pytz import timezone
-except:
-    pass
-try:
-    from Bio import SeqIO, Entrez
-except:
-    from Bio import SeqIO, Entrez
+from MySQLdb import Connect
+import pandas as pd
+from pytz import timezone
+from Bio import SeqIO, Entrez
 import os
 from os.path import isdir, isfile, join
-# from LoadingExternalInfo import LoadInfo
-# import ExtractInfo
-# import IntermediateResult
-# import logging
-# import logging.handlers
 import argparse
 import filecmp
 import uuid
 from datetime import datetime
-# import sendEmail
 import shutil
-# import multiprocessing as mp
-# from functools import partial
-import time
 import uuid
 
 # VARIABLES
@@ -133,42 +117,6 @@ def extract_attributes(c):
     tmp = c.fetchall()
     attributes_dict = {i[1]:int(i[0]) for i in tmp}
     return attributes_dict
-
-
-# def load_new_metadata(c,db,Interest_ID,new_genome,Attributes,User_ID,standardtime,privacy):
-#     c.execute("INSERT INTO Submission (User_ID, Time) VALUES ({0},'{1}')".format(User_ID, standardtime))
-#     db.commit()
-#     c.execute("SELECT Submission_ID FROM Submission where User_ID={0} and Time='{1}'".format(User_ID,standardtime))
-#     Submission_ID = int(c.fetchone()[0])
-#     os.system("cp {0} {1}".format(tmp_folder+new_genome,original_folder+new_genome))
-#     c.execute("INSERT INTO Genome (Interest_ID, Submission_ID, FilePath) VALUES ({0}, {1}, '{2}')"
-#               .format(Interest_ID, Submission_ID, original_folder+new_genome))
-#     db.commit()
-#     c.execute("SELECT Genome_ID FROM Genome WHERE Submission_ID={0}".format(Submission_ID))
-#     new_Genome_ID = int(c.fetchone()[0])
-#     # c.execute("SELECT Attribute_IDs FROM Interest WHERE Interest_ID={0}".format(args.Interest_ID))
-#     # tmp = c.fetchone()[0].split(",")
-#     # Attribute_ID_list = [int(id) for id in tmp]
-#     # Attributes = args.Attributes.split("^^")
-#     # for i in range(len(Attribute_ID_list)):
-#     #     attributevalue = Attributes[i].replace("_"," ")
-#     #     sql = "insert into AttributeValue (Genome_ID,Interest_ID,Attribute_ID,AttributeValue,User_ID,Private) VALUES ({0},{1},{2},'{3}',{4},{5})".format(new_Genome_ID,args.Interest_ID, Attribute_ID_list[i],attributevalue,args.User_ID,args.privacy)
-#     #     # # print(sql)
-#     #     c.execute(sql)
-#     #     db.commit()
-#     insert_sql = "INSERT INTO AttributeValue (Genome_ID,Interest_ID,Attribute_ID,AttributeValue,User_ID) VALUES "
-#     insert_values = []
-#     for key in Attributes:
-#         attributename = str(key)
-#         c.execute("SELECT Attribute_ID FROM Attribute WHERE AttributeName='{0}'".format(attributename))
-#         attribute_id = c.fetchone()[0]
-#         attributevalue = Attributes[key]
-#         insert_values.append("({0},{1},{2},'{3}',{4})".format(new_Genome_ID,Interest_ID,attribute_id,attributevalue,args.User_ID))
-#     insert_values = ",".join(insert_values)
-#     insert_sql = insert_sql + insert_values
-#     c.execute(insert_sql)
-#     db.commit()
-#     return new_Genome_ID
 
 def extract_taxonomy_by_taxid(tax_id):
     name_list = {rank:[] for rank in ranks}
