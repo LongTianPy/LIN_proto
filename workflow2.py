@@ -18,6 +18,7 @@ import uuid
 from datetime import datetime
 import shutil
 import uuid
+import time
 
 # VARIABLES
 sourmash_dir = "/home/linproject/Workspace/Sourmash2.0/all_sketches/"
