@@ -366,7 +366,7 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                     SubjectGenome = 0
                     # There is a table about same genome, better record it
                     #[new_LIN, ANIb_result,cov_result,conserved_LIN] = [None]*4
-                    for each_subject_genome_ID in df.index[:3]:
+                    for each_subject_genome_ID in df.index[:1]:
                         subject_genome_filepath = metadata.get_value(int(each_subject_genome_ID),"FilePath")
                         sub_working_dir = workspace_dir + str(uuid.uuid4()) + "/"
                         if not isdir(sub_working_dir):
@@ -431,11 +431,6 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
                                                    header=0,
                                                    index_col=0).get_value('tmp', str(each_subject_genome_ID))
                         # # os.system("rm -rf {0}".format(sub_working_dir))
-                        predict = DecisionTree(ANI=ANIb_result, cov=cov_result, wkid=df.get_value(each_subject_genome_ID,"similarity"))
-                        if predict.same_family:
-                            break
-                        else:
-                            continue
                         if this_ANIb_result > ANIb_result:
                             ANIb_result = this_ANIb_result
                             cov_result = this_cov_result
