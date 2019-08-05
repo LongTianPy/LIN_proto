@@ -178,33 +178,38 @@ def Genome_Identification(dir):
                 rep_bac_result = compare_sketch(tmp_sig, rep_bac_LINgroup, output_stamp, '21')
                 df = parse_result(rep_bac_result)
                 current_max_genome_id = int(df.index[0])
-            c.execute("select FilePath from Genome where Genome_ID={0}".format(current_max_genome_id))
-            current_max_filepath = c.fetchone()[0]
-            run_FastANI = FastANI_cmd.format(input_genome, current_max_filepath,
-                                             join(working_dir, output_stamp + '_' + str(current_max_genome_id)))
-            os.system(run_FastANI)
-            with open(join(working_dir, output_stamp + '_' + str(current_max_genome_id)), "r") as f:
-                line = f.readlines()[0].strip().split("\t")
-            ani = float(line[2]) / 100
-            current_max_value = ani
-            c.execute("select LIN from LIN where Genome_ID={0}".format(current_max_genome_id))
-            best_LIN = c.fetchone()[0]
-            for i in range(len(scheme)):
-                if i < 19:
-                    if ani >= scheme[i] and ani < scheme[i + 1]:
-                        LINgroup = best_LIN[:i + 1]
-                        break
-                    elif ani < scheme[0]:
-                        LINgroup = ''
-                        break
+            else:
+                current_max_genome_id = 'no match'
+            if current_max_genome_id != 'no match':
+                c.execute("select FilePath from Genome where Genome_ID={0}".format(current_max_genome_id))
+                current_max_filepath = c.fetchone()[0]
+                run_FastANI = FastANI_cmd.format(input_genome, current_max_filepath,
+                                                 join(working_dir, output_stamp + '_' + str(current_max_genome_id)))
+                os.system(run_FastANI)
+                with open(join(working_dir, output_stamp + '_' + str(current_max_genome_id)), "r") as f:
+                    line = f.readlines()[0].strip().split("\t")
+                ani = float(line[2]) / 100
+                current_max_value = ani
+                c.execute("select LIN from LIN where Genome_ID={0}".format(current_max_genome_id))
+                best_LIN = c.fetchone()[0]
+                for i in range(len(scheme)):
+                    if i < 19:
+                        if ani >= scheme[i] and ani < scheme[i + 1]:
+                            LINgroup = best_LIN[:i + 1]
+                            break
+                        elif ani < scheme[0]:
+                            LINgroup = ''
+                            break
+                        else:
+                            i += 1
                     else:
-                        i += 1
-                else:
-                    LINgroup = best_LIN
-                    break
-            belongs_to = check_belonged_LINgroups(LINgroup, c)
-            result = {"LINgroup"    : LINgroup, "best LIN": best_LIN, "FastANI": current_max_value,
-                      "LINgroup_IDs": belongs_to}
+                        LINgroup = best_LIN
+                        break
+                belongs_to = check_belonged_LINgroups(LINgroup, c)
+                result = {"LINgroup"    : LINgroup, "best LIN": best_LIN, "FastANI": current_max_value,
+                          "LINgroup_IDs": belongs_to}
+            else:
+                result = {}
         # print("{0}\t{1}\t{2}".format(rep_bac_LINgroup,current_max_genome_id,current_max_value))
     else:
         c.execute("SELECT LIN FROM LIN WHERE Genome_ID={0}".format(SubjectGenome))
