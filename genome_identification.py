@@ -14,6 +14,7 @@ from MySQLdb import Connect
 import pandas as pd
 import uuid
 import filecmp
+import LIN_Assign
 
 # VARIABLES
 sourmash_dir = "/home/linproject/Workspace/Sourmash2.0/all_sketches/"
@@ -94,7 +95,7 @@ def Genome_Identification(dir):
     input_genome = [join(dir,f) for f in listdir(dir) if f.endswith(".fasta")][0]
     file_duplication = 0
     for i in metadata.index:
-        if filecmp.cmp(input_genome,metadata.get_value(i,"FilePath")):
+        if filecmp.cmp(input_genome,metadata.loc[i,"FilePath"]):
             file_duplication = 1
             SubjectGenome = int(i)
             break
@@ -143,19 +144,8 @@ def Genome_Identification(dir):
                 if scheme[level - 1] <= current_max_value:
                     c.execute("select LIN from LIN where Genome_ID={0}".format(current_max_genome_id))
                     best_LIN = c.fetchone()[0]
-                    for i in range(len(scheme)):
-                        if i < 19:
-                            if ani >= scheme[i] and ani < scheme[i + 1]:
-                                LINgroup = best_LIN[:i + 1]
-                                break
-                            elif ani < scheme[0]:
-                                LINgroup = ''
-                                break
-                            else:
-                                i += 1
-                        else:
-                            LINgroup = best_LIN
-                            break
+                    getLIN_object = LIN_Assign.getLIN(Genome_ID=current_max_genome_id, Scheme_ID=4, similarity=ani)
+                    LINgroup = getLIN_object.conserved_LIN
                     belongs_to = check_belonged_LINgroups(LINgroup, c)
                     result = {"LINgroup"    : current_lingroup, "best LIN": best_LIN, "FastANI": current_max_value,
                               "LINgroup_IDs": belongs_to}
@@ -191,20 +181,8 @@ def Genome_Identification(dir):
                 ani = float(line[2]) / 100
                 current_max_value = ani
                 c.execute("select LIN from LIN where Genome_ID={0}".format(current_max_genome_id))
-                best_LIN = c.fetchone()[0]
-                for i in range(len(scheme)):
-                    if i < 19:
-                        if ani >= scheme[i] and ani < scheme[i + 1]:
-                            LINgroup = best_LIN[:i + 1]
-                            break
-                        elif ani < scheme[0]:
-                            LINgroup = ''
-                            break
-                        else:
-                            i += 1
-                    else:
-                        LINgroup = best_LIN
-                        break
+                getLIN_object = LIN_Assign.getLIN(Genome_ID=current_max_genome_id,Scheme_ID=4,similarity=ani)
+                LINgroup = getLIN_object.conserved_LIN
                 belongs_to = check_belonged_LINgroups(LINgroup, c)
                 result = {"LINgroup"    : LINgroup, "best LIN": best_LIN, "FastANI": current_max_value,
                           "LINgroup_IDs": belongs_to}
