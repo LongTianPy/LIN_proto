@@ -181,6 +181,7 @@ def Genome_Identification(dir):
                 ani = float(line[2]) / 100
                 current_max_value = ani
                 c.execute("select LIN from LIN where Genome_ID={0}".format(current_max_genome_id))
+                best_LIN = c.fetchone()[0]
                 getLIN_object = LIN_Assign.getLIN(Genome_ID=current_max_genome_id,Scheme_ID=4,similarity=ani,c=c)
                 LINgroup = ",".join(getLIN_object.conserved_LIN)
                 belongs_to = check_belonged_LINgroups(LINgroup, c)
