@@ -145,7 +145,7 @@ def Genome_Identification(dir):
                     c.execute("select LIN from LIN where Genome_ID={0}".format(current_max_genome_id))
                     best_LIN = c.fetchone()[0]
                     getLIN_object = LIN_Assign.getLIN(Genome_ID=current_max_genome_id, Scheme_ID=4, similarity=ani,c=c)
-                    LINgroup = getLIN_object.conserved_LIN
+                    LINgroup = ",".join(getLIN_object.conserved_LIN)
                     belongs_to = check_belonged_LINgroups(LINgroup, c)
                     result = {"LINgroup"    : current_lingroup, "best LIN": best_LIN, "FastANI": current_max_value,
                               "LINgroup_IDs": belongs_to}
@@ -182,7 +182,7 @@ def Genome_Identification(dir):
                 current_max_value = ani
                 c.execute("select LIN from LIN where Genome_ID={0}".format(current_max_genome_id))
                 getLIN_object = LIN_Assign.getLIN(Genome_ID=current_max_genome_id,Scheme_ID=4,similarity=ani,c=c)
-                LINgroup = getLIN_object.conserved_LIN
+                LINgroup = ",".join(getLIN_object.conserved_LIN)
                 belongs_to = check_belonged_LINgroups(LINgroup, c)
                 result = {"LINgroup"    : LINgroup, "best LIN": best_LIN, "FastANI": current_max_value,
                           "LINgroup_IDs": belongs_to}
