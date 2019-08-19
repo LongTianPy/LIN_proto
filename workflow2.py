@@ -498,6 +498,8 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
             best_LIN = c.fetchone()[0]
             belongs_to = check_belonged_LINgroups(conserved_LIN,c)
             result = {"new LIN":new_LIN, "best LIN":best_LIN,"ANI":ANIb_result,"LINgroup":conserved_LIN,"LINgroup_IDs":belongs_to}
+            if isfile(new_genome_sig):
+                os.system("rm {0}".format(tmp_newgenome_sig))
         else:
             # print("###########################################################")
             # print("System message:")
@@ -509,8 +511,6 @@ def Genome_Submission(new_genome,Username,InterestName,Taxonomy,Attributes):
             c.execute("SELECT LIN FROM LIN WHERE Genome_ID={0}".format(SubjectGenome))
             best_LIN = c.fetchone()[0]
             result = {"best LIN": best_LIN}
-        if isfile(new_genome_sig):
-            os.system("rm {0}".format(tmp_newgenome_sig))
     else:
         # duplicate genome file detected
         # print("###########################################################")
